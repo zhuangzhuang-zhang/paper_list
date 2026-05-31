@@ -1,5 +1,5 @@
 window.PAPERS_SITE_DATA = {
-  "generatedAt": "2026-05-31T15:07:41.178080+00:00",
+  "generatedAt": "2026-05-31T15:08:03.198820+00:00",
   "description": "每天北京时间 08:00 自动更新，按关键词相关性与目标分类筛选近 7 天 arXiv 最新论文。",
   "dateWindowDays": 7,
   "categories": [
@@ -474,7 +474,7 @@ window.PAPERS_SITE_DATA = {
     {
       "dateKey": "20260531",
       "dateLabel": "2026-05-31",
-      "generatedAt": "2026-05-31T15:07:41.178080+00:00",
+      "generatedAt": "2026-05-31T15:08:03.198820+00:00",
       "paperCount": 20,
       "papers": [
         {
