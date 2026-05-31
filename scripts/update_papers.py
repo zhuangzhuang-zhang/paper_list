@@ -13,9 +13,10 @@ API_URL = "https://export.arxiv.org/api/query"
 OUTPUT_FILE = Path(__file__).resolve().parents[1] / "data" / "site-data.js"
 TARGET_COUNT = 20
 LOOKBACK_DAYS = 7
-MAX_RESULTS = 120
+MAX_RESULTS_PER_QUERY = 40
 TZ_BEIJING = dt.timezone(dt.timedelta(hours=8))
 ATOM_NS = {"atom": "http://www.w3.org/2005/Atom"}
+USER_AGENT = "paper-list-bot/1.0 (+https://github.com/zhuangzhuang-zhang/paper_list)"
 
 CATEGORY_SCORES = {
     "cs.RO": 5,
@@ -44,6 +45,17 @@ KEYWORD_WEIGHTS = {
     "policy": 4,
 }
 
+TARGETED_QUERIES = [
+    'all:"vision-language-action"',
+    'all:"vision language action"',
+    'all:"world action model"',
+    'all:"autonomous driving"',
+    "all:robot",
+    "all:robotics",
+    "all:manipulation",
+    "all:embodied",
+]
+
 
 def main() -> None:
     papers = fetch_recent_papers()
@@ -68,33 +80,65 @@ def main() -> None:
         + ";\n",
         encoding="utf-8",
     )
+    print(f"Fetched {len(papers)} recent papers")
     print(f"Wrote {len(selected)} papers to {OUTPUT_FILE}")
 
 
 def fetch_recent_papers() -> list[dict]:
-    category_query = "+OR+".join(f"cat:{category}" for category in CATEGORY_SCORES)
+    threshold = dt.datetime.now(dt.timezone.utc) - dt.timedelta(days=LOOKBACK_DAYS)
+    papers_by_id: dict[str, dict] = {}
+
+    for category in CATEGORY_SCORES:
+        query = f"cat:{category}"
+        merge_papers(papers_by_id, fetch_query_results(query, MAX_RESULTS_PER_QUERY), threshold)
+
+    for query in TARGETED_QUERIES:
+        merge_papers(papers_by_id, fetch_query_results(query, 16), threshold)
+
+    return list(papers_by_id.values())
+
+
+def fetch_query_results(search_query: str, max_results: int) -> list[dict]:
     params = {
-        "search_query": category_query,
+        "search_query": search_query,
         "start": 0,
-        "max_results": MAX_RESULTS,
+        "max_results": max_results,
         "sortBy": "submittedDate",
         "sortOrder": "descending",
     }
     url = f"{API_URL}?{urllib.parse.urlencode(params)}"
-    with urllib.request.urlopen(url, timeout=30) as response:
+    request = urllib.request.Request(url, headers={"User-Agent": USER_AGENT})
+
+    with urllib.request.urlopen(request, timeout=30) as response:
         xml_payload = response.read()
 
     root = ET.fromstring(xml_payload)
     entries = root.findall("atom:entry", ATOM_NS)
-    threshold = dt.datetime.now(dt.timezone.utc) - dt.timedelta(days=LOOKBACK_DAYS)
+    return [parse_entry(entry) for entry in entries]
 
-    papers = []
-    for entry in entries:
-        parsed = parse_entry(entry)
-        if parsed["published_dt"] < threshold:
+
+def merge_papers(papers_by_id: dict[str, dict], incoming: list[dict], threshold: dt.datetime) -> None:
+    for paper in incoming:
+        if paper["published_dt"] < threshold:
             continue
-        papers.append(parsed)
-    return papers
+
+        existing = papers_by_id.get(paper["id"])
+        if existing is None:
+            papers_by_id[paper["id"]] = paper
+            continue
+
+        merged_categories = sorted(set(existing["categories"] + paper["categories"]))
+        merged_authors = existing["authors"] or paper["authors"]
+        merged_summary = existing["summary_raw"] if len(existing["summary_raw"]) >= len(paper["summary_raw"]) else paper["summary_raw"]
+        existing.update(
+            {
+                "summary_raw": merged_summary,
+                "summary": build_short_summary(merged_summary),
+                "categories": merged_categories,
+                "authors": merged_authors[:8],
+                "updated_dt": max(existing["updated_dt"], paper["updated_dt"]),
+            }
+        )
 
 
 def parse_entry(entry: ET.Element) -> dict:
@@ -132,8 +176,6 @@ def select_top_papers(papers: list[dict]) -> list[dict]:
     scored = []
     for paper in papers:
         score = score_paper(paper)
-        if score <= 0:
-            continue
         paper["score"] = score
         scored.append(paper)
 
@@ -145,6 +187,9 @@ def select_top_papers(papers: list[dict]) -> list[dict]:
         ),
         reverse=True,
     )
+
+    if not scored:
+        return []
 
     selected = []
     seen_titles = set()
@@ -170,12 +215,35 @@ def select_top_papers(papers: list[dict]) -> list[dict]:
         if len(selected) == TARGET_COUNT:
             break
 
+    if len(selected) < TARGET_COUNT:
+        for paper in papers:
+            if len(selected) == TARGET_COUNT:
+                break
+            normalized_title = re.sub(r"\s+", " ", paper["title"]).strip().lower()
+            if normalized_title in seen_titles:
+                continue
+            seen_titles.add(normalized_title)
+            selected.append(
+                {
+                    "id": paper["id"],
+                    "title": paper["title"],
+                    "summary": paper["summary"],
+                    "link": paper["link"],
+                    "pdfLink": paper["pdfLink"],
+                    "published": paper["published"],
+                    "updated": paper["updated"],
+                    "authors": paper["authors"],
+                    "categories": [category for category in paper["categories"] if category in CATEGORY_SCORES][:4],
+                    "score": paper.get("score", 0),
+                }
+            )
+
     return selected
 
 
 def score_paper(paper: dict) -> int:
     haystack = f"{paper['title']} {paper['summary_raw']}".lower()
-    score = 0
+    score = 1
 
     for category in paper["categories"]:
         score += CATEGORY_SCORES.get(category, 0)
