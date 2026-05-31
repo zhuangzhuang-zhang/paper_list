@@ -14,6 +14,7 @@ OUTPUT_FILE = Path(__file__).resolve().parents[1] / "data" / "site-data.js"
 TARGET_COUNT = 20
 LOOKBACK_DAYS = 7
 MAX_RESULTS_PER_QUERY = 40
+MAX_ARCHIVE_DAYS = 45
 TZ_BEIJING = dt.timezone(dt.timedelta(hours=8))
 ATOM_NS = {"atom": "http://www.w3.org/2005/Atom"}
 USER_AGENT = "paper-list-bot/1.0 (+https://github.com/zhuangzhuang-zhang/paper_list)"
@@ -60,8 +61,15 @@ TARGETED_QUERIES = [
 def main() -> None:
     papers = fetch_recent_papers()
     selected = select_top_papers(papers)
+    now_utc = dt.datetime.now(dt.timezone.utc)
+    today_bj = now_utc.astimezone(TZ_BEIJING)
+    date_key = today_bj.strftime("%Y%m%d")
+    existing = load_existing_site_data()
+    archives = update_archives(existing, date_key, now_utc.isoformat(), selected)
+    current_archive = archives[0] if archives else None
+
     payload = {
-        "generatedAt": dt.datetime.now(dt.timezone.utc).isoformat(),
+        "generatedAt": now_utc.isoformat(),
         "description": "每天北京时间 08:00 自动更新，按关键词相关性与目标分类筛选近 7 天 arXiv 最新论文。",
         "dateWindowDays": LOOKBACK_DAYS,
         "categories": list(CATEGORY_SCORES.keys()),
@@ -71,7 +79,9 @@ def main() -> None:
             "robotics",
             "autonomous driving",
         ],
-        "papers": selected,
+        "currentDateKey": current_archive["dateKey"] if current_archive else None,
+        "papers": current_archive["papers"] if current_archive else [],
+        "archives": archives,
     }
     OUTPUT_FILE.parent.mkdir(parents=True, exist_ok=True)
     OUTPUT_FILE.write_text(
@@ -82,6 +92,59 @@ def main() -> None:
     )
     print(f"Fetched {len(papers)} recent papers")
     print(f"Wrote {len(selected)} papers to {OUTPUT_FILE}")
+
+
+def load_existing_site_data() -> dict:
+    if not OUTPUT_FILE.exists():
+        return {}
+
+    text = OUTPUT_FILE.read_text(encoding="utf-8").strip()
+    prefix = "window.PAPERS_SITE_DATA = "
+    suffix = ";"
+    if not text.startswith(prefix):
+        return {}
+
+    json_text = text[len(prefix):]
+    if json_text.endswith(suffix):
+        json_text = json_text[:-1]
+
+    try:
+        return json.loads(json_text)
+    except json.JSONDecodeError:
+        return {}
+
+
+def update_archives(existing: dict, date_key: str, generated_at: str, papers: list[dict]) -> list[dict]:
+    archive_map = {}
+    for archive in existing.get("archives", []):
+        if archive.get("dateKey"):
+            archive_map[archive["dateKey"]] = archive
+
+    if papers:
+        archive_map[date_key] = {
+            "dateKey": date_key,
+            "dateLabel": format_date_label(date_key),
+            "generatedAt": generated_at,
+            "paperCount": len(papers),
+            "papers": papers,
+        }
+    elif date_key in archive_map:
+        existing_archive = archive_map[date_key]
+        existing_archive["generatedAt"] = generated_at
+        archive_map[date_key] = existing_archive
+
+    ordered_keys = sorted(archive_map.keys(), reverse=True)
+    archives = [archive_map[key] for key in ordered_keys[:MAX_ARCHIVE_DAYS]]
+
+    for archive in archives:
+        archive["dateLabel"] = archive.get("dateLabel") or format_date_label(archive["dateKey"])
+        archive["paperCount"] = len(archive.get("papers", []))
+
+    return archives
+
+
+def format_date_label(date_key: str) -> str:
+    return f"{date_key[:4]}-{date_key[4:6]}-{date_key[6:8]}"
 
 
 def fetch_recent_papers() -> list[dict]:
