@@ -35,7 +35,7 @@
 
     <section class="toolbar">
       <div class="toolbar-copy">
-        <h2>最新消息总结展示</h2>
+        <h2 id="page-title">最新消息总结展示</h2>
         <p id="meta-description">正在加载最新论文数据。</p>
       </div>
       <div class="toolbar-actions">
@@ -56,14 +56,37 @@
       <span id="summary-keywords">关键词：VLA / WAM / 机器人 / 自动驾驶</span>
     </section>
 
-    <section>
-      <ul id="paper-list" class="paper-list" aria-live="polite"></ul>
-      <div id="empty-state" class="empty-state" hidden>
-        当前没有匹配的论文，稍后再试或换一个关键词搜索。
-      </div>
-    </section>
+    <section class="content-grid">
+      <aside class="archive-sidebar">
+        <div class="archive-card">
+          <div class="archive-head">
+            <h3>历史归档</h3>
+            <p>按日期查看每天更新的论文列表</p>
+          </div>
+          <nav id="archive-list" class="archive-list" aria-label="日期归档"></nav>
+        </div>
+      </aside>
 
-    <nav id="pagination" class="pagination" aria-label="分页导航"></nav>
+      <section class="main-content">
+        <div class="main-content-head">
+          <div>
+            <p class="content-eyebrow">当前查看</p>
+            <h3 id="selected-date-title">当天论文</h3>
+          </div>
+          <div class="selected-meta">
+            <span id="selected-date-key">--</span>
+            <span id="selected-paper-count">0 篇</span>
+          </div>
+        </div>
+
+        <ul id="paper-list" class="paper-list" aria-live="polite"></ul>
+        <div id="empty-state" class="empty-state" hidden>
+          当前没有匹配的论文，稍后再试或换一个关键词搜索。
+        </div>
+
+        <nav id="pagination" class="pagination" aria-label="分页导航"></nav>
+      </section>
+    </section>
   </main>
 
   <script src="./data/site-data.js"></script>
