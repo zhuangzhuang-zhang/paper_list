@@ -186,6 +186,114 @@ a {
   font-weight: 600;
 }
 
+.content-grid {
+  display: grid;
+  grid-template-columns: 280px minmax(0, 1fr);
+  gap: 18px;
+  align-items: start;
+}
+
+.archive-card,
+.main-content {
+  border: 1px solid rgba(217, 227, 239, 0.9);
+  border-radius: 24px;
+  background: rgba(255, 255, 255, 0.9);
+  backdrop-filter: blur(10px);
+  box-shadow: var(--shadow);
+}
+
+.archive-card {
+  position: sticky;
+  top: 20px;
+  padding: 18px;
+}
+
+.archive-head h3,
+.main-content-head h3 {
+  margin: 0;
+  font-size: 20px;
+}
+
+.archive-head p {
+  margin: 8px 0 0;
+  color: var(--muted);
+  line-height: 1.6;
+  font-size: 14px;
+}
+
+.archive-list {
+  display: grid;
+  gap: 10px;
+  margin-top: 18px;
+}
+
+.archive-button {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 10px;
+  padding: 12px 14px;
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  background: #fff;
+  color: var(--text);
+  cursor: pointer;
+  text-align: left;
+  transition: transform 0.16s ease, border-color 0.2s ease, background-color 0.2s ease;
+}
+
+.archive-button:hover {
+  transform: translateY(-1px);
+}
+
+.archive-button.is-active {
+  border-color: var(--primary);
+  background: var(--primary-soft);
+}
+
+.archive-date {
+  font-weight: 700;
+  font-size: 14px;
+}
+
+.archive-count {
+  color: var(--muted);
+  font-size: 12px;
+}
+
+.main-content {
+  padding: 20px;
+}
+
+.main-content-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 16px;
+  margin-bottom: 18px;
+}
+
+.content-eyebrow {
+  margin: 0 0 8px;
+  color: var(--primary);
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.selected-meta {
+  display: grid;
+  gap: 8px;
+  min-width: 132px;
+  padding: 14px 16px;
+  border-radius: 16px;
+  background: var(--panel-soft);
+  color: var(--primary);
+  font-weight: 700;
+}
+
 .paper-list {
   list-style: none;
   margin: 0;
@@ -350,6 +458,19 @@ a {
 
   .search-input {
     width: 100%;
+  }
+
+  .content-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .archive-card {
+    position: static;
+  }
+
+  .main-content-head {
+    flex-direction: column;
+    align-items: stretch;
   }
 }
 
