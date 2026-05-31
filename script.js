@@ -6,21 +6,27 @@ const siteData = window.PAPERS_SITE_DATA || {
   dateWindowDays: 7,
   categories: ["cs.RO", "cs.AI", "cs.CV", "cs.LG"],
   keywords: ["vision-language-action", "world action model", "robotics", "autonomous driving"],
-  papers: [],
+  currentDateKey: null,
+  archives: [],
 };
 
 const state = {
   currentPage: 1,
   query: "",
-  papers: Array.isArray(siteData.papers) ? siteData.papers : [],
+  selectedDateKey: resolveInitialDateKey(),
 };
 
 const paperCount = document.querySelector("#paper-count");
 const generatedAt = document.querySelector("#generated-at");
 const metaDescription = document.querySelector("#meta-description");
+const pageTitle = document.querySelector("#page-title");
 const summaryWindow = document.querySelector("#summary-window");
 const summaryCategories = document.querySelector("#summary-categories");
 const summaryKeywords = document.querySelector("#summary-keywords");
+const selectedDateTitle = document.querySelector("#selected-date-title");
+const selectedDateKey = document.querySelector("#selected-date-key");
+const selectedPaperCount = document.querySelector("#selected-paper-count");
+const archiveList = document.querySelector("#archive-list");
 const paperList = document.querySelector("#paper-list");
 const emptyState = document.querySelector("#empty-state");
 const pagination = document.querySelector("#pagination");
@@ -33,25 +39,62 @@ searchInput.addEventListener("input", (event) => {
 });
 
 function render() {
-  const filtered = filterPapers(state.papers, state.query);
+  const currentArchive = getCurrentArchive();
+  const papers = currentArchive?.papers || [];
+  const filtered = filterPapers(papers, state.query);
   const totalPages = Math.max(1, Math.ceil(filtered.length / PAGE_SIZE));
   const currentPage = Math.min(state.currentPage, totalPages);
   const start = (currentPage - 1) * PAGE_SIZE;
   const visiblePapers = filtered.slice(start, start + PAGE_SIZE);
 
   state.currentPage = currentPage;
-  renderMeta(filtered.length);
+  renderMeta(currentArchive, filtered.length);
+  renderArchiveList();
   renderPapers(visiblePapers, start);
   renderPagination(totalPages);
 }
 
-function renderMeta(filteredCount) {
-  paperCount.textContent = `${state.papers.length}`;
+function renderMeta(currentArchive, filteredCount) {
+  const archives = getArchives();
+  const allPaperCount = archives.reduce((count, archive) => count + (archive.papers?.length || 0), 0);
+  const currentPaperCount = currentArchive?.papers?.length || 0;
+
+  paperCount.textContent = `${currentPaperCount}`;
   generatedAt.textContent = formatDateTime(siteData.generatedAt);
-  metaDescription.textContent = `${siteData.description} 当前共展示 ${state.papers.length} 篇，搜索后匹配 ${filteredCount} 篇。`;
+  pageTitle.textContent = currentArchive
+    ? `最新消息总结展示 · ${currentArchive.dateKey}`
+    : "最新消息总结展示";
+  metaDescription.textContent = `${siteData.description} 当前归档共 ${archives.length} 天，累计展示 ${allPaperCount} 篇，当前日期匹配 ${filteredCount} 篇。`;
   summaryWindow.textContent = `近 ${siteData.dateWindowDays || 7} 天最新提交`;
   summaryCategories.textContent = `重点分类：${(siteData.categories || []).join(" / ")}`;
   summaryKeywords.textContent = `关键词：${(siteData.keywords || []).join(" / ")}`;
+  selectedDateTitle.textContent = currentArchive
+    ? `${currentArchive.dateKey} 论文列表`
+    : "当天论文";
+  selectedDateKey.textContent = currentArchive?.dateLabel || "--";
+  selectedPaperCount.textContent = `${currentPaperCount} 篇`;
+}
+
+function renderArchiveList() {
+  const archives = getArchives();
+  archiveList.innerHTML = "";
+
+  archives.forEach((archive) => {
+    const button = document.createElement("button");
+    button.type = "button";
+    button.className = `archive-button${archive.dateKey === state.selectedDateKey ? " is-active" : ""}`;
+    button.innerHTML = `
+      <span class="archive-date">${archive.dateKey}</span>
+      <span class="archive-count">${archive.papers.length} 篇</span>
+    `;
+    button.addEventListener("click", () => {
+      state.selectedDateKey = archive.dateKey;
+      state.currentPage = 1;
+      render();
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    });
+    archiveList.append(button);
+  });
 }
 
 function renderPapers(papers, startIndex) {
@@ -121,6 +164,25 @@ function renderPagination(totalPages) {
     });
     pagination.append(button);
   }
+}
+
+function getArchives() {
+  return Array.isArray(siteData.archives) ? siteData.archives : [];
+}
+
+function getCurrentArchive() {
+  const archives = getArchives();
+  return archives.find((archive) => archive.dateKey === state.selectedDateKey) || archives[0] || null;
+}
+
+function resolveInitialDateKey() {
+  const archives = Array.isArray(siteData.archives) ? siteData.archives : [];
+
+  if (siteData.currentDateKey && archives.some((archive) => archive.dateKey === siteData.currentDateKey)) {
+    return siteData.currentDateKey;
+  }
+
+  return archives[0]?.dateKey || null;
 }
 
 function filterPapers(papers, query) {
