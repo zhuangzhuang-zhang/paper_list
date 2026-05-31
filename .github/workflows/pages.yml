@@ -5,11 +5,13 @@ on:
   push:
     branches:
       - main
+    paths-ignore:
+      - data/site-data.js
   schedule:
     - cron: "0 0 * * *"
 
 permissions:
-  contents: read
+  contents: write
   pages: write
   id-token: write
 
@@ -26,6 +28,8 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
 
       - name: Setup Python
         uses: actions/setup-python@v5
@@ -34,6 +38,18 @@ jobs:
 
       - name: Generate latest paper data
         run: python scripts/update_papers.py
+
+      - name: Commit generated archive data
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          if git diff --quiet -- data/site-data.js; then
+            echo "No archive data changes to commit."
+            exit 0
+          fi
+          git add data/site-data.js
+          git commit -m "chore: update paper archive data [skip ci]"
+          git push
 
       - name: Setup Pages
         uses: actions/configure-pages@v5
