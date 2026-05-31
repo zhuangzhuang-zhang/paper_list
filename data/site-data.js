@@ -9,5 +9,6 @@ window.PAPERS_SITE_DATA = {
     "robotics",
     "autonomous driving"
   ],
-  papers: []
+  currentDateKey: null,
+  archives: []
 };
