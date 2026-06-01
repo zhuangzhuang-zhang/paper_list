@@ -13,8 +13,9 @@ API_URL = "https://export.arxiv.org/api/query"
 OUTPUT_FILE = Path(__file__).resolve().parents[1] / "data" / "site-data.js"
 TARGET_COUNT = 20
 LOOKBACK_DAYS = 7
-MAX_RESULTS_PER_QUERY = 40
+MAX_RESULTS_PER_QUERY = 80
 MAX_ARCHIVE_DAYS = 45
+BATCH_HOUR_BEIJING = 8
 TZ_BEIJING = dt.timezone(dt.timedelta(hours=8))
 ATOM_NS = {"atom": "http://www.w3.org/2005/Atom"}
 USER_AGENT = "paper-list-bot/1.0 (+https://github.com/zhuangzhuang-zhang/paper_list)"
@@ -59,19 +60,19 @@ TARGETED_QUERIES = [
 
 
 def main() -> None:
-    papers = fetch_recent_papers()
-    selected = select_top_papers(papers)
     now_utc = dt.datetime.now(dt.timezone.utc)
-    today_bj = now_utc.astimezone(TZ_BEIJING)
-    date_key = today_bj.strftime("%Y%m%d")
+    batch = resolve_batch_window(now_utc)
+    papers = fetch_recent_papers(batch["start_utc"], batch["end_utc"])
+    selected = select_top_papers(papers)
+    date_key = batch["date_key"]
     existing = load_existing_site_data()
     archives = update_archives(existing, date_key, now_utc.isoformat(), selected)
     current_archive = archives[0] if archives else None
 
     payload = {
         "generatedAt": now_utc.isoformat(),
-        "description": "每天北京时间 08:00 自动更新，按关键词相关性与目标分类筛选近 7 天 arXiv 最新论文。",
-        "dateWindowDays": LOOKBACK_DAYS,
+        "description": "按北京时间每天 08:00 的固定批次归档，展示上一批次 24 小时内新发布的高相关论文。",
+        "dateWindowDays": 1,
         "categories": list(CATEGORY_SCORES.keys()),
         "keywords": [
             "vision-language-action",
@@ -79,6 +80,10 @@ def main() -> None:
             "robotics",
             "autonomous driving",
         ],
+        "batchWindow": {
+            "start": batch["start_bj"].isoformat(),
+            "end": batch["end_bj"].isoformat(),
+        },
         "currentDateKey": current_archive["dateKey"] if current_archive else None,
         "papers": current_archive["papers"] if current_archive else [],
         "archives": archives,
@@ -90,8 +95,30 @@ def main() -> None:
         + ";\n",
         encoding="utf-8",
     )
-    print(f"Fetched {len(papers)} recent papers")
+    print(f"Batch window: {batch['start_bj'].isoformat()} -> {batch['end_bj'].isoformat()}")
+    print(f"Fetched {len(papers)} batch papers")
     print(f"Wrote {len(selected)} papers to {OUTPUT_FILE}")
+
+
+def resolve_batch_window(now_utc: dt.datetime) -> dict:
+    now_bj = now_utc.astimezone(TZ_BEIJING)
+    batch_end_bj = now_bj.replace(
+        hour=BATCH_HOUR_BEIJING,
+        minute=0,
+        second=0,
+        microsecond=0,
+    )
+    if now_bj < batch_end_bj:
+        batch_end_bj -= dt.timedelta(days=1)
+
+    batch_start_bj = batch_end_bj - dt.timedelta(days=1)
+    return {
+        "date_key": batch_end_bj.strftime("%Y%m%d"),
+        "start_bj": batch_start_bj,
+        "end_bj": batch_end_bj,
+        "start_utc": batch_start_bj.astimezone(dt.timezone.utc),
+        "end_utc": batch_end_bj.astimezone(dt.timezone.utc),
+    }
 
 
 def load_existing_site_data() -> dict:
@@ -147,16 +174,15 @@ def format_date_label(date_key: str) -> str:
     return f"{date_key[:4]}-{date_key[4:6]}-{date_key[6:8]}"
 
 
-def fetch_recent_papers() -> list[dict]:
-    threshold = dt.datetime.now(dt.timezone.utc) - dt.timedelta(days=LOOKBACK_DAYS)
+def fetch_recent_papers(start_utc: dt.datetime, end_utc: dt.datetime) -> list[dict]:
     papers_by_id: dict[str, dict] = {}
 
     for category in CATEGORY_SCORES:
         query = f"cat:{category}"
-        merge_papers(papers_by_id, fetch_query_results(query, MAX_RESULTS_PER_QUERY), threshold)
+        merge_papers(papers_by_id, fetch_query_results(query, MAX_RESULTS_PER_QUERY), start_utc, end_utc)
 
     for query in TARGETED_QUERIES:
-        merge_papers(papers_by_id, fetch_query_results(query, 16), threshold)
+        merge_papers(papers_by_id, fetch_query_results(query, 30), start_utc, end_utc)
 
     return list(papers_by_id.values())
 
@@ -180,9 +206,14 @@ def fetch_query_results(search_query: str, max_results: int) -> list[dict]:
     return [parse_entry(entry) for entry in entries]
 
 
-def merge_papers(papers_by_id: dict[str, dict], incoming: list[dict], threshold: dt.datetime) -> None:
+def merge_papers(
+    papers_by_id: dict[str, dict],
+    incoming: list[dict],
+    start_utc: dt.datetime,
+    end_utc: dt.datetime,
+) -> None:
     for paper in incoming:
-        if paper["published_dt"] < threshold:
+        if paper["published_dt"] < start_utc or paper["published_dt"] >= end_utc:
             continue
 
         existing = papers_by_id.get(paper["id"])
