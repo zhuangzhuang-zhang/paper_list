@@ -6,6 +6,8 @@ const siteData = window.PAPERS_SITE_DATA || {
   dateWindowDays: 7,
   categories: ["cs.RO", "cs.AI", "cs.CV", "cs.LG"],
   keywords: ["vision-language-action", "world action model", "robotics", "autonomous driving"],
+  selectionMethod: "rule_based",
+  modelInfo: null,
   batchWindow: null,
   currentDateKey: null,
   archives: [],
@@ -24,6 +26,7 @@ const pageTitle = document.querySelector("#page-title");
 const summaryWindow = document.querySelector("#summary-window");
 const summaryCategories = document.querySelector("#summary-categories");
 const summaryKeywords = document.querySelector("#summary-keywords");
+const selectionMethod = document.querySelector("#selection-method");
 const selectedDateTitle = document.querySelector("#selected-date-title");
 const selectedDateKey = document.querySelector("#selected-date-key");
 const selectedPaperCount = document.querySelector("#selected-paper-count");
@@ -62,16 +65,17 @@ function renderMeta(currentArchive, filteredCount) {
 
   paperCount.textContent = `${currentPaperCount}`;
   generatedAt.textContent = formatDateTime(siteData.generatedAt);
+  selectionMethod.textContent = formatSelectionMethod(siteData.selectionMethod, siteData.modelInfo);
   pageTitle.textContent = currentArchive
-    ? `最新消息总结展示 · ${currentArchive.dateKey}`
+    ? `最新消息总结展示 · ${currentArchive.dateKey} Top 10`
     : "最新消息总结展示";
   metaDescription.textContent = `${siteData.description} 当前归档共 ${archives.length} 天，累计展示 ${allPaperCount} 篇，当前日期匹配 ${filteredCount} 篇。`;
   summaryWindow.textContent = formatBatchWindow(siteData.batchWindow, siteData.dateWindowDays);
   summaryCategories.textContent = `重点分类：${(siteData.categories || []).join(" / ")}`;
   summaryKeywords.textContent = `关键词：${(siteData.keywords || []).join(" / ")}`;
   selectedDateTitle.textContent = currentArchive
-    ? `${currentArchive.dateKey} 论文列表`
-    : "当天论文";
+    ? `${currentArchive.dateKey} Top 10 论文`
+    : "当天 Top 10 论文";
   selectedDateKey.textContent = currentArchive?.dateLabel || "--";
   selectedPaperCount.textContent = `${currentPaperCount} 篇`;
 }
@@ -113,6 +117,11 @@ function renderPapers(papers, startIndex) {
     const rank = startIndex + index + 1;
     const authors = Array.isArray(paper.authors) ? paper.authors.join(", ") : "";
     const tags = Array.isArray(paper.categories) ? paper.categories : [];
+    const reasonTags = Array.isArray(paper.reasonTags) ? paper.reasonTags : [];
+    const innovationPoints = Array.isArray(paper.innovationPoints) ? paper.innovationPoints : [];
+    const importanceLevel = paper.importanceLevel || "B";
+    const oneSentenceSummary = paper.oneSentenceSummary || "";
+    const whyImportant = paper.whyImportant || "";
 
     item.innerHTML = `
       <article>
@@ -126,11 +135,24 @@ function renderPapers(papers, startIndex) {
               <span>作者：${escapeHtml(authors)}</span>
             </div>
           </div>
-          <span class="paper-rank">#${rank}</span>
+          <div class="paper-rank-group">
+            <span class="importance-badge importance-${importanceLevel.toLowerCase()}">${escapeHtml(importanceLevel)} 级</span>
+            <span class="paper-rank">#${rank}</span>
+          </div>
         </header>
+        ${oneSentenceSummary ? `<p class="paper-cn-summary">${escapeHtml(oneSentenceSummary)}</p>` : ""}
+        ${whyImportant ? `<p class="paper-why">推荐理由：${escapeHtml(whyImportant)}</p>` : ""}
         <p class="paper-summary">${escapeHtml(paper.summary)}</p>
+        ${
+          innovationPoints.length
+            ? `<div class="innovation-list">${innovationPoints
+                .map((point) => `<span class="innovation-chip">${escapeHtml(point)}</span>`)
+                .join("")}</div>`
+            : ""
+        }
         <footer class="paper-footer">
           <div class="tag-list">
+            ${reasonTags.map((tag) => `<span class="tag tag-highlight">${escapeHtml(tag)}</span>`).join("")}
             ${tags.map((tag) => `<span class="tag">${escapeHtml(tag)}</span>`).join("")}
           </div>
           <div class="link-group">
@@ -192,6 +214,19 @@ function formatBatchWindow(batchWindow, dateWindowDays) {
   }
 
   return `近 ${dateWindowDays || 7} 天最新提交`;
+}
+
+function formatSelectionMethod(method, modelInfo) {
+  if (method === "deepseek_rerank") {
+    const model = modelInfo?.model ? ` · ${modelInfo.model}` : "";
+    return `DeepSeek 重排${model}`;
+  }
+
+  if (method === "rule_based") {
+    return "规则筛选";
+  }
+
+  return "等待生成";
 }
 
 function filterPapers(papers, query) {
