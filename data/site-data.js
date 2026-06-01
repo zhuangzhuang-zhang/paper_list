@@ -1,5 +1,5 @@
 window.PAPERS_SITE_DATA = {
-  "generatedAt": "2026-06-01T15:55:25.524122+00:00",
+  "generatedAt": "2026-06-01T15:55:56.129337+00:00",
   "description": "按北京时间每天 08:00 的固定批次归档，展示上一批次 24 小时内新发布的高相关论文。",
   "dateWindowDays": 1,
   "categories": [
@@ -463,7 +463,7 @@ window.PAPERS_SITE_DATA = {
     {
       "dateKey": "20260601",
       "dateLabel": "2026-06-01",
-      "generatedAt": "2026-06-01T15:55:25.524122+00:00",
+      "generatedAt": "2026-06-01T15:55:56.129337+00:00",
       "paperCount": 20,
       "papers": [
         {
