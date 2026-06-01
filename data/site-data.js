@@ -1,7 +1,7 @@
 window.PAPERS_SITE_DATA = {
-  "generatedAt": "2026-06-01T02:31:37.534199+00:00",
-  "description": "每天北京时间 08:00 自动更新，按关键词相关性与目标分类筛选近 7 天 arXiv 最新论文。",
-  "dateWindowDays": 7,
+  "generatedAt": "2026-06-01T15:15:35.284953+00:00",
+  "description": "按北京时间每天 08:00 的固定批次归档，展示上一批次 24 小时内新发布的高相关论文。",
+  "dateWindowDays": 1,
   "categories": [
     "cs.RO",
     "cs.AI",
@@ -14,6 +14,10 @@ window.PAPERS_SITE_DATA = {
     "robotics",
     "autonomous driving"
   ],
+  "batchWindow": {
+    "start": "2026-05-31T08:00:00+08:00",
+    "end": "2026-06-01T08:00:00+08:00"
+  },
   "currentDateKey": "20260601",
   "papers": [
     {
@@ -457,7 +461,7 @@ window.PAPERS_SITE_DATA = {
     {
       "dateKey": "20260601",
       "dateLabel": "2026-06-01",
-      "generatedAt": "2026-06-01T02:31:37.534199+00:00",
+      "generatedAt": "2026-06-01T15:15:35.284953+00:00",
       "paperCount": 20,
       "papers": [
         {
