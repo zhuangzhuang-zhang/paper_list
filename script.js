@@ -6,6 +6,7 @@ const siteData = window.PAPERS_SITE_DATA || {
   dateWindowDays: 7,
   categories: ["cs.RO", "cs.AI", "cs.CV", "cs.LG"],
   keywords: ["vision-language-action", "world action model", "robotics", "autonomous driving"],
+  batchWindow: null,
   currentDateKey: null,
   archives: [],
 };
@@ -65,7 +66,7 @@ function renderMeta(currentArchive, filteredCount) {
     ? `最新消息总结展示 · ${currentArchive.dateKey}`
     : "最新消息总结展示";
   metaDescription.textContent = `${siteData.description} 当前归档共 ${archives.length} 天，累计展示 ${allPaperCount} 篇，当前日期匹配 ${filteredCount} 篇。`;
-  summaryWindow.textContent = `近 ${siteData.dateWindowDays || 7} 天最新提交`;
+  summaryWindow.textContent = formatBatchWindow(siteData.batchWindow, siteData.dateWindowDays);
   summaryCategories.textContent = `重点分类：${(siteData.categories || []).join(" / ")}`;
   summaryKeywords.textContent = `关键词：${(siteData.keywords || []).join(" / ")}`;
   selectedDateTitle.textContent = currentArchive
@@ -185,6 +186,14 @@ function resolveInitialDateKey() {
   return archives[0]?.dateKey || null;
 }
 
+function formatBatchWindow(batchWindow, dateWindowDays) {
+  if (batchWindow?.start && batchWindow?.end) {
+    return `固定批次：${formatShortDateTime(batchWindow.start)} - ${formatShortDateTime(batchWindow.end)}`;
+  }
+
+  return `近 ${dateWindowDays || 7} 天最新提交`;
+}
+
 function filterPapers(papers, query) {
   if (!query) {
     return papers;
@@ -223,6 +232,17 @@ function formatDateTime(value) {
 
   return new Intl.DateTimeFormat("zh-CN", {
     year: "numeric",
+    month: "2-digit",
+    day: "2-digit",
+    hour: "2-digit",
+    minute: "2-digit",
+    hour12: false,
+    timeZone: "Asia/Shanghai",
+  }).format(new Date(value));
+}
+
+function formatShortDateTime(value) {
+  return new Intl.DateTimeFormat("zh-CN", {
     month: "2-digit",
     day: "2-digit",
     hour: "2-digit",
