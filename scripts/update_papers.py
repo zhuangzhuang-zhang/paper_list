@@ -2,6 +2,7 @@ from __future__ import annotations
 
 import datetime as dt
 import json
+import os
 import re
 import urllib.parse
 import urllib.request
@@ -11,8 +12,9 @@ from pathlib import Path
 
 API_URL = "https://export.arxiv.org/api/query"
 OUTPUT_FILE = Path(__file__).resolve().parents[1] / "data" / "site-data.js"
-TARGET_COUNT = 20
+TARGET_COUNT = 10
 LOOKBACK_DAYS = 7
+LLM_CANDIDATE_COUNT = 30
 MAX_RESULTS_PER_QUERY = 80
 MAX_ARCHIVE_DAYS = 45
 BATCH_HOUR_BEIJING = 8
@@ -63,7 +65,8 @@ def main() -> None:
     now_utc = dt.datetime.now(dt.timezone.utc)
     batch = resolve_batch_window(now_utc)
     papers = fetch_recent_papers(batch["start_utc"], batch["end_utc"])
-    selected = select_top_papers(papers)
+    ranked = rank_papers(papers)
+    selected, selection_method, model_info = select_top_papers(ranked)
     date_key = batch["date_key"]
     existing = load_existing_site_data()
     archives = update_archives(existing, date_key, now_utc.isoformat(), selected)
@@ -80,6 +83,8 @@ def main() -> None:
             "robotics",
             "autonomous driving",
         ],
+        "selectionMethod": selection_method,
+        "modelInfo": model_info,
         "batchWindow": {
             "start": batch["start_bj"].isoformat(),
             "end": batch["end_bj"].isoformat(),
@@ -97,6 +102,7 @@ def main() -> None:
     )
     print(f"Batch window: {batch['start_bj'].isoformat()} -> {batch['end_bj'].isoformat()}")
     print(f"Fetched {len(papers)} batch papers")
+    print(f"Selection method: {selection_method}")
     print(f"Wrote {len(selected)} papers to {OUTPUT_FILE}")
 
 
@@ -266,21 +272,47 @@ def parse_entry(entry: ET.Element) -> dict:
     }
 
 
-def select_top_papers(papers: list[dict]) -> list[dict]:
-    scored = []
+def rank_papers(papers: list[dict]) -> list[dict]:
+    ranked = []
     for paper in papers:
-        score = score_paper(paper)
-        paper["score"] = score
-        scored.append(paper)
+        heuristic_score = score_paper(paper)
+        paper["heuristic_score"] = heuristic_score
+        ranked.append(paper)
 
-    scored.sort(
+    ranked.sort(
         key=lambda paper: (
-            paper["score"],
+            paper["heuristic_score"],
             paper["published_dt"],
             paper["updated_dt"],
         ),
         reverse=True,
     )
+    return ranked
+
+
+def select_top_papers(papers: list[dict]) -> tuple[list[dict], str, dict | None]:
+    if not papers:
+        return [], "empty", None
+
+    llm_config = load_llm_config()
+    candidates = papers[:LLM_CANDIDATE_COUNT]
+    if llm_config:
+        try:
+            selected = rerank_with_llm(candidates, llm_config)
+            if selected:
+                return selected, "deepseek_rerank", {
+                    "provider": llm_config["provider"],
+                    "model": llm_config["model"],
+                    "candidateCount": len(candidates),
+                }
+        except Exception as exc:
+            print(f"DeepSeek rerank failed, falling back to rules: {exc}")
+
+    return fallback_select_top_papers(papers), "rule_based", None
+
+
+def fallback_select_top_papers(papers: list[dict]) -> list[dict]:
+    scored = papers[:]
 
     if not scored:
         return []
@@ -297,13 +329,18 @@ def select_top_papers(papers: list[dict]) -> list[dict]:
                 "id": paper["id"],
                 "title": paper["title"],
                 "summary": paper["summary"],
+                "summaryRaw": paper["summary_raw"],
                 "link": paper["link"],
                 "pdfLink": paper["pdfLink"],
                 "published": paper["published"],
                 "updated": paper["updated"],
                 "authors": paper["authors"],
                 "categories": [category for category in paper["categories"] if category in CATEGORY_SCORES][:4],
-                "score": paper["score"],
+                "score": paper["heuristic_score"],
+                "importanceLevel": importance_from_score(paper["heuristic_score"]),
+                "oneSentenceSummary": build_cn_fallback_summary(paper),
+                "whyImportant": build_cn_fallback_reason(paper),
+                "reasonTags": build_reason_tags(paper),
             }
         )
         if len(selected) == TARGET_COUNT:
@@ -322,17 +359,190 @@ def select_top_papers(papers: list[dict]) -> list[dict]:
                     "id": paper["id"],
                     "title": paper["title"],
                     "summary": paper["summary"],
+                    "summaryRaw": paper["summary_raw"],
                     "link": paper["link"],
                     "pdfLink": paper["pdfLink"],
                     "published": paper["published"],
                     "updated": paper["updated"],
                     "authors": paper["authors"],
                     "categories": [category for category in paper["categories"] if category in CATEGORY_SCORES][:4],
-                    "score": paper.get("score", 0),
+                    "score": paper.get("heuristic_score", 0),
+                    "importanceLevel": importance_from_score(paper.get("heuristic_score", 0)),
+                    "oneSentenceSummary": build_cn_fallback_summary(paper),
+                    "whyImportant": build_cn_fallback_reason(paper),
+                    "reasonTags": build_reason_tags(paper),
                 }
             )
 
     return selected
+
+
+def load_llm_config() -> dict | None:
+    api_key = os.getenv("DEEPSEEK_API_KEY", "").strip()
+    if not api_key:
+        return None
+
+    base_url = os.getenv("DEEPSEEK_BASE_URL", "https://api.deepseek.com").strip().rstrip("/")
+    model = os.getenv("DEEPSEEK_MODEL", "deepseek-chat").strip()
+    return {
+        "provider": "deepseek",
+        "api_key": api_key,
+        "base_url": base_url,
+        "model": model,
+    }
+
+
+def rerank_with_llm(candidates: list[dict], llm_config: dict) -> list[dict]:
+    prompt_payload = []
+    for paper in candidates:
+        prompt_payload.append(
+            {
+                "id": paper["id"],
+                "title": paper["title"],
+                "summary": paper["summary_raw"],
+                "categories": paper["categories"],
+                "authors": paper["authors"][:5],
+                "published": paper["published"],
+                "link": paper["link"],
+                "heuristic_score": paper["heuristic_score"],
+            }
+        )
+
+    system_prompt = (
+        "You are an expert research scout for robotics, VLA, world action models, and autonomous driving. "
+        "Select the top 10 papers from the provided candidates. Focus on: "
+        "1) strong relevance to VLA, WAM, robotics, or autonomous driving; "
+        "2) genuine novelty such as new models, tasks, benchmarks, or training paradigms; "
+        "3) practical value such as real-robot or real-driving experiments and code availability if visible; "
+        "4) high impact potential such as foundation models, unified frameworks, or general methods. "
+        "Return strict JSON only."
+    )
+    user_prompt = (
+        "Choose exactly 10 papers or fewer if the candidate pool is smaller.\n"
+        "For each selected paper, return:\n"
+        "- id\n"
+        "- importance_level: one of S, A, B\n"
+        "- score: integer 0-100\n"
+        "- one_sentence_summary_cn: concise Chinese summary within 35 Chinese characters\n"
+        "- why_important_cn: concise Chinese reason within 70 Chinese characters\n"
+        "- reason_tags: 2 to 4 short Chinese tags\n"
+        "- innovation_points: 1 to 3 concise Chinese points\n"
+        "Use this JSON schema:\n"
+        "{"
+        '"top_papers":[{"id":"","importance_level":"S","score":92,"one_sentence_summary_cn":"","why_important_cn":"","reason_tags":[""],"innovation_points":[""]}]'
+        "}\n"
+        "Candidate papers JSON:\n"
+        f"{json.dumps(prompt_payload, ensure_ascii=False)}"
+    )
+
+    result = call_chat_completion(system_prompt, user_prompt, llm_config)
+    selected_by_id = {paper["id"]: paper for paper in candidates}
+    normalized = []
+    seen_ids = set()
+    for item in result.get("top_papers", []):
+        paper_id = str(item.get("id", "")).strip()
+        if not paper_id or paper_id in seen_ids or paper_id not in selected_by_id:
+            continue
+
+        paper = selected_by_id[paper_id]
+        seen_ids.add(paper_id)
+        normalized.append(
+            build_selected_paper(
+                paper,
+                score=coerce_int(item.get("score"), paper["heuristic_score"]),
+                importance_level=normalize_importance(item.get("importance_level"), paper["heuristic_score"]),
+                one_sentence_summary=clean_text(item.get("one_sentence_summary_cn") or build_cn_fallback_summary(paper)),
+                why_important=clean_text(item.get("why_important_cn") or build_cn_fallback_reason(paper)),
+                reason_tags=normalize_string_list(item.get("reason_tags"), build_reason_tags(paper), 4),
+                innovation_points=normalize_string_list(item.get("innovation_points"), [], 3),
+            )
+        )
+        if len(normalized) == TARGET_COUNT:
+            break
+
+    if len(normalized) < TARGET_COUNT:
+        fallback = fallback_select_top_papers(candidates)
+        existing_ids = {paper["id"] for paper in normalized}
+        for paper in fallback:
+            if paper["id"] in existing_ids:
+                continue
+            normalized.append(paper)
+            if len(normalized) == TARGET_COUNT:
+                break
+
+    return normalized
+
+
+def call_chat_completion(system_prompt: str, user_prompt: str, llm_config: dict) -> dict:
+    url = f"{llm_config['base_url']}/chat/completions"
+    body = {
+        "model": llm_config["model"],
+        "temperature": 0.2,
+        "messages": [
+            {"role": "system", "content": system_prompt},
+            {"role": "user", "content": user_prompt},
+        ],
+    }
+    payload = json.dumps(body).encode("utf-8")
+    request = urllib.request.Request(
+        url,
+        data=payload,
+        method="POST",
+        headers={
+            "Authorization": f"Bearer {llm_config['api_key']}",
+            "Content-Type": "application/json",
+            "User-Agent": USER_AGENT,
+        },
+    )
+    with urllib.request.urlopen(request, timeout=90) as response:
+        raw = json.loads(response.read().decode("utf-8"))
+
+    content = raw["choices"][0]["message"]["content"]
+    return parse_json_from_text(content)
+
+
+def parse_json_from_text(text: str) -> dict:
+    text = text.strip()
+    if text.startswith("```"):
+        text = re.sub(r"^```(?:json)?\s*", "", text)
+        text = re.sub(r"\s*```$", "", text)
+
+    try:
+        return json.loads(text)
+    except json.JSONDecodeError:
+        match = re.search(r"\{[\s\S]*\}", text)
+        if not match:
+            raise
+        return json.loads(match.group(0))
+
+
+def build_selected_paper(
+    paper: dict,
+    score: int,
+    importance_level: str,
+    one_sentence_summary: str,
+    why_important: str,
+    reason_tags: list[str],
+    innovation_points: list[str],
+) -> dict:
+    return {
+        "id": paper["id"],
+        "title": paper["title"],
+        "summary": paper["summary"],
+        "summaryRaw": paper["summary_raw"],
+        "link": paper["link"],
+        "pdfLink": paper["pdfLink"],
+        "published": paper["published"],
+        "updated": paper["updated"],
+        "authors": paper["authors"],
+        "categories": [category for category in paper["categories"] if category in CATEGORY_SCORES][:4],
+        "score": score,
+        "importanceLevel": importance_level,
+        "oneSentenceSummary": one_sentence_summary,
+        "whyImportant": why_important,
+        "reasonTags": reason_tags,
+        "innovationPoints": innovation_points,
+    }
 
 
 def score_paper(paper: dict) -> int:
@@ -357,6 +567,66 @@ def score_paper(paper: dict) -> int:
     freshness_bonus = max(0, LOOKBACK_DAYS - days_old)
     score += freshness_bonus
     return score
+
+
+def importance_from_score(score: int) -> str:
+    if score >= 40:
+        return "S"
+    if score >= 26:
+        return "A"
+    return "B"
+
+
+def normalize_importance(value: str | None, fallback_score: int) -> str:
+    normalized = clean_text(value or "").upper()
+    if normalized in {"S", "A", "B"}:
+        return normalized
+    return importance_from_score(fallback_score)
+
+
+def build_reason_tags(paper: dict) -> list[str]:
+    haystack = f"{paper['title']} {paper['summary_raw']}".lower()
+    tags = []
+    if any(keyword in haystack for keyword in ("vision-language-action", "vision language action", "vla")):
+        tags.append("VLA")
+    if "world action model" in haystack or "world model" in haystack:
+        tags.append("WAM")
+    if any(keyword in haystack for keyword in ("robot", "robotics", "manipulation", "embodied")):
+        tags.append("机器人")
+    if any(keyword in haystack for keyword in ("autonomous driving", "self-driving", "driving")):
+        tags.append("自动驾驶")
+    if any(keyword in haystack for keyword in ("benchmark", "dataset", "evaluation")):
+        tags.append("新基准")
+    if any(keyword in haystack for keyword in ("framework", "foundation", "generalist", "unified")):
+        tags.append("通用框架")
+    return tags[:4] or ["高相关"]
+
+
+def build_cn_fallback_summary(paper: dict) -> str:
+    tags = "、".join(build_reason_tags(paper)[:2])
+    if not tags:
+        tags = "相关方向"
+    return trim_text(f"该论文聚焦{tags}，适合纳入今日重点关注。", 34)
+
+
+def build_cn_fallback_reason(paper: dict) -> str:
+    tags = "、".join(build_reason_tags(paper))
+    categories = " / ".join([category for category in paper["categories"] if category in CATEGORY_SCORES][:2])
+    return trim_text(f"命中{tags}主题，分类覆盖{categories}，且发布时间较新。", 70)
+
+
+def normalize_string_list(value: object, fallback: list[str], limit: int) -> list[str]:
+    if not isinstance(value, list):
+        return fallback[:limit]
+    items = [clean_text(str(item)) for item in value if clean_text(str(item))]
+    return items[:limit] or fallback[:limit]
+
+
+def coerce_int(value: object, fallback: int) -> int:
+    try:
+        return int(value)
+    except (TypeError, ValueError):
+        return fallback
 
 
 def build_short_summary(summary: str) -> str:
