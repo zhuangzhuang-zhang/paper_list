@@ -1,5 +1,5 @@
 window.PAPERS_SITE_DATA = {
-  "generatedAt": "2026-06-02T14:50:51.080602+00:00",
+  "generatedAt": "2026-06-02T15:10:06.610001+00:00",
   "description": "按北京时间每天 08:00 的固定批次归档，展示上一批次 24 小时内新发布的高相关论文。",
   "dateWindowDays": 1,
   "categories": [
@@ -51,18 +51,19 @@ window.PAPERS_SITE_DATA = {
       ],
       "score": 95,
       "importanceLevel": "S",
-      "oneSentenceSummary": "以事件为基元的世界动作模型，实现视觉-语言-动作预训练。",
-      "whyImportant": "提出事件基元的VLA预训练范式，解决固定长度动作块与语义粒度不匹配问题，在真实世界泛化评估中达到SOTA。",
+      "oneSentenceSummary": "WALL-WM以事件为单位预训练世界动作模型，统一VLA学习。",
+      "summaryCn": "WALL-WM提出以语义事件为原子单元的世界动作模型预训练方法，摒弃固定长度块限制，通过事件级数据标注与聚类采样构建数据生态，支持事件模式与统一模式双推理，在大规模真实场景泛化评估中达到最新性能，显著提升跨任务泛化，为VLA通用世界模型提供可扩展方案。",
+      "whyImportant": "根本解决VLA训练的粒度不匹配，提供通用世界动作模型扩展方案。",
       "reasonTags": [
         "世界动作模型",
-        "事件基元",
-        "VLA预训练",
-        "真实泛化"
+        "事件预训练",
+        "VLA",
+        "数据生态"
       ],
       "innovationPoints": [
-        "将语义事件作为原子学习单元，替代固定长度动作块的优化方式",
-        "构建事件级标注与聚类平衡采样的数据生态系统",
-        "提供事件推理与统一阶梯解码两种互补预测模式"
+        "事件级VLA预训练框架",
+        "双模式推理：事件模式与统一模式",
+        "大规模实际泛化评估"
       ]
     },
     {
@@ -88,18 +89,19 @@ window.PAPERS_SITE_DATA = {
       ],
       "score": 92,
       "importanceLevel": "S",
-      "oneSentenceSummary": "在SE(3)切空间上进行扩散，纠正VLA策略的欧几里得谬误。",
-      "whyImportant": "揭示VLA中将SE(3)姿态视为欧氏向量引起的几何漂移、等变破坏和路径非测地性，提出的李群扩散器在CALVIN和真实机器人上显著改进性能。",
+      "oneSentenceSummary": "Lie Diffuser Actor在SE(3)上进行扩散，根治欧几里得谬误。",
+      "summaryCn": "扩散VLA将SE(3)姿态视为R^12向量，导致流形漂移、等变性缺失。本文提出Lie Diffuser Actor，在SE(3)切空间进行分数匹配，通过左不变SDE和指数映射生成动作，确保等变性与测地最优。为VLA几何表示提供正确范式，实验在CALVIN和真实机器人操纵中显著优于基线。",
+      "whyImportant": "从几何底层修正VLA表示错误，提升操纵精度与鲁棒性。",
       "reasonTags": [
-        "VLA策略",
-        "SE(3)流形",
-        "扩散模型",
-        "几何纠错"
+        "SE(3)扩散",
+        "几何纠偏",
+        "VLA",
+        "机器人操纵"
       ],
       "innovationPoints": [
-        "指出VLA中SE(3)表示的欧几里得谬误及三大后果",
-        "设计在切空间上通过左不变SDE加噪与指数映射采样的扩散框架",
-        "验证了流形约束、坐标等变和测地最优性对操作任务的提升"
+        "SE(3)内在扩散生成",
+        "左不变SDE与切线分数",
+        "测地轨迹保证"
       ]
     },
     {
@@ -122,159 +124,56 @@ window.PAPERS_SITE_DATA = {
       ],
       "score": 90,
       "importanceLevel": "S",
-      "oneSentenceSummary": "预测未来视觉特征的潜在世界模型，使VLA能应对动态物体。",
-      "whyImportant": "解决VLA在物体运动时因观察延迟导致的操作失败，仅增加4.9M参数便将动态任务成功率提升至79-97%，且零次迁移到多个物理任务。",
+      "oneSentenceSummary": "AHEAD冻结VLA上加装运动世界模型实现动态操作。",
+      "summaryCn": "AHEAD为静态VLA模型加装运动感知潜在世界模型，利用光流估计速度和加速度，预测VLA特征空间中的未来patch tokens，自适应滚动至不确定性阈值，再将预测特征输入冻结的动作解码器。在物理臂上实现传送带抓取、飞球拦截等动态任务，成功率达29/30-30/30，而基线全失败，显著提升动态操作能力。",
+      "whyImportant": "使静态VLA零修改适应动态场景，极低参数开销实现高效抓取。",
       "reasonTags": [
         "动态VLA",
         "预测世界模型",
-        "操作延迟",
-        "真实机器人"
+        "机器人",
+        "光流"
       ],
       "innovationPoints": [
-        "提出预测未来视觉特征的包装器，填补VLA的延迟感知缺陷",
-        "利用光流和语言掩码在VLA特征空间训练紧凑世界模型",
-        "自适应预测步长与不确定性阈值，冻结解码器直接使用预测特征"
+        "冻结VLA上的潜在世界模型",
+        "光流驱动的patch token预测",
+        "自适应不确定性滚动"
       ]
     },
     {
-      "id": "2606.02307v1",
-      "title": "FATE-VLA:Failue-aware test generation for vision-language-action models",
-      "summary": "Vision-Language-Action (VLA) models are increasingly used as generalist robot policies, yet their evaluation still relies largely on static benchmarks that randomly sample task scenes. We reframe VLA evaluation as an active failure-discovery problem and propose a failure-aware test-generation approach that combines diversity-driven explo…",
-      "summaryRaw": "Vision-Language-Action (VLA) models are increasingly used as generalist robot policies, yet their evaluation still relies largely on static benchmarks that randomly sample task scenes. In high-dimensional embodied spaces, failures are sparse and clustered, so static benchmarking can underestimate robustness risks. We reframe VLA evaluation as an active failure-discovery problem and propose a failure-aware test-generation approach that combines diversity-driven exploration with surrogate models learned from observed executions. The method steers testing toward high-risk yet diverse scene regions. Across four state-of-the-art VLA models, it uncovers substantially more failures (up to +29.7 % over selected baselines) while revealing more diverse failure modes. This mean that, for instance, in the case of GR00T-N1.6, success rate dropped from 64.4% to 34.7%. More broadly, our findings call for a shift in VLA evaluation: from passive measurement on fixed task suites to adaptive, failure-seeking test generation that exposes the structure of model weaknesses before deployment.",
-      "link": "https://arxiv.org/abs/2606.02307v1",
-      "pdfLink": "https://arxiv.org/pdf/2606.02307v1",
-      "published": "2026-06-01T14:27:13Z",
-      "updated": "2026-06-01T14:27:13Z",
+      "id": "2606.02551v1",
+      "title": "AFUN: Towards an Affordance Foundation Model for Functionality Understanding",
+      "summary": "Affordance understanding bridges visual perception and physical action, serving as an explainable interface for robot manipulation in open and unstructured real-world environments. ourmodel can be deployed for real-world robot manipulation without finetuning for robot embodiment or using task-specific heuristics, demonstrating the abilit…",
+      "summaryRaw": "Affordance understanding bridges visual perception and physical action, serving as an explainable interface for robot manipulation in open and unstructured real-world environments. Yet, building an affordance foundation model that not only understands where and how the interaction should happen, but also generalizes across diverse environments, objects, and tasks, remains a long-standing research challenge. Existing methods typically address only part of this challenge, either localizing task-relevant regions without specifying executable motion, or predicting motion but with limited scalability. In this paper, we present ourmodel, a step towards an affordance foundation model for functionality understanding. From a single RGB-D observation and a language task description, ourmodel predicts a task-conditional functional mask (where to interact) and a 3D post-contact motion curve (how to interact). To support open-world generalization, we build a large-scale standardized data pipeline that converts heterogeneous robot, human, simulation, and real-world scan data into a shared affordance schema with language, masks, and object-centric 3D motion labels. We evaluate ourmodel from three aspects: for affordance segmentation, ourmodel outperforms all baselines by a large margin across 8 test sets from 4 benchmarks, improving mean gIoU/cIoU by +23.9/+26.3; for contact-point prediction, it predicts substantially more accurate points, with a 12.7--61.3% hit-rate gain over the best baseline; and for 3D motion, it achieves the best performance on all three test sets. ourmodel can be deployed for real-world robot manipulation without finetuning for robot embodiment or using task-specific heuristics, demonstrating the ability to adapt to open-world affordance tasks. Project page: https://www.zhaoningwang.com/AFUN",
+      "link": "https://arxiv.org/abs/2606.02551v1",
+      "pdfLink": "https://arxiv.org/pdf/2606.02551v1",
+      "published": "2026-06-01T17:50:16Z",
+      "updated": "2026-06-01T17:50:16Z",
       "authors": [
-        "Arusa Kanwal",
-        "Pablo Valle",
-        "Shaukat Ali",
-        "Aitor Arrieta"
+        "Zhaoning Wang",
+        "Yi Zhong",
+        "Jiawei Fu",
+        "Henrik I. Christensen",
+        "Jun Gao"
       ],
       "categories": [
+        "cs.CV",
         "cs.RO"
       ],
-      "score": 88,
+      "score": 90,
       "importanceLevel": "A",
-      "oneSentenceSummary": "面向VLA模型的失败感知测试生成，暴露稀疏的脆弱点。",
-      "whyImportant": "重新定义VLA评估为主动失败发现，结合多样性探索与代理模型，在四款SOTA模型中发现多出29.7%的失败，促使命题从被动基准转向自适应安全性测试。",
+      "oneSentenceSummary": "AFUN供能基础模型理解交互位置与3D动作。",
+      "summaryCn": "AFUN为通用可供性基础模型，从单张RGB-D和语言指令预测任务条件的功能掩码与3D后接触运动曲线。构建大规模标准化数据管道转换异构数据。在多个基准上大幅度超越现有方法，可零样本部署至真实机器人，实现开放世界操作。统一位置与动作预测，提供可解释交互接口。",
+      "whyImportant": "统一语言、视觉与动作，提供可泛化的可供性基础模型。",
       "reasonTags": [
-        "VLA评估",
-        "失败感知测试",
-        "风险驱动",
-        "安全部署"
+        "可供性基础模型",
+        "机器人操作",
+        "3D运动",
+        "数据标准化"
       ],
       "innovationPoints": [
-        "提出故障感知测试生成框架，主动导向高风险多样化场景",
-        "使用代理模型学习已观测执行结果，精准引导测试",
-        "揭示GR00T-N1.6等模型成功率大幅下降，凸显评估范式变革必要"
-      ]
-    },
-    {
-      "id": "2606.02277v1",
-      "title": "RoboSemanticBench: Diagnosing Semantic Grounding in Action Prediction for VLA Models",
-      "summary": "Vision-language-action (VLA) models are built on the premise that semantic understanding from pretrained language or vision-language backbones should guide robot action prediction. We introduce RoboSemanticBench (RSB), an embodied benchmark for diagnosing semantic grounding in action prediction: whether post-trained VLA models can use co…",
-      "summaryRaw": "Vision-language-action (VLA) models are built on the premise that semantic understanding from pretrained language or vision-language backbones should guide robot action prediction. Yet robot fine-tuning is optimized as imitation over task-specific action distributions, and many evaluations can be solved through visual or instruction-action shortcuts. We introduce RoboSemanticBench (RSB), an embodied benchmark for diagnosing semantic grounding in action prediction: whether post-trained VLA models can use complex instruction semantics to select and manipulate the correct physical target. In each episode, a robot receives a multiple-choice math or general-knowledge question, observes candidate answer blocks, and must grasp the block corresponding to the correct answer. RSB covers controlled arithmetic, grade-school mathematical understanding, and commonsense or factual understanding under four-choice and ten-choice suites. Across representative VLA models, we find that many policies learn to grasp candidate blocks but select the semantically correct block at near-random or below-random rates after controlling for grasp success, revealing a persistent gap between backbone-level semantic competence and action prediction.",
-      "link": "https://arxiv.org/abs/2606.02277v1",
-      "pdfLink": "https://arxiv.org/pdf/2606.02277v1",
-      "published": "2026-06-01T14:02:37Z",
-      "updated": "2026-06-01T14:02:37Z",
-      "authors": [
-        "Bin Yu",
-        "Yao Zhang",
-        "Haishan Liu",
-        "Shijie Lian",
-        "Yuliang Wei",
-        "Xiaopeng Lin",
-        "Zhaolong Shen",
-        "Changti Wu"
-      ],
-      "categories": [
-        "cs.RO"
-      ],
-      "score": 85,
-      "importanceLevel": "A",
-      "oneSentenceSummary": "诊断VLA模型在动作预测中语义接地的基准测试，揭露知会断层。",
-      "whyImportant": "构建需要语义推理才能选择正确目标的抓取环境，发现多数VLA虽能抓取但语义正确率接近随机，证明后训练未弥合骨干与动作间的语义鸿沟。",
-      "reasonTags": [
-        "VLA语义接地",
-        "评测基准",
-        "推理抓取",
-        "语义断层"
-      ],
-      "innovationPoints": [
-        "首个针对VLA语义接地能力的诊断基准RoboSemanticBench",
-        "设计需要数学、常识推理才能确定抓取目标的具身任务",
-        "通过控制抓取成功率，分离出语义选择的真实准确性"
-      ]
-    },
-    {
-      "id": "2606.01951v1",
-      "title": "Co-training with Ego-centric Video and Demonstration for Robot Navigation Task",
-      "summary": "Vision-language-action (VLA) models are promising for diverse robotic tasks, but their performance heavily depends on large-scale high-quality training data, whose collection on real robots is costly and time-consuming. While prior work has explored augmenting manipulation datasets with egocentric human videos, applying such approaches t…",
-      "summaryRaw": "Vision-language-action (VLA) models are promising for diverse robotic tasks, but their performance heavily depends on large-scale high-quality training data, whose collection on real robots is costly and time-consuming. While prior work has explored augmenting manipulation datasets with egocentric human videos, applying such approaches to mobile robot navigation remains challenging due to viewpoint changes during locomotion. In this paper, we propose a framework that converts egocentric walking videos into datasets for mobile robot imitation learning. The proposed method estimates camera motion from human videos and transforms it into action representations compatible with ground mobile robots. By jointly training a VLA model on human-derived and robot-collected datasets, the model achieves improved language understanding and more robust action generation than training with either data source alone. Experiments on a fruit-search navigation task demonstrate that human egocentric videos provide an effective and scalable data source for mobile robot learning.",
-      "link": "https://arxiv.org/abs/2606.01951v1",
-      "pdfLink": "https://arxiv.org/pdf/2606.01951v1",
-      "published": "2026-06-01T09:12:22Z",
-      "updated": "2026-06-01T09:12:22Z",
-      "authors": [
-        "Shoya Kuno",
-        "Yumo Ouchi",
-        "Kanata Suzuki"
-      ],
-      "categories": [
-        "cs.RO"
-      ],
-      "score": 83,
-      "importanceLevel": "A",
-      "oneSentenceSummary": "将自我中心行走视频转换为移动机器人模仿学习数据，联合训练提升VLA。",
-      "whyImportant": "打破移动机器人真实数据采集瓶颈，利用人视角行走视频估计相机运动，转换为兼容动作表示，在水果搜索任务上验证了语言理解和动作生成的提升。",
-      "reasonTags": [
-        "VLA",
-        "数据增强",
-        "自我中心视频",
-        "移动导航"
-      ],
-      "innovationPoints": [
-        "提出从人体行走视频到地面机器人动作的转换框架",
-        "联合人类数据与机器人数据训练VLA，超越单一来源",
-        "在水果搜索导航中证明了可扩展数据源的实效性"
-      ]
-    },
-    {
-      "id": "2606.02027v1",
-      "title": "World-Task Factorization for Robot Learning",
-      "summary": "Robot learning must produce policies that generalize to new combinations of constraints, teammates, and environments. In this paper, we study what we argue is the most fundamental factorization in robotics: separating the world from the task.",
-      "summaryRaw": "Robot learning must produce policies that generalize to new combinations of constraints, teammates, and environments. To achieve this, we must structurally factor the policy, which is a choice that dictates what generalizes, what requires retraining, and what remains entangled. Existing methods span a wide spectrum, from expecting structure to emerge from data scaling, to hand-designing it via hierarchies, skill libraries or learned specializations. In this paper, we study what we argue is the most fundamental factorization in robotics: separating the world from the task. We investigate the conditions under which this factorization is principled. World factors are properties of the embodied system and the environment; they exist independently of intent. Task factors are defined by the task's logic over what the world admits. We formalize this asymmetry through Bayesian model evidence: it aligns with the data-generating process, maintains high likelihood through an analytical world model, and reduces the Occam razor's penalty on task parameters. We instantiate this factorization by pairing AICON, a differentiable graph of recursive estimators and interconnections that is compositional, operates without task-specific data, and propagates cost gradients to actuators, with a compact, learned policy that modulates gradient paths. Gradients serve as the interface between the two factors: they carry world structure through the graph and task structure through costs, enabling low-dimensional learning while preserving structural generalization. We test the world/task factorization across three problems that encompass heterogeneous robots, environments, task logic and sensorimotor modalities. Our framework outperforms end-to-end baselines and analytical heuristics in all settings, generalizes zero-shot to out-of-distribution configurations, and transfers to real hardware without retraining.",
-      "link": "https://arxiv.org/abs/2606.02027v1",
-      "pdfLink": "https://arxiv.org/pdf/2606.02027v1",
-      "published": "2026-06-01T10:16:07Z",
-      "updated": "2026-06-01T10:16:07Z",
-      "authors": [
-        "Eduardo Sebastián",
-        "Adrian Pfisterer",
-        "Vito Mengers",
-        "Oliver Brock",
-        "Amanda Prorok"
-      ],
-      "categories": [
-        "cs.LG",
-        "cs.RO"
-      ],
-      "score": 82,
-      "importanceLevel": "A",
-      "oneSentenceSummary": "将机器人策略分解为世界因子与任务因子，实现零样本泛化与硬件迁移。",
-      "whyImportant": "从贝叶斯证据出发论证世界/任务分解的原则性，通过可微图与学习策略的梯度接口，在异构环境中超越端到端基线，且无需再训练即可迁移到真实硬件。",
-      "reasonTags": [
-        "策略分解",
-        "世界任务解耦",
-        "零样本泛化",
-        "结构化学习"
-      ],
-      "innovationPoints": [
-        "形式化世界与任务的不对称性，给出贝叶斯模型证据的解释",
-        "利用AICON可微图传播成本梯度，紧凑策略调制路径",
-        "在多种具身、环境和任务组合下验证因子分解的结构泛化"
+        "任务条件功能掩码与3D运动联合预测",
+        "跨源数据标准化管道",
+        "零样本真实世界部署"
       ]
     },
     {
@@ -300,58 +199,164 @@ window.PAPERS_SITE_DATA = {
         "cs.CV",
         "cs.RO"
       ],
-      "score": 80,
+      "score": 88,
       "importanceLevel": "A",
-      "oneSentenceSummary": "具身中心的世界模型，可合成新物体、新场景下的光电真实演示。",
-      "whyImportant": "突破视频扩散模型中的具身幻觉，以机器人运动为锚点条件生成，支持轨迹重生和无实物遥操作，真实实验证明生成数据可稳步提升下游策略并减少真实需求。",
+      "oneSentenceSummary": "RoboDream解耦轨迹与场景，合成逼真机器人数据。",
+      "summaryCn": "RoboDream提出具身中心的世界模型，通过渲染机器人运动并条件化场景和物体先验，解耦轨迹执行与环境合成，生成包含新物体、新场景和新视角的光真演示数据。支持检索重生与无道具遥操作，显著减少现实收集成本，提升下游策略性能。实现可扩展的数据合成，降低机器人学习门槛。",
+      "whyImportant": "突破物理可行的数据生成，降低数据成本并提升规模化。",
       "reasonTags": [
         "世界模型",
         "数据合成",
-        "具身生成",
-        "机器人操作"
+        "机器人操纵",
+        "具身智能"
       ],
       "innovationPoints": [
-        "提出具身中心生成范式，将运动执行与环境合成解耦",
-        "实现轨迹重生与无实物遥操作两种数据扩展能力",
-        "真实世界实验验证生成数据对策略性能的持续增益"
+        "具身中心生成解耦轨迹与环境",
+        "检索重生与无道具遥操作",
+        "光真合成提升策略性能"
       ]
     },
     {
-      "id": "2606.02274v1",
-      "title": "Dexterity-BEV: Aligning 3D World and Actions for Generalizable Robot Policies Learning",
-      "summary": "End-to-end manipulation policies, combined with web-scale pretrained Vision-Language Models (VLMs), show the promise for generalizable and dexterous robotic manipulation. Then, we propose to align the inputs and outputs of manipulation policies by expressing per-pixel 3D information of each camera view and robot actions to a shared coord…",
-      "summaryRaw": "End-to-end manipulation policies, combined with web-scale pretrained Vision-Language Models (VLMs), show the promise for generalizable and dexterous robotic manipulation. However, they inherit two key limitations from 2D foundation models: 1) the reliance on 2D RGB inputs that ignores the intrinsically 3D nature of manipulation; and 2) the lack of spatial 3D alignment between input-output spaces as well as across diverse robot embodiments, camera setups, and trajectory datasets. In this paper, we present a series of contributions to address these issues. First, we introduce aligned vertex map and vertex spectrum -- a pixel-wise 3D representation that elevates 2D visual inputs to 3D, using camera calibration and optional depth. This novel input representation marries 3D awareness with the generalization of 2D large VLMs. Then, we propose to align the inputs and outputs of manipulation policies by expressing per-pixel 3D information of each camera view and robot actions to a shared coordinate. Based on this, we designate a canonical Bird's-Eye-View (BEV) alignment frame and innovatively propose to construct BEV images, producing a view-invariant representation robust to camera pose variations. To enable training and evaluation at scale, we develop a comprehensive data processing pipeline to perform such alignments; we also introduce a novel temporal alignment scheme for trajectories across diverse robots, human operators, and datasets. These contributions collectively mitigate input and output spatial-temporal misalignments, improving the consistency and generalization for real-world manipulation. Pretrained checkpoint, source code and data processing pipeline are available in https://hnuzhy.github.io/projects/Dex-BEV.",
-      "link": "https://arxiv.org/abs/2606.02274v1",
-      "pdfLink": "https://arxiv.org/pdf/2606.02274v1",
-      "published": "2026-06-01T14:01:11Z",
-      "updated": "2026-06-01T14:01:11Z",
+      "id": "2606.02307v1",
+      "title": "FATE-VLA:Failue-aware test generation for vision-language-action models",
+      "summary": "Vision-Language-Action (VLA) models are increasingly used as generalist robot policies, yet their evaluation still relies largely on static benchmarks that randomly sample task scenes. We reframe VLA evaluation as an active failure-discovery problem and propose a failure-aware test-generation approach that combines diversity-driven explo…",
+      "summaryRaw": "Vision-Language-Action (VLA) models are increasingly used as generalist robot policies, yet their evaluation still relies largely on static benchmarks that randomly sample task scenes. In high-dimensional embodied spaces, failures are sparse and clustered, so static benchmarking can underestimate robustness risks. We reframe VLA evaluation as an active failure-discovery problem and propose a failure-aware test-generation approach that combines diversity-driven exploration with surrogate models learned from observed executions. The method steers testing toward high-risk yet diverse scene regions. Across four state-of-the-art VLA models, it uncovers substantially more failures (up to +29.7 % over selected baselines) while revealing more diverse failure modes. This mean that, for instance, in the case of GR00T-N1.6, success rate dropped from 64.4% to 34.7%. More broadly, our findings call for a shift in VLA evaluation: from passive measurement on fixed task suites to adaptive, failure-seeking test generation that exposes the structure of model weaknesses before deployment.",
+      "link": "https://arxiv.org/abs/2606.02307v1",
+      "pdfLink": "https://arxiv.org/pdf/2606.02307v1",
+      "published": "2026-06-01T14:27:13Z",
+      "updated": "2026-06-01T14:27:13Z",
       "authors": [
-        "Huayi Zhou",
-        "Wei Gao",
-        "Dekun Lu",
-        "Ruiji Liu",
-        "Zhanqi Zhang",
-        "Ziyang Zhang",
-        "Jian Chen",
-        "Wenlve Zhou"
+        "Arusa Kanwal",
+        "Pablo Valle",
+        "Shaukat Ali",
+        "Aitor Arrieta"
       ],
       "categories": [
         "cs.RO"
       ],
-      "score": 79,
+      "score": 85,
       "importanceLevel": "A",
-      "oneSentenceSummary": "在鸟瞰视图对齐3D世界与动作，学习可泛化的机器人操作策略。",
-      "whyImportant": "解决2D基础模型忽略3D本质与跨具身对齐难题，提出顶点图表示和BEV对齐框架，预处理管道和代码公开，为大规模操作策略学习提供了空间一致性基础。",
+      "oneSentenceSummary": "FATE-VLA主动挖掘VLA失败，暴露稳健性风险。",
+      "summaryCn": "FATE-VLA将VLA评估重构为主动失败发现，提出失败感知测试生成方法，结合多样性探索与从执行中学习的替代模型，引导测试向高风险区域，发现更多失败和多样失败模式。在四个最先进VLA模型上，成功率大幅下降。呼吁VLA评估从被动测量转向主动失败搜索。",
+      "whyImportant": "重塑VLA评估范式，提前揭示模型弱点，保障部署安全。",
       "reasonTags": [
-        "3D对齐",
-        "鸟瞰视图",
-        "跨具身操作",
-        "可泛化策略"
+        "VLA评估",
+        "失败发现",
+        "测试生成",
+        "安全性"
       ],
       "innovationPoints": [
-        "设计像素对齐的顶点图与顶点频谱，将2D输入提升至3D",
-        "提出在BEV坐标系中对齐输入输出，实现视角不变表示",
-        "构建支持多机器人、多数据集时序对齐的数据处理管道"
+        "主动失败感知测试生成",
+        "替代模型引导高风险搜索",
+        "揭示隐藏的多样化失败模式"
+      ]
+    },
+    {
+      "id": "2606.02105v1",
+      "title": "Multimodal Action Diffusion for Robust End-to-End Autonomous Driving",
+      "summary": "End-to-End Autonomous Driving (E2E-AD) systems have largely converged on predicting intermediate trajectory waypoints, delegating final control to hand-crafted controllers with GPS access. ADT surpasses previous state-of-the-art on the challenging closed-loop Bench2Drive benchmark while achieving ten times lower latency, demonstrating th…",
+      "summaryRaw": "End-to-End Autonomous Driving (E2E-AD) systems have largely converged on predicting intermediate trajectory waypoints, delegating final control to hand-crafted controllers with GPS access. Direct control-signal prediction (outputting throttle, steer and brake in an end-to-end fashion) remains underexplored, and critically, the role of action multimodality in such systems is not well understood. We argue that moving beyond deterministic, single-action outputs is not merely a modelling choice, but a key driver of driving performance, representational quality, and training stability. To validate this, we introduce the Action Diffusion Transformer (ADT), an anchor-free diffusion transformer trained with a MSE objective that natively models the multimodal distribution of plausible driving actions. Rather than committing to a single deterministic command, ADT generates K action candidates and selects the most suitable one at inference via Nearest Neighbour Matching (NNM). Beyond strong benchmark numbers, we show that action multimodality yields measurable benefits in learned representations and behavioral consistency, effects that deterministic architectures cannot replicate. ADT surpasses previous state-of-the-art on the challenging closed-loop Bench2Drive benchmark while achieving ten times lower latency, demonstrating that expressive, multimodal action modelling is both practically efficient and conceptually essential for robust end-to-end driving.",
+      "link": "https://arxiv.org/abs/2606.02105v1",
+      "pdfLink": "https://arxiv.org/pdf/2606.02105v1",
+      "published": "2026-06-01T11:35:35Z",
+      "updated": "2026-06-01T11:35:35Z",
+      "authors": [
+        "Jorge Daniel Rodríguez-Vidal",
+        "Diego Porres",
+        "Gabriel Villalonga Pineda",
+        "Antonio M. López Peña"
+      ],
+      "categories": [
+        "cs.CV"
+      ],
+      "score": 85,
+      "importanceLevel": "A",
+      "oneSentenceSummary": "多模态动作扩散实现端到端驾驶直接控制。",
+      "summaryCn": "本文提出动作扩散Transformer (ADT)，直接生成油门、转向、刹车等多模态动作分布，通过最近邻匹配选取最优动作，实现端到端自动驾驶控制。在Bench2Drive封闭环上超越先前SOTA，延迟降低十倍，证明动作多模态对驾驶性能与表征的关键作用。推动端到端驾驶迈向直接控制。",
+      "whyImportant": "推动端到端驾驶抛弃中间迹点，实现高性能直接控制。",
+      "reasonTags": [
+        "端到端驾驶",
+        "动作扩散",
+        "多模态",
+        "自动驾驶"
+      ],
+      "innovationPoints": [
+        "多模态动作扩散直接输出控制信号",
+        "最近邻匹配选择最优动作",
+        "极低延迟与强表现"
+      ]
+    },
+    {
+      "id": "2606.01600v1",
+      "title": "RoboTrustBench: Benchmarking the Trustworthiness of Video World Models for Robotic Manipulation",
+      "summary": "Video world models are increasingly used in robotic manipulation, yet existing benchmarks mostly evaluate them under valid, feasible, and safe instructions. These results show that visual quality and surface-level instruction following are insufficient for trustworthy robotic video world modeling.",
+      "summaryRaw": "Video world models are increasingly used in robotic manipulation, yet existing benchmarks mostly evaluate them under valid, feasible, and safe instructions. We introduce RoboTrustBench, a benchmark for evaluating the trustworthiness of video world models under four scenarios: Normal, Constraint-Sensitive, Counterfactual, and Adversarial. Built from real-world DROID episodes, RoboTrustBench contains 1,207 expert-validated instruction-image pairs and a six-dimensional evaluation protocol with 13 fine-grained criteria. Evaluating seven representative video world models with human and MLLM assessment, we find that current models often generate visually coherent videos, but struggle with constraint reasoning, counterfactual grounding, physical interaction, and unsafe-instruction suppression. These results show that visual quality and surface-level instruction following are insufficient for trustworthy robotic video world modeling.",
+      "link": "https://arxiv.org/abs/2606.01600v1",
+      "pdfLink": "https://arxiv.org/pdf/2606.01600v1",
+      "published": "2026-06-01T02:56:09Z",
+      "updated": "2026-06-01T02:56:09Z",
+      "authors": [
+        "Huiqiong Li",
+        "Jiayu Wang",
+        "Zhiting Mei",
+        "Anirudha Majumdar",
+        "Jingjing Chen",
+        "Bin Zhu"
+      ],
+      "categories": [
+        "cs.CV",
+        "cs.RO"
+      ],
+      "score": 82,
+      "importanceLevel": "A",
+      "oneSentenceSummary": "RoboTrustBench评测视频世界模型可信度。",
+      "summaryCn": "RoboTrustBench基于DROID真实数据构建视频世界模型可信度基准，含正常、约束敏感、反事实、对抗四场景，1207个专家标注和13项细粒度标准。评估七个模型发现视觉连贯但约束推理、物理交互差。为机器人视频世界模型提供安全诊断工具。",
+      "whyImportant": "首创视频世界模型可信度基准，确保机器人安全建模。",
+      "reasonTags": [
+        "视频世界模型",
+        "可信性",
+        "基准",
+        "机器人"
+      ],
+      "innovationPoints": [
+        "四场景可信度评测框架",
+        "13维细粒度评估",
+        "揭示物理推理缺陷"
+      ]
+    },
+    {
+      "id": "2606.01757v1",
+      "title": "PillarDETR: YOLO-Backbone and RT-DETR Head for Real-Time 3D Object Detection",
+      "summary": "Real-time 3D object detection is a critical component for the safe operation of autonomous driving systems and robotics. While LiDAR point clouds provide accurate spatial information, processing them efficiently remains a significant challenge.",
+      "summaryRaw": "Real-time 3D object detection is a critical component for the safe operation of autonomous driving systems and robotics. While LiDAR point clouds provide accurate spatial information, processing them efficiently remains a significant challenge. Traditional methods rely on complex 3D convolutions or anchor-based paradigms that struggle to balance detection accuracy with inference speed. In this paper, we propose PillarDETR, a novel end-to-end 3D object detection architecture that combines the efficiency of pillar-based LiDAR encoding with the representational power of modern 2D vision models. Specifically, PillarDETR replaces standard convolutional backbones with a Cross Stage Partial (CSP) network derived from YOLOv8, enabling richer feature extraction from pseudoimages. Furthermore, we discard conventional anchor-based or center-based detection heads in favor of a Real-Time Detection Transformer (RT-DETR) decoder. This hybrid design allows the network to capture global context and directly predict 3D bounding boxes without relying on non-maximum suppression (NMS). Extensive experiments on the KITTI and nuScenes benchmarks demonstrate that PillarDETR achieves a compelling trade-off between mean Average Precision (mAP) and inference latency. Our ablation studies confirm that integrating the YOLOv8 backbone and RT-DETR head yields substantial improvements over the PointPillars baseline, establishing PillarDETR as a highly effective solution for real-time 3D perception.",
+      "link": "https://arxiv.org/abs/2606.01757v1",
+      "pdfLink": "https://arxiv.org/pdf/2606.01757v1",
+      "published": "2026-06-01T06:22:47Z",
+      "updated": "2026-06-01T06:22:47Z",
+      "authors": [
+        "Smit Kadvani",
+        "Shriya Gumber",
+        "Kriti Faujdar",
+        "Harsh Dave"
+      ],
+      "categories": [
+        "cs.CV"
+      ],
+      "score": 80,
+      "importanceLevel": "A",
+      "oneSentenceSummary": "PillarDETR融合YOLO和RT-DETR实时3D检测。",
+      "summaryCn": "PillarDETR创新性地将YOLOv8的跨阶段部分网络作为LiDAR伪图像骨干，并采用RT-DETR的实时检测头，摒弃锚框与NMS，在KITTI和nuScenes上实现了领先的精度与低延迟，为自动驾驶3D感知提供了轻量高效方案。",
+      "whyImportant": "提供轻量高效的3D检测方案，适合自动驾驶部署。",
+      "reasonTags": [
+        "3D检测",
+        "实时",
+        "自动驾驶",
+        "点云"
+      ],
+      "innovationPoints": [
+        "YOLOv8+CSP骨干融合",
+        "RT-DETR头无NMS检测",
+        "精度-延迟平衡"
       ]
     },
     {
@@ -373,20 +378,21 @@ window.PAPERS_SITE_DATA = {
       "categories": [
         "cs.CV"
       ],
-      "score": 75,
+      "score": 78,
       "importanceLevel": "B",
-      "oneSentenceSummary": "联合表征与几何引导的离散分词器，用于驾驶世界模型与规划。",
-      "whyImportant": "弥补驾驶分词器仅优化像素重建的不足，通过DINO特征对齐和几何位姿监督增强令牌的语义与结构信息，在NAVSIM上展现重建、规划与生成质量的多重提升。",
+      "oneSentenceSummary": "统一驾驶令牌联合表征与几何引导提升世界模型。",
+      "summaryCn": "本文提出表征引导与几何增强的离散分词器，对齐DINO特征空间并保留外观，引入相邻帧深度和相对姿态监督，联合多码本量化。生成的令牌同时用于轻量规划和GPT风格世界模型，在NAVSIM上提升重建与生成性能，为驾驶世界模型紧凑令牌提供新方案。",
+      "whyImportant": "为驾驶世界模型开发紧凑有用令牌，统一生成与规划。",
       "reasonTags": [
         "驾驶世界模型",
         "离散分词器",
-        "表征引导",
-        "几何增强"
+        "表征学习",
+        "规划"
       ],
       "innovationPoints": [
-        "提出联合DINO特征重建与RGB重建的离散令牌学习方案",
-        "引入邻近帧深度与相对位姿约束注入几何状态信息",
-        "同一令牌同时服务轻量规划读出与GPT风格世界建模"
+        "联合特征与外观监督的令牌学习",
+        "几何状态注入（深度、姿态）",
+        "多码本量化稳定训练"
       ]
     }
   ],
@@ -394,7 +400,7 @@ window.PAPERS_SITE_DATA = {
     {
       "dateKey": "20260602",
       "dateLabel": "2026-06-02",
-      "generatedAt": "2026-06-02T14:50:51.080602+00:00",
+      "generatedAt": "2026-06-02T15:10:06.610001+00:00",
       "paperCount": 10,
       "papers": [
         {
@@ -422,18 +428,19 @@ window.PAPERS_SITE_DATA = {
           ],
           "score": 95,
           "importanceLevel": "S",
-          "oneSentenceSummary": "以事件为基元的世界动作模型，实现视觉-语言-动作预训练。",
-          "whyImportant": "提出事件基元的VLA预训练范式，解决固定长度动作块与语义粒度不匹配问题，在真实世界泛化评估中达到SOTA。",
+          "oneSentenceSummary": "WALL-WM以事件为单位预训练世界动作模型，统一VLA学习。",
+          "summaryCn": "WALL-WM提出以语义事件为原子单元的世界动作模型预训练方法，摒弃固定长度块限制，通过事件级数据标注与聚类采样构建数据生态，支持事件模式与统一模式双推理，在大规模真实场景泛化评估中达到最新性能，显著提升跨任务泛化，为VLA通用世界模型提供可扩展方案。",
+          "whyImportant": "根本解决VLA训练的粒度不匹配，提供通用世界动作模型扩展方案。",
           "reasonTags": [
             "世界动作模型",
-            "事件基元",
-            "VLA预训练",
-            "真实泛化"
+            "事件预训练",
+            "VLA",
+            "数据生态"
           ],
           "innovationPoints": [
-            "将语义事件作为原子学习单元，替代固定长度动作块的优化方式",
-            "构建事件级标注与聚类平衡采样的数据生态系统",
-            "提供事件推理与统一阶梯解码两种互补预测模式"
+            "事件级VLA预训练框架",
+            "双模式推理：事件模式与统一模式",
+            "大规模实际泛化评估"
           ]
         },
         {
@@ -459,18 +466,19 @@ window.PAPERS_SITE_DATA = {
           ],
           "score": 92,
           "importanceLevel": "S",
-          "oneSentenceSummary": "在SE(3)切空间上进行扩散，纠正VLA策略的欧几里得谬误。",
-          "whyImportant": "揭示VLA中将SE(3)姿态视为欧氏向量引起的几何漂移、等变破坏和路径非测地性，提出的李群扩散器在CALVIN和真实机器人上显著改进性能。",
+          "oneSentenceSummary": "Lie Diffuser Actor在SE(3)上进行扩散，根治欧几里得谬误。",
+          "summaryCn": "扩散VLA将SE(3)姿态视为R^12向量，导致流形漂移、等变性缺失。本文提出Lie Diffuser Actor，在SE(3)切空间进行分数匹配，通过左不变SDE和指数映射生成动作，确保等变性与测地最优。为VLA几何表示提供正确范式，实验在CALVIN和真实机器人操纵中显著优于基线。",
+          "whyImportant": "从几何底层修正VLA表示错误，提升操纵精度与鲁棒性。",
           "reasonTags": [
-            "VLA策略",
-            "SE(3)流形",
-            "扩散模型",
-            "几何纠错"
+            "SE(3)扩散",
+            "几何纠偏",
+            "VLA",
+            "机器人操纵"
           ],
           "innovationPoints": [
-            "指出VLA中SE(3)表示的欧几里得谬误及三大后果",
-            "设计在切空间上通过左不变SDE加噪与指数映射采样的扩散框架",
-            "验证了流形约束、坐标等变和测地最优性对操作任务的提升"
+            "SE(3)内在扩散生成",
+            "左不变SDE与切线分数",
+            "测地轨迹保证"
           ]
         },
         {
@@ -493,159 +501,56 @@ window.PAPERS_SITE_DATA = {
           ],
           "score": 90,
           "importanceLevel": "S",
-          "oneSentenceSummary": "预测未来视觉特征的潜在世界模型，使VLA能应对动态物体。",
-          "whyImportant": "解决VLA在物体运动时因观察延迟导致的操作失败，仅增加4.9M参数便将动态任务成功率提升至79-97%，且零次迁移到多个物理任务。",
+          "oneSentenceSummary": "AHEAD冻结VLA上加装运动世界模型实现动态操作。",
+          "summaryCn": "AHEAD为静态VLA模型加装运动感知潜在世界模型，利用光流估计速度和加速度，预测VLA特征空间中的未来patch tokens，自适应滚动至不确定性阈值，再将预测特征输入冻结的动作解码器。在物理臂上实现传送带抓取、飞球拦截等动态任务，成功率达29/30-30/30，而基线全失败，显著提升动态操作能力。",
+          "whyImportant": "使静态VLA零修改适应动态场景，极低参数开销实现高效抓取。",
           "reasonTags": [
             "动态VLA",
             "预测世界模型",
-            "操作延迟",
-            "真实机器人"
+            "机器人",
+            "光流"
           ],
           "innovationPoints": [
-            "提出预测未来视觉特征的包装器，填补VLA的延迟感知缺陷",
-            "利用光流和语言掩码在VLA特征空间训练紧凑世界模型",
-            "自适应预测步长与不确定性阈值，冻结解码器直接使用预测特征"
+            "冻结VLA上的潜在世界模型",
+            "光流驱动的patch token预测",
+            "自适应不确定性滚动"
           ]
         },
         {
-          "id": "2606.02307v1",
-          "title": "FATE-VLA:Failue-aware test generation for vision-language-action models",
-          "summary": "Vision-Language-Action (VLA) models are increasingly used as generalist robot policies, yet their evaluation still relies largely on static benchmarks that randomly sample task scenes. We reframe VLA evaluation as an active failure-discovery problem and propose a failure-aware test-generation approach that combines diversity-driven explo…",
-          "summaryRaw": "Vision-Language-Action (VLA) models are increasingly used as generalist robot policies, yet their evaluation still relies largely on static benchmarks that randomly sample task scenes. In high-dimensional embodied spaces, failures are sparse and clustered, so static benchmarking can underestimate robustness risks. We reframe VLA evaluation as an active failure-discovery problem and propose a failure-aware test-generation approach that combines diversity-driven exploration with surrogate models learned from observed executions. The method steers testing toward high-risk yet diverse scene regions. Across four state-of-the-art VLA models, it uncovers substantially more failures (up to +29.7 % over selected baselines) while revealing more diverse failure modes. This mean that, for instance, in the case of GR00T-N1.6, success rate dropped from 64.4% to 34.7%. More broadly, our findings call for a shift in VLA evaluation: from passive measurement on fixed task suites to adaptive, failure-seeking test generation that exposes the structure of model weaknesses before deployment.",
-          "link": "https://arxiv.org/abs/2606.02307v1",
-          "pdfLink": "https://arxiv.org/pdf/2606.02307v1",
-          "published": "2026-06-01T14:27:13Z",
-          "updated": "2026-06-01T14:27:13Z",
+          "id": "2606.02551v1",
+          "title": "AFUN: Towards an Affordance Foundation Model for Functionality Understanding",
+          "summary": "Affordance understanding bridges visual perception and physical action, serving as an explainable interface for robot manipulation in open and unstructured real-world environments. ourmodel can be deployed for real-world robot manipulation without finetuning for robot embodiment or using task-specific heuristics, demonstrating the abilit…",
+          "summaryRaw": "Affordance understanding bridges visual perception and physical action, serving as an explainable interface for robot manipulation in open and unstructured real-world environments. Yet, building an affordance foundation model that not only understands where and how the interaction should happen, but also generalizes across diverse environments, objects, and tasks, remains a long-standing research challenge. Existing methods typically address only part of this challenge, either localizing task-relevant regions without specifying executable motion, or predicting motion but with limited scalability. In this paper, we present ourmodel, a step towards an affordance foundation model for functionality understanding. From a single RGB-D observation and a language task description, ourmodel predicts a task-conditional functional mask (where to interact) and a 3D post-contact motion curve (how to interact). To support open-world generalization, we build a large-scale standardized data pipeline that converts heterogeneous robot, human, simulation, and real-world scan data into a shared affordance schema with language, masks, and object-centric 3D motion labels. We evaluate ourmodel from three aspects: for affordance segmentation, ourmodel outperforms all baselines by a large margin across 8 test sets from 4 benchmarks, improving mean gIoU/cIoU by +23.9/+26.3; for contact-point prediction, it predicts substantially more accurate points, with a 12.7--61.3% hit-rate gain over the best baseline; and for 3D motion, it achieves the best performance on all three test sets. ourmodel can be deployed for real-world robot manipulation without finetuning for robot embodiment or using task-specific heuristics, demonstrating the ability to adapt to open-world affordance tasks. Project page: https://www.zhaoningwang.com/AFUN",
+          "link": "https://arxiv.org/abs/2606.02551v1",
+          "pdfLink": "https://arxiv.org/pdf/2606.02551v1",
+          "published": "2026-06-01T17:50:16Z",
+          "updated": "2026-06-01T17:50:16Z",
           "authors": [
-            "Arusa Kanwal",
-            "Pablo Valle",
-            "Shaukat Ali",
-            "Aitor Arrieta"
+            "Zhaoning Wang",
+            "Yi Zhong",
+            "Jiawei Fu",
+            "Henrik I. Christensen",
+            "Jun Gao"
           ],
           "categories": [
+            "cs.CV",
             "cs.RO"
           ],
-          "score": 88,
+          "score": 90,
           "importanceLevel": "A",
-          "oneSentenceSummary": "面向VLA模型的失败感知测试生成，暴露稀疏的脆弱点。",
-          "whyImportant": "重新定义VLA评估为主动失败发现，结合多样性探索与代理模型，在四款SOTA模型中发现多出29.7%的失败，促使命题从被动基准转向自适应安全性测试。",
+          "oneSentenceSummary": "AFUN供能基础模型理解交互位置与3D动作。",
+          "summaryCn": "AFUN为通用可供性基础模型，从单张RGB-D和语言指令预测任务条件的功能掩码与3D后接触运动曲线。构建大规模标准化数据管道转换异构数据。在多个基准上大幅度超越现有方法，可零样本部署至真实机器人，实现开放世界操作。统一位置与动作预测，提供可解释交互接口。",
+          "whyImportant": "统一语言、视觉与动作，提供可泛化的可供性基础模型。",
           "reasonTags": [
-            "VLA评估",
-            "失败感知测试",
-            "风险驱动",
-            "安全部署"
+            "可供性基础模型",
+            "机器人操作",
+            "3D运动",
+            "数据标准化"
           ],
           "innovationPoints": [
-            "提出故障感知测试生成框架，主动导向高风险多样化场景",
-            "使用代理模型学习已观测执行结果，精准引导测试",
-            "揭示GR00T-N1.6等模型成功率大幅下降，凸显评估范式变革必要"
-          ]
-        },
-        {
-          "id": "2606.02277v1",
-          "title": "RoboSemanticBench: Diagnosing Semantic Grounding in Action Prediction for VLA Models",
-          "summary": "Vision-language-action (VLA) models are built on the premise that semantic understanding from pretrained language or vision-language backbones should guide robot action prediction. We introduce RoboSemanticBench (RSB), an embodied benchmark for diagnosing semantic grounding in action prediction: whether post-trained VLA models can use co…",
-          "summaryRaw": "Vision-language-action (VLA) models are built on the premise that semantic understanding from pretrained language or vision-language backbones should guide robot action prediction. Yet robot fine-tuning is optimized as imitation over task-specific action distributions, and many evaluations can be solved through visual or instruction-action shortcuts. We introduce RoboSemanticBench (RSB), an embodied benchmark for diagnosing semantic grounding in action prediction: whether post-trained VLA models can use complex instruction semantics to select and manipulate the correct physical target. In each episode, a robot receives a multiple-choice math or general-knowledge question, observes candidate answer blocks, and must grasp the block corresponding to the correct answer. RSB covers controlled arithmetic, grade-school mathematical understanding, and commonsense or factual understanding under four-choice and ten-choice suites. Across representative VLA models, we find that many policies learn to grasp candidate blocks but select the semantically correct block at near-random or below-random rates after controlling for grasp success, revealing a persistent gap between backbone-level semantic competence and action prediction.",
-          "link": "https://arxiv.org/abs/2606.02277v1",
-          "pdfLink": "https://arxiv.org/pdf/2606.02277v1",
-          "published": "2026-06-01T14:02:37Z",
-          "updated": "2026-06-01T14:02:37Z",
-          "authors": [
-            "Bin Yu",
-            "Yao Zhang",
-            "Haishan Liu",
-            "Shijie Lian",
-            "Yuliang Wei",
-            "Xiaopeng Lin",
-            "Zhaolong Shen",
-            "Changti Wu"
-          ],
-          "categories": [
-            "cs.RO"
-          ],
-          "score": 85,
-          "importanceLevel": "A",
-          "oneSentenceSummary": "诊断VLA模型在动作预测中语义接地的基准测试，揭露知会断层。",
-          "whyImportant": "构建需要语义推理才能选择正确目标的抓取环境，发现多数VLA虽能抓取但语义正确率接近随机，证明后训练未弥合骨干与动作间的语义鸿沟。",
-          "reasonTags": [
-            "VLA语义接地",
-            "评测基准",
-            "推理抓取",
-            "语义断层"
-          ],
-          "innovationPoints": [
-            "首个针对VLA语义接地能力的诊断基准RoboSemanticBench",
-            "设计需要数学、常识推理才能确定抓取目标的具身任务",
-            "通过控制抓取成功率，分离出语义选择的真实准确性"
-          ]
-        },
-        {
-          "id": "2606.01951v1",
-          "title": "Co-training with Ego-centric Video and Demonstration for Robot Navigation Task",
-          "summary": "Vision-language-action (VLA) models are promising for diverse robotic tasks, but their performance heavily depends on large-scale high-quality training data, whose collection on real robots is costly and time-consuming. While prior work has explored augmenting manipulation datasets with egocentric human videos, applying such approaches t…",
-          "summaryRaw": "Vision-language-action (VLA) models are promising for diverse robotic tasks, but their performance heavily depends on large-scale high-quality training data, whose collection on real robots is costly and time-consuming. While prior work has explored augmenting manipulation datasets with egocentric human videos, applying such approaches to mobile robot navigation remains challenging due to viewpoint changes during locomotion. In this paper, we propose a framework that converts egocentric walking videos into datasets for mobile robot imitation learning. The proposed method estimates camera motion from human videos and transforms it into action representations compatible with ground mobile robots. By jointly training a VLA model on human-derived and robot-collected datasets, the model achieves improved language understanding and more robust action generation than training with either data source alone. Experiments on a fruit-search navigation task demonstrate that human egocentric videos provide an effective and scalable data source for mobile robot learning.",
-          "link": "https://arxiv.org/abs/2606.01951v1",
-          "pdfLink": "https://arxiv.org/pdf/2606.01951v1",
-          "published": "2026-06-01T09:12:22Z",
-          "updated": "2026-06-01T09:12:22Z",
-          "authors": [
-            "Shoya Kuno",
-            "Yumo Ouchi",
-            "Kanata Suzuki"
-          ],
-          "categories": [
-            "cs.RO"
-          ],
-          "score": 83,
-          "importanceLevel": "A",
-          "oneSentenceSummary": "将自我中心行走视频转换为移动机器人模仿学习数据，联合训练提升VLA。",
-          "whyImportant": "打破移动机器人真实数据采集瓶颈，利用人视角行走视频估计相机运动，转换为兼容动作表示，在水果搜索任务上验证了语言理解和动作生成的提升。",
-          "reasonTags": [
-            "VLA",
-            "数据增强",
-            "自我中心视频",
-            "移动导航"
-          ],
-          "innovationPoints": [
-            "提出从人体行走视频到地面机器人动作的转换框架",
-            "联合人类数据与机器人数据训练VLA，超越单一来源",
-            "在水果搜索导航中证明了可扩展数据源的实效性"
-          ]
-        },
-        {
-          "id": "2606.02027v1",
-          "title": "World-Task Factorization for Robot Learning",
-          "summary": "Robot learning must produce policies that generalize to new combinations of constraints, teammates, and environments. In this paper, we study what we argue is the most fundamental factorization in robotics: separating the world from the task.",
-          "summaryRaw": "Robot learning must produce policies that generalize to new combinations of constraints, teammates, and environments. To achieve this, we must structurally factor the policy, which is a choice that dictates what generalizes, what requires retraining, and what remains entangled. Existing methods span a wide spectrum, from expecting structure to emerge from data scaling, to hand-designing it via hierarchies, skill libraries or learned specializations. In this paper, we study what we argue is the most fundamental factorization in robotics: separating the world from the task. We investigate the conditions under which this factorization is principled. World factors are properties of the embodied system and the environment; they exist independently of intent. Task factors are defined by the task's logic over what the world admits. We formalize this asymmetry through Bayesian model evidence: it aligns with the data-generating process, maintains high likelihood through an analytical world model, and reduces the Occam razor's penalty on task parameters. We instantiate this factorization by pairing AICON, a differentiable graph of recursive estimators and interconnections that is compositional, operates without task-specific data, and propagates cost gradients to actuators, with a compact, learned policy that modulates gradient paths. Gradients serve as the interface between the two factors: they carry world structure through the graph and task structure through costs, enabling low-dimensional learning while preserving structural generalization. We test the world/task factorization across three problems that encompass heterogeneous robots, environments, task logic and sensorimotor modalities. Our framework outperforms end-to-end baselines and analytical heuristics in all settings, generalizes zero-shot to out-of-distribution configurations, and transfers to real hardware without retraining.",
-          "link": "https://arxiv.org/abs/2606.02027v1",
-          "pdfLink": "https://arxiv.org/pdf/2606.02027v1",
-          "published": "2026-06-01T10:16:07Z",
-          "updated": "2026-06-01T10:16:07Z",
-          "authors": [
-            "Eduardo Sebastián",
-            "Adrian Pfisterer",
-            "Vito Mengers",
-            "Oliver Brock",
-            "Amanda Prorok"
-          ],
-          "categories": [
-            "cs.LG",
-            "cs.RO"
-          ],
-          "score": 82,
-          "importanceLevel": "A",
-          "oneSentenceSummary": "将机器人策略分解为世界因子与任务因子，实现零样本泛化与硬件迁移。",
-          "whyImportant": "从贝叶斯证据出发论证世界/任务分解的原则性，通过可微图与学习策略的梯度接口，在异构环境中超越端到端基线，且无需再训练即可迁移到真实硬件。",
-          "reasonTags": [
-            "策略分解",
-            "世界任务解耦",
-            "零样本泛化",
-            "结构化学习"
-          ],
-          "innovationPoints": [
-            "形式化世界与任务的不对称性，给出贝叶斯模型证据的解释",
-            "利用AICON可微图传播成本梯度，紧凑策略调制路径",
-            "在多种具身、环境和任务组合下验证因子分解的结构泛化"
+            "任务条件功能掩码与3D运动联合预测",
+            "跨源数据标准化管道",
+            "零样本真实世界部署"
           ]
         },
         {
@@ -671,58 +576,164 @@ window.PAPERS_SITE_DATA = {
             "cs.CV",
             "cs.RO"
           ],
-          "score": 80,
+          "score": 88,
           "importanceLevel": "A",
-          "oneSentenceSummary": "具身中心的世界模型，可合成新物体、新场景下的光电真实演示。",
-          "whyImportant": "突破视频扩散模型中的具身幻觉，以机器人运动为锚点条件生成，支持轨迹重生和无实物遥操作，真实实验证明生成数据可稳步提升下游策略并减少真实需求。",
+          "oneSentenceSummary": "RoboDream解耦轨迹与场景，合成逼真机器人数据。",
+          "summaryCn": "RoboDream提出具身中心的世界模型，通过渲染机器人运动并条件化场景和物体先验，解耦轨迹执行与环境合成，生成包含新物体、新场景和新视角的光真演示数据。支持检索重生与无道具遥操作，显著减少现实收集成本，提升下游策略性能。实现可扩展的数据合成，降低机器人学习门槛。",
+          "whyImportant": "突破物理可行的数据生成，降低数据成本并提升规模化。",
           "reasonTags": [
             "世界模型",
             "数据合成",
-            "具身生成",
-            "机器人操作"
+            "机器人操纵",
+            "具身智能"
           ],
           "innovationPoints": [
-            "提出具身中心生成范式，将运动执行与环境合成解耦",
-            "实现轨迹重生与无实物遥操作两种数据扩展能力",
-            "真实世界实验验证生成数据对策略性能的持续增益"
+            "具身中心生成解耦轨迹与环境",
+            "检索重生与无道具遥操作",
+            "光真合成提升策略性能"
           ]
         },
         {
-          "id": "2606.02274v1",
-          "title": "Dexterity-BEV: Aligning 3D World and Actions for Generalizable Robot Policies Learning",
-          "summary": "End-to-end manipulation policies, combined with web-scale pretrained Vision-Language Models (VLMs), show the promise for generalizable and dexterous robotic manipulation. Then, we propose to align the inputs and outputs of manipulation policies by expressing per-pixel 3D information of each camera view and robot actions to a shared coord…",
-          "summaryRaw": "End-to-end manipulation policies, combined with web-scale pretrained Vision-Language Models (VLMs), show the promise for generalizable and dexterous robotic manipulation. However, they inherit two key limitations from 2D foundation models: 1) the reliance on 2D RGB inputs that ignores the intrinsically 3D nature of manipulation; and 2) the lack of spatial 3D alignment between input-output spaces as well as across diverse robot embodiments, camera setups, and trajectory datasets. In this paper, we present a series of contributions to address these issues. First, we introduce aligned vertex map and vertex spectrum -- a pixel-wise 3D representation that elevates 2D visual inputs to 3D, using camera calibration and optional depth. This novel input representation marries 3D awareness with the generalization of 2D large VLMs. Then, we propose to align the inputs and outputs of manipulation policies by expressing per-pixel 3D information of each camera view and robot actions to a shared coordinate. Based on this, we designate a canonical Bird's-Eye-View (BEV) alignment frame and innovatively propose to construct BEV images, producing a view-invariant representation robust to camera pose variations. To enable training and evaluation at scale, we develop a comprehensive data processing pipeline to perform such alignments; we also introduce a novel temporal alignment scheme for trajectories across diverse robots, human operators, and datasets. These contributions collectively mitigate input and output spatial-temporal misalignments, improving the consistency and generalization for real-world manipulation. Pretrained checkpoint, source code and data processing pipeline are available in https://hnuzhy.github.io/projects/Dex-BEV.",
-          "link": "https://arxiv.org/abs/2606.02274v1",
-          "pdfLink": "https://arxiv.org/pdf/2606.02274v1",
-          "published": "2026-06-01T14:01:11Z",
-          "updated": "2026-06-01T14:01:11Z",
+          "id": "2606.02307v1",
+          "title": "FATE-VLA:Failue-aware test generation for vision-language-action models",
+          "summary": "Vision-Language-Action (VLA) models are increasingly used as generalist robot policies, yet their evaluation still relies largely on static benchmarks that randomly sample task scenes. We reframe VLA evaluation as an active failure-discovery problem and propose a failure-aware test-generation approach that combines diversity-driven explo…",
+          "summaryRaw": "Vision-Language-Action (VLA) models are increasingly used as generalist robot policies, yet their evaluation still relies largely on static benchmarks that randomly sample task scenes. In high-dimensional embodied spaces, failures are sparse and clustered, so static benchmarking can underestimate robustness risks. We reframe VLA evaluation as an active failure-discovery problem and propose a failure-aware test-generation approach that combines diversity-driven exploration with surrogate models learned from observed executions. The method steers testing toward high-risk yet diverse scene regions. Across four state-of-the-art VLA models, it uncovers substantially more failures (up to +29.7 % over selected baselines) while revealing more diverse failure modes. This mean that, for instance, in the case of GR00T-N1.6, success rate dropped from 64.4% to 34.7%. More broadly, our findings call for a shift in VLA evaluation: from passive measurement on fixed task suites to adaptive, failure-seeking test generation that exposes the structure of model weaknesses before deployment.",
+          "link": "https://arxiv.org/abs/2606.02307v1",
+          "pdfLink": "https://arxiv.org/pdf/2606.02307v1",
+          "published": "2026-06-01T14:27:13Z",
+          "updated": "2026-06-01T14:27:13Z",
           "authors": [
-            "Huayi Zhou",
-            "Wei Gao",
-            "Dekun Lu",
-            "Ruiji Liu",
-            "Zhanqi Zhang",
-            "Ziyang Zhang",
-            "Jian Chen",
-            "Wenlve Zhou"
+            "Arusa Kanwal",
+            "Pablo Valle",
+            "Shaukat Ali",
+            "Aitor Arrieta"
           ],
           "categories": [
             "cs.RO"
           ],
-          "score": 79,
+          "score": 85,
           "importanceLevel": "A",
-          "oneSentenceSummary": "在鸟瞰视图对齐3D世界与动作，学习可泛化的机器人操作策略。",
-          "whyImportant": "解决2D基础模型忽略3D本质与跨具身对齐难题，提出顶点图表示和BEV对齐框架，预处理管道和代码公开，为大规模操作策略学习提供了空间一致性基础。",
+          "oneSentenceSummary": "FATE-VLA主动挖掘VLA失败，暴露稳健性风险。",
+          "summaryCn": "FATE-VLA将VLA评估重构为主动失败发现，提出失败感知测试生成方法，结合多样性探索与从执行中学习的替代模型，引导测试向高风险区域，发现更多失败和多样失败模式。在四个最先进VLA模型上，成功率大幅下降。呼吁VLA评估从被动测量转向主动失败搜索。",
+          "whyImportant": "重塑VLA评估范式，提前揭示模型弱点，保障部署安全。",
           "reasonTags": [
-            "3D对齐",
-            "鸟瞰视图",
-            "跨具身操作",
-            "可泛化策略"
+            "VLA评估",
+            "失败发现",
+            "测试生成",
+            "安全性"
           ],
           "innovationPoints": [
-            "设计像素对齐的顶点图与顶点频谱，将2D输入提升至3D",
-            "提出在BEV坐标系中对齐输入输出，实现视角不变表示",
-            "构建支持多机器人、多数据集时序对齐的数据处理管道"
+            "主动失败感知测试生成",
+            "替代模型引导高风险搜索",
+            "揭示隐藏的多样化失败模式"
+          ]
+        },
+        {
+          "id": "2606.02105v1",
+          "title": "Multimodal Action Diffusion for Robust End-to-End Autonomous Driving",
+          "summary": "End-to-End Autonomous Driving (E2E-AD) systems have largely converged on predicting intermediate trajectory waypoints, delegating final control to hand-crafted controllers with GPS access. ADT surpasses previous state-of-the-art on the challenging closed-loop Bench2Drive benchmark while achieving ten times lower latency, demonstrating th…",
+          "summaryRaw": "End-to-End Autonomous Driving (E2E-AD) systems have largely converged on predicting intermediate trajectory waypoints, delegating final control to hand-crafted controllers with GPS access. Direct control-signal prediction (outputting throttle, steer and brake in an end-to-end fashion) remains underexplored, and critically, the role of action multimodality in such systems is not well understood. We argue that moving beyond deterministic, single-action outputs is not merely a modelling choice, but a key driver of driving performance, representational quality, and training stability. To validate this, we introduce the Action Diffusion Transformer (ADT), an anchor-free diffusion transformer trained with a MSE objective that natively models the multimodal distribution of plausible driving actions. Rather than committing to a single deterministic command, ADT generates K action candidates and selects the most suitable one at inference via Nearest Neighbour Matching (NNM). Beyond strong benchmark numbers, we show that action multimodality yields measurable benefits in learned representations and behavioral consistency, effects that deterministic architectures cannot replicate. ADT surpasses previous state-of-the-art on the challenging closed-loop Bench2Drive benchmark while achieving ten times lower latency, demonstrating that expressive, multimodal action modelling is both practically efficient and conceptually essential for robust end-to-end driving.",
+          "link": "https://arxiv.org/abs/2606.02105v1",
+          "pdfLink": "https://arxiv.org/pdf/2606.02105v1",
+          "published": "2026-06-01T11:35:35Z",
+          "updated": "2026-06-01T11:35:35Z",
+          "authors": [
+            "Jorge Daniel Rodríguez-Vidal",
+            "Diego Porres",
+            "Gabriel Villalonga Pineda",
+            "Antonio M. López Peña"
+          ],
+          "categories": [
+            "cs.CV"
+          ],
+          "score": 85,
+          "importanceLevel": "A",
+          "oneSentenceSummary": "多模态动作扩散实现端到端驾驶直接控制。",
+          "summaryCn": "本文提出动作扩散Transformer (ADT)，直接生成油门、转向、刹车等多模态动作分布，通过最近邻匹配选取最优动作，实现端到端自动驾驶控制。在Bench2Drive封闭环上超越先前SOTA，延迟降低十倍，证明动作多模态对驾驶性能与表征的关键作用。推动端到端驾驶迈向直接控制。",
+          "whyImportant": "推动端到端驾驶抛弃中间迹点，实现高性能直接控制。",
+          "reasonTags": [
+            "端到端驾驶",
+            "动作扩散",
+            "多模态",
+            "自动驾驶"
+          ],
+          "innovationPoints": [
+            "多模态动作扩散直接输出控制信号",
+            "最近邻匹配选择最优动作",
+            "极低延迟与强表现"
+          ]
+        },
+        {
+          "id": "2606.01600v1",
+          "title": "RoboTrustBench: Benchmarking the Trustworthiness of Video World Models for Robotic Manipulation",
+          "summary": "Video world models are increasingly used in robotic manipulation, yet existing benchmarks mostly evaluate them under valid, feasible, and safe instructions. These results show that visual quality and surface-level instruction following are insufficient for trustworthy robotic video world modeling.",
+          "summaryRaw": "Video world models are increasingly used in robotic manipulation, yet existing benchmarks mostly evaluate them under valid, feasible, and safe instructions. We introduce RoboTrustBench, a benchmark for evaluating the trustworthiness of video world models under four scenarios: Normal, Constraint-Sensitive, Counterfactual, and Adversarial. Built from real-world DROID episodes, RoboTrustBench contains 1,207 expert-validated instruction-image pairs and a six-dimensional evaluation protocol with 13 fine-grained criteria. Evaluating seven representative video world models with human and MLLM assessment, we find that current models often generate visually coherent videos, but struggle with constraint reasoning, counterfactual grounding, physical interaction, and unsafe-instruction suppression. These results show that visual quality and surface-level instruction following are insufficient for trustworthy robotic video world modeling.",
+          "link": "https://arxiv.org/abs/2606.01600v1",
+          "pdfLink": "https://arxiv.org/pdf/2606.01600v1",
+          "published": "2026-06-01T02:56:09Z",
+          "updated": "2026-06-01T02:56:09Z",
+          "authors": [
+            "Huiqiong Li",
+            "Jiayu Wang",
+            "Zhiting Mei",
+            "Anirudha Majumdar",
+            "Jingjing Chen",
+            "Bin Zhu"
+          ],
+          "categories": [
+            "cs.CV",
+            "cs.RO"
+          ],
+          "score": 82,
+          "importanceLevel": "A",
+          "oneSentenceSummary": "RoboTrustBench评测视频世界模型可信度。",
+          "summaryCn": "RoboTrustBench基于DROID真实数据构建视频世界模型可信度基准，含正常、约束敏感、反事实、对抗四场景，1207个专家标注和13项细粒度标准。评估七个模型发现视觉连贯但约束推理、物理交互差。为机器人视频世界模型提供安全诊断工具。",
+          "whyImportant": "首创视频世界模型可信度基准，确保机器人安全建模。",
+          "reasonTags": [
+            "视频世界模型",
+            "可信性",
+            "基准",
+            "机器人"
+          ],
+          "innovationPoints": [
+            "四场景可信度评测框架",
+            "13维细粒度评估",
+            "揭示物理推理缺陷"
+          ]
+        },
+        {
+          "id": "2606.01757v1",
+          "title": "PillarDETR: YOLO-Backbone and RT-DETR Head for Real-Time 3D Object Detection",
+          "summary": "Real-time 3D object detection is a critical component for the safe operation of autonomous driving systems and robotics. While LiDAR point clouds provide accurate spatial information, processing them efficiently remains a significant challenge.",
+          "summaryRaw": "Real-time 3D object detection is a critical component for the safe operation of autonomous driving systems and robotics. While LiDAR point clouds provide accurate spatial information, processing them efficiently remains a significant challenge. Traditional methods rely on complex 3D convolutions or anchor-based paradigms that struggle to balance detection accuracy with inference speed. In this paper, we propose PillarDETR, a novel end-to-end 3D object detection architecture that combines the efficiency of pillar-based LiDAR encoding with the representational power of modern 2D vision models. Specifically, PillarDETR replaces standard convolutional backbones with a Cross Stage Partial (CSP) network derived from YOLOv8, enabling richer feature extraction from pseudoimages. Furthermore, we discard conventional anchor-based or center-based detection heads in favor of a Real-Time Detection Transformer (RT-DETR) decoder. This hybrid design allows the network to capture global context and directly predict 3D bounding boxes without relying on non-maximum suppression (NMS). Extensive experiments on the KITTI and nuScenes benchmarks demonstrate that PillarDETR achieves a compelling trade-off between mean Average Precision (mAP) and inference latency. Our ablation studies confirm that integrating the YOLOv8 backbone and RT-DETR head yields substantial improvements over the PointPillars baseline, establishing PillarDETR as a highly effective solution for real-time 3D perception.",
+          "link": "https://arxiv.org/abs/2606.01757v1",
+          "pdfLink": "https://arxiv.org/pdf/2606.01757v1",
+          "published": "2026-06-01T06:22:47Z",
+          "updated": "2026-06-01T06:22:47Z",
+          "authors": [
+            "Smit Kadvani",
+            "Shriya Gumber",
+            "Kriti Faujdar",
+            "Harsh Dave"
+          ],
+          "categories": [
+            "cs.CV"
+          ],
+          "score": 80,
+          "importanceLevel": "A",
+          "oneSentenceSummary": "PillarDETR融合YOLO和RT-DETR实时3D检测。",
+          "summaryCn": "PillarDETR创新性地将YOLOv8的跨阶段部分网络作为LiDAR伪图像骨干，并采用RT-DETR的实时检测头，摒弃锚框与NMS，在KITTI和nuScenes上实现了领先的精度与低延迟，为自动驾驶3D感知提供了轻量高效方案。",
+          "whyImportant": "提供轻量高效的3D检测方案，适合自动驾驶部署。",
+          "reasonTags": [
+            "3D检测",
+            "实时",
+            "自动驾驶",
+            "点云"
+          ],
+          "innovationPoints": [
+            "YOLOv8+CSP骨干融合",
+            "RT-DETR头无NMS检测",
+            "精度-延迟平衡"
           ]
         },
         {
@@ -744,20 +755,21 @@ window.PAPERS_SITE_DATA = {
           "categories": [
             "cs.CV"
           ],
-          "score": 75,
+          "score": 78,
           "importanceLevel": "B",
-          "oneSentenceSummary": "联合表征与几何引导的离散分词器，用于驾驶世界模型与规划。",
-          "whyImportant": "弥补驾驶分词器仅优化像素重建的不足，通过DINO特征对齐和几何位姿监督增强令牌的语义与结构信息，在NAVSIM上展现重建、规划与生成质量的多重提升。",
+          "oneSentenceSummary": "统一驾驶令牌联合表征与几何引导提升世界模型。",
+          "summaryCn": "本文提出表征引导与几何增强的离散分词器，对齐DINO特征空间并保留外观，引入相邻帧深度和相对姿态监督，联合多码本量化。生成的令牌同时用于轻量规划和GPT风格世界模型，在NAVSIM上提升重建与生成性能，为驾驶世界模型紧凑令牌提供新方案。",
+          "whyImportant": "为驾驶世界模型开发紧凑有用令牌，统一生成与规划。",
           "reasonTags": [
             "驾驶世界模型",
             "离散分词器",
-            "表征引导",
-            "几何增强"
+            "表征学习",
+            "规划"
           ],
           "innovationPoints": [
-            "提出联合DINO特征重建与RGB重建的离散令牌学习方案",
-            "引入邻近帧深度与相对位姿约束注入几何状态信息",
-            "同一令牌同时服务轻量规划读出与GPT风格世界建模"
+            "联合特征与外观监督的令牌学习",
+            "几何状态注入（深度、姿态）",
+            "多码本量化稳定训练"
           ]
         }
       ]
