@@ -1,5 +1,5 @@
 window.PAPERS_SITE_DATA = {
-  "generatedAt": "2026-06-02T14:19:24.415042+00:00",
+  "generatedAt": "2026-06-02T14:50:51.080602+00:00",
   "description": "按北京时间每天 08:00 的固定批次归档，展示上一批次 24 小时内新发布的高相关论文。",
   "dateWindowDays": 1,
   "categories": [
@@ -14,132 +14,18 @@ window.PAPERS_SITE_DATA = {
     "robotics",
     "autonomous driving"
   ],
-  "selectionMethod": "rule_based",
-  "modelInfo": null,
+  "selectionMethod": "deepseek_rerank",
+  "modelInfo": {
+    "provider": "deepseek",
+    "model": "deepseek-v4-pro",
+    "candidateCount": 30
+  },
   "batchWindow": {
     "start": "2026-06-01T08:00:00+08:00",
     "end": "2026-06-02T08:00:00+08:00"
   },
   "currentDateKey": "20260602",
   "papers": [
-    {
-      "id": "2606.01951v1",
-      "title": "Co-training with Ego-centric Video and Demonstration for Robot Navigation Task",
-      "summary": "Vision-language-action (VLA) models are promising for diverse robotic tasks, but their performance heavily depends on large-scale high-quality training data, whose collection on real robots is costly and time-consuming. While prior work has explored augmenting manipulation datasets with egocentric human videos, applying such approaches t…",
-      "summaryRaw": "Vision-language-action (VLA) models are promising for diverse robotic tasks, but their performance heavily depends on large-scale high-quality training data, whose collection on real robots is costly and time-consuming. While prior work has explored augmenting manipulation datasets with egocentric human videos, applying such approaches to mobile robot navigation remains challenging due to viewpoint changes during locomotion. In this paper, we propose a framework that converts egocentric walking videos into datasets for mobile robot imitation learning. The proposed method estimates camera motion from human videos and transforms it into action representations compatible with ground mobile robots. By jointly training a VLA model on human-derived and robot-collected datasets, the model achieves improved language understanding and more robust action generation than training with either data source alone. Experiments on a fruit-search navigation task demonstrate that human egocentric videos provide an effective and scalable data source for mobile robot learning.",
-      "link": "https://arxiv.org/abs/2606.01951v1",
-      "pdfLink": "https://arxiv.org/pdf/2606.01951v1",
-      "published": "2026-06-01T09:12:22Z",
-      "updated": "2026-06-01T09:12:22Z",
-      "authors": [
-        "Shoya Kuno",
-        "Yumo Ouchi",
-        "Kanata Suzuki"
-      ],
-      "categories": [
-        "cs.RO"
-      ],
-      "score": 66,
-      "importanceLevel": "S",
-      "oneSentenceSummary": "该论文聚焦VLA、机器人，适合纳入今日重点关注。",
-      "whyImportant": "命中VLA、机器人、新基准、通用框架主题，分类覆盖cs.RO，且发布时间较新。",
-      "reasonTags": [
-        "VLA",
-        "机器人",
-        "新基准",
-        "通用框架"
-      ]
-    },
-    {
-      "id": "2606.02027v1",
-      "title": "World-Task Factorization for Robot Learning",
-      "summary": "Robot learning must produce policies that generalize to new combinations of constraints, teammates, and environments. In this paper, we study what we argue is the most fundamental factorization in robotics: separating the world from the task.",
-      "summaryRaw": "Robot learning must produce policies that generalize to new combinations of constraints, teammates, and environments. To achieve this, we must structurally factor the policy, which is a choice that dictates what generalizes, what requires retraining, and what remains entangled. Existing methods span a wide spectrum, from expecting structure to emerge from data scaling, to hand-designing it via hierarchies, skill libraries or learned specializations. In this paper, we study what we argue is the most fundamental factorization in robotics: separating the world from the task. We investigate the conditions under which this factorization is principled. World factors are properties of the embodied system and the environment; they exist independently of intent. Task factors are defined by the task's logic over what the world admits. We formalize this asymmetry through Bayesian model evidence: it aligns with the data-generating process, maintains high likelihood through an analytical world model, and reduces the Occam razor's penalty on task parameters. We instantiate this factorization by pairing AICON, a differentiable graph of recursive estimators and interconnections that is compositional, operates without task-specific data, and propagates cost gradients to actuators, with a compact, learned policy that modulates gradient paths. Gradients serve as the interface between the two factors: they carry world structure through the graph and task structure through costs, enabling low-dimensional learning while preserving structural generalization. We test the world/task factorization across three problems that encompass heterogeneous robots, environments, task logic and sensorimotor modalities. Our framework outperforms end-to-end baselines and analytical heuristics in all settings, generalizes zero-shot to out-of-distribution configurations, and transfers to real hardware without retraining.",
-      "link": "https://arxiv.org/abs/2606.02027v1",
-      "pdfLink": "https://arxiv.org/pdf/2606.02027v1",
-      "published": "2026-06-01T10:16:07Z",
-      "updated": "2026-06-01T10:16:07Z",
-      "authors": [
-        "Eduardo Sebastián",
-        "Adrian Pfisterer",
-        "Vito Mengers",
-        "Oliver Brock",
-        "Amanda Prorok"
-      ],
-      "categories": [
-        "cs.LG",
-        "cs.RO"
-      ],
-      "score": 64,
-      "importanceLevel": "S",
-      "oneSentenceSummary": "该论文聚焦WAM、机器人，适合纳入今日重点关注。",
-      "whyImportant": "命中WAM、机器人、通用框架主题，分类覆盖cs.LG / cs.RO，且发布时间较新。",
-      "reasonTags": [
-        "WAM",
-        "机器人",
-        "通用框架"
-      ]
-    },
-    {
-      "id": "2606.01847v1",
-      "title": "The Lie We Tell: Correcting the Euclidean Fallacy in Vision Language Action Policies via Score Matching on Tangent Space",
-      "summary": "Diffusion-based Vision-Language-Action policies achieve remarkable success in robotic manipulation, yet commit a fundamental geometric error we term the $\\textbf{Euclidean Fallacy}$: representing SE(3) poses as flat $\\mathbb{R}^{12}$ vectors. We further validate our method on real robot and the results show that our methodology outperfor…",
-      "summaryRaw": "Diffusion-based Vision-Language-Action policies achieve remarkable success in robotic manipulation, yet commit a fundamental geometric error we term the $\\textbf{Euclidean Fallacy}$: representing SE(3) poses as flat $\\mathbb{R}^{12}$ vectors. This approximation induces (1) manifold drift violating SO(3) constraints, (2) broken equivariance under coordinate transformations, and (3) non-geodesic trajectories with excessive kinematic cost. We introduce $\\textbf{Lie Diffuser Actor (LDA)}$, a diffusion framework operating intrinsically on SE(3). Our method injects noise through left-invariant SDEs, predicts scores in the tangent space, and retracts samples via the exponential map. This formulation eliminates manifold drift by construction while guaranteeing coordinate-frame equivariance and geodesic optimality. On CALVIN ABC$\\rightarrow$D, LDA improves average task length from $3.27$ to $3.51$ ($+7.3\\%$). We further validate our method on real robot and the results show that our methodology outperforms the baseline on majority tasks.",
-      "link": "https://arxiv.org/abs/2606.01847v1",
-      "pdfLink": "https://arxiv.org/pdf/2606.01847v1",
-      "published": "2026-06-01T07:59:29Z",
-      "updated": "2026-06-01T07:59:29Z",
-      "authors": [
-        "Bing-Cheng Chuang",
-        "I-Hsuan Chu",
-        "Bor-Jiun Lin",
-        "YuanFu Yang",
-        "Min Sun",
-        "Chun-Yi Lee"
-      ],
-      "categories": [
-        "cs.LG",
-        "cs.RO"
-      ],
-      "score": 63,
-      "importanceLevel": "S",
-      "oneSentenceSummary": "该论文聚焦VLA、机器人，适合纳入今日重点关注。",
-      "whyImportant": "命中VLA、机器人、通用框架主题，分类覆盖cs.LG / cs.RO，且发布时间较新。",
-      "reasonTags": [
-        "VLA",
-        "机器人",
-        "通用框架"
-      ]
-    },
-    {
-      "id": "2606.02307v1",
-      "title": "FATE-VLA:Failue-aware test generation for vision-language-action models",
-      "summary": "Vision-Language-Action (VLA) models are increasingly used as generalist robot policies, yet their evaluation still relies largely on static benchmarks that randomly sample task scenes. We reframe VLA evaluation as an active failure-discovery problem and propose a failure-aware test-generation approach that combines diversity-driven explo…",
-      "summaryRaw": "Vision-Language-Action (VLA) models are increasingly used as generalist robot policies, yet their evaluation still relies largely on static benchmarks that randomly sample task scenes. In high-dimensional embodied spaces, failures are sparse and clustered, so static benchmarking can underestimate robustness risks. We reframe VLA evaluation as an active failure-discovery problem and propose a failure-aware test-generation approach that combines diversity-driven exploration with surrogate models learned from observed executions. The method steers testing toward high-risk yet diverse scene regions. Across four state-of-the-art VLA models, it uncovers substantially more failures (up to +29.7 % over selected baselines) while revealing more diverse failure modes. This mean that, for instance, in the case of GR00T-N1.6, success rate dropped from 64.4% to 34.7%. More broadly, our findings call for a shift in VLA evaluation: from passive measurement on fixed task suites to adaptive, failure-seeking test generation that exposes the structure of model weaknesses before deployment.",
-      "link": "https://arxiv.org/abs/2606.02307v1",
-      "pdfLink": "https://arxiv.org/pdf/2606.02307v1",
-      "published": "2026-06-01T14:27:13Z",
-      "updated": "2026-06-01T14:27:13Z",
-      "authors": [
-        "Arusa Kanwal",
-        "Pablo Valle",
-        "Shaukat Ali",
-        "Aitor Arrieta"
-      ],
-      "categories": [
-        "cs.RO"
-      ],
-      "score": 62,
-      "importanceLevel": "S",
-      "oneSentenceSummary": "该论文聚焦VLA、机器人，适合纳入今日重点关注。",
-      "whyImportant": "命中VLA、机器人、新基准、通用框架主题，分类覆盖cs.RO，且发布时间较新。",
-      "reasonTags": [
-        "VLA",
-        "机器人",
-        "新基准",
-        "通用框架"
-      ]
-    },
     {
       "id": "2606.01955v1",
       "title": "WALL-WM: Carving World Action Modeling at the Event Joints",
@@ -163,160 +49,344 @@ window.PAPERS_SITE_DATA = {
         "cs.CV",
         "cs.RO"
       ],
-      "score": 60,
+      "score": 95,
       "importanceLevel": "S",
-      "oneSentenceSummary": "该论文聚焦VLA、WAM，适合纳入今日重点关注。",
-      "whyImportant": "命中VLA、WAM、新基准、通用框架主题，分类覆盖cs.CV / cs.RO，且发布时间较新。",
+      "oneSentenceSummary": "以事件为基元的世界动作模型，实现视觉-语言-动作预训练。",
+      "whyImportant": "提出事件基元的VLA预训练范式，解决固定长度动作块与语义粒度不匹配问题，在真实世界泛化评估中达到SOTA。",
       "reasonTags": [
-        "VLA",
-        "WAM",
-        "新基准",
-        "通用框架"
+        "世界动作模型",
+        "事件基元",
+        "VLA预训练",
+        "真实泛化"
+      ],
+      "innovationPoints": [
+        "将语义事件作为原子学习单元，替代固定长度动作块的优化方式",
+        "构建事件级标注与聚类平衡采样的数据生态系统",
+        "提供事件推理与统一阶梯解码两种互补预测模式"
       ]
     },
     {
-      "id": "2606.01757v1",
-      "title": "PillarDETR: YOLO-Backbone and RT-DETR Head for Real-Time 3D Object Detection",
-      "summary": "Real-time 3D object detection is a critical component for the safe operation of autonomous driving systems and robotics. While LiDAR point clouds provide accurate spatial information, processing them efficiently remains a significant challenge.",
-      "summaryRaw": "Real-time 3D object detection is a critical component for the safe operation of autonomous driving systems and robotics. While LiDAR point clouds provide accurate spatial information, processing them efficiently remains a significant challenge. Traditional methods rely on complex 3D convolutions or anchor-based paradigms that struggle to balance detection accuracy with inference speed. In this paper, we propose PillarDETR, a novel end-to-end 3D object detection architecture that combines the efficiency of pillar-based LiDAR encoding with the representational power of modern 2D vision models. Specifically, PillarDETR replaces standard convolutional backbones with a Cross Stage Partial (CSP) network derived from YOLOv8, enabling richer feature extraction from pseudoimages. Furthermore, we discard conventional anchor-based or center-based detection heads in favor of a Real-Time Detection Transformer (RT-DETR) decoder. This hybrid design allows the network to capture global context and directly predict 3D bounding boxes without relying on non-maximum suppression (NMS). Extensive experiments on the KITTI and nuScenes benchmarks demonstrate that PillarDETR achieves a compelling trade-off between mean Average Precision (mAP) and inference latency. Our ablation studies confirm that integrating the YOLOv8 backbone and RT-DETR head yields substantial improvements over the PointPillars baseline, establishing PillarDETR as a highly effective solution for real-time 3D perception.",
-      "link": "https://arxiv.org/abs/2606.01757v1",
-      "pdfLink": "https://arxiv.org/pdf/2606.01757v1",
-      "published": "2026-06-01T06:22:47Z",
-      "updated": "2026-06-01T06:22:47Z",
+      "id": "2606.01847v1",
+      "title": "The Lie We Tell: Correcting the Euclidean Fallacy in Vision Language Action Policies via Score Matching on Tangent Space",
+      "summary": "Diffusion-based Vision-Language-Action policies achieve remarkable success in robotic manipulation, yet commit a fundamental geometric error we term the $\\textbf{Euclidean Fallacy}$: representing SE(3) poses as flat $\\mathbb{R}^{12}$ vectors. We further validate our method on real robot and the results show that our methodology outperfor…",
+      "summaryRaw": "Diffusion-based Vision-Language-Action policies achieve remarkable success in robotic manipulation, yet commit a fundamental geometric error we term the $\\textbf{Euclidean Fallacy}$: representing SE(3) poses as flat $\\mathbb{R}^{12}$ vectors. This approximation induces (1) manifold drift violating SO(3) constraints, (2) broken equivariance under coordinate transformations, and (3) non-geodesic trajectories with excessive kinematic cost. We introduce $\\textbf{Lie Diffuser Actor (LDA)}$, a diffusion framework operating intrinsically on SE(3). Our method injects noise through left-invariant SDEs, predicts scores in the tangent space, and retracts samples via the exponential map. This formulation eliminates manifold drift by construction while guaranteeing coordinate-frame equivariance and geodesic optimality. On CALVIN ABC$\\rightarrow$D, LDA improves average task length from $3.27$ to $3.51$ ($+7.3\\%$). We further validate our method on real robot and the results show that our methodology outperforms the baseline on majority tasks.",
+      "link": "https://arxiv.org/abs/2606.01847v1",
+      "pdfLink": "https://arxiv.org/pdf/2606.01847v1",
+      "published": "2026-06-01T07:59:29Z",
+      "updated": "2026-06-01T07:59:29Z",
       "authors": [
-        "Smit Kadvani",
-        "Shriya Gumber",
-        "Kriti Faujdar",
-        "Harsh Dave"
+        "Bing-Cheng Chuang",
+        "I-Hsuan Chu",
+        "Bor-Jiun Lin",
+        "YuanFu Yang",
+        "Min Sun",
+        "Chun-Yi Lee"
       ],
       "categories": [
-        "cs.CV"
+        "cs.LG",
+        "cs.RO"
       ],
-      "score": 53,
+      "score": 92,
       "importanceLevel": "S",
-      "oneSentenceSummary": "该论文聚焦机器人、自动驾驶，适合纳入今日重点关注。",
-      "whyImportant": "命中机器人、自动驾驶、新基准主题，分类覆盖cs.CV，且发布时间较新。",
+      "oneSentenceSummary": "在SE(3)切空间上进行扩散，纠正VLA策略的欧几里得谬误。",
+      "whyImportant": "揭示VLA中将SE(3)姿态视为欧氏向量引起的几何漂移、等变破坏和路径非测地性，提出的李群扩散器在CALVIN和真实机器人上显著改进性能。",
       "reasonTags": [
-        "机器人",
-        "自动驾驶",
-        "新基准"
+        "VLA策略",
+        "SE(3)流形",
+        "扩散模型",
+        "几何纠错"
+      ],
+      "innovationPoints": [
+        "指出VLA中SE(3)表示的欧几里得谬误及三大后果",
+        "设计在切空间上通过左不变SDE加噪与指数映射采样的扩散框架",
+        "验证了流形约束、坐标等变和测地最优性对操作任务的提升"
       ]
     },
     {
-      "id": "2606.01600v1",
-      "title": "RoboTrustBench: Benchmarking the Trustworthiness of Video World Models for Robotic Manipulation",
-      "summary": "Video world models are increasingly used in robotic manipulation, yet existing benchmarks mostly evaluate them under valid, feasible, and safe instructions. These results show that visual quality and surface-level instruction following are insufficient for trustworthy robotic video world modeling.",
-      "summaryRaw": "Video world models are increasingly used in robotic manipulation, yet existing benchmarks mostly evaluate them under valid, feasible, and safe instructions. We introduce RoboTrustBench, a benchmark for evaluating the trustworthiness of video world models under four scenarios: Normal, Constraint-Sensitive, Counterfactual, and Adversarial. Built from real-world DROID episodes, RoboTrustBench contains 1,207 expert-validated instruction-image pairs and a six-dimensional evaluation protocol with 13 fine-grained criteria. Evaluating seven representative video world models with human and MLLM assessment, we find that current models often generate visually coherent videos, but struggle with constraint reasoning, counterfactual grounding, physical interaction, and unsafe-instruction suppression. These results show that visual quality and surface-level instruction following are insufficient for trustworthy robotic video world modeling.",
-      "link": "https://arxiv.org/abs/2606.01600v1",
-      "pdfLink": "https://arxiv.org/pdf/2606.01600v1",
-      "published": "2026-06-01T02:56:09Z",
-      "updated": "2026-06-01T02:56:09Z",
+      "id": "2606.02486v1",
+      "title": "Intercepting the Future: Latent-Space Predictive World Model for Dynamic VLA Manipulation",
+      "summary": "Vision-Language-Action (VLA) models generalize across static manipulation but fail when objects move during task execution. A small world model trained on manipulation video forecasts future patch tokens in the VLA's feature space, conditioned on per-token velocity and acceleration from optical flow.",
+      "summaryRaw": "Vision-Language-Action (VLA) models generalize across static manipulation but fail when objects move during task execution. They map the current observation to an action and assume the scene is stationary between observation and execution, so at any non-trivial object speed the resulting latency exceeds the time available to grasp. We close this gap with AHEAD (Anticipatory Horizon Extrapolation with Adaptive Dynamics), a predict-then-act wrapper that augments a frozen VLA with a motion-aware latent world model. A small world model trained on manipulation video forecasts future patch tokens in the VLA's feature space, conditioned on per-token velocity and acceleration from optical flow. A language-and-motion saliency mask concentrates prediction on task-relevant patches, and the model rolls forward for an adaptive horizon, halting when prediction uncertainty crosses a threshold. The frozen action decoder then receives the predicted future tokens in place of the current ones. AHEAD adds 4.9M parameters to a frozen 7B OpenVLA and reaches 79 to 97% success across 20 dynamic simulation scenarios where the strongest baseline reaches 31 to 58%. On a physical UFactory xArm 7, AHEAD succeeds on 29/30 to 30/30 on three conveyor and rolling-ball tasks, 23/30 on paddle interception, and 19/30 on projectile catching where every baseline scores 0/30.",
+      "link": "https://arxiv.org/abs/2606.02486v1",
+      "pdfLink": "https://arxiv.org/pdf/2606.02486v1",
+      "published": "2026-06-01T16:55:38Z",
+      "updated": "2026-06-01T16:55:38Z",
       "authors": [
-        "Huiqiong Li",
-        "Jiayu Wang",
-        "Zhiting Mei",
-        "Anirudha Majumdar",
-        "Jingjing Chen",
-        "Bin Zhu"
+        "Shahram Najam Syed",
+        "Arthur Jakobsson",
+        "Haoran Hao",
+        "Jeffrey Ichnowski"
+      ],
+      "categories": [
+        "cs.RO"
+      ],
+      "score": 90,
+      "importanceLevel": "S",
+      "oneSentenceSummary": "预测未来视觉特征的潜在世界模型，使VLA能应对动态物体。",
+      "whyImportant": "解决VLA在物体运动时因观察延迟导致的操作失败，仅增加4.9M参数便将动态任务成功率提升至79-97%，且零次迁移到多个物理任务。",
+      "reasonTags": [
+        "动态VLA",
+        "预测世界模型",
+        "操作延迟",
+        "真实机器人"
+      ],
+      "innovationPoints": [
+        "提出预测未来视觉特征的包装器，填补VLA的延迟感知缺陷",
+        "利用光流和语言掩码在VLA特征空间训练紧凑世界模型",
+        "自适应预测步长与不确定性阈值，冻结解码器直接使用预测特征"
+      ]
+    },
+    {
+      "id": "2606.02307v1",
+      "title": "FATE-VLA:Failue-aware test generation for vision-language-action models",
+      "summary": "Vision-Language-Action (VLA) models are increasingly used as generalist robot policies, yet their evaluation still relies largely on static benchmarks that randomly sample task scenes. We reframe VLA evaluation as an active failure-discovery problem and propose a failure-aware test-generation approach that combines diversity-driven explo…",
+      "summaryRaw": "Vision-Language-Action (VLA) models are increasingly used as generalist robot policies, yet their evaluation still relies largely on static benchmarks that randomly sample task scenes. In high-dimensional embodied spaces, failures are sparse and clustered, so static benchmarking can underestimate robustness risks. We reframe VLA evaluation as an active failure-discovery problem and propose a failure-aware test-generation approach that combines diversity-driven exploration with surrogate models learned from observed executions. The method steers testing toward high-risk yet diverse scene regions. Across four state-of-the-art VLA models, it uncovers substantially more failures (up to +29.7 % over selected baselines) while revealing more diverse failure modes. This mean that, for instance, in the case of GR00T-N1.6, success rate dropped from 64.4% to 34.7%. More broadly, our findings call for a shift in VLA evaluation: from passive measurement on fixed task suites to adaptive, failure-seeking test generation that exposes the structure of model weaknesses before deployment.",
+      "link": "https://arxiv.org/abs/2606.02307v1",
+      "pdfLink": "https://arxiv.org/pdf/2606.02307v1",
+      "published": "2026-06-01T14:27:13Z",
+      "updated": "2026-06-01T14:27:13Z",
+      "authors": [
+        "Arusa Kanwal",
+        "Pablo Valle",
+        "Shaukat Ali",
+        "Aitor Arrieta"
+      ],
+      "categories": [
+        "cs.RO"
+      ],
+      "score": 88,
+      "importanceLevel": "A",
+      "oneSentenceSummary": "面向VLA模型的失败感知测试生成，暴露稀疏的脆弱点。",
+      "whyImportant": "重新定义VLA评估为主动失败发现，结合多样性探索与代理模型，在四款SOTA模型中发现多出29.7%的失败，促使命题从被动基准转向自适应安全性测试。",
+      "reasonTags": [
+        "VLA评估",
+        "失败感知测试",
+        "风险驱动",
+        "安全部署"
+      ],
+      "innovationPoints": [
+        "提出故障感知测试生成框架，主动导向高风险多样化场景",
+        "使用代理模型学习已观测执行结果，精准引导测试",
+        "揭示GR00T-N1.6等模型成功率大幅下降，凸显评估范式变革必要"
+      ]
+    },
+    {
+      "id": "2606.02277v1",
+      "title": "RoboSemanticBench: Diagnosing Semantic Grounding in Action Prediction for VLA Models",
+      "summary": "Vision-language-action (VLA) models are built on the premise that semantic understanding from pretrained language or vision-language backbones should guide robot action prediction. We introduce RoboSemanticBench (RSB), an embodied benchmark for diagnosing semantic grounding in action prediction: whether post-trained VLA models can use co…",
+      "summaryRaw": "Vision-language-action (VLA) models are built on the premise that semantic understanding from pretrained language or vision-language backbones should guide robot action prediction. Yet robot fine-tuning is optimized as imitation over task-specific action distributions, and many evaluations can be solved through visual or instruction-action shortcuts. We introduce RoboSemanticBench (RSB), an embodied benchmark for diagnosing semantic grounding in action prediction: whether post-trained VLA models can use complex instruction semantics to select and manipulate the correct physical target. In each episode, a robot receives a multiple-choice math or general-knowledge question, observes candidate answer blocks, and must grasp the block corresponding to the correct answer. RSB covers controlled arithmetic, grade-school mathematical understanding, and commonsense or factual understanding under four-choice and ten-choice suites. Across representative VLA models, we find that many policies learn to grasp candidate blocks but select the semantically correct block at near-random or below-random rates after controlling for grasp success, revealing a persistent gap between backbone-level semantic competence and action prediction.",
+      "link": "https://arxiv.org/abs/2606.02277v1",
+      "pdfLink": "https://arxiv.org/pdf/2606.02277v1",
+      "published": "2026-06-01T14:02:37Z",
+      "updated": "2026-06-01T14:02:37Z",
+      "authors": [
+        "Bin Yu",
+        "Yao Zhang",
+        "Haishan Liu",
+        "Shijie Lian",
+        "Yuliang Wei",
+        "Xiaopeng Lin",
+        "Zhaolong Shen",
+        "Changti Wu"
+      ],
+      "categories": [
+        "cs.RO"
+      ],
+      "score": 85,
+      "importanceLevel": "A",
+      "oneSentenceSummary": "诊断VLA模型在动作预测中语义接地的基准测试，揭露知会断层。",
+      "whyImportant": "构建需要语义推理才能选择正确目标的抓取环境，发现多数VLA虽能抓取但语义正确率接近随机，证明后训练未弥合骨干与动作间的语义鸿沟。",
+      "reasonTags": [
+        "VLA语义接地",
+        "评测基准",
+        "推理抓取",
+        "语义断层"
+      ],
+      "innovationPoints": [
+        "首个针对VLA语义接地能力的诊断基准RoboSemanticBench",
+        "设计需要数学、常识推理才能确定抓取目标的具身任务",
+        "通过控制抓取成功率，分离出语义选择的真实准确性"
+      ]
+    },
+    {
+      "id": "2606.01951v1",
+      "title": "Co-training with Ego-centric Video and Demonstration for Robot Navigation Task",
+      "summary": "Vision-language-action (VLA) models are promising for diverse robotic tasks, but their performance heavily depends on large-scale high-quality training data, whose collection on real robots is costly and time-consuming. While prior work has explored augmenting manipulation datasets with egocentric human videos, applying such approaches t…",
+      "summaryRaw": "Vision-language-action (VLA) models are promising for diverse robotic tasks, but their performance heavily depends on large-scale high-quality training data, whose collection on real robots is costly and time-consuming. While prior work has explored augmenting manipulation datasets with egocentric human videos, applying such approaches to mobile robot navigation remains challenging due to viewpoint changes during locomotion. In this paper, we propose a framework that converts egocentric walking videos into datasets for mobile robot imitation learning. The proposed method estimates camera motion from human videos and transforms it into action representations compatible with ground mobile robots. By jointly training a VLA model on human-derived and robot-collected datasets, the model achieves improved language understanding and more robust action generation than training with either data source alone. Experiments on a fruit-search navigation task demonstrate that human egocentric videos provide an effective and scalable data source for mobile robot learning.",
+      "link": "https://arxiv.org/abs/2606.01951v1",
+      "pdfLink": "https://arxiv.org/pdf/2606.01951v1",
+      "published": "2026-06-01T09:12:22Z",
+      "updated": "2026-06-01T09:12:22Z",
+      "authors": [
+        "Shoya Kuno",
+        "Yumo Ouchi",
+        "Kanata Suzuki"
+      ],
+      "categories": [
+        "cs.RO"
+      ],
+      "score": 83,
+      "importanceLevel": "A",
+      "oneSentenceSummary": "将自我中心行走视频转换为移动机器人模仿学习数据，联合训练提升VLA。",
+      "whyImportant": "打破移动机器人真实数据采集瓶颈，利用人视角行走视频估计相机运动，转换为兼容动作表示，在水果搜索任务上验证了语言理解和动作生成的提升。",
+      "reasonTags": [
+        "VLA",
+        "数据增强",
+        "自我中心视频",
+        "移动导航"
+      ],
+      "innovationPoints": [
+        "提出从人体行走视频到地面机器人动作的转换框架",
+        "联合人类数据与机器人数据训练VLA，超越单一来源",
+        "在水果搜索导航中证明了可扩展数据源的实效性"
+      ]
+    },
+    {
+      "id": "2606.02027v1",
+      "title": "World-Task Factorization for Robot Learning",
+      "summary": "Robot learning must produce policies that generalize to new combinations of constraints, teammates, and environments. In this paper, we study what we argue is the most fundamental factorization in robotics: separating the world from the task.",
+      "summaryRaw": "Robot learning must produce policies that generalize to new combinations of constraints, teammates, and environments. To achieve this, we must structurally factor the policy, which is a choice that dictates what generalizes, what requires retraining, and what remains entangled. Existing methods span a wide spectrum, from expecting structure to emerge from data scaling, to hand-designing it via hierarchies, skill libraries or learned specializations. In this paper, we study what we argue is the most fundamental factorization in robotics: separating the world from the task. We investigate the conditions under which this factorization is principled. World factors are properties of the embodied system and the environment; they exist independently of intent. Task factors are defined by the task's logic over what the world admits. We formalize this asymmetry through Bayesian model evidence: it aligns with the data-generating process, maintains high likelihood through an analytical world model, and reduces the Occam razor's penalty on task parameters. We instantiate this factorization by pairing AICON, a differentiable graph of recursive estimators and interconnections that is compositional, operates without task-specific data, and propagates cost gradients to actuators, with a compact, learned policy that modulates gradient paths. Gradients serve as the interface between the two factors: they carry world structure through the graph and task structure through costs, enabling low-dimensional learning while preserving structural generalization. We test the world/task factorization across three problems that encompass heterogeneous robots, environments, task logic and sensorimotor modalities. Our framework outperforms end-to-end baselines and analytical heuristics in all settings, generalizes zero-shot to out-of-distribution configurations, and transfers to real hardware without retraining.",
+      "link": "https://arxiv.org/abs/2606.02027v1",
+      "pdfLink": "https://arxiv.org/pdf/2606.02027v1",
+      "published": "2026-06-01T10:16:07Z",
+      "updated": "2026-06-01T10:16:07Z",
+      "authors": [
+        "Eduardo Sebastián",
+        "Adrian Pfisterer",
+        "Vito Mengers",
+        "Oliver Brock",
+        "Amanda Prorok"
+      ],
+      "categories": [
+        "cs.LG",
+        "cs.RO"
+      ],
+      "score": 82,
+      "importanceLevel": "A",
+      "oneSentenceSummary": "将机器人策略分解为世界因子与任务因子，实现零样本泛化与硬件迁移。",
+      "whyImportant": "从贝叶斯证据出发论证世界/任务分解的原则性，通过可微图与学习策略的梯度接口，在异构环境中超越端到端基线，且无需再训练即可迁移到真实硬件。",
+      "reasonTags": [
+        "策略分解",
+        "世界任务解耦",
+        "零样本泛化",
+        "结构化学习"
+      ],
+      "innovationPoints": [
+        "形式化世界与任务的不对称性，给出贝叶斯模型证据的解释",
+        "利用AICON可微图传播成本梯度，紧凑策略调制路径",
+        "在多种具身、环境和任务组合下验证因子分解的结构泛化"
+      ]
+    },
+    {
+      "id": "2606.02577v1",
+      "title": "RoboDream: Compositional World Models for Scalable Robot Data Synthesis",
+      "summary": "Scaling robot learning requires large-scale, diverse demonstrations, yet real-world data collection via teleoperation remains prohibitively expensive and time-consuming. We demonstrate with real-world experiments that our generated data consistently improves downstream policy performance and significantly reduces real-world data requirem…",
+      "summaryRaw": "Scaling robot learning requires large-scale, diverse demonstrations, yet real-world data collection via teleoperation remains prohibitively expensive and time-consuming. While video diffusion models offer a promising avenue for data scaling, existing generative approaches are often limited to superficial visual augmentation, or suffer from embodiment hallucinations that yield physically infeasible motions. We present a generalizable embodiment-centric world model that achieves scalable data generation by synthesizing photorealistic demonstrations with novel objects, in novel scenes, and from novel viewpoints. Our approach anchors generation to rendered robot motion while conditioning on explicit scene and object priors, effectively decoupling trajectory execution from environment synthesis. This formulation has the potential to unlock two powerful data scaling capabilities: (1) retrieval and rebirth, which repurposes existing trajectories into entirely new contexts without new motion data; and (2) prop-free teleoperation, where operators manipulate empty air and the model hallucinates the target objects and scene afterwards, eliminating reset time. We demonstrate with real-world experiments that our generated data consistently improves downstream policy performance and significantly reduces real-world data requirements across diverse manipulation tasks.",
+      "link": "https://arxiv.org/abs/2606.02577v1",
+      "pdfLink": "https://arxiv.org/pdf/2606.02577v1",
+      "published": "2026-06-01T17:59:38Z",
+      "updated": "2026-06-01T17:59:38Z",
+      "authors": [
+        "Junjie Ye",
+        "Rong Xue",
+        "Basile Van Hoorick",
+        "Runhao Li",
+        "Harshitha Rajaprakash",
+        "Pavel Tokmakov",
+        "Muhammad Zubair Irshad",
+        "Vitor Guizilini"
       ],
       "categories": [
         "cs.CV",
         "cs.RO"
       ],
-      "score": 52,
-      "importanceLevel": "S",
-      "oneSentenceSummary": "该论文聚焦WAM、机器人，适合纳入今日重点关注。",
-      "whyImportant": "命中WAM、机器人、新基准主题，分类覆盖cs.CV / cs.RO，且发布时间较新。",
+      "score": 80,
+      "importanceLevel": "A",
+      "oneSentenceSummary": "具身中心的世界模型，可合成新物体、新场景下的光电真实演示。",
+      "whyImportant": "突破视频扩散模型中的具身幻觉，以机器人运动为锚点条件生成，支持轨迹重生和无实物遥操作，真实实验证明生成数据可稳步提升下游策略并减少真实需求。",
       "reasonTags": [
-        "WAM",
-        "机器人",
-        "新基准"
+        "世界模型",
+        "数据合成",
+        "具身生成",
+        "机器人操作"
+      ],
+      "innovationPoints": [
+        "提出具身中心生成范式，将运动执行与环境合成解耦",
+        "实现轨迹重生与无实物遥操作两种数据扩展能力",
+        "真实世界实验验证生成数据对策略性能的持续增益"
       ]
     },
     {
-      "id": "2606.01545v1",
-      "title": "Hierarchical Object Representation for Spatial Robot Perception: Points, Meshes, and Superquadrics",
-      "summary": "In this work, we introduce a hierarchical object representation that can be leveraged for high-fidelity object-level reconstruction, object-based robust re-localization or map alignment, and efficient and analytical collision checking for safe robot navigation planning in dense and cluttered environments. Our code can be found at https:/…",
-      "summaryRaw": "Hierarchical 3D Scene Graphs (3DSG) have emerged as an actionable and scalable representation for long-term autonomy incorporating metric, semantic, and topological information in the scene. However, the question of geometric representation of objects in 3DSG has been overlooked as most methods use simplified geometric models such as partial point clouds or 3D bounding boxes. In this work, we introduce a hierarchical object representation that can be leveraged for high-fidelity object-level reconstruction, object-based robust re-localization or map alignment, and efficient and analytical collision checking for safe robot navigation planning in dense and cluttered environments. The representation is structurally organized into four distinct layers, progressively abstracting the scene from raw sensor data to dense 3D meshes to analytical primitives such as superquadrics, which provide a sparse and analytical representation for object geometry. We develop a pipeline that builds the hierarchical object representation from RGB-D image stream captured by a robot, and demonstrate its working in real-world open-set object scenes in both indoor and outdoor environments. Extensive experiments across diverse datasets including HOPE, ReplicaCAD, Kimera-Multi, and NUS Campus Dataset collected using Unitree B2 Robot validate our pipeline in both indoor and outdoor environments. We show that our superquadric-based map alignment method outperforms the current state-of-the-art object based map alignment method ROMAN. Our code can be found at https://github.com/perceptica-robotics/Hickory.",
-      "link": "https://arxiv.org/abs/2606.01545v1",
-      "pdfLink": "https://arxiv.org/pdf/2606.01545v1",
-      "published": "2026-06-01T01:45:47Z",
-      "updated": "2026-06-01T01:45:47Z",
+      "id": "2606.02274v1",
+      "title": "Dexterity-BEV: Aligning 3D World and Actions for Generalizable Robot Policies Learning",
+      "summary": "End-to-end manipulation policies, combined with web-scale pretrained Vision-Language Models (VLMs), show the promise for generalizable and dexterous robotic manipulation. Then, we propose to align the inputs and outputs of manipulation policies by expressing per-pixel 3D information of each camera view and robot actions to a shared coord…",
+      "summaryRaw": "End-to-end manipulation policies, combined with web-scale pretrained Vision-Language Models (VLMs), show the promise for generalizable and dexterous robotic manipulation. However, they inherit two key limitations from 2D foundation models: 1) the reliance on 2D RGB inputs that ignores the intrinsically 3D nature of manipulation; and 2) the lack of spatial 3D alignment between input-output spaces as well as across diverse robot embodiments, camera setups, and trajectory datasets. In this paper, we present a series of contributions to address these issues. First, we introduce aligned vertex map and vertex spectrum -- a pixel-wise 3D representation that elevates 2D visual inputs to 3D, using camera calibration and optional depth. This novel input representation marries 3D awareness with the generalization of 2D large VLMs. Then, we propose to align the inputs and outputs of manipulation policies by expressing per-pixel 3D information of each camera view and robot actions to a shared coordinate. Based on this, we designate a canonical Bird's-Eye-View (BEV) alignment frame and innovatively propose to construct BEV images, producing a view-invariant representation robust to camera pose variations. To enable training and evaluation at scale, we develop a comprehensive data processing pipeline to perform such alignments; we also introduce a novel temporal alignment scheme for trajectories across diverse robots, human operators, and datasets. These contributions collectively mitigate input and output spatial-temporal misalignments, improving the consistency and generalization for real-world manipulation. Pretrained checkpoint, source code and data processing pipeline are available in https://hnuzhy.github.io/projects/Dex-BEV.",
+      "link": "https://arxiv.org/abs/2606.02274v1",
+      "pdfLink": "https://arxiv.org/pdf/2606.02274v1",
+      "published": "2026-06-01T14:01:11Z",
+      "updated": "2026-06-01T14:01:11Z",
       "authors": [
-        "Ceng Zhang",
-        "Wan Su",
-        "Mohamed Samshad",
-        "Gregory S. Chirikjian",
-        "Rajat Talak"
+        "Huayi Zhou",
+        "Wei Gao",
+        "Dekun Lu",
+        "Ruiji Liu",
+        "Zhanqi Zhang",
+        "Ziyang Zhang",
+        "Jian Chen",
+        "Wenlve Zhou"
       ],
       "categories": [
         "cs.RO"
       ],
-      "score": 52,
-      "importanceLevel": "S",
-      "oneSentenceSummary": "该论文聚焦机器人、新基准，适合纳入今日重点关注。",
-      "whyImportant": "命中机器人、新基准主题，分类覆盖cs.RO，且发布时间较新。",
+      "score": 79,
+      "importanceLevel": "A",
+      "oneSentenceSummary": "在鸟瞰视图对齐3D世界与动作，学习可泛化的机器人操作策略。",
+      "whyImportant": "解决2D基础模型忽略3D本质与跨具身对齐难题，提出顶点图表示和BEV对齐框架，预处理管道和代码公开，为大规模操作策略学习提供了空间一致性基础。",
       "reasonTags": [
-        "机器人",
-        "新基准"
+        "3D对齐",
+        "鸟瞰视图",
+        "跨具身操作",
+        "可泛化策略"
+      ],
+      "innovationPoints": [
+        "设计像素对齐的顶点图与顶点频谱，将2D输入提升至3D",
+        "提出在BEV坐标系中对齐输入输出，实现视角不变表示",
+        "构建支持多机器人、多数据集时序对齐的数据处理管道"
       ]
     },
     {
-      "id": "2606.02562v1",
-      "title": "Permissive Safety Through Trusted Inference: Verifiable Belief-Space Neural Safety Filters for Assured Interactive Robotics",
-      "summary": "Autonomous robots that interact with people must make safe and efficient decisions under human-induced uncertainty, such as their preferences, goals, competency, and willingness to cooperate. Safety filters are a popular approach for ensuring safety in interactive robotics, since their modular design separates safety from performance, al…",
-      "summaryRaw": "Autonomous robots that interact with people must make safe and efficient decisions under human-induced uncertainty, such as their preferences, goals, competency, and willingness to cooperate. Safety filters are a popular approach for ensuring safety in interactive robotics, since their modular design separates safety from performance, allowing robots to operate safely around people with minimal impact on task efficiency. While traditional safety filters typically operate only in the physical space, neglecting the robot's ability to learn and adapt online, the recently proposed belief-space safety filter (BeliefSF) reasons about robot safety in closed-loop with runtime inference that actively reduces the robot's uncertainty online, thereby reducing conservativeness in filtering. However, providing formal safety guarantees for robots deploying BeliefSF remains a significant challenge due to errors in runtime inference and neural approximation of safety filters required to handle the high dimensionality of belief spaces. In this paper, we propose an algorithmic approach to certify high-probability safety of BeliefSF using conformal prediction, while explicitly accounting for the reliability of the robot's runtime inference module. Our method leverages the structure of belief-space safety filtering by focusing verification on a region where inference is expected to be reliable. It preserves the simplicity and sample complexity of standard conformal prediction, yet can certify a substantially less conservative safety filter. Through a simulated human-vehicle interaction benchmark, we show that our approach verifies a significantly more permissive belief-space safety filter than a standard conformal prediction baseline.",
-      "link": "https://arxiv.org/abs/2606.02562v1",
-      "pdfLink": "https://arxiv.org/pdf/2606.02562v1",
-      "published": "2026-06-01T17:54:00Z",
-      "updated": "2026-06-01T17:54:00Z",
+      "id": "2606.01935v1",
+      "title": "Unified Driving Tokens: Representation- and Geometry-Guided Discrete Tokenizer for Driving World Models and Planning",
+      "summary": "Discrete visual tokens should provide a compact representation for both token-based world modeling and planning in autonomous driving. We evaluate the same learned tokens with a lightweight planning readout and a GPT-style next-token world model.",
+      "summaryRaw": "Discrete visual tokens should provide a compact representation for both token-based world modeling and planning in autonomous driving. However, most tokenizers are inherited from image generation and are optimized mainly for pixel reconstruction, which may leave a gap between what is easy to generate and what is useful to decode for driving decisions. We present a representation-guided and geometry-enhanced tokenizer that learns discrete tokens under joint supervision. The tokenizer aligns its discrete bottleneck with a frozen DINO feature space through feature decoding, while preserving appearance via RGB reconstruction with perceptual and adversarial losses. To inject geometric state-related cues, we add adjacent-frame depth and relative-pose supervision during training and stabilize joint objectives with multi-codebook quantization. We evaluate the same learned tokens with a lightweight planning readout and a GPT-style next-token world model. Experiments on NAVSIM show improved reconstruction fidelity and representation consistency, competitive planning performance under a fixed decoder, and better generative quality under matched settings.",
+      "link": "https://arxiv.org/abs/2606.01935v1",
+      "pdfLink": "https://arxiv.org/pdf/2606.01935v1",
+      "published": "2026-06-01T09:02:32Z",
+      "updated": "2026-06-01T09:02:32Z",
       "authors": [
-        "Haimin Hu"
-      ],
-      "categories": [
-        "cs.AI",
-        "cs.LG",
-        "cs.RO"
-      ],
-      "score": 49,
-      "importanceLevel": "S",
-      "oneSentenceSummary": "该论文聚焦机器人、新基准，适合纳入今日重点关注。",
-      "whyImportant": "命中机器人、新基准主题，分类覆盖cs.AI / cs.LG，且发布时间较新。",
-      "reasonTags": [
-        "机器人",
-        "新基准"
-      ]
-    },
-    {
-      "id": "2606.01788v1",
-      "title": "PlatonicNav: Unveiling Semantic Correspondence in Navigation with Platonic Topological Maps",
-      "summary": "Embodied visual navigation, where an agent perceives a complex environment and acts to reach a goal from raw sensory input, underpins a wide range of applications such as household service robotics, assistive robotics, and large-scale autonomous exploration. To address these challenges, we extend the Platonic Representation Hypothesis to…",
-      "summaryRaw": "Embodied visual navigation, where an agent perceives a complex environment and acts to reach a goal from raw sensory input, underpins a wide range of applications such as household service robotics, assistive robotics, and large-scale autonomous exploration. However, recent attempts to unify vision-and-language navigation (VLN) and object goal navigation (ObjNav) remain at the level of architectural fusion, mixed-task training, and large vision-language pretraining, without examining whether independently trained vision and language encoders may already share a common semantic structure. Moreover, even object-centric topological maps still ground language goals through explicit cross-modal supervision such as CLIP or large vision-language models, leaving open whether such grounding is possible from a purely vision-built map. To address these challenges, we extend the Platonic Representation Hypothesis to embodied navigation and recast vision-only ObjNav, cross-modal ObjNav, and VLN as three different interfaces to the same object-centric semantic manifold. We further introduce PlatonicNav, a training-free framework whose Platonic Topological Map fuses geometric and semantic node distances from a self-supervised visual encoder, and grounds language goals via blind matching without any paired vision-language data. Extensive experiments on simulation benchmarks including HM3D-IIN, OVON, and R2R-CE on MP3D, together with deployment on Unitree Go2, demonstrate that PlatonicNav generalizes across tasks, modalities, and embodiments without explicit cross-modal training. Code: https://github.com/AIGeeksGroup/PlatonicNav. Website: https://aigeeksgroup.github.io/PlatonicNav.",
-      "link": "https://arxiv.org/abs/2606.01788v1",
-      "pdfLink": "https://arxiv.org/pdf/2606.01788v1",
-      "published": "2026-06-01T07:08:50Z",
-      "updated": "2026-06-01T07:08:50Z",
-      "authors": [
-        "Junlin Long",
-        "Zeyu Zhang",
-        "Xu Deng",
-        "Yiran Wang",
-        "Yue Yang",
-        "Luke Borgnolo",
-        "Maxwell Twelftree",
-        "Yang Zhao"
+        "Ziyang Yao",
+        "Zeyu Zhu",
+        "YunCheng Jiang",
+        "Zibin Guo",
+        "Huijing Zhao"
       ],
       "categories": [
         "cs.CV"
       ],
-      "score": 49,
-      "importanceLevel": "S",
-      "oneSentenceSummary": "该论文聚焦机器人、新基准，适合纳入今日重点关注。",
-      "whyImportant": "命中机器人、新基准、通用框架主题，分类覆盖cs.CV，且发布时间较新。",
+      "score": 75,
+      "importanceLevel": "B",
+      "oneSentenceSummary": "联合表征与几何引导的离散分词器，用于驾驶世界模型与规划。",
+      "whyImportant": "弥补驾驶分词器仅优化像素重建的不足，通过DINO特征对齐和几何位姿监督增强令牌的语义与结构信息，在NAVSIM上展现重建、规划与生成质量的多重提升。",
       "reasonTags": [
-        "机器人",
-        "新基准",
-        "通用框架"
+        "驾驶世界模型",
+        "离散分词器",
+        "表征引导",
+        "几何增强"
+      ],
+      "innovationPoints": [
+        "提出联合DINO特征重建与RGB重建的离散令牌学习方案",
+        "引入邻近帧深度与相对位姿约束注入几何状态信息",
+        "同一令牌同时服务轻量规划读出与GPT风格世界建模"
       ]
     }
   ],
@@ -324,127 +394,9 @@ window.PAPERS_SITE_DATA = {
     {
       "dateKey": "20260602",
       "dateLabel": "2026-06-02",
-      "generatedAt": "2026-06-02T14:19:24.415042+00:00",
+      "generatedAt": "2026-06-02T14:50:51.080602+00:00",
       "paperCount": 10,
       "papers": [
-        {
-          "id": "2606.01951v1",
-          "title": "Co-training with Ego-centric Video and Demonstration for Robot Navigation Task",
-          "summary": "Vision-language-action (VLA) models are promising for diverse robotic tasks, but their performance heavily depends on large-scale high-quality training data, whose collection on real robots is costly and time-consuming. While prior work has explored augmenting manipulation datasets with egocentric human videos, applying such approaches t…",
-          "summaryRaw": "Vision-language-action (VLA) models are promising for diverse robotic tasks, but their performance heavily depends on large-scale high-quality training data, whose collection on real robots is costly and time-consuming. While prior work has explored augmenting manipulation datasets with egocentric human videos, applying such approaches to mobile robot navigation remains challenging due to viewpoint changes during locomotion. In this paper, we propose a framework that converts egocentric walking videos into datasets for mobile robot imitation learning. The proposed method estimates camera motion from human videos and transforms it into action representations compatible with ground mobile robots. By jointly training a VLA model on human-derived and robot-collected datasets, the model achieves improved language understanding and more robust action generation than training with either data source alone. Experiments on a fruit-search navigation task demonstrate that human egocentric videos provide an effective and scalable data source for mobile robot learning.",
-          "link": "https://arxiv.org/abs/2606.01951v1",
-          "pdfLink": "https://arxiv.org/pdf/2606.01951v1",
-          "published": "2026-06-01T09:12:22Z",
-          "updated": "2026-06-01T09:12:22Z",
-          "authors": [
-            "Shoya Kuno",
-            "Yumo Ouchi",
-            "Kanata Suzuki"
-          ],
-          "categories": [
-            "cs.RO"
-          ],
-          "score": 66,
-          "importanceLevel": "S",
-          "oneSentenceSummary": "该论文聚焦VLA、机器人，适合纳入今日重点关注。",
-          "whyImportant": "命中VLA、机器人、新基准、通用框架主题，分类覆盖cs.RO，且发布时间较新。",
-          "reasonTags": [
-            "VLA",
-            "机器人",
-            "新基准",
-            "通用框架"
-          ]
-        },
-        {
-          "id": "2606.02027v1",
-          "title": "World-Task Factorization for Robot Learning",
-          "summary": "Robot learning must produce policies that generalize to new combinations of constraints, teammates, and environments. In this paper, we study what we argue is the most fundamental factorization in robotics: separating the world from the task.",
-          "summaryRaw": "Robot learning must produce policies that generalize to new combinations of constraints, teammates, and environments. To achieve this, we must structurally factor the policy, which is a choice that dictates what generalizes, what requires retraining, and what remains entangled. Existing methods span a wide spectrum, from expecting structure to emerge from data scaling, to hand-designing it via hierarchies, skill libraries or learned specializations. In this paper, we study what we argue is the most fundamental factorization in robotics: separating the world from the task. We investigate the conditions under which this factorization is principled. World factors are properties of the embodied system and the environment; they exist independently of intent. Task factors are defined by the task's logic over what the world admits. We formalize this asymmetry through Bayesian model evidence: it aligns with the data-generating process, maintains high likelihood through an analytical world model, and reduces the Occam razor's penalty on task parameters. We instantiate this factorization by pairing AICON, a differentiable graph of recursive estimators and interconnections that is compositional, operates without task-specific data, and propagates cost gradients to actuators, with a compact, learned policy that modulates gradient paths. Gradients serve as the interface between the two factors: they carry world structure through the graph and task structure through costs, enabling low-dimensional learning while preserving structural generalization. We test the world/task factorization across three problems that encompass heterogeneous robots, environments, task logic and sensorimotor modalities. Our framework outperforms end-to-end baselines and analytical heuristics in all settings, generalizes zero-shot to out-of-distribution configurations, and transfers to real hardware without retraining.",
-          "link": "https://arxiv.org/abs/2606.02027v1",
-          "pdfLink": "https://arxiv.org/pdf/2606.02027v1",
-          "published": "2026-06-01T10:16:07Z",
-          "updated": "2026-06-01T10:16:07Z",
-          "authors": [
-            "Eduardo Sebastián",
-            "Adrian Pfisterer",
-            "Vito Mengers",
-            "Oliver Brock",
-            "Amanda Prorok"
-          ],
-          "categories": [
-            "cs.LG",
-            "cs.RO"
-          ],
-          "score": 64,
-          "importanceLevel": "S",
-          "oneSentenceSummary": "该论文聚焦WAM、机器人，适合纳入今日重点关注。",
-          "whyImportant": "命中WAM、机器人、通用框架主题，分类覆盖cs.LG / cs.RO，且发布时间较新。",
-          "reasonTags": [
-            "WAM",
-            "机器人",
-            "通用框架"
-          ]
-        },
-        {
-          "id": "2606.01847v1",
-          "title": "The Lie We Tell: Correcting the Euclidean Fallacy in Vision Language Action Policies via Score Matching on Tangent Space",
-          "summary": "Diffusion-based Vision-Language-Action policies achieve remarkable success in robotic manipulation, yet commit a fundamental geometric error we term the $\\textbf{Euclidean Fallacy}$: representing SE(3) poses as flat $\\mathbb{R}^{12}$ vectors. We further validate our method on real robot and the results show that our methodology outperfor…",
-          "summaryRaw": "Diffusion-based Vision-Language-Action policies achieve remarkable success in robotic manipulation, yet commit a fundamental geometric error we term the $\\textbf{Euclidean Fallacy}$: representing SE(3) poses as flat $\\mathbb{R}^{12}$ vectors. This approximation induces (1) manifold drift violating SO(3) constraints, (2) broken equivariance under coordinate transformations, and (3) non-geodesic trajectories with excessive kinematic cost. We introduce $\\textbf{Lie Diffuser Actor (LDA)}$, a diffusion framework operating intrinsically on SE(3). Our method injects noise through left-invariant SDEs, predicts scores in the tangent space, and retracts samples via the exponential map. This formulation eliminates manifold drift by construction while guaranteeing coordinate-frame equivariance and geodesic optimality. On CALVIN ABC$\\rightarrow$D, LDA improves average task length from $3.27$ to $3.51$ ($+7.3\\%$). We further validate our method on real robot and the results show that our methodology outperforms the baseline on majority tasks.",
-          "link": "https://arxiv.org/abs/2606.01847v1",
-          "pdfLink": "https://arxiv.org/pdf/2606.01847v1",
-          "published": "2026-06-01T07:59:29Z",
-          "updated": "2026-06-01T07:59:29Z",
-          "authors": [
-            "Bing-Cheng Chuang",
-            "I-Hsuan Chu",
-            "Bor-Jiun Lin",
-            "YuanFu Yang",
-            "Min Sun",
-            "Chun-Yi Lee"
-          ],
-          "categories": [
-            "cs.LG",
-            "cs.RO"
-          ],
-          "score": 63,
-          "importanceLevel": "S",
-          "oneSentenceSummary": "该论文聚焦VLA、机器人，适合纳入今日重点关注。",
-          "whyImportant": "命中VLA、机器人、通用框架主题，分类覆盖cs.LG / cs.RO，且发布时间较新。",
-          "reasonTags": [
-            "VLA",
-            "机器人",
-            "通用框架"
-          ]
-        },
-        {
-          "id": "2606.02307v1",
-          "title": "FATE-VLA:Failue-aware test generation for vision-language-action models",
-          "summary": "Vision-Language-Action (VLA) models are increasingly used as generalist robot policies, yet their evaluation still relies largely on static benchmarks that randomly sample task scenes. We reframe VLA evaluation as an active failure-discovery problem and propose a failure-aware test-generation approach that combines diversity-driven explo…",
-          "summaryRaw": "Vision-Language-Action (VLA) models are increasingly used as generalist robot policies, yet their evaluation still relies largely on static benchmarks that randomly sample task scenes. In high-dimensional embodied spaces, failures are sparse and clustered, so static benchmarking can underestimate robustness risks. We reframe VLA evaluation as an active failure-discovery problem and propose a failure-aware test-generation approach that combines diversity-driven exploration with surrogate models learned from observed executions. The method steers testing toward high-risk yet diverse scene regions. Across four state-of-the-art VLA models, it uncovers substantially more failures (up to +29.7 % over selected baselines) while revealing more diverse failure modes. This mean that, for instance, in the case of GR00T-N1.6, success rate dropped from 64.4% to 34.7%. More broadly, our findings call for a shift in VLA evaluation: from passive measurement on fixed task suites to adaptive, failure-seeking test generation that exposes the structure of model weaknesses before deployment.",
-          "link": "https://arxiv.org/abs/2606.02307v1",
-          "pdfLink": "https://arxiv.org/pdf/2606.02307v1",
-          "published": "2026-06-01T14:27:13Z",
-          "updated": "2026-06-01T14:27:13Z",
-          "authors": [
-            "Arusa Kanwal",
-            "Pablo Valle",
-            "Shaukat Ali",
-            "Aitor Arrieta"
-          ],
-          "categories": [
-            "cs.RO"
-          ],
-          "score": 62,
-          "importanceLevel": "S",
-          "oneSentenceSummary": "该论文聚焦VLA、机器人，适合纳入今日重点关注。",
-          "whyImportant": "命中VLA、机器人、新基准、通用框架主题，分类覆盖cs.RO，且发布时间较新。",
-          "reasonTags": [
-            "VLA",
-            "机器人",
-            "新基准",
-            "通用框架"
-          ]
-        },
         {
           "id": "2606.01955v1",
           "title": "WALL-WM: Carving World Action Modeling at the Event Joints",
@@ -468,160 +420,344 @@ window.PAPERS_SITE_DATA = {
             "cs.CV",
             "cs.RO"
           ],
-          "score": 60,
+          "score": 95,
           "importanceLevel": "S",
-          "oneSentenceSummary": "该论文聚焦VLA、WAM，适合纳入今日重点关注。",
-          "whyImportant": "命中VLA、WAM、新基准、通用框架主题，分类覆盖cs.CV / cs.RO，且发布时间较新。",
+          "oneSentenceSummary": "以事件为基元的世界动作模型，实现视觉-语言-动作预训练。",
+          "whyImportant": "提出事件基元的VLA预训练范式，解决固定长度动作块与语义粒度不匹配问题，在真实世界泛化评估中达到SOTA。",
           "reasonTags": [
-            "VLA",
-            "WAM",
-            "新基准",
-            "通用框架"
+            "世界动作模型",
+            "事件基元",
+            "VLA预训练",
+            "真实泛化"
+          ],
+          "innovationPoints": [
+            "将语义事件作为原子学习单元，替代固定长度动作块的优化方式",
+            "构建事件级标注与聚类平衡采样的数据生态系统",
+            "提供事件推理与统一阶梯解码两种互补预测模式"
           ]
         },
         {
-          "id": "2606.01757v1",
-          "title": "PillarDETR: YOLO-Backbone and RT-DETR Head for Real-Time 3D Object Detection",
-          "summary": "Real-time 3D object detection is a critical component for the safe operation of autonomous driving systems and robotics. While LiDAR point clouds provide accurate spatial information, processing them efficiently remains a significant challenge.",
-          "summaryRaw": "Real-time 3D object detection is a critical component for the safe operation of autonomous driving systems and robotics. While LiDAR point clouds provide accurate spatial information, processing them efficiently remains a significant challenge. Traditional methods rely on complex 3D convolutions or anchor-based paradigms that struggle to balance detection accuracy with inference speed. In this paper, we propose PillarDETR, a novel end-to-end 3D object detection architecture that combines the efficiency of pillar-based LiDAR encoding with the representational power of modern 2D vision models. Specifically, PillarDETR replaces standard convolutional backbones with a Cross Stage Partial (CSP) network derived from YOLOv8, enabling richer feature extraction from pseudoimages. Furthermore, we discard conventional anchor-based or center-based detection heads in favor of a Real-Time Detection Transformer (RT-DETR) decoder. This hybrid design allows the network to capture global context and directly predict 3D bounding boxes without relying on non-maximum suppression (NMS). Extensive experiments on the KITTI and nuScenes benchmarks demonstrate that PillarDETR achieves a compelling trade-off between mean Average Precision (mAP) and inference latency. Our ablation studies confirm that integrating the YOLOv8 backbone and RT-DETR head yields substantial improvements over the PointPillars baseline, establishing PillarDETR as a highly effective solution for real-time 3D perception.",
-          "link": "https://arxiv.org/abs/2606.01757v1",
-          "pdfLink": "https://arxiv.org/pdf/2606.01757v1",
-          "published": "2026-06-01T06:22:47Z",
-          "updated": "2026-06-01T06:22:47Z",
+          "id": "2606.01847v1",
+          "title": "The Lie We Tell: Correcting the Euclidean Fallacy in Vision Language Action Policies via Score Matching on Tangent Space",
+          "summary": "Diffusion-based Vision-Language-Action policies achieve remarkable success in robotic manipulation, yet commit a fundamental geometric error we term the $\\textbf{Euclidean Fallacy}$: representing SE(3) poses as flat $\\mathbb{R}^{12}$ vectors. We further validate our method on real robot and the results show that our methodology outperfor…",
+          "summaryRaw": "Diffusion-based Vision-Language-Action policies achieve remarkable success in robotic manipulation, yet commit a fundamental geometric error we term the $\\textbf{Euclidean Fallacy}$: representing SE(3) poses as flat $\\mathbb{R}^{12}$ vectors. This approximation induces (1) manifold drift violating SO(3) constraints, (2) broken equivariance under coordinate transformations, and (3) non-geodesic trajectories with excessive kinematic cost. We introduce $\\textbf{Lie Diffuser Actor (LDA)}$, a diffusion framework operating intrinsically on SE(3). Our method injects noise through left-invariant SDEs, predicts scores in the tangent space, and retracts samples via the exponential map. This formulation eliminates manifold drift by construction while guaranteeing coordinate-frame equivariance and geodesic optimality. On CALVIN ABC$\\rightarrow$D, LDA improves average task length from $3.27$ to $3.51$ ($+7.3\\%$). We further validate our method on real robot and the results show that our methodology outperforms the baseline on majority tasks.",
+          "link": "https://arxiv.org/abs/2606.01847v1",
+          "pdfLink": "https://arxiv.org/pdf/2606.01847v1",
+          "published": "2026-06-01T07:59:29Z",
+          "updated": "2026-06-01T07:59:29Z",
           "authors": [
-            "Smit Kadvani",
-            "Shriya Gumber",
-            "Kriti Faujdar",
-            "Harsh Dave"
+            "Bing-Cheng Chuang",
+            "I-Hsuan Chu",
+            "Bor-Jiun Lin",
+            "YuanFu Yang",
+            "Min Sun",
+            "Chun-Yi Lee"
           ],
           "categories": [
-            "cs.CV"
+            "cs.LG",
+            "cs.RO"
           ],
-          "score": 53,
+          "score": 92,
           "importanceLevel": "S",
-          "oneSentenceSummary": "该论文聚焦机器人、自动驾驶，适合纳入今日重点关注。",
-          "whyImportant": "命中机器人、自动驾驶、新基准主题，分类覆盖cs.CV，且发布时间较新。",
+          "oneSentenceSummary": "在SE(3)切空间上进行扩散，纠正VLA策略的欧几里得谬误。",
+          "whyImportant": "揭示VLA中将SE(3)姿态视为欧氏向量引起的几何漂移、等变破坏和路径非测地性，提出的李群扩散器在CALVIN和真实机器人上显著改进性能。",
           "reasonTags": [
-            "机器人",
-            "自动驾驶",
-            "新基准"
+            "VLA策略",
+            "SE(3)流形",
+            "扩散模型",
+            "几何纠错"
+          ],
+          "innovationPoints": [
+            "指出VLA中SE(3)表示的欧几里得谬误及三大后果",
+            "设计在切空间上通过左不变SDE加噪与指数映射采样的扩散框架",
+            "验证了流形约束、坐标等变和测地最优性对操作任务的提升"
           ]
         },
         {
-          "id": "2606.01600v1",
-          "title": "RoboTrustBench: Benchmarking the Trustworthiness of Video World Models for Robotic Manipulation",
-          "summary": "Video world models are increasingly used in robotic manipulation, yet existing benchmarks mostly evaluate them under valid, feasible, and safe instructions. These results show that visual quality and surface-level instruction following are insufficient for trustworthy robotic video world modeling.",
-          "summaryRaw": "Video world models are increasingly used in robotic manipulation, yet existing benchmarks mostly evaluate them under valid, feasible, and safe instructions. We introduce RoboTrustBench, a benchmark for evaluating the trustworthiness of video world models under four scenarios: Normal, Constraint-Sensitive, Counterfactual, and Adversarial. Built from real-world DROID episodes, RoboTrustBench contains 1,207 expert-validated instruction-image pairs and a six-dimensional evaluation protocol with 13 fine-grained criteria. Evaluating seven representative video world models with human and MLLM assessment, we find that current models often generate visually coherent videos, but struggle with constraint reasoning, counterfactual grounding, physical interaction, and unsafe-instruction suppression. These results show that visual quality and surface-level instruction following are insufficient for trustworthy robotic video world modeling.",
-          "link": "https://arxiv.org/abs/2606.01600v1",
-          "pdfLink": "https://arxiv.org/pdf/2606.01600v1",
-          "published": "2026-06-01T02:56:09Z",
-          "updated": "2026-06-01T02:56:09Z",
+          "id": "2606.02486v1",
+          "title": "Intercepting the Future: Latent-Space Predictive World Model for Dynamic VLA Manipulation",
+          "summary": "Vision-Language-Action (VLA) models generalize across static manipulation but fail when objects move during task execution. A small world model trained on manipulation video forecasts future patch tokens in the VLA's feature space, conditioned on per-token velocity and acceleration from optical flow.",
+          "summaryRaw": "Vision-Language-Action (VLA) models generalize across static manipulation but fail when objects move during task execution. They map the current observation to an action and assume the scene is stationary between observation and execution, so at any non-trivial object speed the resulting latency exceeds the time available to grasp. We close this gap with AHEAD (Anticipatory Horizon Extrapolation with Adaptive Dynamics), a predict-then-act wrapper that augments a frozen VLA with a motion-aware latent world model. A small world model trained on manipulation video forecasts future patch tokens in the VLA's feature space, conditioned on per-token velocity and acceleration from optical flow. A language-and-motion saliency mask concentrates prediction on task-relevant patches, and the model rolls forward for an adaptive horizon, halting when prediction uncertainty crosses a threshold. The frozen action decoder then receives the predicted future tokens in place of the current ones. AHEAD adds 4.9M parameters to a frozen 7B OpenVLA and reaches 79 to 97% success across 20 dynamic simulation scenarios where the strongest baseline reaches 31 to 58%. On a physical UFactory xArm 7, AHEAD succeeds on 29/30 to 30/30 on three conveyor and rolling-ball tasks, 23/30 on paddle interception, and 19/30 on projectile catching where every baseline scores 0/30.",
+          "link": "https://arxiv.org/abs/2606.02486v1",
+          "pdfLink": "https://arxiv.org/pdf/2606.02486v1",
+          "published": "2026-06-01T16:55:38Z",
+          "updated": "2026-06-01T16:55:38Z",
           "authors": [
-            "Huiqiong Li",
-            "Jiayu Wang",
-            "Zhiting Mei",
-            "Anirudha Majumdar",
-            "Jingjing Chen",
-            "Bin Zhu"
+            "Shahram Najam Syed",
+            "Arthur Jakobsson",
+            "Haoran Hao",
+            "Jeffrey Ichnowski"
+          ],
+          "categories": [
+            "cs.RO"
+          ],
+          "score": 90,
+          "importanceLevel": "S",
+          "oneSentenceSummary": "预测未来视觉特征的潜在世界模型，使VLA能应对动态物体。",
+          "whyImportant": "解决VLA在物体运动时因观察延迟导致的操作失败，仅增加4.9M参数便将动态任务成功率提升至79-97%，且零次迁移到多个物理任务。",
+          "reasonTags": [
+            "动态VLA",
+            "预测世界模型",
+            "操作延迟",
+            "真实机器人"
+          ],
+          "innovationPoints": [
+            "提出预测未来视觉特征的包装器，填补VLA的延迟感知缺陷",
+            "利用光流和语言掩码在VLA特征空间训练紧凑世界模型",
+            "自适应预测步长与不确定性阈值，冻结解码器直接使用预测特征"
+          ]
+        },
+        {
+          "id": "2606.02307v1",
+          "title": "FATE-VLA:Failue-aware test generation for vision-language-action models",
+          "summary": "Vision-Language-Action (VLA) models are increasingly used as generalist robot policies, yet their evaluation still relies largely on static benchmarks that randomly sample task scenes. We reframe VLA evaluation as an active failure-discovery problem and propose a failure-aware test-generation approach that combines diversity-driven explo…",
+          "summaryRaw": "Vision-Language-Action (VLA) models are increasingly used as generalist robot policies, yet their evaluation still relies largely on static benchmarks that randomly sample task scenes. In high-dimensional embodied spaces, failures are sparse and clustered, so static benchmarking can underestimate robustness risks. We reframe VLA evaluation as an active failure-discovery problem and propose a failure-aware test-generation approach that combines diversity-driven exploration with surrogate models learned from observed executions. The method steers testing toward high-risk yet diverse scene regions. Across four state-of-the-art VLA models, it uncovers substantially more failures (up to +29.7 % over selected baselines) while revealing more diverse failure modes. This mean that, for instance, in the case of GR00T-N1.6, success rate dropped from 64.4% to 34.7%. More broadly, our findings call for a shift in VLA evaluation: from passive measurement on fixed task suites to adaptive, failure-seeking test generation that exposes the structure of model weaknesses before deployment.",
+          "link": "https://arxiv.org/abs/2606.02307v1",
+          "pdfLink": "https://arxiv.org/pdf/2606.02307v1",
+          "published": "2026-06-01T14:27:13Z",
+          "updated": "2026-06-01T14:27:13Z",
+          "authors": [
+            "Arusa Kanwal",
+            "Pablo Valle",
+            "Shaukat Ali",
+            "Aitor Arrieta"
+          ],
+          "categories": [
+            "cs.RO"
+          ],
+          "score": 88,
+          "importanceLevel": "A",
+          "oneSentenceSummary": "面向VLA模型的失败感知测试生成，暴露稀疏的脆弱点。",
+          "whyImportant": "重新定义VLA评估为主动失败发现，结合多样性探索与代理模型，在四款SOTA模型中发现多出29.7%的失败，促使命题从被动基准转向自适应安全性测试。",
+          "reasonTags": [
+            "VLA评估",
+            "失败感知测试",
+            "风险驱动",
+            "安全部署"
+          ],
+          "innovationPoints": [
+            "提出故障感知测试生成框架，主动导向高风险多样化场景",
+            "使用代理模型学习已观测执行结果，精准引导测试",
+            "揭示GR00T-N1.6等模型成功率大幅下降，凸显评估范式变革必要"
+          ]
+        },
+        {
+          "id": "2606.02277v1",
+          "title": "RoboSemanticBench: Diagnosing Semantic Grounding in Action Prediction for VLA Models",
+          "summary": "Vision-language-action (VLA) models are built on the premise that semantic understanding from pretrained language or vision-language backbones should guide robot action prediction. We introduce RoboSemanticBench (RSB), an embodied benchmark for diagnosing semantic grounding in action prediction: whether post-trained VLA models can use co…",
+          "summaryRaw": "Vision-language-action (VLA) models are built on the premise that semantic understanding from pretrained language or vision-language backbones should guide robot action prediction. Yet robot fine-tuning is optimized as imitation over task-specific action distributions, and many evaluations can be solved through visual or instruction-action shortcuts. We introduce RoboSemanticBench (RSB), an embodied benchmark for diagnosing semantic grounding in action prediction: whether post-trained VLA models can use complex instruction semantics to select and manipulate the correct physical target. In each episode, a robot receives a multiple-choice math or general-knowledge question, observes candidate answer blocks, and must grasp the block corresponding to the correct answer. RSB covers controlled arithmetic, grade-school mathematical understanding, and commonsense or factual understanding under four-choice and ten-choice suites. Across representative VLA models, we find that many policies learn to grasp candidate blocks but select the semantically correct block at near-random or below-random rates after controlling for grasp success, revealing a persistent gap between backbone-level semantic competence and action prediction.",
+          "link": "https://arxiv.org/abs/2606.02277v1",
+          "pdfLink": "https://arxiv.org/pdf/2606.02277v1",
+          "published": "2026-06-01T14:02:37Z",
+          "updated": "2026-06-01T14:02:37Z",
+          "authors": [
+            "Bin Yu",
+            "Yao Zhang",
+            "Haishan Liu",
+            "Shijie Lian",
+            "Yuliang Wei",
+            "Xiaopeng Lin",
+            "Zhaolong Shen",
+            "Changti Wu"
+          ],
+          "categories": [
+            "cs.RO"
+          ],
+          "score": 85,
+          "importanceLevel": "A",
+          "oneSentenceSummary": "诊断VLA模型在动作预测中语义接地的基准测试，揭露知会断层。",
+          "whyImportant": "构建需要语义推理才能选择正确目标的抓取环境，发现多数VLA虽能抓取但语义正确率接近随机，证明后训练未弥合骨干与动作间的语义鸿沟。",
+          "reasonTags": [
+            "VLA语义接地",
+            "评测基准",
+            "推理抓取",
+            "语义断层"
+          ],
+          "innovationPoints": [
+            "首个针对VLA语义接地能力的诊断基准RoboSemanticBench",
+            "设计需要数学、常识推理才能确定抓取目标的具身任务",
+            "通过控制抓取成功率，分离出语义选择的真实准确性"
+          ]
+        },
+        {
+          "id": "2606.01951v1",
+          "title": "Co-training with Ego-centric Video and Demonstration for Robot Navigation Task",
+          "summary": "Vision-language-action (VLA) models are promising for diverse robotic tasks, but their performance heavily depends on large-scale high-quality training data, whose collection on real robots is costly and time-consuming. While prior work has explored augmenting manipulation datasets with egocentric human videos, applying such approaches t…",
+          "summaryRaw": "Vision-language-action (VLA) models are promising for diverse robotic tasks, but their performance heavily depends on large-scale high-quality training data, whose collection on real robots is costly and time-consuming. While prior work has explored augmenting manipulation datasets with egocentric human videos, applying such approaches to mobile robot navigation remains challenging due to viewpoint changes during locomotion. In this paper, we propose a framework that converts egocentric walking videos into datasets for mobile robot imitation learning. The proposed method estimates camera motion from human videos and transforms it into action representations compatible with ground mobile robots. By jointly training a VLA model on human-derived and robot-collected datasets, the model achieves improved language understanding and more robust action generation than training with either data source alone. Experiments on a fruit-search navigation task demonstrate that human egocentric videos provide an effective and scalable data source for mobile robot learning.",
+          "link": "https://arxiv.org/abs/2606.01951v1",
+          "pdfLink": "https://arxiv.org/pdf/2606.01951v1",
+          "published": "2026-06-01T09:12:22Z",
+          "updated": "2026-06-01T09:12:22Z",
+          "authors": [
+            "Shoya Kuno",
+            "Yumo Ouchi",
+            "Kanata Suzuki"
+          ],
+          "categories": [
+            "cs.RO"
+          ],
+          "score": 83,
+          "importanceLevel": "A",
+          "oneSentenceSummary": "将自我中心行走视频转换为移动机器人模仿学习数据，联合训练提升VLA。",
+          "whyImportant": "打破移动机器人真实数据采集瓶颈，利用人视角行走视频估计相机运动，转换为兼容动作表示，在水果搜索任务上验证了语言理解和动作生成的提升。",
+          "reasonTags": [
+            "VLA",
+            "数据增强",
+            "自我中心视频",
+            "移动导航"
+          ],
+          "innovationPoints": [
+            "提出从人体行走视频到地面机器人动作的转换框架",
+            "联合人类数据与机器人数据训练VLA，超越单一来源",
+            "在水果搜索导航中证明了可扩展数据源的实效性"
+          ]
+        },
+        {
+          "id": "2606.02027v1",
+          "title": "World-Task Factorization for Robot Learning",
+          "summary": "Robot learning must produce policies that generalize to new combinations of constraints, teammates, and environments. In this paper, we study what we argue is the most fundamental factorization in robotics: separating the world from the task.",
+          "summaryRaw": "Robot learning must produce policies that generalize to new combinations of constraints, teammates, and environments. To achieve this, we must structurally factor the policy, which is a choice that dictates what generalizes, what requires retraining, and what remains entangled. Existing methods span a wide spectrum, from expecting structure to emerge from data scaling, to hand-designing it via hierarchies, skill libraries or learned specializations. In this paper, we study what we argue is the most fundamental factorization in robotics: separating the world from the task. We investigate the conditions under which this factorization is principled. World factors are properties of the embodied system and the environment; they exist independently of intent. Task factors are defined by the task's logic over what the world admits. We formalize this asymmetry through Bayesian model evidence: it aligns with the data-generating process, maintains high likelihood through an analytical world model, and reduces the Occam razor's penalty on task parameters. We instantiate this factorization by pairing AICON, a differentiable graph of recursive estimators and interconnections that is compositional, operates without task-specific data, and propagates cost gradients to actuators, with a compact, learned policy that modulates gradient paths. Gradients serve as the interface between the two factors: they carry world structure through the graph and task structure through costs, enabling low-dimensional learning while preserving structural generalization. We test the world/task factorization across three problems that encompass heterogeneous robots, environments, task logic and sensorimotor modalities. Our framework outperforms end-to-end baselines and analytical heuristics in all settings, generalizes zero-shot to out-of-distribution configurations, and transfers to real hardware without retraining.",
+          "link": "https://arxiv.org/abs/2606.02027v1",
+          "pdfLink": "https://arxiv.org/pdf/2606.02027v1",
+          "published": "2026-06-01T10:16:07Z",
+          "updated": "2026-06-01T10:16:07Z",
+          "authors": [
+            "Eduardo Sebastián",
+            "Adrian Pfisterer",
+            "Vito Mengers",
+            "Oliver Brock",
+            "Amanda Prorok"
+          ],
+          "categories": [
+            "cs.LG",
+            "cs.RO"
+          ],
+          "score": 82,
+          "importanceLevel": "A",
+          "oneSentenceSummary": "将机器人策略分解为世界因子与任务因子，实现零样本泛化与硬件迁移。",
+          "whyImportant": "从贝叶斯证据出发论证世界/任务分解的原则性，通过可微图与学习策略的梯度接口，在异构环境中超越端到端基线，且无需再训练即可迁移到真实硬件。",
+          "reasonTags": [
+            "策略分解",
+            "世界任务解耦",
+            "零样本泛化",
+            "结构化学习"
+          ],
+          "innovationPoints": [
+            "形式化世界与任务的不对称性，给出贝叶斯模型证据的解释",
+            "利用AICON可微图传播成本梯度，紧凑策略调制路径",
+            "在多种具身、环境和任务组合下验证因子分解的结构泛化"
+          ]
+        },
+        {
+          "id": "2606.02577v1",
+          "title": "RoboDream: Compositional World Models for Scalable Robot Data Synthesis",
+          "summary": "Scaling robot learning requires large-scale, diverse demonstrations, yet real-world data collection via teleoperation remains prohibitively expensive and time-consuming. We demonstrate with real-world experiments that our generated data consistently improves downstream policy performance and significantly reduces real-world data requirem…",
+          "summaryRaw": "Scaling robot learning requires large-scale, diverse demonstrations, yet real-world data collection via teleoperation remains prohibitively expensive and time-consuming. While video diffusion models offer a promising avenue for data scaling, existing generative approaches are often limited to superficial visual augmentation, or suffer from embodiment hallucinations that yield physically infeasible motions. We present a generalizable embodiment-centric world model that achieves scalable data generation by synthesizing photorealistic demonstrations with novel objects, in novel scenes, and from novel viewpoints. Our approach anchors generation to rendered robot motion while conditioning on explicit scene and object priors, effectively decoupling trajectory execution from environment synthesis. This formulation has the potential to unlock two powerful data scaling capabilities: (1) retrieval and rebirth, which repurposes existing trajectories into entirely new contexts without new motion data; and (2) prop-free teleoperation, where operators manipulate empty air and the model hallucinates the target objects and scene afterwards, eliminating reset time. We demonstrate with real-world experiments that our generated data consistently improves downstream policy performance and significantly reduces real-world data requirements across diverse manipulation tasks.",
+          "link": "https://arxiv.org/abs/2606.02577v1",
+          "pdfLink": "https://arxiv.org/pdf/2606.02577v1",
+          "published": "2026-06-01T17:59:38Z",
+          "updated": "2026-06-01T17:59:38Z",
+          "authors": [
+            "Junjie Ye",
+            "Rong Xue",
+            "Basile Van Hoorick",
+            "Runhao Li",
+            "Harshitha Rajaprakash",
+            "Pavel Tokmakov",
+            "Muhammad Zubair Irshad",
+            "Vitor Guizilini"
           ],
           "categories": [
             "cs.CV",
             "cs.RO"
           ],
-          "score": 52,
-          "importanceLevel": "S",
-          "oneSentenceSummary": "该论文聚焦WAM、机器人，适合纳入今日重点关注。",
-          "whyImportant": "命中WAM、机器人、新基准主题，分类覆盖cs.CV / cs.RO，且发布时间较新。",
+          "score": 80,
+          "importanceLevel": "A",
+          "oneSentenceSummary": "具身中心的世界模型，可合成新物体、新场景下的光电真实演示。",
+          "whyImportant": "突破视频扩散模型中的具身幻觉，以机器人运动为锚点条件生成，支持轨迹重生和无实物遥操作，真实实验证明生成数据可稳步提升下游策略并减少真实需求。",
           "reasonTags": [
-            "WAM",
-            "机器人",
-            "新基准"
+            "世界模型",
+            "数据合成",
+            "具身生成",
+            "机器人操作"
+          ],
+          "innovationPoints": [
+            "提出具身中心生成范式，将运动执行与环境合成解耦",
+            "实现轨迹重生与无实物遥操作两种数据扩展能力",
+            "真实世界实验验证生成数据对策略性能的持续增益"
           ]
         },
         {
-          "id": "2606.01545v1",
-          "title": "Hierarchical Object Representation for Spatial Robot Perception: Points, Meshes, and Superquadrics",
-          "summary": "In this work, we introduce a hierarchical object representation that can be leveraged for high-fidelity object-level reconstruction, object-based robust re-localization or map alignment, and efficient and analytical collision checking for safe robot navigation planning in dense and cluttered environments. Our code can be found at https:/…",
-          "summaryRaw": "Hierarchical 3D Scene Graphs (3DSG) have emerged as an actionable and scalable representation for long-term autonomy incorporating metric, semantic, and topological information in the scene. However, the question of geometric representation of objects in 3DSG has been overlooked as most methods use simplified geometric models such as partial point clouds or 3D bounding boxes. In this work, we introduce a hierarchical object representation that can be leveraged for high-fidelity object-level reconstruction, object-based robust re-localization or map alignment, and efficient and analytical collision checking for safe robot navigation planning in dense and cluttered environments. The representation is structurally organized into four distinct layers, progressively abstracting the scene from raw sensor data to dense 3D meshes to analytical primitives such as superquadrics, which provide a sparse and analytical representation for object geometry. We develop a pipeline that builds the hierarchical object representation from RGB-D image stream captured by a robot, and demonstrate its working in real-world open-set object scenes in both indoor and outdoor environments. Extensive experiments across diverse datasets including HOPE, ReplicaCAD, Kimera-Multi, and NUS Campus Dataset collected using Unitree B2 Robot validate our pipeline in both indoor and outdoor environments. We show that our superquadric-based map alignment method outperforms the current state-of-the-art object based map alignment method ROMAN. Our code can be found at https://github.com/perceptica-robotics/Hickory.",
-          "link": "https://arxiv.org/abs/2606.01545v1",
-          "pdfLink": "https://arxiv.org/pdf/2606.01545v1",
-          "published": "2026-06-01T01:45:47Z",
-          "updated": "2026-06-01T01:45:47Z",
+          "id": "2606.02274v1",
+          "title": "Dexterity-BEV: Aligning 3D World and Actions for Generalizable Robot Policies Learning",
+          "summary": "End-to-end manipulation policies, combined with web-scale pretrained Vision-Language Models (VLMs), show the promise for generalizable and dexterous robotic manipulation. Then, we propose to align the inputs and outputs of manipulation policies by expressing per-pixel 3D information of each camera view and robot actions to a shared coord…",
+          "summaryRaw": "End-to-end manipulation policies, combined with web-scale pretrained Vision-Language Models (VLMs), show the promise for generalizable and dexterous robotic manipulation. However, they inherit two key limitations from 2D foundation models: 1) the reliance on 2D RGB inputs that ignores the intrinsically 3D nature of manipulation; and 2) the lack of spatial 3D alignment between input-output spaces as well as across diverse robot embodiments, camera setups, and trajectory datasets. In this paper, we present a series of contributions to address these issues. First, we introduce aligned vertex map and vertex spectrum -- a pixel-wise 3D representation that elevates 2D visual inputs to 3D, using camera calibration and optional depth. This novel input representation marries 3D awareness with the generalization of 2D large VLMs. Then, we propose to align the inputs and outputs of manipulation policies by expressing per-pixel 3D information of each camera view and robot actions to a shared coordinate. Based on this, we designate a canonical Bird's-Eye-View (BEV) alignment frame and innovatively propose to construct BEV images, producing a view-invariant representation robust to camera pose variations. To enable training and evaluation at scale, we develop a comprehensive data processing pipeline to perform such alignments; we also introduce a novel temporal alignment scheme for trajectories across diverse robots, human operators, and datasets. These contributions collectively mitigate input and output spatial-temporal misalignments, improving the consistency and generalization for real-world manipulation. Pretrained checkpoint, source code and data processing pipeline are available in https://hnuzhy.github.io/projects/Dex-BEV.",
+          "link": "https://arxiv.org/abs/2606.02274v1",
+          "pdfLink": "https://arxiv.org/pdf/2606.02274v1",
+          "published": "2026-06-01T14:01:11Z",
+          "updated": "2026-06-01T14:01:11Z",
           "authors": [
-            "Ceng Zhang",
-            "Wan Su",
-            "Mohamed Samshad",
-            "Gregory S. Chirikjian",
-            "Rajat Talak"
+            "Huayi Zhou",
+            "Wei Gao",
+            "Dekun Lu",
+            "Ruiji Liu",
+            "Zhanqi Zhang",
+            "Ziyang Zhang",
+            "Jian Chen",
+            "Wenlve Zhou"
           ],
           "categories": [
             "cs.RO"
           ],
-          "score": 52,
-          "importanceLevel": "S",
-          "oneSentenceSummary": "该论文聚焦机器人、新基准，适合纳入今日重点关注。",
-          "whyImportant": "命中机器人、新基准主题，分类覆盖cs.RO，且发布时间较新。",
+          "score": 79,
+          "importanceLevel": "A",
+          "oneSentenceSummary": "在鸟瞰视图对齐3D世界与动作，学习可泛化的机器人操作策略。",
+          "whyImportant": "解决2D基础模型忽略3D本质与跨具身对齐难题，提出顶点图表示和BEV对齐框架，预处理管道和代码公开，为大规模操作策略学习提供了空间一致性基础。",
           "reasonTags": [
-            "机器人",
-            "新基准"
+            "3D对齐",
+            "鸟瞰视图",
+            "跨具身操作",
+            "可泛化策略"
+          ],
+          "innovationPoints": [
+            "设计像素对齐的顶点图与顶点频谱，将2D输入提升至3D",
+            "提出在BEV坐标系中对齐输入输出，实现视角不变表示",
+            "构建支持多机器人、多数据集时序对齐的数据处理管道"
           ]
         },
         {
-          "id": "2606.02562v1",
-          "title": "Permissive Safety Through Trusted Inference: Verifiable Belief-Space Neural Safety Filters for Assured Interactive Robotics",
-          "summary": "Autonomous robots that interact with people must make safe and efficient decisions under human-induced uncertainty, such as their preferences, goals, competency, and willingness to cooperate. Safety filters are a popular approach for ensuring safety in interactive robotics, since their modular design separates safety from performance, al…",
-          "summaryRaw": "Autonomous robots that interact with people must make safe and efficient decisions under human-induced uncertainty, such as their preferences, goals, competency, and willingness to cooperate. Safety filters are a popular approach for ensuring safety in interactive robotics, since their modular design separates safety from performance, allowing robots to operate safely around people with minimal impact on task efficiency. While traditional safety filters typically operate only in the physical space, neglecting the robot's ability to learn and adapt online, the recently proposed belief-space safety filter (BeliefSF) reasons about robot safety in closed-loop with runtime inference that actively reduces the robot's uncertainty online, thereby reducing conservativeness in filtering. However, providing formal safety guarantees for robots deploying BeliefSF remains a significant challenge due to errors in runtime inference and neural approximation of safety filters required to handle the high dimensionality of belief spaces. In this paper, we propose an algorithmic approach to certify high-probability safety of BeliefSF using conformal prediction, while explicitly accounting for the reliability of the robot's runtime inference module. Our method leverages the structure of belief-space safety filtering by focusing verification on a region where inference is expected to be reliable. It preserves the simplicity and sample complexity of standard conformal prediction, yet can certify a substantially less conservative safety filter. Through a simulated human-vehicle interaction benchmark, we show that our approach verifies a significantly more permissive belief-space safety filter than a standard conformal prediction baseline.",
-          "link": "https://arxiv.org/abs/2606.02562v1",
-          "pdfLink": "https://arxiv.org/pdf/2606.02562v1",
-          "published": "2026-06-01T17:54:00Z",
-          "updated": "2026-06-01T17:54:00Z",
+          "id": "2606.01935v1",
+          "title": "Unified Driving Tokens: Representation- and Geometry-Guided Discrete Tokenizer for Driving World Models and Planning",
+          "summary": "Discrete visual tokens should provide a compact representation for both token-based world modeling and planning in autonomous driving. We evaluate the same learned tokens with a lightweight planning readout and a GPT-style next-token world model.",
+          "summaryRaw": "Discrete visual tokens should provide a compact representation for both token-based world modeling and planning in autonomous driving. However, most tokenizers are inherited from image generation and are optimized mainly for pixel reconstruction, which may leave a gap between what is easy to generate and what is useful to decode for driving decisions. We present a representation-guided and geometry-enhanced tokenizer that learns discrete tokens under joint supervision. The tokenizer aligns its discrete bottleneck with a frozen DINO feature space through feature decoding, while preserving appearance via RGB reconstruction with perceptual and adversarial losses. To inject geometric state-related cues, we add adjacent-frame depth and relative-pose supervision during training and stabilize joint objectives with multi-codebook quantization. We evaluate the same learned tokens with a lightweight planning readout and a GPT-style next-token world model. Experiments on NAVSIM show improved reconstruction fidelity and representation consistency, competitive planning performance under a fixed decoder, and better generative quality under matched settings.",
+          "link": "https://arxiv.org/abs/2606.01935v1",
+          "pdfLink": "https://arxiv.org/pdf/2606.01935v1",
+          "published": "2026-06-01T09:02:32Z",
+          "updated": "2026-06-01T09:02:32Z",
           "authors": [
-            "Haimin Hu"
-          ],
-          "categories": [
-            "cs.AI",
-            "cs.LG",
-            "cs.RO"
-          ],
-          "score": 49,
-          "importanceLevel": "S",
-          "oneSentenceSummary": "该论文聚焦机器人、新基准，适合纳入今日重点关注。",
-          "whyImportant": "命中机器人、新基准主题，分类覆盖cs.AI / cs.LG，且发布时间较新。",
-          "reasonTags": [
-            "机器人",
-            "新基准"
-          ]
-        },
-        {
-          "id": "2606.01788v1",
-          "title": "PlatonicNav: Unveiling Semantic Correspondence in Navigation with Platonic Topological Maps",
-          "summary": "Embodied visual navigation, where an agent perceives a complex environment and acts to reach a goal from raw sensory input, underpins a wide range of applications such as household service robotics, assistive robotics, and large-scale autonomous exploration. To address these challenges, we extend the Platonic Representation Hypothesis to…",
-          "summaryRaw": "Embodied visual navigation, where an agent perceives a complex environment and acts to reach a goal from raw sensory input, underpins a wide range of applications such as household service robotics, assistive robotics, and large-scale autonomous exploration. However, recent attempts to unify vision-and-language navigation (VLN) and object goal navigation (ObjNav) remain at the level of architectural fusion, mixed-task training, and large vision-language pretraining, without examining whether independently trained vision and language encoders may already share a common semantic structure. Moreover, even object-centric topological maps still ground language goals through explicit cross-modal supervision such as CLIP or large vision-language models, leaving open whether such grounding is possible from a purely vision-built map. To address these challenges, we extend the Platonic Representation Hypothesis to embodied navigation and recast vision-only ObjNav, cross-modal ObjNav, and VLN as three different interfaces to the same object-centric semantic manifold. We further introduce PlatonicNav, a training-free framework whose Platonic Topological Map fuses geometric and semantic node distances from a self-supervised visual encoder, and grounds language goals via blind matching without any paired vision-language data. Extensive experiments on simulation benchmarks including HM3D-IIN, OVON, and R2R-CE on MP3D, together with deployment on Unitree Go2, demonstrate that PlatonicNav generalizes across tasks, modalities, and embodiments without explicit cross-modal training. Code: https://github.com/AIGeeksGroup/PlatonicNav. Website: https://aigeeksgroup.github.io/PlatonicNav.",
-          "link": "https://arxiv.org/abs/2606.01788v1",
-          "pdfLink": "https://arxiv.org/pdf/2606.01788v1",
-          "published": "2026-06-01T07:08:50Z",
-          "updated": "2026-06-01T07:08:50Z",
-          "authors": [
-            "Junlin Long",
-            "Zeyu Zhang",
-            "Xu Deng",
-            "Yiran Wang",
-            "Yue Yang",
-            "Luke Borgnolo",
-            "Maxwell Twelftree",
-            "Yang Zhao"
+            "Ziyang Yao",
+            "Zeyu Zhu",
+            "YunCheng Jiang",
+            "Zibin Guo",
+            "Huijing Zhao"
           ],
           "categories": [
             "cs.CV"
           ],
-          "score": 49,
-          "importanceLevel": "S",
-          "oneSentenceSummary": "该论文聚焦机器人、新基准，适合纳入今日重点关注。",
-          "whyImportant": "命中机器人、新基准、通用框架主题，分类覆盖cs.CV，且发布时间较新。",
+          "score": 75,
+          "importanceLevel": "B",
+          "oneSentenceSummary": "联合表征与几何引导的离散分词器，用于驾驶世界模型与规划。",
+          "whyImportant": "弥补驾驶分词器仅优化像素重建的不足，通过DINO特征对齐和几何位姿监督增强令牌的语义与结构信息，在NAVSIM上展现重建、规划与生成质量的多重提升。",
           "reasonTags": [
-            "机器人",
-            "新基准",
-            "通用框架"
+            "驾驶世界模型",
+            "离散分词器",
+            "表征引导",
+            "几何增强"
+          ],
+          "innovationPoints": [
+            "提出联合DINO特征重建与RGB重建的离散令牌学习方案",
+            "引入邻近帧深度与相对位姿约束注入几何状态信息",
+            "同一令牌同时服务轻量规划读出与GPT风格世界建模"
           ]
         }
       ]
