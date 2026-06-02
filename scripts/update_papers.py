@@ -339,6 +339,7 @@ def fallback_select_top_papers(papers: list[dict]) -> list[dict]:
                 "score": paper["heuristic_score"],
                 "importanceLevel": importance_from_score(paper["heuristic_score"]),
                 "oneSentenceSummary": build_cn_fallback_summary(paper),
+                "summaryCn": build_cn_fallback_abstract(paper),
                 "whyImportant": build_cn_fallback_reason(paper),
                 "reasonTags": build_reason_tags(paper),
             }
@@ -369,6 +370,7 @@ def fallback_select_top_papers(papers: list[dict]) -> list[dict]:
                     "score": paper.get("heuristic_score", 0),
                     "importanceLevel": importance_from_score(paper.get("heuristic_score", 0)),
                     "oneSentenceSummary": build_cn_fallback_summary(paper),
+                    "summaryCn": build_cn_fallback_abstract(paper),
                     "whyImportant": build_cn_fallback_reason(paper),
                     "reasonTags": build_reason_tags(paper),
                 }
@@ -424,12 +426,13 @@ def rerank_with_llm(candidates: list[dict], llm_config: dict) -> list[dict]:
         "- importance_level: one of S, A, B\n"
         "- score: integer 0-100\n"
         "- one_sentence_summary_cn: concise Chinese summary within 35 Chinese characters\n"
+        "- concise_abstract_cn: a concise Chinese abstract within 90 to 140 Chinese characters\n"
         "- why_important_cn: concise Chinese reason within 70 Chinese characters\n"
         "- reason_tags: 2 to 4 short Chinese tags\n"
         "- innovation_points: 1 to 3 concise Chinese points\n"
         "Use this JSON schema:\n"
         "{"
-        '"top_papers":[{"id":"","importance_level":"S","score":92,"one_sentence_summary_cn":"","why_important_cn":"","reason_tags":[""],"innovation_points":[""]}]'
+        '"top_papers":[{"id":"","importance_level":"S","score":92,"one_sentence_summary_cn":"","concise_abstract_cn":"","why_important_cn":"","reason_tags":[""],"innovation_points":[""]}]'
         "}\n"
         "Candidate papers JSON:\n"
         f"{json.dumps(prompt_payload, ensure_ascii=False)}"
@@ -452,6 +455,7 @@ def rerank_with_llm(candidates: list[dict], llm_config: dict) -> list[dict]:
                 score=coerce_int(item.get("score"), paper["heuristic_score"]),
                 importance_level=normalize_importance(item.get("importance_level"), paper["heuristic_score"]),
                 one_sentence_summary=clean_text(item.get("one_sentence_summary_cn") or build_cn_fallback_summary(paper)),
+                concise_abstract=clean_text(item.get("concise_abstract_cn") or build_cn_fallback_abstract(paper)),
                 why_important=clean_text(item.get("why_important_cn") or build_cn_fallback_reason(paper)),
                 reason_tags=normalize_string_list(item.get("reason_tags"), build_reason_tags(paper), 4),
                 innovation_points=normalize_string_list(item.get("innovation_points"), [], 3),
@@ -521,6 +525,7 @@ def build_selected_paper(
     score: int,
     importance_level: str,
     one_sentence_summary: str,
+    concise_abstract: str,
     why_important: str,
     reason_tags: list[str],
     innovation_points: list[str],
@@ -539,6 +544,7 @@ def build_selected_paper(
         "score": score,
         "importanceLevel": importance_level,
         "oneSentenceSummary": one_sentence_summary,
+        "summaryCn": concise_abstract,
         "whyImportant": why_important,
         "reasonTags": reason_tags,
         "innovationPoints": innovation_points,
@@ -613,6 +619,20 @@ def build_cn_fallback_reason(paper: dict) -> str:
     tags = "、".join(build_reason_tags(paper))
     categories = " / ".join([category for category in paper["categories"] if category in CATEGORY_SCORES][:2])
     return trim_text(f"命中{tags}主题，分类覆盖{categories}，且发布时间较新。", 70)
+
+
+def build_cn_fallback_abstract(paper: dict) -> str:
+    tags = "、".join(build_reason_tags(paper)[:3])
+    if not tags:
+        tags = "目标方向"
+
+    raw = clean_text(paper.get("summary_raw", ""))
+    if not raw:
+        return trim_text(f"这篇论文与{tags}高度相关，重点讨论方法设计、实验验证与实际应用潜力。", 120)
+
+    first_sentence = split_sentences(raw)[0] if split_sentences(raw) else raw
+    first_sentence = trim_text(first_sentence, 110)
+    return trim_text(f"论文围绕{tags}展开，核心内容是：{first_sentence}", 140)
 
 
 def normalize_string_list(value: object, fallback: list[str], limit: int) -> list[str]:
