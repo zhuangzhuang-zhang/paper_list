@@ -122,6 +122,7 @@ function renderPapers(papers, startIndex) {
     const importanceLevel = paper.importanceLevel || "B";
     const oneSentenceSummary = paper.oneSentenceSummary || "";
     const whyImportant = paper.whyImportant || "";
+    const summaryCn = paper.summaryCn || paper.summary || "";
 
     item.innerHTML = `
       <article>
@@ -142,7 +143,7 @@ function renderPapers(papers, startIndex) {
         </header>
         ${oneSentenceSummary ? `<p class="paper-cn-summary">${escapeHtml(oneSentenceSummary)}</p>` : ""}
         ${whyImportant ? `<p class="paper-why">推荐理由：${escapeHtml(whyImportant)}</p>` : ""}
-        <p class="paper-summary">${escapeHtml(paper.summary)}</p>
+        ${summaryCn ? `<p class="paper-summary">${escapeHtml(summaryCn)}</p>` : ""}
         ${
           innovationPoints.length
             ? `<div class="innovation-list">${innovationPoints
@@ -238,6 +239,9 @@ function filterPapers(papers, query) {
     const haystack = [
       paper.title,
       paper.summary,
+      paper.summaryCn,
+      paper.oneSentenceSummary,
+      paper.whyImportant,
       ...(paper.authors || []),
       ...(paper.categories || []),
     ]
