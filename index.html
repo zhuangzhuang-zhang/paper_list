@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>每日 arXiv 论文精选</title>
+  <title>VLA / WAM 智能研究助理</title>
   <meta
     name="description"
     content="每天自动整理 arXiv 上与 vision-language-action、world action model、机器人和自动驾驶相关的重要论文。"
@@ -14,11 +14,12 @@
   <main class="page-shell">
     <section class="hero">
       <div class="hero-copy">
-        <p class="eyebrow">每日更新 · arXiv Digest</p>
-        <h1>VLA / WAM 重要论文精选</h1>
+        <p class="eyebrow">每日更新 · Intelligent Research Assistant</p>
+        <h1>VLA / WAM 智能研究助理</h1>
         <p class="hero-text">
           自动追踪 `cs.RO`、`cs.AI`、`cs.CV`、`cs.LG` 中与机器人、自动驾驶、
-          `vision-language-action`、`world action model` 相关的最新论文。
+          `vision-language-action`、`world action model` 相关的最新论文，并通过宽召回、
+          DeepSeek 多维评分、双榜单和去重复判断生成每日研究结论。
         </p>
       </div>
       <div class="hero-panel">
@@ -57,40 +58,39 @@
       <span id="summary-keywords">关键词：VLA / WAM / 机器人 / 自动驾驶</span>
     </section>
 
-    <section class="content-grid">
-      <aside class="archive-sidebar">
-        <div class="archive-card">
-          <div class="archive-head">
-            <h3>历史归档</h3>
-            <p>按日期查看每天更新的论文列表</p>
-          </div>
-          <nav id="archive-list" class="archive-list" aria-label="日期归档"></nav>
-        </div>
-      </aside>
-
-      <section class="main-content">
-        <div class="main-content-head">
-          <div>
-            <p class="content-eyebrow">当前查看</p>
-            <h3 id="selected-date-title">当天 Top 10 论文</h3>
-          </div>
-          <div class="selected-meta">
-            <span id="selected-date-key">--</span>
-            <span id="selected-paper-count">0 篇</span>
-          </div>
-        </div>
-
-        <ul id="paper-list" class="paper-list" aria-live="polite"></ul>
-        <div id="empty-state" class="empty-state" hidden>
-          当前没有匹配的论文，稍后再试或换一个关键词搜索。
-        </div>
-
-        <nav id="pagination" class="pagination" aria-label="分页导航"></nav>
-      </section>
+    <section class="insight-grid">
+      <article class="insight-card">
+        <p class="content-eyebrow">今日判断</p>
+        <h3>研究助理摘要</h3>
+        <p id="daily-brief-overall">正在生成今日总榜摘要。</p>
+      </article>
+      <article class="insight-card">
+        <p class="content-eyebrow">VLA 观察</p>
+        <h3>VLA 趋势</h3>
+        <p id="daily-brief-vla">正在生成 VLA 趋势摘要。</p>
+      </article>
+      <article class="insight-card">
+        <p class="content-eyebrow">WAM 观察</p>
+        <h3>WAM 趋势</h3>
+        <p id="daily-brief-wam">正在生成 WAM 趋势摘要。</p>
+      </article>
+      <article class="insight-card">
+        <p class="content-eyebrow">召回说明</p>
+        <h3>宽召回策略</h3>
+        <p id="daily-brief-retrieval">正在加载宽召回与重排说明。</p>
+      </article>
     </section>
-  </main>
 
-  <script src="./data/site-data.js"></script>
-  <script src="./script.js"></script>
-</body>
-</html>
+    <section class="assistant-explainer">
+      <article class="explainer-card">
+        <div class="explainer-head">
+          <div>
+            <p class="content-eyebrow">评分说明</p>
+            <h3>研究助理如何判断重要性</h3>
+          </div>
+          <span class="explainer-badge">宽召回 + 重排</span>
+        </div>
+        <div id="score-dimensions" class="score-dimensions"></div>
+      </article>
+    </section>
+
