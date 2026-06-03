@@ -1,5 +1,5 @@
 window.PAPERS_SITE_DATA = {
-  "generatedAt": "2026-06-03T13:25:39.586214+00:00",
+  "generatedAt": "2026-06-03T13:43:33.922278+00:00",
   "description": "按北京时间每天 08:00 的固定批次归档，展示上一批次 24 小时内新发布的高相关论文。",
   "dateWindowDays": 1,
   "categories": [
@@ -18,7 +18,7 @@ window.PAPERS_SITE_DATA = {
   "modelInfo": {
     "provider": "deepseek",
     "model": "deepseek-v4-pro",
-    "candidateCount": 17
+    "candidateCount": 30
   },
   "batchWindow": {
     "start": "2026-06-02T08:00:00+08:00",
@@ -26,6 +26,88 @@ window.PAPERS_SITE_DATA = {
   },
   "currentDateKey": "20260603",
   "papers": [
+    {
+      "id": "2606.03159v1",
+      "title": "NVIDIA OmniDreams: Real-Time Generative World Model for Closed-Loop Autonomous Vehicle Simulation",
+      "summary": "Deployed in a closed-loop system with the Alpamayo 1 policy model and AlpaSim orchestrator, OmniDreams acts as a highly responsive, reactive environment, providing a scalable and comprehensive solution for training and evaluating next-generation autonomous driving policies. We additionally show preliminary results indicating that a world…",
+      "summaryRaw": "As autonomous vehicle capabilities advance, the safe evaluation of driving policies in long-tail scenarios remains a critical bottleneck. In closed-loop simulation, the driving policy model actively interacts with the environment, where its actions dynamically update the simulator state and directly influence the next set of generated sensor observations. While recent reconstruction-based neural simulators offer photorealism, they are fundamentally constrained by their initial captured data and struggle to generalize to highly dynamic or novel scenes. To overcome these limitations, we introduce OmniDreams, a foundation generative world model mid- and post-trained from the Cosmos diffusion model to autoregressively generate action-conditioned videos in real time. By leveraging the rich visual priors of Cosmos and mid- and post-training on 21k hours of driving scenarios, OmniDreams synthesizes complex, unobserved phenomena that are hard for traditional simulators to capture, such as extreme weather and unpredictable dynamic agent behaviors. Crucially, it autoregressively conditions its photorealistic sensor generation on past frames, the current simulator state, and immediate driving actions. Deployed in a closed-loop system with the Alpamayo 1 policy model and AlpaSim orchestrator, OmniDreams acts as a highly responsive, reactive environment, providing a scalable and comprehensive solution for training and evaluating next-generation autonomous driving policies. We additionally show preliminary results indicating that a world-action model (WAM) post-trained from OmniDreams achieves strong performance on the Physical AI Autonomous Vehicles NuRec dataset, surpassing the VLA-based Alpamayo 1.5 research policy model while using only 1/5 the total parameters. These results highlight the potential for a real-time world model like OmniDreams to also serve as a backbone for policy architectures.",
+      "link": "https://arxiv.org/abs/2606.03159v1",
+      "pdfLink": "https://arxiv.org/pdf/2606.03159v1",
+      "published": "2026-06-02T05:11:05Z",
+      "updated": "2026-06-02T05:11:05Z",
+      "authors": [
+        "NVIDIA",
+        ":",
+        "Aarti Basant",
+        "Amlan Kar",
+        "Despoina Paschalidou",
+        "Fangyin Wei",
+        "Francesco Ferroni",
+        "Guillermo Garcia Cobo"
+      ],
+      "categories": [
+        "cs.CV",
+        "cs.AI",
+        "cs.RO"
+      ],
+      "score": 97,
+      "importanceLevel": "S",
+      "oneSentenceSummary": "OmniDreams：基于Cosmos扩散模型的实时生成式世界模型，用于自动驾驶闭环仿真。",
+      "summaryCn": "OmniDreams是一个基础生成世界模型，以Cosmos扩散模型为骨干，在21k小时驾驶数据上中后训练，能够根据历史帧、仿真状态和驾驶动作自回归生成逼真视频。用于闭环仿真时，与Alpamayo 1策略模型配合，可模拟极端天气和动态agent行为。后训练的世界-动作模型（WAM）在NuRec数据集上以1/5参数量超过VLA基线，展现了作为策略骨干的潜力。",
+      "whyImportant": "首个实时生成式世界动作模型用于自动驾驶闭环测评，兼具仿真与策略学习能力，规模与性能突出。",
+      "reasonTags": [
+        "世界动作模型",
+        "自动驾驶仿真",
+        "实时生成",
+        "闭环"
+      ],
+      "innovationPoints": [
+        "基于Cosmos扩散模型，首次实现实时自回归视频生成用于自动驾驶闭环仿真",
+        "世界模型可后训练为世界-动作模型，参数量小但性能超越VLA策略",
+        "模拟长尾场景（极端天气、动态agent），突破传统重建仿真器的局限"
+      ]
+    },
+    {
+      "id": "2606.03598v1",
+      "title": "PHASER: Phase-Aware and Semantic Experience Replay for Vision-Language-Action Models",
+      "summary": "Vision-Language-Action (VLA) models have achieved remarkable success in language-conditioned robotic manipulation. While experience replay (ER) serves as a standard mitigating strategy, naive uniform sampling fundamentally misaligns with the temporal characteristics of manipulation trajectories.",
+      "summaryRaw": "Vision-Language-Action (VLA) models have achieved remarkable success in language-conditioned robotic manipulation. However, deploying these models in open-ended environments requires continuously acquiring novel skills, a process that inevitably triggers severe catastrophic forgetting of previously learned behaviors. While experience replay (ER) serves as a standard mitigating strategy, naive uniform sampling fundamentally misaligns with the temporal characteristics of manipulation trajectories. It systematically under-samples brief but causally critical sub-skills, leading to phase starvation, and completely overlooks the varying degrees of forgetting across historical tasks. To overcome these limitations, we introduce PHASER, an architecture-agnostic continual learning framework. PHASER employs a phase-centric capacity allocation to guarantee equal memory support for all sub-skills, coupled with a multi-modal interference routing strategy that dynamically prioritizes historical phases at high risk of forgetting. Furthermore, to enable fully autonomous lifelong adaptation, we integrate Auto-PC, a lightweight pipeline combining unsupervised action-signal change-point detection with VLM-based semantic verification to extract temporal boundaries without intensive manual supervision. Evaluated across three VLA backbones on LIBERO continual learning suites, PHASER yields substantial empirical improvements, increasing Average Success Rate (ASR) by up to 31% over matched-budget ER and achieving an 87.8% final ASR on the LIBERO-Goal CL setting.",
+      "link": "https://arxiv.org/abs/2606.03598v1",
+      "pdfLink": "https://arxiv.org/pdf/2606.03598v1",
+      "published": "2026-06-02T13:04:15Z",
+      "updated": "2026-06-02T13:04:15Z",
+      "authors": [
+        "Ziyang Chen",
+        "Shaoguang Wang",
+        "Weiyu Guo",
+        "Qianyi Cai",
+        "He Zhang",
+        "Pengteng Li",
+        "Yiren Zhao",
+        "Yandong Guo"
+      ],
+      "categories": [
+        "cs.AI",
+        "cs.CV",
+        "cs.RO"
+      ],
+      "score": 95,
+      "importanceLevel": "S",
+      "oneSentenceSummary": "PHASER：面向VLA模型的阶段感知语义经验回放持续学习框架。",
+      "summaryCn": "PHASER是一种架构无关的持续学习框架，针对VLA模型在开放环境中的灾难性遗忘问题。它采用阶段中心的容量分配确保所有子技能获得均等记忆支持，并利用多模态干扰路由动态优先回放高风险历史阶段。还集成了自动阶段分割流水线Auto-PC，利用无监督动作变化点检测和VLM语义验证。在LIBERO持续学习套件上，PHASER将平均成功率提升高达31%，最终成功率87.8%。",
+      "whyImportant": "解决VLA持续学习中的阶段匮乏和遗忘不均问题，大幅提升在线学习性能，无需架构修改。",
+      "reasonTags": [
+        "VLA持续学习",
+        "经验回放",
+        "阶段感知",
+        "灾难性遗忘"
+      ],
+      "innovationPoints": [
+        "阶段中心的容量分配避免对短暂关键子技能的采样不足",
+        "多模态干扰路由根据遗忘风险动态调整回放优先级",
+        "Auto-PC实现无监督的自动阶段分割，减少人工标注"
+      ]
+    },
     {
       "id": "2606.03784v1",
       "title": "Revisiting Embodied Chain-of-Thought for Generalizable Robot Manipulation",
@@ -48,59 +130,21 @@ window.PAPERS_SITE_DATA = {
       "categories": [
         "cs.RO"
       ],
-      "score": 95,
+      "score": 94,
       "importanceLevel": "S",
-      "oneSentenceSummary": "提出ERVLA：用推理dropout训练，无需测试时推理即可实现SOTA机器人操控。",
-      "summaryCn": "本文重新审视具身CoT在VLA模型中的有效性，构建最大具身CoT语料库，发现仅高级推理增益有限，而具体的末端执行器运动描述和图像空间轨迹更有效。提出ERVLA，将CoT作为表示塑造监督而非强制测试时推理，引入推理dropout策略，使模型在训练时吸收丰富推理轨迹，推理时直接预测动作，避免自回归不稳定性。在LIBERO-Plus和VLABench上达到SOTA，真实机器人实验中在语义消歧和长时域任务上表现出色。",
-      "whyImportant": "首次大规模证明具身CoT的最佳形式，并提出无需推理时解码的高效VLA训练范式，推动机器人基础模型发展。",
+      "oneSentenceSummary": "ERVLA：利用具身思维链作为表示塑造监督的VLA模型，避免自回归推理不稳定。",
+      "summaryCn": "ERVLA构建了最大的具身思维链语料库，发现有效的思维链应将高层语义理解落地为具体动作引导，如末端执行器运动和图像空间轨迹。提出将思维链作为训练时表示塑造监督，而非测试时必须的推理前缀，通过推理丢弃策略避免自回归耦合错误。ERVLA在LIBERO-Plus上达86.9%成功率，VLABench上53.2%，真实机器人实验中表现优于同规模基线。",
+      "whyImportant": "大规模验证具身CoT的最优形式，提出表示塑造监督新范式，避免推理不稳定，SOTA性能。",
       "reasonTags": [
-        "VLA模型",
-        "具身CoT",
-        "机器人操控",
-        "新训练范式"
+        "具身思维链",
+        "VLA",
+        "表示学习",
+        "机器人操作"
       ],
       "innovationPoints": [
-        "构建大规模具身CoT数据集，揭示具体动作指导优于高级推理",
-        "提出推理dropout训练策略，将CoT作为表示学习监督，推理时直接动作解码",
-        "在多个基准和真实机器人上验证泛化性和稳定性，超越自回归CoT方法"
-      ]
-    },
-    {
-      "id": "2606.03392v1",
-      "title": "OpenEAI-Platform: An Open-source Embodied Artificial Intelligence Hardware-Software Unified Platform",
-      "summary": "Embodied AI in the real world requires both accurate hardware and robust vision-language-action (VLA) policies. We present OpenEAI-Platform, a fully open-source platform that integrates a low-cost 6+1 degree-of-freedom (dof) robotic arm (OpenEAI-Arm) and a reproducible VLA model (OpenEAI-VLA).",
-      "summaryRaw": "Embodied AI in the real world requires both accurate hardware and robust vision-language-action (VLA) policies. We present OpenEAI-Platform, a fully open-source platform that integrates a low-cost 6+1 degree-of-freedom (dof) robotic arm (OpenEAI-Arm) and a reproducible VLA model (OpenEAI-VLA). OpenEAI-Arm provides open-source mechanical designs for low manufacturing cost and compliant control methods for higher accuracy. OpenEAI-VLA builds on Qwen3-VL-4B and uses a Diffusion Transformer action head, and is trained in two stages with only open-source robot and multimodal datasets. Across four real-world manipulation tasks, OpenEAI-Arm outperforms two commercial 6+1-dof arms under the same policy, and OpenEAI-VLA achieves success rates comparable to the large-scale pretrained pi0 baseline with only limited pretraining data. We will release the full hardware designs, drivers, models, and training/data pipelines to support reproducible research and scalable data collection. Our codes, layouts, and models will be released after the paper is accepted.",
-      "link": "https://arxiv.org/abs/2606.03392v1",
-      "pdfLink": "https://arxiv.org/pdf/2606.03392v1",
-      "published": "2026-06-02T09:34:08Z",
-      "updated": "2026-06-02T09:34:08Z",
-      "authors": [
-        "Jinyuan Zhang",
-        "Luoyi Fan",
-        "Leiyu Wang",
-        "Yeqiang Wang",
-        "Yicheng Zhu",
-        "Cewu Lu",
-        "Nanyang Ye"
-      ],
-      "categories": [
-        "cs.RO"
-      ],
-      "score": 90,
-      "importanceLevel": "S",
-      "oneSentenceSummary": "OpenEAI平台：全开源低成本机器臂与VLA模型，实现可复现的具身研究。",
-      "summaryCn": "提出OpenEAI-Platform，包括开源6+1自由度机械臂硬件和基于Qwen3-VL-4B的VLA模型。机械臂采用低制造成本设计和高顺位控制，VLA模型使用Diffusion Transformer动作头，仅用开源数据两阶段训练。在四个真实操作任务中，机械臂性能超越两款商用臂，VLA模型成功率媲美大规模预训练基线pi0。平台将全开源硬件设计、驱动、模型及训练流程，促进可复现研究和规模化数据收集。",
-      "whyImportant": "提供首个完整的开源硬件-软件具身平台，低成本可复现，推动社区标准化与规模化研究。",
-      "reasonTags": [
-        "开源平台",
-        "VLA模型",
-        "机器人硬件",
-        "可复现性"
-      ],
-      "innovationPoints": [
-        "开源高性价比机械臂设计，结合高精度顺位控制",
-        "基于扩散Transformer的VLA，仅用开源数据达到与大规模预训练模型可比性能",
-        "全栈开源：硬件、模型、数据管线，支持社区快速迭代"
+        "构建含97.8万轨迹的全球最大具身CoT数据集",
+        "揭示有效具身CoT应提供具体动作引导而非高层推理",
+        "推理丢弃策略使模型吸收CoT知识但直接预测动作，消除自回归风险"
       ]
     },
     {
@@ -124,21 +168,21 @@ window.PAPERS_SITE_DATA = {
       "categories": [
         "cs.RO"
       ],
-      "score": 85,
+      "score": 88,
       "importanceLevel": "A",
-      "oneSentenceSummary": "TTT-VLA：通过测试时优化潜在提示，无需改动模型即可提升策略鲁棒性。",
-      "summaryCn": "针对VLA模型部署时的分布偏移问题，提出TTT-VLA框架。训练时学习潜在提示作为额外条件信号，测试时利用代理任务的自监督信号优化该潜在提示，无需修改策略网络。在SimplerEnv上的实验表明，该方法在单具身和多具身设置下均持续提升任务成功率，且主要纠正少数关键决策而非全局改变行为，为部署时策略改进提供了有效且实用的途径。",
-      "whyImportant": "将测试时训练思想引入VLA，仅优化潜在提示即可适应新环境，轻量且通用，提升基础策略的可靠性。",
+      "oneSentenceSummary": "TTT-VLA：通过测试时潜在提示优化实现VLA模型部署适配的框架。",
+      "summaryCn": "TTT-VLA提出基于潜在提示优化（LPO）的测试时训练方法。训练时学习一个潜在提示作为附加条件信号；部署时收集少量交互数据，仅优化该潜在提示而非策略模型。在SimplerEnv上的实验显示，该方法在单/多实体设置下持续提升任务成功率，且增益主要来自纠正少量关键决策。证明了LPO是基础操作策略部署时提升的有效实用途径。",
+      "whyImportant": "无需修改VLA模型权重，仅通过轻量提示优化实现分布外自适应，部署友好。",
       "reasonTags": [
         "测试时训练",
-        "VLA模型",
-        "分布偏移",
+        "VLA",
+        "提示优化",
         "策略自适应"
       ],
       "innovationPoints": [
-        "提出基于潜在提示优化的测试时训练框架，适配VLA模型",
-        "仅用少量交互数据优化提示，不修改原策略，实现高效部署适应",
-        "实验证明主要修正关键决策，保持行为整体一致性"
+        "首次将测试时训练引入VLA，通过优化潜在提示适应新环境",
+        "提示优化通过代理任务的自监督信号进行，无需外部指导",
+        "发现性能提升源于纠正少量关键决策，而非全局策略改变"
       ]
     },
     {
@@ -162,21 +206,98 @@ window.PAPERS_SITE_DATA = {
       "categories": [
         "cs.RO"
       ],
-      "score": 83,
+      "score": 87,
       "importanceLevel": "A",
-      "oneSentenceSummary": "GeoSem-WAM：融合几何与语义监督的世界动作模型，提升表示学习。",
-      "summaryCn": "针对现有世界动作模型依赖RGB预测且缺乏结构化理解的问题，提出GeoSem-WAM。在预测未来RGB帧的同时，引入未来几何和语义表示的辅助预测分支，联合捕捉场景动态、空间几何与语义上下文。该方法在训练时增强潜在表示，测试时不需显式未来生成，保持高效推理。实验证明结构化世界监督持续提升动作预测精度、场景理解和鲁棒性，为规模化、高效率的WAM提供新方向。",
-      "whyImportant": "揭示WAM的关键在于表示学习而非生成，通过多模态监督增强结构化理解，推进高效世界模型设计。",
+      "oneSentenceSummary": "GeoSem-WAM：联合几何与语义监督的结构化世界动作模型，增强潜在表示。",
+      "summaryCn": "GeoSem-WAM针对现有世界动作模型仅依赖RGB预测而缺乏结构理解的问题，引入辅助的几何和语义预测分支，与未来RGB预测联合训练。模型在统一潜在空间中捕获场景动态、空间几何和语义上下文，但推理时不进行显式未来想象或视频生成。大量实验表明，结构化监督持续提升动作预测准确度、场景理解与鲁棒性，为高效世界动作模型提供新方向。",
+      "whyImportant": "揭示WAM优势来自表示学习，提出几何与语义监督增强表示，推理高效，性能显著提升。",
       "reasonTags": [
         "世界动作模型",
-        "几何语义监督",
         "表示学习",
-        "具身决策"
+        "几何语义融合",
+        "高效推理"
       ],
       "innovationPoints": [
-        "点明世界动作模型的优势源于表示学习，而非显式未来生成",
-        "多分支预测未来几何与语义，构建结构化潜在空间",
-        "保持推理高效性，避免推理时视频生成，便于实际部署"
+        "明确论证WAM主要通过表示学习而非未来想象带来收益",
+        "双分支预测未来几何和语义表示，联合建模场景结构",
+        "推理时不增加额外计算，保持高效"
+      ]
+    },
+    {
+      "id": "2606.03240v1",
+      "title": "GeoAlign: Beyond Semantics with State-Guided Spatial Alignment in VLA Models",
+      "summary": "Current Vision--Language--Action (VLA) models often optimize for semantic grounding, whereas executable manipulation requires geometry-aware spatial alignment and dynamic affordance selection. GeoAlign post-trains an RGB geometry branch with robot-domain RGB-D supervision, yielding RGB-derived Geometry-Enhanced Post-Trained (GEP) feature…",
+      "summaryRaw": "Current Vision--Language--Action (VLA) models often optimize for semantic grounding, whereas executable manipulation requires geometry-aware spatial alignment and dynamic affordance selection. We introduce GeoAlign, a state-guided spatial alignment architecture for VLA policy learning. GeoAlign post-trains an RGB geometry branch with robot-domain RGB-D supervision, yielding RGB-derived Geometry-Enhanced Post-Trained (GEP) features for policy rollout. The robot's proprioceptive state queries the GEP feature grid, producing compact, phase-dependent geometry tokens for action prediction. GeoAlign achieves 99.0% on LIBERO, 85.3% across three SimplerEnv-Fractal tasks, and 78.8% on eight geometry-critical real-world ALOHA tasks, with ablations confirming the value of geometry post-training and proprioceptive-state-guided querying.",
+      "link": "https://arxiv.org/abs/2606.03240v1",
+      "pdfLink": "https://arxiv.org/pdf/2606.03240v1",
+      "published": "2026-06-02T07:01:18Z",
+      "updated": "2026-06-02T07:01:18Z",
+      "authors": [
+        "Yizhi Chen",
+        "Zhanxiang Cao",
+        "Xinyi Peng",
+        "Yixiao Zheng",
+        "Xiaxi Si",
+        "Yiheng Li",
+        "Liyun Yan",
+        "Keqi Zhu"
+      ],
+      "categories": [
+        "cs.RO"
+      ],
+      "score": 86,
+      "importanceLevel": "A",
+      "oneSentenceSummary": "GeoAlign：状态引导的空间对齐架构，为VLA策略注入3D几何感知。",
+      "summaryCn": "GeoAlign后训练一个RGB几何分支，利用机器人域RGB-D监督得到几何增强特征，并通过本体感受状态查询产生紧致的几何令牌用于动作预测。在LIBERO上达99.0%，SimplerEnv-Fractal任务上85.3%，8个几何关键的ALOHA真实世界任务上78.8%，实验证明几何后训练和本体感受查询的价值。",
+      "whyImportant": "突破VLA仅依赖语义的局限，显式注入3D几何信息，大幅提升操作精度和泛化。",
+      "reasonTags": [
+        "VLA",
+        "空间对齐",
+        "几何感知",
+        "机器人操作"
+      ],
+      "innovationPoints": [
+        "在VLA中引入独立几何分支，通过RGB-D后训练获得几何特征",
+        "利用机器人状态从特征网格中动态提取几何令牌，实现任务阶段的依赖",
+        "无需在线深度估计，仅用离线训练几何分支，保证实时性"
+      ]
+    },
+    {
+      "id": "2606.03392v1",
+      "title": "OpenEAI-Platform: An Open-source Embodied Artificial Intelligence Hardware-Software Unified Platform",
+      "summary": "Embodied AI in the real world requires both accurate hardware and robust vision-language-action (VLA) policies. We present OpenEAI-Platform, a fully open-source platform that integrates a low-cost 6+1 degree-of-freedom (dof) robotic arm (OpenEAI-Arm) and a reproducible VLA model (OpenEAI-VLA).",
+      "summaryRaw": "Embodied AI in the real world requires both accurate hardware and robust vision-language-action (VLA) policies. We present OpenEAI-Platform, a fully open-source platform that integrates a low-cost 6+1 degree-of-freedom (dof) robotic arm (OpenEAI-Arm) and a reproducible VLA model (OpenEAI-VLA). OpenEAI-Arm provides open-source mechanical designs for low manufacturing cost and compliant control methods for higher accuracy. OpenEAI-VLA builds on Qwen3-VL-4B and uses a Diffusion Transformer action head, and is trained in two stages with only open-source robot and multimodal datasets. Across four real-world manipulation tasks, OpenEAI-Arm outperforms two commercial 6+1-dof arms under the same policy, and OpenEAI-VLA achieves success rates comparable to the large-scale pretrained pi0 baseline with only limited pretraining data. We will release the full hardware designs, drivers, models, and training/data pipelines to support reproducible research and scalable data collection. Our codes, layouts, and models will be released after the paper is accepted.",
+      "link": "https://arxiv.org/abs/2606.03392v1",
+      "pdfLink": "https://arxiv.org/pdf/2606.03392v1",
+      "published": "2026-06-02T09:34:08Z",
+      "updated": "2026-06-02T09:34:08Z",
+      "authors": [
+        "Jinyuan Zhang",
+        "Luoyi Fan",
+        "Leiyu Wang",
+        "Yeqiang Wang",
+        "Yicheng Zhu",
+        "Cewu Lu",
+        "Nanyang Ye"
+      ],
+      "categories": [
+        "cs.RO"
+      ],
+      "score": 85,
+      "importanceLevel": "A",
+      "oneSentenceSummary": "OpenEAI-Platform：软硬件统一的开源具身人工智能平台，含低成本机械臂和VLA模型。",
+      "summaryCn": "OpenEAI-Platform提供完全开源的6+1自由度机械臂设计和可复现的VLA模型。机械臂采用开源设计和柔性控制，模型以Qwen3-VL-4B为核心，使用Diffusion Transformer动作头，两阶段训练仅用开源数据集。在四个真实操作任务中，机械臂性能优于两款商用臂；VLA模型成功率与大规模预训练的pi0基线相当。全流程开源，支持可重复研究和数据收集。",
+      "whyImportant": "首个全开源VLA软硬件平台，低成本高性能，促进社区可复现研究和数据规模化。",
+      "reasonTags": [
+        "开源平台",
+        "VLA",
+        "机器人硬件",
+        "数据收集"
+      ],
+      "innovationPoints": [
+        "联合开源机械臂设计与VLA模型，实现从硬件到策略的全栈开放",
+        "仅用开源数据训练，性能可比肩大规模预训练模型",
+        "低成本设计降低具身AI研究门槛"
       ]
     },
     {
@@ -198,210 +319,98 @@ window.PAPERS_SITE_DATA = {
       "categories": [
         "cs.RO"
       ],
-      "score": 82,
+      "score": 84,
       "importanceLevel": "A",
-      "oneSentenceSummary": "PointAction：用3D点图作为通用动作表示，桥接视频预测与机器人控制。",
-      "summaryCn": "针对现有视频动作模型RGB输出无法直接执行动作的问题，提出PointAction框架。微调基础视频生成模型，同时预测未来RGB帧和动态3D点图，产生时序一致的场景几何运动。这些点动力学作为结构化的、具身无关的动作接口，再由扩散动作解码器映射为机器人动作。实验表明，该方法在机器人场景4D生成质量上达到SOTA，在仿真和两个真实机械臂上泛化良好，减少了对大量动作监督的需求。",
-      "whyImportant": "首次以3D点动力学作为视频预测与控制之间的通用接口，降低动作接地歧义，促进跨具身泛化。",
+      "oneSentenceSummary": "PointAction：以动态3D点云作为通用动作接口，连接视频生成与机器人控制。",
+      "summaryCn": "PointAction微调基础视频生成模型联合预测RGB帧和动态3D点图，产生场景几何的时序一致运动；这些点动态作为结构化、实体无关的动作接口，由扩散动作解码器转换为可执行动作。在机器人场景达到最优4D生成质量，仿真和真实两种未见机器人臂上均超越基线。",
+      "whyImportant": "用几何显式的3D点运动作为中间表示，解决RGB视频到动作的歧义，支持跨实体迁移。",
       "reasonTags": [
         "视频动作模型",
-        "3D点图",
-        "动作表示",
-        "跨具身"
+        "通用动作接口",
+        "3D点动态",
+        "跨实体泛化"
       ],
       "innovationPoints": [
-        "提出用动态3D点图作为视频与动作间的结构化桥梁",
-        "联合预测RGB与点图，保持时序一致性，减少动作监督需求",
-        "扩散解码器实现点动力学到机器人动作的映射，支持多具身"
+        "提出点动态作为视频预测和动作控制的桥梁，弥合语义与几何鸿沟",
+        "联合生成未来RGB和3D点图，保持时空一致性",
+        "实现跨任务和跨机器人实体的有限动作监督迁移"
       ]
     },
     {
-      "id": "2606.03609v1",
-      "title": "A 3D Isovist World Model -- Revealing a City's Unseen Geometry and Its Emergent Cross-City Signature",
-      "summary": "Embodied agents that navigate cities rely on world models that predict how their surroundings will change as they move. The representation is lightweight, interpretable, and reproducible, offering a geometric substrate for spatial reasoning in embodied AI, robotics, and urban analysis, released with an open dataset and pipeline.",
-      "summaryRaw": "Embodied agents that navigate cities rely on world models that predict how their surroundings will change as they move. But for navigation, what matters is not what the buildings look like; it is where the agent can go. Most world models nonetheless predict appearance, learning how a scene looks rather than the space an agent can move through. Those that do target geometry, such as bird's-eye-view occupancy grids, flatten the three-dimensional environment onto a ground plane, discarding the above-ground and multi-level structure that shapes real navigation. What is missing is a predictive target that captures the navigable geometry an agent actually traverses, without photometric entanglement and without collapsing the third dimension. Our key idea is to model the open volume between buildings, the negative space, encoded as a 3D isovist: a spherical visibility-depth map recording the distance to the nearest surface in every direction. We introduce an embodied world model that predicts the next isovist from a short history of past isovists and a movement action. The prediction is formulated as a depth residual so the decoder inherits sharp building edges, trained with self-rollout scheduled sampling to keep corrupted context on the geometry manifold, and equipped with a persistent latent bird's-eye-view spatial map for cross-path consistency. Our central finding is emergent and unexpected: a single city-blind model trained on Manhattan and Paris develops a cross-city spatial signature, with city identity linearly decodable from its temporal latents far above single-frame baselines, so the signature lives in the learned dynamics rather than in appearance. The representation is lightweight, interpretable, and reproducible, offering a geometric substrate for spatial reasoning in embodied AI, robotics, and urban analysis, released with an open dataset and pipeline.",
-      "link": "https://arxiv.org/abs/2606.03609v1",
-      "pdfLink": "https://arxiv.org/pdf/2606.03609v1",
-      "published": "2026-06-02T13:11:30Z",
-      "updated": "2026-06-02T13:11:30Z",
+      "id": "2606.03556v1",
+      "title": "Partially Observable Adversarial Patch Attacks on Vision-Language-Action Models in Robotics",
+      "summary": "Vision-language-action (VLA) models are gaining attention in robotics, yet their robustness to adversarial attacks remains largely unexplored. Existing work shows that adversarial patches can mislead VLA-based robots but assumes full access to the entire execution trajectory, an unrealistic requirement in practice.",
+      "summaryRaw": "Vision-language-action (VLA) models are gaining attention in robotics, yet their robustness to adversarial attacks remains largely unexplored. Existing work shows that adversarial patches can mislead VLA-based robots but assumes full access to the entire execution trajectory, an unrealistic requirement in practice. We address this limitation by formulating a partially observable threat model, where the adversary can exploit only a short prefix of the trajectory to generate a fixed patch applied to all subsequent frames. Under this setting, we propose a two-phase framework. First, we localize the patch using the model's attention maps to identify visually critical regions that correspond to the full instruction. Then, we optimize the patch to disrupt the semantic grounding of target objects and increase the curvature of action trajectories, thereby compounding failures in both perception and control. Extensive experiments in simulation and real-world robotic environments show that our method sustains adversarial effects under partial observability, inducing long-horizon disruptions and significantly reducing task success rates.",
+      "link": "https://arxiv.org/abs/2606.03556v1",
+      "pdfLink": "https://arxiv.org/pdf/2606.03556v1",
+      "published": "2026-06-02T12:19:28Z",
+      "updated": "2026-06-02T12:19:28Z",
       "authors": [
-        "Xuhui Lin",
-        "Stephen Law",
-        "Nanjiang Chen",
-        "Kunyao Li",
-        "Tao Yang"
+        "Xiaofei Wang",
+        "Mingliang Han",
+        "Tianyu Hao",
+        "Yi Yang",
+        "Yun-Bo Zhao",
+        "Keke Tang"
+      ],
+      "categories": [
+        "cs.RO"
+      ],
+      "score": 82,
+      "importanceLevel": "A",
+      "oneSentenceSummary": "针对VLA机器人的部分可观测对抗补丁攻击，揭示安全漏洞。",
+      "summaryCn": "本文研究VLA模型在部分可观测下的对抗鲁棒性，提出威胁模型仅利用轨迹短前缀生成固定补丁。两阶段框架先利用注意力图定位关键视觉区域，再优化补丁破坏目标语义接地并增大动作曲率。仿真和真实环境实验表明，攻击在长时间跨度内持续有效，显著降低任务成功率。",
+      "whyImportant": "首次揭示VLA在部分可观测条件下的脆弱性，为机器人安全部署提供新的评估视角。",
+      "reasonTags": [
+        "对抗攻击",
+        "VLA安全",
+        "部分可观测",
+        "机器人鲁棒性"
+      ],
+      "innovationPoints": [
+        "提出部分可观测威胁模型，仅需轨迹前缀生成通用补丁",
+        "联合破坏感知语义和动作曲率，实现复合式攻击",
+        "真实机器人实验验证跨域攻击效果"
+      ]
+    },
+    {
+      "id": "2606.03385v1",
+      "title": "Grasp-Then-Plan with Failure Attribution: A Closed Two-Stage Framework for Precise and Generalizable Robotic Manipulation",
+      "summary": "In robotic manipulation, the tight coupling between grasping and motion planning often obscures the true source of failure, leading to inefficient trial-and-error. We evaluate the proposed framework in both simulation and real-robot experiments, and show that GTP-FA improves the corresponding base learners across RL, IL, diffusion-policy…",
+      "summaryRaw": "In robotic manipulation, the tight coupling between grasping and motion planning often obscures the true source of failure, leading to inefficient trial-and-error. To enable efficient long-horizon manipulation, we propose GTP-FA (Grasp-Then-Plan with Failure Attribution), a task-oriented two-stage grasp-then-plan framework that generates grasp candidates and performs downstream motion planning conditioned on the selected grasp. Given a failed manipulation trajectory, we learn a failure attribution model that generalizes to unseen grasps and produces a stable distribution over failure modes for diagnosis-guided optimization. Based on these attribution results, we then optimize both modules in a diagnosis-driven manner: on the grasping side, we inject task-level priors and risk penalties into grasp candidate scoring and optimization to suppress unstable or task-incompatible grasps; on the planning side, we target high-risk initial states through data collection and fine-tuning to address genuine planning bottlenecks. We evaluate the proposed framework in both simulation and real-robot experiments, and show that GTP-FA improves the corresponding base learners across RL, IL, diffusion-policy, and VLA-based settings, achieving substantially higher overall task success rates.",
+      "link": "https://arxiv.org/abs/2606.03385v1",
+      "pdfLink": "https://arxiv.org/pdf/2606.03385v1",
+      "published": "2026-06-02T09:29:03Z",
+      "updated": "2026-06-02T09:29:03Z",
+      "authors": [
+        "Jiahao Xu",
+        "Peiyuan Wang",
+        "Hanzhuo Zhang",
+        "Zihao Yu",
+        "Tianyu Fu",
+        "Hao Chen",
+        "Xuanhao Xiang",
+        "Jianbo Yu"
       ],
       "categories": [
         "cs.RO",
-        "cs.LG"
+        "cs.AI"
       ],
-      "score": 78,
+      "score": 80,
       "importanceLevel": "A",
-      "oneSentenceSummary": "3D等视域世界模型：预测导航空间几何，发现跨城市动态签名。",
-      "summaryCn": "提出一种无外观纠缠的几何世界模型，以3D等视域（球面可见距离图）作为预测目标，避免传统世界模型对RGB的依赖。模型根据历史等视域和运动预测下一视域，采用深度残差和自展采样训练，并引入持久BEV隐图。意外发现：在曼哈顿和巴黎训练的单一模型，其时间隐变量可线性解码城市身份，说明签名存于学习动态而非外观。表示轻量可解释，为具身AI、机器人及城市分析提供几何推理基底，附带开源数据。",
-      "whyImportant": "以纯几何方式建模可导航空间，为导航世界模型提供新思路，且发现城市间的动态签名，具启发性。",
+      "oneSentenceSummary": "GTP-FA：基于失败归因的“先抓后规划”闭环框架，提升VLA操控成功率。",
+      "summaryCn": "GTP-FA提出任务导向的两阶段抓取-规划框架，通过失败归因模型定位故障模块（抓取或规划）。基于诊断结果，在抓取端注入任务先验和风险惩罚优化抓取评分，在规划端针对性采集高风险状态数据微调规划器。支持RL、IL、扩散策略和VLA等多种基座，仿真和真实实验均大幅提升整体任务成功率。",
+      "whyImportant": "将失败诊断引入VLA操控流水线，实现模块化优化，有效提升长序任务成功率。",
       "reasonTags": [
-        "世界模型",
-        "等视域",
-        "几何推理",
-        "导航"
+        "失败归因",
+        "抓取规划",
+        "VLA操控",
+        "闭环优化"
       ],
       "innovationPoints": [
-        "以3D等视域作为预测目标，分离外观干扰，聚焦可导航几何",
-        "自展训练与持久BEV隐图保证跨路径一致性",
-        "发现模型动力学中蕴含城市身份信息，揭示空间签名"
-      ]
-    },
-    {
-      "id": "2606.03682v1",
-      "title": "GN0: Toward a Unified Paradigm for Generation, Evaluation, and Policy Learning in Visual-Language Navigation",
-      "summary": "Embodied navigation connects intelligent agents with the physical world and is fundamental for general robotic intelligence. Overall, GN-Matrix offers a unified framework spanning data, simulation, and learning, advancing embodied navigation in research and industrial applications.",
-      "summaryRaw": "Embodied navigation connects intelligent agents with the physical world and is fundamental for general robotic intelligence. Limited availability and quality of navigation data have constrained Vision-and-Language Navigation (VLN) systems' generalization and long-horizon capabilities. To address this, we curate diverse 3D scenes and develop an automated pipeline for large-scale navigation data, resulting in the GN-Matrix dataset. Building on a 3D Gaussian Splatting (3DGS) engine, we introduce a high-fidelity simulation platform supporting interactive roaming and collision-aware navigation. We further propose GN-Bench, the first BEV-based benchmark incorporating dynamic 3DGS avatars for human-robot interaction evaluation. To leverage the simulator, we develop an RL-driven navigation foundation model, Break and Establish (BAE). After supervised learning, DAgger exposes the model to rollout-induced states, breaking narrow expert-centric distributions and enabling downstream RL exploration. This unified VLN paradigm integrates map-based and map-free tasks, including instruction following, human following, and goal navigation. GN-BAE formalizes high-fidelity 3DGS-rendered Bird's Eye View representations as compact memory, unlocking latent spatial reasoning in VLMs. Extensive evaluations on GN-Bench and VLN-CE show that GN0 outperforms state-of-the-art VLN methods. Overall, GN-Matrix offers a unified framework spanning data, simulation, and learning, advancing embodied navigation in research and industrial applications.",
-      "link": "https://arxiv.org/abs/2606.03682v1",
-      "pdfLink": "https://arxiv.org/pdf/2606.03682v1",
-      "published": "2026-06-02T14:05:47Z",
-      "updated": "2026-06-02T14:05:47Z",
-      "authors": [
-        "Xinhai Li",
-        "Xiaotao Zhang",
-        "Yuehao Huang",
-        "Jiankun Dong",
-        "Tianhang Wang",
-        "Sunyao Zhou",
-        "Yunzi Wu",
-        "Chengnuo Sun"
-      ],
-      "categories": [
-        "cs.RO"
-      ],
-      "score": 72,
-      "importanceLevel": "B",
-      "oneSentenceSummary": "GN0统一范式：集成生成、评估与策略学习的视觉语言导航。",
-      "summaryCn": "为解决视觉语言导航数据稀缺和泛化问题，构建大规模数据集GN-Matrix和基于3D高斯泼溅的高保真仿真平台，支持交互漫游与碰撞感知导航。提出BEV基准GN-Bench评估人机交互。开发RL驱动的导航基础模型BAE，结合监督学习和DAgger打破专家分布，使VLM通过BEV表示解锁空间推理。GN0在GN-Bench和VLN-CE上超越现有方法，形成数据、仿真与学习统一框架。",
-      "whyImportant": "首次提出BEV导航基准并融合3DGS仿真，统一多任务导航范式，推动导航通用模型发展。",
-      "reasonTags": [
-        "视觉语言导航",
-        "3DGS仿真",
-        "BEV基准",
-        "统一范式"
-      ],
-      "innovationPoints": [
-        "构建大规模3DGS导航仿真器和BEV交互基准",
-        "BAE模型通过DAgger和RL打破专家数据分布",
-        "用BEV紧凑记忆激活VLM的空间推理能力"
-      ]
-    },
-    {
-      "id": "2606.03509v1",
-      "title": "EvoMemNav: Efficient Self-Evolving Fine-Grained Memory for Zero-Shot Embodied Navigation",
-      "summary": "Building memory is essential for long-horizon planning in zero-shot embodied navigation. We present EvoMemNav, an efficient, self-evolving, fine-grained memory framework for zero-shot embodied navigation.",
-      "summaryRaw": "Building memory is essential for long-horizon planning in zero-shot embodied navigation. Detector-centric scene graphs often compress observations into sparse nodes, discarding fine-grained visual evidence and accumulating noise, while 3D reconstruction-based methods remain computationally prohibitive. We present EvoMemNav, an efficient, self-evolving, fine-grained memory framework for zero-shot embodied navigation. EvoMemNav constructs a Visual-Semantic Memory Graph (VSMGraph) that keeps raw views as first-class memory and organizes them with lightweight semantic cues and topological relations into a room-view-object hierarchy, preserving fine-grained details for disambiguation and Stop verification. To scale to growing memory, we introduce a budgeted coarse-to-fine policy: a coarse stage compresses the search space into promising regions, and a fine stage invokes a VLM only for targeted verification and decision. Beyond static memories, EvoMemNav performs reflection-driven write-back after each subtask, updating graph-attached priors that encode accumulated environmental knowledge to refine future decisions without retraining. Experiments on GOAT-Bench and HM3D across object, text-description, and image-goal modalities show consistent gains in SR/SPL, with better multi-instance disambiguation, fewer premature stops, and stronger zero-shot generalization.",
-      "link": "https://arxiv.org/abs/2606.03509v1",
-      "pdfLink": "https://arxiv.org/pdf/2606.03509v1",
-      "published": "2026-06-02T11:27:44Z",
-      "updated": "2026-06-02T11:27:44Z",
-      "authors": [
-        "Zuhao Ge",
-        "Xiaosong Jia",
-        "Chao Wu",
-        "Yuchen Zhou",
-        "Zuxuan Wu",
-        "Yu-Gang Jiang"
-      ],
-      "categories": [
-        "cs.CV"
-      ],
-      "score": 68,
-      "importanceLevel": "B",
-      "oneSentenceSummary": "EvoMemNav：自进化细粒度记忆框架，提升零样本导航长期规划。",
-      "summaryCn": "针对零样本导航中记忆稀疏与噪声问题，提出EvoMemNav框架。构建视觉-语义记忆图，以原始视图为一级记忆，结合轻量语义线索分层组织。设计预算粗-细策略，先压缩搜索域，再调用VLM进行目标验证。同时引入反思驱动写回机制，在子任务完成后更新图附先验知识。在GOAT-Bench和HM3D上验证，多模态任务成功率与SPL一致提升，并增强多实例消歧和零样本泛化。",
-      "whyImportant": "将原始视图保留为记忆，并通过自我进化机制累积环境知识，显著改善导航中的细粒度决策。",
-      "reasonTags": [
-        "零样本导航",
-        "视觉记忆",
-        "层次图",
-        "自进化"
-      ],
-      "innovationPoints": [
-        "基于原始视图的视觉-语义记忆图，保留细粒度信息",
-        "预算粗-细策略平衡效率与准确性",
-        "反思写回实现记忆的自进化，无需重训练"
-      ]
-    },
-    {
-      "id": "2606.03175v1",
-      "title": "Ask When It Pays: Cost-Aware Open-Ended Interaction for Instance Goal Navigation",
-      "summary": "Instance Goal Navigation (IGN) requires an embodied agent to find a specific object instance among distractors from an underspecified natural-language description. We recast interactive IGN as a cost-sensitive uncertainty-reduction problem, where the agent should ask the question whose answer provides the largest reduction in navigation…",
-      "summaryRaw": "Instance Goal Navigation (IGN) requires an embodied agent to find a specific object instance among distractors from an underspecified natural-language description. Such ambiguity often cannot be resolved from perception and language alone, making interaction with an oracle a natural mechanism for disambiguation. Prior interactive methods allow oracle queries but treat lightweight clarification and route-level guidance alike, letting agents boost success rate through repeated high-information questions rather than by resolving the underlying ambiguity efficiently. We recast interactive IGN as a cost-sensitive uncertainty-reduction problem, where the agent should ask the question whose answer provides the largest reduction in navigation uncertainty relative to its penalty. To this end, we apply an information-gain analysis on existing navigation corpora to identify which cues reduce navigation uncertainty, yielding a compact set of question types and data-derived weights.However, existing interactive navigation benchmarks do not model the cost of different question types or evaluate how efficiently agents use interaction, making them unsuitable for studying cost-sensitive interaction. Based on this taxonomy, we construct a benchmark for diagnosing interaction behavior and efficiency, together with a Weighted Success Rate metric that penalizes each query by its derived cost. We further propose a zero-shot MLLM navigator that selectively queries at each decision step only when the expected uncertainty reduction justifies the interaction cost.",
-      "link": "https://arxiv.org/abs/2606.03175v1",
-      "pdfLink": "https://arxiv.org/pdf/2606.03175v1",
-      "published": "2026-06-02T05:31:03Z",
-      "updated": "2026-06-02T05:31:03Z",
-      "authors": [
-        "Xunyi Zhao",
-        "Sihao Lin",
-        "Gengze Zhou",
-        "Zerui Li",
-        "Shijie Li",
-        "Wei Tao",
-        "Jiajun Liu",
-        "Qi Wu"
-      ],
-      "categories": [
-        "cs.CV",
-        "cs.RO"
-      ],
-      "score": 65,
-      "importanceLevel": "B",
-      "oneSentenceSummary": "成本感知交互导航：信息增益引导何时向oracle提问，高效消除歧义。",
-      "summaryCn": "将交互式实例目标导航建模为成本敏感不确定性消减问题。通过对现有语料的信息增益分析，识别出高效问题类型并赋予成本权重。构建新基准和加权成功率指标，评估交互效率。提出零样本多模态大语言模型导航器，仅在预期不确定性减少值得交互成本时才查询oracle。该方法引导智能体以更低的交互代价达到目标，推动交互式导航的效率研究。",
-      "whyImportant": "首次对导航交互进行成本建模，推动从单纯成功率向效率导向的交互策略设计转变。",
-      "reasonTags": [
-        "交互式导航",
-        "成本敏感",
-        "信息增益",
-        "零样本"
-      ],
-      "innovationPoints": [
-        "基于信息增益定义问题类型成本，建立成本-收益模型",
-        "构建诊断性基准和加权成功率指标",
-        "零样本导航器动态决策交互时机，提升效率"
-      ]
-    },
-    {
-      "id": "2606.03268v1",
-      "title": "EaDex: A Cross-Embodiment Dexterous Manipulation Framework from Low-Cost Demonstrations",
-      "summary": "Dexterous manipulation learning has long been hindered by the high costs of data and training, as pure reinforcement learning typically requires large-scale interactive exploration and imitation learning depends on high-quality demonstrations that are expensive to collect. These results validate the effectiveness of the proposed low-cost…",
-      "summaryRaw": "Dexterous manipulation learning has long been hindered by the high costs of data and training, as pure reinforcement learning typically requires large-scale interactive exploration and imitation learning depends on high-quality demonstrations that are expensive to collect. To address this problem, we propose EaDex, a multi-embodiment dexterous manipulation learning framework under low-cost demonstration conditions, which enables rapid generation of demonstration data and consequently reduces training time for efficient dexterous manipulation. At the data level, EaDex captures human hand motions using only a single RGB-D camera and constructs structured demonstration data through MANO-based hand modeling, data normalization, and motion retargeting. At the learning level, we introduce a contact-reward-based dynamic demonstration annealing mechanism, which guides early-stage exploration under demonstration and gradually transitions to autonomous optimization with accumulating contact rewards. Using our custom dataset, we evaluate EaDex on three dexterous hands and three articulated object-opening tasks, covering nine cross-embodiment manipulation settings, achieving a 55.3% relative improvement over the baseline without demonstration annealing. These results validate the effectiveness of the proposed low-cost demonstration pipeline and the dynamic demonstration annealing strategy for dexterous manipulation learning.",
-      "link": "https://arxiv.org/abs/2606.03268v1",
-      "pdfLink": "https://arxiv.org/pdf/2606.03268v1",
-      "published": "2026-06-02T07:35:18Z",
-      "updated": "2026-06-02T07:35:18Z",
-      "authors": [
-        "Qian Zhao",
-        "Xin Tong",
-        "Chengdong Wu",
-        "Yang Yang",
-        "Yingtian Li"
-      ],
-      "categories": [
-        "cs.RO"
-      ],
-      "score": 60,
-      "importanceLevel": "B",
-      "oneSentenceSummary": "EaDex：从低成本演示中学习跨具身灵巧操作的框架。",
-      "summaryCn": "针对灵巧操作数据与训练成本高的问题，提出EaDex框架。在数据层面，用单RGB-D相机捕获人手运动，通过MANO标准化和重定向生成演示。在学习层面，引入接触奖励驱动的动态演示退火机制，从早期监督引导逐步过渡到自主优化。在三种灵巧手和三种开盖任务上的九种跨具身设置中评估，相对基线提升55.3%，验证了低成本演示管道和退火策略的有效性。",
-      "whyImportant": "降低灵巧操作的数据门槛，并利用演示退火实现高效跨具身迁移，对通用灵巧作业有参考价值。",
-      "reasonTags": [
-        "灵巧操作",
-        "跨具身",
-        "低成本演示",
-        "强化学习"
-      ],
-      "innovationPoints": [
-        "使用单相机和MANO模型生成标准化演示数据",
-        "动态演示退火机制平衡监督与自主探索",
-        "在多种灵巧手和任务上实现跨具身迁移"
+        "可泛化的失败归因模型，诊断抓取与规划的故障模式",
+        "诊断驱动的抓取评分优化和规划微调，针对性解决瓶颈",
+        "适用于多种策略基座，包括VLA和扩散策略"
       ]
     }
   ],
@@ -409,9 +418,91 @@ window.PAPERS_SITE_DATA = {
     {
       "dateKey": "20260603",
       "dateLabel": "2026-06-03",
-      "generatedAt": "2026-06-03T13:25:39.586214+00:00",
+      "generatedAt": "2026-06-03T13:43:33.922278+00:00",
       "paperCount": 10,
       "papers": [
+        {
+          "id": "2606.03159v1",
+          "title": "NVIDIA OmniDreams: Real-Time Generative World Model for Closed-Loop Autonomous Vehicle Simulation",
+          "summary": "Deployed in a closed-loop system with the Alpamayo 1 policy model and AlpaSim orchestrator, OmniDreams acts as a highly responsive, reactive environment, providing a scalable and comprehensive solution for training and evaluating next-generation autonomous driving policies. We additionally show preliminary results indicating that a world…",
+          "summaryRaw": "As autonomous vehicle capabilities advance, the safe evaluation of driving policies in long-tail scenarios remains a critical bottleneck. In closed-loop simulation, the driving policy model actively interacts with the environment, where its actions dynamically update the simulator state and directly influence the next set of generated sensor observations. While recent reconstruction-based neural simulators offer photorealism, they are fundamentally constrained by their initial captured data and struggle to generalize to highly dynamic or novel scenes. To overcome these limitations, we introduce OmniDreams, a foundation generative world model mid- and post-trained from the Cosmos diffusion model to autoregressively generate action-conditioned videos in real time. By leveraging the rich visual priors of Cosmos and mid- and post-training on 21k hours of driving scenarios, OmniDreams synthesizes complex, unobserved phenomena that are hard for traditional simulators to capture, such as extreme weather and unpredictable dynamic agent behaviors. Crucially, it autoregressively conditions its photorealistic sensor generation on past frames, the current simulator state, and immediate driving actions. Deployed in a closed-loop system with the Alpamayo 1 policy model and AlpaSim orchestrator, OmniDreams acts as a highly responsive, reactive environment, providing a scalable and comprehensive solution for training and evaluating next-generation autonomous driving policies. We additionally show preliminary results indicating that a world-action model (WAM) post-trained from OmniDreams achieves strong performance on the Physical AI Autonomous Vehicles NuRec dataset, surpassing the VLA-based Alpamayo 1.5 research policy model while using only 1/5 the total parameters. These results highlight the potential for a real-time world model like OmniDreams to also serve as a backbone for policy architectures.",
+          "link": "https://arxiv.org/abs/2606.03159v1",
+          "pdfLink": "https://arxiv.org/pdf/2606.03159v1",
+          "published": "2026-06-02T05:11:05Z",
+          "updated": "2026-06-02T05:11:05Z",
+          "authors": [
+            "NVIDIA",
+            ":",
+            "Aarti Basant",
+            "Amlan Kar",
+            "Despoina Paschalidou",
+            "Fangyin Wei",
+            "Francesco Ferroni",
+            "Guillermo Garcia Cobo"
+          ],
+          "categories": [
+            "cs.CV",
+            "cs.AI",
+            "cs.RO"
+          ],
+          "score": 97,
+          "importanceLevel": "S",
+          "oneSentenceSummary": "OmniDreams：基于Cosmos扩散模型的实时生成式世界模型，用于自动驾驶闭环仿真。",
+          "summaryCn": "OmniDreams是一个基础生成世界模型，以Cosmos扩散模型为骨干，在21k小时驾驶数据上中后训练，能够根据历史帧、仿真状态和驾驶动作自回归生成逼真视频。用于闭环仿真时，与Alpamayo 1策略模型配合，可模拟极端天气和动态agent行为。后训练的世界-动作模型（WAM）在NuRec数据集上以1/5参数量超过VLA基线，展现了作为策略骨干的潜力。",
+          "whyImportant": "首个实时生成式世界动作模型用于自动驾驶闭环测评，兼具仿真与策略学习能力，规模与性能突出。",
+          "reasonTags": [
+            "世界动作模型",
+            "自动驾驶仿真",
+            "实时生成",
+            "闭环"
+          ],
+          "innovationPoints": [
+            "基于Cosmos扩散模型，首次实现实时自回归视频生成用于自动驾驶闭环仿真",
+            "世界模型可后训练为世界-动作模型，参数量小但性能超越VLA策略",
+            "模拟长尾场景（极端天气、动态agent），突破传统重建仿真器的局限"
+          ]
+        },
+        {
+          "id": "2606.03598v1",
+          "title": "PHASER: Phase-Aware and Semantic Experience Replay for Vision-Language-Action Models",
+          "summary": "Vision-Language-Action (VLA) models have achieved remarkable success in language-conditioned robotic manipulation. While experience replay (ER) serves as a standard mitigating strategy, naive uniform sampling fundamentally misaligns with the temporal characteristics of manipulation trajectories.",
+          "summaryRaw": "Vision-Language-Action (VLA) models have achieved remarkable success in language-conditioned robotic manipulation. However, deploying these models in open-ended environments requires continuously acquiring novel skills, a process that inevitably triggers severe catastrophic forgetting of previously learned behaviors. While experience replay (ER) serves as a standard mitigating strategy, naive uniform sampling fundamentally misaligns with the temporal characteristics of manipulation trajectories. It systematically under-samples brief but causally critical sub-skills, leading to phase starvation, and completely overlooks the varying degrees of forgetting across historical tasks. To overcome these limitations, we introduce PHASER, an architecture-agnostic continual learning framework. PHASER employs a phase-centric capacity allocation to guarantee equal memory support for all sub-skills, coupled with a multi-modal interference routing strategy that dynamically prioritizes historical phases at high risk of forgetting. Furthermore, to enable fully autonomous lifelong adaptation, we integrate Auto-PC, a lightweight pipeline combining unsupervised action-signal change-point detection with VLM-based semantic verification to extract temporal boundaries without intensive manual supervision. Evaluated across three VLA backbones on LIBERO continual learning suites, PHASER yields substantial empirical improvements, increasing Average Success Rate (ASR) by up to 31% over matched-budget ER and achieving an 87.8% final ASR on the LIBERO-Goal CL setting.",
+          "link": "https://arxiv.org/abs/2606.03598v1",
+          "pdfLink": "https://arxiv.org/pdf/2606.03598v1",
+          "published": "2026-06-02T13:04:15Z",
+          "updated": "2026-06-02T13:04:15Z",
+          "authors": [
+            "Ziyang Chen",
+            "Shaoguang Wang",
+            "Weiyu Guo",
+            "Qianyi Cai",
+            "He Zhang",
+            "Pengteng Li",
+            "Yiren Zhao",
+            "Yandong Guo"
+          ],
+          "categories": [
+            "cs.AI",
+            "cs.CV",
+            "cs.RO"
+          ],
+          "score": 95,
+          "importanceLevel": "S",
+          "oneSentenceSummary": "PHASER：面向VLA模型的阶段感知语义经验回放持续学习框架。",
+          "summaryCn": "PHASER是一种架构无关的持续学习框架，针对VLA模型在开放环境中的灾难性遗忘问题。它采用阶段中心的容量分配确保所有子技能获得均等记忆支持，并利用多模态干扰路由动态优先回放高风险历史阶段。还集成了自动阶段分割流水线Auto-PC，利用无监督动作变化点检测和VLM语义验证。在LIBERO持续学习套件上，PHASER将平均成功率提升高达31%，最终成功率87.8%。",
+          "whyImportant": "解决VLA持续学习中的阶段匮乏和遗忘不均问题，大幅提升在线学习性能，无需架构修改。",
+          "reasonTags": [
+            "VLA持续学习",
+            "经验回放",
+            "阶段感知",
+            "灾难性遗忘"
+          ],
+          "innovationPoints": [
+            "阶段中心的容量分配避免对短暂关键子技能的采样不足",
+            "多模态干扰路由根据遗忘风险动态调整回放优先级",
+            "Auto-PC实现无监督的自动阶段分割，减少人工标注"
+          ]
+        },
         {
           "id": "2606.03784v1",
           "title": "Revisiting Embodied Chain-of-Thought for Generalizable Robot Manipulation",
@@ -434,59 +525,21 @@ window.PAPERS_SITE_DATA = {
           "categories": [
             "cs.RO"
           ],
-          "score": 95,
+          "score": 94,
           "importanceLevel": "S",
-          "oneSentenceSummary": "提出ERVLA：用推理dropout训练，无需测试时推理即可实现SOTA机器人操控。",
-          "summaryCn": "本文重新审视具身CoT在VLA模型中的有效性，构建最大具身CoT语料库，发现仅高级推理增益有限，而具体的末端执行器运动描述和图像空间轨迹更有效。提出ERVLA，将CoT作为表示塑造监督而非强制测试时推理，引入推理dropout策略，使模型在训练时吸收丰富推理轨迹，推理时直接预测动作，避免自回归不稳定性。在LIBERO-Plus和VLABench上达到SOTA，真实机器人实验中在语义消歧和长时域任务上表现出色。",
-          "whyImportant": "首次大规模证明具身CoT的最佳形式，并提出无需推理时解码的高效VLA训练范式，推动机器人基础模型发展。",
+          "oneSentenceSummary": "ERVLA：利用具身思维链作为表示塑造监督的VLA模型，避免自回归推理不稳定。",
+          "summaryCn": "ERVLA构建了最大的具身思维链语料库，发现有效的思维链应将高层语义理解落地为具体动作引导，如末端执行器运动和图像空间轨迹。提出将思维链作为训练时表示塑造监督，而非测试时必须的推理前缀，通过推理丢弃策略避免自回归耦合错误。ERVLA在LIBERO-Plus上达86.9%成功率，VLABench上53.2%，真实机器人实验中表现优于同规模基线。",
+          "whyImportant": "大规模验证具身CoT的最优形式，提出表示塑造监督新范式，避免推理不稳定，SOTA性能。",
           "reasonTags": [
-            "VLA模型",
-            "具身CoT",
-            "机器人操控",
-            "新训练范式"
+            "具身思维链",
+            "VLA",
+            "表示学习",
+            "机器人操作"
           ],
           "innovationPoints": [
-            "构建大规模具身CoT数据集，揭示具体动作指导优于高级推理",
-            "提出推理dropout训练策略，将CoT作为表示学习监督，推理时直接动作解码",
-            "在多个基准和真实机器人上验证泛化性和稳定性，超越自回归CoT方法"
-          ]
-        },
-        {
-          "id": "2606.03392v1",
-          "title": "OpenEAI-Platform: An Open-source Embodied Artificial Intelligence Hardware-Software Unified Platform",
-          "summary": "Embodied AI in the real world requires both accurate hardware and robust vision-language-action (VLA) policies. We present OpenEAI-Platform, a fully open-source platform that integrates a low-cost 6+1 degree-of-freedom (dof) robotic arm (OpenEAI-Arm) and a reproducible VLA model (OpenEAI-VLA).",
-          "summaryRaw": "Embodied AI in the real world requires both accurate hardware and robust vision-language-action (VLA) policies. We present OpenEAI-Platform, a fully open-source platform that integrates a low-cost 6+1 degree-of-freedom (dof) robotic arm (OpenEAI-Arm) and a reproducible VLA model (OpenEAI-VLA). OpenEAI-Arm provides open-source mechanical designs for low manufacturing cost and compliant control methods for higher accuracy. OpenEAI-VLA builds on Qwen3-VL-4B and uses a Diffusion Transformer action head, and is trained in two stages with only open-source robot and multimodal datasets. Across four real-world manipulation tasks, OpenEAI-Arm outperforms two commercial 6+1-dof arms under the same policy, and OpenEAI-VLA achieves success rates comparable to the large-scale pretrained pi0 baseline with only limited pretraining data. We will release the full hardware designs, drivers, models, and training/data pipelines to support reproducible research and scalable data collection. Our codes, layouts, and models will be released after the paper is accepted.",
-          "link": "https://arxiv.org/abs/2606.03392v1",
-          "pdfLink": "https://arxiv.org/pdf/2606.03392v1",
-          "published": "2026-06-02T09:34:08Z",
-          "updated": "2026-06-02T09:34:08Z",
-          "authors": [
-            "Jinyuan Zhang",
-            "Luoyi Fan",
-            "Leiyu Wang",
-            "Yeqiang Wang",
-            "Yicheng Zhu",
-            "Cewu Lu",
-            "Nanyang Ye"
-          ],
-          "categories": [
-            "cs.RO"
-          ],
-          "score": 90,
-          "importanceLevel": "S",
-          "oneSentenceSummary": "OpenEAI平台：全开源低成本机器臂与VLA模型，实现可复现的具身研究。",
-          "summaryCn": "提出OpenEAI-Platform，包括开源6+1自由度机械臂硬件和基于Qwen3-VL-4B的VLA模型。机械臂采用低制造成本设计和高顺位控制，VLA模型使用Diffusion Transformer动作头，仅用开源数据两阶段训练。在四个真实操作任务中，机械臂性能超越两款商用臂，VLA模型成功率媲美大规模预训练基线pi0。平台将全开源硬件设计、驱动、模型及训练流程，促进可复现研究和规模化数据收集。",
-          "whyImportant": "提供首个完整的开源硬件-软件具身平台，低成本可复现，推动社区标准化与规模化研究。",
-          "reasonTags": [
-            "开源平台",
-            "VLA模型",
-            "机器人硬件",
-            "可复现性"
-          ],
-          "innovationPoints": [
-            "开源高性价比机械臂设计，结合高精度顺位控制",
-            "基于扩散Transformer的VLA，仅用开源数据达到与大规模预训练模型可比性能",
-            "全栈开源：硬件、模型、数据管线，支持社区快速迭代"
+            "构建含97.8万轨迹的全球最大具身CoT数据集",
+            "揭示有效具身CoT应提供具体动作引导而非高层推理",
+            "推理丢弃策略使模型吸收CoT知识但直接预测动作，消除自回归风险"
           ]
         },
         {
@@ -510,21 +563,21 @@ window.PAPERS_SITE_DATA = {
           "categories": [
             "cs.RO"
           ],
-          "score": 85,
+          "score": 88,
           "importanceLevel": "A",
-          "oneSentenceSummary": "TTT-VLA：通过测试时优化潜在提示，无需改动模型即可提升策略鲁棒性。",
-          "summaryCn": "针对VLA模型部署时的分布偏移问题，提出TTT-VLA框架。训练时学习潜在提示作为额外条件信号，测试时利用代理任务的自监督信号优化该潜在提示，无需修改策略网络。在SimplerEnv上的实验表明，该方法在单具身和多具身设置下均持续提升任务成功率，且主要纠正少数关键决策而非全局改变行为，为部署时策略改进提供了有效且实用的途径。",
-          "whyImportant": "将测试时训练思想引入VLA，仅优化潜在提示即可适应新环境，轻量且通用，提升基础策略的可靠性。",
+          "oneSentenceSummary": "TTT-VLA：通过测试时潜在提示优化实现VLA模型部署适配的框架。",
+          "summaryCn": "TTT-VLA提出基于潜在提示优化（LPO）的测试时训练方法。训练时学习一个潜在提示作为附加条件信号；部署时收集少量交互数据，仅优化该潜在提示而非策略模型。在SimplerEnv上的实验显示，该方法在单/多实体设置下持续提升任务成功率，且增益主要来自纠正少量关键决策。证明了LPO是基础操作策略部署时提升的有效实用途径。",
+          "whyImportant": "无需修改VLA模型权重，仅通过轻量提示优化实现分布外自适应，部署友好。",
           "reasonTags": [
             "测试时训练",
-            "VLA模型",
-            "分布偏移",
+            "VLA",
+            "提示优化",
             "策略自适应"
           ],
           "innovationPoints": [
-            "提出基于潜在提示优化的测试时训练框架，适配VLA模型",
-            "仅用少量交互数据优化提示，不修改原策略，实现高效部署适应",
-            "实验证明主要修正关键决策，保持行为整体一致性"
+            "首次将测试时训练引入VLA，通过优化潜在提示适应新环境",
+            "提示优化通过代理任务的自监督信号进行，无需外部指导",
+            "发现性能提升源于纠正少量关键决策，而非全局策略改变"
           ]
         },
         {
@@ -548,21 +601,98 @@ window.PAPERS_SITE_DATA = {
           "categories": [
             "cs.RO"
           ],
-          "score": 83,
+          "score": 87,
           "importanceLevel": "A",
-          "oneSentenceSummary": "GeoSem-WAM：融合几何与语义监督的世界动作模型，提升表示学习。",
-          "summaryCn": "针对现有世界动作模型依赖RGB预测且缺乏结构化理解的问题，提出GeoSem-WAM。在预测未来RGB帧的同时，引入未来几何和语义表示的辅助预测分支，联合捕捉场景动态、空间几何与语义上下文。该方法在训练时增强潜在表示，测试时不需显式未来生成，保持高效推理。实验证明结构化世界监督持续提升动作预测精度、场景理解和鲁棒性，为规模化、高效率的WAM提供新方向。",
-          "whyImportant": "揭示WAM的关键在于表示学习而非生成，通过多模态监督增强结构化理解，推进高效世界模型设计。",
+          "oneSentenceSummary": "GeoSem-WAM：联合几何与语义监督的结构化世界动作模型，增强潜在表示。",
+          "summaryCn": "GeoSem-WAM针对现有世界动作模型仅依赖RGB预测而缺乏结构理解的问题，引入辅助的几何和语义预测分支，与未来RGB预测联合训练。模型在统一潜在空间中捕获场景动态、空间几何和语义上下文，但推理时不进行显式未来想象或视频生成。大量实验表明，结构化监督持续提升动作预测准确度、场景理解与鲁棒性，为高效世界动作模型提供新方向。",
+          "whyImportant": "揭示WAM优势来自表示学习，提出几何与语义监督增强表示，推理高效，性能显著提升。",
           "reasonTags": [
             "世界动作模型",
-            "几何语义监督",
             "表示学习",
-            "具身决策"
+            "几何语义融合",
+            "高效推理"
           ],
           "innovationPoints": [
-            "点明世界动作模型的优势源于表示学习，而非显式未来生成",
-            "多分支预测未来几何与语义，构建结构化潜在空间",
-            "保持推理高效性，避免推理时视频生成，便于实际部署"
+            "明确论证WAM主要通过表示学习而非未来想象带来收益",
+            "双分支预测未来几何和语义表示，联合建模场景结构",
+            "推理时不增加额外计算，保持高效"
+          ]
+        },
+        {
+          "id": "2606.03240v1",
+          "title": "GeoAlign: Beyond Semantics with State-Guided Spatial Alignment in VLA Models",
+          "summary": "Current Vision--Language--Action (VLA) models often optimize for semantic grounding, whereas executable manipulation requires geometry-aware spatial alignment and dynamic affordance selection. GeoAlign post-trains an RGB geometry branch with robot-domain RGB-D supervision, yielding RGB-derived Geometry-Enhanced Post-Trained (GEP) feature…",
+          "summaryRaw": "Current Vision--Language--Action (VLA) models often optimize for semantic grounding, whereas executable manipulation requires geometry-aware spatial alignment and dynamic affordance selection. We introduce GeoAlign, a state-guided spatial alignment architecture for VLA policy learning. GeoAlign post-trains an RGB geometry branch with robot-domain RGB-D supervision, yielding RGB-derived Geometry-Enhanced Post-Trained (GEP) features for policy rollout. The robot's proprioceptive state queries the GEP feature grid, producing compact, phase-dependent geometry tokens for action prediction. GeoAlign achieves 99.0% on LIBERO, 85.3% across three SimplerEnv-Fractal tasks, and 78.8% on eight geometry-critical real-world ALOHA tasks, with ablations confirming the value of geometry post-training and proprioceptive-state-guided querying.",
+          "link": "https://arxiv.org/abs/2606.03240v1",
+          "pdfLink": "https://arxiv.org/pdf/2606.03240v1",
+          "published": "2026-06-02T07:01:18Z",
+          "updated": "2026-06-02T07:01:18Z",
+          "authors": [
+            "Yizhi Chen",
+            "Zhanxiang Cao",
+            "Xinyi Peng",
+            "Yixiao Zheng",
+            "Xiaxi Si",
+            "Yiheng Li",
+            "Liyun Yan",
+            "Keqi Zhu"
+          ],
+          "categories": [
+            "cs.RO"
+          ],
+          "score": 86,
+          "importanceLevel": "A",
+          "oneSentenceSummary": "GeoAlign：状态引导的空间对齐架构，为VLA策略注入3D几何感知。",
+          "summaryCn": "GeoAlign后训练一个RGB几何分支，利用机器人域RGB-D监督得到几何增强特征，并通过本体感受状态查询产生紧致的几何令牌用于动作预测。在LIBERO上达99.0%，SimplerEnv-Fractal任务上85.3%，8个几何关键的ALOHA真实世界任务上78.8%，实验证明几何后训练和本体感受查询的价值。",
+          "whyImportant": "突破VLA仅依赖语义的局限，显式注入3D几何信息，大幅提升操作精度和泛化。",
+          "reasonTags": [
+            "VLA",
+            "空间对齐",
+            "几何感知",
+            "机器人操作"
+          ],
+          "innovationPoints": [
+            "在VLA中引入独立几何分支，通过RGB-D后训练获得几何特征",
+            "利用机器人状态从特征网格中动态提取几何令牌，实现任务阶段的依赖",
+            "无需在线深度估计，仅用离线训练几何分支，保证实时性"
+          ]
+        },
+        {
+          "id": "2606.03392v1",
+          "title": "OpenEAI-Platform: An Open-source Embodied Artificial Intelligence Hardware-Software Unified Platform",
+          "summary": "Embodied AI in the real world requires both accurate hardware and robust vision-language-action (VLA) policies. We present OpenEAI-Platform, a fully open-source platform that integrates a low-cost 6+1 degree-of-freedom (dof) robotic arm (OpenEAI-Arm) and a reproducible VLA model (OpenEAI-VLA).",
+          "summaryRaw": "Embodied AI in the real world requires both accurate hardware and robust vision-language-action (VLA) policies. We present OpenEAI-Platform, a fully open-source platform that integrates a low-cost 6+1 degree-of-freedom (dof) robotic arm (OpenEAI-Arm) and a reproducible VLA model (OpenEAI-VLA). OpenEAI-Arm provides open-source mechanical designs for low manufacturing cost and compliant control methods for higher accuracy. OpenEAI-VLA builds on Qwen3-VL-4B and uses a Diffusion Transformer action head, and is trained in two stages with only open-source robot and multimodal datasets. Across four real-world manipulation tasks, OpenEAI-Arm outperforms two commercial 6+1-dof arms under the same policy, and OpenEAI-VLA achieves success rates comparable to the large-scale pretrained pi0 baseline with only limited pretraining data. We will release the full hardware designs, drivers, models, and training/data pipelines to support reproducible research and scalable data collection. Our codes, layouts, and models will be released after the paper is accepted.",
+          "link": "https://arxiv.org/abs/2606.03392v1",
+          "pdfLink": "https://arxiv.org/pdf/2606.03392v1",
+          "published": "2026-06-02T09:34:08Z",
+          "updated": "2026-06-02T09:34:08Z",
+          "authors": [
+            "Jinyuan Zhang",
+            "Luoyi Fan",
+            "Leiyu Wang",
+            "Yeqiang Wang",
+            "Yicheng Zhu",
+            "Cewu Lu",
+            "Nanyang Ye"
+          ],
+          "categories": [
+            "cs.RO"
+          ],
+          "score": 85,
+          "importanceLevel": "A",
+          "oneSentenceSummary": "OpenEAI-Platform：软硬件统一的开源具身人工智能平台，含低成本机械臂和VLA模型。",
+          "summaryCn": "OpenEAI-Platform提供完全开源的6+1自由度机械臂设计和可复现的VLA模型。机械臂采用开源设计和柔性控制，模型以Qwen3-VL-4B为核心，使用Diffusion Transformer动作头，两阶段训练仅用开源数据集。在四个真实操作任务中，机械臂性能优于两款商用臂；VLA模型成功率与大规模预训练的pi0基线相当。全流程开源，支持可重复研究和数据收集。",
+          "whyImportant": "首个全开源VLA软硬件平台，低成本高性能，促进社区可复现研究和数据规模化。",
+          "reasonTags": [
+            "开源平台",
+            "VLA",
+            "机器人硬件",
+            "数据收集"
+          ],
+          "innovationPoints": [
+            "联合开源机械臂设计与VLA模型，实现从硬件到策略的全栈开放",
+            "仅用开源数据训练，性能可比肩大规模预训练模型",
+            "低成本设计降低具身AI研究门槛"
           ]
         },
         {
@@ -584,210 +714,98 @@ window.PAPERS_SITE_DATA = {
           "categories": [
             "cs.RO"
           ],
-          "score": 82,
+          "score": 84,
           "importanceLevel": "A",
-          "oneSentenceSummary": "PointAction：用3D点图作为通用动作表示，桥接视频预测与机器人控制。",
-          "summaryCn": "针对现有视频动作模型RGB输出无法直接执行动作的问题，提出PointAction框架。微调基础视频生成模型，同时预测未来RGB帧和动态3D点图，产生时序一致的场景几何运动。这些点动力学作为结构化的、具身无关的动作接口，再由扩散动作解码器映射为机器人动作。实验表明，该方法在机器人场景4D生成质量上达到SOTA，在仿真和两个真实机械臂上泛化良好，减少了对大量动作监督的需求。",
-          "whyImportant": "首次以3D点动力学作为视频预测与控制之间的通用接口，降低动作接地歧义，促进跨具身泛化。",
+          "oneSentenceSummary": "PointAction：以动态3D点云作为通用动作接口，连接视频生成与机器人控制。",
+          "summaryCn": "PointAction微调基础视频生成模型联合预测RGB帧和动态3D点图，产生场景几何的时序一致运动；这些点动态作为结构化、实体无关的动作接口，由扩散动作解码器转换为可执行动作。在机器人场景达到最优4D生成质量，仿真和真实两种未见机器人臂上均超越基线。",
+          "whyImportant": "用几何显式的3D点运动作为中间表示，解决RGB视频到动作的歧义，支持跨实体迁移。",
           "reasonTags": [
             "视频动作模型",
-            "3D点图",
-            "动作表示",
-            "跨具身"
+            "通用动作接口",
+            "3D点动态",
+            "跨实体泛化"
           ],
           "innovationPoints": [
-            "提出用动态3D点图作为视频与动作间的结构化桥梁",
-            "联合预测RGB与点图，保持时序一致性，减少动作监督需求",
-            "扩散解码器实现点动力学到机器人动作的映射，支持多具身"
+            "提出点动态作为视频预测和动作控制的桥梁，弥合语义与几何鸿沟",
+            "联合生成未来RGB和3D点图，保持时空一致性",
+            "实现跨任务和跨机器人实体的有限动作监督迁移"
           ]
         },
         {
-          "id": "2606.03609v1",
-          "title": "A 3D Isovist World Model -- Revealing a City's Unseen Geometry and Its Emergent Cross-City Signature",
-          "summary": "Embodied agents that navigate cities rely on world models that predict how their surroundings will change as they move. The representation is lightweight, interpretable, and reproducible, offering a geometric substrate for spatial reasoning in embodied AI, robotics, and urban analysis, released with an open dataset and pipeline.",
-          "summaryRaw": "Embodied agents that navigate cities rely on world models that predict how their surroundings will change as they move. But for navigation, what matters is not what the buildings look like; it is where the agent can go. Most world models nonetheless predict appearance, learning how a scene looks rather than the space an agent can move through. Those that do target geometry, such as bird's-eye-view occupancy grids, flatten the three-dimensional environment onto a ground plane, discarding the above-ground and multi-level structure that shapes real navigation. What is missing is a predictive target that captures the navigable geometry an agent actually traverses, without photometric entanglement and without collapsing the third dimension. Our key idea is to model the open volume between buildings, the negative space, encoded as a 3D isovist: a spherical visibility-depth map recording the distance to the nearest surface in every direction. We introduce an embodied world model that predicts the next isovist from a short history of past isovists and a movement action. The prediction is formulated as a depth residual so the decoder inherits sharp building edges, trained with self-rollout scheduled sampling to keep corrupted context on the geometry manifold, and equipped with a persistent latent bird's-eye-view spatial map for cross-path consistency. Our central finding is emergent and unexpected: a single city-blind model trained on Manhattan and Paris develops a cross-city spatial signature, with city identity linearly decodable from its temporal latents far above single-frame baselines, so the signature lives in the learned dynamics rather than in appearance. The representation is lightweight, interpretable, and reproducible, offering a geometric substrate for spatial reasoning in embodied AI, robotics, and urban analysis, released with an open dataset and pipeline.",
-          "link": "https://arxiv.org/abs/2606.03609v1",
-          "pdfLink": "https://arxiv.org/pdf/2606.03609v1",
-          "published": "2026-06-02T13:11:30Z",
-          "updated": "2026-06-02T13:11:30Z",
+          "id": "2606.03556v1",
+          "title": "Partially Observable Adversarial Patch Attacks on Vision-Language-Action Models in Robotics",
+          "summary": "Vision-language-action (VLA) models are gaining attention in robotics, yet their robustness to adversarial attacks remains largely unexplored. Existing work shows that adversarial patches can mislead VLA-based robots but assumes full access to the entire execution trajectory, an unrealistic requirement in practice.",
+          "summaryRaw": "Vision-language-action (VLA) models are gaining attention in robotics, yet their robustness to adversarial attacks remains largely unexplored. Existing work shows that adversarial patches can mislead VLA-based robots but assumes full access to the entire execution trajectory, an unrealistic requirement in practice. We address this limitation by formulating a partially observable threat model, where the adversary can exploit only a short prefix of the trajectory to generate a fixed patch applied to all subsequent frames. Under this setting, we propose a two-phase framework. First, we localize the patch using the model's attention maps to identify visually critical regions that correspond to the full instruction. Then, we optimize the patch to disrupt the semantic grounding of target objects and increase the curvature of action trajectories, thereby compounding failures in both perception and control. Extensive experiments in simulation and real-world robotic environments show that our method sustains adversarial effects under partial observability, inducing long-horizon disruptions and significantly reducing task success rates.",
+          "link": "https://arxiv.org/abs/2606.03556v1",
+          "pdfLink": "https://arxiv.org/pdf/2606.03556v1",
+          "published": "2026-06-02T12:19:28Z",
+          "updated": "2026-06-02T12:19:28Z",
           "authors": [
-            "Xuhui Lin",
-            "Stephen Law",
-            "Nanjiang Chen",
-            "Kunyao Li",
-            "Tao Yang"
+            "Xiaofei Wang",
+            "Mingliang Han",
+            "Tianyu Hao",
+            "Yi Yang",
+            "Yun-Bo Zhao",
+            "Keke Tang"
+          ],
+          "categories": [
+            "cs.RO"
+          ],
+          "score": 82,
+          "importanceLevel": "A",
+          "oneSentenceSummary": "针对VLA机器人的部分可观测对抗补丁攻击，揭示安全漏洞。",
+          "summaryCn": "本文研究VLA模型在部分可观测下的对抗鲁棒性，提出威胁模型仅利用轨迹短前缀生成固定补丁。两阶段框架先利用注意力图定位关键视觉区域，再优化补丁破坏目标语义接地并增大动作曲率。仿真和真实环境实验表明，攻击在长时间跨度内持续有效，显著降低任务成功率。",
+          "whyImportant": "首次揭示VLA在部分可观测条件下的脆弱性，为机器人安全部署提供新的评估视角。",
+          "reasonTags": [
+            "对抗攻击",
+            "VLA安全",
+            "部分可观测",
+            "机器人鲁棒性"
+          ],
+          "innovationPoints": [
+            "提出部分可观测威胁模型，仅需轨迹前缀生成通用补丁",
+            "联合破坏感知语义和动作曲率，实现复合式攻击",
+            "真实机器人实验验证跨域攻击效果"
+          ]
+        },
+        {
+          "id": "2606.03385v1",
+          "title": "Grasp-Then-Plan with Failure Attribution: A Closed Two-Stage Framework for Precise and Generalizable Robotic Manipulation",
+          "summary": "In robotic manipulation, the tight coupling between grasping and motion planning often obscures the true source of failure, leading to inefficient trial-and-error. We evaluate the proposed framework in both simulation and real-robot experiments, and show that GTP-FA improves the corresponding base learners across RL, IL, diffusion-policy…",
+          "summaryRaw": "In robotic manipulation, the tight coupling between grasping and motion planning often obscures the true source of failure, leading to inefficient trial-and-error. To enable efficient long-horizon manipulation, we propose GTP-FA (Grasp-Then-Plan with Failure Attribution), a task-oriented two-stage grasp-then-plan framework that generates grasp candidates and performs downstream motion planning conditioned on the selected grasp. Given a failed manipulation trajectory, we learn a failure attribution model that generalizes to unseen grasps and produces a stable distribution over failure modes for diagnosis-guided optimization. Based on these attribution results, we then optimize both modules in a diagnosis-driven manner: on the grasping side, we inject task-level priors and risk penalties into grasp candidate scoring and optimization to suppress unstable or task-incompatible grasps; on the planning side, we target high-risk initial states through data collection and fine-tuning to address genuine planning bottlenecks. We evaluate the proposed framework in both simulation and real-robot experiments, and show that GTP-FA improves the corresponding base learners across RL, IL, diffusion-policy, and VLA-based settings, achieving substantially higher overall task success rates.",
+          "link": "https://arxiv.org/abs/2606.03385v1",
+          "pdfLink": "https://arxiv.org/pdf/2606.03385v1",
+          "published": "2026-06-02T09:29:03Z",
+          "updated": "2026-06-02T09:29:03Z",
+          "authors": [
+            "Jiahao Xu",
+            "Peiyuan Wang",
+            "Hanzhuo Zhang",
+            "Zihao Yu",
+            "Tianyu Fu",
+            "Hao Chen",
+            "Xuanhao Xiang",
+            "Jianbo Yu"
           ],
           "categories": [
             "cs.RO",
-            "cs.LG"
+            "cs.AI"
           ],
-          "score": 78,
+          "score": 80,
           "importanceLevel": "A",
-          "oneSentenceSummary": "3D等视域世界模型：预测导航空间几何，发现跨城市动态签名。",
-          "summaryCn": "提出一种无外观纠缠的几何世界模型，以3D等视域（球面可见距离图）作为预测目标，避免传统世界模型对RGB的依赖。模型根据历史等视域和运动预测下一视域，采用深度残差和自展采样训练，并引入持久BEV隐图。意外发现：在曼哈顿和巴黎训练的单一模型，其时间隐变量可线性解码城市身份，说明签名存于学习动态而非外观。表示轻量可解释，为具身AI、机器人及城市分析提供几何推理基底，附带开源数据。",
-          "whyImportant": "以纯几何方式建模可导航空间，为导航世界模型提供新思路，且发现城市间的动态签名，具启发性。",
+          "oneSentenceSummary": "GTP-FA：基于失败归因的“先抓后规划”闭环框架，提升VLA操控成功率。",
+          "summaryCn": "GTP-FA提出任务导向的两阶段抓取-规划框架，通过失败归因模型定位故障模块（抓取或规划）。基于诊断结果，在抓取端注入任务先验和风险惩罚优化抓取评分，在规划端针对性采集高风险状态数据微调规划器。支持RL、IL、扩散策略和VLA等多种基座，仿真和真实实验均大幅提升整体任务成功率。",
+          "whyImportant": "将失败诊断引入VLA操控流水线，实现模块化优化，有效提升长序任务成功率。",
           "reasonTags": [
-            "世界模型",
-            "等视域",
-            "几何推理",
-            "导航"
+            "失败归因",
+            "抓取规划",
+            "VLA操控",
+            "闭环优化"
           ],
           "innovationPoints": [
-            "以3D等视域作为预测目标，分离外观干扰，聚焦可导航几何",
-            "自展训练与持久BEV隐图保证跨路径一致性",
-            "发现模型动力学中蕴含城市身份信息，揭示空间签名"
-          ]
-        },
-        {
-          "id": "2606.03682v1",
-          "title": "GN0: Toward a Unified Paradigm for Generation, Evaluation, and Policy Learning in Visual-Language Navigation",
-          "summary": "Embodied navigation connects intelligent agents with the physical world and is fundamental for general robotic intelligence. Overall, GN-Matrix offers a unified framework spanning data, simulation, and learning, advancing embodied navigation in research and industrial applications.",
-          "summaryRaw": "Embodied navigation connects intelligent agents with the physical world and is fundamental for general robotic intelligence. Limited availability and quality of navigation data have constrained Vision-and-Language Navigation (VLN) systems' generalization and long-horizon capabilities. To address this, we curate diverse 3D scenes and develop an automated pipeline for large-scale navigation data, resulting in the GN-Matrix dataset. Building on a 3D Gaussian Splatting (3DGS) engine, we introduce a high-fidelity simulation platform supporting interactive roaming and collision-aware navigation. We further propose GN-Bench, the first BEV-based benchmark incorporating dynamic 3DGS avatars for human-robot interaction evaluation. To leverage the simulator, we develop an RL-driven navigation foundation model, Break and Establish (BAE). After supervised learning, DAgger exposes the model to rollout-induced states, breaking narrow expert-centric distributions and enabling downstream RL exploration. This unified VLN paradigm integrates map-based and map-free tasks, including instruction following, human following, and goal navigation. GN-BAE formalizes high-fidelity 3DGS-rendered Bird's Eye View representations as compact memory, unlocking latent spatial reasoning in VLMs. Extensive evaluations on GN-Bench and VLN-CE show that GN0 outperforms state-of-the-art VLN methods. Overall, GN-Matrix offers a unified framework spanning data, simulation, and learning, advancing embodied navigation in research and industrial applications.",
-          "link": "https://arxiv.org/abs/2606.03682v1",
-          "pdfLink": "https://arxiv.org/pdf/2606.03682v1",
-          "published": "2026-06-02T14:05:47Z",
-          "updated": "2026-06-02T14:05:47Z",
-          "authors": [
-            "Xinhai Li",
-            "Xiaotao Zhang",
-            "Yuehao Huang",
-            "Jiankun Dong",
-            "Tianhang Wang",
-            "Sunyao Zhou",
-            "Yunzi Wu",
-            "Chengnuo Sun"
-          ],
-          "categories": [
-            "cs.RO"
-          ],
-          "score": 72,
-          "importanceLevel": "B",
-          "oneSentenceSummary": "GN0统一范式：集成生成、评估与策略学习的视觉语言导航。",
-          "summaryCn": "为解决视觉语言导航数据稀缺和泛化问题，构建大规模数据集GN-Matrix和基于3D高斯泼溅的高保真仿真平台，支持交互漫游与碰撞感知导航。提出BEV基准GN-Bench评估人机交互。开发RL驱动的导航基础模型BAE，结合监督学习和DAgger打破专家分布，使VLM通过BEV表示解锁空间推理。GN0在GN-Bench和VLN-CE上超越现有方法，形成数据、仿真与学习统一框架。",
-          "whyImportant": "首次提出BEV导航基准并融合3DGS仿真，统一多任务导航范式，推动导航通用模型发展。",
-          "reasonTags": [
-            "视觉语言导航",
-            "3DGS仿真",
-            "BEV基准",
-            "统一范式"
-          ],
-          "innovationPoints": [
-            "构建大规模3DGS导航仿真器和BEV交互基准",
-            "BAE模型通过DAgger和RL打破专家数据分布",
-            "用BEV紧凑记忆激活VLM的空间推理能力"
-          ]
-        },
-        {
-          "id": "2606.03509v1",
-          "title": "EvoMemNav: Efficient Self-Evolving Fine-Grained Memory for Zero-Shot Embodied Navigation",
-          "summary": "Building memory is essential for long-horizon planning in zero-shot embodied navigation. We present EvoMemNav, an efficient, self-evolving, fine-grained memory framework for zero-shot embodied navigation.",
-          "summaryRaw": "Building memory is essential for long-horizon planning in zero-shot embodied navigation. Detector-centric scene graphs often compress observations into sparse nodes, discarding fine-grained visual evidence and accumulating noise, while 3D reconstruction-based methods remain computationally prohibitive. We present EvoMemNav, an efficient, self-evolving, fine-grained memory framework for zero-shot embodied navigation. EvoMemNav constructs a Visual-Semantic Memory Graph (VSMGraph) that keeps raw views as first-class memory and organizes them with lightweight semantic cues and topological relations into a room-view-object hierarchy, preserving fine-grained details for disambiguation and Stop verification. To scale to growing memory, we introduce a budgeted coarse-to-fine policy: a coarse stage compresses the search space into promising regions, and a fine stage invokes a VLM only for targeted verification and decision. Beyond static memories, EvoMemNav performs reflection-driven write-back after each subtask, updating graph-attached priors that encode accumulated environmental knowledge to refine future decisions without retraining. Experiments on GOAT-Bench and HM3D across object, text-description, and image-goal modalities show consistent gains in SR/SPL, with better multi-instance disambiguation, fewer premature stops, and stronger zero-shot generalization.",
-          "link": "https://arxiv.org/abs/2606.03509v1",
-          "pdfLink": "https://arxiv.org/pdf/2606.03509v1",
-          "published": "2026-06-02T11:27:44Z",
-          "updated": "2026-06-02T11:27:44Z",
-          "authors": [
-            "Zuhao Ge",
-            "Xiaosong Jia",
-            "Chao Wu",
-            "Yuchen Zhou",
-            "Zuxuan Wu",
-            "Yu-Gang Jiang"
-          ],
-          "categories": [
-            "cs.CV"
-          ],
-          "score": 68,
-          "importanceLevel": "B",
-          "oneSentenceSummary": "EvoMemNav：自进化细粒度记忆框架，提升零样本导航长期规划。",
-          "summaryCn": "针对零样本导航中记忆稀疏与噪声问题，提出EvoMemNav框架。构建视觉-语义记忆图，以原始视图为一级记忆，结合轻量语义线索分层组织。设计预算粗-细策略，先压缩搜索域，再调用VLM进行目标验证。同时引入反思驱动写回机制，在子任务完成后更新图附先验知识。在GOAT-Bench和HM3D上验证，多模态任务成功率与SPL一致提升，并增强多实例消歧和零样本泛化。",
-          "whyImportant": "将原始视图保留为记忆，并通过自我进化机制累积环境知识，显著改善导航中的细粒度决策。",
-          "reasonTags": [
-            "零样本导航",
-            "视觉记忆",
-            "层次图",
-            "自进化"
-          ],
-          "innovationPoints": [
-            "基于原始视图的视觉-语义记忆图，保留细粒度信息",
-            "预算粗-细策略平衡效率与准确性",
-            "反思写回实现记忆的自进化，无需重训练"
-          ]
-        },
-        {
-          "id": "2606.03175v1",
-          "title": "Ask When It Pays: Cost-Aware Open-Ended Interaction for Instance Goal Navigation",
-          "summary": "Instance Goal Navigation (IGN) requires an embodied agent to find a specific object instance among distractors from an underspecified natural-language description. We recast interactive IGN as a cost-sensitive uncertainty-reduction problem, where the agent should ask the question whose answer provides the largest reduction in navigation…",
-          "summaryRaw": "Instance Goal Navigation (IGN) requires an embodied agent to find a specific object instance among distractors from an underspecified natural-language description. Such ambiguity often cannot be resolved from perception and language alone, making interaction with an oracle a natural mechanism for disambiguation. Prior interactive methods allow oracle queries but treat lightweight clarification and route-level guidance alike, letting agents boost success rate through repeated high-information questions rather than by resolving the underlying ambiguity efficiently. We recast interactive IGN as a cost-sensitive uncertainty-reduction problem, where the agent should ask the question whose answer provides the largest reduction in navigation uncertainty relative to its penalty. To this end, we apply an information-gain analysis on existing navigation corpora to identify which cues reduce navigation uncertainty, yielding a compact set of question types and data-derived weights.However, existing interactive navigation benchmarks do not model the cost of different question types or evaluate how efficiently agents use interaction, making them unsuitable for studying cost-sensitive interaction. Based on this taxonomy, we construct a benchmark for diagnosing interaction behavior and efficiency, together with a Weighted Success Rate metric that penalizes each query by its derived cost. We further propose a zero-shot MLLM navigator that selectively queries at each decision step only when the expected uncertainty reduction justifies the interaction cost.",
-          "link": "https://arxiv.org/abs/2606.03175v1",
-          "pdfLink": "https://arxiv.org/pdf/2606.03175v1",
-          "published": "2026-06-02T05:31:03Z",
-          "updated": "2026-06-02T05:31:03Z",
-          "authors": [
-            "Xunyi Zhao",
-            "Sihao Lin",
-            "Gengze Zhou",
-            "Zerui Li",
-            "Shijie Li",
-            "Wei Tao",
-            "Jiajun Liu",
-            "Qi Wu"
-          ],
-          "categories": [
-            "cs.CV",
-            "cs.RO"
-          ],
-          "score": 65,
-          "importanceLevel": "B",
-          "oneSentenceSummary": "成本感知交互导航：信息增益引导何时向oracle提问，高效消除歧义。",
-          "summaryCn": "将交互式实例目标导航建模为成本敏感不确定性消减问题。通过对现有语料的信息增益分析，识别出高效问题类型并赋予成本权重。构建新基准和加权成功率指标，评估交互效率。提出零样本多模态大语言模型导航器，仅在预期不确定性减少值得交互成本时才查询oracle。该方法引导智能体以更低的交互代价达到目标，推动交互式导航的效率研究。",
-          "whyImportant": "首次对导航交互进行成本建模，推动从单纯成功率向效率导向的交互策略设计转变。",
-          "reasonTags": [
-            "交互式导航",
-            "成本敏感",
-            "信息增益",
-            "零样本"
-          ],
-          "innovationPoints": [
-            "基于信息增益定义问题类型成本，建立成本-收益模型",
-            "构建诊断性基准和加权成功率指标",
-            "零样本导航器动态决策交互时机，提升效率"
-          ]
-        },
-        {
-          "id": "2606.03268v1",
-          "title": "EaDex: A Cross-Embodiment Dexterous Manipulation Framework from Low-Cost Demonstrations",
-          "summary": "Dexterous manipulation learning has long been hindered by the high costs of data and training, as pure reinforcement learning typically requires large-scale interactive exploration and imitation learning depends on high-quality demonstrations that are expensive to collect. These results validate the effectiveness of the proposed low-cost…",
-          "summaryRaw": "Dexterous manipulation learning has long been hindered by the high costs of data and training, as pure reinforcement learning typically requires large-scale interactive exploration and imitation learning depends on high-quality demonstrations that are expensive to collect. To address this problem, we propose EaDex, a multi-embodiment dexterous manipulation learning framework under low-cost demonstration conditions, which enables rapid generation of demonstration data and consequently reduces training time for efficient dexterous manipulation. At the data level, EaDex captures human hand motions using only a single RGB-D camera and constructs structured demonstration data through MANO-based hand modeling, data normalization, and motion retargeting. At the learning level, we introduce a contact-reward-based dynamic demonstration annealing mechanism, which guides early-stage exploration under demonstration and gradually transitions to autonomous optimization with accumulating contact rewards. Using our custom dataset, we evaluate EaDex on three dexterous hands and three articulated object-opening tasks, covering nine cross-embodiment manipulation settings, achieving a 55.3% relative improvement over the baseline without demonstration annealing. These results validate the effectiveness of the proposed low-cost demonstration pipeline and the dynamic demonstration annealing strategy for dexterous manipulation learning.",
-          "link": "https://arxiv.org/abs/2606.03268v1",
-          "pdfLink": "https://arxiv.org/pdf/2606.03268v1",
-          "published": "2026-06-02T07:35:18Z",
-          "updated": "2026-06-02T07:35:18Z",
-          "authors": [
-            "Qian Zhao",
-            "Xin Tong",
-            "Chengdong Wu",
-            "Yang Yang",
-            "Yingtian Li"
-          ],
-          "categories": [
-            "cs.RO"
-          ],
-          "score": 60,
-          "importanceLevel": "B",
-          "oneSentenceSummary": "EaDex：从低成本演示中学习跨具身灵巧操作的框架。",
-          "summaryCn": "针对灵巧操作数据与训练成本高的问题，提出EaDex框架。在数据层面，用单RGB-D相机捕获人手运动，通过MANO标准化和重定向生成演示。在学习层面，引入接触奖励驱动的动态演示退火机制，从早期监督引导逐步过渡到自主优化。在三种灵巧手和三种开盖任务上的九种跨具身设置中评估，相对基线提升55.3%，验证了低成本演示管道和退火策略的有效性。",
-          "whyImportant": "降低灵巧操作的数据门槛，并利用演示退火实现高效跨具身迁移，对通用灵巧作业有参考价值。",
-          "reasonTags": [
-            "灵巧操作",
-            "跨具身",
-            "低成本演示",
-            "强化学习"
-          ],
-          "innovationPoints": [
-            "使用单相机和MANO模型生成标准化演示数据",
-            "动态演示退火机制平衡监督与自主探索",
-            "在多种灵巧手和任务上实现跨具身迁移"
+            "可泛化的失败归因模型，诊断抓取与规划的故障模式",
+            "诊断驱动的抓取评分优化和规划微调，针对性解决瓶颈",
+            "适用于多种策略基座，包括VLA和扩散策略"
           ]
         }
       ]
