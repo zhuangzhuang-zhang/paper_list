@@ -1,5 +1,5 @@
 window.PAPERS_SITE_DATA = {
-  "generatedAt": "2026-06-03T15:11:51.086281+00:00",
+  "generatedAt": "2026-06-03T15:46:57.469674+00:00",
   "description": "按北京时间每天 08:00 的固定批次归档，基于宽召回与 DeepSeek 多维评分，输出总榜、VLA 榜和 WAM 榜。",
   "dateWindowDays": 1,
   "categories": [
@@ -35,7 +35,7 @@ window.PAPERS_SITE_DATA = {
   "modelInfo": {
     "provider": "deepseek",
     "model": "deepseek-v4-pro",
-    "candidateCount": 41
+    "candidateCount": 45
   },
   "batchWindow": {
     "start": "2026-06-02T08:00:00+08:00",
@@ -43,6 +43,61 @@ window.PAPERS_SITE_DATA = {
   },
   "currentDateKey": "20260603",
   "papers": [
+    {
+      "id": "2606.03392v1",
+      "title": "OpenEAI-Platform: An Open-source Embodied Artificial Intelligence Hardware-Software Unified Platform",
+      "summary": "Embodied AI in the real world requires both accurate hardware and robust vision-language-action (VLA) policies. We present OpenEAI-Platform, a fully open-source platform that integrates a low-cost 6+1 degree-of-freedom (dof) robotic arm (OpenEAI-Arm) and a reproducible VLA model (OpenEAI-VLA).",
+      "summaryRaw": "Embodied AI in the real world requires both accurate hardware and robust vision-language-action (VLA) policies. We present OpenEAI-Platform, a fully open-source platform that integrates a low-cost 6+1 degree-of-freedom (dof) robotic arm (OpenEAI-Arm) and a reproducible VLA model (OpenEAI-VLA). OpenEAI-Arm provides open-source mechanical designs for low manufacturing cost and compliant control methods for higher accuracy. OpenEAI-VLA builds on Qwen3-VL-4B and uses a Diffusion Transformer action head, and is trained in two stages with only open-source robot and multimodal datasets. Across four real-world manipulation tasks, OpenEAI-Arm outperforms two commercial 6+1-dof arms under the same policy, and OpenEAI-VLA achieves success rates comparable to the large-scale pretrained pi0 baseline with only limited pretraining data. We will release the full hardware designs, drivers, models, and training/data pipelines to support reproducible research and scalable data collection. Our codes, layouts, and models will be released after the paper is accepted.",
+      "link": "https://arxiv.org/abs/2606.03392v1",
+      "pdfLink": "https://arxiv.org/pdf/2606.03392v1",
+      "published": "2026-06-02T09:34:08Z",
+      "updated": "2026-06-02T09:34:08Z",
+      "authors": [
+        "Jinyuan Zhang",
+        "Luoyi Fan",
+        "Leiyu Wang",
+        "Yeqiang Wang",
+        "Yicheng Zhu",
+        "Cewu Lu",
+        "Nanyang Ye"
+      ],
+      "categories": [
+        "cs.RO"
+      ],
+      "score": 85,
+      "importanceLevel": "A",
+      "lane": "VLA",
+      "dimensionScores": {
+        "relevance": 90,
+        "novelty": 20,
+        "impact": 80,
+        "practicality": 95,
+        "coreAlignment": 95
+      },
+      "oneSentenceSummary": "开源具身智能平台，集成低成本机械臂与VLA模型",
+      "summaryCn": "OpenEAI-Platform提供开源6+1自由度机械臂与基于Qwen3-VL-4B的VLA模型，仅用开源数据训练，实际任务成功率可比肩大规模预训练基准pi0。",
+      "whyImportant": "开源平台降低具身AI门槛，促进VLA社区发展。",
+      "reasonTags": [
+        "开源平台",
+        "低成本机械臂",
+        "VLA模型"
+      ],
+      "innovationPoints": [
+        "低成本硬件设计",
+        "两阶段训练VLA模型",
+        "全开源生态"
+      ],
+      "noveltyVerdict": "工程集成创新，新颖度较低",
+      "duplicateRisk": "low",
+      "dedupeNote": "提供硬件-软件统一平台，与其他VLA方法互补",
+      "retrievalGroups": [
+        "robotics"
+      ],
+      "mergedCount": 1,
+      "mergedTitles": [
+        "OpenEAI-Platform: An Open-source Embodied Artificial Intelligence Hardware-Software Unified Platform"
+      ]
+    },
     {
       "id": "2606.03784v1",
       "title": "Revisiting Embodied Chain-of-Thought for Generalizable Robot Manipulation",
@@ -65,33 +120,32 @@ window.PAPERS_SITE_DATA = {
       "categories": [
         "cs.RO"
       ],
-      "score": 95,
-      "importanceLevel": "S",
+      "score": 88,
+      "importanceLevel": "A",
       "lane": "VLA",
       "dimensionScores": {
-        "relevance": 94,
-        "novelty": 90,
-        "impact": 92,
-        "practicality": 85,
-        "coreAlignment": 96
+        "relevance": 95,
+        "novelty": 40,
+        "impact": 75,
+        "practicality": 60,
+        "coreAlignment": 95
       },
-      "oneSentenceSummary": "重新审视具身思维链，提出有效形式与集成策略，提升VLA模型泛化性。",
-      "summaryCn": "构建最大具身思维链语料库，含97.8万轨迹、2.26亿样本。发现有效思维链应将高层语义转化为具体动作指引（如末端运动、图像轨迹），仅高层推理增益有限。揭示显式思维链的自回归前缀扩展不可靠，存在推理误差累积与不稳定耦合。提出新方案解决，大规模验证。",
-      "whyImportant": "迄今最大具身CoT研究，揭示有效形式与缩放问题，推动VLA泛化。",
+      "oneSentenceSummary": "构建大规模具身CoT数据集，提出并行预测新范式",
+      "summaryCn": "构建含97.8万轨迹的具身CoT语料库，发现CoT应落地为动作引导，提出将CoT作为并行预测的新范式，解决自回归耦合误差问题。",
+      "whyImportant": "重新审视具身CoT，大规模实验指导VLA推理设计。",
       "reasonTags": [
-        "具身思维链",
-        "VLA模型",
-        "泛化能力",
-        "大规模语料"
+        "具身CoT",
+        "大规模数据集",
+        "并行预测"
       ],
       "innovationPoints": [
-        "构建最大具身思维链语料库，规模空前。",
-        "发现有效具身思维链应落地为具体动作引导，而非仅高层推理。",
-        "识别并解决显式思维链的自回归扩展缺陷。"
+        "最大具身CoT数据集",
+        "发现CoT应提供动作引导",
+        "并行预测取代自回归前缀"
       ],
-      "noveltyVerdict": "在大规模下重新审视并推进具身思维链，创新性强。",
+      "noveltyVerdict": "实验洞察具有创新性，方法有效",
       "duplicateRisk": "low",
-      "dedupeNote": "与其他VLA工作不同，专注于思维链的重新设计与规模化，非单纯模型结构创新。",
+      "dedupeNote": "聚焦CoT策略，与通用VLA方法不同",
       "retrievalGroups": [
         "robotics"
       ],
@@ -101,62 +155,56 @@ window.PAPERS_SITE_DATA = {
       ]
     },
     {
-      "id": "2606.03598v1",
-      "title": "PHASER: Phase-Aware and Semantic Experience Replay for Vision-Language-Action Models",
-      "summary": "Vision-Language-Action (VLA) models have achieved remarkable success in language-conditioned robotic manipulation. However, deploying these models in open-ended environments requires continuously acquiring novel skills, a process that inevitably triggers severe catastrophic forgetting of previously learned behaviors.",
-      "summaryRaw": "Vision-Language-Action (VLA) models have achieved remarkable success in language-conditioned robotic manipulation. However, deploying these models in open-ended environments requires continuously acquiring novel skills, a process that inevitably triggers severe catastrophic forgetting of previously learned behaviors. While experience replay (ER) serves as a standard mitigating strategy, naive uniform sampling fundamentally misaligns with the temporal characteristics of manipulation trajectories. It systematically under-samples brief but causally critical sub-skills, leading to phase starvation, and completely overlooks the varying degrees of forgetting across historical tasks. To overcome these limitations, we introduce PHASER, an architecture-agnostic continual learning framework. PHASER employs a phase-centric capacity allocation to guarantee equal memory support for all sub-skills, coupled with a multi-modal interference routing strategy that dynamically prioritizes historical phases at high risk of forgetting. Furthermore, to enable fully autonomous lifelong adaptation, we integrate Auto-PC, a lightweight pipeline combining unsupervised action-signal change-point detection with VLM-based semantic verification to extract temporal boundaries without intensive manual supervision. Evaluated across three VLA backbones on LIBERO continual learning suites, PHASER yields substantial empirical improvements, increasing Average Success Rate (ASR) by up to 31% over matched-budget ER and achieving an 87.8% final ASR on the LIBERO-Goal CL setting.",
-      "link": "https://arxiv.org/abs/2606.03598v1",
-      "pdfLink": "https://arxiv.org/pdf/2606.03598v1",
-      "published": "2026-06-02T13:04:15Z",
-      "updated": "2026-06-02T13:04:15Z",
+      "id": "2606.03943v1",
+      "title": "PointAction: 3D Points as Universal Action Representations for Robot Control",
+      "summary": "Video-Action Models (VAMs) leverage the broad visual dynamics captured by pre-trained video diffusion models, offering a promising path toward generalizable robot manipulation. However, RGB-only video rollouts are not directly actionable: they leave metric 3D motion, contact geometry, and fine-grained spatial constraints under-specified,…",
+      "summaryRaw": "Video-Action Models (VAMs) leverage the broad visual dynamics captured by pre-trained video diffusion models, offering a promising path toward generalizable robot manipulation. However, RGB-only video rollouts are not directly actionable: they leave metric 3D motion, contact geometry, and fine-grained spatial constraints under-specified, making action grounding ambiguous. Meanwhile, scaling action supervision across diverse tasks and embodiments remains costly. We present PointAction, a framework that bridges video predictions to robot actions through explicit point-based 4D modeling. PointAction fine-tunes a foundation video generation model to jointly predict future RGB frames and dynamic 3D pointmaps, producing temporally consistent 3D motion of task-relevant scene geometry. These point dynamics serve as a structured, embodiment-agnostic action interface, which a diffusion-based action decoder maps to executable robot actions. By using metric 3D point dynamics as the interface between video prediction and control, PointAction reduces the ambiguity of RGB-only action grounding and supports transfer across tasks and embodiments with limited action supervision. Experiments show that PointAction achieves state-of-the-art 4D generation quality on robot scenes, outperforms existing baselines in simulation, and generalizes to two real robot arms unseen during pretraining.",
+      "link": "https://arxiv.org/abs/2606.03943v1",
+      "pdfLink": "https://arxiv.org/pdf/2606.03943v1",
+      "published": "2026-06-02T17:30:50Z",
+      "updated": "2026-06-02T17:30:50Z",
       "authors": [
-        "Ziyang Chen",
-        "Shaoguang Wang",
-        "Weiyu Guo",
-        "Qianyi Cai",
-        "He Zhang",
-        "Pengteng Li",
-        "Yiren Zhao",
-        "Yandong Guo"
+        "Mutian Tong",
+        "Han Jiang",
+        "Qiao Feng",
+        "Lingjie Liu",
+        "Jiatao Gu"
       ],
       "categories": [
-        "cs.RO",
-        "cs.AI",
-        "cs.CV"
+        "cs.RO"
       ],
       "score": 85,
       "importanceLevel": "A",
-      "lane": "VLA",
+      "lane": "WAM",
       "dimensionScores": {
-        "relevance": 88,
-        "novelty": 85,
-        "impact": 80,
-        "practicality": 75,
-        "coreAlignment": 90
+        "relevance": 90,
+        "novelty": 80,
+        "impact": 70,
+        "practicality": 60,
+        "coreAlignment": 95
       },
-      "oneSentenceSummary": "提出阶段感知与语义经验回放框架，缓解VLA持续学习中的灾难性遗忘。",
-      "summaryCn": "VLA在开放环境持续学习新技能时面临灾难性遗忘。传统经验回放均匀采样忽视操作轨迹的时间特性，导致关键子技能采样不足和阶段饥饿。PHASER通过阶段中心容量分配确保所有子技能获得均等记忆支持，并结合语义重放策略，有效缓解遗忘，架构无关且可复用。",
-      "whyImportant": "针对VLA持续学习中的关键遗忘问题，提出架构无关的解决框架。",
+      "oneSentenceSummary": "用3D点轨迹作为通用动作接口衔接视频预测与机器人控制",
+      "summaryCn": "PointAction微调基础视频生成模型，联合预测RGB帧和3D点云，将点动态作为具身无关动作表示，实现视频预测到动作的桥梁。",
+      "whyImportant": "首次用3D点云作为VAM与动作策略的纽带，解决动作模糊性。",
       "reasonTags": [
-        "持续学习",
-        "灾难性遗忘",
-        "VLA",
-        "经验回放"
+        "视频动作模型",
+        "3D点云",
+        "动作表示"
       ],
       "innovationPoints": [
-        "阶段感知的记忆容量分配策略，避免关键子技能被忽略。",
-        "语义经验选择机制，提升回放样本效率。",
-        "架构无关设计，可适配多种VLA模型。"
+        "联合预测RGB和3D点云",
+        "点动态作为通用动作接口",
+        "微调视频基础模型"
       ],
-      "noveltyVerdict": "在VLA持续学习上提出新颖的阶段感知方法，创新性较高。",
-      "duplicateRisk": "low",
-      "dedupeNote": "非VLA通用架构改进，专注持续学习问题，与其他工作互补。",
+      "noveltyVerdict": "新颖的4D点表示，创新性强",
+      "duplicateRisk": "medium",
+      "dedupeNote": "独特使用3D点云作为中间表示，区别于直接动作预测",
       "retrievalGroups": [
         "robotics"
       ],
       "mergedCount": 1,
       "mergedTitles": [
-        "PHASER: Phase-Aware and Semantic Experience Replay for Vision-Language-Action Models"
+        "PointAction: 3D Points as Universal Action Representations for Robot Control"
       ]
     },
     {
@@ -180,33 +228,32 @@ window.PAPERS_SITE_DATA = {
       "categories": [
         "cs.CV"
       ],
-      "score": 82,
+      "score": 78,
       "importanceLevel": "A",
       "lane": "WAM",
       "dimensionScores": {
-        "relevance": 85,
-        "novelty": 88,
-        "impact": 75,
-        "practicality": 70,
-        "coreAlignment": 90
+        "relevance": 90,
+        "novelty": 80,
+        "impact": 60,
+        "practicality": 50,
+        "coreAlignment": 95
       },
-      "oneSentenceSummary": "提出统一视频-动作联合去噪模型，实现灵巧手动作策略与数据生成。",
-      "summaryCn": "从分布视角重新审视视频基础模型与机器人动作的对齐，提出统一视频-动作去噪模型Donk。在语言、首帧和手部初始条件下采样未来视频和双手MANO轨迹作为动作策略；无图像条件时，从文本条件分布采样配对视频-动作展开，将视频先验转化为数据引擎。灵巧操作任务验证。",
-      "whyImportant": "统一视频-动作联合建模，既做策略又做数据生成，扩展视频先验用途。",
+      "oneSentenceSummary": "统一视频-动作去噪模型，用于灵巧手动作生成与数据扩增",
+      "summaryCn": "Donk在潜在空间中联合去噪交互视频与可执行手动轨迹，可作为策略直接生成动作，也可作为数据引擎生成配对数据。",
+      "whyImportant": "统一去噪框架，兼具策略与数据引擎双重功能。",
       "reasonTags": [
-        "世界动作模型",
-        "视频-动作联合",
-        "灵巧操作",
+        "视频动作去噪",
+        "灵巧手",
         "数据生成"
       ],
       "innovationPoints": [
-        "联合分布建模而非条件分布，保留更广先验。",
-        "同一架构支持策略与数据生成双重用途。",
-        "将视频基础模型转化为灵巧手数据引擎。"
+        "联合视频-动作去噪",
+        "多条件采样",
+        "生成式数据引擎"
       ],
-      "noveltyVerdict": "在WAM中创新性地联合建模视频与动作，并实现多功能，创新性强。",
+      "noveltyVerdict": "统一去噪范式新颖，功能多样",
       "duplicateRisk": "medium",
-      "dedupeNote": "与PointAction不同，强调联合分布和灵巧手，非单纯点云动作表示。",
+      "dedupeNote": "同时考虑视频与动作的联合分布，区别于单一模态模型",
       "retrievalGroups": [
         "robotics"
       ],
@@ -216,160 +263,58 @@ window.PAPERS_SITE_DATA = {
       ]
     },
     {
-      "id": "2606.03556v1",
-      "title": "Partially Observable Adversarial Patch Attacks on Vision-Language-Action Models in Robotics",
-      "summary": "Vision-language-action (VLA) models are gaining attention in robotics, yet their robustness to adversarial attacks remains largely unexplored. Existing work shows that adversarial patches can mislead VLA-based robots but assumes full access to the entire execution trajectory, an unrealistic requirement in practice.",
-      "summaryRaw": "Vision-language-action (VLA) models are gaining attention in robotics, yet their robustness to adversarial attacks remains largely unexplored. Existing work shows that adversarial patches can mislead VLA-based robots but assumes full access to the entire execution trajectory, an unrealistic requirement in practice. We address this limitation by formulating a partially observable threat model, where the adversary can exploit only a short prefix of the trajectory to generate a fixed patch applied to all subsequent frames. Under this setting, we propose a two-phase framework. First, we localize the patch using the model's attention maps to identify visually critical regions that correspond to the full instruction. Then, we optimize the patch to disrupt the semantic grounding of target objects and increase the curvature of action trajectories, thereby compounding failures in both perception and control. Extensive experiments in simulation and real-world robotic environments show that our method sustains adversarial effects under partial observability, inducing long-horizon disruptions and significantly reducing task success rates.",
-      "link": "https://arxiv.org/abs/2606.03556v1",
-      "pdfLink": "https://arxiv.org/pdf/2606.03556v1",
-      "published": "2026-06-02T12:19:28Z",
-      "updated": "2026-06-02T12:19:28Z",
+      "id": "2606.03127v1",
+      "title": "TTT-VLA: Test-Time Latent Prompt Optimization for Vision-Language-Action Models",
+      "summary": "Vision-Language-Action (VLA) models trained on large-scale data have made remarkable progress, but they remain vulnerable to distribution shifts at deployment time. Recent VLA models suggest that prompts can serve as an efficient interface for steering policy behavior, but existing prompt-based steering typically relies on external guida…",
+      "summaryRaw": "Vision-Language-Action (VLA) models trained on large-scale data have made remarkable progress, but they remain vulnerable to distribution shifts at deployment time. Recent VLA models suggest that prompts can serve as an efficient interface for steering policy behavior, but existing prompt-based steering typically relies on external guidance. This raises a natural question: can test-time training (TTT) for VLA be achieved by optimizing a prompt, so that the steering interface itself can be learned and adapted from interaction? We address this question with TTT-VLA, a test-time training framework based on Latent Prompt Optimization (LPO). During training, the latent prompt is learned with an additional proxy task, providing an extra learned conditioning signal for policy learning. At test time, TTT is performed by collecting interaction data from the current environment and optimizing only the latent prompt on those data using the proxy task's self-supervised signal, without modifying the policy itself. Experiments on SimplerEnv demonstrate that the proposed method consistently improves task success rates in both single- and multi-embodiment settings. Further analysis shows that the gains arise primarily from correcting a small number of critical decisions rather than globally altering policy behavior. These results suggest that LPO provides an effective and practical pathway for deployment-time improvement of foundation manipulation policies.",
+      "link": "https://arxiv.org/abs/2606.03127v1",
+      "pdfLink": "https://arxiv.org/pdf/2606.03127v1",
+      "published": "2026-06-02T04:10:39Z",
+      "updated": "2026-06-02T04:10:39Z",
       "authors": [
-        "Xiaofei Wang",
-        "Mingliang Han",
-        "Tianyu Hao",
-        "Yi Yang",
-        "Yun-Bo Zhao",
-        "Keke Tang"
+        "Wenbo Zhang",
+        "Jianxiong Li",
+        "Shuai Yang",
+        "Sijin Chen",
+        "Jiajun Liu",
+        "Lingqiao Liu",
+        "Xiao Ma"
       ],
       "categories": [
         "cs.RO"
       ],
-      "score": 78,
-      "importanceLevel": "B",
+      "score": 80,
+      "importanceLevel": "A",
       "lane": "VLA",
       "dimensionScores": {
-        "relevance": 75,
-        "novelty": 80,
+        "relevance": 80,
+        "novelty": 60,
         "impact": 65,
-        "practicality": 60,
-        "coreAlignment": 70
-      },
-      "oneSentenceSummary": "提出部分可观测下的对抗贴片攻击框架，揭示VLA模型鲁棒性漏洞。",
-      "summaryCn": "针对VLA模型在机器人执行中可能受对抗攻击的问题，考虑实际中攻击者仅能观察轨迹前缀的限制，设计两阶段攻击框架。利用注意力图定位关键区域，优化贴片以破坏语义对齐并增加动作轨迹曲率，导致感知和动作失效。实验证明威胁，为安全研究提供基准。",
-      "whyImportant": "首次在部分可观测威胁模型下攻击VLA，揭示安全风险。",
-      "reasonTags": [
-        "对抗攻击",
-        "VLA模型",
-        "鲁棒性",
-        "安全"
-      ],
-      "innovationPoints": [
-        "部分可观测威胁模型更贴近实际部署场景。",
-        "基于注意力的贴片定位，精准攻击关键区域。",
-        "同时破坏感知与动作的联合优化目标。"
-      ],
-      "noveltyVerdict": "将对抗攻击引入VLA并考虑实际约束，有一定新意。",
-      "duplicateRisk": "low",
-      "dedupeNote": "与众不同在部分可观测假设，非全轨迹攻击，更贴近真实威胁场景。",
-      "retrievalGroups": [
-        "robotics"
-      ],
-      "mergedCount": 1,
-      "mergedTitles": [
-        "Partially Observable Adversarial Patch Attacks on Vision-Language-Action Models in Robotics"
-      ]
-    },
-    {
-      "id": "2606.03724v1",
-      "title": "Same Weights, Different Robot: A Deployment Safety View of VLA Policies",
-      "summary": "Vision-language-action (VLA) policies are often treated as checkpoint-defined objects: if the weights, prompt, and benchmark suite match, the deployment is assumed to be the same policy. Robot execution breaks this assumption because the same normalized model output can become a different physical action after action unnormalization and…",
-      "summaryRaw": "Vision-language-action (VLA) policies are often treated as checkpoint-defined objects: if the weights, prompt, and benchmark suite match, the deployment is assumed to be the same policy. Robot execution breaks this assumption because the same normalized model output can become a different physical action after action unnormalization and controller conventions are applied. This creates a deployment-safety gap: safety review can certify the checkpoint while missing the executable robot policy that reaches the controller. We formalize this gap as an executable policy specification problem: a VLA policy includes the learned model, action representation, metadata-selected unnormalizer, and controller-facing conventions. Under this view, identical checkpoints can be executable-inequivalent. For quantile-style action normalization, we derive a closed-form metadata mismatch transform and an ExecSpec certificate that measures action-space semantic drift without model inference or rollout. On LIBERO-Goal replay, substituting a plausible sibling metadata key yields mean drift 0.199 over six non-gripper action dimensions and reduces success from 28/28 to 2/28 under full substitution. On LIBERO-Spatial replay, the same substituted key reduces success from 26/26 to 0/26. The same full-substitution protocol gives 0/28 success for all four Object substitutions and 0/23 or 1/23 success on Long. Identity-key, replay-validity, no-op filtering, raw-vs-correct replay, mask/gripper, synthetic upper-bound, and OpenVLA-style unnormalizer interface checks rule out several simpler explanations. These results do not certify closed-loop or hardware safety. They support a narrower deployment-safety view: action-space metadata is part of the executable policy and should be checked before rollout.",
-      "link": "https://arxiv.org/abs/2606.03724v1",
-      "pdfLink": "https://arxiv.org/pdf/2606.03724v1",
-      "published": "2026-06-02T14:45:00Z",
-      "updated": "2026-06-02T14:45:00Z",
-      "authors": [
-        "Jianwei Tai"
-      ],
-      "categories": [],
-      "score": 72,
-      "importanceLevel": "B",
-      "lane": "VLA",
-      "dimensionScores": {
-        "relevance": 70,
-        "novelty": 75,
-        "impact": 55,
         "practicality": 70,
-        "coreAlignment": 65
+        "coreAlignment": 90
       },
-      "oneSentenceSummary": "揭示VLA部署中因动作反规范化差异导致的安全差距，提出可执行策略规范。",
-      "summaryCn": "相同权重、提示和基准的VLA策略在不同机器人上可能产生不同可执行动作，因动作反规范化和控制器约定。这导致安全审查可能漏掉实机风险。论文形式化此问题为可执行策略规范，并针对分位数动作规范化推导闭式元数据失配变换，提出可执行策略等价性检查器。",
-      "whyImportant": "关注VLA部署安全，揭示容易被忽视的元数据不一致风险。",
+      "oneSentenceSummary": "测试时通过潜在提示优化实现VLA自适应",
+      "summaryCn": "TTT-VLA在训练时学习潜在提示作为额外条件，测试时仅优化提示参数以适应分布变化，无需更新整个模型。",
+      "whyImportant": "首次将测试时训练用于VLA，提升部署鲁棒性。",
       "reasonTags": [
-        "VLA部署",
-        "安全",
-        "动作规范化",
-        "可执行策略"
+        "测试时训练",
+        "潜在提示优化",
+        "自适应"
       ],
       "innovationPoints": [
-        "识别并形式化VLA可执行策略规范问题。",
-        "提出元数据失配的数学变换，量化差异。",
-        "提供安全检查工具，增强部署可靠性。"
+        "提出潜在提示优化训练",
+        "测试时仅优化提示进行适应",
+        "不修改模型权重"
       ],
-      "noveltyVerdict": "从系统安全视角切入VLA，视角新颖，但方法创新度中等。",
+      "noveltyVerdict": "新颖的测试时适应方法，有创新性",
       "duplicateRisk": "low",
-      "dedupeNote": "与其他VLA工作不同，聚焦部署层面而非模型训练或架构。",
+      "dedupeNote": "专注于部署适应，与其他VLA训练方法正交",
       "retrievalGroups": [
         "robotics"
       ],
       "mergedCount": 1,
       "mergedTitles": [
-        "Same Weights, Different Robot: A Deployment Safety View of VLA Policies"
-      ]
-    },
-    {
-      "id": "2606.03943v1",
-      "title": "PointAction: 3D Points as Universal Action Representations for Robot Control",
-      "summary": "Video-Action Models (VAMs) leverage the broad visual dynamics captured by pre-trained video diffusion models, offering a promising path toward generalizable robot manipulation. However, RGB-only video rollouts are not directly actionable: they leave metric 3D motion, contact geometry, and fine-grained spatial constraints under-specified,…",
-      "summaryRaw": "Video-Action Models (VAMs) leverage the broad visual dynamics captured by pre-trained video diffusion models, offering a promising path toward generalizable robot manipulation. However, RGB-only video rollouts are not directly actionable: they leave metric 3D motion, contact geometry, and fine-grained spatial constraints under-specified, making action grounding ambiguous. Meanwhile, scaling action supervision across diverse tasks and embodiments remains costly. We present PointAction, a framework that bridges video predictions to robot actions through explicit point-based 4D modeling. PointAction fine-tunes a foundation video generation model to jointly predict future RGB frames and dynamic 3D pointmaps, producing temporally consistent 3D motion of task-relevant scene geometry. These point dynamics serve as a structured, embodiment-agnostic action interface, which a diffusion-based action decoder maps to executable robot actions. By using metric 3D point dynamics as the interface between video prediction and control, PointAction reduces the ambiguity of RGB-only action grounding and supports transfer across tasks and embodiments with limited action supervision. Experiments show that PointAction achieves state-of-the-art 4D generation quality on robot scenes, outperforms existing baselines in simulation, and generalizes to two real robot arms unseen during pretraining.",
-      "link": "https://arxiv.org/abs/2606.03943v1",
-      "pdfLink": "https://arxiv.org/pdf/2606.03943v1",
-      "published": "2026-06-02T17:30:50Z",
-      "updated": "2026-06-02T17:30:50Z",
-      "authors": [
-        "Mutian Tong",
-        "Han Jiang",
-        "Qiao Feng",
-        "Lingjie Liu",
-        "Jiatao Gu"
-      ],
-      "categories": [
-        "cs.RO"
-      ],
-      "score": 70,
-      "importanceLevel": "B",
-      "lane": "WAM",
-      "dimensionScores": {
-        "relevance": 72,
-        "novelty": 82,
-        "impact": 60,
-        "practicality": 65,
-        "coreAlignment": 78
-      },
-      "oneSentenceSummary": "提出以3D点云作为通用动作表示，连接视频预测与机器人控制。",
-      "summaryCn": "视频动作模型利用视频扩散先验，但RGB预测无法直接执行。PointAction微调基础视频生成模型，联合预测未来RGB帧和动态3D点图，产生时空一致的任务相关几何运动。点动态作为结构化、具身无关的动作接口，再由扩散头解码为机器人动作。验证其在多种任务上的有效性。",
-      "whyImportant": "提出点云动作表示，为视频预测到机器人动作搭建桥梁。",
-      "reasonTags": [
-        "视频动作模型",
-        "点云表示",
-        "动作生成",
-        "机器人控制"
-      ],
-      "innovationPoints": [
-        "将点云作为通用动作表示融入视频生成。",
-        "联合预测RGB和3D点运动，时空一致。",
-        "扩散动作解码实现具身无关控制。"
-      ],
-      "noveltyVerdict": "点云动作表示新颖，但整体框架沿用视频动作模型范式。",
-      "duplicateRisk": "medium",
-      "dedupeNote": "与Donk不同，专注动作表示而非联合分布，且非灵巧手。",
-      "retrievalGroups": [
-        "robotics"
-      ],
-      "mergedCount": 1,
-      "mergedTitles": [
-        "PointAction: 3D Points as Universal Action Representations for Robot Control"
+        "TTT-VLA: Test-Time Latent Prompt Optimization for Vision-Language-Action Models"
       ]
     },
     {
@@ -394,33 +339,32 @@ window.PAPERS_SITE_DATA = {
       "categories": [
         "cs.RO"
       ],
-      "score": 80,
+      "score": 82,
       "importanceLevel": "A",
-      "lane": "Robotics",
+      "lane": "Both",
       "dimensionScores": {
-        "relevance": 40,
-        "novelty": 75,
-        "impact": 80,
-        "practicality": 70,
-        "coreAlignment": 14
+        "relevance": 70,
+        "novelty": 70,
+        "impact": 70,
+        "practicality": 60,
+        "coreAlignment": 50
       },
-      "oneSentenceSummary": "提出GN0统一范式，用于视觉语言导航的数据生成、评估与策略学习。",
-      "summaryCn": "构建大规模GN-Matrix数据集，基于3DGS引擎的高保真模拟平台支持交互式漫游和碰撞感知导航。提出BEV基准GN-Bench，引入动态3DGS化身评估人机交互。开发RL导航基础模型BAE，结合监督学习和DAgger，实现自主导航与人类指令跟随。",
-      "whyImportant": "为VLN提供数据、平台、基准和基础模型，推动该领域发展。",
+      "oneSentenceSummary": "统一生成、评估、策略学习的视觉语言导航范式",
+      "summaryCn": "利用3DGS引擎构建高保真模拟器，提出GN-Bench基准和Break-and-Establish导航基础模型，支持动态人机交互。",
+      "whyImportant": "首个BEV基准及交互评估，推动VLN基础模型。",
       "reasonTags": [
         "视觉语言导航",
-        "数据生成",
-        "模拟平台",
+        "3DGS模拟",
         "基础模型"
       ],
       "innovationPoints": [
-        "自动管线生成大规模导航数据集GN-Matrix。",
-        "基于3DGS的高保真仿真与基准GN-Bench。",
-        "提出BAE导航基础模型，结合RL与半监督学习。"
+        "3DGS引擎高保真模拟",
+        "BEV基准与动态虚拟人",
+        "RL驱动的导航基础模型"
       ],
-      "noveltyVerdict": "集成数据、仿真和策略为一体，系统性强，创新性中等偏高。",
+      "noveltyVerdict": "集成生成与评估，较为新颖",
       "duplicateRisk": "low",
-      "dedupeNote": "与其他VLN工作互补，提供开放平台与基准，非单纯模型改进。",
+      "dedupeNote": "专注于导航，与操作类VLA不同场景",
       "retrievalGroups": [
         "robotics"
       ],
@@ -449,33 +393,32 @@ window.PAPERS_SITE_DATA = {
         "cs.RO",
         "cs.LG"
       ],
-      "score": 80,
+      "score": 65,
       "importanceLevel": "B",
       "lane": "WAM",
       "dimensionScores": {
-        "relevance": 63,
-        "novelty": 75,
-        "impact": 55,
-        "practicality": 65,
-        "coreAlignment": 24
+        "relevance": 60,
+        "novelty": 50,
+        "impact": 50,
+        "practicality": 30,
+        "coreAlignment": 60
       },
-      "oneSentenceSummary": "提出3D等视域世界模型，建模城市导航中的开放体积几何。",
-      "summaryCn": "具身导航世界模型通常预测外观，而非对运动关键的可行走空间。本文提出建模建筑物间的负空间，编码为3D等视域（球形可视深度图）。模型预测从特定视点可见的几何形态，揭示城市结构签名。实验展示其导航预测能力，超越外观模型。",
-      "whyImportant": "以物理可行走几何为目标，为导航提供更直接的世界模型。",
+      "oneSentenceSummary": "用3D等视域图建模城市可导航空间，揭示跨城几何签名",
+      "summaryCn": "提出3D等视域世界模型，记录建筑间开放空间的距离信息，避免外观依赖，捕获三维可导航几何结构。",
+      "whyImportant": "为导航智能体提供不依赖外观的空间表示。",
       "reasonTags": [
         "世界模型",
-        "3D等视域",
-        "导航",
-        "城市几何"
+        "等视域",
+        "导航几何"
       ],
       "innovationPoints": [
-        "提出3D等视域表示，关注导航所必需的几何信息。",
-        "预测负空间而非外观，降低线性。",
-        "发现跨城市几何签名。"
+        "3D等视域表示",
+        "无光度纠缠",
+        "跨城几何模式"
       ],
-      "noveltyVerdict": "从导航视角重新定义世界模型目标，创新性较高。",
+      "noveltyVerdict": "在导航空间表示上有创新，但作用有限",
       "duplicateRisk": "low",
-      "dedupeNote": "与传统预测外观的世界模型不同，聚焦几何可行走空间，非对手。",
+      "dedupeNote": "独特的世界表示，不同于视觉预测型世界模型",
       "retrievalGroups": [
         "robotics"
       ],
@@ -485,120 +428,221 @@ window.PAPERS_SITE_DATA = {
       ]
     },
     {
-      "id": "2606.03847v1",
-      "title": "Denoising Tells When to Replan: Denoising-Variance Adaptive Chunking for Flow-Based Robot Policies",
-      "summary": "Action chunking has become a common inference strategy for flow-based robot policies, improving action coherence by modeling multi-step temporal dependencies in demonstrations. However, the execution horizon is still typically set as an empirical fixed value, overlooking that predictable free-space motions and precision-critical interact…",
-      "summaryRaw": "Action chunking has become a common inference strategy for flow-based robot policies, improving action coherence by modeling multi-step temporal dependencies in demonstrations. However, the execution horizon is still typically set as an empirical fixed value, overlooking that predictable free-space motions and precision-critical interaction phases often require different replanning frequencies. In this work, we first show that the denoising process of flow-based policies contains an intrinsic signal of task phases: clean-action estimates remain stable during predictable motion phases, but fluctuate more strongly around contact-rich or precision-sensitive operations. Motivated by this observation, we propose DVAC (Denoising-Variance Adaptive Chunking), a test-time method that adaptively determines how many actions to execute from each predicted chunk. DVAC measures the variance of clean-action estimates over the final denoising steps, executes the stable low-variance prefix, and replans before high-variance future actions are committed. To transfer across tasks and rollouts, DVAC further calibrates the threshold with a rolling estimate of the local variance scale. Experiments on LIBERO, RoboTwin, CALVIN, and real-world manipulation show that DVAC improves task success while reducing replanning frequency. With a $π_{0.5}$-based policy, DVAC improves LIBERO success from 94.75% to 98.00% and reduces replanning by 43.0%, while also yielding aggregate gains on RoboTwin and CALVIN and improving real-world execution efficiency.",
-      "link": "https://arxiv.org/abs/2606.03847v1",
-      "pdfLink": "https://arxiv.org/pdf/2606.03847v1",
-      "published": "2026-06-02T16:26:32Z",
-      "updated": "2026-06-02T16:26:32Z",
+      "id": "2606.03598v1",
+      "title": "PHASER: Phase-Aware and Semantic Experience Replay for Vision-Language-Action Models",
+      "summary": "Vision-Language-Action (VLA) models have achieved remarkable success in language-conditioned robotic manipulation. However, deploying these models in open-ended environments requires continuously acquiring novel skills, a process that inevitably triggers severe catastrophic forgetting of previously learned behaviors.",
+      "summaryRaw": "Vision-Language-Action (VLA) models have achieved remarkable success in language-conditioned robotic manipulation. However, deploying these models in open-ended environments requires continuously acquiring novel skills, a process that inevitably triggers severe catastrophic forgetting of previously learned behaviors. While experience replay (ER) serves as a standard mitigating strategy, naive uniform sampling fundamentally misaligns with the temporal characteristics of manipulation trajectories. It systematically under-samples brief but causally critical sub-skills, leading to phase starvation, and completely overlooks the varying degrees of forgetting across historical tasks. To overcome these limitations, we introduce PHASER, an architecture-agnostic continual learning framework. PHASER employs a phase-centric capacity allocation to guarantee equal memory support for all sub-skills, coupled with a multi-modal interference routing strategy that dynamically prioritizes historical phases at high risk of forgetting. Furthermore, to enable fully autonomous lifelong adaptation, we integrate Auto-PC, a lightweight pipeline combining unsupervised action-signal change-point detection with VLM-based semantic verification to extract temporal boundaries without intensive manual supervision. Evaluated across three VLA backbones on LIBERO continual learning suites, PHASER yields substantial empirical improvements, increasing Average Success Rate (ASR) by up to 31% over matched-budget ER and achieving an 87.8% final ASR on the LIBERO-Goal CL setting.",
+      "link": "https://arxiv.org/abs/2606.03598v1",
+      "pdfLink": "https://arxiv.org/pdf/2606.03598v1",
+      "published": "2026-06-02T13:04:15Z",
+      "updated": "2026-06-02T13:04:15Z",
       "authors": [
-        "Xiangdong Feng",
-        "Yuxuan Cheng",
-        "Chen Shi",
-        "Boyao Han",
-        "Yuxuan Yan",
-        "Yitong Hong",
-        "Zhuotao Tian",
-        "Li Jiang"
+        "Ziyang Chen",
+        "Shaoguang Wang",
+        "Weiyu Guo",
+        "Qianyi Cai",
+        "He Zhang",
+        "Pengteng Li",
+        "Yiren Zhao",
+        "Yandong Guo"
       ],
       "categories": [
+        "cs.AI",
+        "cs.CV",
         "cs.RO"
       ],
-      "score": 69,
+      "score": 70,
       "importanceLevel": "B",
-      "lane": "Robotics",
+      "lane": "VLA",
       "dimensionScores": {
-        "relevance": 68,
-        "novelty": 78,
-        "impact": 60,
-        "practicality": 75,
-        "coreAlignment": 60
+        "relevance": 85,
+        "novelty": 30,
+        "impact": 55,
+        "practicality": 40,
+        "coreAlignment": 85
       },
-      "oneSentenceSummary": "利用去噪方差自适应调整动作块大小，提升流式机器人策略效率。",
-      "summaryCn": "流式策略通常固定动作块长度，忽略不同任务阶段对重规划频率的需求差异。本文发现去噪过程中干净动作估计的方差变化与任务阶段相关，可预测时稳定，关键操作时波动大。提出DVAC，测试时根据去噪方差自适应决定执行多少动作，无需训练。",
-      "whyImportant": "以去噪方差为信号，自适应调整策略执行，方法简单有效。",
+      "oneSentenceSummary": "面向VLA的持续学习框架，缓解灾难性遗忘",
+      "summaryCn": "PHASER根据操作阶段分配记忆容量，结合语义重放，保证各子技能均衡训练，解决VLA持续学习中的遗忘问题。",
+      "whyImportant": "解决VLA持续学习瓶颈，使模型能渐进掌握新技能。",
       "reasonTags": [
-        "动作块",
-        "流式策略",
-        "去噪方差",
-        "自适应"
+        "持续学习",
+        "经验重放",
+        "灾难性遗忘"
       ],
       "innovationPoints": [
-        "发现去噪方差与任务阶段的内在联系。",
-        "提出无训练的自适应动作块方法DVAC。",
-        "适用于多数流式策略。"
+        "阶段感知记忆分配",
+        "语义重放策略"
       ],
-      "noveltyVerdict": "发现并利用去噪方差信号，思路新颖，方法简单。",
-      "duplicateRisk": "low",
-      "dedupeNote": "对于固定块策略的改进，与其他工作互补，不冲突。",
+      "noveltyVerdict": "在VLA持续学习场景中有针对性创新",
+      "duplicateRisk": "medium",
+      "dedupeNote": "专门针对VLA操作任务的分阶段特性设计",
       "retrievalGroups": [
         "robotics"
       ],
       "mergedCount": 1,
       "mergedTitles": [
-        "Denoising Tells When to Replan: Denoising-Variance Adaptive Chunking for Flow-Based Robot Policies"
+        "PHASER: Phase-Aware and Semantic Experience Replay for Vision-Language-Action Models"
       ]
     },
     {
-      "id": "2606.03834v1",
-      "title": "Let the Dynamics Flow: Stable Flow Matching Dynamical Systems",
-      "summary": "Flow matching has recently emerged as a powerful approach for imitation learning, enabling scalable, expressive, and multimodal motion policies. However, incorporating formal stability guarantees into these generative models, a prerequisite to ensure safe and generalizable robot behaviors, remains a significant challenge.",
-      "summaryRaw": "Flow matching has recently emerged as a powerful approach for imitation learning, enabling scalable, expressive, and multimodal motion policies. However, incorporating formal stability guarantees into these generative models, a prerequisite to ensure safe and generalizable robot behaviors, remains a significant challenge. While modeling robot motions as dynamical systems allows for such stability-based inductive biases, existing frameworks struggle to capture the rich action distributions inherent in complex robotic tasks. This paper introduces Stable Flow Matching Dynamical Systems (SFMDS), a novel framework that bridges the gap between high-capacity generative modeling and formal Lyapunov stability guarantees. SFMDS parametrizes dynamical systems via flow matching while simultaneously constraining the model to a family of stable solutions. We propose two variants: a soft constraint based on a penalty term, and a hard structural constraint embedded directly in the model architecture. We further extend both formulations to Lie groups. Experiments on benchmark datasets, in simulation, and on a humanoid robot show that SFMDS learns stable, scalable, and multimodal dynamical systems in low- and high-dimensional state spaces, enabling safe and expressive robot motion generation.",
-      "link": "https://arxiv.org/abs/2606.03834v1",
-      "pdfLink": "https://arxiv.org/pdf/2606.03834v1",
-      "published": "2026-06-02T16:17:26Z",
-      "updated": "2026-06-02T16:17:26Z",
+      "id": "2606.03240v1",
+      "title": "GeoAlign: Beyond Semantics with State-Guided Spatial Alignment in VLA Models",
+      "summary": "Current Vision--Language--Action (VLA) models often optimize for semantic grounding, whereas executable manipulation requires geometry-aware spatial alignment and dynamic affordance selection. We introduce GeoAlign, a state-guided spatial alignment architecture for VLA policy learning.",
+      "summaryRaw": "Current Vision--Language--Action (VLA) models often optimize for semantic grounding, whereas executable manipulation requires geometry-aware spatial alignment and dynamic affordance selection. We introduce GeoAlign, a state-guided spatial alignment architecture for VLA policy learning. GeoAlign post-trains an RGB geometry branch with robot-domain RGB-D supervision, yielding RGB-derived Geometry-Enhanced Post-Trained (GEP) features for policy rollout. The robot's proprioceptive state queries the GEP feature grid, producing compact, phase-dependent geometry tokens for action prediction. GeoAlign achieves 99.0% on LIBERO, 85.3% across three SimplerEnv-Fractal tasks, and 78.8% on eight geometry-critical real-world ALOHA tasks, with ablations confirming the value of geometry post-training and proprioceptive-state-guided querying.",
+      "link": "https://arxiv.org/abs/2606.03240v1",
+      "pdfLink": "https://arxiv.org/pdf/2606.03240v1",
+      "published": "2026-06-02T07:01:18Z",
+      "updated": "2026-06-02T07:01:18Z",
       "authors": [
-        "Rodrigo Pérez-Dattari",
-        "Francisco Leiva",
-        "Andrea Testa",
-        "Leonel Rozo",
-        "Javier Ruiz del Solar",
-        "Noémie Jaquier"
+        "Yizhi Chen",
+        "Zhanxiang Cao",
+        "Xinyi Peng",
+        "Yixiao Zheng",
+        "Xiaxi Si",
+        "Yiheng Li",
+        "Liyun Yan",
+        "Keqi Zhu"
       ],
       "categories": [
         "cs.RO"
       ],
-      "score": 68,
+      "score": 60,
       "importanceLevel": "B",
-      "lane": "Robotics",
+      "lane": "VLA",
       "dimensionScores": {
-        "relevance": 65,
-        "novelty": 80,
-        "impact": 55,
-        "practicality": 60,
-        "coreAlignment": 60
+        "relevance": 75,
+        "novelty": 30,
+        "impact": 45,
+        "practicality": 40,
+        "coreAlignment": 80
       },
-      "oneSentenceSummary": "提出稳定流匹配动力系统，将生成式策略与李雅普诺夫稳定性结合。",
-      "summaryCn": "流匹配在模仿学习中有力，但缺乏稳定性保证。本文提出SFMDS，通过流匹配参数化动力系统，同时约束模型为稳定解决方案族。提出软约束与硬约束两种变体，确保机器人运动收敛到目标点。在多种操作任务中验证，实现安全、可泛化行为。",
-      "whyImportant": "首次将形式稳定性保证融入流匹配策略，提升安全性。",
+      "oneSentenceSummary": "状态引导的空间对齐提升VLA几何推理",
+      "summaryCn": "GeoAlign通过RGB-D后训练几何分支，以本体状态查询生成紧凑几何令牌，增强VLA对空间关系的理解。",
+      "whyImportant": "补齐VLA空间推理短板，提升精度。",
       "reasonTags": [
-        "流匹配",
-        "稳定性",
-        "模仿学习",
-        "动力学系统"
+        "空间对齐",
+        "几何增强",
+        "状态引导"
       ],
       "innovationPoints": [
-        "将李雅普诺夫稳定性约束引入流匹配生成模型。",
-        "提出软硬两种约束方案。",
-        "实现安全且可泛化的机器人行为。"
+        "RGB几何分支后训练",
+        "状态引导的几何令牌"
       ],
-      "noveltyVerdict": "结合生成模型与稳定理论，创新性强，填补空白。",
+      "noveltyVerdict": "针对VLA空间能力的改进，有一定创新",
       "duplicateRisk": "low",
-      "dedupeNote": "与普通流匹配策略不同，加入稳定性保证，面向安全关键任务。",
+      "dedupeNote": "独特地结合几何后训练与状态查询，与其他VLA方法互补",
       "retrievalGroups": [
         "robotics"
       ],
       "mergedCount": 1,
       "mergedTitles": [
-        "Let the Dynamics Flow: Stable Flow Matching Dynamical Systems"
+        "GeoAlign: Beyond Semantics with State-Guided Spatial Alignment in VLA Models"
+      ]
+    },
+    {
+      "id": "2606.03724v1",
+      "title": "Same Weights, Different Robot: A Deployment Safety View of VLA Policies",
+      "summary": "Vision-language-action (VLA) policies are often treated as checkpoint-defined objects: if the weights, prompt, and benchmark suite match, the deployment is assumed to be the same policy. Robot execution breaks this assumption because the same normalized model output can become a different physical action after action unnormalization and…",
+      "summaryRaw": "Vision-language-action (VLA) policies are often treated as checkpoint-defined objects: if the weights, prompt, and benchmark suite match, the deployment is assumed to be the same policy. Robot execution breaks this assumption because the same normalized model output can become a different physical action after action unnormalization and controller conventions are applied. This creates a deployment-safety gap: safety review can certify the checkpoint while missing the executable robot policy that reaches the controller. We formalize this gap as an executable policy specification problem: a VLA policy includes the learned model, action representation, metadata-selected unnormalizer, and controller-facing conventions. Under this view, identical checkpoints can be executable-inequivalent. For quantile-style action normalization, we derive a closed-form metadata mismatch transform and an ExecSpec certificate that measures action-space semantic drift without model inference or rollout. On LIBERO-Goal replay, substituting a plausible sibling metadata key yields mean drift 0.199 over six non-gripper action dimensions and reduces success from 28/28 to 2/28 under full substitution. On LIBERO-Spatial replay, the same substituted key reduces success from 26/26 to 0/26. The same full-substitution protocol gives 0/28 success for all four Object substitutions and 0/23 or 1/23 success on Long. Identity-key, replay-validity, no-op filtering, raw-vs-correct replay, mask/gripper, synthetic upper-bound, and OpenVLA-style unnormalizer interface checks rule out several simpler explanations. These results do not certify closed-loop or hardware safety. They support a narrower deployment-safety view: action-space metadata is part of the executable policy and should be checked before rollout.",
+      "link": "https://arxiv.org/abs/2606.03724v1",
+      "pdfLink": "https://arxiv.org/pdf/2606.03724v1",
+      "published": "2026-06-02T14:45:00Z",
+      "updated": "2026-06-02T14:45:00Z",
+      "authors": [
+        "Jianwei Tai"
+      ],
+      "categories": [],
+      "score": 55,
+      "importanceLevel": "B",
+      "lane": "VLA",
+      "dimensionScores": {
+        "relevance": 60,
+        "novelty": 40,
+        "impact": 30,
+        "practicality": 50,
+        "coreAlignment": 70
+      },
+      "oneSentenceSummary": "揭示VLA部署安全漏洞：同一权重因反归一化导致不同动作",
+      "summaryCn": "指出VLA策略在部署时，由于动作反归一化和控制器约定，相同输入可产生不同物理动作，提出安全评估框架。",
+      "whyImportant": "提醒安全性审视不能仅依赖权重检验，需考虑部署差异。",
+      "reasonTags": [
+        "部署安全",
+        "动作反归一化",
+        "策略等价性"
+      ],
+      "innovationPoints": [
+        "提出可执行策略规范问题",
+        "推导反归一化变换关系"
+      ],
+      "noveltyVerdict": "揭示一个重要但被忽视的安全问题，思路新颖",
+      "duplicateRisk": "low",
+      "dedupeNote": "聚焦VLA部署的安全视角，与其他方法不同",
+      "retrievalGroups": [
+        "robotics"
+      ],
+      "mergedCount": 1,
+      "mergedTitles": [
+        "Same Weights, Different Robot: A Deployment Safety View of VLA Policies"
       ]
     }
   ],
   "paperSets": {
     "overall": [
+      {
+        "id": "2606.03392v1",
+        "title": "OpenEAI-Platform: An Open-source Embodied Artificial Intelligence Hardware-Software Unified Platform",
+        "summary": "Embodied AI in the real world requires both accurate hardware and robust vision-language-action (VLA) policies. We present OpenEAI-Platform, a fully open-source platform that integrates a low-cost 6+1 degree-of-freedom (dof) robotic arm (OpenEAI-Arm) and a reproducible VLA model (OpenEAI-VLA).",
+        "summaryRaw": "Embodied AI in the real world requires both accurate hardware and robust vision-language-action (VLA) policies. We present OpenEAI-Platform, a fully open-source platform that integrates a low-cost 6+1 degree-of-freedom (dof) robotic arm (OpenEAI-Arm) and a reproducible VLA model (OpenEAI-VLA). OpenEAI-Arm provides open-source mechanical designs for low manufacturing cost and compliant control methods for higher accuracy. OpenEAI-VLA builds on Qwen3-VL-4B and uses a Diffusion Transformer action head, and is trained in two stages with only open-source robot and multimodal datasets. Across four real-world manipulation tasks, OpenEAI-Arm outperforms two commercial 6+1-dof arms under the same policy, and OpenEAI-VLA achieves success rates comparable to the large-scale pretrained pi0 baseline with only limited pretraining data. We will release the full hardware designs, drivers, models, and training/data pipelines to support reproducible research and scalable data collection. Our codes, layouts, and models will be released after the paper is accepted.",
+        "link": "https://arxiv.org/abs/2606.03392v1",
+        "pdfLink": "https://arxiv.org/pdf/2606.03392v1",
+        "published": "2026-06-02T09:34:08Z",
+        "updated": "2026-06-02T09:34:08Z",
+        "authors": [
+          "Jinyuan Zhang",
+          "Luoyi Fan",
+          "Leiyu Wang",
+          "Yeqiang Wang",
+          "Yicheng Zhu",
+          "Cewu Lu",
+          "Nanyang Ye"
+        ],
+        "categories": [
+          "cs.RO"
+        ],
+        "score": 85,
+        "importanceLevel": "A",
+        "lane": "VLA",
+        "dimensionScores": {
+          "relevance": 90,
+          "novelty": 20,
+          "impact": 80,
+          "practicality": 95,
+          "coreAlignment": 95
+        },
+        "oneSentenceSummary": "开源具身智能平台，集成低成本机械臂与VLA模型",
+        "summaryCn": "OpenEAI-Platform提供开源6+1自由度机械臂与基于Qwen3-VL-4B的VLA模型，仅用开源数据训练，实际任务成功率可比肩大规模预训练基准pi0。",
+        "whyImportant": "开源平台降低具身AI门槛，促进VLA社区发展。",
+        "reasonTags": [
+          "开源平台",
+          "低成本机械臂",
+          "VLA模型"
+        ],
+        "innovationPoints": [
+          "低成本硬件设计",
+          "两阶段训练VLA模型",
+          "全开源生态"
+        ],
+        "noveltyVerdict": "工程集成创新，新颖度较低",
+        "duplicateRisk": "low",
+        "dedupeNote": "提供硬件-软件统一平台，与其他VLA方法互补",
+        "retrievalGroups": [
+          "robotics"
+        ],
+        "mergedCount": 1,
+        "mergedTitles": [
+          "OpenEAI-Platform: An Open-source Embodied Artificial Intelligence Hardware-Software Unified Platform"
+        ]
+      },
       {
         "id": "2606.03784v1",
         "title": "Revisiting Embodied Chain-of-Thought for Generalizable Robot Manipulation",
@@ -621,33 +665,32 @@ window.PAPERS_SITE_DATA = {
         "categories": [
           "cs.RO"
         ],
-        "score": 95,
-        "importanceLevel": "S",
+        "score": 88,
+        "importanceLevel": "A",
         "lane": "VLA",
         "dimensionScores": {
-          "relevance": 94,
-          "novelty": 90,
-          "impact": 92,
-          "practicality": 85,
-          "coreAlignment": 96
+          "relevance": 95,
+          "novelty": 40,
+          "impact": 75,
+          "practicality": 60,
+          "coreAlignment": 95
         },
-        "oneSentenceSummary": "重新审视具身思维链，提出有效形式与集成策略，提升VLA模型泛化性。",
-        "summaryCn": "构建最大具身思维链语料库，含97.8万轨迹、2.26亿样本。发现有效思维链应将高层语义转化为具体动作指引（如末端运动、图像轨迹），仅高层推理增益有限。揭示显式思维链的自回归前缀扩展不可靠，存在推理误差累积与不稳定耦合。提出新方案解决，大规模验证。",
-        "whyImportant": "迄今最大具身CoT研究，揭示有效形式与缩放问题，推动VLA泛化。",
+        "oneSentenceSummary": "构建大规模具身CoT数据集，提出并行预测新范式",
+        "summaryCn": "构建含97.8万轨迹的具身CoT语料库，发现CoT应落地为动作引导，提出将CoT作为并行预测的新范式，解决自回归耦合误差问题。",
+        "whyImportant": "重新审视具身CoT，大规模实验指导VLA推理设计。",
         "reasonTags": [
-          "具身思维链",
-          "VLA模型",
-          "泛化能力",
-          "大规模语料"
+          "具身CoT",
+          "大规模数据集",
+          "并行预测"
         ],
         "innovationPoints": [
-          "构建最大具身思维链语料库，规模空前。",
-          "发现有效具身思维链应落地为具体动作引导，而非仅高层推理。",
-          "识别并解决显式思维链的自回归扩展缺陷。"
+          "最大具身CoT数据集",
+          "发现CoT应提供动作引导",
+          "并行预测取代自回归前缀"
         ],
-        "noveltyVerdict": "在大规模下重新审视并推进具身思维链，创新性强。",
+        "noveltyVerdict": "实验洞察具有创新性，方法有效",
         "duplicateRisk": "low",
-        "dedupeNote": "与其他VLA工作不同，专注于思维链的重新设计与规模化，非单纯模型结构创新。",
+        "dedupeNote": "聚焦CoT策略，与通用VLA方法不同",
         "retrievalGroups": [
           "robotics"
         ],
@@ -657,62 +700,56 @@ window.PAPERS_SITE_DATA = {
         ]
       },
       {
-        "id": "2606.03598v1",
-        "title": "PHASER: Phase-Aware and Semantic Experience Replay for Vision-Language-Action Models",
-        "summary": "Vision-Language-Action (VLA) models have achieved remarkable success in language-conditioned robotic manipulation. However, deploying these models in open-ended environments requires continuously acquiring novel skills, a process that inevitably triggers severe catastrophic forgetting of previously learned behaviors.",
-        "summaryRaw": "Vision-Language-Action (VLA) models have achieved remarkable success in language-conditioned robotic manipulation. However, deploying these models in open-ended environments requires continuously acquiring novel skills, a process that inevitably triggers severe catastrophic forgetting of previously learned behaviors. While experience replay (ER) serves as a standard mitigating strategy, naive uniform sampling fundamentally misaligns with the temporal characteristics of manipulation trajectories. It systematically under-samples brief but causally critical sub-skills, leading to phase starvation, and completely overlooks the varying degrees of forgetting across historical tasks. To overcome these limitations, we introduce PHASER, an architecture-agnostic continual learning framework. PHASER employs a phase-centric capacity allocation to guarantee equal memory support for all sub-skills, coupled with a multi-modal interference routing strategy that dynamically prioritizes historical phases at high risk of forgetting. Furthermore, to enable fully autonomous lifelong adaptation, we integrate Auto-PC, a lightweight pipeline combining unsupervised action-signal change-point detection with VLM-based semantic verification to extract temporal boundaries without intensive manual supervision. Evaluated across three VLA backbones on LIBERO continual learning suites, PHASER yields substantial empirical improvements, increasing Average Success Rate (ASR) by up to 31% over matched-budget ER and achieving an 87.8% final ASR on the LIBERO-Goal CL setting.",
-        "link": "https://arxiv.org/abs/2606.03598v1",
-        "pdfLink": "https://arxiv.org/pdf/2606.03598v1",
-        "published": "2026-06-02T13:04:15Z",
-        "updated": "2026-06-02T13:04:15Z",
+        "id": "2606.03943v1",
+        "title": "PointAction: 3D Points as Universal Action Representations for Robot Control",
+        "summary": "Video-Action Models (VAMs) leverage the broad visual dynamics captured by pre-trained video diffusion models, offering a promising path toward generalizable robot manipulation. However, RGB-only video rollouts are not directly actionable: they leave metric 3D motion, contact geometry, and fine-grained spatial constraints under-specified,…",
+        "summaryRaw": "Video-Action Models (VAMs) leverage the broad visual dynamics captured by pre-trained video diffusion models, offering a promising path toward generalizable robot manipulation. However, RGB-only video rollouts are not directly actionable: they leave metric 3D motion, contact geometry, and fine-grained spatial constraints under-specified, making action grounding ambiguous. Meanwhile, scaling action supervision across diverse tasks and embodiments remains costly. We present PointAction, a framework that bridges video predictions to robot actions through explicit point-based 4D modeling. PointAction fine-tunes a foundation video generation model to jointly predict future RGB frames and dynamic 3D pointmaps, producing temporally consistent 3D motion of task-relevant scene geometry. These point dynamics serve as a structured, embodiment-agnostic action interface, which a diffusion-based action decoder maps to executable robot actions. By using metric 3D point dynamics as the interface between video prediction and control, PointAction reduces the ambiguity of RGB-only action grounding and supports transfer across tasks and embodiments with limited action supervision. Experiments show that PointAction achieves state-of-the-art 4D generation quality on robot scenes, outperforms existing baselines in simulation, and generalizes to two real robot arms unseen during pretraining.",
+        "link": "https://arxiv.org/abs/2606.03943v1",
+        "pdfLink": "https://arxiv.org/pdf/2606.03943v1",
+        "published": "2026-06-02T17:30:50Z",
+        "updated": "2026-06-02T17:30:50Z",
         "authors": [
-          "Ziyang Chen",
-          "Shaoguang Wang",
-          "Weiyu Guo",
-          "Qianyi Cai",
-          "He Zhang",
-          "Pengteng Li",
-          "Yiren Zhao",
-          "Yandong Guo"
+          "Mutian Tong",
+          "Han Jiang",
+          "Qiao Feng",
+          "Lingjie Liu",
+          "Jiatao Gu"
         ],
         "categories": [
-          "cs.RO",
-          "cs.AI",
-          "cs.CV"
+          "cs.RO"
         ],
         "score": 85,
         "importanceLevel": "A",
-        "lane": "VLA",
+        "lane": "WAM",
         "dimensionScores": {
-          "relevance": 88,
-          "novelty": 85,
-          "impact": 80,
-          "practicality": 75,
-          "coreAlignment": 90
+          "relevance": 90,
+          "novelty": 80,
+          "impact": 70,
+          "practicality": 60,
+          "coreAlignment": 95
         },
-        "oneSentenceSummary": "提出阶段感知与语义经验回放框架，缓解VLA持续学习中的灾难性遗忘。",
-        "summaryCn": "VLA在开放环境持续学习新技能时面临灾难性遗忘。传统经验回放均匀采样忽视操作轨迹的时间特性，导致关键子技能采样不足和阶段饥饿。PHASER通过阶段中心容量分配确保所有子技能获得均等记忆支持，并结合语义重放策略，有效缓解遗忘，架构无关且可复用。",
-        "whyImportant": "针对VLA持续学习中的关键遗忘问题，提出架构无关的解决框架。",
+        "oneSentenceSummary": "用3D点轨迹作为通用动作接口衔接视频预测与机器人控制",
+        "summaryCn": "PointAction微调基础视频生成模型，联合预测RGB帧和3D点云，将点动态作为具身无关动作表示，实现视频预测到动作的桥梁。",
+        "whyImportant": "首次用3D点云作为VAM与动作策略的纽带，解决动作模糊性。",
         "reasonTags": [
-          "持续学习",
-          "灾难性遗忘",
-          "VLA",
-          "经验回放"
+          "视频动作模型",
+          "3D点云",
+          "动作表示"
         ],
         "innovationPoints": [
-          "阶段感知的记忆容量分配策略，避免关键子技能被忽略。",
-          "语义经验选择机制，提升回放样本效率。",
-          "架构无关设计，可适配多种VLA模型。"
+          "联合预测RGB和3D点云",
+          "点动态作为通用动作接口",
+          "微调视频基础模型"
         ],
-        "noveltyVerdict": "在VLA持续学习上提出新颖的阶段感知方法，创新性较高。",
-        "duplicateRisk": "low",
-        "dedupeNote": "非VLA通用架构改进，专注持续学习问题，与其他工作互补。",
+        "noveltyVerdict": "新颖的4D点表示，创新性强",
+        "duplicateRisk": "medium",
+        "dedupeNote": "独特使用3D点云作为中间表示，区别于直接动作预测",
         "retrievalGroups": [
           "robotics"
         ],
         "mergedCount": 1,
         "mergedTitles": [
-          "PHASER: Phase-Aware and Semantic Experience Replay for Vision-Language-Action Models"
+          "PointAction: 3D Points as Universal Action Representations for Robot Control"
         ]
       },
       {
@@ -736,33 +773,32 @@ window.PAPERS_SITE_DATA = {
         "categories": [
           "cs.CV"
         ],
-        "score": 82,
+        "score": 78,
         "importanceLevel": "A",
         "lane": "WAM",
         "dimensionScores": {
-          "relevance": 85,
-          "novelty": 88,
-          "impact": 75,
-          "practicality": 70,
-          "coreAlignment": 90
+          "relevance": 90,
+          "novelty": 80,
+          "impact": 60,
+          "practicality": 50,
+          "coreAlignment": 95
         },
-        "oneSentenceSummary": "提出统一视频-动作联合去噪模型，实现灵巧手动作策略与数据生成。",
-        "summaryCn": "从分布视角重新审视视频基础模型与机器人动作的对齐，提出统一视频-动作去噪模型Donk。在语言、首帧和手部初始条件下采样未来视频和双手MANO轨迹作为动作策略；无图像条件时，从文本条件分布采样配对视频-动作展开，将视频先验转化为数据引擎。灵巧操作任务验证。",
-        "whyImportant": "统一视频-动作联合建模，既做策略又做数据生成，扩展视频先验用途。",
+        "oneSentenceSummary": "统一视频-动作去噪模型，用于灵巧手动作生成与数据扩增",
+        "summaryCn": "Donk在潜在空间中联合去噪交互视频与可执行手动轨迹，可作为策略直接生成动作，也可作为数据引擎生成配对数据。",
+        "whyImportant": "统一去噪框架，兼具策略与数据引擎双重功能。",
         "reasonTags": [
-          "世界动作模型",
-          "视频-动作联合",
-          "灵巧操作",
+          "视频动作去噪",
+          "灵巧手",
           "数据生成"
         ],
         "innovationPoints": [
-          "联合分布建模而非条件分布，保留更广先验。",
-          "同一架构支持策略与数据生成双重用途。",
-          "将视频基础模型转化为灵巧手数据引擎。"
+          "联合视频-动作去噪",
+          "多条件采样",
+          "生成式数据引擎"
         ],
-        "noveltyVerdict": "在WAM中创新性地联合建模视频与动作，并实现多功能，创新性强。",
+        "noveltyVerdict": "统一去噪范式新颖，功能多样",
         "duplicateRisk": "medium",
-        "dedupeNote": "与PointAction不同，强调联合分布和灵巧手，非单纯点云动作表示。",
+        "dedupeNote": "同时考虑视频与动作的联合分布，区别于单一模态模型",
         "retrievalGroups": [
           "robotics"
         ],
@@ -772,160 +808,58 @@ window.PAPERS_SITE_DATA = {
         ]
       },
       {
-        "id": "2606.03556v1",
-        "title": "Partially Observable Adversarial Patch Attacks on Vision-Language-Action Models in Robotics",
-        "summary": "Vision-language-action (VLA) models are gaining attention in robotics, yet their robustness to adversarial attacks remains largely unexplored. Existing work shows that adversarial patches can mislead VLA-based robots but assumes full access to the entire execution trajectory, an unrealistic requirement in practice.",
-        "summaryRaw": "Vision-language-action (VLA) models are gaining attention in robotics, yet their robustness to adversarial attacks remains largely unexplored. Existing work shows that adversarial patches can mislead VLA-based robots but assumes full access to the entire execution trajectory, an unrealistic requirement in practice. We address this limitation by formulating a partially observable threat model, where the adversary can exploit only a short prefix of the trajectory to generate a fixed patch applied to all subsequent frames. Under this setting, we propose a two-phase framework. First, we localize the patch using the model's attention maps to identify visually critical regions that correspond to the full instruction. Then, we optimize the patch to disrupt the semantic grounding of target objects and increase the curvature of action trajectories, thereby compounding failures in both perception and control. Extensive experiments in simulation and real-world robotic environments show that our method sustains adversarial effects under partial observability, inducing long-horizon disruptions and significantly reducing task success rates.",
-        "link": "https://arxiv.org/abs/2606.03556v1",
-        "pdfLink": "https://arxiv.org/pdf/2606.03556v1",
-        "published": "2026-06-02T12:19:28Z",
-        "updated": "2026-06-02T12:19:28Z",
+        "id": "2606.03127v1",
+        "title": "TTT-VLA: Test-Time Latent Prompt Optimization for Vision-Language-Action Models",
+        "summary": "Vision-Language-Action (VLA) models trained on large-scale data have made remarkable progress, but they remain vulnerable to distribution shifts at deployment time. Recent VLA models suggest that prompts can serve as an efficient interface for steering policy behavior, but existing prompt-based steering typically relies on external guida…",
+        "summaryRaw": "Vision-Language-Action (VLA) models trained on large-scale data have made remarkable progress, but they remain vulnerable to distribution shifts at deployment time. Recent VLA models suggest that prompts can serve as an efficient interface for steering policy behavior, but existing prompt-based steering typically relies on external guidance. This raises a natural question: can test-time training (TTT) for VLA be achieved by optimizing a prompt, so that the steering interface itself can be learned and adapted from interaction? We address this question with TTT-VLA, a test-time training framework based on Latent Prompt Optimization (LPO). During training, the latent prompt is learned with an additional proxy task, providing an extra learned conditioning signal for policy learning. At test time, TTT is performed by collecting interaction data from the current environment and optimizing only the latent prompt on those data using the proxy task's self-supervised signal, without modifying the policy itself. Experiments on SimplerEnv demonstrate that the proposed method consistently improves task success rates in both single- and multi-embodiment settings. Further analysis shows that the gains arise primarily from correcting a small number of critical decisions rather than globally altering policy behavior. These results suggest that LPO provides an effective and practical pathway for deployment-time improvement of foundation manipulation policies.",
+        "link": "https://arxiv.org/abs/2606.03127v1",
+        "pdfLink": "https://arxiv.org/pdf/2606.03127v1",
+        "published": "2026-06-02T04:10:39Z",
+        "updated": "2026-06-02T04:10:39Z",
         "authors": [
-          "Xiaofei Wang",
-          "Mingliang Han",
-          "Tianyu Hao",
-          "Yi Yang",
-          "Yun-Bo Zhao",
-          "Keke Tang"
+          "Wenbo Zhang",
+          "Jianxiong Li",
+          "Shuai Yang",
+          "Sijin Chen",
+          "Jiajun Liu",
+          "Lingqiao Liu",
+          "Xiao Ma"
         ],
         "categories": [
           "cs.RO"
         ],
-        "score": 78,
-        "importanceLevel": "B",
+        "score": 80,
+        "importanceLevel": "A",
         "lane": "VLA",
         "dimensionScores": {
-          "relevance": 75,
-          "novelty": 80,
+          "relevance": 80,
+          "novelty": 60,
           "impact": 65,
-          "practicality": 60,
-          "coreAlignment": 70
-        },
-        "oneSentenceSummary": "提出部分可观测下的对抗贴片攻击框架，揭示VLA模型鲁棒性漏洞。",
-        "summaryCn": "针对VLA模型在机器人执行中可能受对抗攻击的问题，考虑实际中攻击者仅能观察轨迹前缀的限制，设计两阶段攻击框架。利用注意力图定位关键区域，优化贴片以破坏语义对齐并增加动作轨迹曲率，导致感知和动作失效。实验证明威胁，为安全研究提供基准。",
-        "whyImportant": "首次在部分可观测威胁模型下攻击VLA，揭示安全风险。",
-        "reasonTags": [
-          "对抗攻击",
-          "VLA模型",
-          "鲁棒性",
-          "安全"
-        ],
-        "innovationPoints": [
-          "部分可观测威胁模型更贴近实际部署场景。",
-          "基于注意力的贴片定位，精准攻击关键区域。",
-          "同时破坏感知与动作的联合优化目标。"
-        ],
-        "noveltyVerdict": "将对抗攻击引入VLA并考虑实际约束，有一定新意。",
-        "duplicateRisk": "low",
-        "dedupeNote": "与众不同在部分可观测假设，非全轨迹攻击，更贴近真实威胁场景。",
-        "retrievalGroups": [
-          "robotics"
-        ],
-        "mergedCount": 1,
-        "mergedTitles": [
-          "Partially Observable Adversarial Patch Attacks on Vision-Language-Action Models in Robotics"
-        ]
-      },
-      {
-        "id": "2606.03724v1",
-        "title": "Same Weights, Different Robot: A Deployment Safety View of VLA Policies",
-        "summary": "Vision-language-action (VLA) policies are often treated as checkpoint-defined objects: if the weights, prompt, and benchmark suite match, the deployment is assumed to be the same policy. Robot execution breaks this assumption because the same normalized model output can become a different physical action after action unnormalization and…",
-        "summaryRaw": "Vision-language-action (VLA) policies are often treated as checkpoint-defined objects: if the weights, prompt, and benchmark suite match, the deployment is assumed to be the same policy. Robot execution breaks this assumption because the same normalized model output can become a different physical action after action unnormalization and controller conventions are applied. This creates a deployment-safety gap: safety review can certify the checkpoint while missing the executable robot policy that reaches the controller. We formalize this gap as an executable policy specification problem: a VLA policy includes the learned model, action representation, metadata-selected unnormalizer, and controller-facing conventions. Under this view, identical checkpoints can be executable-inequivalent. For quantile-style action normalization, we derive a closed-form metadata mismatch transform and an ExecSpec certificate that measures action-space semantic drift without model inference or rollout. On LIBERO-Goal replay, substituting a plausible sibling metadata key yields mean drift 0.199 over six non-gripper action dimensions and reduces success from 28/28 to 2/28 under full substitution. On LIBERO-Spatial replay, the same substituted key reduces success from 26/26 to 0/26. The same full-substitution protocol gives 0/28 success for all four Object substitutions and 0/23 or 1/23 success on Long. Identity-key, replay-validity, no-op filtering, raw-vs-correct replay, mask/gripper, synthetic upper-bound, and OpenVLA-style unnormalizer interface checks rule out several simpler explanations. These results do not certify closed-loop or hardware safety. They support a narrower deployment-safety view: action-space metadata is part of the executable policy and should be checked before rollout.",
-        "link": "https://arxiv.org/abs/2606.03724v1",
-        "pdfLink": "https://arxiv.org/pdf/2606.03724v1",
-        "published": "2026-06-02T14:45:00Z",
-        "updated": "2026-06-02T14:45:00Z",
-        "authors": [
-          "Jianwei Tai"
-        ],
-        "categories": [],
-        "score": 72,
-        "importanceLevel": "B",
-        "lane": "VLA",
-        "dimensionScores": {
-          "relevance": 70,
-          "novelty": 75,
-          "impact": 55,
           "practicality": 70,
-          "coreAlignment": 65
+          "coreAlignment": 90
         },
-        "oneSentenceSummary": "揭示VLA部署中因动作反规范化差异导致的安全差距，提出可执行策略规范。",
-        "summaryCn": "相同权重、提示和基准的VLA策略在不同机器人上可能产生不同可执行动作，因动作反规范化和控制器约定。这导致安全审查可能漏掉实机风险。论文形式化此问题为可执行策略规范，并针对分位数动作规范化推导闭式元数据失配变换，提出可执行策略等价性检查器。",
-        "whyImportant": "关注VLA部署安全，揭示容易被忽视的元数据不一致风险。",
+        "oneSentenceSummary": "测试时通过潜在提示优化实现VLA自适应",
+        "summaryCn": "TTT-VLA在训练时学习潜在提示作为额外条件，测试时仅优化提示参数以适应分布变化，无需更新整个模型。",
+        "whyImportant": "首次将测试时训练用于VLA，提升部署鲁棒性。",
         "reasonTags": [
-          "VLA部署",
-          "安全",
-          "动作规范化",
-          "可执行策略"
+          "测试时训练",
+          "潜在提示优化",
+          "自适应"
         ],
         "innovationPoints": [
-          "识别并形式化VLA可执行策略规范问题。",
-          "提出元数据失配的数学变换，量化差异。",
-          "提供安全检查工具，增强部署可靠性。"
+          "提出潜在提示优化训练",
+          "测试时仅优化提示进行适应",
+          "不修改模型权重"
         ],
-        "noveltyVerdict": "从系统安全视角切入VLA，视角新颖，但方法创新度中等。",
+        "noveltyVerdict": "新颖的测试时适应方法，有创新性",
         "duplicateRisk": "low",
-        "dedupeNote": "与其他VLA工作不同，聚焦部署层面而非模型训练或架构。",
+        "dedupeNote": "专注于部署适应，与其他VLA训练方法正交",
         "retrievalGroups": [
           "robotics"
         ],
         "mergedCount": 1,
         "mergedTitles": [
-          "Same Weights, Different Robot: A Deployment Safety View of VLA Policies"
-        ]
-      },
-      {
-        "id": "2606.03943v1",
-        "title": "PointAction: 3D Points as Universal Action Representations for Robot Control",
-        "summary": "Video-Action Models (VAMs) leverage the broad visual dynamics captured by pre-trained video diffusion models, offering a promising path toward generalizable robot manipulation. However, RGB-only video rollouts are not directly actionable: they leave metric 3D motion, contact geometry, and fine-grained spatial constraints under-specified,…",
-        "summaryRaw": "Video-Action Models (VAMs) leverage the broad visual dynamics captured by pre-trained video diffusion models, offering a promising path toward generalizable robot manipulation. However, RGB-only video rollouts are not directly actionable: they leave metric 3D motion, contact geometry, and fine-grained spatial constraints under-specified, making action grounding ambiguous. Meanwhile, scaling action supervision across diverse tasks and embodiments remains costly. We present PointAction, a framework that bridges video predictions to robot actions through explicit point-based 4D modeling. PointAction fine-tunes a foundation video generation model to jointly predict future RGB frames and dynamic 3D pointmaps, producing temporally consistent 3D motion of task-relevant scene geometry. These point dynamics serve as a structured, embodiment-agnostic action interface, which a diffusion-based action decoder maps to executable robot actions. By using metric 3D point dynamics as the interface between video prediction and control, PointAction reduces the ambiguity of RGB-only action grounding and supports transfer across tasks and embodiments with limited action supervision. Experiments show that PointAction achieves state-of-the-art 4D generation quality on robot scenes, outperforms existing baselines in simulation, and generalizes to two real robot arms unseen during pretraining.",
-        "link": "https://arxiv.org/abs/2606.03943v1",
-        "pdfLink": "https://arxiv.org/pdf/2606.03943v1",
-        "published": "2026-06-02T17:30:50Z",
-        "updated": "2026-06-02T17:30:50Z",
-        "authors": [
-          "Mutian Tong",
-          "Han Jiang",
-          "Qiao Feng",
-          "Lingjie Liu",
-          "Jiatao Gu"
-        ],
-        "categories": [
-          "cs.RO"
-        ],
-        "score": 70,
-        "importanceLevel": "B",
-        "lane": "WAM",
-        "dimensionScores": {
-          "relevance": 72,
-          "novelty": 82,
-          "impact": 60,
-          "practicality": 65,
-          "coreAlignment": 78
-        },
-        "oneSentenceSummary": "提出以3D点云作为通用动作表示，连接视频预测与机器人控制。",
-        "summaryCn": "视频动作模型利用视频扩散先验，但RGB预测无法直接执行。PointAction微调基础视频生成模型，联合预测未来RGB帧和动态3D点图，产生时空一致的任务相关几何运动。点动态作为结构化、具身无关的动作接口，再由扩散头解码为机器人动作。验证其在多种任务上的有效性。",
-        "whyImportant": "提出点云动作表示，为视频预测到机器人动作搭建桥梁。",
-        "reasonTags": [
-          "视频动作模型",
-          "点云表示",
-          "动作生成",
-          "机器人控制"
-        ],
-        "innovationPoints": [
-          "将点云作为通用动作表示融入视频生成。",
-          "联合预测RGB和3D点运动，时空一致。",
-          "扩散动作解码实现具身无关控制。"
-        ],
-        "noveltyVerdict": "点云动作表示新颖，但整体框架沿用视频动作模型范式。",
-        "duplicateRisk": "medium",
-        "dedupeNote": "与Donk不同，专注动作表示而非联合分布，且非灵巧手。",
-        "retrievalGroups": [
-          "robotics"
-        ],
-        "mergedCount": 1,
-        "mergedTitles": [
-          "PointAction: 3D Points as Universal Action Representations for Robot Control"
+          "TTT-VLA: Test-Time Latent Prompt Optimization for Vision-Language-Action Models"
         ]
       },
       {
@@ -950,33 +884,32 @@ window.PAPERS_SITE_DATA = {
         "categories": [
           "cs.RO"
         ],
-        "score": 80,
+        "score": 82,
         "importanceLevel": "A",
-        "lane": "Robotics",
+        "lane": "Both",
         "dimensionScores": {
-          "relevance": 40,
-          "novelty": 75,
-          "impact": 80,
-          "practicality": 70,
-          "coreAlignment": 14
+          "relevance": 70,
+          "novelty": 70,
+          "impact": 70,
+          "practicality": 60,
+          "coreAlignment": 50
         },
-        "oneSentenceSummary": "提出GN0统一范式，用于视觉语言导航的数据生成、评估与策略学习。",
-        "summaryCn": "构建大规模GN-Matrix数据集，基于3DGS引擎的高保真模拟平台支持交互式漫游和碰撞感知导航。提出BEV基准GN-Bench，引入动态3DGS化身评估人机交互。开发RL导航基础模型BAE，结合监督学习和DAgger，实现自主导航与人类指令跟随。",
-        "whyImportant": "为VLN提供数据、平台、基准和基础模型，推动该领域发展。",
+        "oneSentenceSummary": "统一生成、评估、策略学习的视觉语言导航范式",
+        "summaryCn": "利用3DGS引擎构建高保真模拟器，提出GN-Bench基准和Break-and-Establish导航基础模型，支持动态人机交互。",
+        "whyImportant": "首个BEV基准及交互评估，推动VLN基础模型。",
         "reasonTags": [
           "视觉语言导航",
-          "数据生成",
-          "模拟平台",
+          "3DGS模拟",
           "基础模型"
         ],
         "innovationPoints": [
-          "自动管线生成大规模导航数据集GN-Matrix。",
-          "基于3DGS的高保真仿真与基准GN-Bench。",
-          "提出BAE导航基础模型，结合RL与半监督学习。"
+          "3DGS引擎高保真模拟",
+          "BEV基准与动态虚拟人",
+          "RL驱动的导航基础模型"
         ],
-        "noveltyVerdict": "集成数据、仿真和策略为一体，系统性强，创新性中等偏高。",
+        "noveltyVerdict": "集成生成与评估，较为新颖",
         "duplicateRisk": "low",
-        "dedupeNote": "与其他VLN工作互补，提供开放平台与基准，非单纯模型改进。",
+        "dedupeNote": "专注于导航，与操作类VLA不同场景",
         "retrievalGroups": [
           "robotics"
         ],
@@ -1005,210 +938,38 @@ window.PAPERS_SITE_DATA = {
           "cs.RO",
           "cs.LG"
         ],
-        "score": 80,
+        "score": 65,
         "importanceLevel": "B",
         "lane": "WAM",
         "dimensionScores": {
-          "relevance": 63,
-          "novelty": 75,
-          "impact": 55,
-          "practicality": 65,
-          "coreAlignment": 24
+          "relevance": 60,
+          "novelty": 50,
+          "impact": 50,
+          "practicality": 30,
+          "coreAlignment": 60
         },
-        "oneSentenceSummary": "提出3D等视域世界模型，建模城市导航中的开放体积几何。",
-        "summaryCn": "具身导航世界模型通常预测外观，而非对运动关键的可行走空间。本文提出建模建筑物间的负空间，编码为3D等视域（球形可视深度图）。模型预测从特定视点可见的几何形态，揭示城市结构签名。实验展示其导航预测能力，超越外观模型。",
-        "whyImportant": "以物理可行走几何为目标，为导航提供更直接的世界模型。",
+        "oneSentenceSummary": "用3D等视域图建模城市可导航空间，揭示跨城几何签名",
+        "summaryCn": "提出3D等视域世界模型，记录建筑间开放空间的距离信息，避免外观依赖，捕获三维可导航几何结构。",
+        "whyImportant": "为导航智能体提供不依赖外观的空间表示。",
         "reasonTags": [
           "世界模型",
-          "3D等视域",
-          "导航",
-          "城市几何"
+          "等视域",
+          "导航几何"
         ],
         "innovationPoints": [
-          "提出3D等视域表示，关注导航所必需的几何信息。",
-          "预测负空间而非外观，降低线性。",
-          "发现跨城市几何签名。"
+          "3D等视域表示",
+          "无光度纠缠",
+          "跨城几何模式"
         ],
-        "noveltyVerdict": "从导航视角重新定义世界模型目标，创新性较高。",
+        "noveltyVerdict": "在导航空间表示上有创新，但作用有限",
         "duplicateRisk": "low",
-        "dedupeNote": "与传统预测外观的世界模型不同，聚焦几何可行走空间，非对手。",
+        "dedupeNote": "独特的世界表示，不同于视觉预测型世界模型",
         "retrievalGroups": [
           "robotics"
         ],
         "mergedCount": 1,
         "mergedTitles": [
           "A 3D Isovist World Model -- Revealing a City's Unseen Geometry and Its Emergent Cross-City Signature"
-        ]
-      },
-      {
-        "id": "2606.03847v1",
-        "title": "Denoising Tells When to Replan: Denoising-Variance Adaptive Chunking for Flow-Based Robot Policies",
-        "summary": "Action chunking has become a common inference strategy for flow-based robot policies, improving action coherence by modeling multi-step temporal dependencies in demonstrations. However, the execution horizon is still typically set as an empirical fixed value, overlooking that predictable free-space motions and precision-critical interact…",
-        "summaryRaw": "Action chunking has become a common inference strategy for flow-based robot policies, improving action coherence by modeling multi-step temporal dependencies in demonstrations. However, the execution horizon is still typically set as an empirical fixed value, overlooking that predictable free-space motions and precision-critical interaction phases often require different replanning frequencies. In this work, we first show that the denoising process of flow-based policies contains an intrinsic signal of task phases: clean-action estimates remain stable during predictable motion phases, but fluctuate more strongly around contact-rich or precision-sensitive operations. Motivated by this observation, we propose DVAC (Denoising-Variance Adaptive Chunking), a test-time method that adaptively determines how many actions to execute from each predicted chunk. DVAC measures the variance of clean-action estimates over the final denoising steps, executes the stable low-variance prefix, and replans before high-variance future actions are committed. To transfer across tasks and rollouts, DVAC further calibrates the threshold with a rolling estimate of the local variance scale. Experiments on LIBERO, RoboTwin, CALVIN, and real-world manipulation show that DVAC improves task success while reducing replanning frequency. With a $π_{0.5}$-based policy, DVAC improves LIBERO success from 94.75% to 98.00% and reduces replanning by 43.0%, while also yielding aggregate gains on RoboTwin and CALVIN and improving real-world execution efficiency.",
-        "link": "https://arxiv.org/abs/2606.03847v1",
-        "pdfLink": "https://arxiv.org/pdf/2606.03847v1",
-        "published": "2026-06-02T16:26:32Z",
-        "updated": "2026-06-02T16:26:32Z",
-        "authors": [
-          "Xiangdong Feng",
-          "Yuxuan Cheng",
-          "Chen Shi",
-          "Boyao Han",
-          "Yuxuan Yan",
-          "Yitong Hong",
-          "Zhuotao Tian",
-          "Li Jiang"
-        ],
-        "categories": [
-          "cs.RO"
-        ],
-        "score": 69,
-        "importanceLevel": "B",
-        "lane": "Robotics",
-        "dimensionScores": {
-          "relevance": 68,
-          "novelty": 78,
-          "impact": 60,
-          "practicality": 75,
-          "coreAlignment": 60
-        },
-        "oneSentenceSummary": "利用去噪方差自适应调整动作块大小，提升流式机器人策略效率。",
-        "summaryCn": "流式策略通常固定动作块长度，忽略不同任务阶段对重规划频率的需求差异。本文发现去噪过程中干净动作估计的方差变化与任务阶段相关，可预测时稳定，关键操作时波动大。提出DVAC，测试时根据去噪方差自适应决定执行多少动作，无需训练。",
-        "whyImportant": "以去噪方差为信号，自适应调整策略执行，方法简单有效。",
-        "reasonTags": [
-          "动作块",
-          "流式策略",
-          "去噪方差",
-          "自适应"
-        ],
-        "innovationPoints": [
-          "发现去噪方差与任务阶段的内在联系。",
-          "提出无训练的自适应动作块方法DVAC。",
-          "适用于多数流式策略。"
-        ],
-        "noveltyVerdict": "发现并利用去噪方差信号，思路新颖，方法简单。",
-        "duplicateRisk": "low",
-        "dedupeNote": "对于固定块策略的改进，与其他工作互补，不冲突。",
-        "retrievalGroups": [
-          "robotics"
-        ],
-        "mergedCount": 1,
-        "mergedTitles": [
-          "Denoising Tells When to Replan: Denoising-Variance Adaptive Chunking for Flow-Based Robot Policies"
-        ]
-      },
-      {
-        "id": "2606.03834v1",
-        "title": "Let the Dynamics Flow: Stable Flow Matching Dynamical Systems",
-        "summary": "Flow matching has recently emerged as a powerful approach for imitation learning, enabling scalable, expressive, and multimodal motion policies. However, incorporating formal stability guarantees into these generative models, a prerequisite to ensure safe and generalizable robot behaviors, remains a significant challenge.",
-        "summaryRaw": "Flow matching has recently emerged as a powerful approach for imitation learning, enabling scalable, expressive, and multimodal motion policies. However, incorporating formal stability guarantees into these generative models, a prerequisite to ensure safe and generalizable robot behaviors, remains a significant challenge. While modeling robot motions as dynamical systems allows for such stability-based inductive biases, existing frameworks struggle to capture the rich action distributions inherent in complex robotic tasks. This paper introduces Stable Flow Matching Dynamical Systems (SFMDS), a novel framework that bridges the gap between high-capacity generative modeling and formal Lyapunov stability guarantees. SFMDS parametrizes dynamical systems via flow matching while simultaneously constraining the model to a family of stable solutions. We propose two variants: a soft constraint based on a penalty term, and a hard structural constraint embedded directly in the model architecture. We further extend both formulations to Lie groups. Experiments on benchmark datasets, in simulation, and on a humanoid robot show that SFMDS learns stable, scalable, and multimodal dynamical systems in low- and high-dimensional state spaces, enabling safe and expressive robot motion generation.",
-        "link": "https://arxiv.org/abs/2606.03834v1",
-        "pdfLink": "https://arxiv.org/pdf/2606.03834v1",
-        "published": "2026-06-02T16:17:26Z",
-        "updated": "2026-06-02T16:17:26Z",
-        "authors": [
-          "Rodrigo Pérez-Dattari",
-          "Francisco Leiva",
-          "Andrea Testa",
-          "Leonel Rozo",
-          "Javier Ruiz del Solar",
-          "Noémie Jaquier"
-        ],
-        "categories": [
-          "cs.RO"
-        ],
-        "score": 68,
-        "importanceLevel": "B",
-        "lane": "Robotics",
-        "dimensionScores": {
-          "relevance": 65,
-          "novelty": 80,
-          "impact": 55,
-          "practicality": 60,
-          "coreAlignment": 60
-        },
-        "oneSentenceSummary": "提出稳定流匹配动力系统，将生成式策略与李雅普诺夫稳定性结合。",
-        "summaryCn": "流匹配在模仿学习中有力，但缺乏稳定性保证。本文提出SFMDS，通过流匹配参数化动力系统，同时约束模型为稳定解决方案族。提出软约束与硬约束两种变体，确保机器人运动收敛到目标点。在多种操作任务中验证，实现安全、可泛化行为。",
-        "whyImportant": "首次将形式稳定性保证融入流匹配策略，提升安全性。",
-        "reasonTags": [
-          "流匹配",
-          "稳定性",
-          "模仿学习",
-          "动力学系统"
-        ],
-        "innovationPoints": [
-          "将李雅普诺夫稳定性约束引入流匹配生成模型。",
-          "提出软硬两种约束方案。",
-          "实现安全且可泛化的机器人行为。"
-        ],
-        "noveltyVerdict": "结合生成模型与稳定理论，创新性强，填补空白。",
-        "duplicateRisk": "low",
-        "dedupeNote": "与普通流匹配策略不同，加入稳定性保证，面向安全关键任务。",
-        "retrievalGroups": [
-          "robotics"
-        ],
-        "mergedCount": 1,
-        "mergedTitles": [
-          "Let the Dynamics Flow: Stable Flow Matching Dynamical Systems"
-        ]
-      }
-    ],
-    "vla": [
-      {
-        "id": "2606.03784v1",
-        "title": "Revisiting Embodied Chain-of-Thought for Generalizable Robot Manipulation",
-        "summary": "Embodied chain-of-thought (CoT) aims to bridge linguistic reasoning and robotic control, but its effective form and integration strategy remain underexplored. In this paper, we revisit embodied CoT for vision-language-action (VLA) models at large scale.",
-        "summaryRaw": "Embodied chain-of-thought (CoT) aims to bridge linguistic reasoning and robotic control, but its effective form and integration strategy remain underexplored. In this paper, we revisit embodied CoT for vision-language-action (VLA) models at large scale. We construct the largest embodied CoT corpus to date, comprising 978,743 trajectories, 226.3M samples, and 2592.5 hours of robot data. Through extensive experiments, we find that effective embodied CoT should ground high-level semantic understanding into concrete action guidance, such as end-effector movement descriptions and image-space trajectories, while high-level reasoning alone brings only marginal gains. We further show that explicit CoT does not scale reliably when used as an autoregressive action prefix, as it suffers from compounding inference errors and unstable reasoning-action coupling. To address these limitations, we propose ERVLA, a VLA model that uses embodied CoT as representation-shaping supervision rather than mandatory test-time reasoning. ERVLA is trained with a reasoning-dropout strategy, enabling the model to absorb rich reasoning traces during training while predicting actions directly without CoT decoding during inference. This design improves scalability with increasing pre-training data and avoids autoregressive instability. ERVLA achieves state-of-the-art performance on LIBERO-Plus with an 86.9% success rate and reaches 53.2% success rate on VLABench, demonstrating strong out-of-distribution generalization. In real-robot experiments, ERVLA further outperforms competitive state-of-the-art baselines, especially on tasks requiring semantic disambiguation and long-horizon execution. Code, data, and model checkpoints will be released.",
-        "link": "https://arxiv.org/abs/2606.03784v1",
-        "pdfLink": "https://arxiv.org/pdf/2606.03784v1",
-        "published": "2026-06-02T15:37:59Z",
-        "updated": "2026-06-02T15:37:59Z",
-        "authors": [
-          "Nan Sun",
-          "Yuan Zhang",
-          "Yongkun Yang",
-          "Wentao Zhao",
-          "Peiyan Li",
-          "Jun Guo",
-          "Wenxuan Song",
-          "Pengxiang Ding"
-        ],
-        "categories": [
-          "cs.RO"
-        ],
-        "score": 95,
-        "importanceLevel": "S",
-        "lane": "VLA",
-        "dimensionScores": {
-          "relevance": 94,
-          "novelty": 90,
-          "impact": 92,
-          "practicality": 85,
-          "coreAlignment": 96
-        },
-        "oneSentenceSummary": "重新审视具身思维链，提出有效形式与集成策略，提升VLA模型泛化性。",
-        "summaryCn": "构建最大具身思维链语料库，含97.8万轨迹、2.26亿样本。发现有效思维链应将高层语义转化为具体动作指引（如末端运动、图像轨迹），仅高层推理增益有限。揭示显式思维链的自回归前缀扩展不可靠，存在推理误差累积与不稳定耦合。提出新方案解决，大规模验证。",
-        "whyImportant": "迄今最大具身CoT研究，揭示有效形式与缩放问题，推动VLA泛化。",
-        "reasonTags": [
-          "具身思维链",
-          "VLA模型",
-          "泛化能力",
-          "大规模语料"
-        ],
-        "innovationPoints": [
-          "构建最大具身思维链语料库，规模空前。",
-          "发现有效具身思维链应落地为具体动作引导，而非仅高层推理。",
-          "识别并解决显式思维链的自回归扩展缺陷。"
-        ],
-        "noveltyVerdict": "在大规模下重新审视并推进具身思维链，创新性强。",
-        "duplicateRisk": "low",
-        "dedupeNote": "与其他VLA工作不同，专注于思维链的重新设计与规模化，非单纯模型结构创新。",
-        "retrievalGroups": [
-          "robotics"
-        ],
-        "mergedCount": 1,
-        "mergedTitles": [
-          "Revisiting Embodied Chain-of-Thought for Generalizable Robot Manipulation"
         ]
       },
       {
@@ -1231,37 +992,35 @@ window.PAPERS_SITE_DATA = {
           "Yandong Guo"
         ],
         "categories": [
-          "cs.RO",
           "cs.AI",
-          "cs.CV"
+          "cs.CV",
+          "cs.RO"
         ],
-        "score": 85,
-        "importanceLevel": "A",
+        "score": 70,
+        "importanceLevel": "B",
         "lane": "VLA",
         "dimensionScores": {
-          "relevance": 88,
-          "novelty": 85,
-          "impact": 80,
-          "practicality": 75,
-          "coreAlignment": 90
+          "relevance": 85,
+          "novelty": 30,
+          "impact": 55,
+          "practicality": 40,
+          "coreAlignment": 85
         },
-        "oneSentenceSummary": "提出阶段感知与语义经验回放框架，缓解VLA持续学习中的灾难性遗忘。",
-        "summaryCn": "VLA在开放环境持续学习新技能时面临灾难性遗忘。传统经验回放均匀采样忽视操作轨迹的时间特性，导致关键子技能采样不足和阶段饥饿。PHASER通过阶段中心容量分配确保所有子技能获得均等记忆支持，并结合语义重放策略，有效缓解遗忘，架构无关且可复用。",
-        "whyImportant": "针对VLA持续学习中的关键遗忘问题，提出架构无关的解决框架。",
+        "oneSentenceSummary": "面向VLA的持续学习框架，缓解灾难性遗忘",
+        "summaryCn": "PHASER根据操作阶段分配记忆容量，结合语义重放，保证各子技能均衡训练，解决VLA持续学习中的遗忘问题。",
+        "whyImportant": "解决VLA持续学习瓶颈，使模型能渐进掌握新技能。",
         "reasonTags": [
           "持续学习",
-          "灾难性遗忘",
-          "VLA",
-          "经验回放"
+          "经验重放",
+          "灾难性遗忘"
         ],
         "innovationPoints": [
-          "阶段感知的记忆容量分配策略，避免关键子技能被忽略。",
-          "语义经验选择机制，提升回放样本效率。",
-          "架构无关设计，可适配多种VLA模型。"
+          "阶段感知记忆分配",
+          "语义重放策略"
         ],
-        "noveltyVerdict": "在VLA持续学习上提出新颖的阶段感知方法，创新性较高。",
-        "duplicateRisk": "low",
-        "dedupeNote": "非VLA通用架构改进，专注持续学习问题，与其他工作互补。",
+        "noveltyVerdict": "在VLA持续学习场景中有针对性创新",
+        "duplicateRisk": "medium",
+        "dedupeNote": "专门针对VLA操作任务的分阶段特性设计",
         "retrievalGroups": [
           "robotics"
         ],
@@ -1271,58 +1030,58 @@ window.PAPERS_SITE_DATA = {
         ]
       },
       {
-        "id": "2606.03556v1",
-        "title": "Partially Observable Adversarial Patch Attacks on Vision-Language-Action Models in Robotics",
-        "summary": "Vision-language-action (VLA) models are gaining attention in robotics, yet their robustness to adversarial attacks remains largely unexplored. Existing work shows that adversarial patches can mislead VLA-based robots but assumes full access to the entire execution trajectory, an unrealistic requirement in practice.",
-        "summaryRaw": "Vision-language-action (VLA) models are gaining attention in robotics, yet their robustness to adversarial attacks remains largely unexplored. Existing work shows that adversarial patches can mislead VLA-based robots but assumes full access to the entire execution trajectory, an unrealistic requirement in practice. We address this limitation by formulating a partially observable threat model, where the adversary can exploit only a short prefix of the trajectory to generate a fixed patch applied to all subsequent frames. Under this setting, we propose a two-phase framework. First, we localize the patch using the model's attention maps to identify visually critical regions that correspond to the full instruction. Then, we optimize the patch to disrupt the semantic grounding of target objects and increase the curvature of action trajectories, thereby compounding failures in both perception and control. Extensive experiments in simulation and real-world robotic environments show that our method sustains adversarial effects under partial observability, inducing long-horizon disruptions and significantly reducing task success rates.",
-        "link": "https://arxiv.org/abs/2606.03556v1",
-        "pdfLink": "https://arxiv.org/pdf/2606.03556v1",
-        "published": "2026-06-02T12:19:28Z",
-        "updated": "2026-06-02T12:19:28Z",
+        "id": "2606.03240v1",
+        "title": "GeoAlign: Beyond Semantics with State-Guided Spatial Alignment in VLA Models",
+        "summary": "Current Vision--Language--Action (VLA) models often optimize for semantic grounding, whereas executable manipulation requires geometry-aware spatial alignment and dynamic affordance selection. We introduce GeoAlign, a state-guided spatial alignment architecture for VLA policy learning.",
+        "summaryRaw": "Current Vision--Language--Action (VLA) models often optimize for semantic grounding, whereas executable manipulation requires geometry-aware spatial alignment and dynamic affordance selection. We introduce GeoAlign, a state-guided spatial alignment architecture for VLA policy learning. GeoAlign post-trains an RGB geometry branch with robot-domain RGB-D supervision, yielding RGB-derived Geometry-Enhanced Post-Trained (GEP) features for policy rollout. The robot's proprioceptive state queries the GEP feature grid, producing compact, phase-dependent geometry tokens for action prediction. GeoAlign achieves 99.0% on LIBERO, 85.3% across three SimplerEnv-Fractal tasks, and 78.8% on eight geometry-critical real-world ALOHA tasks, with ablations confirming the value of geometry post-training and proprioceptive-state-guided querying.",
+        "link": "https://arxiv.org/abs/2606.03240v1",
+        "pdfLink": "https://arxiv.org/pdf/2606.03240v1",
+        "published": "2026-06-02T07:01:18Z",
+        "updated": "2026-06-02T07:01:18Z",
         "authors": [
-          "Xiaofei Wang",
-          "Mingliang Han",
-          "Tianyu Hao",
-          "Yi Yang",
-          "Yun-Bo Zhao",
-          "Keke Tang"
+          "Yizhi Chen",
+          "Zhanxiang Cao",
+          "Xinyi Peng",
+          "Yixiao Zheng",
+          "Xiaxi Si",
+          "Yiheng Li",
+          "Liyun Yan",
+          "Keqi Zhu"
         ],
         "categories": [
           "cs.RO"
         ],
-        "score": 78,
+        "score": 60,
         "importanceLevel": "B",
         "lane": "VLA",
         "dimensionScores": {
           "relevance": 75,
-          "novelty": 80,
-          "impact": 65,
-          "practicality": 60,
-          "coreAlignment": 70
+          "novelty": 30,
+          "impact": 45,
+          "practicality": 40,
+          "coreAlignment": 80
         },
-        "oneSentenceSummary": "提出部分可观测下的对抗贴片攻击框架，揭示VLA模型鲁棒性漏洞。",
-        "summaryCn": "针对VLA模型在机器人执行中可能受对抗攻击的问题，考虑实际中攻击者仅能观察轨迹前缀的限制，设计两阶段攻击框架。利用注意力图定位关键区域，优化贴片以破坏语义对齐并增加动作轨迹曲率，导致感知和动作失效。实验证明威胁，为安全研究提供基准。",
-        "whyImportant": "首次在部分可观测威胁模型下攻击VLA，揭示安全风险。",
+        "oneSentenceSummary": "状态引导的空间对齐提升VLA几何推理",
+        "summaryCn": "GeoAlign通过RGB-D后训练几何分支，以本体状态查询生成紧凑几何令牌，增强VLA对空间关系的理解。",
+        "whyImportant": "补齐VLA空间推理短板，提升精度。",
         "reasonTags": [
-          "对抗攻击",
-          "VLA模型",
-          "鲁棒性",
-          "安全"
+          "空间对齐",
+          "几何增强",
+          "状态引导"
         ],
         "innovationPoints": [
-          "部分可观测威胁模型更贴近实际部署场景。",
-          "基于注意力的贴片定位，精准攻击关键区域。",
-          "同时破坏感知与动作的联合优化目标。"
+          "RGB几何分支后训练",
+          "状态引导的几何令牌"
         ],
-        "noveltyVerdict": "将对抗攻击引入VLA并考虑实际约束，有一定新意。",
+        "noveltyVerdict": "针对VLA空间能力的改进，有一定创新",
         "duplicateRisk": "low",
-        "dedupeNote": "与众不同在部分可观测假设，非全轨迹攻击，更贴近真实威胁场景。",
+        "dedupeNote": "独特地结合几何后训练与状态查询，与其他VLA方法互补",
         "retrievalGroups": [
           "robotics"
         ],
         "mergedCount": 1,
         "mergedTitles": [
-          "Partially Observable Adversarial Patch Attacks on Vision-Language-Action Models in Robotics"
+          "GeoAlign: Beyond Semantics with State-Guided Spatial Alignment in VLA Models"
         ]
       },
       {
@@ -1338,33 +1097,31 @@ window.PAPERS_SITE_DATA = {
           "Jianwei Tai"
         ],
         "categories": [],
-        "score": 72,
+        "score": 55,
         "importanceLevel": "B",
         "lane": "VLA",
         "dimensionScores": {
-          "relevance": 70,
-          "novelty": 75,
-          "impact": 55,
-          "practicality": 70,
-          "coreAlignment": 65
+          "relevance": 60,
+          "novelty": 40,
+          "impact": 30,
+          "practicality": 50,
+          "coreAlignment": 70
         },
-        "oneSentenceSummary": "揭示VLA部署中因动作反规范化差异导致的安全差距，提出可执行策略规范。",
-        "summaryCn": "相同权重、提示和基准的VLA策略在不同机器人上可能产生不同可执行动作，因动作反规范化和控制器约定。这导致安全审查可能漏掉实机风险。论文形式化此问题为可执行策略规范，并针对分位数动作规范化推导闭式元数据失配变换，提出可执行策略等价性检查器。",
-        "whyImportant": "关注VLA部署安全，揭示容易被忽视的元数据不一致风险。",
+        "oneSentenceSummary": "揭示VLA部署安全漏洞：同一权重因反归一化导致不同动作",
+        "summaryCn": "指出VLA策略在部署时，由于动作反归一化和控制器约定，相同输入可产生不同物理动作，提出安全评估框架。",
+        "whyImportant": "提醒安全性审视不能仅依赖权重检验，需考虑部署差异。",
         "reasonTags": [
-          "VLA部署",
-          "安全",
-          "动作规范化",
-          "可执行策略"
+          "部署安全",
+          "动作反归一化",
+          "策略等价性"
         ],
         "innovationPoints": [
-          "识别并形式化VLA可执行策略规范问题。",
-          "提出元数据失配的数学变换，量化差异。",
-          "提供安全检查工具，增强部署可靠性。"
+          "提出可执行策略规范问题",
+          "推导反归一化变换关系"
         ],
-        "noveltyVerdict": "从系统安全视角切入VLA，视角新颖，但方法创新度中等。",
+        "noveltyVerdict": "揭示一个重要但被忽视的安全问题，思路新颖",
         "duplicateRisk": "low",
-        "dedupeNote": "与其他VLA工作不同，聚焦部署层面而非模型训练或架构。",
+        "dedupeNote": "聚焦VLA部署的安全视角，与其他方法不同",
         "retrievalGroups": [
           "robotics"
         ],
@@ -1374,7 +1131,396 @@ window.PAPERS_SITE_DATA = {
         ]
       }
     ],
+    "vla": [
+      {
+        "id": "2606.03392v1",
+        "title": "OpenEAI-Platform: An Open-source Embodied Artificial Intelligence Hardware-Software Unified Platform",
+        "summary": "Embodied AI in the real world requires both accurate hardware and robust vision-language-action (VLA) policies. We present OpenEAI-Platform, a fully open-source platform that integrates a low-cost 6+1 degree-of-freedom (dof) robotic arm (OpenEAI-Arm) and a reproducible VLA model (OpenEAI-VLA).",
+        "summaryRaw": "Embodied AI in the real world requires both accurate hardware and robust vision-language-action (VLA) policies. We present OpenEAI-Platform, a fully open-source platform that integrates a low-cost 6+1 degree-of-freedom (dof) robotic arm (OpenEAI-Arm) and a reproducible VLA model (OpenEAI-VLA). OpenEAI-Arm provides open-source mechanical designs for low manufacturing cost and compliant control methods for higher accuracy. OpenEAI-VLA builds on Qwen3-VL-4B and uses a Diffusion Transformer action head, and is trained in two stages with only open-source robot and multimodal datasets. Across four real-world manipulation tasks, OpenEAI-Arm outperforms two commercial 6+1-dof arms under the same policy, and OpenEAI-VLA achieves success rates comparable to the large-scale pretrained pi0 baseline with only limited pretraining data. We will release the full hardware designs, drivers, models, and training/data pipelines to support reproducible research and scalable data collection. Our codes, layouts, and models will be released after the paper is accepted.",
+        "link": "https://arxiv.org/abs/2606.03392v1",
+        "pdfLink": "https://arxiv.org/pdf/2606.03392v1",
+        "published": "2026-06-02T09:34:08Z",
+        "updated": "2026-06-02T09:34:08Z",
+        "authors": [
+          "Jinyuan Zhang",
+          "Luoyi Fan",
+          "Leiyu Wang",
+          "Yeqiang Wang",
+          "Yicheng Zhu",
+          "Cewu Lu",
+          "Nanyang Ye"
+        ],
+        "categories": [
+          "cs.RO"
+        ],
+        "score": 85,
+        "importanceLevel": "A",
+        "lane": "VLA",
+        "dimensionScores": {
+          "relevance": 90,
+          "novelty": 20,
+          "impact": 80,
+          "practicality": 95,
+          "coreAlignment": 95
+        },
+        "oneSentenceSummary": "开源具身智能平台，集成低成本机械臂与VLA模型",
+        "summaryCn": "OpenEAI-Platform提供开源6+1自由度机械臂与基于Qwen3-VL-4B的VLA模型，仅用开源数据训练，实际任务成功率可比肩大规模预训练基准pi0。",
+        "whyImportant": "开源平台降低具身AI门槛，促进VLA社区发展。",
+        "reasonTags": [
+          "开源平台",
+          "低成本机械臂",
+          "VLA模型"
+        ],
+        "innovationPoints": [
+          "低成本硬件设计",
+          "两阶段训练VLA模型",
+          "全开源生态"
+        ],
+        "noveltyVerdict": "工程集成创新，新颖度较低",
+        "duplicateRisk": "low",
+        "dedupeNote": "提供硬件-软件统一平台，与其他VLA方法互补",
+        "retrievalGroups": [
+          "robotics"
+        ],
+        "mergedCount": 1,
+        "mergedTitles": [
+          "OpenEAI-Platform: An Open-source Embodied Artificial Intelligence Hardware-Software Unified Platform"
+        ]
+      },
+      {
+        "id": "2606.03784v1",
+        "title": "Revisiting Embodied Chain-of-Thought for Generalizable Robot Manipulation",
+        "summary": "Embodied chain-of-thought (CoT) aims to bridge linguistic reasoning and robotic control, but its effective form and integration strategy remain underexplored. In this paper, we revisit embodied CoT for vision-language-action (VLA) models at large scale.",
+        "summaryRaw": "Embodied chain-of-thought (CoT) aims to bridge linguistic reasoning and robotic control, but its effective form and integration strategy remain underexplored. In this paper, we revisit embodied CoT for vision-language-action (VLA) models at large scale. We construct the largest embodied CoT corpus to date, comprising 978,743 trajectories, 226.3M samples, and 2592.5 hours of robot data. Through extensive experiments, we find that effective embodied CoT should ground high-level semantic understanding into concrete action guidance, such as end-effector movement descriptions and image-space trajectories, while high-level reasoning alone brings only marginal gains. We further show that explicit CoT does not scale reliably when used as an autoregressive action prefix, as it suffers from compounding inference errors and unstable reasoning-action coupling. To address these limitations, we propose ERVLA, a VLA model that uses embodied CoT as representation-shaping supervision rather than mandatory test-time reasoning. ERVLA is trained with a reasoning-dropout strategy, enabling the model to absorb rich reasoning traces during training while predicting actions directly without CoT decoding during inference. This design improves scalability with increasing pre-training data and avoids autoregressive instability. ERVLA achieves state-of-the-art performance on LIBERO-Plus with an 86.9% success rate and reaches 53.2% success rate on VLABench, demonstrating strong out-of-distribution generalization. In real-robot experiments, ERVLA further outperforms competitive state-of-the-art baselines, especially on tasks requiring semantic disambiguation and long-horizon execution. Code, data, and model checkpoints will be released.",
+        "link": "https://arxiv.org/abs/2606.03784v1",
+        "pdfLink": "https://arxiv.org/pdf/2606.03784v1",
+        "published": "2026-06-02T15:37:59Z",
+        "updated": "2026-06-02T15:37:59Z",
+        "authors": [
+          "Nan Sun",
+          "Yuan Zhang",
+          "Yongkun Yang",
+          "Wentao Zhao",
+          "Peiyan Li",
+          "Jun Guo",
+          "Wenxuan Song",
+          "Pengxiang Ding"
+        ],
+        "categories": [
+          "cs.RO"
+        ],
+        "score": 88,
+        "importanceLevel": "A",
+        "lane": "VLA",
+        "dimensionScores": {
+          "relevance": 95,
+          "novelty": 40,
+          "impact": 75,
+          "practicality": 60,
+          "coreAlignment": 95
+        },
+        "oneSentenceSummary": "构建大规模具身CoT数据集，提出并行预测新范式",
+        "summaryCn": "构建含97.8万轨迹的具身CoT语料库，发现CoT应落地为动作引导，提出将CoT作为并行预测的新范式，解决自回归耦合误差问题。",
+        "whyImportant": "重新审视具身CoT，大规模实验指导VLA推理设计。",
+        "reasonTags": [
+          "具身CoT",
+          "大规模数据集",
+          "并行预测"
+        ],
+        "innovationPoints": [
+          "最大具身CoT数据集",
+          "发现CoT应提供动作引导",
+          "并行预测取代自回归前缀"
+        ],
+        "noveltyVerdict": "实验洞察具有创新性，方法有效",
+        "duplicateRisk": "low",
+        "dedupeNote": "聚焦CoT策略，与通用VLA方法不同",
+        "retrievalGroups": [
+          "robotics"
+        ],
+        "mergedCount": 1,
+        "mergedTitles": [
+          "Revisiting Embodied Chain-of-Thought for Generalizable Robot Manipulation"
+        ]
+      },
+      {
+        "id": "2606.03127v1",
+        "title": "TTT-VLA: Test-Time Latent Prompt Optimization for Vision-Language-Action Models",
+        "summary": "Vision-Language-Action (VLA) models trained on large-scale data have made remarkable progress, but they remain vulnerable to distribution shifts at deployment time. Recent VLA models suggest that prompts can serve as an efficient interface for steering policy behavior, but existing prompt-based steering typically relies on external guida…",
+        "summaryRaw": "Vision-Language-Action (VLA) models trained on large-scale data have made remarkable progress, but they remain vulnerable to distribution shifts at deployment time. Recent VLA models suggest that prompts can serve as an efficient interface for steering policy behavior, but existing prompt-based steering typically relies on external guidance. This raises a natural question: can test-time training (TTT) for VLA be achieved by optimizing a prompt, so that the steering interface itself can be learned and adapted from interaction? We address this question with TTT-VLA, a test-time training framework based on Latent Prompt Optimization (LPO). During training, the latent prompt is learned with an additional proxy task, providing an extra learned conditioning signal for policy learning. At test time, TTT is performed by collecting interaction data from the current environment and optimizing only the latent prompt on those data using the proxy task's self-supervised signal, without modifying the policy itself. Experiments on SimplerEnv demonstrate that the proposed method consistently improves task success rates in both single- and multi-embodiment settings. Further analysis shows that the gains arise primarily from correcting a small number of critical decisions rather than globally altering policy behavior. These results suggest that LPO provides an effective and practical pathway for deployment-time improvement of foundation manipulation policies.",
+        "link": "https://arxiv.org/abs/2606.03127v1",
+        "pdfLink": "https://arxiv.org/pdf/2606.03127v1",
+        "published": "2026-06-02T04:10:39Z",
+        "updated": "2026-06-02T04:10:39Z",
+        "authors": [
+          "Wenbo Zhang",
+          "Jianxiong Li",
+          "Shuai Yang",
+          "Sijin Chen",
+          "Jiajun Liu",
+          "Lingqiao Liu",
+          "Xiao Ma"
+        ],
+        "categories": [
+          "cs.RO"
+        ],
+        "score": 80,
+        "importanceLevel": "A",
+        "lane": "VLA",
+        "dimensionScores": {
+          "relevance": 80,
+          "novelty": 60,
+          "impact": 65,
+          "practicality": 70,
+          "coreAlignment": 90
+        },
+        "oneSentenceSummary": "测试时通过潜在提示优化实现VLA自适应",
+        "summaryCn": "TTT-VLA在训练时学习潜在提示作为额外条件，测试时仅优化提示参数以适应分布变化，无需更新整个模型。",
+        "whyImportant": "首次将测试时训练用于VLA，提升部署鲁棒性。",
+        "reasonTags": [
+          "测试时训练",
+          "潜在提示优化",
+          "自适应"
+        ],
+        "innovationPoints": [
+          "提出潜在提示优化训练",
+          "测试时仅优化提示进行适应",
+          "不修改模型权重"
+        ],
+        "noveltyVerdict": "新颖的测试时适应方法，有创新性",
+        "duplicateRisk": "low",
+        "dedupeNote": "专注于部署适应，与其他VLA训练方法正交",
+        "retrievalGroups": [
+          "robotics"
+        ],
+        "mergedCount": 1,
+        "mergedTitles": [
+          "TTT-VLA: Test-Time Latent Prompt Optimization for Vision-Language-Action Models"
+        ]
+      },
+      {
+        "id": "2606.03598v1",
+        "title": "PHASER: Phase-Aware and Semantic Experience Replay for Vision-Language-Action Models",
+        "summary": "Vision-Language-Action (VLA) models have achieved remarkable success in language-conditioned robotic manipulation. However, deploying these models in open-ended environments requires continuously acquiring novel skills, a process that inevitably triggers severe catastrophic forgetting of previously learned behaviors.",
+        "summaryRaw": "Vision-Language-Action (VLA) models have achieved remarkable success in language-conditioned robotic manipulation. However, deploying these models in open-ended environments requires continuously acquiring novel skills, a process that inevitably triggers severe catastrophic forgetting of previously learned behaviors. While experience replay (ER) serves as a standard mitigating strategy, naive uniform sampling fundamentally misaligns with the temporal characteristics of manipulation trajectories. It systematically under-samples brief but causally critical sub-skills, leading to phase starvation, and completely overlooks the varying degrees of forgetting across historical tasks. To overcome these limitations, we introduce PHASER, an architecture-agnostic continual learning framework. PHASER employs a phase-centric capacity allocation to guarantee equal memory support for all sub-skills, coupled with a multi-modal interference routing strategy that dynamically prioritizes historical phases at high risk of forgetting. Furthermore, to enable fully autonomous lifelong adaptation, we integrate Auto-PC, a lightweight pipeline combining unsupervised action-signal change-point detection with VLM-based semantic verification to extract temporal boundaries without intensive manual supervision. Evaluated across three VLA backbones on LIBERO continual learning suites, PHASER yields substantial empirical improvements, increasing Average Success Rate (ASR) by up to 31% over matched-budget ER and achieving an 87.8% final ASR on the LIBERO-Goal CL setting.",
+        "link": "https://arxiv.org/abs/2606.03598v1",
+        "pdfLink": "https://arxiv.org/pdf/2606.03598v1",
+        "published": "2026-06-02T13:04:15Z",
+        "updated": "2026-06-02T13:04:15Z",
+        "authors": [
+          "Ziyang Chen",
+          "Shaoguang Wang",
+          "Weiyu Guo",
+          "Qianyi Cai",
+          "He Zhang",
+          "Pengteng Li",
+          "Yiren Zhao",
+          "Yandong Guo"
+        ],
+        "categories": [
+          "cs.AI",
+          "cs.CV",
+          "cs.RO"
+        ],
+        "score": 70,
+        "importanceLevel": "B",
+        "lane": "VLA",
+        "dimensionScores": {
+          "relevance": 85,
+          "novelty": 30,
+          "impact": 55,
+          "practicality": 40,
+          "coreAlignment": 85
+        },
+        "oneSentenceSummary": "面向VLA的持续学习框架，缓解灾难性遗忘",
+        "summaryCn": "PHASER根据操作阶段分配记忆容量，结合语义重放，保证各子技能均衡训练，解决VLA持续学习中的遗忘问题。",
+        "whyImportant": "解决VLA持续学习瓶颈，使模型能渐进掌握新技能。",
+        "reasonTags": [
+          "持续学习",
+          "经验重放",
+          "灾难性遗忘"
+        ],
+        "innovationPoints": [
+          "阶段感知记忆分配",
+          "语义重放策略"
+        ],
+        "noveltyVerdict": "在VLA持续学习场景中有针对性创新",
+        "duplicateRisk": "medium",
+        "dedupeNote": "专门针对VLA操作任务的分阶段特性设计",
+        "retrievalGroups": [
+          "robotics"
+        ],
+        "mergedCount": 1,
+        "mergedTitles": [
+          "PHASER: Phase-Aware and Semantic Experience Replay for Vision-Language-Action Models"
+        ]
+      },
+      {
+        "id": "2606.03240v1",
+        "title": "GeoAlign: Beyond Semantics with State-Guided Spatial Alignment in VLA Models",
+        "summary": "Current Vision--Language--Action (VLA) models often optimize for semantic grounding, whereas executable manipulation requires geometry-aware spatial alignment and dynamic affordance selection. We introduce GeoAlign, a state-guided spatial alignment architecture for VLA policy learning.",
+        "summaryRaw": "Current Vision--Language--Action (VLA) models often optimize for semantic grounding, whereas executable manipulation requires geometry-aware spatial alignment and dynamic affordance selection. We introduce GeoAlign, a state-guided spatial alignment architecture for VLA policy learning. GeoAlign post-trains an RGB geometry branch with robot-domain RGB-D supervision, yielding RGB-derived Geometry-Enhanced Post-Trained (GEP) features for policy rollout. The robot's proprioceptive state queries the GEP feature grid, producing compact, phase-dependent geometry tokens for action prediction. GeoAlign achieves 99.0% on LIBERO, 85.3% across three SimplerEnv-Fractal tasks, and 78.8% on eight geometry-critical real-world ALOHA tasks, with ablations confirming the value of geometry post-training and proprioceptive-state-guided querying.",
+        "link": "https://arxiv.org/abs/2606.03240v1",
+        "pdfLink": "https://arxiv.org/pdf/2606.03240v1",
+        "published": "2026-06-02T07:01:18Z",
+        "updated": "2026-06-02T07:01:18Z",
+        "authors": [
+          "Yizhi Chen",
+          "Zhanxiang Cao",
+          "Xinyi Peng",
+          "Yixiao Zheng",
+          "Xiaxi Si",
+          "Yiheng Li",
+          "Liyun Yan",
+          "Keqi Zhu"
+        ],
+        "categories": [
+          "cs.RO"
+        ],
+        "score": 60,
+        "importanceLevel": "B",
+        "lane": "VLA",
+        "dimensionScores": {
+          "relevance": 75,
+          "novelty": 30,
+          "impact": 45,
+          "practicality": 40,
+          "coreAlignment": 80
+        },
+        "oneSentenceSummary": "状态引导的空间对齐提升VLA几何推理",
+        "summaryCn": "GeoAlign通过RGB-D后训练几何分支，以本体状态查询生成紧凑几何令牌，增强VLA对空间关系的理解。",
+        "whyImportant": "补齐VLA空间推理短板，提升精度。",
+        "reasonTags": [
+          "空间对齐",
+          "几何增强",
+          "状态引导"
+        ],
+        "innovationPoints": [
+          "RGB几何分支后训练",
+          "状态引导的几何令牌"
+        ],
+        "noveltyVerdict": "针对VLA空间能力的改进，有一定创新",
+        "duplicateRisk": "low",
+        "dedupeNote": "独特地结合几何后训练与状态查询，与其他VLA方法互补",
+        "retrievalGroups": [
+          "robotics"
+        ],
+        "mergedCount": 1,
+        "mergedTitles": [
+          "GeoAlign: Beyond Semantics with State-Guided Spatial Alignment in VLA Models"
+        ]
+      },
+      {
+        "id": "2606.03682v1",
+        "title": "GN0: Toward a Unified Paradigm for Generation, Evaluation, and Policy Learning in Visual-Language Navigation",
+        "summary": "Embodied navigation connects intelligent agents with the physical world and is fundamental for general robotic intelligence. Limited availability and quality of navigation data have constrained Vision-and-Language Navigation (VLN) systems' generalization and long-horizon capabilities.",
+        "summaryRaw": "Embodied navigation connects intelligent agents with the physical world and is fundamental for general robotic intelligence. Limited availability and quality of navigation data have constrained Vision-and-Language Navigation (VLN) systems' generalization and long-horizon capabilities. To address this, we curate diverse 3D scenes and develop an automated pipeline for large-scale navigation data, resulting in the GN-Matrix dataset. Building on a 3D Gaussian Splatting (3DGS) engine, we introduce a high-fidelity simulation platform supporting interactive roaming and collision-aware navigation. We further propose GN-Bench, the first BEV-based benchmark incorporating dynamic 3DGS avatars for human-robot interaction evaluation. To leverage the simulator, we develop an RL-driven navigation foundation model, Break and Establish (BAE). After supervised learning, DAgger exposes the model to rollout-induced states, breaking narrow expert-centric distributions and enabling downstream RL exploration. This unified VLN paradigm integrates map-based and map-free tasks, including instruction following, human following, and goal navigation. GN-BAE formalizes high-fidelity 3DGS-rendered Bird's Eye View representations as compact memory, unlocking latent spatial reasoning in VLMs. Extensive evaluations on GN-Bench and VLN-CE show that GN0 outperforms state-of-the-art VLN methods. Overall, GN-Matrix offers a unified framework spanning data, simulation, and learning, advancing embodied navigation in research and industrial applications.",
+        "link": "https://arxiv.org/abs/2606.03682v1",
+        "pdfLink": "https://arxiv.org/pdf/2606.03682v1",
+        "published": "2026-06-02T14:05:47Z",
+        "updated": "2026-06-02T14:05:47Z",
+        "authors": [
+          "Xinhai Li",
+          "Xiaotao Zhang",
+          "Yuehao Huang",
+          "Jiankun Dong",
+          "Tianhang Wang",
+          "Sunyao Zhou",
+          "Yunzi Wu",
+          "Chengnuo Sun"
+        ],
+        "categories": [
+          "cs.RO"
+        ],
+        "score": 82,
+        "importanceLevel": "A",
+        "lane": "Both",
+        "dimensionScores": {
+          "relevance": 70,
+          "novelty": 70,
+          "impact": 70,
+          "practicality": 60,
+          "coreAlignment": 50
+        },
+        "oneSentenceSummary": "统一生成、评估、策略学习的视觉语言导航范式",
+        "summaryCn": "利用3DGS引擎构建高保真模拟器，提出GN-Bench基准和Break-and-Establish导航基础模型，支持动态人机交互。",
+        "whyImportant": "首个BEV基准及交互评估，推动VLN基础模型。",
+        "reasonTags": [
+          "视觉语言导航",
+          "3DGS模拟",
+          "基础模型"
+        ],
+        "innovationPoints": [
+          "3DGS引擎高保真模拟",
+          "BEV基准与动态虚拟人",
+          "RL驱动的导航基础模型"
+        ],
+        "noveltyVerdict": "集成生成与评估，较为新颖",
+        "duplicateRisk": "low",
+        "dedupeNote": "专注于导航，与操作类VLA不同场景",
+        "retrievalGroups": [
+          "robotics"
+        ],
+        "mergedCount": 1,
+        "mergedTitles": [
+          "GN0: Toward a Unified Paradigm for Generation, Evaluation, and Policy Learning in Visual-Language Navigation"
+        ]
+      }
+    ],
     "wam": [
+      {
+        "id": "2606.03943v1",
+        "title": "PointAction: 3D Points as Universal Action Representations for Robot Control",
+        "summary": "Video-Action Models (VAMs) leverage the broad visual dynamics captured by pre-trained video diffusion models, offering a promising path toward generalizable robot manipulation. However, RGB-only video rollouts are not directly actionable: they leave metric 3D motion, contact geometry, and fine-grained spatial constraints under-specified,…",
+        "summaryRaw": "Video-Action Models (VAMs) leverage the broad visual dynamics captured by pre-trained video diffusion models, offering a promising path toward generalizable robot manipulation. However, RGB-only video rollouts are not directly actionable: they leave metric 3D motion, contact geometry, and fine-grained spatial constraints under-specified, making action grounding ambiguous. Meanwhile, scaling action supervision across diverse tasks and embodiments remains costly. We present PointAction, a framework that bridges video predictions to robot actions through explicit point-based 4D modeling. PointAction fine-tunes a foundation video generation model to jointly predict future RGB frames and dynamic 3D pointmaps, producing temporally consistent 3D motion of task-relevant scene geometry. These point dynamics serve as a structured, embodiment-agnostic action interface, which a diffusion-based action decoder maps to executable robot actions. By using metric 3D point dynamics as the interface between video prediction and control, PointAction reduces the ambiguity of RGB-only action grounding and supports transfer across tasks and embodiments with limited action supervision. Experiments show that PointAction achieves state-of-the-art 4D generation quality on robot scenes, outperforms existing baselines in simulation, and generalizes to two real robot arms unseen during pretraining.",
+        "link": "https://arxiv.org/abs/2606.03943v1",
+        "pdfLink": "https://arxiv.org/pdf/2606.03943v1",
+        "published": "2026-06-02T17:30:50Z",
+        "updated": "2026-06-02T17:30:50Z",
+        "authors": [
+          "Mutian Tong",
+          "Han Jiang",
+          "Qiao Feng",
+          "Lingjie Liu",
+          "Jiatao Gu"
+        ],
+        "categories": [
+          "cs.RO"
+        ],
+        "score": 85,
+        "importanceLevel": "A",
+        "lane": "WAM",
+        "dimensionScores": {
+          "relevance": 90,
+          "novelty": 80,
+          "impact": 70,
+          "practicality": 60,
+          "coreAlignment": 95
+        },
+        "oneSentenceSummary": "用3D点轨迹作为通用动作接口衔接视频预测与机器人控制",
+        "summaryCn": "PointAction微调基础视频生成模型，联合预测RGB帧和3D点云，将点动态作为具身无关动作表示，实现视频预测到动作的桥梁。",
+        "whyImportant": "首次用3D点云作为VAM与动作策略的纽带，解决动作模糊性。",
+        "reasonTags": [
+          "视频动作模型",
+          "3D点云",
+          "动作表示"
+        ],
+        "innovationPoints": [
+          "联合预测RGB和3D点云",
+          "点动态作为通用动作接口",
+          "微调视频基础模型"
+        ],
+        "noveltyVerdict": "新颖的4D点表示，创新性强",
+        "duplicateRisk": "medium",
+        "dedupeNote": "独特使用3D点云作为中间表示，区别于直接动作预测",
+        "retrievalGroups": [
+          "robotics"
+        ],
+        "mergedCount": 1,
+        "mergedTitles": [
+          "PointAction: 3D Points as Universal Action Representations for Robot Control"
+        ]
+      },
       {
         "id": "2606.03868v1",
         "title": "Unified Video-Action Joint Denoising for Dexterous Action and Data Generation",
@@ -1396,93 +1542,38 @@ window.PAPERS_SITE_DATA = {
         "categories": [
           "cs.CV"
         ],
-        "score": 82,
+        "score": 78,
         "importanceLevel": "A",
         "lane": "WAM",
         "dimensionScores": {
-          "relevance": 85,
-          "novelty": 88,
-          "impact": 75,
-          "practicality": 70,
-          "coreAlignment": 90
+          "relevance": 90,
+          "novelty": 80,
+          "impact": 60,
+          "practicality": 50,
+          "coreAlignment": 95
         },
-        "oneSentenceSummary": "提出统一视频-动作联合去噪模型，实现灵巧手动作策略与数据生成。",
-        "summaryCn": "从分布视角重新审视视频基础模型与机器人动作的对齐，提出统一视频-动作去噪模型Donk。在语言、首帧和手部初始条件下采样未来视频和双手MANO轨迹作为动作策略；无图像条件时，从文本条件分布采样配对视频-动作展开，将视频先验转化为数据引擎。灵巧操作任务验证。",
-        "whyImportant": "统一视频-动作联合建模，既做策略又做数据生成，扩展视频先验用途。",
+        "oneSentenceSummary": "统一视频-动作去噪模型，用于灵巧手动作生成与数据扩增",
+        "summaryCn": "Donk在潜在空间中联合去噪交互视频与可执行手动轨迹，可作为策略直接生成动作，也可作为数据引擎生成配对数据。",
+        "whyImportant": "统一去噪框架，兼具策略与数据引擎双重功能。",
         "reasonTags": [
-          "世界动作模型",
-          "视频-动作联合",
-          "灵巧操作",
+          "视频动作去噪",
+          "灵巧手",
           "数据生成"
         ],
         "innovationPoints": [
-          "联合分布建模而非条件分布，保留更广先验。",
-          "同一架构支持策略与数据生成双重用途。",
-          "将视频基础模型转化为灵巧手数据引擎。"
+          "联合视频-动作去噪",
+          "多条件采样",
+          "生成式数据引擎"
         ],
-        "noveltyVerdict": "在WAM中创新性地联合建模视频与动作，并实现多功能，创新性强。",
+        "noveltyVerdict": "统一去噪范式新颖，功能多样",
         "duplicateRisk": "medium",
-        "dedupeNote": "与PointAction不同，强调联合分布和灵巧手，非单纯点云动作表示。",
+        "dedupeNote": "同时考虑视频与动作的联合分布，区别于单一模态模型",
         "retrievalGroups": [
           "robotics"
         ],
         "mergedCount": 1,
         "mergedTitles": [
           "Unified Video-Action Joint Denoising for Dexterous Action and Data Generation"
-        ]
-      },
-      {
-        "id": "2606.03943v1",
-        "title": "PointAction: 3D Points as Universal Action Representations for Robot Control",
-        "summary": "Video-Action Models (VAMs) leverage the broad visual dynamics captured by pre-trained video diffusion models, offering a promising path toward generalizable robot manipulation. However, RGB-only video rollouts are not directly actionable: they leave metric 3D motion, contact geometry, and fine-grained spatial constraints under-specified,…",
-        "summaryRaw": "Video-Action Models (VAMs) leverage the broad visual dynamics captured by pre-trained video diffusion models, offering a promising path toward generalizable robot manipulation. However, RGB-only video rollouts are not directly actionable: they leave metric 3D motion, contact geometry, and fine-grained spatial constraints under-specified, making action grounding ambiguous. Meanwhile, scaling action supervision across diverse tasks and embodiments remains costly. We present PointAction, a framework that bridges video predictions to robot actions through explicit point-based 4D modeling. PointAction fine-tunes a foundation video generation model to jointly predict future RGB frames and dynamic 3D pointmaps, producing temporally consistent 3D motion of task-relevant scene geometry. These point dynamics serve as a structured, embodiment-agnostic action interface, which a diffusion-based action decoder maps to executable robot actions. By using metric 3D point dynamics as the interface between video prediction and control, PointAction reduces the ambiguity of RGB-only action grounding and supports transfer across tasks and embodiments with limited action supervision. Experiments show that PointAction achieves state-of-the-art 4D generation quality on robot scenes, outperforms existing baselines in simulation, and generalizes to two real robot arms unseen during pretraining.",
-        "link": "https://arxiv.org/abs/2606.03943v1",
-        "pdfLink": "https://arxiv.org/pdf/2606.03943v1",
-        "published": "2026-06-02T17:30:50Z",
-        "updated": "2026-06-02T17:30:50Z",
-        "authors": [
-          "Mutian Tong",
-          "Han Jiang",
-          "Qiao Feng",
-          "Lingjie Liu",
-          "Jiatao Gu"
-        ],
-        "categories": [
-          "cs.RO"
-        ],
-        "score": 70,
-        "importanceLevel": "B",
-        "lane": "WAM",
-        "dimensionScores": {
-          "relevance": 72,
-          "novelty": 82,
-          "impact": 60,
-          "practicality": 65,
-          "coreAlignment": 78
-        },
-        "oneSentenceSummary": "提出以3D点云作为通用动作表示，连接视频预测与机器人控制。",
-        "summaryCn": "视频动作模型利用视频扩散先验，但RGB预测无法直接执行。PointAction微调基础视频生成模型，联合预测未来RGB帧和动态3D点图，产生时空一致的任务相关几何运动。点动态作为结构化、具身无关的动作接口，再由扩散头解码为机器人动作。验证其在多种任务上的有效性。",
-        "whyImportant": "提出点云动作表示，为视频预测到机器人动作搭建桥梁。",
-        "reasonTags": [
-          "视频动作模型",
-          "点云表示",
-          "动作生成",
-          "机器人控制"
-        ],
-        "innovationPoints": [
-          "将点云作为通用动作表示融入视频生成。",
-          "联合预测RGB和3D点运动，时空一致。",
-          "扩散动作解码实现具身无关控制。"
-        ],
-        "noveltyVerdict": "点云动作表示新颖，但整体框架沿用视频动作模型范式。",
-        "duplicateRisk": "medium",
-        "dedupeNote": "与Donk不同，专注动作表示而非联合分布，且非灵巧手。",
-        "retrievalGroups": [
-          "robotics"
-        ],
-        "mergedCount": 1,
-        "mergedTitles": [
-          "PointAction: 3D Points as Universal Action Representations for Robot Control"
         ]
       },
       {
@@ -1505,33 +1596,32 @@ window.PAPERS_SITE_DATA = {
           "cs.RO",
           "cs.LG"
         ],
-        "score": 80,
+        "score": 65,
         "importanceLevel": "B",
         "lane": "WAM",
         "dimensionScores": {
-          "relevance": 63,
-          "novelty": 75,
-          "impact": 55,
-          "practicality": 65,
-          "coreAlignment": 24
+          "relevance": 60,
+          "novelty": 50,
+          "impact": 50,
+          "practicality": 30,
+          "coreAlignment": 60
         },
-        "oneSentenceSummary": "提出3D等视域世界模型，建模城市导航中的开放体积几何。",
-        "summaryCn": "具身导航世界模型通常预测外观，而非对运动关键的可行走空间。本文提出建模建筑物间的负空间，编码为3D等视域（球形可视深度图）。模型预测从特定视点可见的几何形态，揭示城市结构签名。实验展示其导航预测能力，超越外观模型。",
-        "whyImportant": "以物理可行走几何为目标，为导航提供更直接的世界模型。",
+        "oneSentenceSummary": "用3D等视域图建模城市可导航空间，揭示跨城几何签名",
+        "summaryCn": "提出3D等视域世界模型，记录建筑间开放空间的距离信息，避免外观依赖，捕获三维可导航几何结构。",
+        "whyImportant": "为导航智能体提供不依赖外观的空间表示。",
         "reasonTags": [
           "世界模型",
-          "3D等视域",
-          "导航",
-          "城市几何"
+          "等视域",
+          "导航几何"
         ],
         "innovationPoints": [
-          "提出3D等视域表示，关注导航所必需的几何信息。",
-          "预测负空间而非外观，降低线性。",
-          "发现跨城市几何签名。"
+          "3D等视域表示",
+          "无光度纠缠",
+          "跨城几何模式"
         ],
-        "noveltyVerdict": "从导航视角重新定义世界模型目标，创新性较高。",
+        "noveltyVerdict": "在导航空间表示上有创新，但作用有限",
         "duplicateRisk": "low",
-        "dedupeNote": "与传统预测外观的世界模型不同，聚焦几何可行走空间，非对手。",
+        "dedupeNote": "独特的世界表示，不同于视觉预测型世界模型",
         "retrievalGroups": [
           "robotics"
         ],
@@ -1543,27 +1633,82 @@ window.PAPERS_SITE_DATA = {
     ]
   },
   "dailyBrief": {
-    "overall": "今日亮点：具身思维链再审视（最大语料库）、VLA持续学习、对抗鲁棒性，以及WAM视频-动作联合建模与点云动作表示，兼顾部署安全与导航世界模型。",
-    "vla": "VLA核心进展：最大具身CoT语料（2606.03784）揭示有效形式；PHASER（2606.03598）缓解持续遗忘；新威胁模型下的对抗攻击（2606.03556）；部署安全形式化（2606.03724）。",
-    "wam": "WAM方向：Donk（2606.03868）统一视频-动作去噪，策略与数据生成双用途；PointAction（2606.03943）用3D点云桥接视频预测与动作；3D Isovist世界模型（2606.03609）揭示城市导航几何。",
-    "retrieval": "检索覆盖机器人操作、VLA策略、世界模型、导航、安全等主题，核心论文聚焦VLA与WAM前沿。"
+    "overall": "今日VLA与WAM领域有多项进展：大规模具身CoT数据集发布，测试时适应方法提升VLA鲁棒性，3D点动作接口衔接视频预测与机器人控制，统一去噪框架用于灵巧手操作。",
+    "vla": "VLA方向，大规模实验重新审视具身CoT，发现应提供动作引导而非高层推理；TTT-VLA实现测试时潜在提示优化；PHASER解决持续学习遗忘问题。",
+    "wam": "WAM方向，PointAction用3D点云作为通用动作表示；Unified Video-Action联合去噪模型兼具策略与数据生成功能；3D等视域世界模型建模可导航几何。",
+    "retrieval": "从robotics组候选论文中筛选出多篇VLA与WAM相关论文，涵盖策略学习、世界模型及部署安全等主题。"
   },
   "trendBrief": {
     "windowDays": 4,
     "dateRange": "2026-05-31 - 2026-06-03",
-    "overview": "近 4 天累计归档 60 篇总榜论文，主航道重心偏向 边界相关方向，其中 S 级高优先级论文共 4 篇。",
-    "hotspots": "高频主题主要集中在 VLA、VLA模型、世界动作模型，系统共自动合并 0 篇近似工作，减少了重复阅读负担。",
-    "vla": "VLA 方向在近几天约占总榜的 33%，重点仍落在通用策略、语言条件动作与具身控制。",
+    "overview": "近 4 天累计归档 60 篇总榜论文，主航道重心偏向 边界相关方向，其中 S 级高优先级论文共 3 篇。",
+    "hotspots": "高频主题主要集中在 VLA、世界模型、机器人，系统共自动合并 0 篇近似工作，减少了重复阅读负担。",
+    "vla": "VLA 方向在近几天约占总榜的 37%，重点仍落在通用策略、语言条件动作与具身控制。",
     "wam": "WAM 方向在近几天约占总榜的 20%，更集中于世界模型、动作条件预测与规划建模。",
-    "watchlist": "建议优先连续跟踪 VLA、VLA模型、世界动作模型 相关工作，尤其关注同时具备高新颖性与高落地性的代表论文。"
+    "watchlist": "建议优先连续跟踪 VLA、世界模型、机器人 相关工作，尤其关注同时具备高新颖性与高落地性的代表论文。"
   },
   "archives": [
     {
       "dateKey": "20260603",
       "dateLabel": "2026-06-03",
-      "generatedAt": "2026-06-03T15:11:51.086281+00:00",
+      "generatedAt": "2026-06-03T15:46:57.469674+00:00",
       "paperCount": 10,
       "papers": [
+        {
+          "id": "2606.03392v1",
+          "title": "OpenEAI-Platform: An Open-source Embodied Artificial Intelligence Hardware-Software Unified Platform",
+          "summary": "Embodied AI in the real world requires both accurate hardware and robust vision-language-action (VLA) policies. We present OpenEAI-Platform, a fully open-source platform that integrates a low-cost 6+1 degree-of-freedom (dof) robotic arm (OpenEAI-Arm) and a reproducible VLA model (OpenEAI-VLA).",
+          "summaryRaw": "Embodied AI in the real world requires both accurate hardware and robust vision-language-action (VLA) policies. We present OpenEAI-Platform, a fully open-source platform that integrates a low-cost 6+1 degree-of-freedom (dof) robotic arm (OpenEAI-Arm) and a reproducible VLA model (OpenEAI-VLA). OpenEAI-Arm provides open-source mechanical designs for low manufacturing cost and compliant control methods for higher accuracy. OpenEAI-VLA builds on Qwen3-VL-4B and uses a Diffusion Transformer action head, and is trained in two stages with only open-source robot and multimodal datasets. Across four real-world manipulation tasks, OpenEAI-Arm outperforms two commercial 6+1-dof arms under the same policy, and OpenEAI-VLA achieves success rates comparable to the large-scale pretrained pi0 baseline with only limited pretraining data. We will release the full hardware designs, drivers, models, and training/data pipelines to support reproducible research and scalable data collection. Our codes, layouts, and models will be released after the paper is accepted.",
+          "link": "https://arxiv.org/abs/2606.03392v1",
+          "pdfLink": "https://arxiv.org/pdf/2606.03392v1",
+          "published": "2026-06-02T09:34:08Z",
+          "updated": "2026-06-02T09:34:08Z",
+          "authors": [
+            "Jinyuan Zhang",
+            "Luoyi Fan",
+            "Leiyu Wang",
+            "Yeqiang Wang",
+            "Yicheng Zhu",
+            "Cewu Lu",
+            "Nanyang Ye"
+          ],
+          "categories": [
+            "cs.RO"
+          ],
+          "score": 85,
+          "importanceLevel": "A",
+          "lane": "VLA",
+          "dimensionScores": {
+            "relevance": 90,
+            "novelty": 20,
+            "impact": 80,
+            "practicality": 95,
+            "coreAlignment": 95
+          },
+          "oneSentenceSummary": "开源具身智能平台，集成低成本机械臂与VLA模型",
+          "summaryCn": "OpenEAI-Platform提供开源6+1自由度机械臂与基于Qwen3-VL-4B的VLA模型，仅用开源数据训练，实际任务成功率可比肩大规模预训练基准pi0。",
+          "whyImportant": "开源平台降低具身AI门槛，促进VLA社区发展。",
+          "reasonTags": [
+            "开源平台",
+            "低成本机械臂",
+            "VLA模型"
+          ],
+          "innovationPoints": [
+            "低成本硬件设计",
+            "两阶段训练VLA模型",
+            "全开源生态"
+          ],
+          "noveltyVerdict": "工程集成创新，新颖度较低",
+          "duplicateRisk": "low",
+          "dedupeNote": "提供硬件-软件统一平台，与其他VLA方法互补",
+          "retrievalGroups": [
+            "robotics"
+          ],
+          "mergedCount": 1,
+          "mergedTitles": [
+            "OpenEAI-Platform: An Open-source Embodied Artificial Intelligence Hardware-Software Unified Platform"
+          ]
+        },
         {
           "id": "2606.03784v1",
           "title": "Revisiting Embodied Chain-of-Thought for Generalizable Robot Manipulation",
@@ -1586,33 +1731,32 @@ window.PAPERS_SITE_DATA = {
           "categories": [
             "cs.RO"
           ],
-          "score": 95,
-          "importanceLevel": "S",
+          "score": 88,
+          "importanceLevel": "A",
           "lane": "VLA",
           "dimensionScores": {
-            "relevance": 94,
-            "novelty": 90,
-            "impact": 92,
-            "practicality": 85,
-            "coreAlignment": 96
+            "relevance": 95,
+            "novelty": 40,
+            "impact": 75,
+            "practicality": 60,
+            "coreAlignment": 95
           },
-          "oneSentenceSummary": "重新审视具身思维链，提出有效形式与集成策略，提升VLA模型泛化性。",
-          "summaryCn": "构建最大具身思维链语料库，含97.8万轨迹、2.26亿样本。发现有效思维链应将高层语义转化为具体动作指引（如末端运动、图像轨迹），仅高层推理增益有限。揭示显式思维链的自回归前缀扩展不可靠，存在推理误差累积与不稳定耦合。提出新方案解决，大规模验证。",
-          "whyImportant": "迄今最大具身CoT研究，揭示有效形式与缩放问题，推动VLA泛化。",
+          "oneSentenceSummary": "构建大规模具身CoT数据集，提出并行预测新范式",
+          "summaryCn": "构建含97.8万轨迹的具身CoT语料库，发现CoT应落地为动作引导，提出将CoT作为并行预测的新范式，解决自回归耦合误差问题。",
+          "whyImportant": "重新审视具身CoT，大规模实验指导VLA推理设计。",
           "reasonTags": [
-            "具身思维链",
-            "VLA模型",
-            "泛化能力",
-            "大规模语料"
+            "具身CoT",
+            "大规模数据集",
+            "并行预测"
           ],
           "innovationPoints": [
-            "构建最大具身思维链语料库，规模空前。",
-            "发现有效具身思维链应落地为具体动作引导，而非仅高层推理。",
-            "识别并解决显式思维链的自回归扩展缺陷。"
+            "最大具身CoT数据集",
+            "发现CoT应提供动作引导",
+            "并行预测取代自回归前缀"
           ],
-          "noveltyVerdict": "在大规模下重新审视并推进具身思维链，创新性强。",
+          "noveltyVerdict": "实验洞察具有创新性，方法有效",
           "duplicateRisk": "low",
-          "dedupeNote": "与其他VLA工作不同，专注于思维链的重新设计与规模化，非单纯模型结构创新。",
+          "dedupeNote": "聚焦CoT策略，与通用VLA方法不同",
           "retrievalGroups": [
             "robotics"
           ],
@@ -1622,62 +1766,56 @@ window.PAPERS_SITE_DATA = {
           ]
         },
         {
-          "id": "2606.03598v1",
-          "title": "PHASER: Phase-Aware and Semantic Experience Replay for Vision-Language-Action Models",
-          "summary": "Vision-Language-Action (VLA) models have achieved remarkable success in language-conditioned robotic manipulation. However, deploying these models in open-ended environments requires continuously acquiring novel skills, a process that inevitably triggers severe catastrophic forgetting of previously learned behaviors.",
-          "summaryRaw": "Vision-Language-Action (VLA) models have achieved remarkable success in language-conditioned robotic manipulation. However, deploying these models in open-ended environments requires continuously acquiring novel skills, a process that inevitably triggers severe catastrophic forgetting of previously learned behaviors. While experience replay (ER) serves as a standard mitigating strategy, naive uniform sampling fundamentally misaligns with the temporal characteristics of manipulation trajectories. It systematically under-samples brief but causally critical sub-skills, leading to phase starvation, and completely overlooks the varying degrees of forgetting across historical tasks. To overcome these limitations, we introduce PHASER, an architecture-agnostic continual learning framework. PHASER employs a phase-centric capacity allocation to guarantee equal memory support for all sub-skills, coupled with a multi-modal interference routing strategy that dynamically prioritizes historical phases at high risk of forgetting. Furthermore, to enable fully autonomous lifelong adaptation, we integrate Auto-PC, a lightweight pipeline combining unsupervised action-signal change-point detection with VLM-based semantic verification to extract temporal boundaries without intensive manual supervision. Evaluated across three VLA backbones on LIBERO continual learning suites, PHASER yields substantial empirical improvements, increasing Average Success Rate (ASR) by up to 31% over matched-budget ER and achieving an 87.8% final ASR on the LIBERO-Goal CL setting.",
-          "link": "https://arxiv.org/abs/2606.03598v1",
-          "pdfLink": "https://arxiv.org/pdf/2606.03598v1",
-          "published": "2026-06-02T13:04:15Z",
-          "updated": "2026-06-02T13:04:15Z",
+          "id": "2606.03943v1",
+          "title": "PointAction: 3D Points as Universal Action Representations for Robot Control",
+          "summary": "Video-Action Models (VAMs) leverage the broad visual dynamics captured by pre-trained video diffusion models, offering a promising path toward generalizable robot manipulation. However, RGB-only video rollouts are not directly actionable: they leave metric 3D motion, contact geometry, and fine-grained spatial constraints under-specified,…",
+          "summaryRaw": "Video-Action Models (VAMs) leverage the broad visual dynamics captured by pre-trained video diffusion models, offering a promising path toward generalizable robot manipulation. However, RGB-only video rollouts are not directly actionable: they leave metric 3D motion, contact geometry, and fine-grained spatial constraints under-specified, making action grounding ambiguous. Meanwhile, scaling action supervision across diverse tasks and embodiments remains costly. We present PointAction, a framework that bridges video predictions to robot actions through explicit point-based 4D modeling. PointAction fine-tunes a foundation video generation model to jointly predict future RGB frames and dynamic 3D pointmaps, producing temporally consistent 3D motion of task-relevant scene geometry. These point dynamics serve as a structured, embodiment-agnostic action interface, which a diffusion-based action decoder maps to executable robot actions. By using metric 3D point dynamics as the interface between video prediction and control, PointAction reduces the ambiguity of RGB-only action grounding and supports transfer across tasks and embodiments with limited action supervision. Experiments show that PointAction achieves state-of-the-art 4D generation quality on robot scenes, outperforms existing baselines in simulation, and generalizes to two real robot arms unseen during pretraining.",
+          "link": "https://arxiv.org/abs/2606.03943v1",
+          "pdfLink": "https://arxiv.org/pdf/2606.03943v1",
+          "published": "2026-06-02T17:30:50Z",
+          "updated": "2026-06-02T17:30:50Z",
           "authors": [
-            "Ziyang Chen",
-            "Shaoguang Wang",
-            "Weiyu Guo",
-            "Qianyi Cai",
-            "He Zhang",
-            "Pengteng Li",
-            "Yiren Zhao",
-            "Yandong Guo"
+            "Mutian Tong",
+            "Han Jiang",
+            "Qiao Feng",
+            "Lingjie Liu",
+            "Jiatao Gu"
           ],
           "categories": [
-            "cs.RO",
-            "cs.AI",
-            "cs.CV"
+            "cs.RO"
           ],
           "score": 85,
           "importanceLevel": "A",
-          "lane": "VLA",
+          "lane": "WAM",
           "dimensionScores": {
-            "relevance": 88,
-            "novelty": 85,
-            "impact": 80,
-            "practicality": 75,
-            "coreAlignment": 90
+            "relevance": 90,
+            "novelty": 80,
+            "impact": 70,
+            "practicality": 60,
+            "coreAlignment": 95
           },
-          "oneSentenceSummary": "提出阶段感知与语义经验回放框架，缓解VLA持续学习中的灾难性遗忘。",
-          "summaryCn": "VLA在开放环境持续学习新技能时面临灾难性遗忘。传统经验回放均匀采样忽视操作轨迹的时间特性，导致关键子技能采样不足和阶段饥饿。PHASER通过阶段中心容量分配确保所有子技能获得均等记忆支持，并结合语义重放策略，有效缓解遗忘，架构无关且可复用。",
-          "whyImportant": "针对VLA持续学习中的关键遗忘问题，提出架构无关的解决框架。",
+          "oneSentenceSummary": "用3D点轨迹作为通用动作接口衔接视频预测与机器人控制",
+          "summaryCn": "PointAction微调基础视频生成模型，联合预测RGB帧和3D点云，将点动态作为具身无关动作表示，实现视频预测到动作的桥梁。",
+          "whyImportant": "首次用3D点云作为VAM与动作策略的纽带，解决动作模糊性。",
           "reasonTags": [
-            "持续学习",
-            "灾难性遗忘",
-            "VLA",
-            "经验回放"
+            "视频动作模型",
+            "3D点云",
+            "动作表示"
           ],
           "innovationPoints": [
-            "阶段感知的记忆容量分配策略，避免关键子技能被忽略。",
-            "语义经验选择机制，提升回放样本效率。",
-            "架构无关设计，可适配多种VLA模型。"
+            "联合预测RGB和3D点云",
+            "点动态作为通用动作接口",
+            "微调视频基础模型"
           ],
-          "noveltyVerdict": "在VLA持续学习上提出新颖的阶段感知方法，创新性较高。",
-          "duplicateRisk": "low",
-          "dedupeNote": "非VLA通用架构改进，专注持续学习问题，与其他工作互补。",
+          "noveltyVerdict": "新颖的4D点表示，创新性强",
+          "duplicateRisk": "medium",
+          "dedupeNote": "独特使用3D点云作为中间表示，区别于直接动作预测",
           "retrievalGroups": [
             "robotics"
           ],
           "mergedCount": 1,
           "mergedTitles": [
-            "PHASER: Phase-Aware and Semantic Experience Replay for Vision-Language-Action Models"
+            "PointAction: 3D Points as Universal Action Representations for Robot Control"
           ]
         },
         {
@@ -1701,33 +1839,32 @@ window.PAPERS_SITE_DATA = {
           "categories": [
             "cs.CV"
           ],
-          "score": 82,
+          "score": 78,
           "importanceLevel": "A",
           "lane": "WAM",
           "dimensionScores": {
-            "relevance": 85,
-            "novelty": 88,
-            "impact": 75,
-            "practicality": 70,
-            "coreAlignment": 90
+            "relevance": 90,
+            "novelty": 80,
+            "impact": 60,
+            "practicality": 50,
+            "coreAlignment": 95
           },
-          "oneSentenceSummary": "提出统一视频-动作联合去噪模型，实现灵巧手动作策略与数据生成。",
-          "summaryCn": "从分布视角重新审视视频基础模型与机器人动作的对齐，提出统一视频-动作去噪模型Donk。在语言、首帧和手部初始条件下采样未来视频和双手MANO轨迹作为动作策略；无图像条件时，从文本条件分布采样配对视频-动作展开，将视频先验转化为数据引擎。灵巧操作任务验证。",
-          "whyImportant": "统一视频-动作联合建模，既做策略又做数据生成，扩展视频先验用途。",
+          "oneSentenceSummary": "统一视频-动作去噪模型，用于灵巧手动作生成与数据扩增",
+          "summaryCn": "Donk在潜在空间中联合去噪交互视频与可执行手动轨迹，可作为策略直接生成动作，也可作为数据引擎生成配对数据。",
+          "whyImportant": "统一去噪框架，兼具策略与数据引擎双重功能。",
           "reasonTags": [
-            "世界动作模型",
-            "视频-动作联合",
-            "灵巧操作",
+            "视频动作去噪",
+            "灵巧手",
             "数据生成"
           ],
           "innovationPoints": [
-            "联合分布建模而非条件分布，保留更广先验。",
-            "同一架构支持策略与数据生成双重用途。",
-            "将视频基础模型转化为灵巧手数据引擎。"
+            "联合视频-动作去噪",
+            "多条件采样",
+            "生成式数据引擎"
           ],
-          "noveltyVerdict": "在WAM中创新性地联合建模视频与动作，并实现多功能，创新性强。",
+          "noveltyVerdict": "统一去噪范式新颖，功能多样",
           "duplicateRisk": "medium",
-          "dedupeNote": "与PointAction不同，强调联合分布和灵巧手，非单纯点云动作表示。",
+          "dedupeNote": "同时考虑视频与动作的联合分布，区别于单一模态模型",
           "retrievalGroups": [
             "robotics"
           ],
@@ -1737,160 +1874,58 @@ window.PAPERS_SITE_DATA = {
           ]
         },
         {
-          "id": "2606.03556v1",
-          "title": "Partially Observable Adversarial Patch Attacks on Vision-Language-Action Models in Robotics",
-          "summary": "Vision-language-action (VLA) models are gaining attention in robotics, yet their robustness to adversarial attacks remains largely unexplored. Existing work shows that adversarial patches can mislead VLA-based robots but assumes full access to the entire execution trajectory, an unrealistic requirement in practice.",
-          "summaryRaw": "Vision-language-action (VLA) models are gaining attention in robotics, yet their robustness to adversarial attacks remains largely unexplored. Existing work shows that adversarial patches can mislead VLA-based robots but assumes full access to the entire execution trajectory, an unrealistic requirement in practice. We address this limitation by formulating a partially observable threat model, where the adversary can exploit only a short prefix of the trajectory to generate a fixed patch applied to all subsequent frames. Under this setting, we propose a two-phase framework. First, we localize the patch using the model's attention maps to identify visually critical regions that correspond to the full instruction. Then, we optimize the patch to disrupt the semantic grounding of target objects and increase the curvature of action trajectories, thereby compounding failures in both perception and control. Extensive experiments in simulation and real-world robotic environments show that our method sustains adversarial effects under partial observability, inducing long-horizon disruptions and significantly reducing task success rates.",
-          "link": "https://arxiv.org/abs/2606.03556v1",
-          "pdfLink": "https://arxiv.org/pdf/2606.03556v1",
-          "published": "2026-06-02T12:19:28Z",
-          "updated": "2026-06-02T12:19:28Z",
+          "id": "2606.03127v1",
+          "title": "TTT-VLA: Test-Time Latent Prompt Optimization for Vision-Language-Action Models",
+          "summary": "Vision-Language-Action (VLA) models trained on large-scale data have made remarkable progress, but they remain vulnerable to distribution shifts at deployment time. Recent VLA models suggest that prompts can serve as an efficient interface for steering policy behavior, but existing prompt-based steering typically relies on external guida…",
+          "summaryRaw": "Vision-Language-Action (VLA) models trained on large-scale data have made remarkable progress, but they remain vulnerable to distribution shifts at deployment time. Recent VLA models suggest that prompts can serve as an efficient interface for steering policy behavior, but existing prompt-based steering typically relies on external guidance. This raises a natural question: can test-time training (TTT) for VLA be achieved by optimizing a prompt, so that the steering interface itself can be learned and adapted from interaction? We address this question with TTT-VLA, a test-time training framework based on Latent Prompt Optimization (LPO). During training, the latent prompt is learned with an additional proxy task, providing an extra learned conditioning signal for policy learning. At test time, TTT is performed by collecting interaction data from the current environment and optimizing only the latent prompt on those data using the proxy task's self-supervised signal, without modifying the policy itself. Experiments on SimplerEnv demonstrate that the proposed method consistently improves task success rates in both single- and multi-embodiment settings. Further analysis shows that the gains arise primarily from correcting a small number of critical decisions rather than globally altering policy behavior. These results suggest that LPO provides an effective and practical pathway for deployment-time improvement of foundation manipulation policies.",
+          "link": "https://arxiv.org/abs/2606.03127v1",
+          "pdfLink": "https://arxiv.org/pdf/2606.03127v1",
+          "published": "2026-06-02T04:10:39Z",
+          "updated": "2026-06-02T04:10:39Z",
           "authors": [
-            "Xiaofei Wang",
-            "Mingliang Han",
-            "Tianyu Hao",
-            "Yi Yang",
-            "Yun-Bo Zhao",
-            "Keke Tang"
+            "Wenbo Zhang",
+            "Jianxiong Li",
+            "Shuai Yang",
+            "Sijin Chen",
+            "Jiajun Liu",
+            "Lingqiao Liu",
+            "Xiao Ma"
           ],
           "categories": [
             "cs.RO"
           ],
-          "score": 78,
-          "importanceLevel": "B",
+          "score": 80,
+          "importanceLevel": "A",
           "lane": "VLA",
           "dimensionScores": {
-            "relevance": 75,
-            "novelty": 80,
+            "relevance": 80,
+            "novelty": 60,
             "impact": 65,
-            "practicality": 60,
-            "coreAlignment": 70
-          },
-          "oneSentenceSummary": "提出部分可观测下的对抗贴片攻击框架，揭示VLA模型鲁棒性漏洞。",
-          "summaryCn": "针对VLA模型在机器人执行中可能受对抗攻击的问题，考虑实际中攻击者仅能观察轨迹前缀的限制，设计两阶段攻击框架。利用注意力图定位关键区域，优化贴片以破坏语义对齐并增加动作轨迹曲率，导致感知和动作失效。实验证明威胁，为安全研究提供基准。",
-          "whyImportant": "首次在部分可观测威胁模型下攻击VLA，揭示安全风险。",
-          "reasonTags": [
-            "对抗攻击",
-            "VLA模型",
-            "鲁棒性",
-            "安全"
-          ],
-          "innovationPoints": [
-            "部分可观测威胁模型更贴近实际部署场景。",
-            "基于注意力的贴片定位，精准攻击关键区域。",
-            "同时破坏感知与动作的联合优化目标。"
-          ],
-          "noveltyVerdict": "将对抗攻击引入VLA并考虑实际约束，有一定新意。",
-          "duplicateRisk": "low",
-          "dedupeNote": "与众不同在部分可观测假设，非全轨迹攻击，更贴近真实威胁场景。",
-          "retrievalGroups": [
-            "robotics"
-          ],
-          "mergedCount": 1,
-          "mergedTitles": [
-            "Partially Observable Adversarial Patch Attacks on Vision-Language-Action Models in Robotics"
-          ]
-        },
-        {
-          "id": "2606.03724v1",
-          "title": "Same Weights, Different Robot: A Deployment Safety View of VLA Policies",
-          "summary": "Vision-language-action (VLA) policies are often treated as checkpoint-defined objects: if the weights, prompt, and benchmark suite match, the deployment is assumed to be the same policy. Robot execution breaks this assumption because the same normalized model output can become a different physical action after action unnormalization and…",
-          "summaryRaw": "Vision-language-action (VLA) policies are often treated as checkpoint-defined objects: if the weights, prompt, and benchmark suite match, the deployment is assumed to be the same policy. Robot execution breaks this assumption because the same normalized model output can become a different physical action after action unnormalization and controller conventions are applied. This creates a deployment-safety gap: safety review can certify the checkpoint while missing the executable robot policy that reaches the controller. We formalize this gap as an executable policy specification problem: a VLA policy includes the learned model, action representation, metadata-selected unnormalizer, and controller-facing conventions. Under this view, identical checkpoints can be executable-inequivalent. For quantile-style action normalization, we derive a closed-form metadata mismatch transform and an ExecSpec certificate that measures action-space semantic drift without model inference or rollout. On LIBERO-Goal replay, substituting a plausible sibling metadata key yields mean drift 0.199 over six non-gripper action dimensions and reduces success from 28/28 to 2/28 under full substitution. On LIBERO-Spatial replay, the same substituted key reduces success from 26/26 to 0/26. The same full-substitution protocol gives 0/28 success for all four Object substitutions and 0/23 or 1/23 success on Long. Identity-key, replay-validity, no-op filtering, raw-vs-correct replay, mask/gripper, synthetic upper-bound, and OpenVLA-style unnormalizer interface checks rule out several simpler explanations. These results do not certify closed-loop or hardware safety. They support a narrower deployment-safety view: action-space metadata is part of the executable policy and should be checked before rollout.",
-          "link": "https://arxiv.org/abs/2606.03724v1",
-          "pdfLink": "https://arxiv.org/pdf/2606.03724v1",
-          "published": "2026-06-02T14:45:00Z",
-          "updated": "2026-06-02T14:45:00Z",
-          "authors": [
-            "Jianwei Tai"
-          ],
-          "categories": [],
-          "score": 72,
-          "importanceLevel": "B",
-          "lane": "VLA",
-          "dimensionScores": {
-            "relevance": 70,
-            "novelty": 75,
-            "impact": 55,
             "practicality": 70,
-            "coreAlignment": 65
+            "coreAlignment": 90
           },
-          "oneSentenceSummary": "揭示VLA部署中因动作反规范化差异导致的安全差距，提出可执行策略规范。",
-          "summaryCn": "相同权重、提示和基准的VLA策略在不同机器人上可能产生不同可执行动作，因动作反规范化和控制器约定。这导致安全审查可能漏掉实机风险。论文形式化此问题为可执行策略规范，并针对分位数动作规范化推导闭式元数据失配变换，提出可执行策略等价性检查器。",
-          "whyImportant": "关注VLA部署安全，揭示容易被忽视的元数据不一致风险。",
+          "oneSentenceSummary": "测试时通过潜在提示优化实现VLA自适应",
+          "summaryCn": "TTT-VLA在训练时学习潜在提示作为额外条件，测试时仅优化提示参数以适应分布变化，无需更新整个模型。",
+          "whyImportant": "首次将测试时训练用于VLA，提升部署鲁棒性。",
           "reasonTags": [
-            "VLA部署",
-            "安全",
-            "动作规范化",
-            "可执行策略"
+            "测试时训练",
+            "潜在提示优化",
+            "自适应"
           ],
           "innovationPoints": [
-            "识别并形式化VLA可执行策略规范问题。",
-            "提出元数据失配的数学变换，量化差异。",
-            "提供安全检查工具，增强部署可靠性。"
+            "提出潜在提示优化训练",
+            "测试时仅优化提示进行适应",
+            "不修改模型权重"
           ],
-          "noveltyVerdict": "从系统安全视角切入VLA，视角新颖，但方法创新度中等。",
+          "noveltyVerdict": "新颖的测试时适应方法，有创新性",
           "duplicateRisk": "low",
-          "dedupeNote": "与其他VLA工作不同，聚焦部署层面而非模型训练或架构。",
+          "dedupeNote": "专注于部署适应，与其他VLA训练方法正交",
           "retrievalGroups": [
             "robotics"
           ],
           "mergedCount": 1,
           "mergedTitles": [
-            "Same Weights, Different Robot: A Deployment Safety View of VLA Policies"
-          ]
-        },
-        {
-          "id": "2606.03943v1",
-          "title": "PointAction: 3D Points as Universal Action Representations for Robot Control",
-          "summary": "Video-Action Models (VAMs) leverage the broad visual dynamics captured by pre-trained video diffusion models, offering a promising path toward generalizable robot manipulation. However, RGB-only video rollouts are not directly actionable: they leave metric 3D motion, contact geometry, and fine-grained spatial constraints under-specified,…",
-          "summaryRaw": "Video-Action Models (VAMs) leverage the broad visual dynamics captured by pre-trained video diffusion models, offering a promising path toward generalizable robot manipulation. However, RGB-only video rollouts are not directly actionable: they leave metric 3D motion, contact geometry, and fine-grained spatial constraints under-specified, making action grounding ambiguous. Meanwhile, scaling action supervision across diverse tasks and embodiments remains costly. We present PointAction, a framework that bridges video predictions to robot actions through explicit point-based 4D modeling. PointAction fine-tunes a foundation video generation model to jointly predict future RGB frames and dynamic 3D pointmaps, producing temporally consistent 3D motion of task-relevant scene geometry. These point dynamics serve as a structured, embodiment-agnostic action interface, which a diffusion-based action decoder maps to executable robot actions. By using metric 3D point dynamics as the interface between video prediction and control, PointAction reduces the ambiguity of RGB-only action grounding and supports transfer across tasks and embodiments with limited action supervision. Experiments show that PointAction achieves state-of-the-art 4D generation quality on robot scenes, outperforms existing baselines in simulation, and generalizes to two real robot arms unseen during pretraining.",
-          "link": "https://arxiv.org/abs/2606.03943v1",
-          "pdfLink": "https://arxiv.org/pdf/2606.03943v1",
-          "published": "2026-06-02T17:30:50Z",
-          "updated": "2026-06-02T17:30:50Z",
-          "authors": [
-            "Mutian Tong",
-            "Han Jiang",
-            "Qiao Feng",
-            "Lingjie Liu",
-            "Jiatao Gu"
-          ],
-          "categories": [
-            "cs.RO"
-          ],
-          "score": 70,
-          "importanceLevel": "B",
-          "lane": "WAM",
-          "dimensionScores": {
-            "relevance": 72,
-            "novelty": 82,
-            "impact": 60,
-            "practicality": 65,
-            "coreAlignment": 78
-          },
-          "oneSentenceSummary": "提出以3D点云作为通用动作表示，连接视频预测与机器人控制。",
-          "summaryCn": "视频动作模型利用视频扩散先验，但RGB预测无法直接执行。PointAction微调基础视频生成模型，联合预测未来RGB帧和动态3D点图，产生时空一致的任务相关几何运动。点动态作为结构化、具身无关的动作接口，再由扩散头解码为机器人动作。验证其在多种任务上的有效性。",
-          "whyImportant": "提出点云动作表示，为视频预测到机器人动作搭建桥梁。",
-          "reasonTags": [
-            "视频动作模型",
-            "点云表示",
-            "动作生成",
-            "机器人控制"
-          ],
-          "innovationPoints": [
-            "将点云作为通用动作表示融入视频生成。",
-            "联合预测RGB和3D点运动，时空一致。",
-            "扩散动作解码实现具身无关控制。"
-          ],
-          "noveltyVerdict": "点云动作表示新颖，但整体框架沿用视频动作模型范式。",
-          "duplicateRisk": "medium",
-          "dedupeNote": "与Donk不同，专注动作表示而非联合分布，且非灵巧手。",
-          "retrievalGroups": [
-            "robotics"
-          ],
-          "mergedCount": 1,
-          "mergedTitles": [
-            "PointAction: 3D Points as Universal Action Representations for Robot Control"
+            "TTT-VLA: Test-Time Latent Prompt Optimization for Vision-Language-Action Models"
           ]
         },
         {
@@ -1915,33 +1950,32 @@ window.PAPERS_SITE_DATA = {
           "categories": [
             "cs.RO"
           ],
-          "score": 80,
+          "score": 82,
           "importanceLevel": "A",
-          "lane": "Robotics",
+          "lane": "Both",
           "dimensionScores": {
-            "relevance": 40,
-            "novelty": 75,
-            "impact": 80,
-            "practicality": 70,
-            "coreAlignment": 14
+            "relevance": 70,
+            "novelty": 70,
+            "impact": 70,
+            "practicality": 60,
+            "coreAlignment": 50
           },
-          "oneSentenceSummary": "提出GN0统一范式，用于视觉语言导航的数据生成、评估与策略学习。",
-          "summaryCn": "构建大规模GN-Matrix数据集，基于3DGS引擎的高保真模拟平台支持交互式漫游和碰撞感知导航。提出BEV基准GN-Bench，引入动态3DGS化身评估人机交互。开发RL导航基础模型BAE，结合监督学习和DAgger，实现自主导航与人类指令跟随。",
-          "whyImportant": "为VLN提供数据、平台、基准和基础模型，推动该领域发展。",
+          "oneSentenceSummary": "统一生成、评估、策略学习的视觉语言导航范式",
+          "summaryCn": "利用3DGS引擎构建高保真模拟器，提出GN-Bench基准和Break-and-Establish导航基础模型，支持动态人机交互。",
+          "whyImportant": "首个BEV基准及交互评估，推动VLN基础模型。",
           "reasonTags": [
             "视觉语言导航",
-            "数据生成",
-            "模拟平台",
+            "3DGS模拟",
             "基础模型"
           ],
           "innovationPoints": [
-            "自动管线生成大规模导航数据集GN-Matrix。",
-            "基于3DGS的高保真仿真与基准GN-Bench。",
-            "提出BAE导航基础模型，结合RL与半监督学习。"
+            "3DGS引擎高保真模拟",
+            "BEV基准与动态虚拟人",
+            "RL驱动的导航基础模型"
           ],
-          "noveltyVerdict": "集成数据、仿真和策略为一体，系统性强，创新性中等偏高。",
+          "noveltyVerdict": "集成生成与评估，较为新颖",
           "duplicateRisk": "low",
-          "dedupeNote": "与其他VLN工作互补，提供开放平台与基准，非单纯模型改进。",
+          "dedupeNote": "专注于导航，与操作类VLA不同场景",
           "retrievalGroups": [
             "robotics"
           ],
@@ -1970,33 +2004,32 @@ window.PAPERS_SITE_DATA = {
             "cs.RO",
             "cs.LG"
           ],
-          "score": 80,
+          "score": 65,
           "importanceLevel": "B",
           "lane": "WAM",
           "dimensionScores": {
-            "relevance": 63,
-            "novelty": 75,
-            "impact": 55,
-            "practicality": 65,
-            "coreAlignment": 24
+            "relevance": 60,
+            "novelty": 50,
+            "impact": 50,
+            "practicality": 30,
+            "coreAlignment": 60
           },
-          "oneSentenceSummary": "提出3D等视域世界模型，建模城市导航中的开放体积几何。",
-          "summaryCn": "具身导航世界模型通常预测外观，而非对运动关键的可行走空间。本文提出建模建筑物间的负空间，编码为3D等视域（球形可视深度图）。模型预测从特定视点可见的几何形态，揭示城市结构签名。实验展示其导航预测能力，超越外观模型。",
-          "whyImportant": "以物理可行走几何为目标，为导航提供更直接的世界模型。",
+          "oneSentenceSummary": "用3D等视域图建模城市可导航空间，揭示跨城几何签名",
+          "summaryCn": "提出3D等视域世界模型，记录建筑间开放空间的距离信息，避免外观依赖，捕获三维可导航几何结构。",
+          "whyImportant": "为导航智能体提供不依赖外观的空间表示。",
           "reasonTags": [
             "世界模型",
-            "3D等视域",
-            "导航",
-            "城市几何"
+            "等视域",
+            "导航几何"
           ],
           "innovationPoints": [
-            "提出3D等视域表示，关注导航所必需的几何信息。",
-            "预测负空间而非外观，降低线性。",
-            "发现跨城市几何签名。"
+            "3D等视域表示",
+            "无光度纠缠",
+            "跨城几何模式"
           ],
-          "noveltyVerdict": "从导航视角重新定义世界模型目标，创新性较高。",
+          "noveltyVerdict": "在导航空间表示上有创新，但作用有限",
           "duplicateRisk": "low",
-          "dedupeNote": "与传统预测外观的世界模型不同，聚焦几何可行走空间，非对手。",
+          "dedupeNote": "独特的世界表示，不同于视觉预测型世界模型",
           "retrievalGroups": [
             "robotics"
           ],
@@ -2006,120 +2039,221 @@ window.PAPERS_SITE_DATA = {
           ]
         },
         {
-          "id": "2606.03847v1",
-          "title": "Denoising Tells When to Replan: Denoising-Variance Adaptive Chunking for Flow-Based Robot Policies",
-          "summary": "Action chunking has become a common inference strategy for flow-based robot policies, improving action coherence by modeling multi-step temporal dependencies in demonstrations. However, the execution horizon is still typically set as an empirical fixed value, overlooking that predictable free-space motions and precision-critical interact…",
-          "summaryRaw": "Action chunking has become a common inference strategy for flow-based robot policies, improving action coherence by modeling multi-step temporal dependencies in demonstrations. However, the execution horizon is still typically set as an empirical fixed value, overlooking that predictable free-space motions and precision-critical interaction phases often require different replanning frequencies. In this work, we first show that the denoising process of flow-based policies contains an intrinsic signal of task phases: clean-action estimates remain stable during predictable motion phases, but fluctuate more strongly around contact-rich or precision-sensitive operations. Motivated by this observation, we propose DVAC (Denoising-Variance Adaptive Chunking), a test-time method that adaptively determines how many actions to execute from each predicted chunk. DVAC measures the variance of clean-action estimates over the final denoising steps, executes the stable low-variance prefix, and replans before high-variance future actions are committed. To transfer across tasks and rollouts, DVAC further calibrates the threshold with a rolling estimate of the local variance scale. Experiments on LIBERO, RoboTwin, CALVIN, and real-world manipulation show that DVAC improves task success while reducing replanning frequency. With a $π_{0.5}$-based policy, DVAC improves LIBERO success from 94.75% to 98.00% and reduces replanning by 43.0%, while also yielding aggregate gains on RoboTwin and CALVIN and improving real-world execution efficiency.",
-          "link": "https://arxiv.org/abs/2606.03847v1",
-          "pdfLink": "https://arxiv.org/pdf/2606.03847v1",
-          "published": "2026-06-02T16:26:32Z",
-          "updated": "2026-06-02T16:26:32Z",
+          "id": "2606.03598v1",
+          "title": "PHASER: Phase-Aware and Semantic Experience Replay for Vision-Language-Action Models",
+          "summary": "Vision-Language-Action (VLA) models have achieved remarkable success in language-conditioned robotic manipulation. However, deploying these models in open-ended environments requires continuously acquiring novel skills, a process that inevitably triggers severe catastrophic forgetting of previously learned behaviors.",
+          "summaryRaw": "Vision-Language-Action (VLA) models have achieved remarkable success in language-conditioned robotic manipulation. However, deploying these models in open-ended environments requires continuously acquiring novel skills, a process that inevitably triggers severe catastrophic forgetting of previously learned behaviors. While experience replay (ER) serves as a standard mitigating strategy, naive uniform sampling fundamentally misaligns with the temporal characteristics of manipulation trajectories. It systematically under-samples brief but causally critical sub-skills, leading to phase starvation, and completely overlooks the varying degrees of forgetting across historical tasks. To overcome these limitations, we introduce PHASER, an architecture-agnostic continual learning framework. PHASER employs a phase-centric capacity allocation to guarantee equal memory support for all sub-skills, coupled with a multi-modal interference routing strategy that dynamically prioritizes historical phases at high risk of forgetting. Furthermore, to enable fully autonomous lifelong adaptation, we integrate Auto-PC, a lightweight pipeline combining unsupervised action-signal change-point detection with VLM-based semantic verification to extract temporal boundaries without intensive manual supervision. Evaluated across three VLA backbones on LIBERO continual learning suites, PHASER yields substantial empirical improvements, increasing Average Success Rate (ASR) by up to 31% over matched-budget ER and achieving an 87.8% final ASR on the LIBERO-Goal CL setting.",
+          "link": "https://arxiv.org/abs/2606.03598v1",
+          "pdfLink": "https://arxiv.org/pdf/2606.03598v1",
+          "published": "2026-06-02T13:04:15Z",
+          "updated": "2026-06-02T13:04:15Z",
           "authors": [
-            "Xiangdong Feng",
-            "Yuxuan Cheng",
-            "Chen Shi",
-            "Boyao Han",
-            "Yuxuan Yan",
-            "Yitong Hong",
-            "Zhuotao Tian",
-            "Li Jiang"
+            "Ziyang Chen",
+            "Shaoguang Wang",
+            "Weiyu Guo",
+            "Qianyi Cai",
+            "He Zhang",
+            "Pengteng Li",
+            "Yiren Zhao",
+            "Yandong Guo"
           ],
           "categories": [
+            "cs.AI",
+            "cs.CV",
             "cs.RO"
           ],
-          "score": 69,
+          "score": 70,
           "importanceLevel": "B",
-          "lane": "Robotics",
+          "lane": "VLA",
           "dimensionScores": {
-            "relevance": 68,
-            "novelty": 78,
-            "impact": 60,
-            "practicality": 75,
-            "coreAlignment": 60
+            "relevance": 85,
+            "novelty": 30,
+            "impact": 55,
+            "practicality": 40,
+            "coreAlignment": 85
           },
-          "oneSentenceSummary": "利用去噪方差自适应调整动作块大小，提升流式机器人策略效率。",
-          "summaryCn": "流式策略通常固定动作块长度，忽略不同任务阶段对重规划频率的需求差异。本文发现去噪过程中干净动作估计的方差变化与任务阶段相关，可预测时稳定，关键操作时波动大。提出DVAC，测试时根据去噪方差自适应决定执行多少动作，无需训练。",
-          "whyImportant": "以去噪方差为信号，自适应调整策略执行，方法简单有效。",
+          "oneSentenceSummary": "面向VLA的持续学习框架，缓解灾难性遗忘",
+          "summaryCn": "PHASER根据操作阶段分配记忆容量，结合语义重放，保证各子技能均衡训练，解决VLA持续学习中的遗忘问题。",
+          "whyImportant": "解决VLA持续学习瓶颈，使模型能渐进掌握新技能。",
           "reasonTags": [
-            "动作块",
-            "流式策略",
-            "去噪方差",
-            "自适应"
+            "持续学习",
+            "经验重放",
+            "灾难性遗忘"
           ],
           "innovationPoints": [
-            "发现去噪方差与任务阶段的内在联系。",
-            "提出无训练的自适应动作块方法DVAC。",
-            "适用于多数流式策略。"
+            "阶段感知记忆分配",
+            "语义重放策略"
           ],
-          "noveltyVerdict": "发现并利用去噪方差信号，思路新颖，方法简单。",
-          "duplicateRisk": "low",
-          "dedupeNote": "对于固定块策略的改进，与其他工作互补，不冲突。",
+          "noveltyVerdict": "在VLA持续学习场景中有针对性创新",
+          "duplicateRisk": "medium",
+          "dedupeNote": "专门针对VLA操作任务的分阶段特性设计",
           "retrievalGroups": [
             "robotics"
           ],
           "mergedCount": 1,
           "mergedTitles": [
-            "Denoising Tells When to Replan: Denoising-Variance Adaptive Chunking for Flow-Based Robot Policies"
+            "PHASER: Phase-Aware and Semantic Experience Replay for Vision-Language-Action Models"
           ]
         },
         {
-          "id": "2606.03834v1",
-          "title": "Let the Dynamics Flow: Stable Flow Matching Dynamical Systems",
-          "summary": "Flow matching has recently emerged as a powerful approach for imitation learning, enabling scalable, expressive, and multimodal motion policies. However, incorporating formal stability guarantees into these generative models, a prerequisite to ensure safe and generalizable robot behaviors, remains a significant challenge.",
-          "summaryRaw": "Flow matching has recently emerged as a powerful approach for imitation learning, enabling scalable, expressive, and multimodal motion policies. However, incorporating formal stability guarantees into these generative models, a prerequisite to ensure safe and generalizable robot behaviors, remains a significant challenge. While modeling robot motions as dynamical systems allows for such stability-based inductive biases, existing frameworks struggle to capture the rich action distributions inherent in complex robotic tasks. This paper introduces Stable Flow Matching Dynamical Systems (SFMDS), a novel framework that bridges the gap between high-capacity generative modeling and formal Lyapunov stability guarantees. SFMDS parametrizes dynamical systems via flow matching while simultaneously constraining the model to a family of stable solutions. We propose two variants: a soft constraint based on a penalty term, and a hard structural constraint embedded directly in the model architecture. We further extend both formulations to Lie groups. Experiments on benchmark datasets, in simulation, and on a humanoid robot show that SFMDS learns stable, scalable, and multimodal dynamical systems in low- and high-dimensional state spaces, enabling safe and expressive robot motion generation.",
-          "link": "https://arxiv.org/abs/2606.03834v1",
-          "pdfLink": "https://arxiv.org/pdf/2606.03834v1",
-          "published": "2026-06-02T16:17:26Z",
-          "updated": "2026-06-02T16:17:26Z",
+          "id": "2606.03240v1",
+          "title": "GeoAlign: Beyond Semantics with State-Guided Spatial Alignment in VLA Models",
+          "summary": "Current Vision--Language--Action (VLA) models often optimize for semantic grounding, whereas executable manipulation requires geometry-aware spatial alignment and dynamic affordance selection. We introduce GeoAlign, a state-guided spatial alignment architecture for VLA policy learning.",
+          "summaryRaw": "Current Vision--Language--Action (VLA) models often optimize for semantic grounding, whereas executable manipulation requires geometry-aware spatial alignment and dynamic affordance selection. We introduce GeoAlign, a state-guided spatial alignment architecture for VLA policy learning. GeoAlign post-trains an RGB geometry branch with robot-domain RGB-D supervision, yielding RGB-derived Geometry-Enhanced Post-Trained (GEP) features for policy rollout. The robot's proprioceptive state queries the GEP feature grid, producing compact, phase-dependent geometry tokens for action prediction. GeoAlign achieves 99.0% on LIBERO, 85.3% across three SimplerEnv-Fractal tasks, and 78.8% on eight geometry-critical real-world ALOHA tasks, with ablations confirming the value of geometry post-training and proprioceptive-state-guided querying.",
+          "link": "https://arxiv.org/abs/2606.03240v1",
+          "pdfLink": "https://arxiv.org/pdf/2606.03240v1",
+          "published": "2026-06-02T07:01:18Z",
+          "updated": "2026-06-02T07:01:18Z",
           "authors": [
-            "Rodrigo Pérez-Dattari",
-            "Francisco Leiva",
-            "Andrea Testa",
-            "Leonel Rozo",
-            "Javier Ruiz del Solar",
-            "Noémie Jaquier"
+            "Yizhi Chen",
+            "Zhanxiang Cao",
+            "Xinyi Peng",
+            "Yixiao Zheng",
+            "Xiaxi Si",
+            "Yiheng Li",
+            "Liyun Yan",
+            "Keqi Zhu"
           ],
           "categories": [
             "cs.RO"
           ],
-          "score": 68,
+          "score": 60,
           "importanceLevel": "B",
-          "lane": "Robotics",
+          "lane": "VLA",
           "dimensionScores": {
-            "relevance": 65,
-            "novelty": 80,
-            "impact": 55,
-            "practicality": 60,
-            "coreAlignment": 60
+            "relevance": 75,
+            "novelty": 30,
+            "impact": 45,
+            "practicality": 40,
+            "coreAlignment": 80
           },
-          "oneSentenceSummary": "提出稳定流匹配动力系统，将生成式策略与李雅普诺夫稳定性结合。",
-          "summaryCn": "流匹配在模仿学习中有力，但缺乏稳定性保证。本文提出SFMDS，通过流匹配参数化动力系统，同时约束模型为稳定解决方案族。提出软约束与硬约束两种变体，确保机器人运动收敛到目标点。在多种操作任务中验证，实现安全、可泛化行为。",
-          "whyImportant": "首次将形式稳定性保证融入流匹配策略，提升安全性。",
+          "oneSentenceSummary": "状态引导的空间对齐提升VLA几何推理",
+          "summaryCn": "GeoAlign通过RGB-D后训练几何分支，以本体状态查询生成紧凑几何令牌，增强VLA对空间关系的理解。",
+          "whyImportant": "补齐VLA空间推理短板，提升精度。",
           "reasonTags": [
-            "流匹配",
-            "稳定性",
-            "模仿学习",
-            "动力学系统"
+            "空间对齐",
+            "几何增强",
+            "状态引导"
           ],
           "innovationPoints": [
-            "将李雅普诺夫稳定性约束引入流匹配生成模型。",
-            "提出软硬两种约束方案。",
-            "实现安全且可泛化的机器人行为。"
+            "RGB几何分支后训练",
+            "状态引导的几何令牌"
           ],
-          "noveltyVerdict": "结合生成模型与稳定理论，创新性强，填补空白。",
+          "noveltyVerdict": "针对VLA空间能力的改进，有一定创新",
           "duplicateRisk": "low",
-          "dedupeNote": "与普通流匹配策略不同，加入稳定性保证，面向安全关键任务。",
+          "dedupeNote": "独特地结合几何后训练与状态查询，与其他VLA方法互补",
           "retrievalGroups": [
             "robotics"
           ],
           "mergedCount": 1,
           "mergedTitles": [
-            "Let the Dynamics Flow: Stable Flow Matching Dynamical Systems"
+            "GeoAlign: Beyond Semantics with State-Guided Spatial Alignment in VLA Models"
+          ]
+        },
+        {
+          "id": "2606.03724v1",
+          "title": "Same Weights, Different Robot: A Deployment Safety View of VLA Policies",
+          "summary": "Vision-language-action (VLA) policies are often treated as checkpoint-defined objects: if the weights, prompt, and benchmark suite match, the deployment is assumed to be the same policy. Robot execution breaks this assumption because the same normalized model output can become a different physical action after action unnormalization and…",
+          "summaryRaw": "Vision-language-action (VLA) policies are often treated as checkpoint-defined objects: if the weights, prompt, and benchmark suite match, the deployment is assumed to be the same policy. Robot execution breaks this assumption because the same normalized model output can become a different physical action after action unnormalization and controller conventions are applied. This creates a deployment-safety gap: safety review can certify the checkpoint while missing the executable robot policy that reaches the controller. We formalize this gap as an executable policy specification problem: a VLA policy includes the learned model, action representation, metadata-selected unnormalizer, and controller-facing conventions. Under this view, identical checkpoints can be executable-inequivalent. For quantile-style action normalization, we derive a closed-form metadata mismatch transform and an ExecSpec certificate that measures action-space semantic drift without model inference or rollout. On LIBERO-Goal replay, substituting a plausible sibling metadata key yields mean drift 0.199 over six non-gripper action dimensions and reduces success from 28/28 to 2/28 under full substitution. On LIBERO-Spatial replay, the same substituted key reduces success from 26/26 to 0/26. The same full-substitution protocol gives 0/28 success for all four Object substitutions and 0/23 or 1/23 success on Long. Identity-key, replay-validity, no-op filtering, raw-vs-correct replay, mask/gripper, synthetic upper-bound, and OpenVLA-style unnormalizer interface checks rule out several simpler explanations. These results do not certify closed-loop or hardware safety. They support a narrower deployment-safety view: action-space metadata is part of the executable policy and should be checked before rollout.",
+          "link": "https://arxiv.org/abs/2606.03724v1",
+          "pdfLink": "https://arxiv.org/pdf/2606.03724v1",
+          "published": "2026-06-02T14:45:00Z",
+          "updated": "2026-06-02T14:45:00Z",
+          "authors": [
+            "Jianwei Tai"
+          ],
+          "categories": [],
+          "score": 55,
+          "importanceLevel": "B",
+          "lane": "VLA",
+          "dimensionScores": {
+            "relevance": 60,
+            "novelty": 40,
+            "impact": 30,
+            "practicality": 50,
+            "coreAlignment": 70
+          },
+          "oneSentenceSummary": "揭示VLA部署安全漏洞：同一权重因反归一化导致不同动作",
+          "summaryCn": "指出VLA策略在部署时，由于动作反归一化和控制器约定，相同输入可产生不同物理动作，提出安全评估框架。",
+          "whyImportant": "提醒安全性审视不能仅依赖权重检验，需考虑部署差异。",
+          "reasonTags": [
+            "部署安全",
+            "动作反归一化",
+            "策略等价性"
+          ],
+          "innovationPoints": [
+            "提出可执行策略规范问题",
+            "推导反归一化变换关系"
+          ],
+          "noveltyVerdict": "揭示一个重要但被忽视的安全问题，思路新颖",
+          "duplicateRisk": "low",
+          "dedupeNote": "聚焦VLA部署的安全视角，与其他方法不同",
+          "retrievalGroups": [
+            "robotics"
+          ],
+          "mergedCount": 1,
+          "mergedTitles": [
+            "Same Weights, Different Robot: A Deployment Safety View of VLA Policies"
           ]
         }
       ],
       "paperSets": {
         "overall": [
+          {
+            "id": "2606.03392v1",
+            "title": "OpenEAI-Platform: An Open-source Embodied Artificial Intelligence Hardware-Software Unified Platform",
+            "summary": "Embodied AI in the real world requires both accurate hardware and robust vision-language-action (VLA) policies. We present OpenEAI-Platform, a fully open-source platform that integrates a low-cost 6+1 degree-of-freedom (dof) robotic arm (OpenEAI-Arm) and a reproducible VLA model (OpenEAI-VLA).",
+            "summaryRaw": "Embodied AI in the real world requires both accurate hardware and robust vision-language-action (VLA) policies. We present OpenEAI-Platform, a fully open-source platform that integrates a low-cost 6+1 degree-of-freedom (dof) robotic arm (OpenEAI-Arm) and a reproducible VLA model (OpenEAI-VLA). OpenEAI-Arm provides open-source mechanical designs for low manufacturing cost and compliant control methods for higher accuracy. OpenEAI-VLA builds on Qwen3-VL-4B and uses a Diffusion Transformer action head, and is trained in two stages with only open-source robot and multimodal datasets. Across four real-world manipulation tasks, OpenEAI-Arm outperforms two commercial 6+1-dof arms under the same policy, and OpenEAI-VLA achieves success rates comparable to the large-scale pretrained pi0 baseline with only limited pretraining data. We will release the full hardware designs, drivers, models, and training/data pipelines to support reproducible research and scalable data collection. Our codes, layouts, and models will be released after the paper is accepted.",
+            "link": "https://arxiv.org/abs/2606.03392v1",
+            "pdfLink": "https://arxiv.org/pdf/2606.03392v1",
+            "published": "2026-06-02T09:34:08Z",
+            "updated": "2026-06-02T09:34:08Z",
+            "authors": [
+              "Jinyuan Zhang",
+              "Luoyi Fan",
+              "Leiyu Wang",
+              "Yeqiang Wang",
+              "Yicheng Zhu",
+              "Cewu Lu",
+              "Nanyang Ye"
+            ],
+            "categories": [
+              "cs.RO"
+            ],
+            "score": 85,
+            "importanceLevel": "A",
+            "lane": "VLA",
+            "dimensionScores": {
+              "relevance": 90,
+              "novelty": 20,
+              "impact": 80,
+              "practicality": 95,
+              "coreAlignment": 95
+            },
+            "oneSentenceSummary": "开源具身智能平台，集成低成本机械臂与VLA模型",
+            "summaryCn": "OpenEAI-Platform提供开源6+1自由度机械臂与基于Qwen3-VL-4B的VLA模型，仅用开源数据训练，实际任务成功率可比肩大规模预训练基准pi0。",
+            "whyImportant": "开源平台降低具身AI门槛，促进VLA社区发展。",
+            "reasonTags": [
+              "开源平台",
+              "低成本机械臂",
+              "VLA模型"
+            ],
+            "innovationPoints": [
+              "低成本硬件设计",
+              "两阶段训练VLA模型",
+              "全开源生态"
+            ],
+            "noveltyVerdict": "工程集成创新，新颖度较低",
+            "duplicateRisk": "low",
+            "dedupeNote": "提供硬件-软件统一平台，与其他VLA方法互补",
+            "retrievalGroups": [
+              "robotics"
+            ],
+            "mergedCount": 1,
+            "mergedTitles": [
+              "OpenEAI-Platform: An Open-source Embodied Artificial Intelligence Hardware-Software Unified Platform"
+            ]
+          },
           {
             "id": "2606.03784v1",
             "title": "Revisiting Embodied Chain-of-Thought for Generalizable Robot Manipulation",
@@ -2142,33 +2276,32 @@ window.PAPERS_SITE_DATA = {
             "categories": [
               "cs.RO"
             ],
-            "score": 95,
-            "importanceLevel": "S",
+            "score": 88,
+            "importanceLevel": "A",
             "lane": "VLA",
             "dimensionScores": {
-              "relevance": 94,
-              "novelty": 90,
-              "impact": 92,
-              "practicality": 85,
-              "coreAlignment": 96
+              "relevance": 95,
+              "novelty": 40,
+              "impact": 75,
+              "practicality": 60,
+              "coreAlignment": 95
             },
-            "oneSentenceSummary": "重新审视具身思维链，提出有效形式与集成策略，提升VLA模型泛化性。",
-            "summaryCn": "构建最大具身思维链语料库，含97.8万轨迹、2.26亿样本。发现有效思维链应将高层语义转化为具体动作指引（如末端运动、图像轨迹），仅高层推理增益有限。揭示显式思维链的自回归前缀扩展不可靠，存在推理误差累积与不稳定耦合。提出新方案解决，大规模验证。",
-            "whyImportant": "迄今最大具身CoT研究，揭示有效形式与缩放问题，推动VLA泛化。",
+            "oneSentenceSummary": "构建大规模具身CoT数据集，提出并行预测新范式",
+            "summaryCn": "构建含97.8万轨迹的具身CoT语料库，发现CoT应落地为动作引导，提出将CoT作为并行预测的新范式，解决自回归耦合误差问题。",
+            "whyImportant": "重新审视具身CoT，大规模实验指导VLA推理设计。",
             "reasonTags": [
-              "具身思维链",
-              "VLA模型",
-              "泛化能力",
-              "大规模语料"
+              "具身CoT",
+              "大规模数据集",
+              "并行预测"
             ],
             "innovationPoints": [
-              "构建最大具身思维链语料库，规模空前。",
-              "发现有效具身思维链应落地为具体动作引导，而非仅高层推理。",
-              "识别并解决显式思维链的自回归扩展缺陷。"
+              "最大具身CoT数据集",
+              "发现CoT应提供动作引导",
+              "并行预测取代自回归前缀"
             ],
-            "noveltyVerdict": "在大规模下重新审视并推进具身思维链，创新性强。",
+            "noveltyVerdict": "实验洞察具有创新性，方法有效",
             "duplicateRisk": "low",
-            "dedupeNote": "与其他VLA工作不同，专注于思维链的重新设计与规模化，非单纯模型结构创新。",
+            "dedupeNote": "聚焦CoT策略，与通用VLA方法不同",
             "retrievalGroups": [
               "robotics"
             ],
@@ -2178,62 +2311,56 @@ window.PAPERS_SITE_DATA = {
             ]
           },
           {
-            "id": "2606.03598v1",
-            "title": "PHASER: Phase-Aware and Semantic Experience Replay for Vision-Language-Action Models",
-            "summary": "Vision-Language-Action (VLA) models have achieved remarkable success in language-conditioned robotic manipulation. However, deploying these models in open-ended environments requires continuously acquiring novel skills, a process that inevitably triggers severe catastrophic forgetting of previously learned behaviors.",
-            "summaryRaw": "Vision-Language-Action (VLA) models have achieved remarkable success in language-conditioned robotic manipulation. However, deploying these models in open-ended environments requires continuously acquiring novel skills, a process that inevitably triggers severe catastrophic forgetting of previously learned behaviors. While experience replay (ER) serves as a standard mitigating strategy, naive uniform sampling fundamentally misaligns with the temporal characteristics of manipulation trajectories. It systematically under-samples brief but causally critical sub-skills, leading to phase starvation, and completely overlooks the varying degrees of forgetting across historical tasks. To overcome these limitations, we introduce PHASER, an architecture-agnostic continual learning framework. PHASER employs a phase-centric capacity allocation to guarantee equal memory support for all sub-skills, coupled with a multi-modal interference routing strategy that dynamically prioritizes historical phases at high risk of forgetting. Furthermore, to enable fully autonomous lifelong adaptation, we integrate Auto-PC, a lightweight pipeline combining unsupervised action-signal change-point detection with VLM-based semantic verification to extract temporal boundaries without intensive manual supervision. Evaluated across three VLA backbones on LIBERO continual learning suites, PHASER yields substantial empirical improvements, increasing Average Success Rate (ASR) by up to 31% over matched-budget ER and achieving an 87.8% final ASR on the LIBERO-Goal CL setting.",
-            "link": "https://arxiv.org/abs/2606.03598v1",
-            "pdfLink": "https://arxiv.org/pdf/2606.03598v1",
-            "published": "2026-06-02T13:04:15Z",
-            "updated": "2026-06-02T13:04:15Z",
+            "id": "2606.03943v1",
+            "title": "PointAction: 3D Points as Universal Action Representations for Robot Control",
+            "summary": "Video-Action Models (VAMs) leverage the broad visual dynamics captured by pre-trained video diffusion models, offering a promising path toward generalizable robot manipulation. However, RGB-only video rollouts are not directly actionable: they leave metric 3D motion, contact geometry, and fine-grained spatial constraints under-specified,…",
+            "summaryRaw": "Video-Action Models (VAMs) leverage the broad visual dynamics captured by pre-trained video diffusion models, offering a promising path toward generalizable robot manipulation. However, RGB-only video rollouts are not directly actionable: they leave metric 3D motion, contact geometry, and fine-grained spatial constraints under-specified, making action grounding ambiguous. Meanwhile, scaling action supervision across diverse tasks and embodiments remains costly. We present PointAction, a framework that bridges video predictions to robot actions through explicit point-based 4D modeling. PointAction fine-tunes a foundation video generation model to jointly predict future RGB frames and dynamic 3D pointmaps, producing temporally consistent 3D motion of task-relevant scene geometry. These point dynamics serve as a structured, embodiment-agnostic action interface, which a diffusion-based action decoder maps to executable robot actions. By using metric 3D point dynamics as the interface between video prediction and control, PointAction reduces the ambiguity of RGB-only action grounding and supports transfer across tasks and embodiments with limited action supervision. Experiments show that PointAction achieves state-of-the-art 4D generation quality on robot scenes, outperforms existing baselines in simulation, and generalizes to two real robot arms unseen during pretraining.",
+            "link": "https://arxiv.org/abs/2606.03943v1",
+            "pdfLink": "https://arxiv.org/pdf/2606.03943v1",
+            "published": "2026-06-02T17:30:50Z",
+            "updated": "2026-06-02T17:30:50Z",
             "authors": [
-              "Ziyang Chen",
-              "Shaoguang Wang",
-              "Weiyu Guo",
-              "Qianyi Cai",
-              "He Zhang",
-              "Pengteng Li",
-              "Yiren Zhao",
-              "Yandong Guo"
+              "Mutian Tong",
+              "Han Jiang",
+              "Qiao Feng",
+              "Lingjie Liu",
+              "Jiatao Gu"
             ],
             "categories": [
-              "cs.RO",
-              "cs.AI",
-              "cs.CV"
+              "cs.RO"
             ],
             "score": 85,
             "importanceLevel": "A",
-            "lane": "VLA",
+            "lane": "WAM",
             "dimensionScores": {
-              "relevance": 88,
-              "novelty": 85,
-              "impact": 80,
-              "practicality": 75,
-              "coreAlignment": 90
+              "relevance": 90,
+              "novelty": 80,
+              "impact": 70,
+              "practicality": 60,
+              "coreAlignment": 95
             },
-            "oneSentenceSummary": "提出阶段感知与语义经验回放框架，缓解VLA持续学习中的灾难性遗忘。",
-            "summaryCn": "VLA在开放环境持续学习新技能时面临灾难性遗忘。传统经验回放均匀采样忽视操作轨迹的时间特性，导致关键子技能采样不足和阶段饥饿。PHASER通过阶段中心容量分配确保所有子技能获得均等记忆支持，并结合语义重放策略，有效缓解遗忘，架构无关且可复用。",
-            "whyImportant": "针对VLA持续学习中的关键遗忘问题，提出架构无关的解决框架。",
+            "oneSentenceSummary": "用3D点轨迹作为通用动作接口衔接视频预测与机器人控制",
+            "summaryCn": "PointAction微调基础视频生成模型，联合预测RGB帧和3D点云，将点动态作为具身无关动作表示，实现视频预测到动作的桥梁。",
+            "whyImportant": "首次用3D点云作为VAM与动作策略的纽带，解决动作模糊性。",
             "reasonTags": [
-              "持续学习",
-              "灾难性遗忘",
-              "VLA",
-              "经验回放"
+              "视频动作模型",
+              "3D点云",
+              "动作表示"
             ],
             "innovationPoints": [
-              "阶段感知的记忆容量分配策略，避免关键子技能被忽略。",
-              "语义经验选择机制，提升回放样本效率。",
-              "架构无关设计，可适配多种VLA模型。"
+              "联合预测RGB和3D点云",
+              "点动态作为通用动作接口",
+              "微调视频基础模型"
             ],
-            "noveltyVerdict": "在VLA持续学习上提出新颖的阶段感知方法，创新性较高。",
-            "duplicateRisk": "low",
-            "dedupeNote": "非VLA通用架构改进，专注持续学习问题，与其他工作互补。",
+            "noveltyVerdict": "新颖的4D点表示，创新性强",
+            "duplicateRisk": "medium",
+            "dedupeNote": "独特使用3D点云作为中间表示，区别于直接动作预测",
             "retrievalGroups": [
               "robotics"
             ],
             "mergedCount": 1,
             "mergedTitles": [
-              "PHASER: Phase-Aware and Semantic Experience Replay for Vision-Language-Action Models"
+              "PointAction: 3D Points as Universal Action Representations for Robot Control"
             ]
           },
           {
@@ -2257,33 +2384,32 @@ window.PAPERS_SITE_DATA = {
             "categories": [
               "cs.CV"
             ],
-            "score": 82,
+            "score": 78,
             "importanceLevel": "A",
             "lane": "WAM",
             "dimensionScores": {
-              "relevance": 85,
-              "novelty": 88,
-              "impact": 75,
-              "practicality": 70,
-              "coreAlignment": 90
+              "relevance": 90,
+              "novelty": 80,
+              "impact": 60,
+              "practicality": 50,
+              "coreAlignment": 95
             },
-            "oneSentenceSummary": "提出统一视频-动作联合去噪模型，实现灵巧手动作策略与数据生成。",
-            "summaryCn": "从分布视角重新审视视频基础模型与机器人动作的对齐，提出统一视频-动作去噪模型Donk。在语言、首帧和手部初始条件下采样未来视频和双手MANO轨迹作为动作策略；无图像条件时，从文本条件分布采样配对视频-动作展开，将视频先验转化为数据引擎。灵巧操作任务验证。",
-            "whyImportant": "统一视频-动作联合建模，既做策略又做数据生成，扩展视频先验用途。",
+            "oneSentenceSummary": "统一视频-动作去噪模型，用于灵巧手动作生成与数据扩增",
+            "summaryCn": "Donk在潜在空间中联合去噪交互视频与可执行手动轨迹，可作为策略直接生成动作，也可作为数据引擎生成配对数据。",
+            "whyImportant": "统一去噪框架，兼具策略与数据引擎双重功能。",
             "reasonTags": [
-              "世界动作模型",
-              "视频-动作联合",
-              "灵巧操作",
+              "视频动作去噪",
+              "灵巧手",
               "数据生成"
             ],
             "innovationPoints": [
-              "联合分布建模而非条件分布，保留更广先验。",
-              "同一架构支持策略与数据生成双重用途。",
-              "将视频基础模型转化为灵巧手数据引擎。"
+              "联合视频-动作去噪",
+              "多条件采样",
+              "生成式数据引擎"
             ],
-            "noveltyVerdict": "在WAM中创新性地联合建模视频与动作，并实现多功能，创新性强。",
+            "noveltyVerdict": "统一去噪范式新颖，功能多样",
             "duplicateRisk": "medium",
-            "dedupeNote": "与PointAction不同，强调联合分布和灵巧手，非单纯点云动作表示。",
+            "dedupeNote": "同时考虑视频与动作的联合分布，区别于单一模态模型",
             "retrievalGroups": [
               "robotics"
             ],
@@ -2293,160 +2419,58 @@ window.PAPERS_SITE_DATA = {
             ]
           },
           {
-            "id": "2606.03556v1",
-            "title": "Partially Observable Adversarial Patch Attacks on Vision-Language-Action Models in Robotics",
-            "summary": "Vision-language-action (VLA) models are gaining attention in robotics, yet their robustness to adversarial attacks remains largely unexplored. Existing work shows that adversarial patches can mislead VLA-based robots but assumes full access to the entire execution trajectory, an unrealistic requirement in practice.",
-            "summaryRaw": "Vision-language-action (VLA) models are gaining attention in robotics, yet their robustness to adversarial attacks remains largely unexplored. Existing work shows that adversarial patches can mislead VLA-based robots but assumes full access to the entire execution trajectory, an unrealistic requirement in practice. We address this limitation by formulating a partially observable threat model, where the adversary can exploit only a short prefix of the trajectory to generate a fixed patch applied to all subsequent frames. Under this setting, we propose a two-phase framework. First, we localize the patch using the model's attention maps to identify visually critical regions that correspond to the full instruction. Then, we optimize the patch to disrupt the semantic grounding of target objects and increase the curvature of action trajectories, thereby compounding failures in both perception and control. Extensive experiments in simulation and real-world robotic environments show that our method sustains adversarial effects under partial observability, inducing long-horizon disruptions and significantly reducing task success rates.",
-            "link": "https://arxiv.org/abs/2606.03556v1",
-            "pdfLink": "https://arxiv.org/pdf/2606.03556v1",
-            "published": "2026-06-02T12:19:28Z",
-            "updated": "2026-06-02T12:19:28Z",
+            "id": "2606.03127v1",
+            "title": "TTT-VLA: Test-Time Latent Prompt Optimization for Vision-Language-Action Models",
+            "summary": "Vision-Language-Action (VLA) models trained on large-scale data have made remarkable progress, but they remain vulnerable to distribution shifts at deployment time. Recent VLA models suggest that prompts can serve as an efficient interface for steering policy behavior, but existing prompt-based steering typically relies on external guida…",
+            "summaryRaw": "Vision-Language-Action (VLA) models trained on large-scale data have made remarkable progress, but they remain vulnerable to distribution shifts at deployment time. Recent VLA models suggest that prompts can serve as an efficient interface for steering policy behavior, but existing prompt-based steering typically relies on external guidance. This raises a natural question: can test-time training (TTT) for VLA be achieved by optimizing a prompt, so that the steering interface itself can be learned and adapted from interaction? We address this question with TTT-VLA, a test-time training framework based on Latent Prompt Optimization (LPO). During training, the latent prompt is learned with an additional proxy task, providing an extra learned conditioning signal for policy learning. At test time, TTT is performed by collecting interaction data from the current environment and optimizing only the latent prompt on those data using the proxy task's self-supervised signal, without modifying the policy itself. Experiments on SimplerEnv demonstrate that the proposed method consistently improves task success rates in both single- and multi-embodiment settings. Further analysis shows that the gains arise primarily from correcting a small number of critical decisions rather than globally altering policy behavior. These results suggest that LPO provides an effective and practical pathway for deployment-time improvement of foundation manipulation policies.",
+            "link": "https://arxiv.org/abs/2606.03127v1",
+            "pdfLink": "https://arxiv.org/pdf/2606.03127v1",
+            "published": "2026-06-02T04:10:39Z",
+            "updated": "2026-06-02T04:10:39Z",
             "authors": [
-              "Xiaofei Wang",
-              "Mingliang Han",
-              "Tianyu Hao",
-              "Yi Yang",
-              "Yun-Bo Zhao",
-              "Keke Tang"
+              "Wenbo Zhang",
+              "Jianxiong Li",
+              "Shuai Yang",
+              "Sijin Chen",
+              "Jiajun Liu",
+              "Lingqiao Liu",
+              "Xiao Ma"
             ],
             "categories": [
               "cs.RO"
             ],
-            "score": 78,
-            "importanceLevel": "B",
+            "score": 80,
+            "importanceLevel": "A",
             "lane": "VLA",
             "dimensionScores": {
-              "relevance": 75,
-              "novelty": 80,
+              "relevance": 80,
+              "novelty": 60,
               "impact": 65,
-              "practicality": 60,
-              "coreAlignment": 70
-            },
-            "oneSentenceSummary": "提出部分可观测下的对抗贴片攻击框架，揭示VLA模型鲁棒性漏洞。",
-            "summaryCn": "针对VLA模型在机器人执行中可能受对抗攻击的问题，考虑实际中攻击者仅能观察轨迹前缀的限制，设计两阶段攻击框架。利用注意力图定位关键区域，优化贴片以破坏语义对齐并增加动作轨迹曲率，导致感知和动作失效。实验证明威胁，为安全研究提供基准。",
-            "whyImportant": "首次在部分可观测威胁模型下攻击VLA，揭示安全风险。",
-            "reasonTags": [
-              "对抗攻击",
-              "VLA模型",
-              "鲁棒性",
-              "安全"
-            ],
-            "innovationPoints": [
-              "部分可观测威胁模型更贴近实际部署场景。",
-              "基于注意力的贴片定位，精准攻击关键区域。",
-              "同时破坏感知与动作的联合优化目标。"
-            ],
-            "noveltyVerdict": "将对抗攻击引入VLA并考虑实际约束，有一定新意。",
-            "duplicateRisk": "low",
-            "dedupeNote": "与众不同在部分可观测假设，非全轨迹攻击，更贴近真实威胁场景。",
-            "retrievalGroups": [
-              "robotics"
-            ],
-            "mergedCount": 1,
-            "mergedTitles": [
-              "Partially Observable Adversarial Patch Attacks on Vision-Language-Action Models in Robotics"
-            ]
-          },
-          {
-            "id": "2606.03724v1",
-            "title": "Same Weights, Different Robot: A Deployment Safety View of VLA Policies",
-            "summary": "Vision-language-action (VLA) policies are often treated as checkpoint-defined objects: if the weights, prompt, and benchmark suite match, the deployment is assumed to be the same policy. Robot execution breaks this assumption because the same normalized model output can become a different physical action after action unnormalization and…",
-            "summaryRaw": "Vision-language-action (VLA) policies are often treated as checkpoint-defined objects: if the weights, prompt, and benchmark suite match, the deployment is assumed to be the same policy. Robot execution breaks this assumption because the same normalized model output can become a different physical action after action unnormalization and controller conventions are applied. This creates a deployment-safety gap: safety review can certify the checkpoint while missing the executable robot policy that reaches the controller. We formalize this gap as an executable policy specification problem: a VLA policy includes the learned model, action representation, metadata-selected unnormalizer, and controller-facing conventions. Under this view, identical checkpoints can be executable-inequivalent. For quantile-style action normalization, we derive a closed-form metadata mismatch transform and an ExecSpec certificate that measures action-space semantic drift without model inference or rollout. On LIBERO-Goal replay, substituting a plausible sibling metadata key yields mean drift 0.199 over six non-gripper action dimensions and reduces success from 28/28 to 2/28 under full substitution. On LIBERO-Spatial replay, the same substituted key reduces success from 26/26 to 0/26. The same full-substitution protocol gives 0/28 success for all four Object substitutions and 0/23 or 1/23 success on Long. Identity-key, replay-validity, no-op filtering, raw-vs-correct replay, mask/gripper, synthetic upper-bound, and OpenVLA-style unnormalizer interface checks rule out several simpler explanations. These results do not certify closed-loop or hardware safety. They support a narrower deployment-safety view: action-space metadata is part of the executable policy and should be checked before rollout.",
-            "link": "https://arxiv.org/abs/2606.03724v1",
-            "pdfLink": "https://arxiv.org/pdf/2606.03724v1",
-            "published": "2026-06-02T14:45:00Z",
-            "updated": "2026-06-02T14:45:00Z",
-            "authors": [
-              "Jianwei Tai"
-            ],
-            "categories": [],
-            "score": 72,
-            "importanceLevel": "B",
-            "lane": "VLA",
-            "dimensionScores": {
-              "relevance": 70,
-              "novelty": 75,
-              "impact": 55,
               "practicality": 70,
-              "coreAlignment": 65
+              "coreAlignment": 90
             },
-            "oneSentenceSummary": "揭示VLA部署中因动作反规范化差异导致的安全差距，提出可执行策略规范。",
-            "summaryCn": "相同权重、提示和基准的VLA策略在不同机器人上可能产生不同可执行动作，因动作反规范化和控制器约定。这导致安全审查可能漏掉实机风险。论文形式化此问题为可执行策略规范，并针对分位数动作规范化推导闭式元数据失配变换，提出可执行策略等价性检查器。",
-            "whyImportant": "关注VLA部署安全，揭示容易被忽视的元数据不一致风险。",
+            "oneSentenceSummary": "测试时通过潜在提示优化实现VLA自适应",
+            "summaryCn": "TTT-VLA在训练时学习潜在提示作为额外条件，测试时仅优化提示参数以适应分布变化，无需更新整个模型。",
+            "whyImportant": "首次将测试时训练用于VLA，提升部署鲁棒性。",
             "reasonTags": [
-              "VLA部署",
-              "安全",
-              "动作规范化",
-              "可执行策略"
+              "测试时训练",
+              "潜在提示优化",
+              "自适应"
             ],
             "innovationPoints": [
-              "识别并形式化VLA可执行策略规范问题。",
-              "提出元数据失配的数学变换，量化差异。",
-              "提供安全检查工具，增强部署可靠性。"
+              "提出潜在提示优化训练",
+              "测试时仅优化提示进行适应",
+              "不修改模型权重"
             ],
-            "noveltyVerdict": "从系统安全视角切入VLA，视角新颖，但方法创新度中等。",
+            "noveltyVerdict": "新颖的测试时适应方法，有创新性",
             "duplicateRisk": "low",
-            "dedupeNote": "与其他VLA工作不同，聚焦部署层面而非模型训练或架构。",
+            "dedupeNote": "专注于部署适应，与其他VLA训练方法正交",
             "retrievalGroups": [
               "robotics"
             ],
             "mergedCount": 1,
             "mergedTitles": [
-              "Same Weights, Different Robot: A Deployment Safety View of VLA Policies"
-            ]
-          },
-          {
-            "id": "2606.03943v1",
-            "title": "PointAction: 3D Points as Universal Action Representations for Robot Control",
-            "summary": "Video-Action Models (VAMs) leverage the broad visual dynamics captured by pre-trained video diffusion models, offering a promising path toward generalizable robot manipulation. However, RGB-only video rollouts are not directly actionable: they leave metric 3D motion, contact geometry, and fine-grained spatial constraints under-specified,…",
-            "summaryRaw": "Video-Action Models (VAMs) leverage the broad visual dynamics captured by pre-trained video diffusion models, offering a promising path toward generalizable robot manipulation. However, RGB-only video rollouts are not directly actionable: they leave metric 3D motion, contact geometry, and fine-grained spatial constraints under-specified, making action grounding ambiguous. Meanwhile, scaling action supervision across diverse tasks and embodiments remains costly. We present PointAction, a framework that bridges video predictions to robot actions through explicit point-based 4D modeling. PointAction fine-tunes a foundation video generation model to jointly predict future RGB frames and dynamic 3D pointmaps, producing temporally consistent 3D motion of task-relevant scene geometry. These point dynamics serve as a structured, embodiment-agnostic action interface, which a diffusion-based action decoder maps to executable robot actions. By using metric 3D point dynamics as the interface between video prediction and control, PointAction reduces the ambiguity of RGB-only action grounding and supports transfer across tasks and embodiments with limited action supervision. Experiments show that PointAction achieves state-of-the-art 4D generation quality on robot scenes, outperforms existing baselines in simulation, and generalizes to two real robot arms unseen during pretraining.",
-            "link": "https://arxiv.org/abs/2606.03943v1",
-            "pdfLink": "https://arxiv.org/pdf/2606.03943v1",
-            "published": "2026-06-02T17:30:50Z",
-            "updated": "2026-06-02T17:30:50Z",
-            "authors": [
-              "Mutian Tong",
-              "Han Jiang",
-              "Qiao Feng",
-              "Lingjie Liu",
-              "Jiatao Gu"
-            ],
-            "categories": [
-              "cs.RO"
-            ],
-            "score": 70,
-            "importanceLevel": "B",
-            "lane": "WAM",
-            "dimensionScores": {
-              "relevance": 72,
-              "novelty": 82,
-              "impact": 60,
-              "practicality": 65,
-              "coreAlignment": 78
-            },
-            "oneSentenceSummary": "提出以3D点云作为通用动作表示，连接视频预测与机器人控制。",
-            "summaryCn": "视频动作模型利用视频扩散先验，但RGB预测无法直接执行。PointAction微调基础视频生成模型，联合预测未来RGB帧和动态3D点图，产生时空一致的任务相关几何运动。点动态作为结构化、具身无关的动作接口，再由扩散头解码为机器人动作。验证其在多种任务上的有效性。",
-            "whyImportant": "提出点云动作表示，为视频预测到机器人动作搭建桥梁。",
-            "reasonTags": [
-              "视频动作模型",
-              "点云表示",
-              "动作生成",
-              "机器人控制"
-            ],
-            "innovationPoints": [
-              "将点云作为通用动作表示融入视频生成。",
-              "联合预测RGB和3D点运动，时空一致。",
-              "扩散动作解码实现具身无关控制。"
-            ],
-            "noveltyVerdict": "点云动作表示新颖，但整体框架沿用视频动作模型范式。",
-            "duplicateRisk": "medium",
-            "dedupeNote": "与Donk不同，专注动作表示而非联合分布，且非灵巧手。",
-            "retrievalGroups": [
-              "robotics"
-            ],
-            "mergedCount": 1,
-            "mergedTitles": [
-              "PointAction: 3D Points as Universal Action Representations for Robot Control"
+              "TTT-VLA: Test-Time Latent Prompt Optimization for Vision-Language-Action Models"
             ]
           },
           {
@@ -2471,33 +2495,32 @@ window.PAPERS_SITE_DATA = {
             "categories": [
               "cs.RO"
             ],
-            "score": 80,
+            "score": 82,
             "importanceLevel": "A",
-            "lane": "Robotics",
+            "lane": "Both",
             "dimensionScores": {
-              "relevance": 40,
-              "novelty": 75,
-              "impact": 80,
-              "practicality": 70,
-              "coreAlignment": 14
+              "relevance": 70,
+              "novelty": 70,
+              "impact": 70,
+              "practicality": 60,
+              "coreAlignment": 50
             },
-            "oneSentenceSummary": "提出GN0统一范式，用于视觉语言导航的数据生成、评估与策略学习。",
-            "summaryCn": "构建大规模GN-Matrix数据集，基于3DGS引擎的高保真模拟平台支持交互式漫游和碰撞感知导航。提出BEV基准GN-Bench，引入动态3DGS化身评估人机交互。开发RL导航基础模型BAE，结合监督学习和DAgger，实现自主导航与人类指令跟随。",
-            "whyImportant": "为VLN提供数据、平台、基准和基础模型，推动该领域发展。",
+            "oneSentenceSummary": "统一生成、评估、策略学习的视觉语言导航范式",
+            "summaryCn": "利用3DGS引擎构建高保真模拟器，提出GN-Bench基准和Break-and-Establish导航基础模型，支持动态人机交互。",
+            "whyImportant": "首个BEV基准及交互评估，推动VLN基础模型。",
             "reasonTags": [
               "视觉语言导航",
-              "数据生成",
-              "模拟平台",
+              "3DGS模拟",
               "基础模型"
             ],
             "innovationPoints": [
-              "自动管线生成大规模导航数据集GN-Matrix。",
-              "基于3DGS的高保真仿真与基准GN-Bench。",
-              "提出BAE导航基础模型，结合RL与半监督学习。"
+              "3DGS引擎高保真模拟",
+              "BEV基准与动态虚拟人",
+              "RL驱动的导航基础模型"
             ],
-            "noveltyVerdict": "集成数据、仿真和策略为一体，系统性强，创新性中等偏高。",
+            "noveltyVerdict": "集成生成与评估，较为新颖",
             "duplicateRisk": "low",
-            "dedupeNote": "与其他VLN工作互补，提供开放平台与基准，非单纯模型改进。",
+            "dedupeNote": "专注于导航，与操作类VLA不同场景",
             "retrievalGroups": [
               "robotics"
             ],
@@ -2526,210 +2549,38 @@ window.PAPERS_SITE_DATA = {
               "cs.RO",
               "cs.LG"
             ],
-            "score": 80,
+            "score": 65,
             "importanceLevel": "B",
             "lane": "WAM",
             "dimensionScores": {
-              "relevance": 63,
-              "novelty": 75,
-              "impact": 55,
-              "practicality": 65,
-              "coreAlignment": 24
+              "relevance": 60,
+              "novelty": 50,
+              "impact": 50,
+              "practicality": 30,
+              "coreAlignment": 60
             },
-            "oneSentenceSummary": "提出3D等视域世界模型，建模城市导航中的开放体积几何。",
-            "summaryCn": "具身导航世界模型通常预测外观，而非对运动关键的可行走空间。本文提出建模建筑物间的负空间，编码为3D等视域（球形可视深度图）。模型预测从特定视点可见的几何形态，揭示城市结构签名。实验展示其导航预测能力，超越外观模型。",
-            "whyImportant": "以物理可行走几何为目标，为导航提供更直接的世界模型。",
+            "oneSentenceSummary": "用3D等视域图建模城市可导航空间，揭示跨城几何签名",
+            "summaryCn": "提出3D等视域世界模型，记录建筑间开放空间的距离信息，避免外观依赖，捕获三维可导航几何结构。",
+            "whyImportant": "为导航智能体提供不依赖外观的空间表示。",
             "reasonTags": [
               "世界模型",
-              "3D等视域",
-              "导航",
-              "城市几何"
+              "等视域",
+              "导航几何"
             ],
             "innovationPoints": [
-              "提出3D等视域表示，关注导航所必需的几何信息。",
-              "预测负空间而非外观，降低线性。",
-              "发现跨城市几何签名。"
+              "3D等视域表示",
+              "无光度纠缠",
+              "跨城几何模式"
             ],
-            "noveltyVerdict": "从导航视角重新定义世界模型目标，创新性较高。",
+            "noveltyVerdict": "在导航空间表示上有创新，但作用有限",
             "duplicateRisk": "low",
-            "dedupeNote": "与传统预测外观的世界模型不同，聚焦几何可行走空间，非对手。",
+            "dedupeNote": "独特的世界表示，不同于视觉预测型世界模型",
             "retrievalGroups": [
               "robotics"
             ],
             "mergedCount": 1,
             "mergedTitles": [
               "A 3D Isovist World Model -- Revealing a City's Unseen Geometry and Its Emergent Cross-City Signature"
-            ]
-          },
-          {
-            "id": "2606.03847v1",
-            "title": "Denoising Tells When to Replan: Denoising-Variance Adaptive Chunking for Flow-Based Robot Policies",
-            "summary": "Action chunking has become a common inference strategy for flow-based robot policies, improving action coherence by modeling multi-step temporal dependencies in demonstrations. However, the execution horizon is still typically set as an empirical fixed value, overlooking that predictable free-space motions and precision-critical interact…",
-            "summaryRaw": "Action chunking has become a common inference strategy for flow-based robot policies, improving action coherence by modeling multi-step temporal dependencies in demonstrations. However, the execution horizon is still typically set as an empirical fixed value, overlooking that predictable free-space motions and precision-critical interaction phases often require different replanning frequencies. In this work, we first show that the denoising process of flow-based policies contains an intrinsic signal of task phases: clean-action estimates remain stable during predictable motion phases, but fluctuate more strongly around contact-rich or precision-sensitive operations. Motivated by this observation, we propose DVAC (Denoising-Variance Adaptive Chunking), a test-time method that adaptively determines how many actions to execute from each predicted chunk. DVAC measures the variance of clean-action estimates over the final denoising steps, executes the stable low-variance prefix, and replans before high-variance future actions are committed. To transfer across tasks and rollouts, DVAC further calibrates the threshold with a rolling estimate of the local variance scale. Experiments on LIBERO, RoboTwin, CALVIN, and real-world manipulation show that DVAC improves task success while reducing replanning frequency. With a $π_{0.5}$-based policy, DVAC improves LIBERO success from 94.75% to 98.00% and reduces replanning by 43.0%, while also yielding aggregate gains on RoboTwin and CALVIN and improving real-world execution efficiency.",
-            "link": "https://arxiv.org/abs/2606.03847v1",
-            "pdfLink": "https://arxiv.org/pdf/2606.03847v1",
-            "published": "2026-06-02T16:26:32Z",
-            "updated": "2026-06-02T16:26:32Z",
-            "authors": [
-              "Xiangdong Feng",
-              "Yuxuan Cheng",
-              "Chen Shi",
-              "Boyao Han",
-              "Yuxuan Yan",
-              "Yitong Hong",
-              "Zhuotao Tian",
-              "Li Jiang"
-            ],
-            "categories": [
-              "cs.RO"
-            ],
-            "score": 69,
-            "importanceLevel": "B",
-            "lane": "Robotics",
-            "dimensionScores": {
-              "relevance": 68,
-              "novelty": 78,
-              "impact": 60,
-              "practicality": 75,
-              "coreAlignment": 60
-            },
-            "oneSentenceSummary": "利用去噪方差自适应调整动作块大小，提升流式机器人策略效率。",
-            "summaryCn": "流式策略通常固定动作块长度，忽略不同任务阶段对重规划频率的需求差异。本文发现去噪过程中干净动作估计的方差变化与任务阶段相关，可预测时稳定，关键操作时波动大。提出DVAC，测试时根据去噪方差自适应决定执行多少动作，无需训练。",
-            "whyImportant": "以去噪方差为信号，自适应调整策略执行，方法简单有效。",
-            "reasonTags": [
-              "动作块",
-              "流式策略",
-              "去噪方差",
-              "自适应"
-            ],
-            "innovationPoints": [
-              "发现去噪方差与任务阶段的内在联系。",
-              "提出无训练的自适应动作块方法DVAC。",
-              "适用于多数流式策略。"
-            ],
-            "noveltyVerdict": "发现并利用去噪方差信号，思路新颖，方法简单。",
-            "duplicateRisk": "low",
-            "dedupeNote": "对于固定块策略的改进，与其他工作互补，不冲突。",
-            "retrievalGroups": [
-              "robotics"
-            ],
-            "mergedCount": 1,
-            "mergedTitles": [
-              "Denoising Tells When to Replan: Denoising-Variance Adaptive Chunking for Flow-Based Robot Policies"
-            ]
-          },
-          {
-            "id": "2606.03834v1",
-            "title": "Let the Dynamics Flow: Stable Flow Matching Dynamical Systems",
-            "summary": "Flow matching has recently emerged as a powerful approach for imitation learning, enabling scalable, expressive, and multimodal motion policies. However, incorporating formal stability guarantees into these generative models, a prerequisite to ensure safe and generalizable robot behaviors, remains a significant challenge.",
-            "summaryRaw": "Flow matching has recently emerged as a powerful approach for imitation learning, enabling scalable, expressive, and multimodal motion policies. However, incorporating formal stability guarantees into these generative models, a prerequisite to ensure safe and generalizable robot behaviors, remains a significant challenge. While modeling robot motions as dynamical systems allows for such stability-based inductive biases, existing frameworks struggle to capture the rich action distributions inherent in complex robotic tasks. This paper introduces Stable Flow Matching Dynamical Systems (SFMDS), a novel framework that bridges the gap between high-capacity generative modeling and formal Lyapunov stability guarantees. SFMDS parametrizes dynamical systems via flow matching while simultaneously constraining the model to a family of stable solutions. We propose two variants: a soft constraint based on a penalty term, and a hard structural constraint embedded directly in the model architecture. We further extend both formulations to Lie groups. Experiments on benchmark datasets, in simulation, and on a humanoid robot show that SFMDS learns stable, scalable, and multimodal dynamical systems in low- and high-dimensional state spaces, enabling safe and expressive robot motion generation.",
-            "link": "https://arxiv.org/abs/2606.03834v1",
-            "pdfLink": "https://arxiv.org/pdf/2606.03834v1",
-            "published": "2026-06-02T16:17:26Z",
-            "updated": "2026-06-02T16:17:26Z",
-            "authors": [
-              "Rodrigo Pérez-Dattari",
-              "Francisco Leiva",
-              "Andrea Testa",
-              "Leonel Rozo",
-              "Javier Ruiz del Solar",
-              "Noémie Jaquier"
-            ],
-            "categories": [
-              "cs.RO"
-            ],
-            "score": 68,
-            "importanceLevel": "B",
-            "lane": "Robotics",
-            "dimensionScores": {
-              "relevance": 65,
-              "novelty": 80,
-              "impact": 55,
-              "practicality": 60,
-              "coreAlignment": 60
-            },
-            "oneSentenceSummary": "提出稳定流匹配动力系统，将生成式策略与李雅普诺夫稳定性结合。",
-            "summaryCn": "流匹配在模仿学习中有力，但缺乏稳定性保证。本文提出SFMDS，通过流匹配参数化动力系统，同时约束模型为稳定解决方案族。提出软约束与硬约束两种变体，确保机器人运动收敛到目标点。在多种操作任务中验证，实现安全、可泛化行为。",
-            "whyImportant": "首次将形式稳定性保证融入流匹配策略，提升安全性。",
-            "reasonTags": [
-              "流匹配",
-              "稳定性",
-              "模仿学习",
-              "动力学系统"
-            ],
-            "innovationPoints": [
-              "将李雅普诺夫稳定性约束引入流匹配生成模型。",
-              "提出软硬两种约束方案。",
-              "实现安全且可泛化的机器人行为。"
-            ],
-            "noveltyVerdict": "结合生成模型与稳定理论，创新性强，填补空白。",
-            "duplicateRisk": "low",
-            "dedupeNote": "与普通流匹配策略不同，加入稳定性保证，面向安全关键任务。",
-            "retrievalGroups": [
-              "robotics"
-            ],
-            "mergedCount": 1,
-            "mergedTitles": [
-              "Let the Dynamics Flow: Stable Flow Matching Dynamical Systems"
-            ]
-          }
-        ],
-        "vla": [
-          {
-            "id": "2606.03784v1",
-            "title": "Revisiting Embodied Chain-of-Thought for Generalizable Robot Manipulation",
-            "summary": "Embodied chain-of-thought (CoT) aims to bridge linguistic reasoning and robotic control, but its effective form and integration strategy remain underexplored. In this paper, we revisit embodied CoT for vision-language-action (VLA) models at large scale.",
-            "summaryRaw": "Embodied chain-of-thought (CoT) aims to bridge linguistic reasoning and robotic control, but its effective form and integration strategy remain underexplored. In this paper, we revisit embodied CoT for vision-language-action (VLA) models at large scale. We construct the largest embodied CoT corpus to date, comprising 978,743 trajectories, 226.3M samples, and 2592.5 hours of robot data. Through extensive experiments, we find that effective embodied CoT should ground high-level semantic understanding into concrete action guidance, such as end-effector movement descriptions and image-space trajectories, while high-level reasoning alone brings only marginal gains. We further show that explicit CoT does not scale reliably when used as an autoregressive action prefix, as it suffers from compounding inference errors and unstable reasoning-action coupling. To address these limitations, we propose ERVLA, a VLA model that uses embodied CoT as representation-shaping supervision rather than mandatory test-time reasoning. ERVLA is trained with a reasoning-dropout strategy, enabling the model to absorb rich reasoning traces during training while predicting actions directly without CoT decoding during inference. This design improves scalability with increasing pre-training data and avoids autoregressive instability. ERVLA achieves state-of-the-art performance on LIBERO-Plus with an 86.9% success rate and reaches 53.2% success rate on VLABench, demonstrating strong out-of-distribution generalization. In real-robot experiments, ERVLA further outperforms competitive state-of-the-art baselines, especially on tasks requiring semantic disambiguation and long-horizon execution. Code, data, and model checkpoints will be released.",
-            "link": "https://arxiv.org/abs/2606.03784v1",
-            "pdfLink": "https://arxiv.org/pdf/2606.03784v1",
-            "published": "2026-06-02T15:37:59Z",
-            "updated": "2026-06-02T15:37:59Z",
-            "authors": [
-              "Nan Sun",
-              "Yuan Zhang",
-              "Yongkun Yang",
-              "Wentao Zhao",
-              "Peiyan Li",
-              "Jun Guo",
-              "Wenxuan Song",
-              "Pengxiang Ding"
-            ],
-            "categories": [
-              "cs.RO"
-            ],
-            "score": 95,
-            "importanceLevel": "S",
-            "lane": "VLA",
-            "dimensionScores": {
-              "relevance": 94,
-              "novelty": 90,
-              "impact": 92,
-              "practicality": 85,
-              "coreAlignment": 96
-            },
-            "oneSentenceSummary": "重新审视具身思维链，提出有效形式与集成策略，提升VLA模型泛化性。",
-            "summaryCn": "构建最大具身思维链语料库，含97.8万轨迹、2.26亿样本。发现有效思维链应将高层语义转化为具体动作指引（如末端运动、图像轨迹），仅高层推理增益有限。揭示显式思维链的自回归前缀扩展不可靠，存在推理误差累积与不稳定耦合。提出新方案解决，大规模验证。",
-            "whyImportant": "迄今最大具身CoT研究，揭示有效形式与缩放问题，推动VLA泛化。",
-            "reasonTags": [
-              "具身思维链",
-              "VLA模型",
-              "泛化能力",
-              "大规模语料"
-            ],
-            "innovationPoints": [
-              "构建最大具身思维链语料库，规模空前。",
-              "发现有效具身思维链应落地为具体动作引导，而非仅高层推理。",
-              "识别并解决显式思维链的自回归扩展缺陷。"
-            ],
-            "noveltyVerdict": "在大规模下重新审视并推进具身思维链，创新性强。",
-            "duplicateRisk": "low",
-            "dedupeNote": "与其他VLA工作不同，专注于思维链的重新设计与规模化，非单纯模型结构创新。",
-            "retrievalGroups": [
-              "robotics"
-            ],
-            "mergedCount": 1,
-            "mergedTitles": [
-              "Revisiting Embodied Chain-of-Thought for Generalizable Robot Manipulation"
             ]
           },
           {
@@ -2752,37 +2603,35 @@ window.PAPERS_SITE_DATA = {
               "Yandong Guo"
             ],
             "categories": [
-              "cs.RO",
               "cs.AI",
-              "cs.CV"
+              "cs.CV",
+              "cs.RO"
             ],
-            "score": 85,
-            "importanceLevel": "A",
+            "score": 70,
+            "importanceLevel": "B",
             "lane": "VLA",
             "dimensionScores": {
-              "relevance": 88,
-              "novelty": 85,
-              "impact": 80,
-              "practicality": 75,
-              "coreAlignment": 90
+              "relevance": 85,
+              "novelty": 30,
+              "impact": 55,
+              "practicality": 40,
+              "coreAlignment": 85
             },
-            "oneSentenceSummary": "提出阶段感知与语义经验回放框架，缓解VLA持续学习中的灾难性遗忘。",
-            "summaryCn": "VLA在开放环境持续学习新技能时面临灾难性遗忘。传统经验回放均匀采样忽视操作轨迹的时间特性，导致关键子技能采样不足和阶段饥饿。PHASER通过阶段中心容量分配确保所有子技能获得均等记忆支持，并结合语义重放策略，有效缓解遗忘，架构无关且可复用。",
-            "whyImportant": "针对VLA持续学习中的关键遗忘问题，提出架构无关的解决框架。",
+            "oneSentenceSummary": "面向VLA的持续学习框架，缓解灾难性遗忘",
+            "summaryCn": "PHASER根据操作阶段分配记忆容量，结合语义重放，保证各子技能均衡训练，解决VLA持续学习中的遗忘问题。",
+            "whyImportant": "解决VLA持续学习瓶颈，使模型能渐进掌握新技能。",
             "reasonTags": [
               "持续学习",
-              "灾难性遗忘",
-              "VLA",
-              "经验回放"
+              "经验重放",
+              "灾难性遗忘"
             ],
             "innovationPoints": [
-              "阶段感知的记忆容量分配策略，避免关键子技能被忽略。",
-              "语义经验选择机制，提升回放样本效率。",
-              "架构无关设计，可适配多种VLA模型。"
+              "阶段感知记忆分配",
+              "语义重放策略"
             ],
-            "noveltyVerdict": "在VLA持续学习上提出新颖的阶段感知方法，创新性较高。",
-            "duplicateRisk": "low",
-            "dedupeNote": "非VLA通用架构改进，专注持续学习问题，与其他工作互补。",
+            "noveltyVerdict": "在VLA持续学习场景中有针对性创新",
+            "duplicateRisk": "medium",
+            "dedupeNote": "专门针对VLA操作任务的分阶段特性设计",
             "retrievalGroups": [
               "robotics"
             ],
@@ -2792,58 +2641,58 @@ window.PAPERS_SITE_DATA = {
             ]
           },
           {
-            "id": "2606.03556v1",
-            "title": "Partially Observable Adversarial Patch Attacks on Vision-Language-Action Models in Robotics",
-            "summary": "Vision-language-action (VLA) models are gaining attention in robotics, yet their robustness to adversarial attacks remains largely unexplored. Existing work shows that adversarial patches can mislead VLA-based robots but assumes full access to the entire execution trajectory, an unrealistic requirement in practice.",
-            "summaryRaw": "Vision-language-action (VLA) models are gaining attention in robotics, yet their robustness to adversarial attacks remains largely unexplored. Existing work shows that adversarial patches can mislead VLA-based robots but assumes full access to the entire execution trajectory, an unrealistic requirement in practice. We address this limitation by formulating a partially observable threat model, where the adversary can exploit only a short prefix of the trajectory to generate a fixed patch applied to all subsequent frames. Under this setting, we propose a two-phase framework. First, we localize the patch using the model's attention maps to identify visually critical regions that correspond to the full instruction. Then, we optimize the patch to disrupt the semantic grounding of target objects and increase the curvature of action trajectories, thereby compounding failures in both perception and control. Extensive experiments in simulation and real-world robotic environments show that our method sustains adversarial effects under partial observability, inducing long-horizon disruptions and significantly reducing task success rates.",
-            "link": "https://arxiv.org/abs/2606.03556v1",
-            "pdfLink": "https://arxiv.org/pdf/2606.03556v1",
-            "published": "2026-06-02T12:19:28Z",
-            "updated": "2026-06-02T12:19:28Z",
+            "id": "2606.03240v1",
+            "title": "GeoAlign: Beyond Semantics with State-Guided Spatial Alignment in VLA Models",
+            "summary": "Current Vision--Language--Action (VLA) models often optimize for semantic grounding, whereas executable manipulation requires geometry-aware spatial alignment and dynamic affordance selection. We introduce GeoAlign, a state-guided spatial alignment architecture for VLA policy learning.",
+            "summaryRaw": "Current Vision--Language--Action (VLA) models often optimize for semantic grounding, whereas executable manipulation requires geometry-aware spatial alignment and dynamic affordance selection. We introduce GeoAlign, a state-guided spatial alignment architecture for VLA policy learning. GeoAlign post-trains an RGB geometry branch with robot-domain RGB-D supervision, yielding RGB-derived Geometry-Enhanced Post-Trained (GEP) features for policy rollout. The robot's proprioceptive state queries the GEP feature grid, producing compact, phase-dependent geometry tokens for action prediction. GeoAlign achieves 99.0% on LIBERO, 85.3% across three SimplerEnv-Fractal tasks, and 78.8% on eight geometry-critical real-world ALOHA tasks, with ablations confirming the value of geometry post-training and proprioceptive-state-guided querying.",
+            "link": "https://arxiv.org/abs/2606.03240v1",
+            "pdfLink": "https://arxiv.org/pdf/2606.03240v1",
+            "published": "2026-06-02T07:01:18Z",
+            "updated": "2026-06-02T07:01:18Z",
             "authors": [
-              "Xiaofei Wang",
-              "Mingliang Han",
-              "Tianyu Hao",
-              "Yi Yang",
-              "Yun-Bo Zhao",
-              "Keke Tang"
+              "Yizhi Chen",
+              "Zhanxiang Cao",
+              "Xinyi Peng",
+              "Yixiao Zheng",
+              "Xiaxi Si",
+              "Yiheng Li",
+              "Liyun Yan",
+              "Keqi Zhu"
             ],
             "categories": [
               "cs.RO"
             ],
-            "score": 78,
+            "score": 60,
             "importanceLevel": "B",
             "lane": "VLA",
             "dimensionScores": {
               "relevance": 75,
-              "novelty": 80,
-              "impact": 65,
-              "practicality": 60,
-              "coreAlignment": 70
+              "novelty": 30,
+              "impact": 45,
+              "practicality": 40,
+              "coreAlignment": 80
             },
-            "oneSentenceSummary": "提出部分可观测下的对抗贴片攻击框架，揭示VLA模型鲁棒性漏洞。",
-            "summaryCn": "针对VLA模型在机器人执行中可能受对抗攻击的问题，考虑实际中攻击者仅能观察轨迹前缀的限制，设计两阶段攻击框架。利用注意力图定位关键区域，优化贴片以破坏语义对齐并增加动作轨迹曲率，导致感知和动作失效。实验证明威胁，为安全研究提供基准。",
-            "whyImportant": "首次在部分可观测威胁模型下攻击VLA，揭示安全风险。",
+            "oneSentenceSummary": "状态引导的空间对齐提升VLA几何推理",
+            "summaryCn": "GeoAlign通过RGB-D后训练几何分支，以本体状态查询生成紧凑几何令牌，增强VLA对空间关系的理解。",
+            "whyImportant": "补齐VLA空间推理短板，提升精度。",
             "reasonTags": [
-              "对抗攻击",
-              "VLA模型",
-              "鲁棒性",
-              "安全"
+              "空间对齐",
+              "几何增强",
+              "状态引导"
             ],
             "innovationPoints": [
-              "部分可观测威胁模型更贴近实际部署场景。",
-              "基于注意力的贴片定位，精准攻击关键区域。",
-              "同时破坏感知与动作的联合优化目标。"
+              "RGB几何分支后训练",
+              "状态引导的几何令牌"
             ],
-            "noveltyVerdict": "将对抗攻击引入VLA并考虑实际约束，有一定新意。",
+            "noveltyVerdict": "针对VLA空间能力的改进，有一定创新",
             "duplicateRisk": "low",
-            "dedupeNote": "与众不同在部分可观测假设，非全轨迹攻击，更贴近真实威胁场景。",
+            "dedupeNote": "独特地结合几何后训练与状态查询，与其他VLA方法互补",
             "retrievalGroups": [
               "robotics"
             ],
             "mergedCount": 1,
             "mergedTitles": [
-              "Partially Observable Adversarial Patch Attacks on Vision-Language-Action Models in Robotics"
+              "GeoAlign: Beyond Semantics with State-Guided Spatial Alignment in VLA Models"
             ]
           },
           {
@@ -2859,33 +2708,31 @@ window.PAPERS_SITE_DATA = {
               "Jianwei Tai"
             ],
             "categories": [],
-            "score": 72,
+            "score": 55,
             "importanceLevel": "B",
             "lane": "VLA",
             "dimensionScores": {
-              "relevance": 70,
-              "novelty": 75,
-              "impact": 55,
-              "practicality": 70,
-              "coreAlignment": 65
+              "relevance": 60,
+              "novelty": 40,
+              "impact": 30,
+              "practicality": 50,
+              "coreAlignment": 70
             },
-            "oneSentenceSummary": "揭示VLA部署中因动作反规范化差异导致的安全差距，提出可执行策略规范。",
-            "summaryCn": "相同权重、提示和基准的VLA策略在不同机器人上可能产生不同可执行动作，因动作反规范化和控制器约定。这导致安全审查可能漏掉实机风险。论文形式化此问题为可执行策略规范，并针对分位数动作规范化推导闭式元数据失配变换，提出可执行策略等价性检查器。",
-            "whyImportant": "关注VLA部署安全，揭示容易被忽视的元数据不一致风险。",
+            "oneSentenceSummary": "揭示VLA部署安全漏洞：同一权重因反归一化导致不同动作",
+            "summaryCn": "指出VLA策略在部署时，由于动作反归一化和控制器约定，相同输入可产生不同物理动作，提出安全评估框架。",
+            "whyImportant": "提醒安全性审视不能仅依赖权重检验，需考虑部署差异。",
             "reasonTags": [
-              "VLA部署",
-              "安全",
-              "动作规范化",
-              "可执行策略"
+              "部署安全",
+              "动作反归一化",
+              "策略等价性"
             ],
             "innovationPoints": [
-              "识别并形式化VLA可执行策略规范问题。",
-              "提出元数据失配的数学变换，量化差异。",
-              "提供安全检查工具，增强部署可靠性。"
+              "提出可执行策略规范问题",
+              "推导反归一化变换关系"
             ],
-            "noveltyVerdict": "从系统安全视角切入VLA，视角新颖，但方法创新度中等。",
+            "noveltyVerdict": "揭示一个重要但被忽视的安全问题，思路新颖",
             "duplicateRisk": "low",
-            "dedupeNote": "与其他VLA工作不同，聚焦部署层面而非模型训练或架构。",
+            "dedupeNote": "聚焦VLA部署的安全视角，与其他方法不同",
             "retrievalGroups": [
               "robotics"
             ],
@@ -2895,7 +2742,396 @@ window.PAPERS_SITE_DATA = {
             ]
           }
         ],
+        "vla": [
+          {
+            "id": "2606.03392v1",
+            "title": "OpenEAI-Platform: An Open-source Embodied Artificial Intelligence Hardware-Software Unified Platform",
+            "summary": "Embodied AI in the real world requires both accurate hardware and robust vision-language-action (VLA) policies. We present OpenEAI-Platform, a fully open-source platform that integrates a low-cost 6+1 degree-of-freedom (dof) robotic arm (OpenEAI-Arm) and a reproducible VLA model (OpenEAI-VLA).",
+            "summaryRaw": "Embodied AI in the real world requires both accurate hardware and robust vision-language-action (VLA) policies. We present OpenEAI-Platform, a fully open-source platform that integrates a low-cost 6+1 degree-of-freedom (dof) robotic arm (OpenEAI-Arm) and a reproducible VLA model (OpenEAI-VLA). OpenEAI-Arm provides open-source mechanical designs for low manufacturing cost and compliant control methods for higher accuracy. OpenEAI-VLA builds on Qwen3-VL-4B and uses a Diffusion Transformer action head, and is trained in two stages with only open-source robot and multimodal datasets. Across four real-world manipulation tasks, OpenEAI-Arm outperforms two commercial 6+1-dof arms under the same policy, and OpenEAI-VLA achieves success rates comparable to the large-scale pretrained pi0 baseline with only limited pretraining data. We will release the full hardware designs, drivers, models, and training/data pipelines to support reproducible research and scalable data collection. Our codes, layouts, and models will be released after the paper is accepted.",
+            "link": "https://arxiv.org/abs/2606.03392v1",
+            "pdfLink": "https://arxiv.org/pdf/2606.03392v1",
+            "published": "2026-06-02T09:34:08Z",
+            "updated": "2026-06-02T09:34:08Z",
+            "authors": [
+              "Jinyuan Zhang",
+              "Luoyi Fan",
+              "Leiyu Wang",
+              "Yeqiang Wang",
+              "Yicheng Zhu",
+              "Cewu Lu",
+              "Nanyang Ye"
+            ],
+            "categories": [
+              "cs.RO"
+            ],
+            "score": 85,
+            "importanceLevel": "A",
+            "lane": "VLA",
+            "dimensionScores": {
+              "relevance": 90,
+              "novelty": 20,
+              "impact": 80,
+              "practicality": 95,
+              "coreAlignment": 95
+            },
+            "oneSentenceSummary": "开源具身智能平台，集成低成本机械臂与VLA模型",
+            "summaryCn": "OpenEAI-Platform提供开源6+1自由度机械臂与基于Qwen3-VL-4B的VLA模型，仅用开源数据训练，实际任务成功率可比肩大规模预训练基准pi0。",
+            "whyImportant": "开源平台降低具身AI门槛，促进VLA社区发展。",
+            "reasonTags": [
+              "开源平台",
+              "低成本机械臂",
+              "VLA模型"
+            ],
+            "innovationPoints": [
+              "低成本硬件设计",
+              "两阶段训练VLA模型",
+              "全开源生态"
+            ],
+            "noveltyVerdict": "工程集成创新，新颖度较低",
+            "duplicateRisk": "low",
+            "dedupeNote": "提供硬件-软件统一平台，与其他VLA方法互补",
+            "retrievalGroups": [
+              "robotics"
+            ],
+            "mergedCount": 1,
+            "mergedTitles": [
+              "OpenEAI-Platform: An Open-source Embodied Artificial Intelligence Hardware-Software Unified Platform"
+            ]
+          },
+          {
+            "id": "2606.03784v1",
+            "title": "Revisiting Embodied Chain-of-Thought for Generalizable Robot Manipulation",
+            "summary": "Embodied chain-of-thought (CoT) aims to bridge linguistic reasoning and robotic control, but its effective form and integration strategy remain underexplored. In this paper, we revisit embodied CoT for vision-language-action (VLA) models at large scale.",
+            "summaryRaw": "Embodied chain-of-thought (CoT) aims to bridge linguistic reasoning and robotic control, but its effective form and integration strategy remain underexplored. In this paper, we revisit embodied CoT for vision-language-action (VLA) models at large scale. We construct the largest embodied CoT corpus to date, comprising 978,743 trajectories, 226.3M samples, and 2592.5 hours of robot data. Through extensive experiments, we find that effective embodied CoT should ground high-level semantic understanding into concrete action guidance, such as end-effector movement descriptions and image-space trajectories, while high-level reasoning alone brings only marginal gains. We further show that explicit CoT does not scale reliably when used as an autoregressive action prefix, as it suffers from compounding inference errors and unstable reasoning-action coupling. To address these limitations, we propose ERVLA, a VLA model that uses embodied CoT as representation-shaping supervision rather than mandatory test-time reasoning. ERVLA is trained with a reasoning-dropout strategy, enabling the model to absorb rich reasoning traces during training while predicting actions directly without CoT decoding during inference. This design improves scalability with increasing pre-training data and avoids autoregressive instability. ERVLA achieves state-of-the-art performance on LIBERO-Plus with an 86.9% success rate and reaches 53.2% success rate on VLABench, demonstrating strong out-of-distribution generalization. In real-robot experiments, ERVLA further outperforms competitive state-of-the-art baselines, especially on tasks requiring semantic disambiguation and long-horizon execution. Code, data, and model checkpoints will be released.",
+            "link": "https://arxiv.org/abs/2606.03784v1",
+            "pdfLink": "https://arxiv.org/pdf/2606.03784v1",
+            "published": "2026-06-02T15:37:59Z",
+            "updated": "2026-06-02T15:37:59Z",
+            "authors": [
+              "Nan Sun",
+              "Yuan Zhang",
+              "Yongkun Yang",
+              "Wentao Zhao",
+              "Peiyan Li",
+              "Jun Guo",
+              "Wenxuan Song",
+              "Pengxiang Ding"
+            ],
+            "categories": [
+              "cs.RO"
+            ],
+            "score": 88,
+            "importanceLevel": "A",
+            "lane": "VLA",
+            "dimensionScores": {
+              "relevance": 95,
+              "novelty": 40,
+              "impact": 75,
+              "practicality": 60,
+              "coreAlignment": 95
+            },
+            "oneSentenceSummary": "构建大规模具身CoT数据集，提出并行预测新范式",
+            "summaryCn": "构建含97.8万轨迹的具身CoT语料库，发现CoT应落地为动作引导，提出将CoT作为并行预测的新范式，解决自回归耦合误差问题。",
+            "whyImportant": "重新审视具身CoT，大规模实验指导VLA推理设计。",
+            "reasonTags": [
+              "具身CoT",
+              "大规模数据集",
+              "并行预测"
+            ],
+            "innovationPoints": [
+              "最大具身CoT数据集",
+              "发现CoT应提供动作引导",
+              "并行预测取代自回归前缀"
+            ],
+            "noveltyVerdict": "实验洞察具有创新性，方法有效",
+            "duplicateRisk": "low",
+            "dedupeNote": "聚焦CoT策略，与通用VLA方法不同",
+            "retrievalGroups": [
+              "robotics"
+            ],
+            "mergedCount": 1,
+            "mergedTitles": [
+              "Revisiting Embodied Chain-of-Thought for Generalizable Robot Manipulation"
+            ]
+          },
+          {
+            "id": "2606.03127v1",
+            "title": "TTT-VLA: Test-Time Latent Prompt Optimization for Vision-Language-Action Models",
+            "summary": "Vision-Language-Action (VLA) models trained on large-scale data have made remarkable progress, but they remain vulnerable to distribution shifts at deployment time. Recent VLA models suggest that prompts can serve as an efficient interface for steering policy behavior, but existing prompt-based steering typically relies on external guida…",
+            "summaryRaw": "Vision-Language-Action (VLA) models trained on large-scale data have made remarkable progress, but they remain vulnerable to distribution shifts at deployment time. Recent VLA models suggest that prompts can serve as an efficient interface for steering policy behavior, but existing prompt-based steering typically relies on external guidance. This raises a natural question: can test-time training (TTT) for VLA be achieved by optimizing a prompt, so that the steering interface itself can be learned and adapted from interaction? We address this question with TTT-VLA, a test-time training framework based on Latent Prompt Optimization (LPO). During training, the latent prompt is learned with an additional proxy task, providing an extra learned conditioning signal for policy learning. At test time, TTT is performed by collecting interaction data from the current environment and optimizing only the latent prompt on those data using the proxy task's self-supervised signal, without modifying the policy itself. Experiments on SimplerEnv demonstrate that the proposed method consistently improves task success rates in both single- and multi-embodiment settings. Further analysis shows that the gains arise primarily from correcting a small number of critical decisions rather than globally altering policy behavior. These results suggest that LPO provides an effective and practical pathway for deployment-time improvement of foundation manipulation policies.",
+            "link": "https://arxiv.org/abs/2606.03127v1",
+            "pdfLink": "https://arxiv.org/pdf/2606.03127v1",
+            "published": "2026-06-02T04:10:39Z",
+            "updated": "2026-06-02T04:10:39Z",
+            "authors": [
+              "Wenbo Zhang",
+              "Jianxiong Li",
+              "Shuai Yang",
+              "Sijin Chen",
+              "Jiajun Liu",
+              "Lingqiao Liu",
+              "Xiao Ma"
+            ],
+            "categories": [
+              "cs.RO"
+            ],
+            "score": 80,
+            "importanceLevel": "A",
+            "lane": "VLA",
+            "dimensionScores": {
+              "relevance": 80,
+              "novelty": 60,
+              "impact": 65,
+              "practicality": 70,
+              "coreAlignment": 90
+            },
+            "oneSentenceSummary": "测试时通过潜在提示优化实现VLA自适应",
+            "summaryCn": "TTT-VLA在训练时学习潜在提示作为额外条件，测试时仅优化提示参数以适应分布变化，无需更新整个模型。",
+            "whyImportant": "首次将测试时训练用于VLA，提升部署鲁棒性。",
+            "reasonTags": [
+              "测试时训练",
+              "潜在提示优化",
+              "自适应"
+            ],
+            "innovationPoints": [
+              "提出潜在提示优化训练",
+              "测试时仅优化提示进行适应",
+              "不修改模型权重"
+            ],
+            "noveltyVerdict": "新颖的测试时适应方法，有创新性",
+            "duplicateRisk": "low",
+            "dedupeNote": "专注于部署适应，与其他VLA训练方法正交",
+            "retrievalGroups": [
+              "robotics"
+            ],
+            "mergedCount": 1,
+            "mergedTitles": [
+              "TTT-VLA: Test-Time Latent Prompt Optimization for Vision-Language-Action Models"
+            ]
+          },
+          {
+            "id": "2606.03598v1",
+            "title": "PHASER: Phase-Aware and Semantic Experience Replay for Vision-Language-Action Models",
+            "summary": "Vision-Language-Action (VLA) models have achieved remarkable success in language-conditioned robotic manipulation. However, deploying these models in open-ended environments requires continuously acquiring novel skills, a process that inevitably triggers severe catastrophic forgetting of previously learned behaviors.",
+            "summaryRaw": "Vision-Language-Action (VLA) models have achieved remarkable success in language-conditioned robotic manipulation. However, deploying these models in open-ended environments requires continuously acquiring novel skills, a process that inevitably triggers severe catastrophic forgetting of previously learned behaviors. While experience replay (ER) serves as a standard mitigating strategy, naive uniform sampling fundamentally misaligns with the temporal characteristics of manipulation trajectories. It systematically under-samples brief but causally critical sub-skills, leading to phase starvation, and completely overlooks the varying degrees of forgetting across historical tasks. To overcome these limitations, we introduce PHASER, an architecture-agnostic continual learning framework. PHASER employs a phase-centric capacity allocation to guarantee equal memory support for all sub-skills, coupled with a multi-modal interference routing strategy that dynamically prioritizes historical phases at high risk of forgetting. Furthermore, to enable fully autonomous lifelong adaptation, we integrate Auto-PC, a lightweight pipeline combining unsupervised action-signal change-point detection with VLM-based semantic verification to extract temporal boundaries without intensive manual supervision. Evaluated across three VLA backbones on LIBERO continual learning suites, PHASER yields substantial empirical improvements, increasing Average Success Rate (ASR) by up to 31% over matched-budget ER and achieving an 87.8% final ASR on the LIBERO-Goal CL setting.",
+            "link": "https://arxiv.org/abs/2606.03598v1",
+            "pdfLink": "https://arxiv.org/pdf/2606.03598v1",
+            "published": "2026-06-02T13:04:15Z",
+            "updated": "2026-06-02T13:04:15Z",
+            "authors": [
+              "Ziyang Chen",
+              "Shaoguang Wang",
+              "Weiyu Guo",
+              "Qianyi Cai",
+              "He Zhang",
+              "Pengteng Li",
+              "Yiren Zhao",
+              "Yandong Guo"
+            ],
+            "categories": [
+              "cs.AI",
+              "cs.CV",
+              "cs.RO"
+            ],
+            "score": 70,
+            "importanceLevel": "B",
+            "lane": "VLA",
+            "dimensionScores": {
+              "relevance": 85,
+              "novelty": 30,
+              "impact": 55,
+              "practicality": 40,
+              "coreAlignment": 85
+            },
+            "oneSentenceSummary": "面向VLA的持续学习框架，缓解灾难性遗忘",
+            "summaryCn": "PHASER根据操作阶段分配记忆容量，结合语义重放，保证各子技能均衡训练，解决VLA持续学习中的遗忘问题。",
+            "whyImportant": "解决VLA持续学习瓶颈，使模型能渐进掌握新技能。",
+            "reasonTags": [
+              "持续学习",
+              "经验重放",
+              "灾难性遗忘"
+            ],
+            "innovationPoints": [
+              "阶段感知记忆分配",
+              "语义重放策略"
+            ],
+            "noveltyVerdict": "在VLA持续学习场景中有针对性创新",
+            "duplicateRisk": "medium",
+            "dedupeNote": "专门针对VLA操作任务的分阶段特性设计",
+            "retrievalGroups": [
+              "robotics"
+            ],
+            "mergedCount": 1,
+            "mergedTitles": [
+              "PHASER: Phase-Aware and Semantic Experience Replay for Vision-Language-Action Models"
+            ]
+          },
+          {
+            "id": "2606.03240v1",
+            "title": "GeoAlign: Beyond Semantics with State-Guided Spatial Alignment in VLA Models",
+            "summary": "Current Vision--Language--Action (VLA) models often optimize for semantic grounding, whereas executable manipulation requires geometry-aware spatial alignment and dynamic affordance selection. We introduce GeoAlign, a state-guided spatial alignment architecture for VLA policy learning.",
+            "summaryRaw": "Current Vision--Language--Action (VLA) models often optimize for semantic grounding, whereas executable manipulation requires geometry-aware spatial alignment and dynamic affordance selection. We introduce GeoAlign, a state-guided spatial alignment architecture for VLA policy learning. GeoAlign post-trains an RGB geometry branch with robot-domain RGB-D supervision, yielding RGB-derived Geometry-Enhanced Post-Trained (GEP) features for policy rollout. The robot's proprioceptive state queries the GEP feature grid, producing compact, phase-dependent geometry tokens for action prediction. GeoAlign achieves 99.0% on LIBERO, 85.3% across three SimplerEnv-Fractal tasks, and 78.8% on eight geometry-critical real-world ALOHA tasks, with ablations confirming the value of geometry post-training and proprioceptive-state-guided querying.",
+            "link": "https://arxiv.org/abs/2606.03240v1",
+            "pdfLink": "https://arxiv.org/pdf/2606.03240v1",
+            "published": "2026-06-02T07:01:18Z",
+            "updated": "2026-06-02T07:01:18Z",
+            "authors": [
+              "Yizhi Chen",
+              "Zhanxiang Cao",
+              "Xinyi Peng",
+              "Yixiao Zheng",
+              "Xiaxi Si",
+              "Yiheng Li",
+              "Liyun Yan",
+              "Keqi Zhu"
+            ],
+            "categories": [
+              "cs.RO"
+            ],
+            "score": 60,
+            "importanceLevel": "B",
+            "lane": "VLA",
+            "dimensionScores": {
+              "relevance": 75,
+              "novelty": 30,
+              "impact": 45,
+              "practicality": 40,
+              "coreAlignment": 80
+            },
+            "oneSentenceSummary": "状态引导的空间对齐提升VLA几何推理",
+            "summaryCn": "GeoAlign通过RGB-D后训练几何分支，以本体状态查询生成紧凑几何令牌，增强VLA对空间关系的理解。",
+            "whyImportant": "补齐VLA空间推理短板，提升精度。",
+            "reasonTags": [
+              "空间对齐",
+              "几何增强",
+              "状态引导"
+            ],
+            "innovationPoints": [
+              "RGB几何分支后训练",
+              "状态引导的几何令牌"
+            ],
+            "noveltyVerdict": "针对VLA空间能力的改进，有一定创新",
+            "duplicateRisk": "low",
+            "dedupeNote": "独特地结合几何后训练与状态查询，与其他VLA方法互补",
+            "retrievalGroups": [
+              "robotics"
+            ],
+            "mergedCount": 1,
+            "mergedTitles": [
+              "GeoAlign: Beyond Semantics with State-Guided Spatial Alignment in VLA Models"
+            ]
+          },
+          {
+            "id": "2606.03682v1",
+            "title": "GN0: Toward a Unified Paradigm for Generation, Evaluation, and Policy Learning in Visual-Language Navigation",
+            "summary": "Embodied navigation connects intelligent agents with the physical world and is fundamental for general robotic intelligence. Limited availability and quality of navigation data have constrained Vision-and-Language Navigation (VLN) systems' generalization and long-horizon capabilities.",
+            "summaryRaw": "Embodied navigation connects intelligent agents with the physical world and is fundamental for general robotic intelligence. Limited availability and quality of navigation data have constrained Vision-and-Language Navigation (VLN) systems' generalization and long-horizon capabilities. To address this, we curate diverse 3D scenes and develop an automated pipeline for large-scale navigation data, resulting in the GN-Matrix dataset. Building on a 3D Gaussian Splatting (3DGS) engine, we introduce a high-fidelity simulation platform supporting interactive roaming and collision-aware navigation. We further propose GN-Bench, the first BEV-based benchmark incorporating dynamic 3DGS avatars for human-robot interaction evaluation. To leverage the simulator, we develop an RL-driven navigation foundation model, Break and Establish (BAE). After supervised learning, DAgger exposes the model to rollout-induced states, breaking narrow expert-centric distributions and enabling downstream RL exploration. This unified VLN paradigm integrates map-based and map-free tasks, including instruction following, human following, and goal navigation. GN-BAE formalizes high-fidelity 3DGS-rendered Bird's Eye View representations as compact memory, unlocking latent spatial reasoning in VLMs. Extensive evaluations on GN-Bench and VLN-CE show that GN0 outperforms state-of-the-art VLN methods. Overall, GN-Matrix offers a unified framework spanning data, simulation, and learning, advancing embodied navigation in research and industrial applications.",
+            "link": "https://arxiv.org/abs/2606.03682v1",
+            "pdfLink": "https://arxiv.org/pdf/2606.03682v1",
+            "published": "2026-06-02T14:05:47Z",
+            "updated": "2026-06-02T14:05:47Z",
+            "authors": [
+              "Xinhai Li",
+              "Xiaotao Zhang",
+              "Yuehao Huang",
+              "Jiankun Dong",
+              "Tianhang Wang",
+              "Sunyao Zhou",
+              "Yunzi Wu",
+              "Chengnuo Sun"
+            ],
+            "categories": [
+              "cs.RO"
+            ],
+            "score": 82,
+            "importanceLevel": "A",
+            "lane": "Both",
+            "dimensionScores": {
+              "relevance": 70,
+              "novelty": 70,
+              "impact": 70,
+              "practicality": 60,
+              "coreAlignment": 50
+            },
+            "oneSentenceSummary": "统一生成、评估、策略学习的视觉语言导航范式",
+            "summaryCn": "利用3DGS引擎构建高保真模拟器，提出GN-Bench基准和Break-and-Establish导航基础模型，支持动态人机交互。",
+            "whyImportant": "首个BEV基准及交互评估，推动VLN基础模型。",
+            "reasonTags": [
+              "视觉语言导航",
+              "3DGS模拟",
+              "基础模型"
+            ],
+            "innovationPoints": [
+              "3DGS引擎高保真模拟",
+              "BEV基准与动态虚拟人",
+              "RL驱动的导航基础模型"
+            ],
+            "noveltyVerdict": "集成生成与评估，较为新颖",
+            "duplicateRisk": "low",
+            "dedupeNote": "专注于导航，与操作类VLA不同场景",
+            "retrievalGroups": [
+              "robotics"
+            ],
+            "mergedCount": 1,
+            "mergedTitles": [
+              "GN0: Toward a Unified Paradigm for Generation, Evaluation, and Policy Learning in Visual-Language Navigation"
+            ]
+          }
+        ],
         "wam": [
+          {
+            "id": "2606.03943v1",
+            "title": "PointAction: 3D Points as Universal Action Representations for Robot Control",
+            "summary": "Video-Action Models (VAMs) leverage the broad visual dynamics captured by pre-trained video diffusion models, offering a promising path toward generalizable robot manipulation. However, RGB-only video rollouts are not directly actionable: they leave metric 3D motion, contact geometry, and fine-grained spatial constraints under-specified,…",
+            "summaryRaw": "Video-Action Models (VAMs) leverage the broad visual dynamics captured by pre-trained video diffusion models, offering a promising path toward generalizable robot manipulation. However, RGB-only video rollouts are not directly actionable: they leave metric 3D motion, contact geometry, and fine-grained spatial constraints under-specified, making action grounding ambiguous. Meanwhile, scaling action supervision across diverse tasks and embodiments remains costly. We present PointAction, a framework that bridges video predictions to robot actions through explicit point-based 4D modeling. PointAction fine-tunes a foundation video generation model to jointly predict future RGB frames and dynamic 3D pointmaps, producing temporally consistent 3D motion of task-relevant scene geometry. These point dynamics serve as a structured, embodiment-agnostic action interface, which a diffusion-based action decoder maps to executable robot actions. By using metric 3D point dynamics as the interface between video prediction and control, PointAction reduces the ambiguity of RGB-only action grounding and supports transfer across tasks and embodiments with limited action supervision. Experiments show that PointAction achieves state-of-the-art 4D generation quality on robot scenes, outperforms existing baselines in simulation, and generalizes to two real robot arms unseen during pretraining.",
+            "link": "https://arxiv.org/abs/2606.03943v1",
+            "pdfLink": "https://arxiv.org/pdf/2606.03943v1",
+            "published": "2026-06-02T17:30:50Z",
+            "updated": "2026-06-02T17:30:50Z",
+            "authors": [
+              "Mutian Tong",
+              "Han Jiang",
+              "Qiao Feng",
+              "Lingjie Liu",
+              "Jiatao Gu"
+            ],
+            "categories": [
+              "cs.RO"
+            ],
+            "score": 85,
+            "importanceLevel": "A",
+            "lane": "WAM",
+            "dimensionScores": {
+              "relevance": 90,
+              "novelty": 80,
+              "impact": 70,
+              "practicality": 60,
+              "coreAlignment": 95
+            },
+            "oneSentenceSummary": "用3D点轨迹作为通用动作接口衔接视频预测与机器人控制",
+            "summaryCn": "PointAction微调基础视频生成模型，联合预测RGB帧和3D点云，将点动态作为具身无关动作表示，实现视频预测到动作的桥梁。",
+            "whyImportant": "首次用3D点云作为VAM与动作策略的纽带，解决动作模糊性。",
+            "reasonTags": [
+              "视频动作模型",
+              "3D点云",
+              "动作表示"
+            ],
+            "innovationPoints": [
+              "联合预测RGB和3D点云",
+              "点动态作为通用动作接口",
+              "微调视频基础模型"
+            ],
+            "noveltyVerdict": "新颖的4D点表示，创新性强",
+            "duplicateRisk": "medium",
+            "dedupeNote": "独特使用3D点云作为中间表示，区别于直接动作预测",
+            "retrievalGroups": [
+              "robotics"
+            ],
+            "mergedCount": 1,
+            "mergedTitles": [
+              "PointAction: 3D Points as Universal Action Representations for Robot Control"
+            ]
+          },
           {
             "id": "2606.03868v1",
             "title": "Unified Video-Action Joint Denoising for Dexterous Action and Data Generation",
@@ -2917,93 +3153,38 @@ window.PAPERS_SITE_DATA = {
             "categories": [
               "cs.CV"
             ],
-            "score": 82,
+            "score": 78,
             "importanceLevel": "A",
             "lane": "WAM",
             "dimensionScores": {
-              "relevance": 85,
-              "novelty": 88,
-              "impact": 75,
-              "practicality": 70,
-              "coreAlignment": 90
+              "relevance": 90,
+              "novelty": 80,
+              "impact": 60,
+              "practicality": 50,
+              "coreAlignment": 95
             },
-            "oneSentenceSummary": "提出统一视频-动作联合去噪模型，实现灵巧手动作策略与数据生成。",
-            "summaryCn": "从分布视角重新审视视频基础模型与机器人动作的对齐，提出统一视频-动作去噪模型Donk。在语言、首帧和手部初始条件下采样未来视频和双手MANO轨迹作为动作策略；无图像条件时，从文本条件分布采样配对视频-动作展开，将视频先验转化为数据引擎。灵巧操作任务验证。",
-            "whyImportant": "统一视频-动作联合建模，既做策略又做数据生成，扩展视频先验用途。",
+            "oneSentenceSummary": "统一视频-动作去噪模型，用于灵巧手动作生成与数据扩增",
+            "summaryCn": "Donk在潜在空间中联合去噪交互视频与可执行手动轨迹，可作为策略直接生成动作，也可作为数据引擎生成配对数据。",
+            "whyImportant": "统一去噪框架，兼具策略与数据引擎双重功能。",
             "reasonTags": [
-              "世界动作模型",
-              "视频-动作联合",
-              "灵巧操作",
+              "视频动作去噪",
+              "灵巧手",
               "数据生成"
             ],
             "innovationPoints": [
-              "联合分布建模而非条件分布，保留更广先验。",
-              "同一架构支持策略与数据生成双重用途。",
-              "将视频基础模型转化为灵巧手数据引擎。"
+              "联合视频-动作去噪",
+              "多条件采样",
+              "生成式数据引擎"
             ],
-            "noveltyVerdict": "在WAM中创新性地联合建模视频与动作，并实现多功能，创新性强。",
+            "noveltyVerdict": "统一去噪范式新颖，功能多样",
             "duplicateRisk": "medium",
-            "dedupeNote": "与PointAction不同，强调联合分布和灵巧手，非单纯点云动作表示。",
+            "dedupeNote": "同时考虑视频与动作的联合分布，区别于单一模态模型",
             "retrievalGroups": [
               "robotics"
             ],
             "mergedCount": 1,
             "mergedTitles": [
               "Unified Video-Action Joint Denoising for Dexterous Action and Data Generation"
-            ]
-          },
-          {
-            "id": "2606.03943v1",
-            "title": "PointAction: 3D Points as Universal Action Representations for Robot Control",
-            "summary": "Video-Action Models (VAMs) leverage the broad visual dynamics captured by pre-trained video diffusion models, offering a promising path toward generalizable robot manipulation. However, RGB-only video rollouts are not directly actionable: they leave metric 3D motion, contact geometry, and fine-grained spatial constraints under-specified,…",
-            "summaryRaw": "Video-Action Models (VAMs) leverage the broad visual dynamics captured by pre-trained video diffusion models, offering a promising path toward generalizable robot manipulation. However, RGB-only video rollouts are not directly actionable: they leave metric 3D motion, contact geometry, and fine-grained spatial constraints under-specified, making action grounding ambiguous. Meanwhile, scaling action supervision across diverse tasks and embodiments remains costly. We present PointAction, a framework that bridges video predictions to robot actions through explicit point-based 4D modeling. PointAction fine-tunes a foundation video generation model to jointly predict future RGB frames and dynamic 3D pointmaps, producing temporally consistent 3D motion of task-relevant scene geometry. These point dynamics serve as a structured, embodiment-agnostic action interface, which a diffusion-based action decoder maps to executable robot actions. By using metric 3D point dynamics as the interface between video prediction and control, PointAction reduces the ambiguity of RGB-only action grounding and supports transfer across tasks and embodiments with limited action supervision. Experiments show that PointAction achieves state-of-the-art 4D generation quality on robot scenes, outperforms existing baselines in simulation, and generalizes to two real robot arms unseen during pretraining.",
-            "link": "https://arxiv.org/abs/2606.03943v1",
-            "pdfLink": "https://arxiv.org/pdf/2606.03943v1",
-            "published": "2026-06-02T17:30:50Z",
-            "updated": "2026-06-02T17:30:50Z",
-            "authors": [
-              "Mutian Tong",
-              "Han Jiang",
-              "Qiao Feng",
-              "Lingjie Liu",
-              "Jiatao Gu"
-            ],
-            "categories": [
-              "cs.RO"
-            ],
-            "score": 70,
-            "importanceLevel": "B",
-            "lane": "WAM",
-            "dimensionScores": {
-              "relevance": 72,
-              "novelty": 82,
-              "impact": 60,
-              "practicality": 65,
-              "coreAlignment": 78
-            },
-            "oneSentenceSummary": "提出以3D点云作为通用动作表示，连接视频预测与机器人控制。",
-            "summaryCn": "视频动作模型利用视频扩散先验，但RGB预测无法直接执行。PointAction微调基础视频生成模型，联合预测未来RGB帧和动态3D点图，产生时空一致的任务相关几何运动。点动态作为结构化、具身无关的动作接口，再由扩散头解码为机器人动作。验证其在多种任务上的有效性。",
-            "whyImportant": "提出点云动作表示，为视频预测到机器人动作搭建桥梁。",
-            "reasonTags": [
-              "视频动作模型",
-              "点云表示",
-              "动作生成",
-              "机器人控制"
-            ],
-            "innovationPoints": [
-              "将点云作为通用动作表示融入视频生成。",
-              "联合预测RGB和3D点运动，时空一致。",
-              "扩散动作解码实现具身无关控制。"
-            ],
-            "noveltyVerdict": "点云动作表示新颖，但整体框架沿用视频动作模型范式。",
-            "duplicateRisk": "medium",
-            "dedupeNote": "与Donk不同，专注动作表示而非联合分布，且非灵巧手。",
-            "retrievalGroups": [
-              "robotics"
-            ],
-            "mergedCount": 1,
-            "mergedTitles": [
-              "PointAction: 3D Points as Universal Action Representations for Robot Control"
             ]
           },
           {
@@ -3026,33 +3207,32 @@ window.PAPERS_SITE_DATA = {
               "cs.RO",
               "cs.LG"
             ],
-            "score": 80,
+            "score": 65,
             "importanceLevel": "B",
             "lane": "WAM",
             "dimensionScores": {
-              "relevance": 63,
-              "novelty": 75,
-              "impact": 55,
-              "practicality": 65,
-              "coreAlignment": 24
+              "relevance": 60,
+              "novelty": 50,
+              "impact": 50,
+              "practicality": 30,
+              "coreAlignment": 60
             },
-            "oneSentenceSummary": "提出3D等视域世界模型，建模城市导航中的开放体积几何。",
-            "summaryCn": "具身导航世界模型通常预测外观，而非对运动关键的可行走空间。本文提出建模建筑物间的负空间，编码为3D等视域（球形可视深度图）。模型预测从特定视点可见的几何形态，揭示城市结构签名。实验展示其导航预测能力，超越外观模型。",
-            "whyImportant": "以物理可行走几何为目标，为导航提供更直接的世界模型。",
+            "oneSentenceSummary": "用3D等视域图建模城市可导航空间，揭示跨城几何签名",
+            "summaryCn": "提出3D等视域世界模型，记录建筑间开放空间的距离信息，避免外观依赖，捕获三维可导航几何结构。",
+            "whyImportant": "为导航智能体提供不依赖外观的空间表示。",
             "reasonTags": [
               "世界模型",
-              "3D等视域",
-              "导航",
-              "城市几何"
+              "等视域",
+              "导航几何"
             ],
             "innovationPoints": [
-              "提出3D等视域表示，关注导航所必需的几何信息。",
-              "预测负空间而非外观，降低线性。",
-              "发现跨城市几何签名。"
+              "3D等视域表示",
+              "无光度纠缠",
+              "跨城几何模式"
             ],
-            "noveltyVerdict": "从导航视角重新定义世界模型目标，创新性较高。",
+            "noveltyVerdict": "在导航空间表示上有创新，但作用有限",
             "duplicateRisk": "low",
-            "dedupeNote": "与传统预测外观的世界模型不同，聚焦几何可行走空间，非对手。",
+            "dedupeNote": "独特的世界表示，不同于视觉预测型世界模型",
             "retrievalGroups": [
               "robotics"
             ],
@@ -3064,10 +3244,10 @@ window.PAPERS_SITE_DATA = {
         ]
       },
       "dailyBrief": {
-        "overall": "今日亮点：具身思维链再审视（最大语料库）、VLA持续学习、对抗鲁棒性，以及WAM视频-动作联合建模与点云动作表示，兼顾部署安全与导航世界模型。",
-        "vla": "VLA核心进展：最大具身CoT语料（2606.03784）揭示有效形式；PHASER（2606.03598）缓解持续遗忘；新威胁模型下的对抗攻击（2606.03556）；部署安全形式化（2606.03724）。",
-        "wam": "WAM方向：Donk（2606.03868）统一视频-动作去噪，策略与数据生成双用途；PointAction（2606.03943）用3D点云桥接视频预测与动作；3D Isovist世界模型（2606.03609）揭示城市导航几何。",
-        "retrieval": "检索覆盖机器人操作、VLA策略、世界模型、导航、安全等主题，核心论文聚焦VLA与WAM前沿。"
+        "overall": "今日VLA与WAM领域有多项进展：大规模具身CoT数据集发布，测试时适应方法提升VLA鲁棒性，3D点动作接口衔接视频预测与机器人控制，统一去噪框架用于灵巧手操作。",
+        "vla": "VLA方向，大规模实验重新审视具身CoT，发现应提供动作引导而非高层推理；TTT-VLA实现测试时潜在提示优化；PHASER解决持续学习遗忘问题。",
+        "wam": "WAM方向，PointAction用3D点云作为通用动作表示；Unified Video-Action联合去噪模型兼具策略与数据生成功能；3D等视域世界模型建模可导航几何。",
+        "retrieval": "从robotics组候选论文中筛选出多篇VLA与WAM相关论文，涵盖策略学习、世界模型及部署安全等主题。"
       }
     },
     {
