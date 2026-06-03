@@ -1,4 +1,17 @@
 const PAGE_SIZE = 10;
+const BOARD_ORDER = ["overall", "vla", "wam"];
+const BOARD_LABELS = {
+  overall: "总榜",
+  vla: "VLA 榜",
+  wam: "WAM 榜",
+};
+const PREFERENCE_STORAGE_KEY = "paper-assistant-preferences";
+const DEFAULT_PREFERENCES = {
+  laneFocus: "balanced",
+  scenarioFocus: "balanced",
+  signalFocus: "balanced",
+  codeFocus: false,
+};
 
 const siteData = window.PAPERS_SITE_DATA || {
   generatedAt: null,
@@ -6,17 +19,39 @@ const siteData = window.PAPERS_SITE_DATA || {
   dateWindowDays: 7,
   categories: ["cs.RO", "cs.AI", "cs.CV", "cs.LG"],
   keywords: ["vision-language-action", "world action model", "robotics", "autonomous driving"],
+  boardOrder: BOARD_ORDER,
+  boardLabels: BOARD_LABELS,
+  scoreDimensions: {
+    relevance: "与 VLA/WAM/机器人/自动驾驶核心主题的相关程度",
+    novelty: "是否包含新任务、新模型、新基准或新训练范式",
+    impact: "是否具备基础性、统一性或潜在高影响力",
+    practicality: "是否有真实场景、真实机器人/驾驶或较强落地信号",
+    coreAlignment: "是否属于你最关心的 VLA 或 WAM 主航道工作",
+  },
   selectionMethod: "rule_based",
   modelInfo: null,
   batchWindow: null,
   currentDateKey: null,
+  paperSets: { overall: [], vla: [], wam: [] },
+  dailyBrief: {},
+  trendBrief: {
+    windowDays: 7,
+    dateRange: "",
+    overview: "正在生成趋势总览。",
+    hotspots: "正在生成热点摘要。",
+    vla: "正在生成 VLA 趋势。",
+    wam: "正在生成 WAM 趋势。",
+    watchlist: "正在生成连续跟踪建议。",
+  },
   archives: [],
 };
 
 const state = {
   currentPage: 1,
   query: "",
+  currentBoard: "overall",
   selectedDateKey: resolveInitialDateKey(),
+  preferences: loadPreferenceMemory(),
 };
 
 const paperCount = document.querySelector("#paper-count");
@@ -30,11 +65,29 @@ const selectionMethod = document.querySelector("#selection-method");
 const selectedDateTitle = document.querySelector("#selected-date-title");
 const selectedDateKey = document.querySelector("#selected-date-key");
 const selectedPaperCount = document.querySelector("#selected-paper-count");
+const boardSummary = document.querySelector("#board-summary");
 const archiveList = document.querySelector("#archive-list");
+const boardTabs = document.querySelector("#board-tabs");
+const scoreDimensions = document.querySelector("#score-dimensions");
+const preferenceSummary = document.querySelector("#preference-summary");
+const preferencePanel = document.querySelector("#preference-panel");
+const codePreference = document.querySelector("#code-preference");
+const resetPreferences = document.querySelector("#reset-preferences");
+const trendWindow = document.querySelector("#trend-window");
+const trendRange = document.querySelector("#trend-range");
+const trendOverview = document.querySelector("#trend-overview");
+const trendHotspots = document.querySelector("#trend-hotspots");
+const trendVla = document.querySelector("#trend-vla");
+const trendWam = document.querySelector("#trend-wam");
+const trendWatchlist = document.querySelector("#trend-watchlist");
 const paperList = document.querySelector("#paper-list");
 const emptyState = document.querySelector("#empty-state");
 const pagination = document.querySelector("#pagination");
 const searchInput = document.querySelector("#search-input");
+const dailyBriefOverall = document.querySelector("#daily-brief-overall");
+const dailyBriefVla = document.querySelector("#daily-brief-vla");
+const dailyBriefWam = document.querySelector("#daily-brief-wam");
+const dailyBriefRetrieval = document.querySelector("#daily-brief-retrieval");
 
 searchInput.addEventListener("input", (event) => {
   state.query = event.target.value.trim().toLowerCase();
@@ -42,42 +95,114 @@ searchInput.addEventListener("input", (event) => {
   render();
 });
 
+preferencePanel.addEventListener("click", (event) => {
+  const button = event.target.closest("[data-pref-group][data-pref-value]");
+  if (!button) {
+    return;
+  }
+  updatePreference(button.dataset.prefGroup, button.dataset.prefValue);
+});
+
+codePreference.addEventListener("change", (event) => {
+  updatePreference("codeFocus", event.target.checked);
+});
+
+resetPreferences.addEventListener("click", () => {
+  state.preferences = { ...DEFAULT_PREFERENCES };
+  savePreferenceMemory(state.preferences);
+  render();
+});
+
 function render() {
   const currentArchive = getCurrentArchive();
-  const papers = currentArchive?.papers || [];
-  const filtered = filterPapers(papers, state.query);
+  const paperSets = getPaperSets(currentArchive);
+  const currentBoard = applyPreferenceRanking(paperSets[state.currentBoard] || [], state.preferences);
+  const filtered = filterPapers(currentBoard, state.query);
   const totalPages = Math.max(1, Math.ceil(filtered.length / PAGE_SIZE));
   const currentPage = Math.min(state.currentPage, totalPages);
   const start = (currentPage - 1) * PAGE_SIZE;
   const visiblePapers = filtered.slice(start, start + PAGE_SIZE);
 
   state.currentPage = currentPage;
-  renderMeta(currentArchive, filtered.length);
+  renderMeta(currentArchive, paperSets, filtered.length);
+  renderDailyBrief(currentArchive);
+  renderScoreDimensions();
+  renderPreferenceMemory();
+  renderTrendBrief();
   renderArchiveList();
+  renderBoardTabs(currentArchive);
   renderPapers(visiblePapers, start);
   renderPagination(totalPages);
 }
 
-function renderMeta(currentArchive, filteredCount) {
+function renderMeta(currentArchive, paperSets, filteredCount) {
   const archives = getArchives();
-  const allPaperCount = archives.reduce((count, archive) => count + (archive.papers?.length || 0), 0);
-  const currentPaperCount = currentArchive?.papers?.length || 0;
+  const currentBoardPapers = paperSets[state.currentBoard] || [];
+  const totalOverall = archives.reduce((count, archive) => count + (getPaperSets(archive).overall.length || 0), 0);
 
-  paperCount.textContent = `${currentPaperCount}`;
+  paperCount.textContent = `${paperSets.overall.length}`;
   generatedAt.textContent = formatDateTime(siteData.generatedAt);
   selectionMethod.textContent = formatSelectionMethod(siteData.selectionMethod, siteData.modelInfo);
   pageTitle.textContent = currentArchive
-    ? `最新消息总结展示 · ${currentArchive.dateKey} Top 10`
-    : "最新消息总结展示";
-  metaDescription.textContent = `${siteData.description} 当前归档共 ${archives.length} 天，累计展示 ${allPaperCount} 篇，当前日期匹配 ${filteredCount} 篇。`;
+    ? `智能研究助理 · ${currentArchive.dateKey}`
+    : "智能研究助理";
+  metaDescription.textContent = `${siteData.description} 当前归档共 ${archives.length} 天，累计展示 ${totalOverall} 篇总榜论文，当前榜单匹配 ${filteredCount} 篇。`;
   summaryWindow.textContent = formatBatchWindow(siteData.batchWindow, siteData.dateWindowDays);
   summaryCategories.textContent = `重点分类：${(siteData.categories || []).join(" / ")}`;
   summaryKeywords.textContent = `关键词：${(siteData.keywords || []).join(" / ")}`;
   selectedDateTitle.textContent = currentArchive
-    ? `${currentArchive.dateKey} Top 10 论文`
-    : "当天 Top 10 论文";
+    ? `${currentArchive.dateKey} · ${getBoardLabel(state.currentBoard)}`
+    : `${getBoardLabel(state.currentBoard)}`;
   selectedDateKey.textContent = currentArchive?.dateLabel || "--";
-  selectedPaperCount.textContent = `${currentPaperCount} 篇`;
+  selectedPaperCount.textContent = `${currentBoardPapers.length} 篇`;
+  boardSummary.textContent = getBoardSummary(currentArchive, state.currentBoard);
+}
+
+function renderDailyBrief(currentArchive) {
+  const dailyBrief = currentArchive?.dailyBrief || siteData.dailyBrief || {};
+  dailyBriefOverall.textContent = dailyBrief.overall || "正在生成今日总榜摘要。";
+  dailyBriefVla.textContent = dailyBrief.vla || "正在生成 VLA 趋势摘要。";
+  dailyBriefWam.textContent = dailyBrief.wam || "正在生成 WAM 趋势摘要。";
+  dailyBriefRetrieval.textContent = dailyBrief.retrieval || "正在加载宽召回与重排说明。";
+}
+
+function renderScoreDimensions() {
+  const entries = Object.entries(siteData.scoreDimensions || {});
+  scoreDimensions.innerHTML = "";
+
+  entries.forEach(([key, description]) => {
+    const item = document.createElement("article");
+    item.className = "dimension-card";
+    item.innerHTML = `
+      <h4>${escapeHtml(formatDimensionLabel(key))}</h4>
+      <p>${escapeHtml(description)}</p>
+    `;
+    scoreDimensions.append(item);
+  });
+}
+
+function renderPreferenceMemory() {
+  const preferences = state.preferences;
+  preferenceSummary.textContent = getPreferenceSummary(preferences);
+  codePreference.checked = Boolean(preferences.codeFocus);
+
+  preferencePanel.querySelectorAll("[data-pref-group][data-pref-value]").forEach((button) => {
+    const isActive = preferences[button.dataset.prefGroup] === button.dataset.prefValue;
+    button.classList.toggle("is-active", isActive);
+  });
+}
+
+function renderTrendBrief() {
+  const trendBrief = siteData.trendBrief || {};
+  trendWindow.textContent = `近 ${trendBrief.windowDays || 7} 天`;
+  trendRange.textContent = trendBrief.dateRange
+    ? `观察区间：${trendBrief.dateRange}`
+    : "观察区间正在生成。";
+  trendOverview.textContent = trendBrief.overview || "正在生成趋势总览。";
+  trendHotspots.textContent = trendBrief.hotspots || "正在生成热点摘要。";
+  trendVla.textContent = trendBrief.vla || "正在生成 VLA 趋势。";
+  trendWam.textContent = trendBrief.wam || "正在生成 WAM 趋势。";
+  trendWatchlist.textContent = trendBrief.watchlist || "正在生成连续跟踪建议。";
 }
 
 function renderArchiveList() {
@@ -85,12 +210,13 @@ function renderArchiveList() {
   archiveList.innerHTML = "";
 
   archives.forEach((archive) => {
+    const overallCount = getPaperSets(archive).overall.length;
     const button = document.createElement("button");
     button.type = "button";
     button.className = `archive-button${archive.dateKey === state.selectedDateKey ? " is-active" : ""}`;
     button.innerHTML = `
       <span class="archive-date">${archive.dateKey}</span>
-      <span class="archive-count">${archive.papers.length} 篇</span>
+      <span class="archive-count">${overallCount} 篇</span>
     `;
     button.addEventListener("click", () => {
       state.selectedDateKey = archive.dateKey;
@@ -99,6 +225,26 @@ function renderArchiveList() {
       window.scrollTo({ top: 0, behavior: "smooth" });
     });
     archiveList.append(button);
+  });
+}
+
+function renderBoardTabs(currentArchive) {
+  const paperSets = getPaperSets(currentArchive);
+  const order = Array.isArray(siteData.boardOrder) ? siteData.boardOrder : BOARD_ORDER;
+  boardTabs.innerHTML = "";
+
+  order.forEach((boardKey) => {
+    const count = (paperSets[boardKey] || []).length;
+    const button = document.createElement("button");
+    button.type = "button";
+    button.className = `board-tab${boardKey === state.currentBoard ? " is-active" : ""}`;
+    button.innerHTML = `<span>${getBoardLabel(boardKey)}</span><span class="board-tab-count">${count}</span>`;
+    button.addEventListener("click", () => {
+      state.currentBoard = boardKey;
+      state.currentPage = 1;
+      render();
+    });
+    boardTabs.append(button);
   });
 }
 
@@ -119,10 +265,18 @@ function renderPapers(papers, startIndex) {
     const tags = Array.isArray(paper.categories) ? paper.categories : [];
     const reasonTags = Array.isArray(paper.reasonTags) ? paper.reasonTags : [];
     const innovationPoints = Array.isArray(paper.innovationPoints) ? paper.innovationPoints : [];
+    const retrievalGroups = Array.isArray(paper.retrievalGroups) ? paper.retrievalGroups : [];
     const importanceLevel = paper.importanceLevel || "B";
+    const lane = formatLane(paper.lane);
     const oneSentenceSummary = paper.oneSentenceSummary || "";
     const whyImportant = paper.whyImportant || "";
     const summaryCn = paper.summaryCn || paper.summary || "";
+    const noveltyVerdict = paper.noveltyVerdict || "";
+    const dedupeNote = paper.dedupeNote || "";
+    const duplicateRisk = formatDuplicateRisk(paper.duplicateRisk);
+    const dimensionScores = paper.dimensionScores || {};
+    const mergedCount = Number(paper.mergedCount || 1);
+    const mergedTitles = Array.isArray(paper.mergedTitles) ? paper.mergedTitles.filter(Boolean).slice(1, 3) : [];
 
     item.innerHTML = `
       <article>
@@ -141,163 +295,9 @@ function renderPapers(papers, startIndex) {
             <span class="paper-rank">#${rank}</span>
           </div>
         </header>
+        <div class="paper-topline">
+          <span class="lane-badge">${escapeHtml(lane)}</span>
+          <span class="risk-badge risk-${paper.duplicateRisk || "low"}">重复风险：${escapeHtml(duplicateRisk)}</span>
+          ${mergedCount > 1 ? `<span class="merge-badge">已合并 ${mergedCount - 1} 篇近似稿件</span>` : ""}
+        </div>
         ${oneSentenceSummary ? `<p class="paper-cn-summary">${escapeHtml(oneSentenceSummary)}</p>` : ""}
-        ${whyImportant ? `<p class="paper-why">推荐理由：${escapeHtml(whyImportant)}</p>` : ""}
-        ${summaryCn ? `<p class="paper-summary">${escapeHtml(summaryCn)}</p>` : ""}
-        ${
-          innovationPoints.length
-            ? `<div class="innovation-list">${innovationPoints
-                .map((point) => `<span class="innovation-chip">${escapeHtml(point)}</span>`)
-                .join("")}</div>`
-            : ""
-        }
-        <footer class="paper-footer">
-          <div class="tag-list">
-            ${reasonTags.map((tag) => `<span class="tag tag-highlight">${escapeHtml(tag)}</span>`).join("")}
-            ${tags.map((tag) => `<span class="tag">${escapeHtml(tag)}</span>`).join("")}
-          </div>
-          <div class="link-group">
-            <a class="link-button primary" href="${paper.link}" target="_blank" rel="noreferrer">查看论文</a>
-            <a class="link-button secondary" href="${paper.pdfLink}" target="_blank" rel="noreferrer">打开 PDF</a>
-          </div>
-        </footer>
-      </article>
-    `;
-
-    paperList.append(item);
-  });
-}
-
-function renderPagination(totalPages) {
-  pagination.innerHTML = "";
-  pagination.hidden = totalPages <= 1;
-
-  if (totalPages <= 1) {
-    return;
-  }
-
-  for (let page = 1; page <= totalPages; page += 1) {
-    const button = document.createElement("button");
-    button.type = "button";
-    button.className = `page-button${page === state.currentPage ? " is-active" : ""}`;
-    button.textContent = `${page}`;
-    button.addEventListener("click", () => {
-      state.currentPage = page;
-      render();
-      window.scrollTo({ top: 0, behavior: "smooth" });
-    });
-    pagination.append(button);
-  }
-}
-
-function getArchives() {
-  return Array.isArray(siteData.archives) ? siteData.archives : [];
-}
-
-function getCurrentArchive() {
-  const archives = getArchives();
-  return archives.find((archive) => archive.dateKey === state.selectedDateKey) || archives[0] || null;
-}
-
-function resolveInitialDateKey() {
-  const archives = Array.isArray(siteData.archives) ? siteData.archives : [];
-
-  if (siteData.currentDateKey && archives.some((archive) => archive.dateKey === siteData.currentDateKey)) {
-    return siteData.currentDateKey;
-  }
-
-  return archives[0]?.dateKey || null;
-}
-
-function formatBatchWindow(batchWindow, dateWindowDays) {
-  if (batchWindow?.start && batchWindow?.end) {
-    return `固定批次：${formatShortDateTime(batchWindow.start)} - ${formatShortDateTime(batchWindow.end)}`;
-  }
-
-  return `近 ${dateWindowDays || 7} 天最新提交`;
-}
-
-function formatSelectionMethod(method, modelInfo) {
-  if (method === "deepseek_rerank") {
-    const model = modelInfo?.model ? ` · ${modelInfo.model}` : "";
-    return `DeepSeek 重排${model}`;
-  }
-
-  if (method === "rule_based") {
-    return "规则筛选";
-  }
-
-  return "等待生成";
-}
-
-function filterPapers(papers, query) {
-  if (!query) {
-    return papers;
-  }
-
-  return papers.filter((paper) => {
-    const haystack = [
-      paper.title,
-      paper.summary,
-      paper.summaryCn,
-      paper.oneSentenceSummary,
-      paper.whyImportant,
-      ...(paper.authors || []),
-      ...(paper.categories || []),
-    ]
-      .join(" ")
-      .toLowerCase();
-
-    return haystack.includes(query);
-  });
-}
-
-function formatDate(value) {
-  if (!value) {
-    return "未知";
-  }
-
-  return new Intl.DateTimeFormat("zh-CN", {
-    year: "numeric",
-    month: "2-digit",
-    day: "2-digit",
-  }).format(new Date(value));
-}
-
-function formatDateTime(value) {
-  if (!value) {
-    return "等待首次自动更新";
-  }
-
-  return new Intl.DateTimeFormat("zh-CN", {
-    year: "numeric",
-    month: "2-digit",
-    day: "2-digit",
-    hour: "2-digit",
-    minute: "2-digit",
-    hour12: false,
-    timeZone: "Asia/Shanghai",
-  }).format(new Date(value));
-}
-
-function formatShortDateTime(value) {
-  return new Intl.DateTimeFormat("zh-CN", {
-    month: "2-digit",
-    day: "2-digit",
-    hour: "2-digit",
-    minute: "2-digit",
-    hour12: false,
-    timeZone: "Asia/Shanghai",
-  }).format(new Date(value));
-}
-
-function escapeHtml(value) {
-  return String(value ?? "")
-    .replaceAll("&", "&amp;")
-    .replaceAll("<", "&lt;")
-    .replaceAll(">", "&gt;")
-    .replaceAll('"', "&quot;")
-    .replaceAll("'", "&#39;");
-}
-
-render();
