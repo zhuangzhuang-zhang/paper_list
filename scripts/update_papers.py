@@ -4,6 +4,7 @@ import datetime as dt
 import json
 import os
 import re
+import time
 import urllib.parse
 import urllib.request
 import xml.etree.ElementTree as ET
@@ -21,6 +22,8 @@ BATCH_HOUR_BEIJING = 8
 TZ_BEIJING = dt.timezone(dt.timedelta(hours=8))
 ATOM_NS = {"atom": "http://www.w3.org/2005/Atom"}
 USER_AGENT = "paper-list-bot/1.0 (+https://github.com/zhuangzhuang-zhang/paper_list)"
+HTTP_RETRY_COUNT = 3
+HTTP_RETRY_DELAY_SECONDS = 2
 
 CATEGORY_SCORES = {
     "cs.RO": 5,
@@ -64,11 +67,11 @@ TARGETED_QUERIES = [
 def main() -> None:
     now_utc = dt.datetime.now(dt.timezone.utc)
     batch = resolve_batch_window(now_utc)
+    existing = load_existing_site_data()
     papers = fetch_recent_papers(batch["start_utc"], batch["end_utc"])
     ranked = rank_papers(papers)
     selected, selection_method, model_info = select_top_papers(ranked)
     date_key = batch["date_key"]
-    existing = load_existing_site_data()
     archives = update_archives(existing, date_key, now_utc.isoformat(), selected)
     current_archive = archives[0] if archives else None
 
@@ -185,10 +188,16 @@ def fetch_recent_papers(start_utc: dt.datetime, end_utc: dt.datetime) -> list[di
 
     for category in CATEGORY_SCORES:
         query = f"cat:{category}"
-        merge_papers(papers_by_id, fetch_query_results(query, MAX_RESULTS_PER_QUERY), start_utc, end_utc)
+        try:
+            merge_papers(papers_by_id, fetch_query_results(query, MAX_RESULTS_PER_QUERY), start_utc, end_utc)
+        except Exception as exc:
+            print(f"Skipping category query {query}: {exc}")
 
     for query in TARGETED_QUERIES:
-        merge_papers(papers_by_id, fetch_query_results(query, 30), start_utc, end_utc)
+        try:
+            merge_papers(papers_by_id, fetch_query_results(query, 30), start_utc, end_utc)
+        except Exception as exc:
+            print(f"Skipping targeted query {query}: {exc}")
 
     return list(papers_by_id.values())
 
@@ -204,8 +213,7 @@ def fetch_query_results(search_query: str, max_results: int) -> list[dict]:
     url = f"{API_URL}?{urllib.parse.urlencode(params)}"
     request = urllib.request.Request(url, headers={"User-Agent": USER_AGENT})
 
-    with urllib.request.urlopen(request, timeout=30) as response:
-        xml_payload = response.read()
+    xml_payload = fetch_bytes(request, timeout=30)
 
     root = ET.fromstring(xml_payload)
     entries = root.findall("atom:entry", ATOM_NS)
@@ -498,8 +506,7 @@ def call_chat_completion(system_prompt: str, user_prompt: str, llm_config: dict)
             "User-Agent": USER_AGENT,
         },
     )
-    with urllib.request.urlopen(request, timeout=90) as response:
-        raw = json.loads(response.read().decode("utf-8"))
+    raw = json.loads(fetch_bytes(request, timeout=90).decode("utf-8"))
 
     content = raw["choices"][0]["message"]["content"]
     return parse_json_from_text(content)
@@ -518,6 +525,21 @@ def parse_json_from_text(text: str) -> dict:
         if not match:
             raise
         return json.loads(match.group(0))
+
+
+def fetch_bytes(request: urllib.request.Request, timeout: int) -> bytes:
+    last_error: Exception | None = None
+    for attempt in range(1, HTTP_RETRY_COUNT + 1):
+        try:
+            with urllib.request.urlopen(request, timeout=timeout) as response:
+                return response.read()
+        except Exception as exc:
+            last_error = exc
+            if attempt == HTTP_RETRY_COUNT:
+                break
+            time.sleep(HTTP_RETRY_DELAY_SECONDS * attempt)
+
+    raise RuntimeError(f"HTTP request failed after {HTTP_RETRY_COUNT} attempts: {last_error}")
 
 
 def build_selected_paper(
