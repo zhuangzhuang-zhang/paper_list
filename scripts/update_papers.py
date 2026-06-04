@@ -26,7 +26,7 @@ SCORE_DIMENSIONS = {
     "practicality": "是否有真实场景、真实机器人/驾驶或较强落地信号",
     "coreAlignment": "是否属于你最关心的 VLA 或 WAM 主航道工作",
 }
-TARGET_COUNT = 10
+TARGET_COUNT = 20
 BOARD_FOCUS_COUNT = 6
 LOOKBACK_DAYS = 7
 TREND_LOOKBACK_DAYS = 7
@@ -165,7 +165,7 @@ def main() -> None:
 
     payload = {
         "generatedAt": now_utc.isoformat(),
-        "description": "按北京时间每天 08:00 的固定批次归档，基于宽召回与 DeepSeek 多维评分，输出总榜、VLA 榜和 WAM 榜。",
+        "description": "按北京时间每天 08:00 的固定批次归档，保留左侧历史日期归档，并使用 DeepSeek 生成精简中文摘要。",
         "dateWindowDays": 1,
         "categories": list(CATEGORY_SCORES.keys()),
         "keywords": [
