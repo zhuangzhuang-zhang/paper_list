@@ -1,6 +1,6 @@
 window.PAPERS_SITE_DATA = {
-  "generatedAt": "2026-06-04T03:29:12.483248+00:00",
-  "description": "按北京时间每天 08:00 的固定批次归档，基于宽召回与 DeepSeek 多维评分，输出总榜、VLA 榜和 WAM 榜。",
+  "generatedAt": "2026-06-05T02:51:43.123486+00:00",
+  "description": "按北京时间每天 08:00 的固定批次归档，保留左侧历史日期归档，并使用 DeepSeek 生成精简中文摘要。",
   "dateWindowDays": 1,
   "categories": [
     "cs.RO",
@@ -34,8 +34,8 @@ window.PAPERS_SITE_DATA = {
   "selectionMethod": "empty",
   "modelInfo": null,
   "batchWindow": {
-    "start": "2026-06-03T08:00:00+08:00",
-    "end": "2026-06-04T08:00:00+08:00"
+    "start": "2026-06-04T08:00:00+08:00",
+    "end": "2026-06-05T08:00:00+08:00"
   },
   "currentDateKey": "20260603",
   "papers": [
