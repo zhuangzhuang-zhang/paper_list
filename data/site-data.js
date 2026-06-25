@@ -1,5 +1,5 @@
 window.PAPERS_SITE_DATA = {
-  "generatedAt": "2026-06-24T02:43:26.378685+00:00",
+  "generatedAt": "2026-06-25T02:44:02.127291+00:00",
   "description": "按北京时间每天 08:00 的固定批次归档，保留左侧历史日期归档，并使用 DeepSeek 生成精简中文摘要。",
   "dateWindowDays": 1,
   "categories": [
@@ -31,64 +31,63 @@ window.PAPERS_SITE_DATA = {
     "practicality": "是否有真实场景、真实机器人/驾驶或较强落地信号",
     "coreAlignment": "是否属于你最关心的 VLA 或 WAM 主航道工作"
   },
-  "selectionMethod": "empty",
-  "modelInfo": null,
-  "batchWindow": {
-    "start": "2026-06-23T08:00:00+08:00",
-    "end": "2026-06-24T08:00:00+08:00"
+  "selectionMethod": "deepseek_research_assistant",
+  "modelInfo": {
+    "provider": "deepseek",
+    "model": "deepseek-v4-pro",
+    "candidateCount": 45
   },
-  "currentDateKey": "20260619",
+  "batchWindow": {
+    "start": "2026-06-24T08:00:00+08:00",
+    "end": "2026-06-25T08:00:00+08:00"
+  },
+  "currentDateKey": "20260625",
   "papers": [
     {
-      "id": "2606.20246v1",
-      "title": "Finetuning Vision-Language-Action Models Requires Fewer Layers Than You Think",
-      "summary": "Vision-Language-Action (VLA) models pre-trained on massive video-robot datasets have revolutionized robotic manipulation, yet their multi-billion parameter architectures impose prohibitive computational burdens during downstream fine-tuning and real-time inference. In this work, we reveal a highly non-trivial architectural characteristic…",
-      "summaryRaw": "Vision-Language-Action (VLA) models pre-trained on massive video-robot datasets have revolutionized robotic manipulation, yet their multi-billion parameter architectures impose prohibitive computational burdens during downstream fine-tuning and real-time inference. In this work, we reveal a highly non-trivial architectural characteristic of these continuous control foundation policies (e.g., pi_0, GR00T-N1.5): despite being trained on diverse physical trajectories, they exhibit severe layer-wise representational redundancy. To exploit this, we introduce a structural compression pipeline that is entirely training-free, bypassing the need of existing methods to load full-scale models to learn optimized token reductions or dynamic layer selectors. Instead, using only a single forward pass via Centered Kernel Alignment to identify redundant layer features, we remove twin layers to permanently compress the model depth by up to 50% across both the VLM backbone and the continuous control policy head. Downstream fine-tuning of this streamlined architecture yields a dual acceleration benefit: a 40-50% reduction in training time and up to 30% faster real-time inference, while matching or exceeding full-scale base model performance. We comprehensively validate our method across three simulation benchmarks (LIBERO, RoboCasa, SimplerEnv) and 10 diverse real-world manipulation tasks across 4 unique robotic embodiments. These results prove that advanced VLAs require significantly fewer layers than previously assumed, offering a highly compute-efficient paradigm for scalable robot learning.",
-      "link": "https://arxiv.org/abs/2606.20246v1",
-      "pdfLink": "https://arxiv.org/pdf/2606.20246v1",
-      "published": "2026-06-18T13:57:12Z",
-      "updated": "2026-06-18T13:57:12Z",
+      "id": "2606.25591v1",
+      "title": "WOLF-VLA: Whole-Body Humanoid Optimal Locomotion Framework for Vision-Language-Action Learning",
+      "summary": "Vision-Language-Action (VLA) models have recently demonstrated strong generalization in robotic manipulation, yet their applicability to whole-body, contact-rich humanoid locomotion remains severely underexplored due to data scarcity, the absence of dynamically consistent demonstrations, and the difficulty of encoding optimality and safe…",
+      "summaryRaw": "Vision-Language-Action (VLA) models have recently demonstrated strong generalization in robotic manipulation, yet their applicability to whole-body, contact-rich humanoid locomotion remains severely underexplored due to data scarcity, the absence of dynamically consistent demonstrations, and the difficulty of encoding optimality and safety in learning-based pipelines. This work introduces a unified framework WOLF-VLA that integrates whole-body optimal-control (OC) motion synthesis with large-scale multi-modal dataset to train VLAs capable of generating humanoid locomotion policies directly from natural-language instructions. We construct a comprehensive dataset of dynamically feasible humanoid trajectories across six locomotion-related task families, each parameterized by environmental variations, object colors, placements, and visual distractors. We train a VLA model using the collected joint trajectories, ego-centric visual observations and natural language instruction, yielding a policy that exhibits strong reasoning and robustness to initial-condition variability, and competitive performance across several tasks and environment settings. A systematic ablation study demonstrates the impact of each modality on the model performance. The full dataset, model checkpoints, and benchmarking simulation suite will be openly released, establishing a reproducible dynamically consistent benchmark for whole-body humanoid locomotion rich VLA control and enabling future research in scalable transfer of instruction-driven locomotion policies.",
+      "link": "https://arxiv.org/abs/2606.25591v1",
+      "pdfLink": "https://arxiv.org/pdf/2606.25591v1",
+      "published": "2026-06-24T08:59:59Z",
+      "updated": "2026-06-24T08:59:59Z",
       "authors": [
-        "Gia-Binh Nguyen",
-        "Trong-Bao Ho",
-        "Thien-Loc Ha",
-        "Khoa Vo",
-        "Philip Lund Møller",
-        "Quang T. Nguyen",
-        "Long Dinh",
-        "Tuan Dam"
+        "Melya Boukheddimi",
+        "Omar Adjali",
+        "Daniel Sontag",
+        "Frank Kirchner"
       ],
       "categories": [
-        "cs.AI",
         "cs.RO"
       ],
       "score": 95,
       "importanceLevel": "S",
       "lane": "VLA",
       "dimensionScores": {
-        "relevance": 95,
-        "novelty": 85,
+        "relevance": 94,
+        "novelty": 93,
         "impact": 90,
-        "practicality": 95,
-        "coreAlignment": 95
+        "practicality": 85,
+        "coreAlignment": 96
       },
-      "oneSentenceSummary": "VLA模型微调仅需部分层，训练无关压缩大幅降低计算开销。",
-      "summaryCn": "发现VLA基础策略存在严重层间表示冗余，提出免训练的压缩流程：通过单次前向传递的集中核对齐识别冗余层，永久移除孪生层，无需加载全尺寸模型。在多种VLA上验证，模型大小减少50%而性能几乎无损，推理速度显著提升。",
-      "whyImportant": "首次揭示VLA架构冗余并实现免训练压缩，大幅降低部署门槛。",
+      "oneSentenceSummary": "WOLF-VLA:将最优控制与VLA结合，实现人形机器人全身运动语言控制。",
+      "summaryCn": "WOLF-VLA统一框架集成全身最优控制运动合成和大规模多模态数据集，训练VLA模型直接从自然语言指令生成人形机器人策略，覆盖六类任务，参数化环境变化，并通过动作标记化与多模态对齐实现动态可行轨迹。该框架首次将VLA推及全身运动。",
+      "whyImportant": "首次将VLA扩展到全身人形运动，突破数据稀缺与安全限制。",
       "reasonTags": [
-        "VLA效率",
-        "架构压缩",
-        "免训练",
-        "表示冗余"
+        "VLA",
+        "人形机器人",
+        "全身控制",
+        "最优控制"
       ],
       "innovationPoints": [
-        "无训练的集中核对齐冗余检测方法",
-        "直接移除孪生层实现结构化剪枝",
-        "跨模型验证的鲁棒性"
+        "提出最优控制合成与VLA训练结合的数据生成范式",
+        "构建涵盖多任务的大规模全身运动数据集",
+        "实现零样本语言到全身动作的泛化"
       ],
-      "noveltyVerdict": "免训练压缩针对VLA大模型为新颖且及时的贡献，方法简洁有效。",
+      "noveltyVerdict": "创新性强：首次系统地将最优控制用于VLA数据生成，解决全身接触运动难题。",
       "duplicateRisk": "low",
-      "dedupeNote": "专注于架构本身冗余，与通常需要额外训练的层选择或分词缩减方法根本不同。",
+      "dedupeNote": "专注全身运动，区别于仅限操作或简单移动的VLA工作。",
       "retrievalGroups": [
         "category",
         "robotics",
@@ -96,27 +95,27 @@ window.PAPERS_SITE_DATA = {
       ],
       "mergedCount": 1,
       "mergedTitles": [
-        "Finetuning Vision-Language-Action Models Requires Fewer Layers Than You Think"
+        "WOLF-VLA: Whole-Body Humanoid Optimal Locomotion Framework for Vision-Language-Action Learning"
       ]
     },
     {
-      "id": "2606.20285v1",
-      "title": "Co-VLA: Coordination-Aware Structured Action Modeling for Dual-Arm Vision-Language-Action Systems",
-      "summary": "Vision-language-action (VLA) models show strong capabilities in single and dual-arm robotic manipulation. Prior works show coordinated bimanual behaviors can emerge from end-to-end learning, leveraging large vision-language backbones with continuous action prediction.",
-      "summaryRaw": "Vision-language-action (VLA) models show strong capabilities in single and dual-arm robotic manipulation. Prior works show coordinated bimanual behaviors can emerge from end-to-end learning, leveraging large vision-language backbones with continuous action prediction. However, as bimanual tasks become tightly coupled and execution constraints become critical, implicit coordination alone is insufficient to ensure reliable, interpretable, and stable behavior. In this work, we propose Co-VLA, a coordination-aware bimanual manipulation framework introducing explicit structural priors into VLA models. We instantiate our method on a state-of-the-art vision-language backbone by replacing its monolithic action head with a Structured Action Expert (SAE) designed for bimanual coordination. Specifically, we introduce explicit structure at the action generation level with a modular coordination-aware loss that shapes shared and residual latents according to task-specific structures. The shared latent encodes task-level coordination intent, while residual latents capture execution adjustments for each arm. At deployment, a Latent-Aware Controller (LAC) interprets the learned representations to modulate synchronization strength, execution asymmetry, smoothness, and safety constraints in real time. LAC operates at the joint-command level and remains compatible with standard control pipelines without requiring force or impedance control. Experiments across simulation and real-world benchmarks show Co-VLA significantly outperforms monolithic baselines, achieving a 27% success rate gain in tight-coordination tasks, more than doubling performance in OOD real-world scenarios (from 13% to 27%), and reducing task completion time by up to 25%.",
-      "link": "https://arxiv.org/abs/2606.20285v1",
-      "pdfLink": "https://arxiv.org/pdf/2606.20285v1",
-      "published": "2026-06-18T14:28:37Z",
-      "updated": "2026-06-18T14:28:37Z",
+      "id": "2606.25360v1",
+      "title": "Decoupling Semantics and Geometric Grounding: Spatial Visual Prompts for Language-Conditioned Imitation Learning",
+      "summary": "While end-to-end Vision-Language-Action (VLA) models show promise in robotic manipulation, their monolithic paradigm inherently couples semantic reasoning and spatial control. This creates a severe alignment bottleneck, limiting precise target disambiguation in data-constrained imitation learning.",
+      "summaryRaw": "While end-to-end Vision-Language-Action (VLA) models show promise in robotic manipulation, their monolithic paradigm inherently couples semantic reasoning and spatial control. This creates a severe alignment bottleneck, limiting precise target disambiguation in data-constrained imitation learning. To overcome this, we propose SVP-IL, a decoupled architecture that explicitly extracts spatial visual grounding from the action generation loop. By leveraging vision-language foundation models, we parse instructions into zero-shot geometric masks, translating language into explicit Spatial Visual Prompts (SVP). These priors are injected into a continuous action generator via a lightweight direct feature-level fusion mechanism. This integration provides explicit and uncorrupted spatial gradient guidance while ensuring highly stable optimization under low-data regimes. Extensive experiments demonstrate that SVP-IL significantly outperforms state-of-the-art VLAs and pure visuomotor baselines. Trained on as few as 50 to 100 demonstrations, SVP-IL improves average success rates on highly ambiguous language-conditioned tasks from 24.0% to 39.5%, achieving 67.8% on standard benchmarks. Real-world robotic experiments further validate its robustness and data efficiency in unstructured physical environments.",
+      "link": "https://arxiv.org/abs/2606.25360v1",
+      "pdfLink": "https://arxiv.org/pdf/2606.25360v1",
+      "published": "2026-06-24T03:45:06Z",
+      "updated": "2026-06-24T03:45:06Z",
       "authors": [
-        "Yandong Wang",
-        "Jiaqian Yu",
-        "Xiongfeng Peng",
-        "Lu Xu",
-        "Yamin Mao",
-        "Weiming Li",
-        "Jaewook Yoo",
-        "Dongwook Lee"
+        "Yanzhe Tang",
+        "Xinyu Shao",
+        "Yuxuan Hu",
+        "Siyu Chen",
+        "Bowen Yang",
+        "Yajun Gao",
+        "Tongtong Cao",
+        "Xiu Li"
       ],
       "categories": [
         "cs.RO"
@@ -125,29 +124,29 @@ window.PAPERS_SITE_DATA = {
       "importanceLevel": "A",
       "lane": "VLA",
       "dimensionScores": {
-        "relevance": 90,
-        "novelty": 80,
-        "impact": 85,
-        "practicality": 80,
+        "relevance": 89,
+        "novelty": 85,
+        "impact": 80,
+        "practicality": 78,
         "coreAlignment": 90
       },
-      "oneSentenceSummary": "Co-VLA为双臂VLA引入结构化动作专家，显式建模协调约束。",
-      "summaryCn": "针对双臂紧耦合任务中隐式协调的可靠性问题，提出Co-VLA：在主流通用VL骨干上，将单块动作头替换为协调感知的结构化动作专家。包含模块化协调元器和约束注入机制，在多个高精度双臂任务上提升成功率和解释性。",
-      "whyImportant": "将结构先验融入VLA，解决双臂协调可靠性难题，可解释性增强。",
+      "oneSentenceSummary": "SVP-IL解耦语义与空间，利用空间视觉提示提升语言条件模仿学习精度。",
+      "summaryCn": "针对端到端VLA的语义-空间耦合瓶颈，提出SVP-IL架构，显式提取指代物的零样本几何掩码作为空间视觉提示，注入连续动作生成器，通过轻量级特征融合提供空间梯度引导，在低数据下稳定优化，实验证明在复杂操纵任务中显著提升成功率。",
+      "whyImportant": "通过解耦设计缓解VLA的对齐瓶颈，实现低数据下的精确目标指代。",
       "reasonTags": [
-        "双臂协调",
-        "结构化先验",
-        "动作专家",
-        "VLA"
+        "VLA",
+        "空间视觉提示",
+        "模仿学习",
+        "解耦架构"
       ],
       "innovationPoints": [
-        "结构化动作专家模块解耦协调与执行",
-        "显式约束注入保证行为稳定性",
-        "即插即用适配主流VLA架构"
+        "空间视觉提示解耦语义与空间处理",
+        "利用视觉语言基础模型零样本生成掩码",
+        "轻量融合机制稳定低数据优化"
       ],
-      "noveltyVerdict": "首次在VLA中引入显式协调结构先验，思路新颖且针对性强。",
+      "noveltyVerdict": "创新性较高：将空间先验注入动作生成，改变传统端到端范式。",
       "duplicateRisk": "low",
-      "dedupeNote": "专注于双臂任务的结构化动作建模，而非通用VLA或数据增强。",
+      "dedupeNote": "与其他端到端VLA不同，显式解耦空间信息，非简单数据增强。",
       "retrievalGroups": [
         "category",
         "robotics",
@@ -155,58 +154,179 @@ window.PAPERS_SITE_DATA = {
       ],
       "mergedCount": 1,
       "mergedTitles": [
-        "Co-VLA: Coordination-Aware Structured Action Modeling for Dual-Arm Vision-Language-Action Systems"
+        "Decoupling Semantics and Geometric Grounding: Spatial Visual Prompts for Language-Conditioned Imitation Learning"
       ]
     },
     {
-      "id": "2606.20562v1",
-      "title": "MemoryWAM: Efficient World Action Modeling with Persistent Memory",
-      "summary": "Robust robotic manipulation in the real world requires not only an understanding of the current observation, but also memory and dynamics modeling. World action models (WAMs) possess these capabilities by jointly modeling visual foresight and actions conditioned on both current and historical observations, making them a promising paradig…",
-      "summaryRaw": "Robust robotic manipulation in the real world requires not only an understanding of the current observation, but also memory and dynamics modeling. World action models (WAMs) possess these capabilities by jointly modeling visual foresight and actions conditioned on both current and historical observations, making them a promising paradigm for robotic manipulation. However, existing WAMs face a fundamental trade-off: methods with efficient inference typically condition only on a bounded window of recent observations and therefore struggle in non-Markovian environments, whereas methods that preserve long histories incur time and space costs that grow substantially with sequence length. To address this challenge, we introduce MemoryWAM, a world action model with efficient persistent memory. MemoryWAM uses a hybrid memory design that combines recent frames, event-boundary anchor frames, and compact gist tokens that summarize long-range history. A tailored attention mechanism enables retrieval of both detailed short-term context and compressed long-term context, supporting memory-dependent decision-making with reduced inference latency and GPU memory usage. Across long-horizon, memory-dependent manipulation tasks in both simulation and the real world, MemoryWAM outperforms strong vision-language-action (VLA) and WAM baselines while maintaining favorable computational efficiency.",
-      "link": "https://arxiv.org/abs/2606.20562v1",
-      "pdfLink": "https://arxiv.org/pdf/2606.20562v1",
-      "published": "2026-06-18T17:59:51Z",
-      "updated": "2026-06-18T17:59:51Z",
+      "id": "2606.26095v1",
+      "title": "Learning Action Priors for Cross-embodiment Robot Manipulation",
+      "summary": "Most Vision-Language-Action (VLA) models build on a Vision-Language Model (VLM) backbone by attaching an action module and optimizing the full policy jointly. This design inherits strong visual and linguistic priors from the VLM, but leaves the action module to learn physical motion almost from scratch.",
+      "summaryRaw": "Most Vision-Language-Action (VLA) models build on a Vision-Language Model (VLM) backbone by attaching an action module and optimizing the full policy jointly. This design inherits strong visual and linguistic priors from the VLM, but leaves the action module to learn physical motion almost from scratch. As a result, the policy lacks an explicit motion prior, forcing early optimization to simultaneously discover temporal action dynamics and cross-modal alignment, a challenge further amplified in cross-embodiment settings. In this work, we propose to pretrain the action module with motion priors before cross-modal VLA alignment. Specifically, we introduce a two-stage training framework that equips the action module with cross-embodiment temporal motion structure before VLA training begins. In Stage~1, a lightweight flow-matching-based encoder-decoder action module efficiently learns temporal motion structure solely from unconditioned action trajectories, without processing visual or language tokens. In Stage~2, this learned prior is transferred to VLA training through decoder reuse and early-stage latent distillation, aligning visual-language features with the action embedding space while still allowing end-to-end policy refinement. In addition, the trained encoder serves as a compact history compressor, summarizing state-action histories into a single temporal context token for history-aware modeling at negligible cost. Extensive experiments across 13 diverse cross-embodiment tasks on both simulated and real-world platforms validate the effectiveness of our approach. Compared with VLA training without action priors, our model achieves faster convergence, higher success rates, and substantially stronger performance on data-scarce real-world tasks. Moreover, scaling up the action data in Stage~1 yields a more generalizable action prior that directly improves downstream VLA performance.",
+      "link": "https://arxiv.org/abs/2606.26095v1",
+      "pdfLink": "https://arxiv.org/pdf/2606.26095v1",
+      "published": "2026-06-24T17:59:56Z",
+      "updated": "2026-06-24T17:59:56Z",
       "authors": [
-        "Sizhe Yang",
-        "Juncheng Mu",
-        "Tianming Wei",
-        "Chenhao Lu",
-        "Xiaofan Li",
-        "Linning Xu",
-        "Zhengrong Xue",
-        "Zhecheng Yuan"
+        "Dong Jing",
+        "Tianqi Zhang",
+        "Jiaqi Liu",
+        "Jinman Zhao",
+        "Zelong Sun",
+        "Li Erran Li",
+        "Zhiwu Lu",
+        "Mingyu Ding"
       ],
       "categories": [
+        "cs.AI",
+        "cs.CV",
         "cs.RO"
       ],
-      "score": 89,
+      "score": 90,
+      "importanceLevel": "A",
+      "lane": "VLA",
+      "dimensionScores": {
+        "relevance": 88,
+        "novelty": 87,
+        "impact": 82,
+        "practicality": 80,
+        "coreAlignment": 92
+      },
+      "oneSentenceSummary": "预训练动作模块的运动先验，提升跨具身VLA的对齐效率与泛化性。",
+      "summaryCn": "针对VLA动作模块缺乏运动先验的问题，提出两阶段训练框架：先利用流匹配编码-解码器学习跨具身时序运动结构，再进行跨模态VLA对齐。该方法使策略在训练初期快速收敛，并在多机器人平台展示出更强的跨具身泛化能力。",
+      "whyImportant": "为VLA注入运动先验，加速训练并改善跨具身迁移，启发未来策略设计。",
+      "reasonTags": [
+        "VLA",
+        "动作先验",
+        "跨具身",
+        "流匹配"
+      ],
+      "innovationPoints": [
+        "提出动作模块的流匹配预训练",
+        "两阶段训练分离运动结构与跨模态对齐",
+        "有效提升跨具身泛化"
+      ],
+      "noveltyVerdict": "创新性较强：针对VLA普遍缺失的运动先验，提出明确解决方案。",
+      "duplicateRisk": "low",
+      "dedupeNote": "不同于直接在VLA训练中学习动作，先独立学习运动模式再对齐。",
+      "retrievalGroups": [
+        "category",
+        "robotics",
+        "vla_core"
+      ],
+      "mergedCount": 1,
+      "mergedTitles": [
+        "Learning Action Priors for Cross-embodiment Robot Manipulation"
+      ]
+    },
+    {
+      "id": "2606.26006v1",
+      "title": "FORCE: Efficient VLA Reinforcement Fine-Tuning via Value-Calibrated Warm-up and Self-Distillation",
+      "summary": "Vision-Language-Action (VLA) models are often constrained by the imitation ceiling imposed by sub-optimal data. While Reinforcement Learning (RL) fine-tuning can surpass this limit, it is notoriously sample inefficient.",
+      "summaryRaw": "Vision-Language-Action (VLA) models are often constrained by the imitation ceiling imposed by sub-optimal data. While Reinforcement Learning (RL) fine-tuning can surpass this limit, it is notoriously sample inefficient. This challenge arises from two core issues: (1) catastrophic initial unlearning due to an unstable Q-function and (2) inefficient policy updates caused by low-quality exploration data, often forcing a reliance on costly human interventions. We introduce FORCE, a 3-stage framework that stabilizes fine-tuning by tackling both issues. FORCE first incorporates a Value-Calibrated Warm-Up phase, utilizing on-policy rollouts to mitigate the distributional shift of the Q-function. Subsequently, during the online stage, this calibrated Q-function acts as a filter for both the policy's own action proposals and expert data, ensuring only high-value actions are used for the policy update. We evaluate FORCE on various simulation and real-world tasks, and the result shows that FORCE achieves a 79% absolute improvement in success rates and outperform prior RL methods by 10%, while accelerating training by 32.5%. Critically, it mitigates the common success rate drop and achieves this robust performance without human intervention, marking a significant step towards deploying capable and autonomous robotic agents.",
+      "link": "https://arxiv.org/abs/2606.26006v1",
+      "pdfLink": "https://arxiv.org/pdf/2606.26006v1",
+      "published": "2026-06-24T16:23:18Z",
+      "updated": "2026-06-24T16:23:18Z",
+      "authors": [
+        "Shuyi Zhang",
+        "Yunfan Lou",
+        "Hongyang Cheng",
+        "Yichen Guo",
+        "Chuyao Fu",
+        "Yaoxu Lyu",
+        "Xiaojie Zhang",
+        "Haoran Li"
+      ],
+      "categories": [
+        "cs.AI",
+        "cs.RO"
+      ],
+      "score": 88,
+      "importanceLevel": "A",
+      "lane": "VLA",
+      "dimensionScores": {
+        "relevance": 86,
+        "novelty": 85,
+        "impact": 83,
+        "practicality": 82,
+        "coreAlignment": 90
+      },
+      "oneSentenceSummary": "FORCE：三阶段RL微调，价值校准预热+自蒸馏，高效超越模仿天花板。",
+      "summaryCn": "FORCE框架解决VLA强化学习微调样本效率低的问题：第一阶段价值校准预热缓解Q函数分布偏移；第二阶段在线过滤高价值动作；第三阶段自蒸馏提升策略更新效率。实验显示在多个操纵任务中优于现有RL微调方法。",
+      "whyImportant": "稳定高效的RL微调是推动VLA超越模仿极限的关键技术路径。",
+      "reasonTags": [
+        "VLA",
+        "强化学习微调",
+        "自蒸馏",
+        "价值校准"
+      ],
+      "innovationPoints": [
+        "提出价值校准预热阶段",
+        "利用校准Q函数过滤高质量动作",
+        "融合自蒸馏缓解探索低效"
+      ],
+      "noveltyVerdict": "创新性较高：针对RL微调两大问题给出系统解决方案。",
+      "duplicateRisk": "medium",
+      "dedupeNote": "FORCE关注离线预热的稳定性与在线自蒸馏过滤，与ROAD-VLA在线自蒸馏互补。",
+      "retrievalGroups": [
+        "category",
+        "robotics",
+        "vla_core"
+      ],
+      "mergedCount": 1,
+      "mergedTitles": [
+        "FORCE: Efficient VLA Reinforcement Fine-Tuning via Value-Calibrated Warm-up and Self-Distillation"
+      ]
+    },
+    {
+      "id": "2606.26025v1",
+      "title": "In-Context World Modeling for Robotic Control",
+      "summary": "Modern Vision-Language-Action (VLA) models often fail to generalize to novel setups, such as altered camera viewpoints or robot morphologies, because they are typically conditioned only on current observations and language instructions. By ignoring the underlying system configuration as a variable, these models implicitly assume a fixed…",
+      "summaryRaw": "Modern Vision-Language-Action (VLA) models often fail to generalize to novel setups, such as altered camera viewpoints or robot morphologies, because they are typically conditioned only on current observations and language instructions. By ignoring the underlying system configuration as a variable, these models implicitly assume a fixed execution context encountered during training, necessitating data-intensive fine-tuning for any new environment. In this work, we introduce In-Context World Modeling (ICWM), a framework that treats system identification as an in-context adaptation problem. ICWM enables robot policies to autonomously infer essential system variables from a short history of self-generated, task-agnostic interactions. Unlike traditional In-Context Learning that uses demonstrations to specify what task to perform, ICWM leverages the context window to understand how the system operates. By processing these interactions before task execution, the model implicitly captures the world dynamics of the current system, enabling adaptation to novel configurations without parameter updates. Extensive experiments in simulation and on real-world robot platforms demonstrate that ICWM significantly outperforms standard VLA baselines on novel camera viewpoints.",
+      "link": "https://arxiv.org/abs/2606.26025v1",
+      "pdfLink": "https://arxiv.org/pdf/2606.26025v1",
+      "published": "2026-06-24T16:53:36Z",
+      "updated": "2026-06-24T16:53:36Z",
+      "authors": [
+        "Siyin Wang",
+        "Junhao Shi",
+        "Senyu Fei",
+        "Zhaoyang Fu",
+        "Li Ji",
+        "Jingjing Gong",
+        "Xipeng Qiu"
+      ],
+      "categories": [
+        "cs.CV",
+        "cs.RO"
+      ],
+      "score": 88,
       "importanceLevel": "A",
       "lane": "Both",
       "dimensionScores": {
-        "relevance": 90,
-        "novelty": 85,
-        "impact": 80,
-        "practicality": 80,
-        "coreAlignment": 90
+        "relevance": 85,
+        "novelty": 90,
+        "impact": 84,
+        "practicality": 78,
+        "coreAlignment": 88
       },
-      "oneSentenceSummary": "MemoryWAM用混合持久记忆打破世界动作模型的长序列效率瓶颈。",
-      "summaryCn": "现有世界动作模型推理效率高则上下文窗口受限，长历史保留则计算成本随序列增长。MemoryWAM提出混合记忆设计：近期帧、事件边界锚帧和紧凑记忆令牌，实现恒定时间复杂度的持久记忆。在非马尔可夫机器人操作任务中显著提升性能并保持高效。",
-      "whyImportant": "突破WAM记忆-效率权衡，对现实长程操作至关重要。",
+      "oneSentenceSummary": "ICWM:上下文世界建模，自交互推断系统变量，策略自适应。",
+      "summaryCn": "ICWM将系统辨识视为上下文适应问题，让策略从短历史任务无关交互中推断配置变量，无需微调即可泛化至新视角和形态。框架结合上下文编码与动作生成，在多种环境变化下验证零样本泛化能力，为VLA适应提供新范式。",
+      "whyImportant": "为VLA泛化提供新思路：通过在线交互自动适应系统变化，避免重训练。",
       "reasonTags": [
-        "世界动作模型",
-        "持久记忆",
-        "混合记忆",
-        "效率"
+        "世界模型",
+        "上下文学习",
+        "系统辨识",
+        "VLA泛化"
       ],
       "innovationPoints": [
-        "事件边界锚帧与记忆令牌的混合设计",
-        "恒定时间复杂度读取长历史",
-        "在操作基准上验证非马尔可夫鲁棒性"
+        "提出上下文世界建模框架",
+        "利用自交互推断系统动态",
+        "实现零样本配置泛化"
       ],
-      "noveltyVerdict": "聪明地结合近期与事件记忆，在WAM中实现高效长上下文，设计精妙。",
-      "duplicateRisk": "medium",
-      "dedupeNote": "与EventVLA的视觉记忆机制不同，MemoryWAM聚焦动作条件世界模型的时序持久性。",
+      "noveltyVerdict": "创新性强：将上下文学习引入世界建模，区别于传统微调。",
+      "duplicateRisk": "low",
+      "dedupeNote": "不同于传统上下文学习演示任务，ICWM学习系统动态，独特视角。",
       "retrievalGroups": [
         "category",
         "robotics",
@@ -215,258 +335,24 @@ window.PAPERS_SITE_DATA = {
       ],
       "mergedCount": 1,
       "mergedTitles": [
-        "MemoryWAM: Efficient World Action Modeling with Persistent Memory"
+        "In-Context World Modeling for Robotic Control"
       ]
     },
     {
-      "id": "2606.20092v1",
-      "title": "EventVLA: Event-Driven Visual Evidence Memory for Long-Horizon Vision-Language-Action Policies",
-      "summary": "Memory remains a critical bottleneck for long-horizon robotic manipulation, as standard Vision-Language-Action (VLA) policies often fail when task-relevant cues become occluded or unobservable over time. While existing memory-augmented methods utilize historical context, they either suffer from severe information bottlenecks, incur high…",
-      "summaryRaw": "Memory remains a critical bottleneck for long-horizon robotic manipulation, as standard Vision-Language-Action (VLA) policies often fail when task-relevant cues become occluded or unobservable over time. While existing memory-augmented methods utilize historical context, they either suffer from severe information bottlenecks, incur high latency via decoupled dual systems, or rely on unselective buffers that accumulate massive visual redundancies. To address these limitations, we introduce EventVLA, an end-to-end framework founded on the concept of sparse visual evidence memory that comprises two core components: foundational visual anchors to retain initial and short-term contexts, and a dynamic Keyframe Evidence Memory (KEM) module. Specifically, KEM directly predicts future keyframe probabilities from the VLA's latent embeddings to autonomously capture and store sparse, task-critical visual events. This foresight-driven mechanism empowers the policy to dynamically evaluate the future causal utility of current observations, preserving transient visual evidence before it becomes unobservable. Furthermore, we propose RoboTwin-MeM, a diagnostic benchmark specifically designed to evaluate non-Markovian manipulation tasks with interactive visual evidence. Extensive evaluations show that across 17 memory-requiring simulation tasks and 4 real-world bimanual tasks, EventVLA achieves an average success rate improvement of +40% over state-of-the-art memory-augmented VLAs.",
-      "link": "https://arxiv.org/abs/2606.20092v1",
-      "pdfLink": "https://arxiv.org/pdf/2606.20092v1",
-      "published": "2026-06-18T11:11:37Z",
-      "updated": "2026-06-18T11:11:37Z",
+      "id": "2606.25800v1",
+      "title": "ROAD-VLA: Robust Online Adaptation via Self-Distillation for Vision-Language-Action Models",
+      "summary": "Effective online adaptation of vision-language-action (VLA) models remains challenging, as sparse rewards provide weak supervision for high-dimensional autoregressive action policies. Although self-distillation can in principle provide denser training signals, we find that text-based privileged teachers conditioned on demonstrations, ret…",
+      "summaryRaw": "Effective online adaptation of vision-language-action (VLA) models remains challenging, as sparse rewards provide weak supervision for high-dimensional autoregressive action policies. Although self-distillation can in principle provide denser training signals, we find that text-based privileged teachers conditioned on demonstrations, retrieved experiences, or high-level plans are ineffective for VLA adaptation, exposing a modality gap between symbolic guidance and low-level robot actions. We propose ROAD-VLA, an advantage-guided self-distillation framework that constructs a proximal teacher directly in action space by perturbing action-token logits with calibrated advantage estimates. This converts sparse rewards into dense token-level supervision while keeping the teacher close to the current policy. We further derive a policy-improvement lower bound under calibrated advantages and accurate teacher matching. Across seven robotic manipulation environments with in-distribution and out-of-distribution shifts, ROADVLA outperforms PPO in nearly all settings, demonstrating robust online VLA adaptation.",
+      "link": "https://arxiv.org/abs/2606.25800v1",
+      "pdfLink": "https://arxiv.org/pdf/2606.25800v1",
+      "published": "2026-06-24T13:17:59Z",
+      "updated": "2026-06-24T13:17:59Z",
       "authors": [
-        "Ganlin Yang",
-        "Zhangzheng Tu",
-        "Yuqiang Yang",
-        "Sitong Mao",
-        "Junyi Dong",
-        "Tianxing Chen",
-        "Jiaqi Peng",
-        "Jing Xiong"
-      ],
-      "categories": [
-        "cs.CV"
-      ],
-      "score": 88,
-      "importanceLevel": "A",
-      "lane": "VLA",
-      "dimensionScores": {
-        "relevance": 90,
-        "novelty": 82,
-        "impact": 80,
-        "practicality": 75,
-        "coreAlignment": 92
-      },
-      "oneSentenceSummary": "EventVLA利用关键帧证据记忆解决长程VLA策略的视觉遮挡难题。",
-      "summaryCn": "长程操作中任务线索常因遮挡而不可见，现有记忆方法存在信息瓶颈或高延迟。EventVLA提出稀疏视觉证据记忆：基础视觉锚点保留初始/短期上下文，动态关键帧证据记忆模块直接从VLA潜在嵌入预测未来关键帧概率，自主捕获稀疏任务关键帧。端到端训练，在遮挡环境下大幅超越基线。",
-      "whyImportant": "端到端关键帧选择机制为VLA提供灵活高效的长程记忆。",
-      "reasonTags": [
-        "长程记忆",
-        "关键帧",
-        "视觉证据",
-        "VLA"
-      ],
-      "innovationPoints": [
-        "基于潜嵌入预测未来关键帧概率的KEM模块",
-        "稀疏自主动态记忆避免信息冗余",
-        "端到端集成无需外部模型"
-      ],
-      "noveltyVerdict": "将关键帧预测与VLA内部表征结合，实现自适应记忆，设计独特。",
-      "duplicateRisk": "medium",
-      "dedupeNote": "与MemoryWAM不同，EventVLA专为VLA策略设计，聚焦视觉证据记忆而非世界预测。",
-      "retrievalGroups": [
-        "category",
-        "robotics",
-        "vla_core"
-      ],
-      "mergedCount": 1,
-      "mergedTitles": [
-        "EventVLA: Event-Driven Visual Evidence Memory for Long-Horizon Vision-Language-Action Policies"
-      ]
-    },
-    {
-      "id": "2606.19998v1",
-      "title": "Tri-Info: Generalizable, Interpretable Failure Prediction for VLA Models via Information Theory",
-      "summary": "Vision-Language-Action (VLA) models are increasingly deployed across diverse tasks, yet they remain black boxes whose physical interactions can cause irreversible harm, making generalizable and interpretable failure detection essential. We observe that successful and failed rollouts carry systematically different information-theoretic si…",
-      "summaryRaw": "Vision-Language-Action (VLA) models are increasingly deployed across diverse tasks, yet they remain black boxes whose physical interactions can cause irreversible harm, making generalizable and interpretable failure detection essential. We observe that successful and failed rollouts carry systematically different information-theoretic signatures. Building on this, we formalize VLA control as a closed-loop information pipeline and derive the Triple Information-theoretic (Tri-Info) signals that capture whether actions remain diverse, temporally consistent, and coupled to state transitions. Across six VLA models and three benchmark environments, Tri-Info matches the strongest baselines in-domain. Moreover, Tri-Info transfers across architectures, environments, and the sim-to-real gap without retraining, reaching 83\\% accuracy on real-world tasks where prior detectors collapse to chance. This establishes Tri-Info as a simple yet powerful method that not only detects failures with strong cross-domain generalization, but also delivers interpretable diagnostics of the underlying failure modes.",
-      "link": "https://arxiv.org/abs/2606.19998v1",
-      "pdfLink": "https://arxiv.org/pdf/2606.19998v1",
-      "published": "2026-06-18T09:34:22Z",
-      "updated": "2026-06-18T09:34:22Z",
-      "authors": [
-        "Jinghan Yang",
-        "Yunchao Zhang",
-        "Wang Yuan",
-        "Haolun Wan",
-        "Jiaming Zhang",
-        "Zhengyang Hu",
-        "Yanchao Yang"
-      ],
-      "categories": [
-        "cs.AI",
-        "cs.CV",
-        "cs.LG",
-        "cs.RO"
-      ],
-      "score": 88,
-      "importanceLevel": "A",
-      "lane": "VLA",
-      "dimensionScores": {
-        "relevance": 85,
-        "novelty": 88,
-        "impact": 85,
-        "practicality": 70,
-        "coreAlignment": 90
-      },
-      "oneSentenceSummary": "Tri-Info利用信息论信号实现通用可解释的VLA故障预测。",
-      "summaryCn": "观察成功与失败轨迹具有系统性的信息论差异，将VLA控制形式化为闭环信息管道，推导出三重信息信号：动作多样性、时序一致性和状态耦合。在六种VLA模型和三个基准上跨域匹配最强基线，更能在无重训练下跨架构、环境和sim-to-real迁移，真机准确率达83%。",
-      "whyImportant": "无需训练的跨模型故障检测器，提升VLA安全性与可解释性。",
-      "reasonTags": [
-        "故障预测",
-        "信息论",
-        "跨模型迁移",
-        "VLA安全"
-      ],
-      "innovationPoints": [
-        "将VLA控制建模为信息管道并定义三重信号",
-        "拓扑信息度量实现跨架构迁移",
-        "首次在真实环境验证跨域故障检测"
-      ],
-      "noveltyVerdict": "以信息论视角解决VLA黑盒安全问题，原创性高且工程验证扎实。",
-      "duplicateRisk": "low",
-      "dedupeNote": "专注于故障预测而非策略改进，与训练增强类方法互补。",
-      "retrievalGroups": [
-        "category",
-        "robotics",
-        "vla_core"
-      ],
-      "mergedCount": 1,
-      "mergedTitles": [
-        "Tri-Info: Generalizable, Interpretable Failure Prediction for VLA Models via Information Theory"
-      ]
-    },
-    {
-      "id": "2606.20274v1",
-      "title": "Lagrange: An Open-Vocabulary, Energy-Based Sparse Framework for Generalized End-to-End Driving",
-      "summary": "Scaling end-to-end autonomous driving to complex, open-world environments requires perceptual models that generalize to anomalous scenarios and planners that produce kinematically valid trajectories. Existing paradigms face a distinct dichotomy between representational efficiency and generalization capacity.",
-      "summaryRaw": "Scaling end-to-end autonomous driving to complex, open-world environments requires perceptual models that generalize to anomalous scenarios and planners that produce kinematically valid trajectories. Existing paradigms face a distinct dichotomy between representational efficiency and generalization capacity. Dense models (e.g., occupancy networks), while geometrically robust, incur critical computational bottlenecks and struggle with high-level semantic reasoning. Conversely, sparse, query-based planners are efficient but reliant on closed-set definitions, rendering them vulnerable to out-of-distribution (OOD) events. Although recent Vision-Language-Action (VLA) models offer open-vocabulary reasoning, their autoregressive, discrete token generation fundamentally conflicts with the continuous, high-frequency control requirements of vehicle dynamics. To address this, we propose Lagrange, an open-vocabulary, computationally sparse driving framework based on Masked Latent Fields (MLF). Rather than relying on dense volumetric reconstructions or closed-set query mechanisms, Lagrange exploits Vision-Language Models (VLMs) to encode class-agnostic object proposals into continuous semantic visual tokens. We introduce an intent-driven masked cross-attention module that temporally filters irrelevant entities, decoding the attended tokens into an implicit continuous energy field defined over spatial coordinates. By framing decision-making as a Lagrangian action minimization problem spanning this energy field, we enforce strict compliance with vehicle kinematics while executing collision avoidance. Extensive offline evaluations on both standard (nuScenes) and long-tail (CODA) benchmarks demonstrate that Lagrange establishes a promising framework for robust, interpretable, and kinematically feasible open-world autonomy.",
-      "link": "https://arxiv.org/abs/2606.20274v1",
-      "pdfLink": "https://arxiv.org/pdf/2606.20274v1",
-      "published": "2026-06-18T14:18:01Z",
-      "updated": "2026-06-18T14:18:01Z",
-      "authors": [
-        "Shihao Ji",
-        "HongXi Li",
-        "Zihui Song",
-        "Mingyu Li"
-      ],
-      "categories": [
-        "cs.AI"
-      ],
-      "score": 87,
-      "importanceLevel": "A",
-      "lane": "VLA",
-      "dimensionScores": {
-        "relevance": 80,
-        "novelty": 82,
-        "impact": 80,
-        "practicality": 75,
-        "coreAlignment": 85
-      },
-      "oneSentenceSummary": "Lagrange以能量模型实现开放词汇稀疏端到端驾驶，兼顾泛化与动力学。",
-      "summaryCn": "现有端到端驾驶面临密集模型计算瓶颈与稀疏模型封闭集定义的矛盾。Lagrange用能量基模型统一开放词汇语义理解和连续控制：稀疏查询保持效率，能量函数提供开放词汇泛化，同时输出运动学可行的轨迹，克服VLA类方法离散生成与车辆控制的冲突。",
-      "whyImportant": "弥合开放词汇推理与连续动力学的鸿沟，推动VLA驾驶落地。",
-      "reasonTags": [
-        "端到端驾驶",
-        "能量模型",
-        "开放词汇",
-        "稀疏框架"
-      ],
-      "innovationPoints": [
-        "能量基模型实现开放词汇与连续控制的统一",
-        "稀疏查询保持计算效率",
-        "规避VLA离散生成的动力学冲突"
-      ],
-      "noveltyVerdict": "巧妙融合能量模型与稀疏检测，解决VLA类方法在驾驶中的固有问题。",
-      "duplicateRisk": "medium",
-      "dedupeNote": "专注于驾驶的开放词汇规划，而非通用机器人VLA，与一般VLA互补。",
-      "retrievalGroups": [
-        "category",
-        "driving",
-        "vla_core"
-      ],
-      "mergedCount": 1,
-      "mergedTitles": [
-        "Lagrange: An Open-Vocabulary, Energy-Based Sparse Framework for Generalized End-to-End Driving"
-      ]
-    },
-    {
-      "id": "2606.19784v1",
-      "title": "EquiVLA: A General Framework for Rotationally Equivariant Vision-Language-Action Models",
-      "summary": "Vision-Language-Action (VLA) models have emerged as a powerful paradigm for generalist robot manipulation, yet they lack geometric inductive biases: policies trained at specific orientations require substantially more data to generalize across rotational configurations. We present \\textsc{EquiVLA}, the first general framework for end-to-…",
-      "summaryRaw": "Vision-Language-Action (VLA) models have emerged as a powerful paradigm for generalist robot manipulation, yet they lack geometric inductive biases: policies trained at specific orientations require substantially more data to generalize across rotational configurations. We present \\textsc{EquiVLA}, the first general framework for end-to-end $\\mathrm{SO}(2)$-equivariant VLA models, applicable to any architecture coupling a frozen vision-language backbone with a flow-matching Diffusion Transformer action head. \\textsc{EquiVLA} introduces \\textsc{EquiPerceptor}, which produces approximately $\\mathrm{SO}(2)$-equivariant visual representations from frozen ViT features; and \\textsc{EquiActor}, an exactly $\\mathrm{SO}(2)$-equivariant flow-matching Diffusion Transformer action head. Together, they establish an approximate $\\mathrm{SO}(2)$ equivariance chain from camera observations to predicted action sequences. Instantiated on GR00T~N1.5 and evaluated across four LIBERO suites, CALVIN ABCD$\\to$D, and five real-robot tasks on Mobile ALOHA, \\textsc{EquiVLA} achieves $92.6\\%$ average success on LIBERO (vs. $78.1\\%$ baseline), an average sequence length of $4.03$ on CALVIN (vs. $3.45$), and improves real-robot success from $54\\%$ to $72\\%$.",
-      "link": "https://arxiv.org/abs/2606.19784v1",
-      "pdfLink": "https://arxiv.org/pdf/2606.19784v1",
-      "published": "2026-06-18T04:36:57Z",
-      "updated": "2026-06-18T04:36:57Z",
-      "authors": [
-        "Thien-Loc Ha",
-        "Quang-Tan Nguyen",
-        "Trong-Bao Ho",
-        "Long Dinh",
-        "Minh Duc Nguyen",
-        "Gia-Binh Nguyen",
-        "Pham Tri Quang",
-        "Minh N. Vu"
-      ],
-      "categories": [
-        "cs.RO"
-      ],
-      "score": 86,
-      "importanceLevel": "A",
-      "lane": "VLA",
-      "dimensionScores": {
-        "relevance": 90,
-        "novelty": 80,
-        "impact": 80,
-        "practicality": 70,
-        "coreAlignment": 90
-      },
-      "oneSentenceSummary": "EquiVLA赋予VLA旋转等变性，大幅减少旋转泛化所需数据。",
-      "summaryCn": "提出首个通用SO(2)等变VLA框架：EquiPerceptor从冻结ViT特征产生近似等变视觉表示，EquiActor为流匹配扩散Transformer动作头提供精确等变。形成从相机观测到动作的近似等变链，在同角度训练、多角度测试中显著超越基线，数据效率提升明显。",
-      "whyImportant": "几何归纳偏置注入VLA，解决旋转泛化痛点，数据效率跃升。",
-      "reasonTags": [
-        "等变性",
-        "几何归纳",
-        "旋转泛化",
-        "VLA"
-      ],
-      "innovationPoints": [
-        "首次在VLA中实现端到端SO(2)等变",
-        "冻结视觉骨干上的近似等变模块",
-        "流匹配扩散头结合等变性"
-      ],
-      "noveltyVerdict": "将等变思想引入VLA是自然且重要的进步，实现方法通用性强。",
-      "duplicateRisk": "medium",
-      "dedupeNote": "与Co-VLA、EventVLA等改进不同，专注于几何对称性先验。",
-      "retrievalGroups": [
-        "category",
-        "robotics",
-        "vla_core"
-      ],
-      "mergedCount": 1,
-      "mergedTitles": [
-        "EquiVLA: A General Framework for Rotationally Equivariant Vision-Language-Action Models"
-      ]
-    },
-    {
-      "id": "2606.20118v1",
-      "title": "Pose6DAug: Physically Plausible Multi-view Object Swapping for Robot Data Augmentation",
-      "summary": "Vision-language-action (VLA) policies have shown strong potential for general-purpose manipulation, yet they often fail on novel, out-of-distribution objects whose appearance or geometry deviates from the training distribution. The standard remedy is to collect multi-view teleoperation data for every failure case, but this scales poorly…",
-      "summaryRaw": "Vision-language-action (VLA) policies have shown strong potential for general-purpose manipulation, yet they often fail on novel, out-of-distribution objects whose appearance or geometry deviates from the training distribution. The standard remedy is to collect multi-view teleoperation data for every failure case, but this scales poorly in both cost and time. We introduce Pose6DAug, a failure-driven data augmentation framework that turns a policy's own successful episodes into targeted demonstrations for its failure modes, without any new data collection. Our key insight is that each successful episode already encodes a physically valid action trajectory together with calibrated multi-view observations. By swapping only the manipulated object while preserving this trajectory, we obtain new and physically grounded demonstrations. However, naive 2D video editing breaks multi-view consistency and physical plausibility, particularly under heavy occlusion and egocentric viewpoints. Our method instead operates directly in 3D, anchoring the target object with an explicit mesh driven by a temporally coherent 6D pose trajectory, ensuring geometrically consistent renderings across all camera views. Fine-tuning a VLA on data augmented by our method improves success rates by 16.5% relative to the state-of-the-art baseline on novel objects, while preserving in-distribution performance. These results show that multi-view and physically consistent augmentation is a practical path to scalable VLA generalization.",
-      "link": "https://arxiv.org/abs/2606.20118v1",
-      "pdfLink": "https://arxiv.org/pdf/2606.20118v1",
-      "published": "2026-06-18T11:41:25Z",
-      "updated": "2026-06-18T11:41:25Z",
-      "authors": [
-        "Jonghoon Lee",
-        "Seong Hyeon Park",
-        "Byungwoo Jeon",
-        "Minha Lee",
-        "Jinwoo Shin"
+        "Kejing Wang",
+        "Toan Nguyen",
+        "Minh Hoang Nguyen",
+        "Simon Khan",
+        "Flora D. Salim"
       ],
       "categories": [
         "cs.LG",
@@ -476,29 +362,29 @@ window.PAPERS_SITE_DATA = {
       "importanceLevel": "B",
       "lane": "VLA",
       "dimensionScores": {
-        "relevance": 85,
-        "novelty": 75,
-        "impact": 80,
-        "practicality": 85,
-        "coreAlignment": 85
+        "relevance": 83,
+        "novelty": 80,
+        "impact": 75,
+        "practicality": 82,
+        "coreAlignment": 88
       },
-      "oneSentenceSummary": "Pose6DAug用失败驱动物体替换生成物理一致的多视图VLA训练数据。",
-      "summaryCn": "针对VLA策略对新物体OOD失效，提出Pose6DAug框架：利用成功回合中已验证的动作轨迹和多视图校准，仅替换被操作物体而保留轨迹，通过物理约束和Pose6D对齐生成新演示。无需重新采集数据，显著提升策略在新物体上的泛化能力。",
-      "whyImportant": "开创性地利用已有成功经验自动生成失败场景数据，成本极低。",
+      "oneSentenceSummary": "ROAD-VLA:优势引导自蒸馏，实现VLA鲁棒在线自适应。",
+      "summaryCn": "针对VLA在线适应中稀疏奖励问题，ROAD-VLA构建动作空间近端教师，扰动动作词元对数几率并校准优势估计，将稀疏奖励转化为密集词元级监督，同时推导策略改进下界，提升样本效率，在真实机器人任务中验证有效性。",
+      "whyImportant": "为VLA提供无需额外数据的在线自适应方法，提高部署鲁棒性。",
       "reasonTags": [
-        "数据增强",
-        "物体替换",
-        "VLA泛化",
-        "失败驱动"
+        "VLA",
+        "在线适应",
+        "自蒸馏",
+        "优势引导"
       ],
       "innovationPoints": [
-        "失败驱动的自动生成框架",
-        "物理约束保持多视图一致性",
-        "重用成功轨迹避免新采集"
+        "提出动作空间自蒸馏教师",
+        "利用优势校准构建近端目标",
+        "推导策略改进下界保证"
       ],
-      "noveltyVerdict": "思路直接但有效，解决数据瓶颈的实际工程创新。",
+      "noveltyVerdict": "创新性中等：将自蒸馏引入动作空间，但核心思路与现有RL自蒸馏类似。",
       "duplicateRisk": "medium",
-      "dedupeNote": "数据增强方法，与Co-VLA、EventVLA等架构改进无重叠。",
+      "dedupeNote": "ROAD-VLA专注于在线自适应，与FORCE的离线-在线结合不同，应用场景互补。",
       "retrievalGroups": [
         "category",
         "robotics",
@@ -506,173 +392,52 @@ window.PAPERS_SITE_DATA = {
       ],
       "mergedCount": 1,
       "mergedTitles": [
-        "Pose6DAug: Physically Plausible Multi-view Object Swapping for Robot Data Augmentation"
+        "ROAD-VLA: Robust Online Adaptation via Self-Distillation for Vision-Language-Action Models"
       ]
     },
     {
-      "id": "2606.19769v1",
-      "title": "Data Standards for Humanoid Robotics: The Missing Infrastructure for Physical AI",
-      "summary": "The scalability of humanoid robots will depend not only on models and hardware, but also on whether physical experience can accumulate across robots, tasks, organizations, and time. Drawing on the authors' work in developing ISO/WD 26264-1, Humanoid robot datasets -- Part 1: General requirements, within ISO/TC 299/WG 16, this article arg…",
-      "summaryRaw": "The scalability of humanoid robots will depend not only on models and hardware, but also on whether physical experience can accumulate across robots, tasks, organizations, and time. Drawing on the authors' work in developing ISO/WD 26264-1, Humanoid robot datasets -- Part 1: General requirements, within ISO/TC 299/WG 16, this article argues that data standards are becoming foundational infrastructure for Physical AI. We develop three insights. First, humanoid robot data is embodied interaction data, not a collection of isolated digital samples; a useful dataset must preserve the relationship among robot body, action, task, scene, execution trace, and outcome. Second, its value depends on physical coherence: multimodal streams are reusable only when timing, coordinate frames, calibration, kinematics, units, and synchronization assumptions remain inspectable. Third, the main bottleneck is not only data scarcity, but non-cumulative data caused by high collection costs, data silos, and inconsistent evaluation. We argue that humanoid robot data standards address these bottlenecks by making embodied experience interpretable, shareable, traceable, and reusable. A general standard should provide horizontal infrastructure for lifecycle management, metadata, provenance, quality, versioning, and traceability, while capability-specific parts should define domain grammar for manipulation, locomotion, human-robot interaction, cognition, and future humanoid capabilities. As AI moves from screens into bodies, data standards must evolve from organizing digital information to structuring physical interaction.",
-      "link": "https://arxiv.org/abs/2606.19769v1",
-      "pdfLink": "https://arxiv.org/pdf/2606.19769v1",
-      "published": "2026-06-18T04:10:16Z",
-      "updated": "2026-06-18T04:10:16Z",
+      "id": "2606.25985v1",
+      "title": "Action ControlNet: A Lightweight Delay-Aware Adapter for Smooth Asynchronous Control in Vision-Language-Action Models",
+      "summary": "Vision-language-action (VLA) models have shown strong potential for general-purpose robot manipulation, but their inference latency remains a major obstacle to stable high-frequency control. Asynchronous execution mitigates this bottleneck by overlapping policy inference with action execution, yet the next action chunk is still predicted…",
+      "summaryRaw": "Vision-language-action (VLA) models have shown strong potential for general-purpose robot manipulation, but their inference latency remains a major obstacle to stable high-frequency control. Asynchronous execution mitigates this bottleneck by overlapping policy inference with action execution, yet the next action chunk is still predicted from stale observations while the robot continues to move. Direct chunk stitching therefore introduces handoff discontinuities, action jitter, and failures in contact-rich manipulation. Existing remedies typically require either full-policy retraining or architecture-specific runtime logic. This work proposes Action ControlNet (ACNet), a lightweight delay-aware adapter that uses the executed motion suffix as a residual condition for a mostly frozen action head. ACNet leaves the pretrained backbone unchanged, introduces few trainable parameters, and remains compatible with generative action heads such as diffusion and flow matching. On Kinetix, Meta-World MT50, and a real-world SO-ARM101 platform, ACNet improves robustness under inference delay and yields smoother asynchronous trajectories than direct chunk stitching, while remaining more lightweight than full delay-conditioned retraining.",
+      "link": "https://arxiv.org/abs/2606.25985v1",
+      "pdfLink": "https://arxiv.org/pdf/2606.25985v1",
+      "published": "2026-06-24T15:53:43Z",
+      "updated": "2026-06-24T15:53:43Z",
       "authors": [
-        "Shaoshan Liu",
-        "Xiugong Qin",
-        "Xuan Wu",
-        "Xuan Xia",
-        "Ning Ding",
-        "Jialu Liu",
-        "Jie Tang"
+        "Tiecheng Guo",
+        "Meng Guo"
       ],
       "categories": [
-        "cs.AI",
         "cs.RO"
       ],
       "score": 82,
       "importanceLevel": "B",
-      "lane": "Robotics",
+      "lane": "VLA",
       "dimensionScores": {
-        "relevance": 75,
-        "novelty": 80,
-        "impact": 80,
-        "practicality": 75,
-        "coreAlignment": 70
-      },
-      "oneSentenceSummary": "人形机器人数据标准提案，定义体现交互数据的物理一致性准则。",
-      "summaryCn": "基于ISO/WD 26264-1，指出人形机器人数据是体现交互数据，需保持机器人身体、动作、任务、场景、执行轨迹和结果的关系。物理一致性（时序、坐标系、标定、运动学等）是多流水线数据可复用的关键。提出标准框架以促进跨组织经验积累，加速物理AI发展。",
-      "whyImportant": "首次系统阐述人形机器人数据标准化需求，指引大规模数据共享。",
-      "reasonTags": [
-        "数据标准",
-        "人形机器人",
-        "物理AI",
-        "互操作性"
-      ],
-      "innovationPoints": [
-        "提出体现交互数据的概念与维护需求",
-        "定义物理一致性的关键要素",
-        "基于ISO工作提供标准化路径"
-      ],
-      "noveltyVerdict": "虽非算法创新，但填补了行业基础设施空白，长远影响深远。",
-      "duplicateRisk": "low",
-      "dedupeNote": "定位为数据规范与标准，与模型/算法类论文性质不同。",
-      "retrievalGroups": [
-        "category",
-        "robotics"
-      ],
-      "mergedCount": 1,
-      "mergedTitles": [
-        "Data Standards for Humanoid Robotics: The Missing Infrastructure for Physical AI"
-      ]
-    },
-    {
-      "id": "2606.20376v1",
-      "title": "CRAX: Fast Safe Reinforcement Learning Benchmarking",
-      "summary": "Safety is a core concern for deploying reinforcement learning (RL) agents in real-world domains such as robotics and autonomous driving. While benchmarks have been central to progress in RL, existing safety benchmarks with high-fidelity 3D physics remain computationally slow, limiting large-scale experimentation and rapid prototyping.",
-      "summaryRaw": "Safety is a core concern for deploying reinforcement learning (RL) agents in real-world domains such as robotics and autonomous driving. While benchmarks have been central to progress in RL, existing safety benchmarks with high-fidelity 3D physics remain computationally slow, limiting large-scale experimentation and rapid prototyping. To address this gap, we propose CRAX (Constrained RL Accelerated with JAX). Built on top of the MuJoCo XLA (MJX) physics engine with realistic 3D dynamics, CRAX leverages vectorized operations and hardware acceleration, yielding up to ~100x speedups over comparable CPU-based safety benchmarks. The benchmark features six environment suites and three agent-specific tasks, each spanning three difficulty levels. Evaluating six popular safe RL methods shows that no single approach dominates across all tasks, and reveals the trade-offs between performance and safety. We find that curriculum learning across difficulty levels and safety transfer can improve performance over direct training in harder settings.",
-      "link": "https://arxiv.org/abs/2606.20376v1",
-      "pdfLink": "https://arxiv.org/pdf/2606.20376v1",
-      "published": "2026-06-18T15:36:13Z",
-      "updated": "2026-06-18T15:36:13Z",
-      "authors": [
-        "Tristan Tomilin",
-        "Mourad Boustani",
-        "Mickey Beurskens",
-        "Thiago D. Simão"
-      ],
-      "categories": [
-        "cs.AI",
-        "cs.LG"
-      ],
-      "score": 80,
-      "importanceLevel": "B",
-      "lane": "Robotics",
-      "dimensionScores": {
-        "relevance": 70,
-        "novelty": 75,
-        "impact": 85,
-        "practicality": 80,
-        "coreAlignment": 70
-      },
-      "oneSentenceSummary": "CRAX提供基于MuJoCo XLA的安全RL基准，速度提升百倍。",
-      "summaryCn": "现有安全基准计算慢，限制大规模实验。CRAX基于MJX物理引擎和JAX向量化，实现高达CPU基准~100倍的加速。包含6个环境套件、3个代理任务，各含三个难度级别。评估六种流行安全RL方法，揭示性能与安全的权衡，提供标准化测试平台。",
-      "whyImportant": "高速安全RL基准将加速机器人安全学习算法的研发迭代。",
-      "reasonTags": [
-        "安全强化学习",
-        "基准",
-        "加速",
-        "机器人"
-      ],
-      "innovationPoints": [
-        "首次在MJX上构建多任务安全RL基准",
-        "向量化实现百倍加速",
-        "标准化的难度分级与评估协议"
-      ],
-      "noveltyVerdict": "工程贡献突出，填补安全RL基准的加速空白，实用价值高。",
-      "duplicateRisk": "low",
-      "dedupeNote": "专注于基准平台与速度优化，非新算法。",
-      "retrievalGroups": [
-        "category",
-        "driving",
-        "robotics"
-      ],
-      "mergedCount": 1,
-      "mergedTitles": [
-        "CRAX: Fast Safe Reinforcement Learning Benchmarking"
-      ]
-    },
-    {
-      "id": "2606.20135v1",
-      "title": "Frequency-Aware Flow Matching for Continuous and Consistent Robotic Action Generation",
-      "summary": "Flow matching has emerged as a standard paradigm for robotic manipulation owing to its strong expressive power for modelling complex, multimodal action distributions, alongside similar approaches like diffusion policy. However, existing methods rely on discretized action chunks, making them brittle to demonstrations collected at heteroge…",
-      "summaryRaw": "Flow matching has emerged as a standard paradigm for robotic manipulation owing to its strong expressive power for modelling complex, multimodal action distributions, alongside similar approaches like diffusion policy. However, existing methods rely on discretized action chunks, making them brittle to demonstrations collected at heterogeneous control frequencies and prone to temporally inconsistent actions that degrade control stability. In this paper, we propose Frequency-Aware Flow Matching (FAFM), which outputs continuous, temporally consistent actions. To handle heterogeneous frequency input, we transform discrete action sequences into the frequency domain with the discrete cosine transform (DCT), perform flow matching over the resulting coefficients, and reconstruct continuous actions via cosine basis expansion. To generate temporally consistent actions, we regularize the first-order temporal derivative to promote smooth actions. This corresponds to a Sobolev-type constraint that suppresses high-frequency errors and discourages abrupt action changes. Our FAFM is simple, introduces no additional network parameters and applies to standalone flow-matching policies and vision-language action models. Across synthetic toy benchmark, obstacle avoidance, LapGym, and LIBERO, FAFM improves success rates, multimodal expressivity, motion smoothness, convergence speed, robustness to mechanical bias and mixed-frequency input. These gains are consistent when deployed on a real-world Franka robot. Code available at https://anonymous.4open.science/r/FAFM.",
-      "link": "https://arxiv.org/abs/2606.20135v1",
-      "pdfLink": "https://arxiv.org/pdf/2606.20135v1",
-      "published": "2026-06-18T11:58:30Z",
-      "updated": "2026-06-18T11:58:30Z",
-      "authors": [
-        "Jianing Guo",
-        "Fangzheng Chen",
-        "Zihao Mao",
-        "Wong Lik Hang Kenny",
-        "Zhenhong Wu",
-        "Yu Li",
-        "Yishuai Cai",
-        "Yuanpei Chen"
-      ],
-      "categories": [
-        "cs.AI",
-        "cs.RO"
-      ],
-      "score": 78,
-      "importanceLevel": "B",
-      "lane": "Robotics",
-      "dimensionScores": {
-        "relevance": 70,
-        "novelty": 70,
-        "impact": 80,
+        "relevance": 79,
+        "novelty": 81,
+        "impact": 70,
         "practicality": 85,
-        "coreAlignment": 65
+        "coreAlignment": 85
       },
-      "oneSentenceSummary": "频率感知流匹配生成连续时序一致动作，克服离散动作块的脆裂性。",
-      "summaryCn": "现有流匹配依赖离散动作块，对异构控制频率脆弱，动作时序不一致。提出FAFM：用离散余弦变换将动作序列转到频域进行流匹配，再通过余弦基重建连续动作；引入一阶平滑正则保证时序一致。在多种频率演示上实现稳定控制，与扩散策略等兼容。",
-      "whyImportant": "使流匹配动作生成可适应任意频率，增强控制稳定性和通用性。",
+      "oneSentenceSummary": "Action ControlNet:轻量延迟感知适配器，平滑VLA异步控制。",
+      "summaryCn": "VLA推理延迟导致高频控制不稳定。ACNet利用已执行的运动后缀作为残差条件，适配冻结的动作头，无需重训骨架。通过少参数和动作不可知设计，消除交接抖动，在接触丰富任务中验证平滑控制效果。",
+      "whyImportant": "解决VLA异步执行中的手抖和失败问题，轻量级方案易于部署。",
       "reasonTags": [
-        "流匹配",
-        "连续动作",
-        "频率域",
-        "机器人控制"
+        "VLA",
+        "异步控制",
+        "轻量适配器",
+        "延迟感知"
       ],
       "innovationPoints": [
-        "将动作生成搬移到频域并匹配系数",
-        "余弦基重建获得连续动作",
-        "平滑正则消除块边界不一致"
+        "首次针对VLA异步控制的残差适配器设计",
+        "利用运动后缀提供延迟补偿",
+        "参数高效且骨架无关"
       ],
-      "noveltyVerdict": "在流匹配框架内引入频域表示是独特改进，实用性强。",
+      "noveltyVerdict": "创新性中等：工程化解决方案，但解决实际问题。",
       "duplicateRisk": "low",
-      "dedupeNote": "专注于动作生成的表示层面，与架构或数据增强不同。",
+      "dedupeNote": "其他VLA工作未明确处理异步执行问题，ACNet填补空白。",
       "retrievalGroups": [
         "category",
         "robotics",
@@ -680,176 +445,285 @@ window.PAPERS_SITE_DATA = {
       ],
       "mergedCount": 1,
       "mergedTitles": [
-        "Frequency-Aware Flow Matching for Continuous and Consistent Robotic Action Generation"
+        "Action ControlNet: A Lightweight Delay-Aware Adapter for Smooth Asynchronous Control in Vision-Language-Action Models"
       ]
     },
     {
-      "id": "2606.19836v1",
-      "title": "World Engine: Towards the Era of Post-Training for Autonomous Driving",
-      "summary": "Autonomous vehicles must operate safely in the real world, where errors can have severe consequences. Although modern end-to-end driving policies excel in routine scenarios, their reliability is limited by the scarcity of safety-critical ``long-tail'' events in real driving datasets.",
-      "summaryRaw": "Autonomous vehicles must operate safely in the real world, where errors can have severe consequences. Although modern end-to-end driving policies excel in routine scenarios, their reliability is limited by the scarcity of safety-critical ``long-tail'' events in real driving datasets. These rare interactions define the practical safety boundary of the learned policy, yet they are difficult to collect at scale in the real world. Here we show that this fundamental limitation can be addressed by post-training pre-trained driving models on synthesized high-stakes interactions. We introduce World Engine, a generative framework that reconstructs high-fidelity interactive environments from real-world logs and systematically extrapolates them into realistic safety-critical variations. This paradigm enables reinforcement-based post-training to align policies with safety constraints, circumventing the physical risks inherent in real-world exploration. On a public benchmark built on nuPlan, World Engine substantially reduces failures in rare safety-critical scenarios and yields significantly larger gains than scaling pre-training data alone. Furthermore, when deployed on a production-scale autonomous driving system, the resulting policy reduces simulated collisions and demonstrates measurable improvements in on-road testing, showing that post-training on synthesized, safety-critical interactions offers a scalable and effective pathway to safer autonomous driving. The full codebase suite, including training, is released to the public.",
-      "link": "https://arxiv.org/abs/2606.19836v1",
-      "pdfLink": "https://arxiv.org/pdf/2606.19836v1",
-      "published": "2026-06-18T06:28:33Z",
-      "updated": "2026-06-18T06:28:33Z",
+      "id": "2606.25473v1",
+      "title": "Causal-rCM: A Unified Teacher-Forcing and Self-Forcing Open Recipe for Autoregressive Diffusion Distillation in Streaming Video Generation and Interactive World Models",
+      "summary": "Autoregressive video diffusion with causal diffusion transformers has emerged as a major paradigm for real-time streaming video generation and action-conditioned interactive world models. In this work, we extend rCM, an advanced diffusion distillation framework, to autoregressive video diffusion.",
+      "summaryRaw": "Autoregressive video diffusion with causal diffusion transformers has emerged as a major paradigm for real-time streaming video generation and action-conditioned interactive world models. In this work, we extend rCM, an advanced diffusion distillation framework, to autoregressive video diffusion. The core philosophy of rCM lies in the complementarity between forward and reverse divergences, represented by consistency models (CMs) and distribution matching distillation (DMD), respectively, in diffusion distillation. This philosophy naturally carries over to the autoregressive setting, where teacher-forcing (TF) provides an offline, forward-divergence causal training paradigm, while self-forcing (SF) corresponds to an on-policy, reverse-divergence refinement. Our contributions are: (1) through extensive experiments, we show that teacher-forcing CM is currently the best complement to self-forcing DMD as an initialization strategy (2) we present the first implementation of teacher-forcing-based continuous-time CMs (e.g., sCM/MeanFlow) for autoregressive video diffusion, enabled by our custom-mask FlashAttention-2 JVP kernel, achieving 10$\\times$ faster convergence compared to discrete-time CMs (dCMs) (3) we introduce Causal-rCM, a leading, unified, and scalable algorithm-infrastructure open recipe for diffusion distillation and causal training (4) we achieve state-of-the-art streaming video generation performance in both frame-wise and chunk-wise settings, using only synthetic data for training. Notably, our distilled 2-step causal Wan2.1-1.3B model achieves a VBench-T2V score of 84.63 with only 1 or 2 sampling steps. We further apply Causal-rCM to Cosmos 3, an advanced omnimodal world foundation model for physical AI with action-conditioned generation capability, enabling an interactive world model.",
+      "link": "https://arxiv.org/abs/2606.25473v1",
+      "pdfLink": "https://arxiv.org/pdf/2606.25473v1",
+      "published": "2026-06-24T06:58:02Z",
+      "updated": "2026-06-24T06:58:02Z",
       "authors": [
-        "Tianyu Li",
-        "Li Chen",
-        "Caojun Wang",
-        "Haochen Liu",
-        "Kashyap Chitta",
-        "Zhenjie Yang",
-        "Yuhang Lu",
-        "Naisheng Ye"
+        "Kaiwen Zheng",
+        "Guande He",
+        "Min Zhao",
+        "Jintao Zhang",
+        "Huayu Chen",
+        "Jianfei Chen",
+        "Chen-Hsuan Lin",
+        "Ming-Yu Liu"
       ],
       "categories": [
         "cs.CV",
+        "cs.LG"
+      ],
+      "score": 87,
+      "importanceLevel": "A",
+      "lane": "WAM",
+      "dimensionScores": {
+        "relevance": 83,
+        "novelty": 88,
+        "impact": 80,
+        "practicality": 75,
+        "coreAlignment": 90
+      },
+      "oneSentenceSummary": "Causal-rCM:统一教师强迫与自强迫蒸馏，用于交互世界模型。",
+      "summaryCn": "将rCM蒸馏框架扩展至自回归视频扩散，利用教师强迫（前向散度）与自强迫（反向散度）的互补性，通过一致性模型和分布匹配蒸馏的结合，实现高效动作条件世界模型蒸馏，为实时交互式世界模型提供开放方案。",
+      "whyImportant": "为交互式世界模型的高效推理提供系统性蒸馏方法，降低计算成本。",
+      "reasonTags": [
+        "世界动作模型",
+        "扩散蒸馏",
+        "自回归视频生成",
+        "交互世界模型"
+      ],
+      "innovationPoints": [
+        "首次将rCM统一框架应用于自回归视频扩散",
+        "展示教师强迫与自强迫在蒸馏中的互补性",
+        "提供开放方案促进交互式世界模型发展"
+      ],
+      "noveltyVerdict": "创新性高：蒸馏范式创新，为世界模型实时推理铺路。",
+      "duplicateRisk": "low",
+      "dedupeNote": "虽为方法论文，但直接面向交互式世界模型，核心WAM贡献。",
+      "retrievalGroups": [
+        "category",
+        "wam_core"
+      ],
+      "mergedCount": 1,
+      "mergedTitles": [
+        "Causal-rCM: A Unified Teacher-Forcing and Self-Forcing Open Recipe for Autoregressive Diffusion Distillation in Streaming Video Generation and Interactive World Models"
+      ]
+    },
+    {
+      "id": "2606.25880v1",
+      "title": "USS: Unified Spatial-Semantic Prompts for Embodied Visual Tracking with Latent Dynamics Learning",
+      "summary": "Embodied Visual Tracking (EVT) requires an agent to continuously follow a specified target while actively moving through dynamic environments. However, prevailing EVT paradigms predominantly rely on language-based target indication.",
+      "summaryRaw": "Embodied Visual Tracking (EVT) requires an agent to continuously follow a specified target while actively moving through dynamic environments. However, prevailing EVT paradigms predominantly rely on language-based target indication. While language is expressive and convenient, cluttered scenes often contain multiple objects that satisfy the same semantic description, leading to ambiguous target grounding. We therefore propose a paradigm shift, reframing target indication in EVT from text-only specification to unified spatial-semantic prompting. Based on this paradigm, we introduce Unified Spatial-Semantic Prompts for Embodied Visual Tracking with Latent Dynamics Learning, USS, an end-to-end embodied tracking framework that supports text, point, bounding box, and mask prompts within a unified architecture. USS encodes heterogeneous prompts with modality-specific encoders, fuses prompt tokens with visual features through hybrid attention, and decodes compact prompt-conditioned representations into egocentric waypoints. To further improve temporal robustness, USS incorporates a latent world model that predicts future representations through self-supervised alignment. Real-robot experiments demonstrate that explicit spatial target cues yield higher success rates than text-only prompts, particularly in scenarios involving similar distractors and longer-horizon tracking where maintaining instance-level target identity is critical. In the simulation benchmark, USS also achieves state-of-the-art performance among non-MLLM-based methods and competitive results against recent MLLM-based approaches with faster inference speed. Our findings reveal that spatial-semantic prompting provides a more precise and flexible target indication interface for embodied visual tracking. Project site: https://arescheah.github.io/uss-project-page/.",
+      "link": "https://arxiv.org/abs/2606.25880v1",
+      "pdfLink": "https://arxiv.org/pdf/2606.25880v1",
+      "published": "2026-06-24T14:25:05Z",
+      "updated": "2026-06-24T14:25:05Z",
+      "authors": [
+        "Yuchen Xie",
+        "Xinyu Zhou",
+        "Kuangji Zuo",
+        "Yanshuo Lu",
+        "Fengrui Huang",
+        "Boyu Ma",
+        "Jianfei Yang"
+      ],
+      "categories": [
+        "cs.CV"
+      ],
+      "score": 82,
+      "importanceLevel": "B",
+      "lane": "WAM",
+      "dimensionScores": {
+        "relevance": 78,
+        "novelty": 83,
+        "impact": 75,
+        "practicality": 70,
+        "coreAlignment": 80
+      },
+      "oneSentenceSummary": "USS:统一空间语义提示与潜在动力学学习的具身跟踪。",
+      "summaryCn": "针对具身视觉跟踪中语言歧义，USS支持文本、点、框、掩码多模态提示，编码后融合目标信息，通过潜在动力学模块建模时序运动，实现长期跟踪。实验表明多提示统一架构在复杂场景下提升跟踪鲁棒性。",
+      "whyImportant": "统一提示范式提升具身跟踪灵活性，潜在动力学学习辅助世界建模。",
+      "reasonTags": [
+        "具身视觉跟踪",
+        "动力学学习",
+        "多模态提示",
+        "世界模型"
+      ],
+      "innovationPoints": [
+        "统一处理多种空间语义提示",
+        "引入潜在动力学学习建模运动",
+        "端到端框架提升跟踪鲁棒性"
+      ],
+      "noveltyVerdict": "创新性中等：统一提示有价值，动力学学习模块非核心差异。",
+      "duplicateRisk": "low",
+      "dedupeNote": "有别于传统2D跟踪，该工作融合动力学学习，但WAM属性较弱，仍入选。",
+      "retrievalGroups": [
+        "category",
+        "robotics",
+        "wam_core"
+      ],
+      "mergedCount": 1,
+      "mergedTitles": [
+        "USS: Unified Spatial-Semantic Prompts for Embodied Visual Tracking with Latent Dynamics Learning"
+      ]
+    },
+    {
+      "id": "2606.25295v1",
+      "title": "DynaMOMA: Instantaneous Prediction of Grasp Poses for Mobile Manipulation of Dynamic Objects",
+      "summary": "Mobile manipulation is a fundamental robotics task and has advanced rapidly in recent years, enabling robots to navigate, reach, and interact with objects in complex environments. However, mobile manipulation of dynamic objects remains highly challenging, as robots must coordinate the mobile base and arm while adapting to continuously ev…",
+      "summaryRaw": "Mobile manipulation is a fundamental robotics task and has advanced rapidly in recent years, enabling robots to navigate, reach, and interact with objects in complex environments. However, mobile manipulation of dynamic objects remains highly challenging, as robots must coordinate the mobile base and arm while adapting to continuously evolving target poses. A key challenge lies in predicting temporally consistent short-horizon grasp trajectories from dynamic observations. In this work, we propose \\ours{}, a dynamic mobile manipulation framework that couples instantaneous grasp trajectory prediction with whole-body control policy. Our predictor uses an anchor-based diffusion model to generate temporally consistent short-horizon grasp trajectories conditioned on historical observations. The predicted trajectories are then encoded as compact features and fed to a whole-body reinforcement learning policy, which controls the mobile manipulator for dynamic grasping. We further introduce a anticipation-guided reward that equips the policy with an anticipatory grasping horizon by adaptively shifting the target from the current grasp observation to the instantaneously predicted grasp trajectory. Through extensive experiments in Isaac Gym simulation, we show that our method achieves strong performance in mobile manipulation of dynamic objects across diverse settings and grasping metrics. Furthermore, our predictor and policy demonstrate strong generalizability in real-world experiments.",
+      "link": "https://arxiv.org/abs/2606.25295v1",
+      "pdfLink": "https://arxiv.org/pdf/2606.25295v1",
+      "published": "2026-06-24T01:58:15Z",
+      "updated": "2026-06-24T01:58:15Z",
+      "authors": [
+        "Zhinan Yu",
+        "Junyan Xu",
+        "Jiazhao Zhang",
+        "Zheng Qin",
+        "Yijie Tang",
+        "Yuhang Huang",
+        "Yihan Cao",
+        "Zhiyuan Yu"
+      ],
+      "categories": [
         "cs.RO"
+      ],
+      "score": 80,
+      "importanceLevel": "B",
+      "lane": "WAM",
+      "dimensionScores": {
+        "relevance": 76,
+        "novelty": 80,
+        "impact": 78,
+        "practicality": 75,
+        "coreAlignment": 82
+      },
+      "oneSentenceSummary": "DynaMOMA:锚点扩散预测抓取轨迹，耦合全身强化学习控制。",
+      "summaryCn": "针对动态物体移动操作，DynaMOMA耦合瞬时抓取轨迹预测与全身控制策略。预测器利用锚点扩散模型，基于历史观测生成时序一致短时抓取轨迹，编码为紧凑特征传入强化学习控制器，实现移动基座与臂的协同动态抓取。",
+      "whyImportant": "将扩散预测与全身控制结合，推动移动操作向动态环境拓展。",
+      "reasonTags": [
+        "世界模型",
+        "抓取预测",
+        "扩散模型",
+        "全身控制"
+      ],
+      "innovationPoints": [
+        "锚点扩散模型预测时序抓取轨迹",
+        "将动态预测与全身强化学习耦合",
+        "解决移动操作中的动态适应问题"
+      ],
+      "noveltyVerdict": "创新性较高：动态抓取轨迹预测与控制的结合有新颖性。",
+      "duplicateRisk": "low",
+      "dedupeNote": "区别于静态抓取检测，该工作专攻动态物体，具有WAM属性。",
+      "retrievalGroups": [
+        "category",
+        "robotics"
+      ],
+      "mergedCount": 1,
+      "mergedTitles": [
+        "DynaMOMA: Instantaneous Prediction of Grasp Poses for Mobile Manipulation of Dynamic Objects"
+      ]
+    },
+    {
+      "id": "2606.25736v1",
+      "title": "UniTeD: Unified Temporal Diffusion for Joint Perception and Planning in Autonomous Driving",
+      "summary": "Diffusion models have shown strong potential for multi-modal planning in end-to-end autonomous driving. However, most existing methods confine diffusion to the planning module, conditioning on fixed outputs from separate discriminative perception networks.",
+      "summaryRaw": "Diffusion models have shown strong potential for multi-modal planning in end-to-end autonomous driving. However, most existing methods confine diffusion to the planning module, conditioning on fixed outputs from separate discriminative perception networks. This decoupled design propagates perception errors to the planner, increasing optimization difficulty and reducing robustness. To overcome these limitations, we propose UniTeD, a Unified Temporal Diffusion framework that jointly models perception and planning through iterative denoising in a shared generative space. By enabling bidirectional information exchange, the framework facilitates mutual refinement between tasks and improves robustness via noise-conditioned multi-task training. We further extend this unified diffusion paradigm to a streaming setting by incorporating temporal context. A Temporal Transition Module (TTM) is introduced to resolve the noise-level mismatch between historical and current frames. In addition, we propose an Anchor Refresh Strategy (ARS) to alleviate the training-inference distribution shift commonly observed in sparse diffusion-based end-to-end driving frameworks. Without bells and whistles, UniTeD achieves state-of-the-art performance across multiple benchmarks, surpassing both recent discriminative end-to-end methods and diffusion-based planning approaches.",
+      "link": "https://arxiv.org/abs/2606.25736v1",
+      "pdfLink": "https://arxiv.org/pdf/2606.25736v1",
+      "published": "2026-06-24T12:03:54Z",
+      "updated": "2026-06-24T12:03:54Z",
+      "authors": [
+        "Bo Zhao",
+        "Xinting Zhao",
+        "Naifan Li",
+        "Erkang Cheng",
+        "Haibin Ling"
+      ],
+      "categories": [
+        "cs.CV"
       ],
       "score": 78,
       "importanceLevel": "B",
       "lane": "WAM",
       "dimensionScores": {
-        "relevance": 70,
-        "novelty": 80,
-        "impact": 80,
-        "practicality": 75,
+        "relevance": 74,
+        "novelty": 82,
+        "impact": 76,
+        "practicality": 70,
         "coreAlignment": 80
       },
-      "oneSentenceSummary": "World Engine从真实日志合成安全关键场景，用于驾驶策略后训练。",
-      "summaryCn": "端到端驾驶策略受限于长尾安全关键数据稀缺。提出World Engine生成框架：从真实驾驶日志重建高保真交互环境，系统化外推至安全关键变体。利用这些合成数据进行强化后训练，在不依赖真实事故数据的前提下提升策略安全边界，实验证明显著减少碰撞。",
-      "whyImportant": "无需真实事故数据即可系统提升驾驶策略的安全性，范式新颖。",
+      "oneSentenceSummary": "UniTeD:统一时序扩散，联合建模自动驾驶感知与规划。",
+      "summaryCn": "UniTeD首次将感知与规划纳入统一扩散生成空间，通过迭代去噪实现双向信息交换与相互优化，并引入时序过渡模块适用流式处理。在nuScenes基准上，联合建模优于解耦基线，提升规划鲁棒性并降低误差传播。",
+      "whyImportant": "为端到端自动驾驶提供新范式，生成式联合建模有望改善可靠性。",
       "reasonTags": [
         "世界模型",
-        "驾驶安全",
-        "后训练",
-        "长尾场景"
+        "端到端自动驾驶",
+        "扩散模型",
+        "联合感知规划"
       ],
       "innovationPoints": [
-        "从日志重建可交互环境并外推变体",
-        "基于合成数据的安全强化对齐",
-        "不依赖真实事故数据扩展安全边界"
+        "首次统一时序扩散同时生成感知与规划",
+        "噪声条件多任务训练增强鲁棒性",
+        "流式扩展保持时序一致性"
       ],
-      "noveltyVerdict": "将生成式世界模型与驾驶策略后训练结合，思路新颖且具行业价值。",
-      "duplicateRisk": "medium",
-      "dedupeNote": "区别于一般视频世界模型，专注于驾驶场景的安全变体生成与策略更新。",
+      "noveltyVerdict": "创新性较高：将扩散模型用于联合感知规划，思路新颖。",
+      "duplicateRisk": "low",
+      "dedupeNote": "与现有扩散规划工作不同，引入感知空间联合生成，赋予世界模型特性。",
       "retrievalGroups": [
         "category",
         "driving"
       ],
       "mergedCount": 1,
       "mergedTitles": [
-        "World Engine: Towards the Era of Post-Training for Autonomous Driving"
+        "UniTeD: Unified Temporal Diffusion for Joint Perception and Planning in Autonomous Driving"
       ]
     },
     {
-      "id": "2606.20083v1",
-      "title": "Holo-World: Unified Camera, Object and Weather Control for Video World Model",
-      "summary": "Video world models are moving toward preserving an observed world under controllable camera and object motion while allowing its environmental state to change. Yet these controls remain isolated, and weather generation typically relies on a source video or reconstructed scene that already specifies future structure.",
-      "summaryRaw": "Video world models are moving toward preserving an observed world under controllable camera and object motion while allowing its environmental state to change. Yet these controls remain isolated, and weather generation typically relies on a source video or reconstructed scene that already specifies future structure. We study a first-frame-anchored source-to-state setting, where the model starts from a single image and follows explicit camera and object controls and an optional weather instruction, then generates a video that either preserves the source world or transfers it to a target weather state. To address these challenges, we first build HoloStateData, a state video dataset that turns diverse videos into unified control samples for camera, object, and weather supervision. Second, we introduce Holo-World, a unified controllable video world model that jointly controls scene from a single image. Its Unified Scene Adapter factorizes world preservation and weather transfer into distinct parameter subspaces, using rendered background, geometry buffers, and object controls to maintain controlled scene structure while modeling weather-dependent appearance and particle effects. Additionally, Scene-Weather Decomposed CFG guides scene and weather residuals separately, strengthening target weather effects without over-amplifying the full condition. Quantitative and qualitative experiments demonstrate that Holo-World maintains precise camera and object control with consistent scene structure while transferring scenes into diverse target weather state, outperforming video-to-video weather editing baselines on weather-state generation. Our project page is available at \\url{https://xiangchenyin.github.io/Holo-World/}.",
-      "link": "https://arxiv.org/abs/2606.20083v1",
-      "pdfLink": "https://arxiv.org/pdf/2606.20083v1",
-      "published": "2026-06-18T11:01:34Z",
-      "updated": "2026-06-18T11:01:34Z",
+      "id": "2606.25953v1",
+      "title": "DSP-SLAM++: A Unified Framework for Multi-Class, High-Fidelity Object SLAM in the Wild",
+      "summary": "Existing object-aware SLAM systems force a trade-off between real-time performance, multi-class support, and the generation of high-fidelity, semantically coherent object models. To address this trade-off, we present DSP-SLAM++, which extends the DSP-SLAM framework with an asynchronous mapping pipeline for real-time performance and dedic…",
+      "summaryRaw": "Existing object-aware SLAM systems force a trade-off between real-time performance, multi-class support, and the generation of high-fidelity, semantically coherent object models. To address this trade-off, we present DSP-SLAM++, which extends the DSP-SLAM framework with an asynchronous mapping pipeline for real-time performance and dedicated sensor fusion adaptations for a monocular fisheye-LiDAR suite. Experiments demonstrate that our system generates fine-grained, geometrically-complete shapes for multiple object classes while eliminating severe mapping thread bottlenecks by reducing maximum object processing latency by up to 70\\% compared to the state-of-the-art baseline, enabling robust, real-time performance on a challenging 25 Hz multi-class datasets. This work makes high-fidelity, multi-class object SLAM more practical for real-world applications like autonomous driving and robotic manipulation by enabling its use on platforms with common fisheye-LiDAR sensor setups. The open-source code is available at: [github.com/AUBVRL/DSP-SLAMpp].",
+      "link": "https://arxiv.org/abs/2606.25953v1",
+      "pdfLink": "https://arxiv.org/pdf/2606.25953v1",
+      "published": "2026-06-24T15:27:23Z",
+      "updated": "2026-06-24T15:27:23Z",
       "authors": [
-        "Xiangchen Yin",
-        "Wenzhang Sun",
-        "Jiahui Yuan",
-        "Zijie Liu",
-        "Yinda Chen",
-        "Wei Li",
-        "Dachun Kai",
-        "Chunfeng Wang"
+        "Ahmad Kourani",
+        "Ghina Daoud",
+        "Daniel Asmar",
+        "Imad Elhajj"
       ],
       "categories": [
-        "cs.CV"
-      ],
-      "score": 77,
-      "importanceLevel": "B",
-      "lane": "WAM",
-      "dimensionScores": {
-        "relevance": 70,
-        "novelty": 80,
-        "impact": 70,
-        "practicality": 65,
-        "coreAlignment": 85
-      },
-      "oneSentenceSummary": "Holo-World单图驱动可控视频世界，联合相机、物体和天气控制。",
-      "summaryCn": "现有视频世界模型控制孤立，天气生成依赖源视频。提出首帧锚定的源-状态设置：从单图开始，根据相机、物体控制及可选天气指令，生成保持源世界或迁移至目标天气的视频。构建HoloStateData数据集和统一控制架构，实现三方面联合生成。",
-      "whyImportant": "首次单图实现相机、物体、天气统一可控的视频世界模型。",
-      "reasonTags": [
-        "视频世界模型",
-        "可控生成",
-        "天气转换",
-        "单图驱动"
-      ],
-      "innovationPoints": [
-        "首帧锚定的源-状态设定",
-        "三方面联合控制模块",
-        "构建专用控制数据集"
-      ],
-      "noveltyVerdict": "在可控世界模型中加入多因素联合控制，扩展了世界模型的能力边界。",
-      "duplicateRisk": "medium",
-      "dedupeNote": "与机器人动作模型不同，更偏向视觉世界生成，但可为具身仿真提供环境。",
-      "retrievalGroups": [
-        "category",
-        "wam_core"
-      ],
-      "mergedCount": 1,
-      "mergedTitles": [
-        "Holo-World: Unified Camera, Object and Weather Control for Video World Model"
-      ]
-    },
-    {
-      "id": "2606.20189v1",
-      "title": "HilDA: Hierarchical Distillation with Diffusion for Advancing Self-Supervised LiDAR Pre-trainin",
-      "summary": "Leveraging Vision Foundation Models (VFMs) for camera-to-LiDAR knowledge distillation offers a promising solution to the scarcity of annotated data needed to represent the immense geometric and kinematic diversity of real-world autonomous driving (AD). However, current approaches typically treat VFMs as black-box teachers, relying exclus…",
-      "summaryRaw": "Leveraging Vision Foundation Models (VFMs) for camera-to-LiDAR knowledge distillation offers a promising solution to the scarcity of annotated data needed to represent the immense geometric and kinematic diversity of real-world autonomous driving (AD). However, current approaches typically treat VFMs as black-box teachers, relying exclusively on frame-wise feature similarity. Consequently, they do not fully exploit the teacher's layer-wise semantic structure and global context, as well as the rich spatiotemporal information inherent in LiDAR sequences. We propose HilDA, a self-supervised pretraining framework for LiDAR backbones that better captures the semantic what and geometric where needed for driving tasks. HilDA combines hierarchical distillation comprising multi-layer distillation for progressive semantic alignment and global context distillation for scene-level semantics, with a temporal occupancy diffusion objective promoting spatiotemporal consistency. Models pre-trained with HilDA achieve state-of-the-art results on cross-modal distillation benchmarks and outperform models trained via prior distillation approaches on 3D object detection, scene flow, and semantic occupancy prediction. Code available at: https://maxiuw.github.io/hilda.",
-      "link": "https://arxiv.org/abs/2606.20189v1",
-      "pdfLink": "https://arxiv.org/pdf/2606.20189v1",
-      "published": "2026-06-18T13:01:40Z",
-      "updated": "2026-06-18T13:01:40Z",
-      "authors": [
-        "Maciej Wozniak",
-        "Jesper Ericsson",
-        "Hariprasath Govindarajan",
-        "Truls Nyberg",
-        "Thomas Gustafsson",
-        "Patric Jensfelt",
-        "Olov Andersson"
-      ],
-      "categories": [
-        "cs.AI",
         "cs.CV",
         "cs.RO"
       ],
-      "score": 76,
+      "score": 78,
       "importanceLevel": "B",
       "lane": "Robotics",
       "dimensionScores": {
-        "relevance": 60,
-        "novelty": 80,
-        "impact": 80,
-        "practicality": 75,
-        "coreAlignment": 60
+        "relevance": 50,
+        "novelty": 70,
+        "impact": 75,
+        "practicality": 78,
+        "coreAlignment": 40
       },
-      "oneSentenceSummary": "HilDA分层蒸馏视觉基础模型到LiDAR，提升自动驾驶语义-几何理解。",
-      "summaryCn": "当前相机到LiDAR蒸馏仅利用逐帧特征相似性，忽略教师层语义结构和点云序列的时空信息。HilDA结合多层蒸馏（渐进语义对齐）和全局上下文蒸馏（场景级语义），并引入扩散去噪辅助任务，在多个驾驶下游任务上显著超越先前自监督方法。",
-      "whyImportant": "更有效地利用视觉基础模型，缓解LiDAR标注稀缺难题。",
+      "oneSentenceSummary": "DSP-SLAM++:统一框架实现多类高保真物体SLAM，异步建图加速。",
+      "summaryCn": "DSP-SLAM++扩展DSP-SLAM，通过异步建图管线消除瓶颈，适配鱼眼-LiDAR传感器融合，实现多类物体实时高保真重建。实验表明物体处理延迟降低70%，在25Hz数据集上实时运行，推动物体SLAM实用化。",
+      "whyImportant": "推进物体级SLAM走向实用，对自动驾驶与机器人感知有较大价值。",
       "reasonTags": [
-        "LiDAR预训练",
-        "知识蒸馏",
-        "自动驾驶",
-        "自监督"
+        "物体SLAM",
+        "多传感器融合",
+        "实时建图",
+        "高保真重建"
       ],
       "innovationPoints": [
-        "层次化蒸馏利用多层和全局语义",
-        "扩散辅助任务增强时空理解",
-        "显著提升少样本下游性能"
+        "异步建图管线消除处理瓶颈",
+        "适应鱼眼-LiDAR的传感器融合",
+        "多类高保真形状重建"
       ],
-      "noveltyVerdict": "将分层蒸馏和扩散引入LiDAR预训练，方法新颖且性能突出。",
+      "noveltyVerdict": "中等：在原有基础上改进流水线，实用性强。",
       "duplicateRisk": "low",
-      "dedupeNote": "专注于感知预训练，与策略学习或世界模型不同。",
+      "dedupeNote": "在DSP-SLAM上增量改进，但解决实时与多类问题，非冗余。",
       "retrievalGroups": [
         "category",
         "driving",
@@ -857,397 +731,508 @@ window.PAPERS_SITE_DATA = {
       ],
       "mergedCount": 1,
       "mergedTitles": [
-        "HilDA: Hierarchical Distillation with Diffusion for Advancing Self-Supervised LiDAR Pre-trainin"
+        "DSP-SLAM++: A Unified Framework for Multi-Class, High-Fidelity Object SLAM in the Wild"
       ]
     },
     {
-      "id": "2606.20458v1",
-      "title": "Slow Brain, Fast Planner: Latency-Resilient VLM-Augmented Urban Navigation",
-      "summary": "Learning-based planners for sidewalk navigation can generate diverse candidate trajectories in real time, yet their scoring functions often fail to select the best trajectory in challenging situations, outputting trajectories that make the mobile robot drive onto grass, toward pedestrians, or in the wrong direction, even when better cand…",
-      "summaryRaw": "Learning-based planners for sidewalk navigation can generate diverse candidate trajectories in real time, yet their scoring functions often fail to select the best trajectory in challenging situations, outputting trajectories that make the mobile robot drive onto grass, toward pedestrians, or in the wrong direction, even when better candidates exist in the same set. We call this the trajectory scoring gap: in real-world sidewalk navigation, the gap between an anchor-based planner's top choice and the best possible candidate is substantial, likely due to limited high-level scene understanding capability of the planner. Rather than replacing the planner with an end-to-end Vision-Language-Action model, we propose a VLM-Planner interface that uses a VLM to select a candidate index from the planner's proposal set and then fuse it with the planner's initial output. However, VLMs take 1--3s per query and so cannot directly drive a 5--20Hz control loop. We contribute a training-free, latency-resilient trajectory-level fusion layer that turns a stale VLM selection into real-time planner scoring via geometric similarity with exponential decay. On $\\sim$2,000 challenging real-world scenarios (e.g., junctions, pedestrian encounters), VLM selection achieves 30% ADE reduction versus the planner's best selection, while the planner remains competitive in routine situations. In simulation, Score Fusion maintains >80% success rate with delays up to 5s. We demonstrate the full system on a mobile robot navigating challenging campus sidewalks with varied network latency.",
-      "link": "https://arxiv.org/abs/2606.20458v1",
-      "pdfLink": "https://arxiv.org/pdf/2606.20458v1",
-      "published": "2026-06-18T16:40:07Z",
-      "updated": "2026-06-18T16:40:07Z",
+      "id": "2606.26010v1",
+      "title": "FAR-LIO: Enabling High-Speed Autonomy through Fast, Accurate, and Robust LiDAR-Inertial Odometry",
+      "summary": "Robust and accurate odometry estimation is essential in modern robotics. In environments characterized by highly dynamic motion and sensor noise, odometry estimation becomes increasingly challenging.",
+      "summaryRaw": "Robust and accurate odometry estimation is essential in modern robotics. In environments characterized by highly dynamic motion and sensor noise, odometry estimation becomes increasingly challenging. Autonomous racing combines both factors in an unstructured setting, where minimizing odometry latency is essential for stable closed-loop control. This paper introduces FAR-LIO, a highly optimized CUDA-accelerated LiDAR-inertial odometry framework developed for Fast, Accurate, and Robust performance. Our system leverages a novel CUDA-based voxel hashmap to enable parallelized nearest-neighbor search and efficient map updates. We employ a sparsity-aware Generalized Iterative Closest Point algorithm with adaptive thresholding on top of the CUDA-based voxel hashmap with adaptive density to achieve low-latency without compromising accuracy. An Extended Kalman Filter serves as a robust backend. It utilizes an upsampling and delay compensation strategy to fuse the LiDAR odometry with high-frequency IMU data, thereby ensuring a robust and smooth odometry output. We evaluate FAR-LIO across four different sensor setups, using both public datasets and data from two autonomous racecars driving at speeds of up to 250 km/h. FAR-LIO achieves an average 6.9% reduction in the positional error and 38.4% lower runtime compared to state-of-the-art baselines on target hardware using a single parameter set. This demonstrates its computational efficiency and broad applicability. To build upon our work, our code is available open-source on https://github.com/TUMFTM/FAR-LIO.",
+      "link": "https://arxiv.org/abs/2606.26010v1",
+      "pdfLink": "https://arxiv.org/pdf/2606.26010v1",
+      "published": "2026-06-24T16:30:51Z",
+      "updated": "2026-06-24T16:30:51Z",
       "authors": [
-        "Zhenghao \"Mark'' Peng",
-        "Honglin He",
-        "Quanyi Li",
-        "Yukai Ma",
-        "Bolei Zhou"
+        "Maximilian Leitenstern",
+        "Marcel Weinmann",
+        "Patrick Haft",
+        "Tobias Lasser",
+        "Dominik Kulmer",
+        "Markus Lienkamp"
       ],
       "categories": [
         "cs.RO"
       ],
-      "score": 75,
+      "score": 76,
       "importanceLevel": "B",
-      "lane": "VLA",
+      "lane": "Robotics",
       "dimensionScores": {
-        "relevance": 75,
-        "novelty": 70,
-        "impact": 65,
-        "practicality": 70,
-        "coreAlignment": 75
+        "relevance": 40,
+        "novelty": 68,
+        "impact": 74,
+        "practicality": 82,
+        "coreAlignment": 30
       },
-      "oneSentenceSummary": "VLM辅助规划器选择候选轨迹，解决端到端导航的轨迹评分差距。",
-      "summaryCn": "学习型导航规划器生成多样候选但评分不准，导致误选糟糕轨迹。提出VLM-规划器接口：VLM从候选集中选择指标，与原始输出融合。针对VLM延迟高，设计异步融合与滑窗机制，在真实城市人行道环境中验证，显著减少危险轨迹选择。",
-      "whyImportant": "轻量级VLM集成提升导航安全，无需替代原有快速规划器。",
+      "oneSentenceSummary": "FAR-LIO:CUDA加速LiDAR-惯导里程计，实现高速低延迟定位。",
+      "summaryCn": "FAR-LIO面向高速动态场景，设计CUDA体素哈希地图实现并行最近邻搜索，结合自适应阈值稀疏GICP和EKF后端，提供快速、精确、鲁棒的里程计估计。在自主赛车等场景验证低延迟，支撑稳定闭环控制。",
+      "whyImportant": "为高速动态场景提供高精度、低延迟里程计，支撑自主赛车等应用。",
       "reasonTags": [
-        "VLM导航",
-        "轨迹选择",
-        "异步融合",
-        "城市环境"
+        "LiDAR-惯导里程计",
+        "CUDA加速",
+        "高速定位",
+        "自主赛车"
       ],
       "innovationPoints": [
-        "VLM作为规划器后处理选择器",
-        "异步融合解决延迟难题",
-        "在城市导航基准上验证"
+        "CUDA体素哈希地图并行搜索",
+        "自适应阈值稀疏GICP",
+        "EKF鲁棒后端"
       ],
-      "noveltyVerdict": "将VLM用于规划器输出重排序，工程巧妙但核心思想较简单。",
-      "duplicateRisk": "medium",
-      "dedupeNote": "聚焦导航场景的VLM-规划器结合，与通用VLA策略无关。",
-      "retrievalGroups": [
-        "category",
-        "robotics",
-        "vla_core"
-      ],
-      "mergedCount": 1,
-      "mergedTitles": [
-        "Slow Brain, Fast Planner: Latency-Resilient VLM-Augmented Urban Navigation"
-      ]
-    },
-    {
-      "id": "2606.19928v1",
-      "title": "SWAP: Symmetric Equivariant World-Model for Agile Robot Parkour",
-      "summary": "While latent world models enable the proactive predictions required for extreme parkour, their purely data-driven nature forces them to redundantly encode left-right symmetric interactions as independent patterns. This inflates the learning burden and hinders the capture of geometric regularities, restricting the latent space's efficienc…",
-      "summaryRaw": "While latent world models enable the proactive predictions required for extreme parkour, their purely data-driven nature forces them to redundantly encode left-right symmetric interactions as independent patterns. This inflates the learning burden and hinders the capture of geometric regularities, restricting the latent space's efficiency for downstream policies. To address this, we propose SWAP, an end-to-end equivariant symmetric world model. This framework embeds symmetry directly into both the world model and the actor-critic networks. In real-world tests, the robot leaps across a 2.13 m gap and climbs a 1.63 m platform, breaking records for quadruped parkour. Furthermore, the framework exhibits robust geometric generalization to unseen mirrored terrains and exceptional zero-shot transferability across diverse outdoor environments. These results demonstrate that symmetry equivariance is an effective structural prior for pushing the physical boundaries of learned legged locomotion.",
-      "link": "https://arxiv.org/abs/2606.19928v1",
-      "pdfLink": "https://arxiv.org/pdf/2606.19928v1",
-      "published": "2026-06-18T08:28:30Z",
-      "updated": "2026-06-18T08:28:30Z",
-      "authors": [
-        "Kaixin Lan",
-        "Ze Wang",
-        "Hongyi Li",
-        "Lei Jiang",
-        "Chaojie Fu",
-        "Chengkai Su",
-        "Choi Lam Wong",
-        "Yongbin Jin"
-      ],
-      "categories": [
-        "cs.RO"
-      ],
-      "score": 75,
-      "importanceLevel": "B",
-      "lane": "WAM",
-      "dimensionScores": {
-        "relevance": 65,
-        "novelty": 75,
-        "impact": 80,
-        "practicality": 70,
-        "coreAlignment": 80
-      },
-      "oneSentenceSummary": "SWAP利用对称等变世界模型实现四足机器人极限跑酷。",
-      "summaryCn": "数据驱动的世界模型冗余编码左右对称交互，增加学习负担。SWAP将对称性直接嵌入世界模型和actor-critic网络，实现端到端等变。实机测试中跨越2.13m间隙和1.63m高台，破纪录；且无需微调可泛化至镜像地形，零样本迁移到室外多样环境。",
-      "whyImportant": "对称等变世界模型大幅提升样本效率与泛化，实现运动纪录。",
-      "reasonTags": [
-        "世界模型",
-        "等变性",
-        "跑酷",
-        "四足机器人"
-      ],
-      "innovationPoints": [
-        "世界模型中嵌入对称等变",
-        "actor-critic同享等变结构",
-        "物理极限成绩与强零样本迁移"
-      ],
-      "noveltyVerdict": "将对称先验融入世界模型驱动高动态运动，设计针对性强且结果惊艳。",
+      "noveltyVerdict": "改进型创新，系统优化显著。",
       "duplicateRisk": "low",
-      "dedupeNote": "专注于运动的世界模型，有别于操作的MemoryWAM或视觉的Holo-World。",
+      "dedupeNote": "聚焦高速场景的里程计优化，有别于通用LIO方案。",
       "retrievalGroups": [
         "category",
-        "robotics",
-        "wam_core"
+        "robotics"
       ],
       "mergedCount": 1,
       "mergedTitles": [
-        "SWAP: Symmetric Equivariant World-Model for Agile Robot Parkour"
+        "FAR-LIO: Enabling High-Speed Autonomy through Fast, Accurate, and Robust LiDAR-Inertial Odometry"
       ]
     },
     {
-      "id": "2606.19776v1",
-      "title": "Occ-VLM: Occupancy Grounded Vision Language Model for Indoor Scene Understanding",
-      "summary": "Recently, vision-language models (VLMs) have made significant progress in 3D scene understanding, driving advances in applications such as embodied intelligence and robotic vision. However, existing approaches typically either rely directly on explicit 3D inputs (e.g., point clouds or RGB-D sequences), or introduce an additional 3D geome…",
-      "summaryRaw": "Recently, vision-language models (VLMs) have made significant progress in 3D scene understanding, driving advances in applications such as embodied intelligence and robotic vision. However, existing approaches typically either rely directly on explicit 3D inputs (e.g., point clouds or RGB-D sequences), or introduce an additional 3D geometry encoder to derive 3D-aware visual tokens from 2D images. Such designs structurally decouple 3D geometric perception from the rich 2D semantics learned via vision-language pre-training, hindering the development of a unified 3D vision-language representation. In this work, we propose Occ-VLM, a novel framework for 3D scene understanding that operates purely on posed RGB images and employs a single 2D vision encoder. Specifically, Occ-VLM reconstructs 3D scene occupancy as an auxiliary geometric prior, which is utilized to spatially associate foreground 2D tokens with 3D space. These tokens are then decoded by a Large Language Model (LLM) for unified scene understanding. Extensive experiments demonstrate that Occ-VLM achieves both accurate geometric perception and robust vision-language reasoning: it attains state-of-the-art performance on multi-view occupancy prediction, while performing on par with 3D-input VLMs on 3D Visual Question Answering (VQA) and 3D dense captioning benchmarks.",
-      "link": "https://arxiv.org/abs/2606.19776v1",
-      "pdfLink": "https://arxiv.org/pdf/2606.19776v1",
-      "published": "2026-06-18T04:24:28Z",
-      "updated": "2026-06-18T04:24:28Z",
+      "id": "2606.26046v1",
+      "title": "RoboAtlas: Contextual Active SLAM",
+      "summary": "We present RoboAtlas, a contextual Active SLAM framework that adaptively balances geometric exploration and semantic reasoning using a scalable 3D semantic mapping system, OpenRoboVox. RoboAtlas integrates frontier exploration, global semantic-map reasoning, and egocentric VLM-based reasoning through a contextual multi-armed bandit that…",
+      "summaryRaw": "We present RoboAtlas, a contextual Active SLAM framework that adaptively balances geometric exploration and semantic reasoning using a scalable 3D semantic mapping system, OpenRoboVox. RoboAtlas integrates frontier exploration, global semantic-map reasoning, and egocentric VLM-based reasoning through a contextual multi-armed bandit that transitions from exploration to semantically guided navigation as scene understanding improves. We evaluate the system in simulation and on a Unitree Go2 robot in large-scale real-world environments exceeding 1800 m2 with approx. 30k mapped semantic instances, achieving a 100% task success rate. On the GOAT-Bench \"Val Unseen\" benchmark, RoboAtlas achieves state-of-the-art performance with highest reported success rate (SR) of 90.6%, using GPT-4o, improving over the strongest prior baseline by 17.8 percentage points in SR. Using the much smaller Qwen2.5-VL-7B model, it still achieves 88.8% SR, outperforming all baselines using GPT-4o in SR, and revealing the importance of the information gained by our semantic mapping framework over simply replacing the underlying foundation model. The results demonstrate that grounding foundation models with large-scale 3D semantic maps enables robust and efficient contextual Active SLAM.",
+      "link": "https://arxiv.org/abs/2606.26046v1",
+      "pdfLink": "https://arxiv.org/pdf/2606.26046v1",
+      "published": "2026-06-24T17:26:07Z",
+      "updated": "2026-06-24T17:26:07Z",
       "authors": [
-        "Jianing Li",
-        "Zhou Fang",
-        "Yijiang Liu",
-        "Li Du"
+        "Alexander Schperberg",
+        "Shivam K. Panda",
+        "Abraham P. Vinod",
+        "M. K. Jawed",
+        "Stefano Di Cairano"
       ],
       "categories": [
-        "cs.CV"
+        "cs.CV",
+        "cs.RO"
+      ],
+      "score": 75,
+      "importanceLevel": "B",
+      "lane": "Robotics",
+      "dimensionScores": {
+        "relevance": 45,
+        "novelty": 72,
+        "impact": 78,
+        "practicality": 70,
+        "coreAlignment": 35
+      },
+      "oneSentenceSummary": "RoboAtlas:上下文主动SLAM，自适应平衡探索与语义推理。",
+      "summaryCn": "RoboAtlas集成前沿探索、全局语义地图推理和设备端VLM推理，通过上下文多臂老虎机动态切换探索与语义导航。在1800+平米真实环境测试100%任务成功，GOAT-Bench上取得90.6%成功率 SOTA，实证高效。",
+      "whyImportant": "结合语义推理的主动SLAM，在开放世界任务中成功率极高。",
+      "reasonTags": [
+        "主动SLAM",
+        "语义建图",
+        "多臂老虎机",
+        "开放世界"
+      ],
+      "innovationPoints": [
+        "上下文多臂老虎机切换探索/语义模式",
+        "融合3D语义地图与设备端VLM推理",
+        "大规模真实环境验证"
+      ],
+      "noveltyVerdict": "创新性较高：将语义理解与主动探索动态结合。",
+      "duplicateRisk": "low",
+      "dedupeNote": "与纯探索或纯语义SLAM不同，动态平衡策略新颖。",
+      "retrievalGroups": [
+        "category",
+        "robotics"
+      ],
+      "mergedCount": 1,
+      "mergedTitles": [
+        "RoboAtlas: Contextual Active SLAM"
+      ]
+    },
+    {
+      "id": "2606.25497v1",
+      "title": "SAGE-Nav: Leveraging LLM Planning and Alignment Fusion for Hierarchical Scene Graph-Guided Navigation",
+      "summary": "Object-Goal Navigation (ObjNav) requires embodied agents to autonomously locate specified targets using only egocentric visual observations. Existing monolithic methods struggle with long-horizon reasoning and generalize poorly to novel environments.",
+      "summaryRaw": "Object-Goal Navigation (ObjNav) requires embodied agents to autonomously locate specified targets using only egocentric visual observations. Existing monolithic methods struggle with long-horizon reasoning and generalize poorly to novel environments. To address these limitations, we propose SAGE-Nav, a novel hierarchical framework that integrates the reasoning capabilities of Large Language Models (LLMs) with dynamic scene graphs. Crucially, it decouples asynchronous global semantic planning from the high-frequency reactive control loop. The LLM serves as a global planner, decomposing abstract instructions into a sequence of semantically grounded waypoints. To translate these plans into dense multi-modal guidance, we design a Hierarchical Scene Graph Encoder (HSGE) that leverages relational graph convolutions to produce structure-aware embeddings preserving both semantic and spatial topology. Furthermore, we develop the Goal-aware Alignment-Fusion Network (GAFN) to dynamically fuse real-time perception with these structural priors. Using an adaptive gating mechanism with an explicit inductive bias, GAFN ensures robust visual-topological alignment for the low-level policy. Extensive evaluations in the i-THOR and RoboTHOR environments demonstrate that SAGE-Nav achieves state-of-the-art performance, delivering substantial gains in navigation efficiency and zero-shot generalization while maintaining the low control latency required for physical robotic deployment.",
+      "link": "https://arxiv.org/abs/2606.25497v1",
+      "pdfLink": "https://arxiv.org/pdf/2606.25497v1",
+      "published": "2026-06-24T07:24:39Z",
+      "updated": "2026-06-24T07:24:39Z",
+      "authors": [
+        "Hao Su",
+        "Yuehao Huang",
+        "Yukai Ma",
+        "Yong Liu",
+        "Jiajun Lv"
+      ],
+      "categories": [
+        "cs.RO"
       ],
       "score": 74,
       "importanceLevel": "B",
       "lane": "Robotics",
       "dimensionScores": {
-        "relevance": 65,
+        "relevance": 42,
         "novelty": 70,
-        "impact": 70,
-        "practicality": 70,
-        "coreAlignment": 65
+        "impact": 73,
+        "practicality": 68,
+        "coreAlignment": 30
       },
-      "oneSentenceSummary": "Occ-VLM单2D编码器重建3D占用，统一几何与语义VLM理解。",
-      "summaryCn": "现有3D VLM依赖显式3D输入或额外几何编码器，解耦几何与2D语义。Occ-VLM仅用2D视觉编码器和RGB图像，以3D占用作为辅助几何先验，将前景语义关联到体素，在ScanNet等基准的问答和密集描述任务上达到最优，且推理速度提升显著。",
-      "whyImportant": "消除3D编码器，简化三维场景VLM架构，提升效率与统一性。",
+      "oneSentenceSummary": "SAGE-Nav:LLM规划+层次场景图引导导航，解耦规划与控制。",
+      "summaryCn": "SAGE-Nav利用LLM全局规划生成语义路点序列，层次场景图编码器产生结构感知嵌入，为高频控制提供多模态引导。解耦异步规划与控制，改善长期推理和泛化，在目标导航任务中表现优异。",
+      "whyImportant": "改善目标导航的长期推理，提高泛化性。",
       "reasonTags": [
-        "3D场景理解",
-        "占用预测",
-        "VLM",
-        "统一架构"
+        "目标导航",
+        "LLM",
+        "场景图",
+        "层次架构"
       ],
       "innovationPoints": [
-        "仅2D编码器结合占用先验的3D VLM",
-        "视觉-占用关联实现空间对齐",
-        "推理速度大幅提升"
+        "LLM全局规划分解为路点",
+        "层次场景图编码器产生结构感知嵌入",
+        "异步解耦规划与控制"
       ],
-      "noveltyVerdict": "架构精简有效，但核心创新点较有限。",
-      "duplicateRisk": "medium",
-      "dedupeNote": "针对室内场景理解，与VLA或WAM无关，但可辅助具身感知。",
+      "noveltyVerdict": "中等：结合现有技术但架构设计合理。",
+      "duplicateRisk": "low",
+      "dedupeNote": "与其他LLM规划导航不同，强调层次场景图与高频控制解耦。",
       "retrievalGroups": [
+        "category",
         "robotics"
       ],
       "mergedCount": 1,
       "mergedTitles": [
-        "Occ-VLM: Occupancy Grounded Vision Language Model for Indoor Scene Understanding"
+        "SAGE-Nav: Leveraging LLM Planning and Alignment Fusion for Hierarchical Scene Graph-Guided Navigation"
       ]
     },
     {
-      "id": "2606.19889v1",
-      "title": "SurgVista: Long-Horizon Surgical World Modeling with Plausible Instrument-Tissue Dynamics",
-      "summary": "Scaling robot policy learning for autonomous surgery is challenging, as expert demonstrations are expensive and in vivo exploration poses substantial safety risks. Surgical world models address this by generating realistic, action-conditioned future frames from an initial observation, but existing methods exhibit two persistent failure m…",
-      "summaryRaw": "Scaling robot policy learning for autonomous surgery is challenging, as expert demonstrations are expensive and in vivo exploration poses substantial safety risks. Surgical world models address this by generating realistic, action-conditioned future frames from an initial observation, but existing methods exhibit two persistent failure modes: spatial interaction incoherence, where visible instrument contact fails to induce spatially consistent tissue deformation, and temporal fidelity collapse, where prediction errors compound across autoregressive rollouts and progressively corrupt visual quality. We present SurgVista, a surgical world model that mitigates both failures through two training recipes. Deformation Consistency Regularization extracts scene-point trajectories from training videos and enforces cross-frame coherence through latent contrastive learning, strengthening physically consistent instrument-tissue dynamics. Drift Adaptation Training mitigates long-horizon drift by perturbing conditioning frames with online prediction residuals and photometric augmentations calibrated to long-horizon drift statistics, sustaining visual fidelity over extended rollouts. To enable rigorous evaluation, we further introduce SurgWorld-Bench, featuring diverse procedure types, long-range rollouts, and decoupled metrics for instrument-motion accuracy and tissue-response fidelity. Extensive experiments show that SurgVista consistently outperforms state-of-the-art methods across visual quality, temporal consistency, and interaction fidelity, with gains widening as the prediction horizon grows.",
-      "link": "https://arxiv.org/abs/2606.19889v1",
-      "pdfLink": "https://arxiv.org/pdf/2606.19889v1",
-      "published": "2026-06-18T07:47:28Z",
-      "updated": "2026-06-18T07:47:28Z",
+      "id": "2606.26017v1",
+      "title": "G2DP: Diffusion Planning with Spatio-Temporal Grid Guidance",
+      "summary": "In autonomous driving, diffusion-based planners have emerged as a promising paradigm for robust motion planning in dense and interactive traffic, as they can effectively model diverse driving behaviors. However, their inherent stochasticity often requires explicit guidance during denoising to ensure safety and route adherence for robust…",
+      "summaryRaw": "In autonomous driving, diffusion-based planners have emerged as a promising paradigm for robust motion planning in dense and interactive traffic, as they can effectively model diverse driving behaviors. However, their inherent stochasticity often requires explicit guidance during denoising to ensure safety and route adherence for robust closed-loop execution. Existing guidance typically relies on sparse, entity-centric geometric queries or post-hoc refinement, yielding limited situational awareness and fragile performance in interactive scenes. To address this issue, we propose G2DP (Grid-Guided Diffusion Planning), a diffusion-based planner that directly enforces dense environmental constraints through inference-time guidance. Specifically, G2DP constructs a differentiable spatio-temporal cost volume by fusing probabilistic future occupancy distributions with a route-progress map. By formulating this volume as a continuous safety energy functional, it injects dense gradients directly into the denoising loop, actively steering trajectory generation toward collision-free and progress-optimal regions. Extensive closed-loop evaluations show that G2DP achieves state-of-the-art performance on nuPlan, outperforming the strongest imitation-learning baseline by +7.2 points in reactive score. It further maintains top scores in zero-shot transfers to interPlan and DeepScenario benchmarks, with collision avoidance improving by +10.15 over the unguided approach on interPlan. These results demonstrate that spatio-temporal cost grids serve as an effective representation for robust guidance in diffusion-based planning.",
+      "link": "https://arxiv.org/abs/2606.26017v1",
+      "pdfLink": "https://arxiv.org/pdf/2606.26017v1",
+      "published": "2026-06-24T16:38:55Z",
+      "updated": "2026-06-24T16:38:55Z",
       "authors": [
-        "Wentao Pan",
-        "Wuyang Li",
-        "Shengyuan Liu",
-        "Xinyu Liu",
-        "Hengyu Liu",
-        "Yixuan Yuan"
+        "Hang Yu",
+        "Ye Jin",
+        "Alessandro Canevaro",
+        "Julian Schmidt",
+        "Julian Jordan",
+        "Peizheng Li",
+        "Marc Kaufeld",
+        "Silvan Lindner"
       ],
       "categories": [
-        "cs.CV"
-      ],
-      "score": 74,
-      "importanceLevel": "B",
-      "lane": "WAM",
-      "dimensionScores": {
-        "relevance": 70,
-        "novelty": 75,
-        "impact": 65,
-        "practicality": 60,
-        "coreAlignment": 85
-      },
-      "oneSentenceSummary": "SurgVista使用变形一致性正则提高手术世界模型的交互真实性。",
-      "summaryCn": "现有手术世界模型出现空间交互不连贯和时间保真度衰减。SurgVista提出变形一致性正则：从训练视频提取场景点轨迹，通过潜在对比学习强化跨帧一致性；并应用时间感知噪声注入，缓解自回归误差累积。在真实手术数据上生成更连贯的组织-器械交互视频。",
-      "whyImportant": "提升手术世界模型物理可信度，推动手术机器人仿真训练。",
-      "reasonTags": [
-        "手术世界模型",
-        "一致性正则",
-        "物理交互",
-        "医学机器人"
-      ],
-      "innovationPoints": [
-        "变形一致性正则增强器械-组织交互",
-        "时间感知噪声注入缓解漂移",
-        "长程自回归质量提升"
-      ],
-      "noveltyVerdict": "针对手术场景的特定改进，方法具有领域针对性。",
-      "duplicateRisk": "low",
-      "dedupeNote": "专用于手术的世界模型，与其他通用或驾驶世界模型不同。",
-      "retrievalGroups": [
-        "category",
-        "robotics",
-        "wam_core"
-      ],
-      "mergedCount": 1,
-      "mergedTitles": [
-        "SurgVista: Long-Horizon Surgical World Modeling with Plausible Instrument-Tissue Dynamics"
-      ]
-    },
-    {
-      "id": "2606.20209v1",
-      "title": "FlowMaps: Modeling Long-Term Multimodal Object Dynamics with Flow Matching",
-      "summary": "Joint spatial and temporal understanding of 3D scenes is a crucial requirement for robots deployed in everyday household environments. Such agents must not only comprehend and navigate spatial layouts, but also reason about how these spaces evolve over time.",
-      "summaryRaw": "Joint spatial and temporal understanding of 3D scenes is a crucial requirement for robots deployed in everyday household environments. Such agents must not only comprehend and navigate spatial layouts, but also reason about how these spaces evolve over time. In particular, humans interact with objects daily, causing them to change position throughout the environment and making it difficult for robots to reliably associate current observations with previously seen objects. However, these interactions are not random: human habits and routines induce spatio-temporally consistent patterns in object locations, which robotic agents can potentially learn and then exploit for downstream tasks such as navigation. To this end, we introduce FlowMaps, a latent flow matching model for estimating multimodal distributions over the future locations of dynamic objects in a continuous 3D space. By learning the implicit dependencies among objects and their temporal evolution, FlowMaps predicts likely changes in object locations conditioned on past human interactions, while supporting generalization across previously unseen environments that share similar object routines. To demonstrate the utility of this method, we deploy FlowMaps in a downstream dynamic Object Navigation task in both simulated and real-world environments. Across more than 600 episodes, FlowMaps outperforms state-of-the-art approaches, showing that modeling object dynamics through continuous, multimodal spatio-temporal distributions improves robotic search and navigation in changing household environments. Code and additional material is available at https://fra-tsuna.github.io/flowmaps/.",
-      "link": "https://arxiv.org/abs/2606.20209v1",
-      "pdfLink": "https://arxiv.org/pdf/2606.20209v1",
-      "published": "2026-06-18T13:21:40Z",
-      "updated": "2026-06-18T13:21:40Z",
-      "authors": [
-        "Francesco Argenziano",
-        "Miguel Saavedra-Ruiz",
-        "Sacha Morin",
-        "Charlie Gauthier",
-        "Daniele Nardi",
-        "Liam Paull"
-      ],
-      "categories": [
-        "cs.AI",
         "cs.RO"
       ],
       "score": 73,
       "importanceLevel": "B",
       "lane": "Robotics",
       "dimensionScores": {
-        "relevance": 65,
-        "novelty": 70,
-        "impact": 75,
-        "practicality": 65,
-        "coreAlignment": 60
+        "relevance": 40,
+        "novelty": 75,
+        "impact": 70,
+        "practicality": 72,
+        "coreAlignment": 35
       },
-      "oneSentenceSummary": "FlowMaps用潜流匹配预测物体长期多模态动态位置分布。",
-      "summaryCn": "家庭环境中物体移动具有时空规律，FlowMaps学习连续3D空间下动态对象未来位置的多模态分布。通过潜流匹配建模，在多个真实环境中长周期预测准确率优于确定性基线，可服务于导航等下游任务。",
-      "whyImportant": "为机器人提供环境动态预测能力，助力长期规划。",
+      "oneSentenceSummary": "G2DP:时空网格引导的扩散规划，增强自动驾驶交互安全。",
+      "summaryCn": "G2DP构建可微分时空成本体，融合概率未来占用分布与路线进度图，在推理时通过梯度引导强化环境约束，使扩散规划器生成安全且遵循路线的轨迹。在密集交互场景中验证鲁棒性。",
+      "whyImportant": "为扩散规划器提供密集环境约束引导，提升复杂交通场景表现。",
       "reasonTags": [
-        "物体动态",
-        "流匹配",
-        "长期预测",
-        "家庭机器人"
+        "扩散规划",
+        "时空成本体",
+        "自动驾驶",
+        "推理引导"
       ],
       "innovationPoints": [
-        "潜流匹配建模多模态位置分布",
-        "学习人类活动诱导的时空模式",
-        "在真实长周期场景验证"
+        "可微分时空成本体融合占用与路线",
+        "推理时梯度引导强化约束",
+        "无需重训即插即用"
       ],
-      "noveltyVerdict": "将流匹配用于对象长期动态预测，应用场景合理但创新幅度一般。",
+      "noveltyVerdict": "创新性中等：改进扩散规划引导方式。",
       "duplicateRisk": "low",
-      "dedupeNote": "针对物体位置预测，与动作条件世界模型或视频生成不同。",
+      "dedupeNote": "与依赖稀疏查询的扩散规划不同，使用密集体素引导。",
       "retrievalGroups": [
         "category",
+        "driving",
         "robotics"
       ],
       "mergedCount": 1,
       "mergedTitles": [
-        "FlowMaps: Modeling Long-Term Multimodal Object Dynamics with Flow Matching"
+        "G2DP: Diffusion Planning with Spatio-Temporal Grid Guidance"
       ]
     },
     {
-      "id": "2606.19813v1",
-      "title": "TIDY: Thermal Infrared Image Denoising via Wavelet Domain Entropy and Directional Stripe Index",
-      "summary": "Thermal infrared (TIR) imaging has been a popular choice for field robotics due to its robust perception capability under low light visual degradation, but it suffers from severe stochastic and fixed-pattern noise that breaks downstream estimation. This noise is intensified indoors due to low thermal contrast and uniform temperature dist…",
-      "summaryRaw": "Thermal infrared (TIR) imaging has been a popular choice for field robotics due to its robust perception capability under low light visual degradation, but it suffers from severe stochastic and fixed-pattern noise that breaks downstream estimation. This noise is intensified indoors due to low thermal contrast and uniform temperature distributions, contributing to the relative lack of indoor TIR deployments. Existing TIR denoising methods exhibit a poor accuracy-efficiency tradeoff, either too slow for online deployment required in robotics or insufficiently robust to severe degradation, while typically being trained on synthetic noise. Addressing these problems, we propose TIDY, a lightweight wavelet-domain denoiser trained on real clean-noisy TIR data. By reformulating TIR denoising in the wavelet domain, TIDY explicitly disentangles noise from structural content, enabling targeted suppression with reduced spatial complexity, significantly improving inference speed over prior methods (~34Hz). TIDY introduces two new metrics, Wavelet Entropy and Wavelet Directional Stripe Index, as complementary loss terms to explicitly suppress stochastic noise and stripe artifacts. Across severe indoor corruption and zero-shot settings, TIDY improves robustness and yields consistent gains in downstream robotics tasks including thermal inertial odometry and monocular depth estimation. Code and dataset is available at: https://github.com/williamrheeth/TIDY",
-      "link": "https://arxiv.org/abs/2606.19813v1",
-      "pdfLink": "https://arxiv.org/pdf/2606.19813v1",
-      "published": "2026-06-18T05:42:50Z",
-      "updated": "2026-06-18T05:42:50Z",
+      "id": "2606.25527v1",
+      "title": "Beyond One-Size-Fits-All: Diagnosis-Driven Online Reinforcement Learning with Offline Priors",
+      "summary": "Online reinforcement learning (RL) agents increasingly depend on knowledge acquired offline to achieve practical efficiency. Originally studied in offline-to-online RL, this paradigm now spans foundation model post-training and embodied intelligence, with prior types expanding from offline datasets and pre-trained policies to increasingl…",
+      "summaryRaw": "Online reinforcement learning (RL) agents increasingly depend on knowledge acquired offline to achieve practical efficiency. Originally studied in offline-to-online RL, this paradigm now spans foundation model post-training and embodied intelligence, with prior types expanding from offline datasets and pre-trained policies to increasingly diverse knowledge sources such as multimodal foundation models and generative world models. Offline priors have become central to how deep RL is developed and deployed. However, this reliance introduces a challenge that the prevailing benchmark-driven paradigm cannot resolve: because prior validity varies across deployments and shifts during training, no single approach to managing it is universally optimal, and benchmark rankings offer limited guidance for real-world deployments. Rather than pursuing universal solutions, we argue that the field should shift to diagnosis-driven tension management, in which deployment-specific evidence guides how the learner relates to its priors throughout training, enabling both flexible and adaptive deployment. We support this position with a framework characterizing how priors reshape online optimization through three functional roles, controlled experiments demonstrating help-or-hurt reversals, cross-domain evidence from foundation model post-training to embodied intelligence, and engagement with five substantive counterarguments.",
+      "link": "https://arxiv.org/abs/2606.25527v1",
+      "pdfLink": "https://arxiv.org/pdf/2606.25527v1",
+      "published": "2026-06-24T08:05:28Z",
+      "updated": "2026-06-24T08:05:28Z",
       "authors": [
-        "Tai Hyoung Rhee",
-        "Dong-Guw Lee",
-        "Ayoung Kim"
+        "Guozheng Ma",
+        "Lu Li",
+        "Zilin Wang",
+        "Pierre-Luc Bacon",
+        "Dacheng Tao"
       ],
       "categories": [
+        "cs.LG"
+      ],
+      "score": 70,
+      "importanceLevel": "B",
+      "lane": "Peripheral",
+      "dimensionScores": {
+        "relevance": 50,
+        "novelty": 72,
+        "impact": 68,
+        "practicality": 55,
+        "coreAlignment": 40
+      },
+      "oneSentenceSummary": "提出诊断驱动在线RL框架，根据先验有效性动态选择策略。",
+      "summaryCn": "针对在线RL依赖离线先验但先验有效性变化的问题，提出诊断驱动范式，构建模块评估先验质量并动态调整策略，避免单一方案。通过理论分析和实验验证，为异构先验管理提供新思路，可应用于机器人。",
+      "whyImportant": "对RL在机器人中利用异构先验有指导意义。",
+      "reasonTags": [
+        "在线强化学习",
+        "先验管理",
+        "诊断驱动",
+        "机器人"
+      ],
+      "innovationPoints": [
+        "诊断模块评估先验有效性",
+        "动态策略选择机制",
+        "超越统一基准范式"
+      ],
+      "noveltyVerdict": "新颖：挑战现有基准驱动范式。",
+      "duplicateRisk": "low",
+      "dedupeNote": "非特定VLA/WAM，但提供RL通用框架，有一定启发性。",
+      "retrievalGroups": [
+        "category",
+        "robotics",
+        "wam_core"
+      ],
+      "mergedCount": 1,
+      "mergedTitles": [
+        "Beyond One-Size-Fits-All: Diagnosis-Driven Online Reinforcement Learning with Offline Priors"
+      ]
+    },
+    {
+      "id": "2606.25503v1",
+      "title": "AISPO: Enhancing Depth Reliability for Robotic Manipulation of Non-Lambertian Objects via Affine-Invariant Shape Prior",
+      "summary": "Reliable depth perception is critical for robotic manipulation, especially for non-Lambertian objects such as transparent or highly specular surfaces, where raw depth measurements are often corrupted or missing. These failures frequently propagate to motion planning, resulting in invalid grasp poses and execution errors.",
+      "summaryRaw": "Reliable depth perception is critical for robotic manipulation, especially for non-Lambertian objects such as transparent or highly specular surfaces, where raw depth measurements are often corrupted or missing. These failures frequently propagate to motion planning, resulting in invalid grasp poses and execution errors. We propose AISPO, a depth completion framework that improves depth reliability for manipulation in challenging sensing conditions. AISPO combines multi-scale RGB-D feature fusion with an affine-invariant shape prior to enforce geometric consistency and mitigate catastrophic depth failures. Unlike methods that focus primarily on average depth accuracy, our approach emphasizes physical plausibility and structural integrity of the predicted depth maps. Extensive benchmark evaluations demonstrate competitive performance and strong generalization to unseen objects and novel scenes. Real-world grasping experiments further show that enhanced depth reliability significantly improves manipulation success rates, particularly for transparent objects where many existing methods fail to produce physically usable depth estimates.",
+      "link": "https://arxiv.org/abs/2606.25503v1",
+      "pdfLink": "https://arxiv.org/pdf/2606.25503v1",
+      "published": "2026-06-24T07:37:11Z",
+      "updated": "2026-06-24T07:37:11Z",
+      "authors": [
+        "Zhiming Chen",
+        "Linfang Zheng",
+        "Kun Zhang",
+        "Hyung Jin Chang",
+        "Wei Zhang",
+        "Hongyu Yu",
+        "Hua Chen"
+      ],
+      "categories": [
+        "cs.CV",
         "cs.RO"
       ],
-      "score": 72,
+      "score": 68,
       "importanceLevel": "B",
       "lane": "Robotics",
       "dimensionScores": {
-        "relevance": 60,
-        "novelty": 70,
-        "impact": 70,
-        "practicality": 85,
-        "coreAlignment": 60
+        "relevance": 45,
+        "novelty": 68,
+        "impact": 60,
+        "practicality": 70,
+        "coreAlignment": 35
       },
-      "oneSentenceSummary": "TIDY小波域热红外去噪兼顾精度与速度，赋能弱光机器人感知。",
-      "summaryCn": "热红外成像受强噪声困扰，现有方法速度与精度难两全。TIDY在小波域操作，利用真实干净-噪声数据训练，引入方向条纹指数指导去噪，明确分离噪声与内容。室内外实验证明在线部署高效，显著改善下游单应性估计等任务。",
-      "whyImportant": "为机器人提供可实时运行的热红外视觉增强，拓展环境适应性。",
+      "oneSentenceSummary": "AISPO:利用仿射不变形状先验增强非朗伯物体深度可靠性。",
+      "summaryCn": "AISPO结合多尺度RGB-D特征融合与仿射不变形状先验，修复透明、镜面等物体的深度图，确保几何一致性和物理合理性。在多个基准上验证泛化性，并集成至真实机器人操作任务提升抓取成功率。",
+      "whyImportant": "提升透明/镜面物体的深度感知鲁棒性，对操作至关重要。",
       "reasonTags": [
-        "热红外去噪",
-        "小波域",
-        "实时处理",
-        "机器人视觉"
+        "深度补全",
+        "非朗伯物体",
+        "形状先验",
+        "机器人操作"
       ],
       "innovationPoints": [
-        "小波域显式噪声分离",
-        "方向条纹指数引导",
-        "真实数据训练及轻量化设计"
+        "多尺度RGB-D融合+形状先验",
+        "强调物理真实性而非平均精度",
+        "良好泛化性"
       ],
-      "noveltyVerdict": "针对机器人视觉的实用优化，工程性好但理论创新有限。",
+      "noveltyVerdict": "中等：结合几何先验的深度补全。",
       "duplicateRisk": "low",
-      "dedupeNote": "纯粹的感知增强模块，与策略或建图无关，互补性强。",
+      "dedupeNote": "区别于侧重平均精度的补全方法，关注操作鲁棒性。",
       "retrievalGroups": [
         "category",
         "robotics"
       ],
       "mergedCount": 1,
       "mergedTitles": [
-        "TIDY: Thermal Infrared Image Denoising via Wavelet Domain Entropy and Directional Stripe Index"
+        "AISPO: Enhancing Depth Reliability for Robotic Manipulation of Non-Lambertian Objects via Affine-Invariant Shape Prior"
+      ]
+    },
+    {
+      "id": "2606.25646v1",
+      "title": "Calousel: Extrinsic Calibration of Non-overlapping Multi-camera Systems from Pure Rotation",
+      "summary": "Extrinsic calibration of multi-camera systems with non-overlapping FOVs has been a challenging problem in the robotics literature. Conventional target-based methods impose substantial target setup overhead, either deploying large calibration targets or requiring pre-measured multi-target poses.",
+      "summaryRaw": "Extrinsic calibration of multi-camera systems with non-overlapping FOVs has been a challenging problem in the robotics literature. Conventional target-based methods impose substantial target setup overhead, either deploying large calibration targets or requiring pre-measured multi-target poses. Motion-based approaches instead suffer from drift error, scale ambiguity, and motion degeneracy. Securing both accuracy and usability, we propose a novel calibration method that leverages pure rotational motion, requiring only a single static calibration board. The key idea is to make all cameras sequentially observe the same target under a shared geometric reference, even without overlapping views. To integrate these time-separated observations, we formulate the problem using a latent turntable frame and a 3D error on SE(3) within a global optimization framework. We validate the proposed method on both a controlled camera rig and a full-scale vehicle platform with heterogeneous cameras, and analyze robustness under non-ideal turntable motion. Extensive experiments show that our approach maintains competitive accuracy without specialized precision hardware, proving its strong suitability for realistic on-site deployments. Our code is publicly available here.",
+      "link": "https://arxiv.org/abs/2606.25646v1",
+      "pdfLink": "https://arxiv.org/pdf/2606.25646v1",
+      "published": "2026-06-24T09:54:20Z",
+      "updated": "2026-06-24T09:54:20Z",
+      "authors": [
+        "Gwanhyeong Song",
+        "Chaehyeon Song",
+        "Ayoung Kim"
+      ],
+      "categories": [
+        "cs.CV",
+        "cs.RO"
+      ],
+      "score": 67,
+      "importanceLevel": "B",
+      "lane": "Robotics",
+      "dimensionScores": {
+        "relevance": 40,
+        "novelty": 70,
+        "impact": 60,
+        "practicality": 72,
+        "coreAlignment": 25
+      },
+      "oneSentenceSummary": "Calousel:纯旋转标定无重叠多相机系统，仅需单标定板。",
+      "summaryCn": "提出基于纯旋转运动的外参标定方法，所有相机顺序观察同一静态靶标，通过隐式转台帧建立几何参考，在SE(3)全局优化下求解外参。验证表明高精度、易用，无需重叠视场。",
+      "whyImportant": "简化多相机系统标定流程，提高易用性。",
+      "reasonTags": [
+        "外参标定",
+        "多相机系统",
+        "纯旋转",
+        "机器人感知"
+      ],
+      "innovationPoints": [
+        "纯旋转运动下顺序观察统一靶标",
+        "基于SE(3)误差的全局优化",
+        "无需重叠视场"
+      ],
+      "noveltyVerdict": "中等偏上：纯旋转标定有创新，但标定问题较成熟。",
+      "duplicateRisk": "low",
+      "dedupeNote": "与其他非重叠标定方法不同，利用纯旋转避免运动退化。",
+      "retrievalGroups": [
+        "category",
+        "robotics"
+      ],
+      "mergedCount": 1,
+      "mergedTitles": [
+        "Calousel: Extrinsic Calibration of Non-overlapping Multi-camera Systems from Pure Rotation"
+      ]
+    },
+    {
+      "id": "2606.25620v1",
+      "title": "1000 Rallies: An Event-Camera Dataset and Real-Time Learned Ball-State Estimation for Robotic Table Tennis",
+      "summary": "Robotic table tennis has emerged as a compelling benchmark for real-time robotic perception due to its fast ball dynamics and stringent timing requirements. Accurate, high-frequency, and low-latency ball state estimation is critical for reliable trajectory prediction and timely control.",
+      "summaryRaw": "Robotic table tennis has emerged as a compelling benchmark for real-time robotic perception due to its fast ball dynamics and stringent timing requirements. Accurate, high-frequency, and low-latency ball state estimation is critical for reliable trajectory prediction and timely control. Traditional frame-based cameras face an inherent trade-off: low frame rates leave temporal blind spots that miss fast-moving objects and high frame rates raise data and computational cost. Event cameras instead offer microsecond temporal resolution and, under sufficient illumination, remain largely free of motion blur even at high ball speeds. However, the community lacks large-scale datasets to develop and benchmark event-based perception in realistic sports scenarios. We address this gap by introducing the first large-scale event-camera dataset for table tennis, comprising over 1000 rallies from a diverse group of players ranging from amateurs to elite-level athletes. Each recording captures the event stream alongside 14 synchronized high-speed frame-based cameras at 200 FPS, which we use to produce 1 kHz pseudo ground-truth labels for ball position, velocity, and spin. Building on this dataset, we train a convolutional neural network robust to background player motion that jointly estimates the ball's position and velocity in the image-plane from events. Treating the predicted velocity as an additional measurement in the Kalman filter reduces bounce-point prediction error by 36% relative to a position-only baseline. Finally, we close the perception-action loop by integrating the event-based system with a Stäubli robotic arm, enabling the first real-time human-robot table tennis rallies driven by event-based perception.",
+      "link": "https://arxiv.org/abs/2606.25620v1",
+      "pdfLink": "https://arxiv.org/pdf/2606.25620v1",
+      "published": "2026-06-24T09:28:21Z",
+      "updated": "2026-06-24T09:28:21Z",
+      "authors": [
+        "Raphaela Kreiser",
+        "Asude Aydin",
+        "Yin Bi",
+        "Claudio Fanconi",
+        "Peter Dürr",
+        "Naoya Takahashi"
+      ],
+      "categories": [
+        "cs.CV",
+        "cs.RO"
+      ],
+      "score": 65,
+      "importanceLevel": "B",
+      "lane": "Robotics",
+      "dimensionScores": {
+        "relevance": 45,
+        "novelty": 65,
+        "impact": 62,
+        "practicality": 60,
+        "coreAlignment": 30
+      },
+      "oneSentenceSummary": "1000 Rallies:首个大规模乒乓球事件相机数据集与实时球估计。",
+      "summaryCn": "发布包含1000+回合的事件相机乒乓球数据集，提供高速动态下的高时域分辨率数据。基于该数据集训练实时球状态估计网络，利用事件流低延迟特性，实现毫秒级预测，助力机器人乒乓球感知研究。",
+      "whyImportant": "促进事件相机在高速动态场景的感知研究，推动机器人乒乓球。",
+      "reasonTags": [
+        "事件相机",
+        "乒乓球",
+        "数据集",
+        "球状态估计"
+      ],
+      "innovationPoints": [
+        "首个大规模赛事数据集",
+        "利用事件相机高时域分辨率",
+        "实时球状态估计网络"
+      ],
+      "noveltyVerdict": "中等：数据集新，方法基于现有学习技术。",
+      "duplicateRisk": "low",
+      "dedupeNote": "填补事件相机在球类运动的数据空白，与其他机器人数据集互补。",
+      "retrievalGroups": [
+        "category",
+        "robotics"
+      ],
+      "mergedCount": 1,
+      "mergedTitles": [
+        "1000 Rallies: An Event-Camera Dataset and Real-Time Learned Ball-State Estimation for Robotic Table Tennis"
       ]
     }
   ],
   "paperSets": {
     "overall": [
       {
-        "id": "2606.20246v1",
-        "title": "Finetuning Vision-Language-Action Models Requires Fewer Layers Than You Think",
-        "summary": "Vision-Language-Action (VLA) models pre-trained on massive video-robot datasets have revolutionized robotic manipulation, yet their multi-billion parameter architectures impose prohibitive computational burdens during downstream fine-tuning and real-time inference. In this work, we reveal a highly non-trivial architectural characteristic…",
-        "summaryRaw": "Vision-Language-Action (VLA) models pre-trained on massive video-robot datasets have revolutionized robotic manipulation, yet their multi-billion parameter architectures impose prohibitive computational burdens during downstream fine-tuning and real-time inference. In this work, we reveal a highly non-trivial architectural characteristic of these continuous control foundation policies (e.g., pi_0, GR00T-N1.5): despite being trained on diverse physical trajectories, they exhibit severe layer-wise representational redundancy. To exploit this, we introduce a structural compression pipeline that is entirely training-free, bypassing the need of existing methods to load full-scale models to learn optimized token reductions or dynamic layer selectors. Instead, using only a single forward pass via Centered Kernel Alignment to identify redundant layer features, we remove twin layers to permanently compress the model depth by up to 50% across both the VLM backbone and the continuous control policy head. Downstream fine-tuning of this streamlined architecture yields a dual acceleration benefit: a 40-50% reduction in training time and up to 30% faster real-time inference, while matching or exceeding full-scale base model performance. We comprehensively validate our method across three simulation benchmarks (LIBERO, RoboCasa, SimplerEnv) and 10 diverse real-world manipulation tasks across 4 unique robotic embodiments. These results prove that advanced VLAs require significantly fewer layers than previously assumed, offering a highly compute-efficient paradigm for scalable robot learning.",
-        "link": "https://arxiv.org/abs/2606.20246v1",
-        "pdfLink": "https://arxiv.org/pdf/2606.20246v1",
-        "published": "2026-06-18T13:57:12Z",
-        "updated": "2026-06-18T13:57:12Z",
+        "id": "2606.25591v1",
+        "title": "WOLF-VLA: Whole-Body Humanoid Optimal Locomotion Framework for Vision-Language-Action Learning",
+        "summary": "Vision-Language-Action (VLA) models have recently demonstrated strong generalization in robotic manipulation, yet their applicability to whole-body, contact-rich humanoid locomotion remains severely underexplored due to data scarcity, the absence of dynamically consistent demonstrations, and the difficulty of encoding optimality and safe…",
+        "summaryRaw": "Vision-Language-Action (VLA) models have recently demonstrated strong generalization in robotic manipulation, yet their applicability to whole-body, contact-rich humanoid locomotion remains severely underexplored due to data scarcity, the absence of dynamically consistent demonstrations, and the difficulty of encoding optimality and safety in learning-based pipelines. This work introduces a unified framework WOLF-VLA that integrates whole-body optimal-control (OC) motion synthesis with large-scale multi-modal dataset to train VLAs capable of generating humanoid locomotion policies directly from natural-language instructions. We construct a comprehensive dataset of dynamically feasible humanoid trajectories across six locomotion-related task families, each parameterized by environmental variations, object colors, placements, and visual distractors. We train a VLA model using the collected joint trajectories, ego-centric visual observations and natural language instruction, yielding a policy that exhibits strong reasoning and robustness to initial-condition variability, and competitive performance across several tasks and environment settings. A systematic ablation study demonstrates the impact of each modality on the model performance. The full dataset, model checkpoints, and benchmarking simulation suite will be openly released, establishing a reproducible dynamically consistent benchmark for whole-body humanoid locomotion rich VLA control and enabling future research in scalable transfer of instruction-driven locomotion policies.",
+        "link": "https://arxiv.org/abs/2606.25591v1",
+        "pdfLink": "https://arxiv.org/pdf/2606.25591v1",
+        "published": "2026-06-24T08:59:59Z",
+        "updated": "2026-06-24T08:59:59Z",
         "authors": [
-          "Gia-Binh Nguyen",
-          "Trong-Bao Ho",
-          "Thien-Loc Ha",
-          "Khoa Vo",
-          "Philip Lund Møller",
-          "Quang T. Nguyen",
-          "Long Dinh",
-          "Tuan Dam"
+          "Melya Boukheddimi",
+          "Omar Adjali",
+          "Daniel Sontag",
+          "Frank Kirchner"
         ],
         "categories": [
-          "cs.AI",
           "cs.RO"
         ],
         "score": 95,
         "importanceLevel": "S",
         "lane": "VLA",
         "dimensionScores": {
-          "relevance": 95,
-          "novelty": 85,
+          "relevance": 94,
+          "novelty": 93,
           "impact": 90,
-          "practicality": 95,
-          "coreAlignment": 95
+          "practicality": 85,
+          "coreAlignment": 96
         },
-        "oneSentenceSummary": "VLA模型微调仅需部分层，训练无关压缩大幅降低计算开销。",
-        "summaryCn": "发现VLA基础策略存在严重层间表示冗余，提出免训练的压缩流程：通过单次前向传递的集中核对齐识别冗余层，永久移除孪生层，无需加载全尺寸模型。在多种VLA上验证，模型大小减少50%而性能几乎无损，推理速度显著提升。",
-        "whyImportant": "首次揭示VLA架构冗余并实现免训练压缩，大幅降低部署门槛。",
+        "oneSentenceSummary": "WOLF-VLA:将最优控制与VLA结合，实现人形机器人全身运动语言控制。",
+        "summaryCn": "WOLF-VLA统一框架集成全身最优控制运动合成和大规模多模态数据集，训练VLA模型直接从自然语言指令生成人形机器人策略，覆盖六类任务，参数化环境变化，并通过动作标记化与多模态对齐实现动态可行轨迹。该框架首次将VLA推及全身运动。",
+        "whyImportant": "首次将VLA扩展到全身人形运动，突破数据稀缺与安全限制。",
         "reasonTags": [
-          "VLA效率",
-          "架构压缩",
-          "免训练",
-          "表示冗余"
+          "VLA",
+          "人形机器人",
+          "全身控制",
+          "最优控制"
         ],
         "innovationPoints": [
-          "无训练的集中核对齐冗余检测方法",
-          "直接移除孪生层实现结构化剪枝",
-          "跨模型验证的鲁棒性"
+          "提出最优控制合成与VLA训练结合的数据生成范式",
+          "构建涵盖多任务的大规模全身运动数据集",
+          "实现零样本语言到全身动作的泛化"
         ],
-        "noveltyVerdict": "免训练压缩针对VLA大模型为新颖且及时的贡献，方法简洁有效。",
+        "noveltyVerdict": "创新性强：首次系统地将最优控制用于VLA数据生成，解决全身接触运动难题。",
         "duplicateRisk": "low",
-        "dedupeNote": "专注于架构本身冗余，与通常需要额外训练的层选择或分词缩减方法根本不同。",
+        "dedupeNote": "专注全身运动，区别于仅限操作或简单移动的VLA工作。",
         "retrievalGroups": [
           "category",
           "robotics",
@@ -1255,27 +1240,27 @@ window.PAPERS_SITE_DATA = {
         ],
         "mergedCount": 1,
         "mergedTitles": [
-          "Finetuning Vision-Language-Action Models Requires Fewer Layers Than You Think"
+          "WOLF-VLA: Whole-Body Humanoid Optimal Locomotion Framework for Vision-Language-Action Learning"
         ]
       },
       {
-        "id": "2606.20285v1",
-        "title": "Co-VLA: Coordination-Aware Structured Action Modeling for Dual-Arm Vision-Language-Action Systems",
-        "summary": "Vision-language-action (VLA) models show strong capabilities in single and dual-arm robotic manipulation. Prior works show coordinated bimanual behaviors can emerge from end-to-end learning, leveraging large vision-language backbones with continuous action prediction.",
-        "summaryRaw": "Vision-language-action (VLA) models show strong capabilities in single and dual-arm robotic manipulation. Prior works show coordinated bimanual behaviors can emerge from end-to-end learning, leveraging large vision-language backbones with continuous action prediction. However, as bimanual tasks become tightly coupled and execution constraints become critical, implicit coordination alone is insufficient to ensure reliable, interpretable, and stable behavior. In this work, we propose Co-VLA, a coordination-aware bimanual manipulation framework introducing explicit structural priors into VLA models. We instantiate our method on a state-of-the-art vision-language backbone by replacing its monolithic action head with a Structured Action Expert (SAE) designed for bimanual coordination. Specifically, we introduce explicit structure at the action generation level with a modular coordination-aware loss that shapes shared and residual latents according to task-specific structures. The shared latent encodes task-level coordination intent, while residual latents capture execution adjustments for each arm. At deployment, a Latent-Aware Controller (LAC) interprets the learned representations to modulate synchronization strength, execution asymmetry, smoothness, and safety constraints in real time. LAC operates at the joint-command level and remains compatible with standard control pipelines without requiring force or impedance control. Experiments across simulation and real-world benchmarks show Co-VLA significantly outperforms monolithic baselines, achieving a 27% success rate gain in tight-coordination tasks, more than doubling performance in OOD real-world scenarios (from 13% to 27%), and reducing task completion time by up to 25%.",
-        "link": "https://arxiv.org/abs/2606.20285v1",
-        "pdfLink": "https://arxiv.org/pdf/2606.20285v1",
-        "published": "2026-06-18T14:28:37Z",
-        "updated": "2026-06-18T14:28:37Z",
+        "id": "2606.25360v1",
+        "title": "Decoupling Semantics and Geometric Grounding: Spatial Visual Prompts for Language-Conditioned Imitation Learning",
+        "summary": "While end-to-end Vision-Language-Action (VLA) models show promise in robotic manipulation, their monolithic paradigm inherently couples semantic reasoning and spatial control. This creates a severe alignment bottleneck, limiting precise target disambiguation in data-constrained imitation learning.",
+        "summaryRaw": "While end-to-end Vision-Language-Action (VLA) models show promise in robotic manipulation, their monolithic paradigm inherently couples semantic reasoning and spatial control. This creates a severe alignment bottleneck, limiting precise target disambiguation in data-constrained imitation learning. To overcome this, we propose SVP-IL, a decoupled architecture that explicitly extracts spatial visual grounding from the action generation loop. By leveraging vision-language foundation models, we parse instructions into zero-shot geometric masks, translating language into explicit Spatial Visual Prompts (SVP). These priors are injected into a continuous action generator via a lightweight direct feature-level fusion mechanism. This integration provides explicit and uncorrupted spatial gradient guidance while ensuring highly stable optimization under low-data regimes. Extensive experiments demonstrate that SVP-IL significantly outperforms state-of-the-art VLAs and pure visuomotor baselines. Trained on as few as 50 to 100 demonstrations, SVP-IL improves average success rates on highly ambiguous language-conditioned tasks from 24.0% to 39.5%, achieving 67.8% on standard benchmarks. Real-world robotic experiments further validate its robustness and data efficiency in unstructured physical environments.",
+        "link": "https://arxiv.org/abs/2606.25360v1",
+        "pdfLink": "https://arxiv.org/pdf/2606.25360v1",
+        "published": "2026-06-24T03:45:06Z",
+        "updated": "2026-06-24T03:45:06Z",
         "authors": [
-          "Yandong Wang",
-          "Jiaqian Yu",
-          "Xiongfeng Peng",
-          "Lu Xu",
-          "Yamin Mao",
-          "Weiming Li",
-          "Jaewook Yoo",
-          "Dongwook Lee"
+          "Yanzhe Tang",
+          "Xinyu Shao",
+          "Yuxuan Hu",
+          "Siyu Chen",
+          "Bowen Yang",
+          "Yajun Gao",
+          "Tongtong Cao",
+          "Xiu Li"
         ],
         "categories": [
           "cs.RO"
@@ -1284,29 +1269,29 @@ window.PAPERS_SITE_DATA = {
         "importanceLevel": "A",
         "lane": "VLA",
         "dimensionScores": {
-          "relevance": 90,
-          "novelty": 80,
-          "impact": 85,
-          "practicality": 80,
+          "relevance": 89,
+          "novelty": 85,
+          "impact": 80,
+          "practicality": 78,
           "coreAlignment": 90
         },
-        "oneSentenceSummary": "Co-VLA为双臂VLA引入结构化动作专家，显式建模协调约束。",
-        "summaryCn": "针对双臂紧耦合任务中隐式协调的可靠性问题，提出Co-VLA：在主流通用VL骨干上，将单块动作头替换为协调感知的结构化动作专家。包含模块化协调元器和约束注入机制，在多个高精度双臂任务上提升成功率和解释性。",
-        "whyImportant": "将结构先验融入VLA，解决双臂协调可靠性难题，可解释性增强。",
+        "oneSentenceSummary": "SVP-IL解耦语义与空间，利用空间视觉提示提升语言条件模仿学习精度。",
+        "summaryCn": "针对端到端VLA的语义-空间耦合瓶颈，提出SVP-IL架构，显式提取指代物的零样本几何掩码作为空间视觉提示，注入连续动作生成器，通过轻量级特征融合提供空间梯度引导，在低数据下稳定优化，实验证明在复杂操纵任务中显著提升成功率。",
+        "whyImportant": "通过解耦设计缓解VLA的对齐瓶颈，实现低数据下的精确目标指代。",
         "reasonTags": [
-          "双臂协调",
-          "结构化先验",
-          "动作专家",
-          "VLA"
+          "VLA",
+          "空间视觉提示",
+          "模仿学习",
+          "解耦架构"
         ],
         "innovationPoints": [
-          "结构化动作专家模块解耦协调与执行",
-          "显式约束注入保证行为稳定性",
-          "即插即用适配主流VLA架构"
+          "空间视觉提示解耦语义与空间处理",
+          "利用视觉语言基础模型零样本生成掩码",
+          "轻量融合机制稳定低数据优化"
         ],
-        "noveltyVerdict": "首次在VLA中引入显式协调结构先验，思路新颖且针对性强。",
+        "noveltyVerdict": "创新性较高：将空间先验注入动作生成，改变传统端到端范式。",
         "duplicateRisk": "low",
-        "dedupeNote": "专注于双臂任务的结构化动作建模，而非通用VLA或数据增强。",
+        "dedupeNote": "与其他端到端VLA不同，显式解耦空间信息，非简单数据增强。",
         "retrievalGroups": [
           "category",
           "robotics",
@@ -1314,58 +1299,179 @@ window.PAPERS_SITE_DATA = {
         ],
         "mergedCount": 1,
         "mergedTitles": [
-          "Co-VLA: Coordination-Aware Structured Action Modeling for Dual-Arm Vision-Language-Action Systems"
+          "Decoupling Semantics and Geometric Grounding: Spatial Visual Prompts for Language-Conditioned Imitation Learning"
         ]
       },
       {
-        "id": "2606.20562v1",
-        "title": "MemoryWAM: Efficient World Action Modeling with Persistent Memory",
-        "summary": "Robust robotic manipulation in the real world requires not only an understanding of the current observation, but also memory and dynamics modeling. World action models (WAMs) possess these capabilities by jointly modeling visual foresight and actions conditioned on both current and historical observations, making them a promising paradig…",
-        "summaryRaw": "Robust robotic manipulation in the real world requires not only an understanding of the current observation, but also memory and dynamics modeling. World action models (WAMs) possess these capabilities by jointly modeling visual foresight and actions conditioned on both current and historical observations, making them a promising paradigm for robotic manipulation. However, existing WAMs face a fundamental trade-off: methods with efficient inference typically condition only on a bounded window of recent observations and therefore struggle in non-Markovian environments, whereas methods that preserve long histories incur time and space costs that grow substantially with sequence length. To address this challenge, we introduce MemoryWAM, a world action model with efficient persistent memory. MemoryWAM uses a hybrid memory design that combines recent frames, event-boundary anchor frames, and compact gist tokens that summarize long-range history. A tailored attention mechanism enables retrieval of both detailed short-term context and compressed long-term context, supporting memory-dependent decision-making with reduced inference latency and GPU memory usage. Across long-horizon, memory-dependent manipulation tasks in both simulation and the real world, MemoryWAM outperforms strong vision-language-action (VLA) and WAM baselines while maintaining favorable computational efficiency.",
-        "link": "https://arxiv.org/abs/2606.20562v1",
-        "pdfLink": "https://arxiv.org/pdf/2606.20562v1",
-        "published": "2026-06-18T17:59:51Z",
-        "updated": "2026-06-18T17:59:51Z",
+        "id": "2606.26095v1",
+        "title": "Learning Action Priors for Cross-embodiment Robot Manipulation",
+        "summary": "Most Vision-Language-Action (VLA) models build on a Vision-Language Model (VLM) backbone by attaching an action module and optimizing the full policy jointly. This design inherits strong visual and linguistic priors from the VLM, but leaves the action module to learn physical motion almost from scratch.",
+        "summaryRaw": "Most Vision-Language-Action (VLA) models build on a Vision-Language Model (VLM) backbone by attaching an action module and optimizing the full policy jointly. This design inherits strong visual and linguistic priors from the VLM, but leaves the action module to learn physical motion almost from scratch. As a result, the policy lacks an explicit motion prior, forcing early optimization to simultaneously discover temporal action dynamics and cross-modal alignment, a challenge further amplified in cross-embodiment settings. In this work, we propose to pretrain the action module with motion priors before cross-modal VLA alignment. Specifically, we introduce a two-stage training framework that equips the action module with cross-embodiment temporal motion structure before VLA training begins. In Stage~1, a lightweight flow-matching-based encoder-decoder action module efficiently learns temporal motion structure solely from unconditioned action trajectories, without processing visual or language tokens. In Stage~2, this learned prior is transferred to VLA training through decoder reuse and early-stage latent distillation, aligning visual-language features with the action embedding space while still allowing end-to-end policy refinement. In addition, the trained encoder serves as a compact history compressor, summarizing state-action histories into a single temporal context token for history-aware modeling at negligible cost. Extensive experiments across 13 diverse cross-embodiment tasks on both simulated and real-world platforms validate the effectiveness of our approach. Compared with VLA training without action priors, our model achieves faster convergence, higher success rates, and substantially stronger performance on data-scarce real-world tasks. Moreover, scaling up the action data in Stage~1 yields a more generalizable action prior that directly improves downstream VLA performance.",
+        "link": "https://arxiv.org/abs/2606.26095v1",
+        "pdfLink": "https://arxiv.org/pdf/2606.26095v1",
+        "published": "2026-06-24T17:59:56Z",
+        "updated": "2026-06-24T17:59:56Z",
         "authors": [
-          "Sizhe Yang",
-          "Juncheng Mu",
-          "Tianming Wei",
-          "Chenhao Lu",
-          "Xiaofan Li",
-          "Linning Xu",
-          "Zhengrong Xue",
-          "Zhecheng Yuan"
+          "Dong Jing",
+          "Tianqi Zhang",
+          "Jiaqi Liu",
+          "Jinman Zhao",
+          "Zelong Sun",
+          "Li Erran Li",
+          "Zhiwu Lu",
+          "Mingyu Ding"
         ],
         "categories": [
+          "cs.AI",
+          "cs.CV",
           "cs.RO"
         ],
-        "score": 89,
+        "score": 90,
+        "importanceLevel": "A",
+        "lane": "VLA",
+        "dimensionScores": {
+          "relevance": 88,
+          "novelty": 87,
+          "impact": 82,
+          "practicality": 80,
+          "coreAlignment": 92
+        },
+        "oneSentenceSummary": "预训练动作模块的运动先验，提升跨具身VLA的对齐效率与泛化性。",
+        "summaryCn": "针对VLA动作模块缺乏运动先验的问题，提出两阶段训练框架：先利用流匹配编码-解码器学习跨具身时序运动结构，再进行跨模态VLA对齐。该方法使策略在训练初期快速收敛，并在多机器人平台展示出更强的跨具身泛化能力。",
+        "whyImportant": "为VLA注入运动先验，加速训练并改善跨具身迁移，启发未来策略设计。",
+        "reasonTags": [
+          "VLA",
+          "动作先验",
+          "跨具身",
+          "流匹配"
+        ],
+        "innovationPoints": [
+          "提出动作模块的流匹配预训练",
+          "两阶段训练分离运动结构与跨模态对齐",
+          "有效提升跨具身泛化"
+        ],
+        "noveltyVerdict": "创新性较强：针对VLA普遍缺失的运动先验，提出明确解决方案。",
+        "duplicateRisk": "low",
+        "dedupeNote": "不同于直接在VLA训练中学习动作，先独立学习运动模式再对齐。",
+        "retrievalGroups": [
+          "category",
+          "robotics",
+          "vla_core"
+        ],
+        "mergedCount": 1,
+        "mergedTitles": [
+          "Learning Action Priors for Cross-embodiment Robot Manipulation"
+        ]
+      },
+      {
+        "id": "2606.26006v1",
+        "title": "FORCE: Efficient VLA Reinforcement Fine-Tuning via Value-Calibrated Warm-up and Self-Distillation",
+        "summary": "Vision-Language-Action (VLA) models are often constrained by the imitation ceiling imposed by sub-optimal data. While Reinforcement Learning (RL) fine-tuning can surpass this limit, it is notoriously sample inefficient.",
+        "summaryRaw": "Vision-Language-Action (VLA) models are often constrained by the imitation ceiling imposed by sub-optimal data. While Reinforcement Learning (RL) fine-tuning can surpass this limit, it is notoriously sample inefficient. This challenge arises from two core issues: (1) catastrophic initial unlearning due to an unstable Q-function and (2) inefficient policy updates caused by low-quality exploration data, often forcing a reliance on costly human interventions. We introduce FORCE, a 3-stage framework that stabilizes fine-tuning by tackling both issues. FORCE first incorporates a Value-Calibrated Warm-Up phase, utilizing on-policy rollouts to mitigate the distributional shift of the Q-function. Subsequently, during the online stage, this calibrated Q-function acts as a filter for both the policy's own action proposals and expert data, ensuring only high-value actions are used for the policy update. We evaluate FORCE on various simulation and real-world tasks, and the result shows that FORCE achieves a 79% absolute improvement in success rates and outperform prior RL methods by 10%, while accelerating training by 32.5%. Critically, it mitigates the common success rate drop and achieves this robust performance without human intervention, marking a significant step towards deploying capable and autonomous robotic agents.",
+        "link": "https://arxiv.org/abs/2606.26006v1",
+        "pdfLink": "https://arxiv.org/pdf/2606.26006v1",
+        "published": "2026-06-24T16:23:18Z",
+        "updated": "2026-06-24T16:23:18Z",
+        "authors": [
+          "Shuyi Zhang",
+          "Yunfan Lou",
+          "Hongyang Cheng",
+          "Yichen Guo",
+          "Chuyao Fu",
+          "Yaoxu Lyu",
+          "Xiaojie Zhang",
+          "Haoran Li"
+        ],
+        "categories": [
+          "cs.AI",
+          "cs.RO"
+        ],
+        "score": 88,
+        "importanceLevel": "A",
+        "lane": "VLA",
+        "dimensionScores": {
+          "relevance": 86,
+          "novelty": 85,
+          "impact": 83,
+          "practicality": 82,
+          "coreAlignment": 90
+        },
+        "oneSentenceSummary": "FORCE：三阶段RL微调，价值校准预热+自蒸馏，高效超越模仿天花板。",
+        "summaryCn": "FORCE框架解决VLA强化学习微调样本效率低的问题：第一阶段价值校准预热缓解Q函数分布偏移；第二阶段在线过滤高价值动作；第三阶段自蒸馏提升策略更新效率。实验显示在多个操纵任务中优于现有RL微调方法。",
+        "whyImportant": "稳定高效的RL微调是推动VLA超越模仿极限的关键技术路径。",
+        "reasonTags": [
+          "VLA",
+          "强化学习微调",
+          "自蒸馏",
+          "价值校准"
+        ],
+        "innovationPoints": [
+          "提出价值校准预热阶段",
+          "利用校准Q函数过滤高质量动作",
+          "融合自蒸馏缓解探索低效"
+        ],
+        "noveltyVerdict": "创新性较高：针对RL微调两大问题给出系统解决方案。",
+        "duplicateRisk": "medium",
+        "dedupeNote": "FORCE关注离线预热的稳定性与在线自蒸馏过滤，与ROAD-VLA在线自蒸馏互补。",
+        "retrievalGroups": [
+          "category",
+          "robotics",
+          "vla_core"
+        ],
+        "mergedCount": 1,
+        "mergedTitles": [
+          "FORCE: Efficient VLA Reinforcement Fine-Tuning via Value-Calibrated Warm-up and Self-Distillation"
+        ]
+      },
+      {
+        "id": "2606.26025v1",
+        "title": "In-Context World Modeling for Robotic Control",
+        "summary": "Modern Vision-Language-Action (VLA) models often fail to generalize to novel setups, such as altered camera viewpoints or robot morphologies, because they are typically conditioned only on current observations and language instructions. By ignoring the underlying system configuration as a variable, these models implicitly assume a fixed…",
+        "summaryRaw": "Modern Vision-Language-Action (VLA) models often fail to generalize to novel setups, such as altered camera viewpoints or robot morphologies, because they are typically conditioned only on current observations and language instructions. By ignoring the underlying system configuration as a variable, these models implicitly assume a fixed execution context encountered during training, necessitating data-intensive fine-tuning for any new environment. In this work, we introduce In-Context World Modeling (ICWM), a framework that treats system identification as an in-context adaptation problem. ICWM enables robot policies to autonomously infer essential system variables from a short history of self-generated, task-agnostic interactions. Unlike traditional In-Context Learning that uses demonstrations to specify what task to perform, ICWM leverages the context window to understand how the system operates. By processing these interactions before task execution, the model implicitly captures the world dynamics of the current system, enabling adaptation to novel configurations without parameter updates. Extensive experiments in simulation and on real-world robot platforms demonstrate that ICWM significantly outperforms standard VLA baselines on novel camera viewpoints.",
+        "link": "https://arxiv.org/abs/2606.26025v1",
+        "pdfLink": "https://arxiv.org/pdf/2606.26025v1",
+        "published": "2026-06-24T16:53:36Z",
+        "updated": "2026-06-24T16:53:36Z",
+        "authors": [
+          "Siyin Wang",
+          "Junhao Shi",
+          "Senyu Fei",
+          "Zhaoyang Fu",
+          "Li Ji",
+          "Jingjing Gong",
+          "Xipeng Qiu"
+        ],
+        "categories": [
+          "cs.CV",
+          "cs.RO"
+        ],
+        "score": 88,
         "importanceLevel": "A",
         "lane": "Both",
         "dimensionScores": {
-          "relevance": 90,
-          "novelty": 85,
-          "impact": 80,
-          "practicality": 80,
-          "coreAlignment": 90
+          "relevance": 85,
+          "novelty": 90,
+          "impact": 84,
+          "practicality": 78,
+          "coreAlignment": 88
         },
-        "oneSentenceSummary": "MemoryWAM用混合持久记忆打破世界动作模型的长序列效率瓶颈。",
-        "summaryCn": "现有世界动作模型推理效率高则上下文窗口受限，长历史保留则计算成本随序列增长。MemoryWAM提出混合记忆设计：近期帧、事件边界锚帧和紧凑记忆令牌，实现恒定时间复杂度的持久记忆。在非马尔可夫机器人操作任务中显著提升性能并保持高效。",
-        "whyImportant": "突破WAM记忆-效率权衡，对现实长程操作至关重要。",
+        "oneSentenceSummary": "ICWM:上下文世界建模，自交互推断系统变量，策略自适应。",
+        "summaryCn": "ICWM将系统辨识视为上下文适应问题，让策略从短历史任务无关交互中推断配置变量，无需微调即可泛化至新视角和形态。框架结合上下文编码与动作生成，在多种环境变化下验证零样本泛化能力，为VLA适应提供新范式。",
+        "whyImportant": "为VLA泛化提供新思路：通过在线交互自动适应系统变化，避免重训练。",
         "reasonTags": [
-          "世界动作模型",
-          "持久记忆",
-          "混合记忆",
-          "效率"
+          "世界模型",
+          "上下文学习",
+          "系统辨识",
+          "VLA泛化"
         ],
         "innovationPoints": [
-          "事件边界锚帧与记忆令牌的混合设计",
-          "恒定时间复杂度读取长历史",
-          "在操作基准上验证非马尔可夫鲁棒性"
+          "提出上下文世界建模框架",
+          "利用自交互推断系统动态",
+          "实现零样本配置泛化"
         ],
-        "noveltyVerdict": "聪明地结合近期与事件记忆，在WAM中实现高效长上下文，设计精妙。",
-        "duplicateRisk": "medium",
-        "dedupeNote": "与EventVLA的视觉记忆机制不同，MemoryWAM聚焦动作条件世界模型的时序持久性。",
+        "noveltyVerdict": "创新性强：将上下文学习引入世界建模，区别于传统微调。",
+        "duplicateRisk": "low",
+        "dedupeNote": "不同于传统上下文学习演示任务，ICWM学习系统动态，独特视角。",
         "retrievalGroups": [
           "category",
           "robotics",
@@ -1374,258 +1480,24 @@ window.PAPERS_SITE_DATA = {
         ],
         "mergedCount": 1,
         "mergedTitles": [
-          "MemoryWAM: Efficient World Action Modeling with Persistent Memory"
+          "In-Context World Modeling for Robotic Control"
         ]
       },
       {
-        "id": "2606.20092v1",
-        "title": "EventVLA: Event-Driven Visual Evidence Memory for Long-Horizon Vision-Language-Action Policies",
-        "summary": "Memory remains a critical bottleneck for long-horizon robotic manipulation, as standard Vision-Language-Action (VLA) policies often fail when task-relevant cues become occluded or unobservable over time. While existing memory-augmented methods utilize historical context, they either suffer from severe information bottlenecks, incur high…",
-        "summaryRaw": "Memory remains a critical bottleneck for long-horizon robotic manipulation, as standard Vision-Language-Action (VLA) policies often fail when task-relevant cues become occluded or unobservable over time. While existing memory-augmented methods utilize historical context, they either suffer from severe information bottlenecks, incur high latency via decoupled dual systems, or rely on unselective buffers that accumulate massive visual redundancies. To address these limitations, we introduce EventVLA, an end-to-end framework founded on the concept of sparse visual evidence memory that comprises two core components: foundational visual anchors to retain initial and short-term contexts, and a dynamic Keyframe Evidence Memory (KEM) module. Specifically, KEM directly predicts future keyframe probabilities from the VLA's latent embeddings to autonomously capture and store sparse, task-critical visual events. This foresight-driven mechanism empowers the policy to dynamically evaluate the future causal utility of current observations, preserving transient visual evidence before it becomes unobservable. Furthermore, we propose RoboTwin-MeM, a diagnostic benchmark specifically designed to evaluate non-Markovian manipulation tasks with interactive visual evidence. Extensive evaluations show that across 17 memory-requiring simulation tasks and 4 real-world bimanual tasks, EventVLA achieves an average success rate improvement of +40% over state-of-the-art memory-augmented VLAs.",
-        "link": "https://arxiv.org/abs/2606.20092v1",
-        "pdfLink": "https://arxiv.org/pdf/2606.20092v1",
-        "published": "2026-06-18T11:11:37Z",
-        "updated": "2026-06-18T11:11:37Z",
+        "id": "2606.25800v1",
+        "title": "ROAD-VLA: Robust Online Adaptation via Self-Distillation for Vision-Language-Action Models",
+        "summary": "Effective online adaptation of vision-language-action (VLA) models remains challenging, as sparse rewards provide weak supervision for high-dimensional autoregressive action policies. Although self-distillation can in principle provide denser training signals, we find that text-based privileged teachers conditioned on demonstrations, ret…",
+        "summaryRaw": "Effective online adaptation of vision-language-action (VLA) models remains challenging, as sparse rewards provide weak supervision for high-dimensional autoregressive action policies. Although self-distillation can in principle provide denser training signals, we find that text-based privileged teachers conditioned on demonstrations, retrieved experiences, or high-level plans are ineffective for VLA adaptation, exposing a modality gap between symbolic guidance and low-level robot actions. We propose ROAD-VLA, an advantage-guided self-distillation framework that constructs a proximal teacher directly in action space by perturbing action-token logits with calibrated advantage estimates. This converts sparse rewards into dense token-level supervision while keeping the teacher close to the current policy. We further derive a policy-improvement lower bound under calibrated advantages and accurate teacher matching. Across seven robotic manipulation environments with in-distribution and out-of-distribution shifts, ROADVLA outperforms PPO in nearly all settings, demonstrating robust online VLA adaptation.",
+        "link": "https://arxiv.org/abs/2606.25800v1",
+        "pdfLink": "https://arxiv.org/pdf/2606.25800v1",
+        "published": "2026-06-24T13:17:59Z",
+        "updated": "2026-06-24T13:17:59Z",
         "authors": [
-          "Ganlin Yang",
-          "Zhangzheng Tu",
-          "Yuqiang Yang",
-          "Sitong Mao",
-          "Junyi Dong",
-          "Tianxing Chen",
-          "Jiaqi Peng",
-          "Jing Xiong"
-        ],
-        "categories": [
-          "cs.CV"
-        ],
-        "score": 88,
-        "importanceLevel": "A",
-        "lane": "VLA",
-        "dimensionScores": {
-          "relevance": 90,
-          "novelty": 82,
-          "impact": 80,
-          "practicality": 75,
-          "coreAlignment": 92
-        },
-        "oneSentenceSummary": "EventVLA利用关键帧证据记忆解决长程VLA策略的视觉遮挡难题。",
-        "summaryCn": "长程操作中任务线索常因遮挡而不可见，现有记忆方法存在信息瓶颈或高延迟。EventVLA提出稀疏视觉证据记忆：基础视觉锚点保留初始/短期上下文，动态关键帧证据记忆模块直接从VLA潜在嵌入预测未来关键帧概率，自主捕获稀疏任务关键帧。端到端训练，在遮挡环境下大幅超越基线。",
-        "whyImportant": "端到端关键帧选择机制为VLA提供灵活高效的长程记忆。",
-        "reasonTags": [
-          "长程记忆",
-          "关键帧",
-          "视觉证据",
-          "VLA"
-        ],
-        "innovationPoints": [
-          "基于潜嵌入预测未来关键帧概率的KEM模块",
-          "稀疏自主动态记忆避免信息冗余",
-          "端到端集成无需外部模型"
-        ],
-        "noveltyVerdict": "将关键帧预测与VLA内部表征结合，实现自适应记忆，设计独特。",
-        "duplicateRisk": "medium",
-        "dedupeNote": "与MemoryWAM不同，EventVLA专为VLA策略设计，聚焦视觉证据记忆而非世界预测。",
-        "retrievalGroups": [
-          "category",
-          "robotics",
-          "vla_core"
-        ],
-        "mergedCount": 1,
-        "mergedTitles": [
-          "EventVLA: Event-Driven Visual Evidence Memory for Long-Horizon Vision-Language-Action Policies"
-        ]
-      },
-      {
-        "id": "2606.19998v1",
-        "title": "Tri-Info: Generalizable, Interpretable Failure Prediction for VLA Models via Information Theory",
-        "summary": "Vision-Language-Action (VLA) models are increasingly deployed across diverse tasks, yet they remain black boxes whose physical interactions can cause irreversible harm, making generalizable and interpretable failure detection essential. We observe that successful and failed rollouts carry systematically different information-theoretic si…",
-        "summaryRaw": "Vision-Language-Action (VLA) models are increasingly deployed across diverse tasks, yet they remain black boxes whose physical interactions can cause irreversible harm, making generalizable and interpretable failure detection essential. We observe that successful and failed rollouts carry systematically different information-theoretic signatures. Building on this, we formalize VLA control as a closed-loop information pipeline and derive the Triple Information-theoretic (Tri-Info) signals that capture whether actions remain diverse, temporally consistent, and coupled to state transitions. Across six VLA models and three benchmark environments, Tri-Info matches the strongest baselines in-domain. Moreover, Tri-Info transfers across architectures, environments, and the sim-to-real gap without retraining, reaching 83\\% accuracy on real-world tasks where prior detectors collapse to chance. This establishes Tri-Info as a simple yet powerful method that not only detects failures with strong cross-domain generalization, but also delivers interpretable diagnostics of the underlying failure modes.",
-        "link": "https://arxiv.org/abs/2606.19998v1",
-        "pdfLink": "https://arxiv.org/pdf/2606.19998v1",
-        "published": "2026-06-18T09:34:22Z",
-        "updated": "2026-06-18T09:34:22Z",
-        "authors": [
-          "Jinghan Yang",
-          "Yunchao Zhang",
-          "Wang Yuan",
-          "Haolun Wan",
-          "Jiaming Zhang",
-          "Zhengyang Hu",
-          "Yanchao Yang"
-        ],
-        "categories": [
-          "cs.AI",
-          "cs.CV",
-          "cs.LG",
-          "cs.RO"
-        ],
-        "score": 88,
-        "importanceLevel": "A",
-        "lane": "VLA",
-        "dimensionScores": {
-          "relevance": 85,
-          "novelty": 88,
-          "impact": 85,
-          "practicality": 70,
-          "coreAlignment": 90
-        },
-        "oneSentenceSummary": "Tri-Info利用信息论信号实现通用可解释的VLA故障预测。",
-        "summaryCn": "观察成功与失败轨迹具有系统性的信息论差异，将VLA控制形式化为闭环信息管道，推导出三重信息信号：动作多样性、时序一致性和状态耦合。在六种VLA模型和三个基准上跨域匹配最强基线，更能在无重训练下跨架构、环境和sim-to-real迁移，真机准确率达83%。",
-        "whyImportant": "无需训练的跨模型故障检测器，提升VLA安全性与可解释性。",
-        "reasonTags": [
-          "故障预测",
-          "信息论",
-          "跨模型迁移",
-          "VLA安全"
-        ],
-        "innovationPoints": [
-          "将VLA控制建模为信息管道并定义三重信号",
-          "拓扑信息度量实现跨架构迁移",
-          "首次在真实环境验证跨域故障检测"
-        ],
-        "noveltyVerdict": "以信息论视角解决VLA黑盒安全问题，原创性高且工程验证扎实。",
-        "duplicateRisk": "low",
-        "dedupeNote": "专注于故障预测而非策略改进，与训练增强类方法互补。",
-        "retrievalGroups": [
-          "category",
-          "robotics",
-          "vla_core"
-        ],
-        "mergedCount": 1,
-        "mergedTitles": [
-          "Tri-Info: Generalizable, Interpretable Failure Prediction for VLA Models via Information Theory"
-        ]
-      },
-      {
-        "id": "2606.20274v1",
-        "title": "Lagrange: An Open-Vocabulary, Energy-Based Sparse Framework for Generalized End-to-End Driving",
-        "summary": "Scaling end-to-end autonomous driving to complex, open-world environments requires perceptual models that generalize to anomalous scenarios and planners that produce kinematically valid trajectories. Existing paradigms face a distinct dichotomy between representational efficiency and generalization capacity.",
-        "summaryRaw": "Scaling end-to-end autonomous driving to complex, open-world environments requires perceptual models that generalize to anomalous scenarios and planners that produce kinematically valid trajectories. Existing paradigms face a distinct dichotomy between representational efficiency and generalization capacity. Dense models (e.g., occupancy networks), while geometrically robust, incur critical computational bottlenecks and struggle with high-level semantic reasoning. Conversely, sparse, query-based planners are efficient but reliant on closed-set definitions, rendering them vulnerable to out-of-distribution (OOD) events. Although recent Vision-Language-Action (VLA) models offer open-vocabulary reasoning, their autoregressive, discrete token generation fundamentally conflicts with the continuous, high-frequency control requirements of vehicle dynamics. To address this, we propose Lagrange, an open-vocabulary, computationally sparse driving framework based on Masked Latent Fields (MLF). Rather than relying on dense volumetric reconstructions or closed-set query mechanisms, Lagrange exploits Vision-Language Models (VLMs) to encode class-agnostic object proposals into continuous semantic visual tokens. We introduce an intent-driven masked cross-attention module that temporally filters irrelevant entities, decoding the attended tokens into an implicit continuous energy field defined over spatial coordinates. By framing decision-making as a Lagrangian action minimization problem spanning this energy field, we enforce strict compliance with vehicle kinematics while executing collision avoidance. Extensive offline evaluations on both standard (nuScenes) and long-tail (CODA) benchmarks demonstrate that Lagrange establishes a promising framework for robust, interpretable, and kinematically feasible open-world autonomy.",
-        "link": "https://arxiv.org/abs/2606.20274v1",
-        "pdfLink": "https://arxiv.org/pdf/2606.20274v1",
-        "published": "2026-06-18T14:18:01Z",
-        "updated": "2026-06-18T14:18:01Z",
-        "authors": [
-          "Shihao Ji",
-          "HongXi Li",
-          "Zihui Song",
-          "Mingyu Li"
-        ],
-        "categories": [
-          "cs.AI"
-        ],
-        "score": 87,
-        "importanceLevel": "A",
-        "lane": "VLA",
-        "dimensionScores": {
-          "relevance": 80,
-          "novelty": 82,
-          "impact": 80,
-          "practicality": 75,
-          "coreAlignment": 85
-        },
-        "oneSentenceSummary": "Lagrange以能量模型实现开放词汇稀疏端到端驾驶，兼顾泛化与动力学。",
-        "summaryCn": "现有端到端驾驶面临密集模型计算瓶颈与稀疏模型封闭集定义的矛盾。Lagrange用能量基模型统一开放词汇语义理解和连续控制：稀疏查询保持效率，能量函数提供开放词汇泛化，同时输出运动学可行的轨迹，克服VLA类方法离散生成与车辆控制的冲突。",
-        "whyImportant": "弥合开放词汇推理与连续动力学的鸿沟，推动VLA驾驶落地。",
-        "reasonTags": [
-          "端到端驾驶",
-          "能量模型",
-          "开放词汇",
-          "稀疏框架"
-        ],
-        "innovationPoints": [
-          "能量基模型实现开放词汇与连续控制的统一",
-          "稀疏查询保持计算效率",
-          "规避VLA离散生成的动力学冲突"
-        ],
-        "noveltyVerdict": "巧妙融合能量模型与稀疏检测，解决VLA类方法在驾驶中的固有问题。",
-        "duplicateRisk": "medium",
-        "dedupeNote": "专注于驾驶的开放词汇规划，而非通用机器人VLA，与一般VLA互补。",
-        "retrievalGroups": [
-          "category",
-          "driving",
-          "vla_core"
-        ],
-        "mergedCount": 1,
-        "mergedTitles": [
-          "Lagrange: An Open-Vocabulary, Energy-Based Sparse Framework for Generalized End-to-End Driving"
-        ]
-      },
-      {
-        "id": "2606.19784v1",
-        "title": "EquiVLA: A General Framework for Rotationally Equivariant Vision-Language-Action Models",
-        "summary": "Vision-Language-Action (VLA) models have emerged as a powerful paradigm for generalist robot manipulation, yet they lack geometric inductive biases: policies trained at specific orientations require substantially more data to generalize across rotational configurations. We present \\textsc{EquiVLA}, the first general framework for end-to-…",
-        "summaryRaw": "Vision-Language-Action (VLA) models have emerged as a powerful paradigm for generalist robot manipulation, yet they lack geometric inductive biases: policies trained at specific orientations require substantially more data to generalize across rotational configurations. We present \\textsc{EquiVLA}, the first general framework for end-to-end $\\mathrm{SO}(2)$-equivariant VLA models, applicable to any architecture coupling a frozen vision-language backbone with a flow-matching Diffusion Transformer action head. \\textsc{EquiVLA} introduces \\textsc{EquiPerceptor}, which produces approximately $\\mathrm{SO}(2)$-equivariant visual representations from frozen ViT features; and \\textsc{EquiActor}, an exactly $\\mathrm{SO}(2)$-equivariant flow-matching Diffusion Transformer action head. Together, they establish an approximate $\\mathrm{SO}(2)$ equivariance chain from camera observations to predicted action sequences. Instantiated on GR00T~N1.5 and evaluated across four LIBERO suites, CALVIN ABCD$\\to$D, and five real-robot tasks on Mobile ALOHA, \\textsc{EquiVLA} achieves $92.6\\%$ average success on LIBERO (vs. $78.1\\%$ baseline), an average sequence length of $4.03$ on CALVIN (vs. $3.45$), and improves real-robot success from $54\\%$ to $72\\%$.",
-        "link": "https://arxiv.org/abs/2606.19784v1",
-        "pdfLink": "https://arxiv.org/pdf/2606.19784v1",
-        "published": "2026-06-18T04:36:57Z",
-        "updated": "2026-06-18T04:36:57Z",
-        "authors": [
-          "Thien-Loc Ha",
-          "Quang-Tan Nguyen",
-          "Trong-Bao Ho",
-          "Long Dinh",
-          "Minh Duc Nguyen",
-          "Gia-Binh Nguyen",
-          "Pham Tri Quang",
-          "Minh N. Vu"
-        ],
-        "categories": [
-          "cs.RO"
-        ],
-        "score": 86,
-        "importanceLevel": "A",
-        "lane": "VLA",
-        "dimensionScores": {
-          "relevance": 90,
-          "novelty": 80,
-          "impact": 80,
-          "practicality": 70,
-          "coreAlignment": 90
-        },
-        "oneSentenceSummary": "EquiVLA赋予VLA旋转等变性，大幅减少旋转泛化所需数据。",
-        "summaryCn": "提出首个通用SO(2)等变VLA框架：EquiPerceptor从冻结ViT特征产生近似等变视觉表示，EquiActor为流匹配扩散Transformer动作头提供精确等变。形成从相机观测到动作的近似等变链，在同角度训练、多角度测试中显著超越基线，数据效率提升明显。",
-        "whyImportant": "几何归纳偏置注入VLA，解决旋转泛化痛点，数据效率跃升。",
-        "reasonTags": [
-          "等变性",
-          "几何归纳",
-          "旋转泛化",
-          "VLA"
-        ],
-        "innovationPoints": [
-          "首次在VLA中实现端到端SO(2)等变",
-          "冻结视觉骨干上的近似等变模块",
-          "流匹配扩散头结合等变性"
-        ],
-        "noveltyVerdict": "将等变思想引入VLA是自然且重要的进步，实现方法通用性强。",
-        "duplicateRisk": "medium",
-        "dedupeNote": "与Co-VLA、EventVLA等改进不同，专注于几何对称性先验。",
-        "retrievalGroups": [
-          "category",
-          "robotics",
-          "vla_core"
-        ],
-        "mergedCount": 1,
-        "mergedTitles": [
-          "EquiVLA: A General Framework for Rotationally Equivariant Vision-Language-Action Models"
-        ]
-      },
-      {
-        "id": "2606.20118v1",
-        "title": "Pose6DAug: Physically Plausible Multi-view Object Swapping for Robot Data Augmentation",
-        "summary": "Vision-language-action (VLA) policies have shown strong potential for general-purpose manipulation, yet they often fail on novel, out-of-distribution objects whose appearance or geometry deviates from the training distribution. The standard remedy is to collect multi-view teleoperation data for every failure case, but this scales poorly…",
-        "summaryRaw": "Vision-language-action (VLA) policies have shown strong potential for general-purpose manipulation, yet they often fail on novel, out-of-distribution objects whose appearance or geometry deviates from the training distribution. The standard remedy is to collect multi-view teleoperation data for every failure case, but this scales poorly in both cost and time. We introduce Pose6DAug, a failure-driven data augmentation framework that turns a policy's own successful episodes into targeted demonstrations for its failure modes, without any new data collection. Our key insight is that each successful episode already encodes a physically valid action trajectory together with calibrated multi-view observations. By swapping only the manipulated object while preserving this trajectory, we obtain new and physically grounded demonstrations. However, naive 2D video editing breaks multi-view consistency and physical plausibility, particularly under heavy occlusion and egocentric viewpoints. Our method instead operates directly in 3D, anchoring the target object with an explicit mesh driven by a temporally coherent 6D pose trajectory, ensuring geometrically consistent renderings across all camera views. Fine-tuning a VLA on data augmented by our method improves success rates by 16.5% relative to the state-of-the-art baseline on novel objects, while preserving in-distribution performance. These results show that multi-view and physically consistent augmentation is a practical path to scalable VLA generalization.",
-        "link": "https://arxiv.org/abs/2606.20118v1",
-        "pdfLink": "https://arxiv.org/pdf/2606.20118v1",
-        "published": "2026-06-18T11:41:25Z",
-        "updated": "2026-06-18T11:41:25Z",
-        "authors": [
-          "Jonghoon Lee",
-          "Seong Hyeon Park",
-          "Byungwoo Jeon",
-          "Minha Lee",
-          "Jinwoo Shin"
+          "Kejing Wang",
+          "Toan Nguyen",
+          "Minh Hoang Nguyen",
+          "Simon Khan",
+          "Flora D. Salim"
         ],
         "categories": [
           "cs.LG",
@@ -1635,29 +1507,29 @@ window.PAPERS_SITE_DATA = {
         "importanceLevel": "B",
         "lane": "VLA",
         "dimensionScores": {
-          "relevance": 85,
-          "novelty": 75,
-          "impact": 80,
-          "practicality": 85,
-          "coreAlignment": 85
+          "relevance": 83,
+          "novelty": 80,
+          "impact": 75,
+          "practicality": 82,
+          "coreAlignment": 88
         },
-        "oneSentenceSummary": "Pose6DAug用失败驱动物体替换生成物理一致的多视图VLA训练数据。",
-        "summaryCn": "针对VLA策略对新物体OOD失效，提出Pose6DAug框架：利用成功回合中已验证的动作轨迹和多视图校准，仅替换被操作物体而保留轨迹，通过物理约束和Pose6D对齐生成新演示。无需重新采集数据，显著提升策略在新物体上的泛化能力。",
-        "whyImportant": "开创性地利用已有成功经验自动生成失败场景数据，成本极低。",
+        "oneSentenceSummary": "ROAD-VLA:优势引导自蒸馏，实现VLA鲁棒在线自适应。",
+        "summaryCn": "针对VLA在线适应中稀疏奖励问题，ROAD-VLA构建动作空间近端教师，扰动动作词元对数几率并校准优势估计，将稀疏奖励转化为密集词元级监督，同时推导策略改进下界，提升样本效率，在真实机器人任务中验证有效性。",
+        "whyImportant": "为VLA提供无需额外数据的在线自适应方法，提高部署鲁棒性。",
         "reasonTags": [
-          "数据增强",
-          "物体替换",
-          "VLA泛化",
-          "失败驱动"
+          "VLA",
+          "在线适应",
+          "自蒸馏",
+          "优势引导"
         ],
         "innovationPoints": [
-          "失败驱动的自动生成框架",
-          "物理约束保持多视图一致性",
-          "重用成功轨迹避免新采集"
+          "提出动作空间自蒸馏教师",
+          "利用优势校准构建近端目标",
+          "推导策略改进下界保证"
         ],
-        "noveltyVerdict": "思路直接但有效，解决数据瓶颈的实际工程创新。",
+        "noveltyVerdict": "创新性中等：将自蒸馏引入动作空间，但核心思路与现有RL自蒸馏类似。",
         "duplicateRisk": "medium",
-        "dedupeNote": "数据增强方法，与Co-VLA、EventVLA等架构改进无重叠。",
+        "dedupeNote": "ROAD-VLA专注于在线自适应，与FORCE的离线-在线结合不同，应用场景互补。",
         "retrievalGroups": [
           "category",
           "robotics",
@@ -1665,173 +1537,52 @@ window.PAPERS_SITE_DATA = {
         ],
         "mergedCount": 1,
         "mergedTitles": [
-          "Pose6DAug: Physically Plausible Multi-view Object Swapping for Robot Data Augmentation"
+          "ROAD-VLA: Robust Online Adaptation via Self-Distillation for Vision-Language-Action Models"
         ]
       },
       {
-        "id": "2606.19769v1",
-        "title": "Data Standards for Humanoid Robotics: The Missing Infrastructure for Physical AI",
-        "summary": "The scalability of humanoid robots will depend not only on models and hardware, but also on whether physical experience can accumulate across robots, tasks, organizations, and time. Drawing on the authors' work in developing ISO/WD 26264-1, Humanoid robot datasets -- Part 1: General requirements, within ISO/TC 299/WG 16, this article arg…",
-        "summaryRaw": "The scalability of humanoid robots will depend not only on models and hardware, but also on whether physical experience can accumulate across robots, tasks, organizations, and time. Drawing on the authors' work in developing ISO/WD 26264-1, Humanoid robot datasets -- Part 1: General requirements, within ISO/TC 299/WG 16, this article argues that data standards are becoming foundational infrastructure for Physical AI. We develop three insights. First, humanoid robot data is embodied interaction data, not a collection of isolated digital samples; a useful dataset must preserve the relationship among robot body, action, task, scene, execution trace, and outcome. Second, its value depends on physical coherence: multimodal streams are reusable only when timing, coordinate frames, calibration, kinematics, units, and synchronization assumptions remain inspectable. Third, the main bottleneck is not only data scarcity, but non-cumulative data caused by high collection costs, data silos, and inconsistent evaluation. We argue that humanoid robot data standards address these bottlenecks by making embodied experience interpretable, shareable, traceable, and reusable. A general standard should provide horizontal infrastructure for lifecycle management, metadata, provenance, quality, versioning, and traceability, while capability-specific parts should define domain grammar for manipulation, locomotion, human-robot interaction, cognition, and future humanoid capabilities. As AI moves from screens into bodies, data standards must evolve from organizing digital information to structuring physical interaction.",
-        "link": "https://arxiv.org/abs/2606.19769v1",
-        "pdfLink": "https://arxiv.org/pdf/2606.19769v1",
-        "published": "2026-06-18T04:10:16Z",
-        "updated": "2026-06-18T04:10:16Z",
+        "id": "2606.25985v1",
+        "title": "Action ControlNet: A Lightweight Delay-Aware Adapter for Smooth Asynchronous Control in Vision-Language-Action Models",
+        "summary": "Vision-language-action (VLA) models have shown strong potential for general-purpose robot manipulation, but their inference latency remains a major obstacle to stable high-frequency control. Asynchronous execution mitigates this bottleneck by overlapping policy inference with action execution, yet the next action chunk is still predicted…",
+        "summaryRaw": "Vision-language-action (VLA) models have shown strong potential for general-purpose robot manipulation, but their inference latency remains a major obstacle to stable high-frequency control. Asynchronous execution mitigates this bottleneck by overlapping policy inference with action execution, yet the next action chunk is still predicted from stale observations while the robot continues to move. Direct chunk stitching therefore introduces handoff discontinuities, action jitter, and failures in contact-rich manipulation. Existing remedies typically require either full-policy retraining or architecture-specific runtime logic. This work proposes Action ControlNet (ACNet), a lightweight delay-aware adapter that uses the executed motion suffix as a residual condition for a mostly frozen action head. ACNet leaves the pretrained backbone unchanged, introduces few trainable parameters, and remains compatible with generative action heads such as diffusion and flow matching. On Kinetix, Meta-World MT50, and a real-world SO-ARM101 platform, ACNet improves robustness under inference delay and yields smoother asynchronous trajectories than direct chunk stitching, while remaining more lightweight than full delay-conditioned retraining.",
+        "link": "https://arxiv.org/abs/2606.25985v1",
+        "pdfLink": "https://arxiv.org/pdf/2606.25985v1",
+        "published": "2026-06-24T15:53:43Z",
+        "updated": "2026-06-24T15:53:43Z",
         "authors": [
-          "Shaoshan Liu",
-          "Xiugong Qin",
-          "Xuan Wu",
-          "Xuan Xia",
-          "Ning Ding",
-          "Jialu Liu",
-          "Jie Tang"
+          "Tiecheng Guo",
+          "Meng Guo"
         ],
         "categories": [
-          "cs.AI",
           "cs.RO"
         ],
         "score": 82,
         "importanceLevel": "B",
-        "lane": "Robotics",
+        "lane": "VLA",
         "dimensionScores": {
-          "relevance": 75,
-          "novelty": 80,
-          "impact": 80,
-          "practicality": 75,
-          "coreAlignment": 70
-        },
-        "oneSentenceSummary": "人形机器人数据标准提案，定义体现交互数据的物理一致性准则。",
-        "summaryCn": "基于ISO/WD 26264-1，指出人形机器人数据是体现交互数据，需保持机器人身体、动作、任务、场景、执行轨迹和结果的关系。物理一致性（时序、坐标系、标定、运动学等）是多流水线数据可复用的关键。提出标准框架以促进跨组织经验积累，加速物理AI发展。",
-        "whyImportant": "首次系统阐述人形机器人数据标准化需求，指引大规模数据共享。",
-        "reasonTags": [
-          "数据标准",
-          "人形机器人",
-          "物理AI",
-          "互操作性"
-        ],
-        "innovationPoints": [
-          "提出体现交互数据的概念与维护需求",
-          "定义物理一致性的关键要素",
-          "基于ISO工作提供标准化路径"
-        ],
-        "noveltyVerdict": "虽非算法创新，但填补了行业基础设施空白，长远影响深远。",
-        "duplicateRisk": "low",
-        "dedupeNote": "定位为数据规范与标准，与模型/算法类论文性质不同。",
-        "retrievalGroups": [
-          "category",
-          "robotics"
-        ],
-        "mergedCount": 1,
-        "mergedTitles": [
-          "Data Standards for Humanoid Robotics: The Missing Infrastructure for Physical AI"
-        ]
-      },
-      {
-        "id": "2606.20376v1",
-        "title": "CRAX: Fast Safe Reinforcement Learning Benchmarking",
-        "summary": "Safety is a core concern for deploying reinforcement learning (RL) agents in real-world domains such as robotics and autonomous driving. While benchmarks have been central to progress in RL, existing safety benchmarks with high-fidelity 3D physics remain computationally slow, limiting large-scale experimentation and rapid prototyping.",
-        "summaryRaw": "Safety is a core concern for deploying reinforcement learning (RL) agents in real-world domains such as robotics and autonomous driving. While benchmarks have been central to progress in RL, existing safety benchmarks with high-fidelity 3D physics remain computationally slow, limiting large-scale experimentation and rapid prototyping. To address this gap, we propose CRAX (Constrained RL Accelerated with JAX). Built on top of the MuJoCo XLA (MJX) physics engine with realistic 3D dynamics, CRAX leverages vectorized operations and hardware acceleration, yielding up to ~100x speedups over comparable CPU-based safety benchmarks. The benchmark features six environment suites and three agent-specific tasks, each spanning three difficulty levels. Evaluating six popular safe RL methods shows that no single approach dominates across all tasks, and reveals the trade-offs between performance and safety. We find that curriculum learning across difficulty levels and safety transfer can improve performance over direct training in harder settings.",
-        "link": "https://arxiv.org/abs/2606.20376v1",
-        "pdfLink": "https://arxiv.org/pdf/2606.20376v1",
-        "published": "2026-06-18T15:36:13Z",
-        "updated": "2026-06-18T15:36:13Z",
-        "authors": [
-          "Tristan Tomilin",
-          "Mourad Boustani",
-          "Mickey Beurskens",
-          "Thiago D. Simão"
-        ],
-        "categories": [
-          "cs.AI",
-          "cs.LG"
-        ],
-        "score": 80,
-        "importanceLevel": "B",
-        "lane": "Robotics",
-        "dimensionScores": {
-          "relevance": 70,
-          "novelty": 75,
-          "impact": 85,
-          "practicality": 80,
-          "coreAlignment": 70
-        },
-        "oneSentenceSummary": "CRAX提供基于MuJoCo XLA的安全RL基准，速度提升百倍。",
-        "summaryCn": "现有安全基准计算慢，限制大规模实验。CRAX基于MJX物理引擎和JAX向量化，实现高达CPU基准~100倍的加速。包含6个环境套件、3个代理任务，各含三个难度级别。评估六种流行安全RL方法，揭示性能与安全的权衡，提供标准化测试平台。",
-        "whyImportant": "高速安全RL基准将加速机器人安全学习算法的研发迭代。",
-        "reasonTags": [
-          "安全强化学习",
-          "基准",
-          "加速",
-          "机器人"
-        ],
-        "innovationPoints": [
-          "首次在MJX上构建多任务安全RL基准",
-          "向量化实现百倍加速",
-          "标准化的难度分级与评估协议"
-        ],
-        "noveltyVerdict": "工程贡献突出，填补安全RL基准的加速空白，实用价值高。",
-        "duplicateRisk": "low",
-        "dedupeNote": "专注于基准平台与速度优化，非新算法。",
-        "retrievalGroups": [
-          "category",
-          "driving",
-          "robotics"
-        ],
-        "mergedCount": 1,
-        "mergedTitles": [
-          "CRAX: Fast Safe Reinforcement Learning Benchmarking"
-        ]
-      },
-      {
-        "id": "2606.20135v1",
-        "title": "Frequency-Aware Flow Matching for Continuous and Consistent Robotic Action Generation",
-        "summary": "Flow matching has emerged as a standard paradigm for robotic manipulation owing to its strong expressive power for modelling complex, multimodal action distributions, alongside similar approaches like diffusion policy. However, existing methods rely on discretized action chunks, making them brittle to demonstrations collected at heteroge…",
-        "summaryRaw": "Flow matching has emerged as a standard paradigm for robotic manipulation owing to its strong expressive power for modelling complex, multimodal action distributions, alongside similar approaches like diffusion policy. However, existing methods rely on discretized action chunks, making them brittle to demonstrations collected at heterogeneous control frequencies and prone to temporally inconsistent actions that degrade control stability. In this paper, we propose Frequency-Aware Flow Matching (FAFM), which outputs continuous, temporally consistent actions. To handle heterogeneous frequency input, we transform discrete action sequences into the frequency domain with the discrete cosine transform (DCT), perform flow matching over the resulting coefficients, and reconstruct continuous actions via cosine basis expansion. To generate temporally consistent actions, we regularize the first-order temporal derivative to promote smooth actions. This corresponds to a Sobolev-type constraint that suppresses high-frequency errors and discourages abrupt action changes. Our FAFM is simple, introduces no additional network parameters and applies to standalone flow-matching policies and vision-language action models. Across synthetic toy benchmark, obstacle avoidance, LapGym, and LIBERO, FAFM improves success rates, multimodal expressivity, motion smoothness, convergence speed, robustness to mechanical bias and mixed-frequency input. These gains are consistent when deployed on a real-world Franka robot. Code available at https://anonymous.4open.science/r/FAFM.",
-        "link": "https://arxiv.org/abs/2606.20135v1",
-        "pdfLink": "https://arxiv.org/pdf/2606.20135v1",
-        "published": "2026-06-18T11:58:30Z",
-        "updated": "2026-06-18T11:58:30Z",
-        "authors": [
-          "Jianing Guo",
-          "Fangzheng Chen",
-          "Zihao Mao",
-          "Wong Lik Hang Kenny",
-          "Zhenhong Wu",
-          "Yu Li",
-          "Yishuai Cai",
-          "Yuanpei Chen"
-        ],
-        "categories": [
-          "cs.AI",
-          "cs.RO"
-        ],
-        "score": 78,
-        "importanceLevel": "B",
-        "lane": "Robotics",
-        "dimensionScores": {
-          "relevance": 70,
-          "novelty": 70,
-          "impact": 80,
+          "relevance": 79,
+          "novelty": 81,
+          "impact": 70,
           "practicality": 85,
-          "coreAlignment": 65
+          "coreAlignment": 85
         },
-        "oneSentenceSummary": "频率感知流匹配生成连续时序一致动作，克服离散动作块的脆裂性。",
-        "summaryCn": "现有流匹配依赖离散动作块，对异构控制频率脆弱，动作时序不一致。提出FAFM：用离散余弦变换将动作序列转到频域进行流匹配，再通过余弦基重建连续动作；引入一阶平滑正则保证时序一致。在多种频率演示上实现稳定控制，与扩散策略等兼容。",
-        "whyImportant": "使流匹配动作生成可适应任意频率，增强控制稳定性和通用性。",
+        "oneSentenceSummary": "Action ControlNet:轻量延迟感知适配器，平滑VLA异步控制。",
+        "summaryCn": "VLA推理延迟导致高频控制不稳定。ACNet利用已执行的运动后缀作为残差条件，适配冻结的动作头，无需重训骨架。通过少参数和动作不可知设计，消除交接抖动，在接触丰富任务中验证平滑控制效果。",
+        "whyImportant": "解决VLA异步执行中的手抖和失败问题，轻量级方案易于部署。",
         "reasonTags": [
-          "流匹配",
-          "连续动作",
-          "频率域",
-          "机器人控制"
+          "VLA",
+          "异步控制",
+          "轻量适配器",
+          "延迟感知"
         ],
         "innovationPoints": [
-          "将动作生成搬移到频域并匹配系数",
-          "余弦基重建获得连续动作",
-          "平滑正则消除块边界不一致"
+          "首次针对VLA异步控制的残差适配器设计",
+          "利用运动后缀提供延迟补偿",
+          "参数高效且骨架无关"
         ],
-        "noveltyVerdict": "在流匹配框架内引入频域表示是独特改进，实用性强。",
+        "noveltyVerdict": "创新性中等：工程化解决方案，但解决实际问题。",
         "duplicateRisk": "low",
-        "dedupeNote": "专注于动作生成的表示层面，与架构或数据增强不同。",
+        "dedupeNote": "其他VLA工作未明确处理异步执行问题，ACNet填补空白。",
         "retrievalGroups": [
           "category",
           "robotics",
@@ -1839,176 +1590,285 @@ window.PAPERS_SITE_DATA = {
         ],
         "mergedCount": 1,
         "mergedTitles": [
-          "Frequency-Aware Flow Matching for Continuous and Consistent Robotic Action Generation"
+          "Action ControlNet: A Lightweight Delay-Aware Adapter for Smooth Asynchronous Control in Vision-Language-Action Models"
         ]
       },
       {
-        "id": "2606.19836v1",
-        "title": "World Engine: Towards the Era of Post-Training for Autonomous Driving",
-        "summary": "Autonomous vehicles must operate safely in the real world, where errors can have severe consequences. Although modern end-to-end driving policies excel in routine scenarios, their reliability is limited by the scarcity of safety-critical ``long-tail'' events in real driving datasets.",
-        "summaryRaw": "Autonomous vehicles must operate safely in the real world, where errors can have severe consequences. Although modern end-to-end driving policies excel in routine scenarios, their reliability is limited by the scarcity of safety-critical ``long-tail'' events in real driving datasets. These rare interactions define the practical safety boundary of the learned policy, yet they are difficult to collect at scale in the real world. Here we show that this fundamental limitation can be addressed by post-training pre-trained driving models on synthesized high-stakes interactions. We introduce World Engine, a generative framework that reconstructs high-fidelity interactive environments from real-world logs and systematically extrapolates them into realistic safety-critical variations. This paradigm enables reinforcement-based post-training to align policies with safety constraints, circumventing the physical risks inherent in real-world exploration. On a public benchmark built on nuPlan, World Engine substantially reduces failures in rare safety-critical scenarios and yields significantly larger gains than scaling pre-training data alone. Furthermore, when deployed on a production-scale autonomous driving system, the resulting policy reduces simulated collisions and demonstrates measurable improvements in on-road testing, showing that post-training on synthesized, safety-critical interactions offers a scalable and effective pathway to safer autonomous driving. The full codebase suite, including training, is released to the public.",
-        "link": "https://arxiv.org/abs/2606.19836v1",
-        "pdfLink": "https://arxiv.org/pdf/2606.19836v1",
-        "published": "2026-06-18T06:28:33Z",
-        "updated": "2026-06-18T06:28:33Z",
+        "id": "2606.25473v1",
+        "title": "Causal-rCM: A Unified Teacher-Forcing and Self-Forcing Open Recipe for Autoregressive Diffusion Distillation in Streaming Video Generation and Interactive World Models",
+        "summary": "Autoregressive video diffusion with causal diffusion transformers has emerged as a major paradigm for real-time streaming video generation and action-conditioned interactive world models. In this work, we extend rCM, an advanced diffusion distillation framework, to autoregressive video diffusion.",
+        "summaryRaw": "Autoregressive video diffusion with causal diffusion transformers has emerged as a major paradigm for real-time streaming video generation and action-conditioned interactive world models. In this work, we extend rCM, an advanced diffusion distillation framework, to autoregressive video diffusion. The core philosophy of rCM lies in the complementarity between forward and reverse divergences, represented by consistency models (CMs) and distribution matching distillation (DMD), respectively, in diffusion distillation. This philosophy naturally carries over to the autoregressive setting, where teacher-forcing (TF) provides an offline, forward-divergence causal training paradigm, while self-forcing (SF) corresponds to an on-policy, reverse-divergence refinement. Our contributions are: (1) through extensive experiments, we show that teacher-forcing CM is currently the best complement to self-forcing DMD as an initialization strategy (2) we present the first implementation of teacher-forcing-based continuous-time CMs (e.g., sCM/MeanFlow) for autoregressive video diffusion, enabled by our custom-mask FlashAttention-2 JVP kernel, achieving 10$\\times$ faster convergence compared to discrete-time CMs (dCMs) (3) we introduce Causal-rCM, a leading, unified, and scalable algorithm-infrastructure open recipe for diffusion distillation and causal training (4) we achieve state-of-the-art streaming video generation performance in both frame-wise and chunk-wise settings, using only synthetic data for training. Notably, our distilled 2-step causal Wan2.1-1.3B model achieves a VBench-T2V score of 84.63 with only 1 or 2 sampling steps. We further apply Causal-rCM to Cosmos 3, an advanced omnimodal world foundation model for physical AI with action-conditioned generation capability, enabling an interactive world model.",
+        "link": "https://arxiv.org/abs/2606.25473v1",
+        "pdfLink": "https://arxiv.org/pdf/2606.25473v1",
+        "published": "2026-06-24T06:58:02Z",
+        "updated": "2026-06-24T06:58:02Z",
         "authors": [
-          "Tianyu Li",
-          "Li Chen",
-          "Caojun Wang",
-          "Haochen Liu",
-          "Kashyap Chitta",
-          "Zhenjie Yang",
-          "Yuhang Lu",
-          "Naisheng Ye"
+          "Kaiwen Zheng",
+          "Guande He",
+          "Min Zhao",
+          "Jintao Zhang",
+          "Huayu Chen",
+          "Jianfei Chen",
+          "Chen-Hsuan Lin",
+          "Ming-Yu Liu"
         ],
         "categories": [
           "cs.CV",
+          "cs.LG"
+        ],
+        "score": 87,
+        "importanceLevel": "A",
+        "lane": "WAM",
+        "dimensionScores": {
+          "relevance": 83,
+          "novelty": 88,
+          "impact": 80,
+          "practicality": 75,
+          "coreAlignment": 90
+        },
+        "oneSentenceSummary": "Causal-rCM:统一教师强迫与自强迫蒸馏，用于交互世界模型。",
+        "summaryCn": "将rCM蒸馏框架扩展至自回归视频扩散，利用教师强迫（前向散度）与自强迫（反向散度）的互补性，通过一致性模型和分布匹配蒸馏的结合，实现高效动作条件世界模型蒸馏，为实时交互式世界模型提供开放方案。",
+        "whyImportant": "为交互式世界模型的高效推理提供系统性蒸馏方法，降低计算成本。",
+        "reasonTags": [
+          "世界动作模型",
+          "扩散蒸馏",
+          "自回归视频生成",
+          "交互世界模型"
+        ],
+        "innovationPoints": [
+          "首次将rCM统一框架应用于自回归视频扩散",
+          "展示教师强迫与自强迫在蒸馏中的互补性",
+          "提供开放方案促进交互式世界模型发展"
+        ],
+        "noveltyVerdict": "创新性高：蒸馏范式创新，为世界模型实时推理铺路。",
+        "duplicateRisk": "low",
+        "dedupeNote": "虽为方法论文，但直接面向交互式世界模型，核心WAM贡献。",
+        "retrievalGroups": [
+          "category",
+          "wam_core"
+        ],
+        "mergedCount": 1,
+        "mergedTitles": [
+          "Causal-rCM: A Unified Teacher-Forcing and Self-Forcing Open Recipe for Autoregressive Diffusion Distillation in Streaming Video Generation and Interactive World Models"
+        ]
+      },
+      {
+        "id": "2606.25880v1",
+        "title": "USS: Unified Spatial-Semantic Prompts for Embodied Visual Tracking with Latent Dynamics Learning",
+        "summary": "Embodied Visual Tracking (EVT) requires an agent to continuously follow a specified target while actively moving through dynamic environments. However, prevailing EVT paradigms predominantly rely on language-based target indication.",
+        "summaryRaw": "Embodied Visual Tracking (EVT) requires an agent to continuously follow a specified target while actively moving through dynamic environments. However, prevailing EVT paradigms predominantly rely on language-based target indication. While language is expressive and convenient, cluttered scenes often contain multiple objects that satisfy the same semantic description, leading to ambiguous target grounding. We therefore propose a paradigm shift, reframing target indication in EVT from text-only specification to unified spatial-semantic prompting. Based on this paradigm, we introduce Unified Spatial-Semantic Prompts for Embodied Visual Tracking with Latent Dynamics Learning, USS, an end-to-end embodied tracking framework that supports text, point, bounding box, and mask prompts within a unified architecture. USS encodes heterogeneous prompts with modality-specific encoders, fuses prompt tokens with visual features through hybrid attention, and decodes compact prompt-conditioned representations into egocentric waypoints. To further improve temporal robustness, USS incorporates a latent world model that predicts future representations through self-supervised alignment. Real-robot experiments demonstrate that explicit spatial target cues yield higher success rates than text-only prompts, particularly in scenarios involving similar distractors and longer-horizon tracking where maintaining instance-level target identity is critical. In the simulation benchmark, USS also achieves state-of-the-art performance among non-MLLM-based methods and competitive results against recent MLLM-based approaches with faster inference speed. Our findings reveal that spatial-semantic prompting provides a more precise and flexible target indication interface for embodied visual tracking. Project site: https://arescheah.github.io/uss-project-page/.",
+        "link": "https://arxiv.org/abs/2606.25880v1",
+        "pdfLink": "https://arxiv.org/pdf/2606.25880v1",
+        "published": "2026-06-24T14:25:05Z",
+        "updated": "2026-06-24T14:25:05Z",
+        "authors": [
+          "Yuchen Xie",
+          "Xinyu Zhou",
+          "Kuangji Zuo",
+          "Yanshuo Lu",
+          "Fengrui Huang",
+          "Boyu Ma",
+          "Jianfei Yang"
+        ],
+        "categories": [
+          "cs.CV"
+        ],
+        "score": 82,
+        "importanceLevel": "B",
+        "lane": "WAM",
+        "dimensionScores": {
+          "relevance": 78,
+          "novelty": 83,
+          "impact": 75,
+          "practicality": 70,
+          "coreAlignment": 80
+        },
+        "oneSentenceSummary": "USS:统一空间语义提示与潜在动力学学习的具身跟踪。",
+        "summaryCn": "针对具身视觉跟踪中语言歧义，USS支持文本、点、框、掩码多模态提示，编码后融合目标信息，通过潜在动力学模块建模时序运动，实现长期跟踪。实验表明多提示统一架构在复杂场景下提升跟踪鲁棒性。",
+        "whyImportant": "统一提示范式提升具身跟踪灵活性，潜在动力学学习辅助世界建模。",
+        "reasonTags": [
+          "具身视觉跟踪",
+          "动力学学习",
+          "多模态提示",
+          "世界模型"
+        ],
+        "innovationPoints": [
+          "统一处理多种空间语义提示",
+          "引入潜在动力学学习建模运动",
+          "端到端框架提升跟踪鲁棒性"
+        ],
+        "noveltyVerdict": "创新性中等：统一提示有价值，动力学学习模块非核心差异。",
+        "duplicateRisk": "low",
+        "dedupeNote": "有别于传统2D跟踪，该工作融合动力学学习，但WAM属性较弱，仍入选。",
+        "retrievalGroups": [
+          "category",
+          "robotics",
+          "wam_core"
+        ],
+        "mergedCount": 1,
+        "mergedTitles": [
+          "USS: Unified Spatial-Semantic Prompts for Embodied Visual Tracking with Latent Dynamics Learning"
+        ]
+      },
+      {
+        "id": "2606.25295v1",
+        "title": "DynaMOMA: Instantaneous Prediction of Grasp Poses for Mobile Manipulation of Dynamic Objects",
+        "summary": "Mobile manipulation is a fundamental robotics task and has advanced rapidly in recent years, enabling robots to navigate, reach, and interact with objects in complex environments. However, mobile manipulation of dynamic objects remains highly challenging, as robots must coordinate the mobile base and arm while adapting to continuously ev…",
+        "summaryRaw": "Mobile manipulation is a fundamental robotics task and has advanced rapidly in recent years, enabling robots to navigate, reach, and interact with objects in complex environments. However, mobile manipulation of dynamic objects remains highly challenging, as robots must coordinate the mobile base and arm while adapting to continuously evolving target poses. A key challenge lies in predicting temporally consistent short-horizon grasp trajectories from dynamic observations. In this work, we propose \\ours{}, a dynamic mobile manipulation framework that couples instantaneous grasp trajectory prediction with whole-body control policy. Our predictor uses an anchor-based diffusion model to generate temporally consistent short-horizon grasp trajectories conditioned on historical observations. The predicted trajectories are then encoded as compact features and fed to a whole-body reinforcement learning policy, which controls the mobile manipulator for dynamic grasping. We further introduce a anticipation-guided reward that equips the policy with an anticipatory grasping horizon by adaptively shifting the target from the current grasp observation to the instantaneously predicted grasp trajectory. Through extensive experiments in Isaac Gym simulation, we show that our method achieves strong performance in mobile manipulation of dynamic objects across diverse settings and grasping metrics. Furthermore, our predictor and policy demonstrate strong generalizability in real-world experiments.",
+        "link": "https://arxiv.org/abs/2606.25295v1",
+        "pdfLink": "https://arxiv.org/pdf/2606.25295v1",
+        "published": "2026-06-24T01:58:15Z",
+        "updated": "2026-06-24T01:58:15Z",
+        "authors": [
+          "Zhinan Yu",
+          "Junyan Xu",
+          "Jiazhao Zhang",
+          "Zheng Qin",
+          "Yijie Tang",
+          "Yuhang Huang",
+          "Yihan Cao",
+          "Zhiyuan Yu"
+        ],
+        "categories": [
           "cs.RO"
+        ],
+        "score": 80,
+        "importanceLevel": "B",
+        "lane": "WAM",
+        "dimensionScores": {
+          "relevance": 76,
+          "novelty": 80,
+          "impact": 78,
+          "practicality": 75,
+          "coreAlignment": 82
+        },
+        "oneSentenceSummary": "DynaMOMA:锚点扩散预测抓取轨迹，耦合全身强化学习控制。",
+        "summaryCn": "针对动态物体移动操作，DynaMOMA耦合瞬时抓取轨迹预测与全身控制策略。预测器利用锚点扩散模型，基于历史观测生成时序一致短时抓取轨迹，编码为紧凑特征传入强化学习控制器，实现移动基座与臂的协同动态抓取。",
+        "whyImportant": "将扩散预测与全身控制结合，推动移动操作向动态环境拓展。",
+        "reasonTags": [
+          "世界模型",
+          "抓取预测",
+          "扩散模型",
+          "全身控制"
+        ],
+        "innovationPoints": [
+          "锚点扩散模型预测时序抓取轨迹",
+          "将动态预测与全身强化学习耦合",
+          "解决移动操作中的动态适应问题"
+        ],
+        "noveltyVerdict": "创新性较高：动态抓取轨迹预测与控制的结合有新颖性。",
+        "duplicateRisk": "low",
+        "dedupeNote": "区别于静态抓取检测，该工作专攻动态物体，具有WAM属性。",
+        "retrievalGroups": [
+          "category",
+          "robotics"
+        ],
+        "mergedCount": 1,
+        "mergedTitles": [
+          "DynaMOMA: Instantaneous Prediction of Grasp Poses for Mobile Manipulation of Dynamic Objects"
+        ]
+      },
+      {
+        "id": "2606.25736v1",
+        "title": "UniTeD: Unified Temporal Diffusion for Joint Perception and Planning in Autonomous Driving",
+        "summary": "Diffusion models have shown strong potential for multi-modal planning in end-to-end autonomous driving. However, most existing methods confine diffusion to the planning module, conditioning on fixed outputs from separate discriminative perception networks.",
+        "summaryRaw": "Diffusion models have shown strong potential for multi-modal planning in end-to-end autonomous driving. However, most existing methods confine diffusion to the planning module, conditioning on fixed outputs from separate discriminative perception networks. This decoupled design propagates perception errors to the planner, increasing optimization difficulty and reducing robustness. To overcome these limitations, we propose UniTeD, a Unified Temporal Diffusion framework that jointly models perception and planning through iterative denoising in a shared generative space. By enabling bidirectional information exchange, the framework facilitates mutual refinement between tasks and improves robustness via noise-conditioned multi-task training. We further extend this unified diffusion paradigm to a streaming setting by incorporating temporal context. A Temporal Transition Module (TTM) is introduced to resolve the noise-level mismatch between historical and current frames. In addition, we propose an Anchor Refresh Strategy (ARS) to alleviate the training-inference distribution shift commonly observed in sparse diffusion-based end-to-end driving frameworks. Without bells and whistles, UniTeD achieves state-of-the-art performance across multiple benchmarks, surpassing both recent discriminative end-to-end methods and diffusion-based planning approaches.",
+        "link": "https://arxiv.org/abs/2606.25736v1",
+        "pdfLink": "https://arxiv.org/pdf/2606.25736v1",
+        "published": "2026-06-24T12:03:54Z",
+        "updated": "2026-06-24T12:03:54Z",
+        "authors": [
+          "Bo Zhao",
+          "Xinting Zhao",
+          "Naifan Li",
+          "Erkang Cheng",
+          "Haibin Ling"
+        ],
+        "categories": [
+          "cs.CV"
         ],
         "score": 78,
         "importanceLevel": "B",
         "lane": "WAM",
         "dimensionScores": {
-          "relevance": 70,
-          "novelty": 80,
-          "impact": 80,
-          "practicality": 75,
+          "relevance": 74,
+          "novelty": 82,
+          "impact": 76,
+          "practicality": 70,
           "coreAlignment": 80
         },
-        "oneSentenceSummary": "World Engine从真实日志合成安全关键场景，用于驾驶策略后训练。",
-        "summaryCn": "端到端驾驶策略受限于长尾安全关键数据稀缺。提出World Engine生成框架：从真实驾驶日志重建高保真交互环境，系统化外推至安全关键变体。利用这些合成数据进行强化后训练，在不依赖真实事故数据的前提下提升策略安全边界，实验证明显著减少碰撞。",
-        "whyImportant": "无需真实事故数据即可系统提升驾驶策略的安全性，范式新颖。",
+        "oneSentenceSummary": "UniTeD:统一时序扩散，联合建模自动驾驶感知与规划。",
+        "summaryCn": "UniTeD首次将感知与规划纳入统一扩散生成空间，通过迭代去噪实现双向信息交换与相互优化，并引入时序过渡模块适用流式处理。在nuScenes基准上，联合建模优于解耦基线，提升规划鲁棒性并降低误差传播。",
+        "whyImportant": "为端到端自动驾驶提供新范式，生成式联合建模有望改善可靠性。",
         "reasonTags": [
           "世界模型",
-          "驾驶安全",
-          "后训练",
-          "长尾场景"
+          "端到端自动驾驶",
+          "扩散模型",
+          "联合感知规划"
         ],
         "innovationPoints": [
-          "从日志重建可交互环境并外推变体",
-          "基于合成数据的安全强化对齐",
-          "不依赖真实事故数据扩展安全边界"
+          "首次统一时序扩散同时生成感知与规划",
+          "噪声条件多任务训练增强鲁棒性",
+          "流式扩展保持时序一致性"
         ],
-        "noveltyVerdict": "将生成式世界模型与驾驶策略后训练结合，思路新颖且具行业价值。",
-        "duplicateRisk": "medium",
-        "dedupeNote": "区别于一般视频世界模型，专注于驾驶场景的安全变体生成与策略更新。",
+        "noveltyVerdict": "创新性较高：将扩散模型用于联合感知规划，思路新颖。",
+        "duplicateRisk": "low",
+        "dedupeNote": "与现有扩散规划工作不同，引入感知空间联合生成，赋予世界模型特性。",
         "retrievalGroups": [
           "category",
           "driving"
         ],
         "mergedCount": 1,
         "mergedTitles": [
-          "World Engine: Towards the Era of Post-Training for Autonomous Driving"
+          "UniTeD: Unified Temporal Diffusion for Joint Perception and Planning in Autonomous Driving"
         ]
       },
       {
-        "id": "2606.20083v1",
-        "title": "Holo-World: Unified Camera, Object and Weather Control for Video World Model",
-        "summary": "Video world models are moving toward preserving an observed world under controllable camera and object motion while allowing its environmental state to change. Yet these controls remain isolated, and weather generation typically relies on a source video or reconstructed scene that already specifies future structure.",
-        "summaryRaw": "Video world models are moving toward preserving an observed world under controllable camera and object motion while allowing its environmental state to change. Yet these controls remain isolated, and weather generation typically relies on a source video or reconstructed scene that already specifies future structure. We study a first-frame-anchored source-to-state setting, where the model starts from a single image and follows explicit camera and object controls and an optional weather instruction, then generates a video that either preserves the source world or transfers it to a target weather state. To address these challenges, we first build HoloStateData, a state video dataset that turns diverse videos into unified control samples for camera, object, and weather supervision. Second, we introduce Holo-World, a unified controllable video world model that jointly controls scene from a single image. Its Unified Scene Adapter factorizes world preservation and weather transfer into distinct parameter subspaces, using rendered background, geometry buffers, and object controls to maintain controlled scene structure while modeling weather-dependent appearance and particle effects. Additionally, Scene-Weather Decomposed CFG guides scene and weather residuals separately, strengthening target weather effects without over-amplifying the full condition. Quantitative and qualitative experiments demonstrate that Holo-World maintains precise camera and object control with consistent scene structure while transferring scenes into diverse target weather state, outperforming video-to-video weather editing baselines on weather-state generation. Our project page is available at \\url{https://xiangchenyin.github.io/Holo-World/}.",
-        "link": "https://arxiv.org/abs/2606.20083v1",
-        "pdfLink": "https://arxiv.org/pdf/2606.20083v1",
-        "published": "2026-06-18T11:01:34Z",
-        "updated": "2026-06-18T11:01:34Z",
+        "id": "2606.25953v1",
+        "title": "DSP-SLAM++: A Unified Framework for Multi-Class, High-Fidelity Object SLAM in the Wild",
+        "summary": "Existing object-aware SLAM systems force a trade-off between real-time performance, multi-class support, and the generation of high-fidelity, semantically coherent object models. To address this trade-off, we present DSP-SLAM++, which extends the DSP-SLAM framework with an asynchronous mapping pipeline for real-time performance and dedic…",
+        "summaryRaw": "Existing object-aware SLAM systems force a trade-off between real-time performance, multi-class support, and the generation of high-fidelity, semantically coherent object models. To address this trade-off, we present DSP-SLAM++, which extends the DSP-SLAM framework with an asynchronous mapping pipeline for real-time performance and dedicated sensor fusion adaptations for a monocular fisheye-LiDAR suite. Experiments demonstrate that our system generates fine-grained, geometrically-complete shapes for multiple object classes while eliminating severe mapping thread bottlenecks by reducing maximum object processing latency by up to 70\\% compared to the state-of-the-art baseline, enabling robust, real-time performance on a challenging 25 Hz multi-class datasets. This work makes high-fidelity, multi-class object SLAM more practical for real-world applications like autonomous driving and robotic manipulation by enabling its use on platforms with common fisheye-LiDAR sensor setups. The open-source code is available at: [github.com/AUBVRL/DSP-SLAMpp].",
+        "link": "https://arxiv.org/abs/2606.25953v1",
+        "pdfLink": "https://arxiv.org/pdf/2606.25953v1",
+        "published": "2026-06-24T15:27:23Z",
+        "updated": "2026-06-24T15:27:23Z",
         "authors": [
-          "Xiangchen Yin",
-          "Wenzhang Sun",
-          "Jiahui Yuan",
-          "Zijie Liu",
-          "Yinda Chen",
-          "Wei Li",
-          "Dachun Kai",
-          "Chunfeng Wang"
+          "Ahmad Kourani",
+          "Ghina Daoud",
+          "Daniel Asmar",
+          "Imad Elhajj"
         ],
         "categories": [
-          "cs.CV"
-        ],
-        "score": 77,
-        "importanceLevel": "B",
-        "lane": "WAM",
-        "dimensionScores": {
-          "relevance": 70,
-          "novelty": 80,
-          "impact": 70,
-          "practicality": 65,
-          "coreAlignment": 85
-        },
-        "oneSentenceSummary": "Holo-World单图驱动可控视频世界，联合相机、物体和天气控制。",
-        "summaryCn": "现有视频世界模型控制孤立，天气生成依赖源视频。提出首帧锚定的源-状态设置：从单图开始，根据相机、物体控制及可选天气指令，生成保持源世界或迁移至目标天气的视频。构建HoloStateData数据集和统一控制架构，实现三方面联合生成。",
-        "whyImportant": "首次单图实现相机、物体、天气统一可控的视频世界模型。",
-        "reasonTags": [
-          "视频世界模型",
-          "可控生成",
-          "天气转换",
-          "单图驱动"
-        ],
-        "innovationPoints": [
-          "首帧锚定的源-状态设定",
-          "三方面联合控制模块",
-          "构建专用控制数据集"
-        ],
-        "noveltyVerdict": "在可控世界模型中加入多因素联合控制，扩展了世界模型的能力边界。",
-        "duplicateRisk": "medium",
-        "dedupeNote": "与机器人动作模型不同，更偏向视觉世界生成，但可为具身仿真提供环境。",
-        "retrievalGroups": [
-          "category",
-          "wam_core"
-        ],
-        "mergedCount": 1,
-        "mergedTitles": [
-          "Holo-World: Unified Camera, Object and Weather Control for Video World Model"
-        ]
-      },
-      {
-        "id": "2606.20189v1",
-        "title": "HilDA: Hierarchical Distillation with Diffusion for Advancing Self-Supervised LiDAR Pre-trainin",
-        "summary": "Leveraging Vision Foundation Models (VFMs) for camera-to-LiDAR knowledge distillation offers a promising solution to the scarcity of annotated data needed to represent the immense geometric and kinematic diversity of real-world autonomous driving (AD). However, current approaches typically treat VFMs as black-box teachers, relying exclus…",
-        "summaryRaw": "Leveraging Vision Foundation Models (VFMs) for camera-to-LiDAR knowledge distillation offers a promising solution to the scarcity of annotated data needed to represent the immense geometric and kinematic diversity of real-world autonomous driving (AD). However, current approaches typically treat VFMs as black-box teachers, relying exclusively on frame-wise feature similarity. Consequently, they do not fully exploit the teacher's layer-wise semantic structure and global context, as well as the rich spatiotemporal information inherent in LiDAR sequences. We propose HilDA, a self-supervised pretraining framework for LiDAR backbones that better captures the semantic what and geometric where needed for driving tasks. HilDA combines hierarchical distillation comprising multi-layer distillation for progressive semantic alignment and global context distillation for scene-level semantics, with a temporal occupancy diffusion objective promoting spatiotemporal consistency. Models pre-trained with HilDA achieve state-of-the-art results on cross-modal distillation benchmarks and outperform models trained via prior distillation approaches on 3D object detection, scene flow, and semantic occupancy prediction. Code available at: https://maxiuw.github.io/hilda.",
-        "link": "https://arxiv.org/abs/2606.20189v1",
-        "pdfLink": "https://arxiv.org/pdf/2606.20189v1",
-        "published": "2026-06-18T13:01:40Z",
-        "updated": "2026-06-18T13:01:40Z",
-        "authors": [
-          "Maciej Wozniak",
-          "Jesper Ericsson",
-          "Hariprasath Govindarajan",
-          "Truls Nyberg",
-          "Thomas Gustafsson",
-          "Patric Jensfelt",
-          "Olov Andersson"
-        ],
-        "categories": [
-          "cs.AI",
           "cs.CV",
           "cs.RO"
         ],
-        "score": 76,
+        "score": 78,
         "importanceLevel": "B",
         "lane": "Robotics",
         "dimensionScores": {
-          "relevance": 60,
-          "novelty": 80,
-          "impact": 80,
-          "practicality": 75,
-          "coreAlignment": 60
+          "relevance": 50,
+          "novelty": 70,
+          "impact": 75,
+          "practicality": 78,
+          "coreAlignment": 40
         },
-        "oneSentenceSummary": "HilDA分层蒸馏视觉基础模型到LiDAR，提升自动驾驶语义-几何理解。",
-        "summaryCn": "当前相机到LiDAR蒸馏仅利用逐帧特征相似性，忽略教师层语义结构和点云序列的时空信息。HilDA结合多层蒸馏（渐进语义对齐）和全局上下文蒸馏（场景级语义），并引入扩散去噪辅助任务，在多个驾驶下游任务上显著超越先前自监督方法。",
-        "whyImportant": "更有效地利用视觉基础模型，缓解LiDAR标注稀缺难题。",
+        "oneSentenceSummary": "DSP-SLAM++:统一框架实现多类高保真物体SLAM，异步建图加速。",
+        "summaryCn": "DSP-SLAM++扩展DSP-SLAM，通过异步建图管线消除瓶颈，适配鱼眼-LiDAR传感器融合，实现多类物体实时高保真重建。实验表明物体处理延迟降低70%，在25Hz数据集上实时运行，推动物体SLAM实用化。",
+        "whyImportant": "推进物体级SLAM走向实用，对自动驾驶与机器人感知有较大价值。",
         "reasonTags": [
-          "LiDAR预训练",
-          "知识蒸馏",
-          "自动驾驶",
-          "自监督"
+          "物体SLAM",
+          "多传感器融合",
+          "实时建图",
+          "高保真重建"
         ],
         "innovationPoints": [
-          "层次化蒸馏利用多层和全局语义",
-          "扩散辅助任务增强时空理解",
-          "显著提升少样本下游性能"
+          "异步建图管线消除处理瓶颈",
+          "适应鱼眼-LiDAR的传感器融合",
+          "多类高保真形状重建"
         ],
-        "noveltyVerdict": "将分层蒸馏和扩散引入LiDAR预训练，方法新颖且性能突出。",
+        "noveltyVerdict": "中等：在原有基础上改进流水线，实用性强。",
         "duplicateRisk": "low",
-        "dedupeNote": "专注于感知预训练，与策略学习或世界模型不同。",
+        "dedupeNote": "在DSP-SLAM上增量改进，但解决实时与多类问题，非冗余。",
         "retrievalGroups": [
           "category",
           "driving",
@@ -2016,396 +1876,507 @@ window.PAPERS_SITE_DATA = {
         ],
         "mergedCount": 1,
         "mergedTitles": [
-          "HilDA: Hierarchical Distillation with Diffusion for Advancing Self-Supervised LiDAR Pre-trainin"
+          "DSP-SLAM++: A Unified Framework for Multi-Class, High-Fidelity Object SLAM in the Wild"
         ]
       },
       {
-        "id": "2606.20458v1",
-        "title": "Slow Brain, Fast Planner: Latency-Resilient VLM-Augmented Urban Navigation",
-        "summary": "Learning-based planners for sidewalk navigation can generate diverse candidate trajectories in real time, yet their scoring functions often fail to select the best trajectory in challenging situations, outputting trajectories that make the mobile robot drive onto grass, toward pedestrians, or in the wrong direction, even when better cand…",
-        "summaryRaw": "Learning-based planners for sidewalk navigation can generate diverse candidate trajectories in real time, yet their scoring functions often fail to select the best trajectory in challenging situations, outputting trajectories that make the mobile robot drive onto grass, toward pedestrians, or in the wrong direction, even when better candidates exist in the same set. We call this the trajectory scoring gap: in real-world sidewalk navigation, the gap between an anchor-based planner's top choice and the best possible candidate is substantial, likely due to limited high-level scene understanding capability of the planner. Rather than replacing the planner with an end-to-end Vision-Language-Action model, we propose a VLM-Planner interface that uses a VLM to select a candidate index from the planner's proposal set and then fuse it with the planner's initial output. However, VLMs take 1--3s per query and so cannot directly drive a 5--20Hz control loop. We contribute a training-free, latency-resilient trajectory-level fusion layer that turns a stale VLM selection into real-time planner scoring via geometric similarity with exponential decay. On $\\sim$2,000 challenging real-world scenarios (e.g., junctions, pedestrian encounters), VLM selection achieves 30% ADE reduction versus the planner's best selection, while the planner remains competitive in routine situations. In simulation, Score Fusion maintains >80% success rate with delays up to 5s. We demonstrate the full system on a mobile robot navigating challenging campus sidewalks with varied network latency.",
-        "link": "https://arxiv.org/abs/2606.20458v1",
-        "pdfLink": "https://arxiv.org/pdf/2606.20458v1",
-        "published": "2026-06-18T16:40:07Z",
-        "updated": "2026-06-18T16:40:07Z",
+        "id": "2606.26010v1",
+        "title": "FAR-LIO: Enabling High-Speed Autonomy through Fast, Accurate, and Robust LiDAR-Inertial Odometry",
+        "summary": "Robust and accurate odometry estimation is essential in modern robotics. In environments characterized by highly dynamic motion and sensor noise, odometry estimation becomes increasingly challenging.",
+        "summaryRaw": "Robust and accurate odometry estimation is essential in modern robotics. In environments characterized by highly dynamic motion and sensor noise, odometry estimation becomes increasingly challenging. Autonomous racing combines both factors in an unstructured setting, where minimizing odometry latency is essential for stable closed-loop control. This paper introduces FAR-LIO, a highly optimized CUDA-accelerated LiDAR-inertial odometry framework developed for Fast, Accurate, and Robust performance. Our system leverages a novel CUDA-based voxel hashmap to enable parallelized nearest-neighbor search and efficient map updates. We employ a sparsity-aware Generalized Iterative Closest Point algorithm with adaptive thresholding on top of the CUDA-based voxel hashmap with adaptive density to achieve low-latency without compromising accuracy. An Extended Kalman Filter serves as a robust backend. It utilizes an upsampling and delay compensation strategy to fuse the LiDAR odometry with high-frequency IMU data, thereby ensuring a robust and smooth odometry output. We evaluate FAR-LIO across four different sensor setups, using both public datasets and data from two autonomous racecars driving at speeds of up to 250 km/h. FAR-LIO achieves an average 6.9% reduction in the positional error and 38.4% lower runtime compared to state-of-the-art baselines on target hardware using a single parameter set. This demonstrates its computational efficiency and broad applicability. To build upon our work, our code is available open-source on https://github.com/TUMFTM/FAR-LIO.",
+        "link": "https://arxiv.org/abs/2606.26010v1",
+        "pdfLink": "https://arxiv.org/pdf/2606.26010v1",
+        "published": "2026-06-24T16:30:51Z",
+        "updated": "2026-06-24T16:30:51Z",
         "authors": [
-          "Zhenghao \"Mark'' Peng",
-          "Honglin He",
-          "Quanyi Li",
-          "Yukai Ma",
-          "Bolei Zhou"
+          "Maximilian Leitenstern",
+          "Marcel Weinmann",
+          "Patrick Haft",
+          "Tobias Lasser",
+          "Dominik Kulmer",
+          "Markus Lienkamp"
         ],
         "categories": [
           "cs.RO"
         ],
-        "score": 75,
+        "score": 76,
         "importanceLevel": "B",
-        "lane": "VLA",
+        "lane": "Robotics",
         "dimensionScores": {
-          "relevance": 75,
-          "novelty": 70,
-          "impact": 65,
-          "practicality": 70,
-          "coreAlignment": 75
+          "relevance": 40,
+          "novelty": 68,
+          "impact": 74,
+          "practicality": 82,
+          "coreAlignment": 30
         },
-        "oneSentenceSummary": "VLM辅助规划器选择候选轨迹，解决端到端导航的轨迹评分差距。",
-        "summaryCn": "学习型导航规划器生成多样候选但评分不准，导致误选糟糕轨迹。提出VLM-规划器接口：VLM从候选集中选择指标，与原始输出融合。针对VLM延迟高，设计异步融合与滑窗机制，在真实城市人行道环境中验证，显著减少危险轨迹选择。",
-        "whyImportant": "轻量级VLM集成提升导航安全，无需替代原有快速规划器。",
+        "oneSentenceSummary": "FAR-LIO:CUDA加速LiDAR-惯导里程计，实现高速低延迟定位。",
+        "summaryCn": "FAR-LIO面向高速动态场景，设计CUDA体素哈希地图实现并行最近邻搜索，结合自适应阈值稀疏GICP和EKF后端，提供快速、精确、鲁棒的里程计估计。在自主赛车等场景验证低延迟，支撑稳定闭环控制。",
+        "whyImportant": "为高速动态场景提供高精度、低延迟里程计，支撑自主赛车等应用。",
         "reasonTags": [
-          "VLM导航",
-          "轨迹选择",
-          "异步融合",
-          "城市环境"
+          "LiDAR-惯导里程计",
+          "CUDA加速",
+          "高速定位",
+          "自主赛车"
         ],
         "innovationPoints": [
-          "VLM作为规划器后处理选择器",
-          "异步融合解决延迟难题",
-          "在城市导航基准上验证"
+          "CUDA体素哈希地图并行搜索",
+          "自适应阈值稀疏GICP",
+          "EKF鲁棒后端"
         ],
-        "noveltyVerdict": "将VLM用于规划器输出重排序，工程巧妙但核心思想较简单。",
-        "duplicateRisk": "medium",
-        "dedupeNote": "聚焦导航场景的VLM-规划器结合，与通用VLA策略无关。",
-        "retrievalGroups": [
-          "category",
-          "robotics",
-          "vla_core"
-        ],
-        "mergedCount": 1,
-        "mergedTitles": [
-          "Slow Brain, Fast Planner: Latency-Resilient VLM-Augmented Urban Navigation"
-        ]
-      },
-      {
-        "id": "2606.19928v1",
-        "title": "SWAP: Symmetric Equivariant World-Model for Agile Robot Parkour",
-        "summary": "While latent world models enable the proactive predictions required for extreme parkour, their purely data-driven nature forces them to redundantly encode left-right symmetric interactions as independent patterns. This inflates the learning burden and hinders the capture of geometric regularities, restricting the latent space's efficienc…",
-        "summaryRaw": "While latent world models enable the proactive predictions required for extreme parkour, their purely data-driven nature forces them to redundantly encode left-right symmetric interactions as independent patterns. This inflates the learning burden and hinders the capture of geometric regularities, restricting the latent space's efficiency for downstream policies. To address this, we propose SWAP, an end-to-end equivariant symmetric world model. This framework embeds symmetry directly into both the world model and the actor-critic networks. In real-world tests, the robot leaps across a 2.13 m gap and climbs a 1.63 m platform, breaking records for quadruped parkour. Furthermore, the framework exhibits robust geometric generalization to unseen mirrored terrains and exceptional zero-shot transferability across diverse outdoor environments. These results demonstrate that symmetry equivariance is an effective structural prior for pushing the physical boundaries of learned legged locomotion.",
-        "link": "https://arxiv.org/abs/2606.19928v1",
-        "pdfLink": "https://arxiv.org/pdf/2606.19928v1",
-        "published": "2026-06-18T08:28:30Z",
-        "updated": "2026-06-18T08:28:30Z",
-        "authors": [
-          "Kaixin Lan",
-          "Ze Wang",
-          "Hongyi Li",
-          "Lei Jiang",
-          "Chaojie Fu",
-          "Chengkai Su",
-          "Choi Lam Wong",
-          "Yongbin Jin"
-        ],
-        "categories": [
-          "cs.RO"
-        ],
-        "score": 75,
-        "importanceLevel": "B",
-        "lane": "WAM",
-        "dimensionScores": {
-          "relevance": 65,
-          "novelty": 75,
-          "impact": 80,
-          "practicality": 70,
-          "coreAlignment": 80
-        },
-        "oneSentenceSummary": "SWAP利用对称等变世界模型实现四足机器人极限跑酷。",
-        "summaryCn": "数据驱动的世界模型冗余编码左右对称交互，增加学习负担。SWAP将对称性直接嵌入世界模型和actor-critic网络，实现端到端等变。实机测试中跨越2.13m间隙和1.63m高台，破纪录；且无需微调可泛化至镜像地形，零样本迁移到室外多样环境。",
-        "whyImportant": "对称等变世界模型大幅提升样本效率与泛化，实现运动纪录。",
-        "reasonTags": [
-          "世界模型",
-          "等变性",
-          "跑酷",
-          "四足机器人"
-        ],
-        "innovationPoints": [
-          "世界模型中嵌入对称等变",
-          "actor-critic同享等变结构",
-          "物理极限成绩与强零样本迁移"
-        ],
-        "noveltyVerdict": "将对称先验融入世界模型驱动高动态运动，设计针对性强且结果惊艳。",
+        "noveltyVerdict": "改进型创新，系统优化显著。",
         "duplicateRisk": "low",
-        "dedupeNote": "专注于运动的世界模型，有别于操作的MemoryWAM或视觉的Holo-World。",
+        "dedupeNote": "聚焦高速场景的里程计优化，有别于通用LIO方案。",
         "retrievalGroups": [
           "category",
-          "robotics",
-          "wam_core"
+          "robotics"
         ],
         "mergedCount": 1,
         "mergedTitles": [
-          "SWAP: Symmetric Equivariant World-Model for Agile Robot Parkour"
+          "FAR-LIO: Enabling High-Speed Autonomy through Fast, Accurate, and Robust LiDAR-Inertial Odometry"
         ]
       },
       {
-        "id": "2606.19776v1",
-        "title": "Occ-VLM: Occupancy Grounded Vision Language Model for Indoor Scene Understanding",
-        "summary": "Recently, vision-language models (VLMs) have made significant progress in 3D scene understanding, driving advances in applications such as embodied intelligence and robotic vision. However, existing approaches typically either rely directly on explicit 3D inputs (e.g., point clouds or RGB-D sequences), or introduce an additional 3D geome…",
-        "summaryRaw": "Recently, vision-language models (VLMs) have made significant progress in 3D scene understanding, driving advances in applications such as embodied intelligence and robotic vision. However, existing approaches typically either rely directly on explicit 3D inputs (e.g., point clouds or RGB-D sequences), or introduce an additional 3D geometry encoder to derive 3D-aware visual tokens from 2D images. Such designs structurally decouple 3D geometric perception from the rich 2D semantics learned via vision-language pre-training, hindering the development of a unified 3D vision-language representation. In this work, we propose Occ-VLM, a novel framework for 3D scene understanding that operates purely on posed RGB images and employs a single 2D vision encoder. Specifically, Occ-VLM reconstructs 3D scene occupancy as an auxiliary geometric prior, which is utilized to spatially associate foreground 2D tokens with 3D space. These tokens are then decoded by a Large Language Model (LLM) for unified scene understanding. Extensive experiments demonstrate that Occ-VLM achieves both accurate geometric perception and robust vision-language reasoning: it attains state-of-the-art performance on multi-view occupancy prediction, while performing on par with 3D-input VLMs on 3D Visual Question Answering (VQA) and 3D dense captioning benchmarks.",
-        "link": "https://arxiv.org/abs/2606.19776v1",
-        "pdfLink": "https://arxiv.org/pdf/2606.19776v1",
-        "published": "2026-06-18T04:24:28Z",
-        "updated": "2026-06-18T04:24:28Z",
+        "id": "2606.26046v1",
+        "title": "RoboAtlas: Contextual Active SLAM",
+        "summary": "We present RoboAtlas, a contextual Active SLAM framework that adaptively balances geometric exploration and semantic reasoning using a scalable 3D semantic mapping system, OpenRoboVox. RoboAtlas integrates frontier exploration, global semantic-map reasoning, and egocentric VLM-based reasoning through a contextual multi-armed bandit that…",
+        "summaryRaw": "We present RoboAtlas, a contextual Active SLAM framework that adaptively balances geometric exploration and semantic reasoning using a scalable 3D semantic mapping system, OpenRoboVox. RoboAtlas integrates frontier exploration, global semantic-map reasoning, and egocentric VLM-based reasoning through a contextual multi-armed bandit that transitions from exploration to semantically guided navigation as scene understanding improves. We evaluate the system in simulation and on a Unitree Go2 robot in large-scale real-world environments exceeding 1800 m2 with approx. 30k mapped semantic instances, achieving a 100% task success rate. On the GOAT-Bench \"Val Unseen\" benchmark, RoboAtlas achieves state-of-the-art performance with highest reported success rate (SR) of 90.6%, using GPT-4o, improving over the strongest prior baseline by 17.8 percentage points in SR. Using the much smaller Qwen2.5-VL-7B model, it still achieves 88.8% SR, outperforming all baselines using GPT-4o in SR, and revealing the importance of the information gained by our semantic mapping framework over simply replacing the underlying foundation model. The results demonstrate that grounding foundation models with large-scale 3D semantic maps enables robust and efficient contextual Active SLAM.",
+        "link": "https://arxiv.org/abs/2606.26046v1",
+        "pdfLink": "https://arxiv.org/pdf/2606.26046v1",
+        "published": "2026-06-24T17:26:07Z",
+        "updated": "2026-06-24T17:26:07Z",
         "authors": [
-          "Jianing Li",
-          "Zhou Fang",
-          "Yijiang Liu",
-          "Li Du"
+          "Alexander Schperberg",
+          "Shivam K. Panda",
+          "Abraham P. Vinod",
+          "M. K. Jawed",
+          "Stefano Di Cairano"
         ],
         "categories": [
-          "cs.CV"
+          "cs.CV",
+          "cs.RO"
+        ],
+        "score": 75,
+        "importanceLevel": "B",
+        "lane": "Robotics",
+        "dimensionScores": {
+          "relevance": 45,
+          "novelty": 72,
+          "impact": 78,
+          "practicality": 70,
+          "coreAlignment": 35
+        },
+        "oneSentenceSummary": "RoboAtlas:上下文主动SLAM，自适应平衡探索与语义推理。",
+        "summaryCn": "RoboAtlas集成前沿探索、全局语义地图推理和设备端VLM推理，通过上下文多臂老虎机动态切换探索与语义导航。在1800+平米真实环境测试100%任务成功，GOAT-Bench上取得90.6%成功率 SOTA，实证高效。",
+        "whyImportant": "结合语义推理的主动SLAM，在开放世界任务中成功率极高。",
+        "reasonTags": [
+          "主动SLAM",
+          "语义建图",
+          "多臂老虎机",
+          "开放世界"
+        ],
+        "innovationPoints": [
+          "上下文多臂老虎机切换探索/语义模式",
+          "融合3D语义地图与设备端VLM推理",
+          "大规模真实环境验证"
+        ],
+        "noveltyVerdict": "创新性较高：将语义理解与主动探索动态结合。",
+        "duplicateRisk": "low",
+        "dedupeNote": "与纯探索或纯语义SLAM不同，动态平衡策略新颖。",
+        "retrievalGroups": [
+          "category",
+          "robotics"
+        ],
+        "mergedCount": 1,
+        "mergedTitles": [
+          "RoboAtlas: Contextual Active SLAM"
+        ]
+      },
+      {
+        "id": "2606.25497v1",
+        "title": "SAGE-Nav: Leveraging LLM Planning and Alignment Fusion for Hierarchical Scene Graph-Guided Navigation",
+        "summary": "Object-Goal Navigation (ObjNav) requires embodied agents to autonomously locate specified targets using only egocentric visual observations. Existing monolithic methods struggle with long-horizon reasoning and generalize poorly to novel environments.",
+        "summaryRaw": "Object-Goal Navigation (ObjNav) requires embodied agents to autonomously locate specified targets using only egocentric visual observations. Existing monolithic methods struggle with long-horizon reasoning and generalize poorly to novel environments. To address these limitations, we propose SAGE-Nav, a novel hierarchical framework that integrates the reasoning capabilities of Large Language Models (LLMs) with dynamic scene graphs. Crucially, it decouples asynchronous global semantic planning from the high-frequency reactive control loop. The LLM serves as a global planner, decomposing abstract instructions into a sequence of semantically grounded waypoints. To translate these plans into dense multi-modal guidance, we design a Hierarchical Scene Graph Encoder (HSGE) that leverages relational graph convolutions to produce structure-aware embeddings preserving both semantic and spatial topology. Furthermore, we develop the Goal-aware Alignment-Fusion Network (GAFN) to dynamically fuse real-time perception with these structural priors. Using an adaptive gating mechanism with an explicit inductive bias, GAFN ensures robust visual-topological alignment for the low-level policy. Extensive evaluations in the i-THOR and RoboTHOR environments demonstrate that SAGE-Nav achieves state-of-the-art performance, delivering substantial gains in navigation efficiency and zero-shot generalization while maintaining the low control latency required for physical robotic deployment.",
+        "link": "https://arxiv.org/abs/2606.25497v1",
+        "pdfLink": "https://arxiv.org/pdf/2606.25497v1",
+        "published": "2026-06-24T07:24:39Z",
+        "updated": "2026-06-24T07:24:39Z",
+        "authors": [
+          "Hao Su",
+          "Yuehao Huang",
+          "Yukai Ma",
+          "Yong Liu",
+          "Jiajun Lv"
+        ],
+        "categories": [
+          "cs.RO"
         ],
         "score": 74,
         "importanceLevel": "B",
         "lane": "Robotics",
         "dimensionScores": {
-          "relevance": 65,
+          "relevance": 42,
           "novelty": 70,
-          "impact": 70,
-          "practicality": 70,
-          "coreAlignment": 65
+          "impact": 73,
+          "practicality": 68,
+          "coreAlignment": 30
         },
-        "oneSentenceSummary": "Occ-VLM单2D编码器重建3D占用，统一几何与语义VLM理解。",
-        "summaryCn": "现有3D VLM依赖显式3D输入或额外几何编码器，解耦几何与2D语义。Occ-VLM仅用2D视觉编码器和RGB图像，以3D占用作为辅助几何先验，将前景语义关联到体素，在ScanNet等基准的问答和密集描述任务上达到最优，且推理速度提升显著。",
-        "whyImportant": "消除3D编码器，简化三维场景VLM架构，提升效率与统一性。",
+        "oneSentenceSummary": "SAGE-Nav:LLM规划+层次场景图引导导航，解耦规划与控制。",
+        "summaryCn": "SAGE-Nav利用LLM全局规划生成语义路点序列，层次场景图编码器产生结构感知嵌入，为高频控制提供多模态引导。解耦异步规划与控制，改善长期推理和泛化，在目标导航任务中表现优异。",
+        "whyImportant": "改善目标导航的长期推理，提高泛化性。",
         "reasonTags": [
-          "3D场景理解",
-          "占用预测",
-          "VLM",
-          "统一架构"
+          "目标导航",
+          "LLM",
+          "场景图",
+          "层次架构"
         ],
         "innovationPoints": [
-          "仅2D编码器结合占用先验的3D VLM",
-          "视觉-占用关联实现空间对齐",
-          "推理速度大幅提升"
+          "LLM全局规划分解为路点",
+          "层次场景图编码器产生结构感知嵌入",
+          "异步解耦规划与控制"
         ],
-        "noveltyVerdict": "架构精简有效，但核心创新点较有限。",
-        "duplicateRisk": "medium",
-        "dedupeNote": "针对室内场景理解，与VLA或WAM无关，但可辅助具身感知。",
+        "noveltyVerdict": "中等：结合现有技术但架构设计合理。",
+        "duplicateRisk": "low",
+        "dedupeNote": "与其他LLM规划导航不同，强调层次场景图与高频控制解耦。",
         "retrievalGroups": [
+          "category",
           "robotics"
         ],
         "mergedCount": 1,
         "mergedTitles": [
-          "Occ-VLM: Occupancy Grounded Vision Language Model for Indoor Scene Understanding"
+          "SAGE-Nav: Leveraging LLM Planning and Alignment Fusion for Hierarchical Scene Graph-Guided Navigation"
         ]
       },
       {
-        "id": "2606.19889v1",
-        "title": "SurgVista: Long-Horizon Surgical World Modeling with Plausible Instrument-Tissue Dynamics",
-        "summary": "Scaling robot policy learning for autonomous surgery is challenging, as expert demonstrations are expensive and in vivo exploration poses substantial safety risks. Surgical world models address this by generating realistic, action-conditioned future frames from an initial observation, but existing methods exhibit two persistent failure m…",
-        "summaryRaw": "Scaling robot policy learning for autonomous surgery is challenging, as expert demonstrations are expensive and in vivo exploration poses substantial safety risks. Surgical world models address this by generating realistic, action-conditioned future frames from an initial observation, but existing methods exhibit two persistent failure modes: spatial interaction incoherence, where visible instrument contact fails to induce spatially consistent tissue deformation, and temporal fidelity collapse, where prediction errors compound across autoregressive rollouts and progressively corrupt visual quality. We present SurgVista, a surgical world model that mitigates both failures through two training recipes. Deformation Consistency Regularization extracts scene-point trajectories from training videos and enforces cross-frame coherence through latent contrastive learning, strengthening physically consistent instrument-tissue dynamics. Drift Adaptation Training mitigates long-horizon drift by perturbing conditioning frames with online prediction residuals and photometric augmentations calibrated to long-horizon drift statistics, sustaining visual fidelity over extended rollouts. To enable rigorous evaluation, we further introduce SurgWorld-Bench, featuring diverse procedure types, long-range rollouts, and decoupled metrics for instrument-motion accuracy and tissue-response fidelity. Extensive experiments show that SurgVista consistently outperforms state-of-the-art methods across visual quality, temporal consistency, and interaction fidelity, with gains widening as the prediction horizon grows.",
-        "link": "https://arxiv.org/abs/2606.19889v1",
-        "pdfLink": "https://arxiv.org/pdf/2606.19889v1",
-        "published": "2026-06-18T07:47:28Z",
-        "updated": "2026-06-18T07:47:28Z",
+        "id": "2606.26017v1",
+        "title": "G2DP: Diffusion Planning with Spatio-Temporal Grid Guidance",
+        "summary": "In autonomous driving, diffusion-based planners have emerged as a promising paradigm for robust motion planning in dense and interactive traffic, as they can effectively model diverse driving behaviors. However, their inherent stochasticity often requires explicit guidance during denoising to ensure safety and route adherence for robust…",
+        "summaryRaw": "In autonomous driving, diffusion-based planners have emerged as a promising paradigm for robust motion planning in dense and interactive traffic, as they can effectively model diverse driving behaviors. However, their inherent stochasticity often requires explicit guidance during denoising to ensure safety and route adherence for robust closed-loop execution. Existing guidance typically relies on sparse, entity-centric geometric queries or post-hoc refinement, yielding limited situational awareness and fragile performance in interactive scenes. To address this issue, we propose G2DP (Grid-Guided Diffusion Planning), a diffusion-based planner that directly enforces dense environmental constraints through inference-time guidance. Specifically, G2DP constructs a differentiable spatio-temporal cost volume by fusing probabilistic future occupancy distributions with a route-progress map. By formulating this volume as a continuous safety energy functional, it injects dense gradients directly into the denoising loop, actively steering trajectory generation toward collision-free and progress-optimal regions. Extensive closed-loop evaluations show that G2DP achieves state-of-the-art performance on nuPlan, outperforming the strongest imitation-learning baseline by +7.2 points in reactive score. It further maintains top scores in zero-shot transfers to interPlan and DeepScenario benchmarks, with collision avoidance improving by +10.15 over the unguided approach on interPlan. These results demonstrate that spatio-temporal cost grids serve as an effective representation for robust guidance in diffusion-based planning.",
+        "link": "https://arxiv.org/abs/2606.26017v1",
+        "pdfLink": "https://arxiv.org/pdf/2606.26017v1",
+        "published": "2026-06-24T16:38:55Z",
+        "updated": "2026-06-24T16:38:55Z",
         "authors": [
-          "Wentao Pan",
-          "Wuyang Li",
-          "Shengyuan Liu",
-          "Xinyu Liu",
-          "Hengyu Liu",
-          "Yixuan Yuan"
+          "Hang Yu",
+          "Ye Jin",
+          "Alessandro Canevaro",
+          "Julian Schmidt",
+          "Julian Jordan",
+          "Peizheng Li",
+          "Marc Kaufeld",
+          "Silvan Lindner"
         ],
         "categories": [
-          "cs.CV"
-        ],
-        "score": 74,
-        "importanceLevel": "B",
-        "lane": "WAM",
-        "dimensionScores": {
-          "relevance": 70,
-          "novelty": 75,
-          "impact": 65,
-          "practicality": 60,
-          "coreAlignment": 85
-        },
-        "oneSentenceSummary": "SurgVista使用变形一致性正则提高手术世界模型的交互真实性。",
-        "summaryCn": "现有手术世界模型出现空间交互不连贯和时间保真度衰减。SurgVista提出变形一致性正则：从训练视频提取场景点轨迹，通过潜在对比学习强化跨帧一致性；并应用时间感知噪声注入，缓解自回归误差累积。在真实手术数据上生成更连贯的组织-器械交互视频。",
-        "whyImportant": "提升手术世界模型物理可信度，推动手术机器人仿真训练。",
-        "reasonTags": [
-          "手术世界模型",
-          "一致性正则",
-          "物理交互",
-          "医学机器人"
-        ],
-        "innovationPoints": [
-          "变形一致性正则增强器械-组织交互",
-          "时间感知噪声注入缓解漂移",
-          "长程自回归质量提升"
-        ],
-        "noveltyVerdict": "针对手术场景的特定改进，方法具有领域针对性。",
-        "duplicateRisk": "low",
-        "dedupeNote": "专用于手术的世界模型，与其他通用或驾驶世界模型不同。",
-        "retrievalGroups": [
-          "category",
-          "robotics",
-          "wam_core"
-        ],
-        "mergedCount": 1,
-        "mergedTitles": [
-          "SurgVista: Long-Horizon Surgical World Modeling with Plausible Instrument-Tissue Dynamics"
-        ]
-      },
-      {
-        "id": "2606.20209v1",
-        "title": "FlowMaps: Modeling Long-Term Multimodal Object Dynamics with Flow Matching",
-        "summary": "Joint spatial and temporal understanding of 3D scenes is a crucial requirement for robots deployed in everyday household environments. Such agents must not only comprehend and navigate spatial layouts, but also reason about how these spaces evolve over time.",
-        "summaryRaw": "Joint spatial and temporal understanding of 3D scenes is a crucial requirement for robots deployed in everyday household environments. Such agents must not only comprehend and navigate spatial layouts, but also reason about how these spaces evolve over time. In particular, humans interact with objects daily, causing them to change position throughout the environment and making it difficult for robots to reliably associate current observations with previously seen objects. However, these interactions are not random: human habits and routines induce spatio-temporally consistent patterns in object locations, which robotic agents can potentially learn and then exploit for downstream tasks such as navigation. To this end, we introduce FlowMaps, a latent flow matching model for estimating multimodal distributions over the future locations of dynamic objects in a continuous 3D space. By learning the implicit dependencies among objects and their temporal evolution, FlowMaps predicts likely changes in object locations conditioned on past human interactions, while supporting generalization across previously unseen environments that share similar object routines. To demonstrate the utility of this method, we deploy FlowMaps in a downstream dynamic Object Navigation task in both simulated and real-world environments. Across more than 600 episodes, FlowMaps outperforms state-of-the-art approaches, showing that modeling object dynamics through continuous, multimodal spatio-temporal distributions improves robotic search and navigation in changing household environments. Code and additional material is available at https://fra-tsuna.github.io/flowmaps/.",
-        "link": "https://arxiv.org/abs/2606.20209v1",
-        "pdfLink": "https://arxiv.org/pdf/2606.20209v1",
-        "published": "2026-06-18T13:21:40Z",
-        "updated": "2026-06-18T13:21:40Z",
-        "authors": [
-          "Francesco Argenziano",
-          "Miguel Saavedra-Ruiz",
-          "Sacha Morin",
-          "Charlie Gauthier",
-          "Daniele Nardi",
-          "Liam Paull"
-        ],
-        "categories": [
-          "cs.AI",
           "cs.RO"
         ],
         "score": 73,
         "importanceLevel": "B",
         "lane": "Robotics",
         "dimensionScores": {
-          "relevance": 65,
-          "novelty": 70,
-          "impact": 75,
-          "practicality": 65,
-          "coreAlignment": 60
+          "relevance": 40,
+          "novelty": 75,
+          "impact": 70,
+          "practicality": 72,
+          "coreAlignment": 35
         },
-        "oneSentenceSummary": "FlowMaps用潜流匹配预测物体长期多模态动态位置分布。",
-        "summaryCn": "家庭环境中物体移动具有时空规律，FlowMaps学习连续3D空间下动态对象未来位置的多模态分布。通过潜流匹配建模，在多个真实环境中长周期预测准确率优于确定性基线，可服务于导航等下游任务。",
-        "whyImportant": "为机器人提供环境动态预测能力，助力长期规划。",
+        "oneSentenceSummary": "G2DP:时空网格引导的扩散规划，增强自动驾驶交互安全。",
+        "summaryCn": "G2DP构建可微分时空成本体，融合概率未来占用分布与路线进度图，在推理时通过梯度引导强化环境约束，使扩散规划器生成安全且遵循路线的轨迹。在密集交互场景中验证鲁棒性。",
+        "whyImportant": "为扩散规划器提供密集环境约束引导，提升复杂交通场景表现。",
         "reasonTags": [
-          "物体动态",
-          "流匹配",
-          "长期预测",
-          "家庭机器人"
+          "扩散规划",
+          "时空成本体",
+          "自动驾驶",
+          "推理引导"
         ],
         "innovationPoints": [
-          "潜流匹配建模多模态位置分布",
-          "学习人类活动诱导的时空模式",
-          "在真实长周期场景验证"
+          "可微分时空成本体融合占用与路线",
+          "推理时梯度引导强化约束",
+          "无需重训即插即用"
         ],
-        "noveltyVerdict": "将流匹配用于对象长期动态预测，应用场景合理但创新幅度一般。",
+        "noveltyVerdict": "创新性中等：改进扩散规划引导方式。",
         "duplicateRisk": "low",
-        "dedupeNote": "针对物体位置预测，与动作条件世界模型或视频生成不同。",
+        "dedupeNote": "与依赖稀疏查询的扩散规划不同，使用密集体素引导。",
         "retrievalGroups": [
           "category",
+          "driving",
           "robotics"
         ],
         "mergedCount": 1,
         "mergedTitles": [
-          "FlowMaps: Modeling Long-Term Multimodal Object Dynamics with Flow Matching"
+          "G2DP: Diffusion Planning with Spatio-Temporal Grid Guidance"
         ]
       },
       {
-        "id": "2606.19813v1",
-        "title": "TIDY: Thermal Infrared Image Denoising via Wavelet Domain Entropy and Directional Stripe Index",
-        "summary": "Thermal infrared (TIR) imaging has been a popular choice for field robotics due to its robust perception capability under low light visual degradation, but it suffers from severe stochastic and fixed-pattern noise that breaks downstream estimation. This noise is intensified indoors due to low thermal contrast and uniform temperature dist…",
-        "summaryRaw": "Thermal infrared (TIR) imaging has been a popular choice for field robotics due to its robust perception capability under low light visual degradation, but it suffers from severe stochastic and fixed-pattern noise that breaks downstream estimation. This noise is intensified indoors due to low thermal contrast and uniform temperature distributions, contributing to the relative lack of indoor TIR deployments. Existing TIR denoising methods exhibit a poor accuracy-efficiency tradeoff, either too slow for online deployment required in robotics or insufficiently robust to severe degradation, while typically being trained on synthetic noise. Addressing these problems, we propose TIDY, a lightweight wavelet-domain denoiser trained on real clean-noisy TIR data. By reformulating TIR denoising in the wavelet domain, TIDY explicitly disentangles noise from structural content, enabling targeted suppression with reduced spatial complexity, significantly improving inference speed over prior methods (~34Hz). TIDY introduces two new metrics, Wavelet Entropy and Wavelet Directional Stripe Index, as complementary loss terms to explicitly suppress stochastic noise and stripe artifacts. Across severe indoor corruption and zero-shot settings, TIDY improves robustness and yields consistent gains in downstream robotics tasks including thermal inertial odometry and monocular depth estimation. Code and dataset is available at: https://github.com/williamrheeth/TIDY",
-        "link": "https://arxiv.org/abs/2606.19813v1",
-        "pdfLink": "https://arxiv.org/pdf/2606.19813v1",
-        "published": "2026-06-18T05:42:50Z",
-        "updated": "2026-06-18T05:42:50Z",
+        "id": "2606.25527v1",
+        "title": "Beyond One-Size-Fits-All: Diagnosis-Driven Online Reinforcement Learning with Offline Priors",
+        "summary": "Online reinforcement learning (RL) agents increasingly depend on knowledge acquired offline to achieve practical efficiency. Originally studied in offline-to-online RL, this paradigm now spans foundation model post-training and embodied intelligence, with prior types expanding from offline datasets and pre-trained policies to increasingl…",
+        "summaryRaw": "Online reinforcement learning (RL) agents increasingly depend on knowledge acquired offline to achieve practical efficiency. Originally studied in offline-to-online RL, this paradigm now spans foundation model post-training and embodied intelligence, with prior types expanding from offline datasets and pre-trained policies to increasingly diverse knowledge sources such as multimodal foundation models and generative world models. Offline priors have become central to how deep RL is developed and deployed. However, this reliance introduces a challenge that the prevailing benchmark-driven paradigm cannot resolve: because prior validity varies across deployments and shifts during training, no single approach to managing it is universally optimal, and benchmark rankings offer limited guidance for real-world deployments. Rather than pursuing universal solutions, we argue that the field should shift to diagnosis-driven tension management, in which deployment-specific evidence guides how the learner relates to its priors throughout training, enabling both flexible and adaptive deployment. We support this position with a framework characterizing how priors reshape online optimization through three functional roles, controlled experiments demonstrating help-or-hurt reversals, cross-domain evidence from foundation model post-training to embodied intelligence, and engagement with five substantive counterarguments.",
+        "link": "https://arxiv.org/abs/2606.25527v1",
+        "pdfLink": "https://arxiv.org/pdf/2606.25527v1",
+        "published": "2026-06-24T08:05:28Z",
+        "updated": "2026-06-24T08:05:28Z",
         "authors": [
-          "Tai Hyoung Rhee",
-          "Dong-Guw Lee",
-          "Ayoung Kim"
+          "Guozheng Ma",
+          "Lu Li",
+          "Zilin Wang",
+          "Pierre-Luc Bacon",
+          "Dacheng Tao"
         ],
         "categories": [
+          "cs.LG"
+        ],
+        "score": 70,
+        "importanceLevel": "B",
+        "lane": "Peripheral",
+        "dimensionScores": {
+          "relevance": 50,
+          "novelty": 72,
+          "impact": 68,
+          "practicality": 55,
+          "coreAlignment": 40
+        },
+        "oneSentenceSummary": "提出诊断驱动在线RL框架，根据先验有效性动态选择策略。",
+        "summaryCn": "针对在线RL依赖离线先验但先验有效性变化的问题，提出诊断驱动范式，构建模块评估先验质量并动态调整策略，避免单一方案。通过理论分析和实验验证，为异构先验管理提供新思路，可应用于机器人。",
+        "whyImportant": "对RL在机器人中利用异构先验有指导意义。",
+        "reasonTags": [
+          "在线强化学习",
+          "先验管理",
+          "诊断驱动",
+          "机器人"
+        ],
+        "innovationPoints": [
+          "诊断模块评估先验有效性",
+          "动态策略选择机制",
+          "超越统一基准范式"
+        ],
+        "noveltyVerdict": "新颖：挑战现有基准驱动范式。",
+        "duplicateRisk": "low",
+        "dedupeNote": "非特定VLA/WAM，但提供RL通用框架，有一定启发性。",
+        "retrievalGroups": [
+          "category",
+          "robotics",
+          "wam_core"
+        ],
+        "mergedCount": 1,
+        "mergedTitles": [
+          "Beyond One-Size-Fits-All: Diagnosis-Driven Online Reinforcement Learning with Offline Priors"
+        ]
+      },
+      {
+        "id": "2606.25503v1",
+        "title": "AISPO: Enhancing Depth Reliability for Robotic Manipulation of Non-Lambertian Objects via Affine-Invariant Shape Prior",
+        "summary": "Reliable depth perception is critical for robotic manipulation, especially for non-Lambertian objects such as transparent or highly specular surfaces, where raw depth measurements are often corrupted or missing. These failures frequently propagate to motion planning, resulting in invalid grasp poses and execution errors.",
+        "summaryRaw": "Reliable depth perception is critical for robotic manipulation, especially for non-Lambertian objects such as transparent or highly specular surfaces, where raw depth measurements are often corrupted or missing. These failures frequently propagate to motion planning, resulting in invalid grasp poses and execution errors. We propose AISPO, a depth completion framework that improves depth reliability for manipulation in challenging sensing conditions. AISPO combines multi-scale RGB-D feature fusion with an affine-invariant shape prior to enforce geometric consistency and mitigate catastrophic depth failures. Unlike methods that focus primarily on average depth accuracy, our approach emphasizes physical plausibility and structural integrity of the predicted depth maps. Extensive benchmark evaluations demonstrate competitive performance and strong generalization to unseen objects and novel scenes. Real-world grasping experiments further show that enhanced depth reliability significantly improves manipulation success rates, particularly for transparent objects where many existing methods fail to produce physically usable depth estimates.",
+        "link": "https://arxiv.org/abs/2606.25503v1",
+        "pdfLink": "https://arxiv.org/pdf/2606.25503v1",
+        "published": "2026-06-24T07:37:11Z",
+        "updated": "2026-06-24T07:37:11Z",
+        "authors": [
+          "Zhiming Chen",
+          "Linfang Zheng",
+          "Kun Zhang",
+          "Hyung Jin Chang",
+          "Wei Zhang",
+          "Hongyu Yu",
+          "Hua Chen"
+        ],
+        "categories": [
+          "cs.CV",
           "cs.RO"
         ],
-        "score": 72,
+        "score": 68,
         "importanceLevel": "B",
         "lane": "Robotics",
         "dimensionScores": {
-          "relevance": 60,
-          "novelty": 70,
-          "impact": 70,
-          "practicality": 85,
-          "coreAlignment": 60
+          "relevance": 45,
+          "novelty": 68,
+          "impact": 60,
+          "practicality": 70,
+          "coreAlignment": 35
         },
-        "oneSentenceSummary": "TIDY小波域热红外去噪兼顾精度与速度，赋能弱光机器人感知。",
-        "summaryCn": "热红外成像受强噪声困扰，现有方法速度与精度难两全。TIDY在小波域操作，利用真实干净-噪声数据训练，引入方向条纹指数指导去噪，明确分离噪声与内容。室内外实验证明在线部署高效，显著改善下游单应性估计等任务。",
-        "whyImportant": "为机器人提供可实时运行的热红外视觉增强，拓展环境适应性。",
+        "oneSentenceSummary": "AISPO:利用仿射不变形状先验增强非朗伯物体深度可靠性。",
+        "summaryCn": "AISPO结合多尺度RGB-D特征融合与仿射不变形状先验，修复透明、镜面等物体的深度图，确保几何一致性和物理合理性。在多个基准上验证泛化性，并集成至真实机器人操作任务提升抓取成功率。",
+        "whyImportant": "提升透明/镜面物体的深度感知鲁棒性，对操作至关重要。",
         "reasonTags": [
-          "热红外去噪",
-          "小波域",
-          "实时处理",
-          "机器人视觉"
+          "深度补全",
+          "非朗伯物体",
+          "形状先验",
+          "机器人操作"
         ],
         "innovationPoints": [
-          "小波域显式噪声分离",
-          "方向条纹指数引导",
-          "真实数据训练及轻量化设计"
+          "多尺度RGB-D融合+形状先验",
+          "强调物理真实性而非平均精度",
+          "良好泛化性"
         ],
-        "noveltyVerdict": "针对机器人视觉的实用优化，工程性好但理论创新有限。",
+        "noveltyVerdict": "中等：结合几何先验的深度补全。",
         "duplicateRisk": "low",
-        "dedupeNote": "纯粹的感知增强模块，与策略或建图无关，互补性强。",
+        "dedupeNote": "区别于侧重平均精度的补全方法，关注操作鲁棒性。",
         "retrievalGroups": [
           "category",
           "robotics"
         ],
         "mergedCount": 1,
         "mergedTitles": [
-          "TIDY: Thermal Infrared Image Denoising via Wavelet Domain Entropy and Directional Stripe Index"
+          "AISPO: Enhancing Depth Reliability for Robotic Manipulation of Non-Lambertian Objects via Affine-Invariant Shape Prior"
+        ]
+      },
+      {
+        "id": "2606.25646v1",
+        "title": "Calousel: Extrinsic Calibration of Non-overlapping Multi-camera Systems from Pure Rotation",
+        "summary": "Extrinsic calibration of multi-camera systems with non-overlapping FOVs has been a challenging problem in the robotics literature. Conventional target-based methods impose substantial target setup overhead, either deploying large calibration targets or requiring pre-measured multi-target poses.",
+        "summaryRaw": "Extrinsic calibration of multi-camera systems with non-overlapping FOVs has been a challenging problem in the robotics literature. Conventional target-based methods impose substantial target setup overhead, either deploying large calibration targets or requiring pre-measured multi-target poses. Motion-based approaches instead suffer from drift error, scale ambiguity, and motion degeneracy. Securing both accuracy and usability, we propose a novel calibration method that leverages pure rotational motion, requiring only a single static calibration board. The key idea is to make all cameras sequentially observe the same target under a shared geometric reference, even without overlapping views. To integrate these time-separated observations, we formulate the problem using a latent turntable frame and a 3D error on SE(3) within a global optimization framework. We validate the proposed method on both a controlled camera rig and a full-scale vehicle platform with heterogeneous cameras, and analyze robustness under non-ideal turntable motion. Extensive experiments show that our approach maintains competitive accuracy without specialized precision hardware, proving its strong suitability for realistic on-site deployments. Our code is publicly available here.",
+        "link": "https://arxiv.org/abs/2606.25646v1",
+        "pdfLink": "https://arxiv.org/pdf/2606.25646v1",
+        "published": "2026-06-24T09:54:20Z",
+        "updated": "2026-06-24T09:54:20Z",
+        "authors": [
+          "Gwanhyeong Song",
+          "Chaehyeon Song",
+          "Ayoung Kim"
+        ],
+        "categories": [
+          "cs.CV",
+          "cs.RO"
+        ],
+        "score": 67,
+        "importanceLevel": "B",
+        "lane": "Robotics",
+        "dimensionScores": {
+          "relevance": 40,
+          "novelty": 70,
+          "impact": 60,
+          "practicality": 72,
+          "coreAlignment": 25
+        },
+        "oneSentenceSummary": "Calousel:纯旋转标定无重叠多相机系统，仅需单标定板。",
+        "summaryCn": "提出基于纯旋转运动的外参标定方法，所有相机顺序观察同一静态靶标，通过隐式转台帧建立几何参考，在SE(3)全局优化下求解外参。验证表明高精度、易用，无需重叠视场。",
+        "whyImportant": "简化多相机系统标定流程，提高易用性。",
+        "reasonTags": [
+          "外参标定",
+          "多相机系统",
+          "纯旋转",
+          "机器人感知"
+        ],
+        "innovationPoints": [
+          "纯旋转运动下顺序观察统一靶标",
+          "基于SE(3)误差的全局优化",
+          "无需重叠视场"
+        ],
+        "noveltyVerdict": "中等偏上：纯旋转标定有创新，但标定问题较成熟。",
+        "duplicateRisk": "low",
+        "dedupeNote": "与其他非重叠标定方法不同，利用纯旋转避免运动退化。",
+        "retrievalGroups": [
+          "category",
+          "robotics"
+        ],
+        "mergedCount": 1,
+        "mergedTitles": [
+          "Calousel: Extrinsic Calibration of Non-overlapping Multi-camera Systems from Pure Rotation"
+        ]
+      },
+      {
+        "id": "2606.25620v1",
+        "title": "1000 Rallies: An Event-Camera Dataset and Real-Time Learned Ball-State Estimation for Robotic Table Tennis",
+        "summary": "Robotic table tennis has emerged as a compelling benchmark for real-time robotic perception due to its fast ball dynamics and stringent timing requirements. Accurate, high-frequency, and low-latency ball state estimation is critical for reliable trajectory prediction and timely control.",
+        "summaryRaw": "Robotic table tennis has emerged as a compelling benchmark for real-time robotic perception due to its fast ball dynamics and stringent timing requirements. Accurate, high-frequency, and low-latency ball state estimation is critical for reliable trajectory prediction and timely control. Traditional frame-based cameras face an inherent trade-off: low frame rates leave temporal blind spots that miss fast-moving objects and high frame rates raise data and computational cost. Event cameras instead offer microsecond temporal resolution and, under sufficient illumination, remain largely free of motion blur even at high ball speeds. However, the community lacks large-scale datasets to develop and benchmark event-based perception in realistic sports scenarios. We address this gap by introducing the first large-scale event-camera dataset for table tennis, comprising over 1000 rallies from a diverse group of players ranging from amateurs to elite-level athletes. Each recording captures the event stream alongside 14 synchronized high-speed frame-based cameras at 200 FPS, which we use to produce 1 kHz pseudo ground-truth labels for ball position, velocity, and spin. Building on this dataset, we train a convolutional neural network robust to background player motion that jointly estimates the ball's position and velocity in the image-plane from events. Treating the predicted velocity as an additional measurement in the Kalman filter reduces bounce-point prediction error by 36% relative to a position-only baseline. Finally, we close the perception-action loop by integrating the event-based system with a Stäubli robotic arm, enabling the first real-time human-robot table tennis rallies driven by event-based perception.",
+        "link": "https://arxiv.org/abs/2606.25620v1",
+        "pdfLink": "https://arxiv.org/pdf/2606.25620v1",
+        "published": "2026-06-24T09:28:21Z",
+        "updated": "2026-06-24T09:28:21Z",
+        "authors": [
+          "Raphaela Kreiser",
+          "Asude Aydin",
+          "Yin Bi",
+          "Claudio Fanconi",
+          "Peter Dürr",
+          "Naoya Takahashi"
+        ],
+        "categories": [
+          "cs.CV",
+          "cs.RO"
+        ],
+        "score": 65,
+        "importanceLevel": "B",
+        "lane": "Robotics",
+        "dimensionScores": {
+          "relevance": 45,
+          "novelty": 65,
+          "impact": 62,
+          "practicality": 60,
+          "coreAlignment": 30
+        },
+        "oneSentenceSummary": "1000 Rallies:首个大规模乒乓球事件相机数据集与实时球估计。",
+        "summaryCn": "发布包含1000+回合的事件相机乒乓球数据集，提供高速动态下的高时域分辨率数据。基于该数据集训练实时球状态估计网络，利用事件流低延迟特性，实现毫秒级预测，助力机器人乒乓球感知研究。",
+        "whyImportant": "促进事件相机在高速动态场景的感知研究，推动机器人乒乓球。",
+        "reasonTags": [
+          "事件相机",
+          "乒乓球",
+          "数据集",
+          "球状态估计"
+        ],
+        "innovationPoints": [
+          "首个大规模赛事数据集",
+          "利用事件相机高时域分辨率",
+          "实时球状态估计网络"
+        ],
+        "noveltyVerdict": "中等：数据集新，方法基于现有学习技术。",
+        "duplicateRisk": "low",
+        "dedupeNote": "填补事件相机在球类运动的数据空白，与其他机器人数据集互补。",
+        "retrievalGroups": [
+          "category",
+          "robotics"
+        ],
+        "mergedCount": 1,
+        "mergedTitles": [
+          "1000 Rallies: An Event-Camera Dataset and Real-Time Learned Ball-State Estimation for Robotic Table Tennis"
         ]
       }
     ],
     "vla": [
       {
-        "id": "2606.20246v1",
-        "title": "Finetuning Vision-Language-Action Models Requires Fewer Layers Than You Think",
-        "summary": "Vision-Language-Action (VLA) models pre-trained on massive video-robot datasets have revolutionized robotic manipulation, yet their multi-billion parameter architectures impose prohibitive computational burdens during downstream fine-tuning and real-time inference. In this work, we reveal a highly non-trivial architectural characteristic…",
-        "summaryRaw": "Vision-Language-Action (VLA) models pre-trained on massive video-robot datasets have revolutionized robotic manipulation, yet their multi-billion parameter architectures impose prohibitive computational burdens during downstream fine-tuning and real-time inference. In this work, we reveal a highly non-trivial architectural characteristic of these continuous control foundation policies (e.g., pi_0, GR00T-N1.5): despite being trained on diverse physical trajectories, they exhibit severe layer-wise representational redundancy. To exploit this, we introduce a structural compression pipeline that is entirely training-free, bypassing the need of existing methods to load full-scale models to learn optimized token reductions or dynamic layer selectors. Instead, using only a single forward pass via Centered Kernel Alignment to identify redundant layer features, we remove twin layers to permanently compress the model depth by up to 50% across both the VLM backbone and the continuous control policy head. Downstream fine-tuning of this streamlined architecture yields a dual acceleration benefit: a 40-50% reduction in training time and up to 30% faster real-time inference, while matching or exceeding full-scale base model performance. We comprehensively validate our method across three simulation benchmarks (LIBERO, RoboCasa, SimplerEnv) and 10 diverse real-world manipulation tasks across 4 unique robotic embodiments. These results prove that advanced VLAs require significantly fewer layers than previously assumed, offering a highly compute-efficient paradigm for scalable robot learning.",
-        "link": "https://arxiv.org/abs/2606.20246v1",
-        "pdfLink": "https://arxiv.org/pdf/2606.20246v1",
-        "published": "2026-06-18T13:57:12Z",
-        "updated": "2026-06-18T13:57:12Z",
+        "id": "2606.25591v1",
+        "title": "WOLF-VLA: Whole-Body Humanoid Optimal Locomotion Framework for Vision-Language-Action Learning",
+        "summary": "Vision-Language-Action (VLA) models have recently demonstrated strong generalization in robotic manipulation, yet their applicability to whole-body, contact-rich humanoid locomotion remains severely underexplored due to data scarcity, the absence of dynamically consistent demonstrations, and the difficulty of encoding optimality and safe…",
+        "summaryRaw": "Vision-Language-Action (VLA) models have recently demonstrated strong generalization in robotic manipulation, yet their applicability to whole-body, contact-rich humanoid locomotion remains severely underexplored due to data scarcity, the absence of dynamically consistent demonstrations, and the difficulty of encoding optimality and safety in learning-based pipelines. This work introduces a unified framework WOLF-VLA that integrates whole-body optimal-control (OC) motion synthesis with large-scale multi-modal dataset to train VLAs capable of generating humanoid locomotion policies directly from natural-language instructions. We construct a comprehensive dataset of dynamically feasible humanoid trajectories across six locomotion-related task families, each parameterized by environmental variations, object colors, placements, and visual distractors. We train a VLA model using the collected joint trajectories, ego-centric visual observations and natural language instruction, yielding a policy that exhibits strong reasoning and robustness to initial-condition variability, and competitive performance across several tasks and environment settings. A systematic ablation study demonstrates the impact of each modality on the model performance. The full dataset, model checkpoints, and benchmarking simulation suite will be openly released, establishing a reproducible dynamically consistent benchmark for whole-body humanoid locomotion rich VLA control and enabling future research in scalable transfer of instruction-driven locomotion policies.",
+        "link": "https://arxiv.org/abs/2606.25591v1",
+        "pdfLink": "https://arxiv.org/pdf/2606.25591v1",
+        "published": "2026-06-24T08:59:59Z",
+        "updated": "2026-06-24T08:59:59Z",
         "authors": [
-          "Gia-Binh Nguyen",
-          "Trong-Bao Ho",
-          "Thien-Loc Ha",
-          "Khoa Vo",
-          "Philip Lund Møller",
-          "Quang T. Nguyen",
-          "Long Dinh",
-          "Tuan Dam"
+          "Melya Boukheddimi",
+          "Omar Adjali",
+          "Daniel Sontag",
+          "Frank Kirchner"
         ],
         "categories": [
-          "cs.AI",
           "cs.RO"
         ],
         "score": 95,
         "importanceLevel": "S",
         "lane": "VLA",
         "dimensionScores": {
-          "relevance": 95,
-          "novelty": 85,
+          "relevance": 94,
+          "novelty": 93,
           "impact": 90,
-          "practicality": 95,
-          "coreAlignment": 95
+          "practicality": 85,
+          "coreAlignment": 96
         },
-        "oneSentenceSummary": "VLA模型微调仅需部分层，训练无关压缩大幅降低计算开销。",
-        "summaryCn": "发现VLA基础策略存在严重层间表示冗余，提出免训练的压缩流程：通过单次前向传递的集中核对齐识别冗余层，永久移除孪生层，无需加载全尺寸模型。在多种VLA上验证，模型大小减少50%而性能几乎无损，推理速度显著提升。",
-        "whyImportant": "首次揭示VLA架构冗余并实现免训练压缩，大幅降低部署门槛。",
+        "oneSentenceSummary": "WOLF-VLA:将最优控制与VLA结合，实现人形机器人全身运动语言控制。",
+        "summaryCn": "WOLF-VLA统一框架集成全身最优控制运动合成和大规模多模态数据集，训练VLA模型直接从自然语言指令生成人形机器人策略，覆盖六类任务，参数化环境变化，并通过动作标记化与多模态对齐实现动态可行轨迹。该框架首次将VLA推及全身运动。",
+        "whyImportant": "首次将VLA扩展到全身人形运动，突破数据稀缺与安全限制。",
         "reasonTags": [
-          "VLA效率",
-          "架构压缩",
-          "免训练",
-          "表示冗余"
+          "VLA",
+          "人形机器人",
+          "全身控制",
+          "最优控制"
         ],
         "innovationPoints": [
-          "无训练的集中核对齐冗余检测方法",
-          "直接移除孪生层实现结构化剪枝",
-          "跨模型验证的鲁棒性"
+          "提出最优控制合成与VLA训练结合的数据生成范式",
+          "构建涵盖多任务的大规模全身运动数据集",
+          "实现零样本语言到全身动作的泛化"
         ],
-        "noveltyVerdict": "免训练压缩针对VLA大模型为新颖且及时的贡献，方法简洁有效。",
+        "noveltyVerdict": "创新性强：首次系统地将最优控制用于VLA数据生成，解决全身接触运动难题。",
         "duplicateRisk": "low",
-        "dedupeNote": "专注于架构本身冗余，与通常需要额外训练的层选择或分词缩减方法根本不同。",
+        "dedupeNote": "专注全身运动，区别于仅限操作或简单移动的VLA工作。",
         "retrievalGroups": [
           "category",
           "robotics",
@@ -2413,27 +2384,27 @@ window.PAPERS_SITE_DATA = {
         ],
         "mergedCount": 1,
         "mergedTitles": [
-          "Finetuning Vision-Language-Action Models Requires Fewer Layers Than You Think"
+          "WOLF-VLA: Whole-Body Humanoid Optimal Locomotion Framework for Vision-Language-Action Learning"
         ]
       },
       {
-        "id": "2606.20285v1",
-        "title": "Co-VLA: Coordination-Aware Structured Action Modeling for Dual-Arm Vision-Language-Action Systems",
-        "summary": "Vision-language-action (VLA) models show strong capabilities in single and dual-arm robotic manipulation. Prior works show coordinated bimanual behaviors can emerge from end-to-end learning, leveraging large vision-language backbones with continuous action prediction.",
-        "summaryRaw": "Vision-language-action (VLA) models show strong capabilities in single and dual-arm robotic manipulation. Prior works show coordinated bimanual behaviors can emerge from end-to-end learning, leveraging large vision-language backbones with continuous action prediction. However, as bimanual tasks become tightly coupled and execution constraints become critical, implicit coordination alone is insufficient to ensure reliable, interpretable, and stable behavior. In this work, we propose Co-VLA, a coordination-aware bimanual manipulation framework introducing explicit structural priors into VLA models. We instantiate our method on a state-of-the-art vision-language backbone by replacing its monolithic action head with a Structured Action Expert (SAE) designed for bimanual coordination. Specifically, we introduce explicit structure at the action generation level with a modular coordination-aware loss that shapes shared and residual latents according to task-specific structures. The shared latent encodes task-level coordination intent, while residual latents capture execution adjustments for each arm. At deployment, a Latent-Aware Controller (LAC) interprets the learned representations to modulate synchronization strength, execution asymmetry, smoothness, and safety constraints in real time. LAC operates at the joint-command level and remains compatible with standard control pipelines without requiring force or impedance control. Experiments across simulation and real-world benchmarks show Co-VLA significantly outperforms monolithic baselines, achieving a 27% success rate gain in tight-coordination tasks, more than doubling performance in OOD real-world scenarios (from 13% to 27%), and reducing task completion time by up to 25%.",
-        "link": "https://arxiv.org/abs/2606.20285v1",
-        "pdfLink": "https://arxiv.org/pdf/2606.20285v1",
-        "published": "2026-06-18T14:28:37Z",
-        "updated": "2026-06-18T14:28:37Z",
+        "id": "2606.25360v1",
+        "title": "Decoupling Semantics and Geometric Grounding: Spatial Visual Prompts for Language-Conditioned Imitation Learning",
+        "summary": "While end-to-end Vision-Language-Action (VLA) models show promise in robotic manipulation, their monolithic paradigm inherently couples semantic reasoning and spatial control. This creates a severe alignment bottleneck, limiting precise target disambiguation in data-constrained imitation learning.",
+        "summaryRaw": "While end-to-end Vision-Language-Action (VLA) models show promise in robotic manipulation, their monolithic paradigm inherently couples semantic reasoning and spatial control. This creates a severe alignment bottleneck, limiting precise target disambiguation in data-constrained imitation learning. To overcome this, we propose SVP-IL, a decoupled architecture that explicitly extracts spatial visual grounding from the action generation loop. By leveraging vision-language foundation models, we parse instructions into zero-shot geometric masks, translating language into explicit Spatial Visual Prompts (SVP). These priors are injected into a continuous action generator via a lightweight direct feature-level fusion mechanism. This integration provides explicit and uncorrupted spatial gradient guidance while ensuring highly stable optimization under low-data regimes. Extensive experiments demonstrate that SVP-IL significantly outperforms state-of-the-art VLAs and pure visuomotor baselines. Trained on as few as 50 to 100 demonstrations, SVP-IL improves average success rates on highly ambiguous language-conditioned tasks from 24.0% to 39.5%, achieving 67.8% on standard benchmarks. Real-world robotic experiments further validate its robustness and data efficiency in unstructured physical environments.",
+        "link": "https://arxiv.org/abs/2606.25360v1",
+        "pdfLink": "https://arxiv.org/pdf/2606.25360v1",
+        "published": "2026-06-24T03:45:06Z",
+        "updated": "2026-06-24T03:45:06Z",
         "authors": [
-          "Yandong Wang",
-          "Jiaqian Yu",
-          "Xiongfeng Peng",
-          "Lu Xu",
-          "Yamin Mao",
-          "Weiming Li",
-          "Jaewook Yoo",
-          "Dongwook Lee"
+          "Yanzhe Tang",
+          "Xinyu Shao",
+          "Yuxuan Hu",
+          "Siyu Chen",
+          "Bowen Yang",
+          "Yajun Gao",
+          "Tongtong Cao",
+          "Xiu Li"
         ],
         "categories": [
           "cs.RO"
@@ -2442,29 +2413,29 @@ window.PAPERS_SITE_DATA = {
         "importanceLevel": "A",
         "lane": "VLA",
         "dimensionScores": {
-          "relevance": 90,
-          "novelty": 80,
-          "impact": 85,
-          "practicality": 80,
+          "relevance": 89,
+          "novelty": 85,
+          "impact": 80,
+          "practicality": 78,
           "coreAlignment": 90
         },
-        "oneSentenceSummary": "Co-VLA为双臂VLA引入结构化动作专家，显式建模协调约束。",
-        "summaryCn": "针对双臂紧耦合任务中隐式协调的可靠性问题，提出Co-VLA：在主流通用VL骨干上，将单块动作头替换为协调感知的结构化动作专家。包含模块化协调元器和约束注入机制，在多个高精度双臂任务上提升成功率和解释性。",
-        "whyImportant": "将结构先验融入VLA，解决双臂协调可靠性难题，可解释性增强。",
+        "oneSentenceSummary": "SVP-IL解耦语义与空间，利用空间视觉提示提升语言条件模仿学习精度。",
+        "summaryCn": "针对端到端VLA的语义-空间耦合瓶颈，提出SVP-IL架构，显式提取指代物的零样本几何掩码作为空间视觉提示，注入连续动作生成器，通过轻量级特征融合提供空间梯度引导，在低数据下稳定优化，实验证明在复杂操纵任务中显著提升成功率。",
+        "whyImportant": "通过解耦设计缓解VLA的对齐瓶颈，实现低数据下的精确目标指代。",
         "reasonTags": [
-          "双臂协调",
-          "结构化先验",
-          "动作专家",
-          "VLA"
+          "VLA",
+          "空间视觉提示",
+          "模仿学习",
+          "解耦架构"
         ],
         "innovationPoints": [
-          "结构化动作专家模块解耦协调与执行",
-          "显式约束注入保证行为稳定性",
-          "即插即用适配主流VLA架构"
+          "空间视觉提示解耦语义与空间处理",
+          "利用视觉语言基础模型零样本生成掩码",
+          "轻量融合机制稳定低数据优化"
         ],
-        "noveltyVerdict": "首次在VLA中引入显式协调结构先验，思路新颖且针对性强。",
+        "noveltyVerdict": "创新性较高：将空间先验注入动作生成，改变传统端到端范式。",
         "duplicateRisk": "low",
-        "dedupeNote": "专注于双臂任务的结构化动作建模，而非通用VLA或数据增强。",
+        "dedupeNote": "与其他端到端VLA不同，显式解耦空间信息，非简单数据增强。",
         "retrievalGroups": [
           "category",
           "robotics",
@@ -2472,119 +2443,120 @@ window.PAPERS_SITE_DATA = {
         ],
         "mergedCount": 1,
         "mergedTitles": [
-          "Co-VLA: Coordination-Aware Structured Action Modeling for Dual-Arm Vision-Language-Action Systems"
+          "Decoupling Semantics and Geometric Grounding: Spatial Visual Prompts for Language-Conditioned Imitation Learning"
         ]
       },
       {
-        "id": "2606.20092v1",
-        "title": "EventVLA: Event-Driven Visual Evidence Memory for Long-Horizon Vision-Language-Action Policies",
-        "summary": "Memory remains a critical bottleneck for long-horizon robotic manipulation, as standard Vision-Language-Action (VLA) policies often fail when task-relevant cues become occluded or unobservable over time. While existing memory-augmented methods utilize historical context, they either suffer from severe information bottlenecks, incur high…",
-        "summaryRaw": "Memory remains a critical bottleneck for long-horizon robotic manipulation, as standard Vision-Language-Action (VLA) policies often fail when task-relevant cues become occluded or unobservable over time. While existing memory-augmented methods utilize historical context, they either suffer from severe information bottlenecks, incur high latency via decoupled dual systems, or rely on unselective buffers that accumulate massive visual redundancies. To address these limitations, we introduce EventVLA, an end-to-end framework founded on the concept of sparse visual evidence memory that comprises two core components: foundational visual anchors to retain initial and short-term contexts, and a dynamic Keyframe Evidence Memory (KEM) module. Specifically, KEM directly predicts future keyframe probabilities from the VLA's latent embeddings to autonomously capture and store sparse, task-critical visual events. This foresight-driven mechanism empowers the policy to dynamically evaluate the future causal utility of current observations, preserving transient visual evidence before it becomes unobservable. Furthermore, we propose RoboTwin-MeM, a diagnostic benchmark specifically designed to evaluate non-Markovian manipulation tasks with interactive visual evidence. Extensive evaluations show that across 17 memory-requiring simulation tasks and 4 real-world bimanual tasks, EventVLA achieves an average success rate improvement of +40% over state-of-the-art memory-augmented VLAs.",
-        "link": "https://arxiv.org/abs/2606.20092v1",
-        "pdfLink": "https://arxiv.org/pdf/2606.20092v1",
-        "published": "2026-06-18T11:11:37Z",
-        "updated": "2026-06-18T11:11:37Z",
+        "id": "2606.26095v1",
+        "title": "Learning Action Priors for Cross-embodiment Robot Manipulation",
+        "summary": "Most Vision-Language-Action (VLA) models build on a Vision-Language Model (VLM) backbone by attaching an action module and optimizing the full policy jointly. This design inherits strong visual and linguistic priors from the VLM, but leaves the action module to learn physical motion almost from scratch.",
+        "summaryRaw": "Most Vision-Language-Action (VLA) models build on a Vision-Language Model (VLM) backbone by attaching an action module and optimizing the full policy jointly. This design inherits strong visual and linguistic priors from the VLM, but leaves the action module to learn physical motion almost from scratch. As a result, the policy lacks an explicit motion prior, forcing early optimization to simultaneously discover temporal action dynamics and cross-modal alignment, a challenge further amplified in cross-embodiment settings. In this work, we propose to pretrain the action module with motion priors before cross-modal VLA alignment. Specifically, we introduce a two-stage training framework that equips the action module with cross-embodiment temporal motion structure before VLA training begins. In Stage~1, a lightweight flow-matching-based encoder-decoder action module efficiently learns temporal motion structure solely from unconditioned action trajectories, without processing visual or language tokens. In Stage~2, this learned prior is transferred to VLA training through decoder reuse and early-stage latent distillation, aligning visual-language features with the action embedding space while still allowing end-to-end policy refinement. In addition, the trained encoder serves as a compact history compressor, summarizing state-action histories into a single temporal context token for history-aware modeling at negligible cost. Extensive experiments across 13 diverse cross-embodiment tasks on both simulated and real-world platforms validate the effectiveness of our approach. Compared with VLA training without action priors, our model achieves faster convergence, higher success rates, and substantially stronger performance on data-scarce real-world tasks. Moreover, scaling up the action data in Stage~1 yields a more generalizable action prior that directly improves downstream VLA performance.",
+        "link": "https://arxiv.org/abs/2606.26095v1",
+        "pdfLink": "https://arxiv.org/pdf/2606.26095v1",
+        "published": "2026-06-24T17:59:56Z",
+        "updated": "2026-06-24T17:59:56Z",
         "authors": [
-          "Ganlin Yang",
-          "Zhangzheng Tu",
-          "Yuqiang Yang",
-          "Sitong Mao",
-          "Junyi Dong",
-          "Tianxing Chen",
-          "Jiaqi Peng",
-          "Jing Xiong"
-        ],
-        "categories": [
-          "cs.CV"
-        ],
-        "score": 88,
-        "importanceLevel": "A",
-        "lane": "VLA",
-        "dimensionScores": {
-          "relevance": 90,
-          "novelty": 82,
-          "impact": 80,
-          "practicality": 75,
-          "coreAlignment": 92
-        },
-        "oneSentenceSummary": "EventVLA利用关键帧证据记忆解决长程VLA策略的视觉遮挡难题。",
-        "summaryCn": "长程操作中任务线索常因遮挡而不可见，现有记忆方法存在信息瓶颈或高延迟。EventVLA提出稀疏视觉证据记忆：基础视觉锚点保留初始/短期上下文，动态关键帧证据记忆模块直接从VLA潜在嵌入预测未来关键帧概率，自主捕获稀疏任务关键帧。端到端训练，在遮挡环境下大幅超越基线。",
-        "whyImportant": "端到端关键帧选择机制为VLA提供灵活高效的长程记忆。",
-        "reasonTags": [
-          "长程记忆",
-          "关键帧",
-          "视觉证据",
-          "VLA"
-        ],
-        "innovationPoints": [
-          "基于潜嵌入预测未来关键帧概率的KEM模块",
-          "稀疏自主动态记忆避免信息冗余",
-          "端到端集成无需外部模型"
-        ],
-        "noveltyVerdict": "将关键帧预测与VLA内部表征结合，实现自适应记忆，设计独特。",
-        "duplicateRisk": "medium",
-        "dedupeNote": "与MemoryWAM不同，EventVLA专为VLA策略设计，聚焦视觉证据记忆而非世界预测。",
-        "retrievalGroups": [
-          "category",
-          "robotics",
-          "vla_core"
-        ],
-        "mergedCount": 1,
-        "mergedTitles": [
-          "EventVLA: Event-Driven Visual Evidence Memory for Long-Horizon Vision-Language-Action Policies"
-        ]
-      },
-      {
-        "id": "2606.19998v1",
-        "title": "Tri-Info: Generalizable, Interpretable Failure Prediction for VLA Models via Information Theory",
-        "summary": "Vision-Language-Action (VLA) models are increasingly deployed across diverse tasks, yet they remain black boxes whose physical interactions can cause irreversible harm, making generalizable and interpretable failure detection essential. We observe that successful and failed rollouts carry systematically different information-theoretic si…",
-        "summaryRaw": "Vision-Language-Action (VLA) models are increasingly deployed across diverse tasks, yet they remain black boxes whose physical interactions can cause irreversible harm, making generalizable and interpretable failure detection essential. We observe that successful and failed rollouts carry systematically different information-theoretic signatures. Building on this, we formalize VLA control as a closed-loop information pipeline and derive the Triple Information-theoretic (Tri-Info) signals that capture whether actions remain diverse, temporally consistent, and coupled to state transitions. Across six VLA models and three benchmark environments, Tri-Info matches the strongest baselines in-domain. Moreover, Tri-Info transfers across architectures, environments, and the sim-to-real gap without retraining, reaching 83\\% accuracy on real-world tasks where prior detectors collapse to chance. This establishes Tri-Info as a simple yet powerful method that not only detects failures with strong cross-domain generalization, but also delivers interpretable diagnostics of the underlying failure modes.",
-        "link": "https://arxiv.org/abs/2606.19998v1",
-        "pdfLink": "https://arxiv.org/pdf/2606.19998v1",
-        "published": "2026-06-18T09:34:22Z",
-        "updated": "2026-06-18T09:34:22Z",
-        "authors": [
-          "Jinghan Yang",
-          "Yunchao Zhang",
-          "Wang Yuan",
-          "Haolun Wan",
-          "Jiaming Zhang",
-          "Zhengyang Hu",
-          "Yanchao Yang"
+          "Dong Jing",
+          "Tianqi Zhang",
+          "Jiaqi Liu",
+          "Jinman Zhao",
+          "Zelong Sun",
+          "Li Erran Li",
+          "Zhiwu Lu",
+          "Mingyu Ding"
         ],
         "categories": [
           "cs.AI",
           "cs.CV",
-          "cs.LG",
+          "cs.RO"
+        ],
+        "score": 90,
+        "importanceLevel": "A",
+        "lane": "VLA",
+        "dimensionScores": {
+          "relevance": 88,
+          "novelty": 87,
+          "impact": 82,
+          "practicality": 80,
+          "coreAlignment": 92
+        },
+        "oneSentenceSummary": "预训练动作模块的运动先验，提升跨具身VLA的对齐效率与泛化性。",
+        "summaryCn": "针对VLA动作模块缺乏运动先验的问题，提出两阶段训练框架：先利用流匹配编码-解码器学习跨具身时序运动结构，再进行跨模态VLA对齐。该方法使策略在训练初期快速收敛，并在多机器人平台展示出更强的跨具身泛化能力。",
+        "whyImportant": "为VLA注入运动先验，加速训练并改善跨具身迁移，启发未来策略设计。",
+        "reasonTags": [
+          "VLA",
+          "动作先验",
+          "跨具身",
+          "流匹配"
+        ],
+        "innovationPoints": [
+          "提出动作模块的流匹配预训练",
+          "两阶段训练分离运动结构与跨模态对齐",
+          "有效提升跨具身泛化"
+        ],
+        "noveltyVerdict": "创新性较强：针对VLA普遍缺失的运动先验，提出明确解决方案。",
+        "duplicateRisk": "low",
+        "dedupeNote": "不同于直接在VLA训练中学习动作，先独立学习运动模式再对齐。",
+        "retrievalGroups": [
+          "category",
+          "robotics",
+          "vla_core"
+        ],
+        "mergedCount": 1,
+        "mergedTitles": [
+          "Learning Action Priors for Cross-embodiment Robot Manipulation"
+        ]
+      },
+      {
+        "id": "2606.26006v1",
+        "title": "FORCE: Efficient VLA Reinforcement Fine-Tuning via Value-Calibrated Warm-up and Self-Distillation",
+        "summary": "Vision-Language-Action (VLA) models are often constrained by the imitation ceiling imposed by sub-optimal data. While Reinforcement Learning (RL) fine-tuning can surpass this limit, it is notoriously sample inefficient.",
+        "summaryRaw": "Vision-Language-Action (VLA) models are often constrained by the imitation ceiling imposed by sub-optimal data. While Reinforcement Learning (RL) fine-tuning can surpass this limit, it is notoriously sample inefficient. This challenge arises from two core issues: (1) catastrophic initial unlearning due to an unstable Q-function and (2) inefficient policy updates caused by low-quality exploration data, often forcing a reliance on costly human interventions. We introduce FORCE, a 3-stage framework that stabilizes fine-tuning by tackling both issues. FORCE first incorporates a Value-Calibrated Warm-Up phase, utilizing on-policy rollouts to mitigate the distributional shift of the Q-function. Subsequently, during the online stage, this calibrated Q-function acts as a filter for both the policy's own action proposals and expert data, ensuring only high-value actions are used for the policy update. We evaluate FORCE on various simulation and real-world tasks, and the result shows that FORCE achieves a 79% absolute improvement in success rates and outperform prior RL methods by 10%, while accelerating training by 32.5%. Critically, it mitigates the common success rate drop and achieves this robust performance without human intervention, marking a significant step towards deploying capable and autonomous robotic agents.",
+        "link": "https://arxiv.org/abs/2606.26006v1",
+        "pdfLink": "https://arxiv.org/pdf/2606.26006v1",
+        "published": "2026-06-24T16:23:18Z",
+        "updated": "2026-06-24T16:23:18Z",
+        "authors": [
+          "Shuyi Zhang",
+          "Yunfan Lou",
+          "Hongyang Cheng",
+          "Yichen Guo",
+          "Chuyao Fu",
+          "Yaoxu Lyu",
+          "Xiaojie Zhang",
+          "Haoran Li"
+        ],
+        "categories": [
+          "cs.AI",
           "cs.RO"
         ],
         "score": 88,
         "importanceLevel": "A",
         "lane": "VLA",
         "dimensionScores": {
-          "relevance": 85,
-          "novelty": 88,
-          "impact": 85,
-          "practicality": 70,
+          "relevance": 86,
+          "novelty": 85,
+          "impact": 83,
+          "practicality": 82,
           "coreAlignment": 90
         },
-        "oneSentenceSummary": "Tri-Info利用信息论信号实现通用可解释的VLA故障预测。",
-        "summaryCn": "观察成功与失败轨迹具有系统性的信息论差异，将VLA控制形式化为闭环信息管道，推导出三重信息信号：动作多样性、时序一致性和状态耦合。在六种VLA模型和三个基准上跨域匹配最强基线，更能在无重训练下跨架构、环境和sim-to-real迁移，真机准确率达83%。",
-        "whyImportant": "无需训练的跨模型故障检测器，提升VLA安全性与可解释性。",
+        "oneSentenceSummary": "FORCE：三阶段RL微调，价值校准预热+自蒸馏，高效超越模仿天花板。",
+        "summaryCn": "FORCE框架解决VLA强化学习微调样本效率低的问题：第一阶段价值校准预热缓解Q函数分布偏移；第二阶段在线过滤高价值动作；第三阶段自蒸馏提升策略更新效率。实验显示在多个操纵任务中优于现有RL微调方法。",
+        "whyImportant": "稳定高效的RL微调是推动VLA超越模仿极限的关键技术路径。",
         "reasonTags": [
-          "故障预测",
-          "信息论",
-          "跨模型迁移",
-          "VLA安全"
+          "VLA",
+          "强化学习微调",
+          "自蒸馏",
+          "价值校准"
         ],
         "innovationPoints": [
-          "将VLA控制建模为信息管道并定义三重信号",
-          "拓扑信息度量实现跨架构迁移",
-          "首次在真实环境验证跨域故障检测"
+          "提出价值校准预热阶段",
+          "利用校准Q函数过滤高质量动作",
+          "融合自蒸馏缓解探索低效"
         ],
-        "noveltyVerdict": "以信息论视角解决VLA黑盒安全问题，原创性高且工程验证扎实。",
-        "duplicateRisk": "low",
-        "dedupeNote": "专注于故障预测而非策略改进，与训练增强类方法互补。",
+        "noveltyVerdict": "创新性较高：针对RL微调两大问题给出系统解决方案。",
+        "duplicateRisk": "medium",
+        "dedupeNote": "FORCE关注离线预热的稳定性与在线自蒸馏过滤，与ROAD-VLA在线自蒸馏互补。",
         "retrievalGroups": [
           "category",
           "robotics",
@@ -2592,58 +2564,109 @@ window.PAPERS_SITE_DATA = {
         ],
         "mergedCount": 1,
         "mergedTitles": [
-          "Tri-Info: Generalizable, Interpretable Failure Prediction for VLA Models via Information Theory"
+          "FORCE: Efficient VLA Reinforcement Fine-Tuning via Value-Calibrated Warm-up and Self-Distillation"
         ]
       },
       {
-        "id": "2606.19784v1",
-        "title": "EquiVLA: A General Framework for Rotationally Equivariant Vision-Language-Action Models",
-        "summary": "Vision-Language-Action (VLA) models have emerged as a powerful paradigm for generalist robot manipulation, yet they lack geometric inductive biases: policies trained at specific orientations require substantially more data to generalize across rotational configurations. We present \\textsc{EquiVLA}, the first general framework for end-to-…",
-        "summaryRaw": "Vision-Language-Action (VLA) models have emerged as a powerful paradigm for generalist robot manipulation, yet they lack geometric inductive biases: policies trained at specific orientations require substantially more data to generalize across rotational configurations. We present \\textsc{EquiVLA}, the first general framework for end-to-end $\\mathrm{SO}(2)$-equivariant VLA models, applicable to any architecture coupling a frozen vision-language backbone with a flow-matching Diffusion Transformer action head. \\textsc{EquiVLA} introduces \\textsc{EquiPerceptor}, which produces approximately $\\mathrm{SO}(2)$-equivariant visual representations from frozen ViT features; and \\textsc{EquiActor}, an exactly $\\mathrm{SO}(2)$-equivariant flow-matching Diffusion Transformer action head. Together, they establish an approximate $\\mathrm{SO}(2)$ equivariance chain from camera observations to predicted action sequences. Instantiated on GR00T~N1.5 and evaluated across four LIBERO suites, CALVIN ABCD$\\to$D, and five real-robot tasks on Mobile ALOHA, \\textsc{EquiVLA} achieves $92.6\\%$ average success on LIBERO (vs. $78.1\\%$ baseline), an average sequence length of $4.03$ on CALVIN (vs. $3.45$), and improves real-robot success from $54\\%$ to $72\\%$.",
-        "link": "https://arxiv.org/abs/2606.19784v1",
-        "pdfLink": "https://arxiv.org/pdf/2606.19784v1",
-        "published": "2026-06-18T04:36:57Z",
-        "updated": "2026-06-18T04:36:57Z",
+        "id": "2606.25800v1",
+        "title": "ROAD-VLA: Robust Online Adaptation via Self-Distillation for Vision-Language-Action Models",
+        "summary": "Effective online adaptation of vision-language-action (VLA) models remains challenging, as sparse rewards provide weak supervision for high-dimensional autoregressive action policies. Although self-distillation can in principle provide denser training signals, we find that text-based privileged teachers conditioned on demonstrations, ret…",
+        "summaryRaw": "Effective online adaptation of vision-language-action (VLA) models remains challenging, as sparse rewards provide weak supervision for high-dimensional autoregressive action policies. Although self-distillation can in principle provide denser training signals, we find that text-based privileged teachers conditioned on demonstrations, retrieved experiences, or high-level plans are ineffective for VLA adaptation, exposing a modality gap between symbolic guidance and low-level robot actions. We propose ROAD-VLA, an advantage-guided self-distillation framework that constructs a proximal teacher directly in action space by perturbing action-token logits with calibrated advantage estimates. This converts sparse rewards into dense token-level supervision while keeping the teacher close to the current policy. We further derive a policy-improvement lower bound under calibrated advantages and accurate teacher matching. Across seven robotic manipulation environments with in-distribution and out-of-distribution shifts, ROADVLA outperforms PPO in nearly all settings, demonstrating robust online VLA adaptation.",
+        "link": "https://arxiv.org/abs/2606.25800v1",
+        "pdfLink": "https://arxiv.org/pdf/2606.25800v1",
+        "published": "2026-06-24T13:17:59Z",
+        "updated": "2026-06-24T13:17:59Z",
         "authors": [
-          "Thien-Loc Ha",
-          "Quang-Tan Nguyen",
-          "Trong-Bao Ho",
-          "Long Dinh",
-          "Minh Duc Nguyen",
-          "Gia-Binh Nguyen",
-          "Pham Tri Quang",
-          "Minh N. Vu"
+          "Kejing Wang",
+          "Toan Nguyen",
+          "Minh Hoang Nguyen",
+          "Simon Khan",
+          "Flora D. Salim"
+        ],
+        "categories": [
+          "cs.LG",
+          "cs.RO"
+        ],
+        "score": 85,
+        "importanceLevel": "B",
+        "lane": "VLA",
+        "dimensionScores": {
+          "relevance": 83,
+          "novelty": 80,
+          "impact": 75,
+          "practicality": 82,
+          "coreAlignment": 88
+        },
+        "oneSentenceSummary": "ROAD-VLA:优势引导自蒸馏，实现VLA鲁棒在线自适应。",
+        "summaryCn": "针对VLA在线适应中稀疏奖励问题，ROAD-VLA构建动作空间近端教师，扰动动作词元对数几率并校准优势估计，将稀疏奖励转化为密集词元级监督，同时推导策略改进下界，提升样本效率，在真实机器人任务中验证有效性。",
+        "whyImportant": "为VLA提供无需额外数据的在线自适应方法，提高部署鲁棒性。",
+        "reasonTags": [
+          "VLA",
+          "在线适应",
+          "自蒸馏",
+          "优势引导"
+        ],
+        "innovationPoints": [
+          "提出动作空间自蒸馏教师",
+          "利用优势校准构建近端目标",
+          "推导策略改进下界保证"
+        ],
+        "noveltyVerdict": "创新性中等：将自蒸馏引入动作空间，但核心思路与现有RL自蒸馏类似。",
+        "duplicateRisk": "medium",
+        "dedupeNote": "ROAD-VLA专注于在线自适应，与FORCE的离线-在线结合不同，应用场景互补。",
+        "retrievalGroups": [
+          "category",
+          "robotics",
+          "vla_core"
+        ],
+        "mergedCount": 1,
+        "mergedTitles": [
+          "ROAD-VLA: Robust Online Adaptation via Self-Distillation for Vision-Language-Action Models"
+        ]
+      },
+      {
+        "id": "2606.25985v1",
+        "title": "Action ControlNet: A Lightweight Delay-Aware Adapter for Smooth Asynchronous Control in Vision-Language-Action Models",
+        "summary": "Vision-language-action (VLA) models have shown strong potential for general-purpose robot manipulation, but their inference latency remains a major obstacle to stable high-frequency control. Asynchronous execution mitigates this bottleneck by overlapping policy inference with action execution, yet the next action chunk is still predicted…",
+        "summaryRaw": "Vision-language-action (VLA) models have shown strong potential for general-purpose robot manipulation, but their inference latency remains a major obstacle to stable high-frequency control. Asynchronous execution mitigates this bottleneck by overlapping policy inference with action execution, yet the next action chunk is still predicted from stale observations while the robot continues to move. Direct chunk stitching therefore introduces handoff discontinuities, action jitter, and failures in contact-rich manipulation. Existing remedies typically require either full-policy retraining or architecture-specific runtime logic. This work proposes Action ControlNet (ACNet), a lightweight delay-aware adapter that uses the executed motion suffix as a residual condition for a mostly frozen action head. ACNet leaves the pretrained backbone unchanged, introduces few trainable parameters, and remains compatible with generative action heads such as diffusion and flow matching. On Kinetix, Meta-World MT50, and a real-world SO-ARM101 platform, ACNet improves robustness under inference delay and yields smoother asynchronous trajectories than direct chunk stitching, while remaining more lightweight than full delay-conditioned retraining.",
+        "link": "https://arxiv.org/abs/2606.25985v1",
+        "pdfLink": "https://arxiv.org/pdf/2606.25985v1",
+        "published": "2026-06-24T15:53:43Z",
+        "updated": "2026-06-24T15:53:43Z",
+        "authors": [
+          "Tiecheng Guo",
+          "Meng Guo"
         ],
         "categories": [
           "cs.RO"
         ],
-        "score": 86,
-        "importanceLevel": "A",
+        "score": 82,
+        "importanceLevel": "B",
         "lane": "VLA",
         "dimensionScores": {
-          "relevance": 90,
-          "novelty": 80,
-          "impact": 80,
-          "practicality": 70,
-          "coreAlignment": 90
+          "relevance": 79,
+          "novelty": 81,
+          "impact": 70,
+          "practicality": 85,
+          "coreAlignment": 85
         },
-        "oneSentenceSummary": "EquiVLA赋予VLA旋转等变性，大幅减少旋转泛化所需数据。",
-        "summaryCn": "提出首个通用SO(2)等变VLA框架：EquiPerceptor从冻结ViT特征产生近似等变视觉表示，EquiActor为流匹配扩散Transformer动作头提供精确等变。形成从相机观测到动作的近似等变链，在同角度训练、多角度测试中显著超越基线，数据效率提升明显。",
-        "whyImportant": "几何归纳偏置注入VLA，解决旋转泛化痛点，数据效率跃升。",
+        "oneSentenceSummary": "Action ControlNet:轻量延迟感知适配器，平滑VLA异步控制。",
+        "summaryCn": "VLA推理延迟导致高频控制不稳定。ACNet利用已执行的运动后缀作为残差条件，适配冻结的动作头，无需重训骨架。通过少参数和动作不可知设计，消除交接抖动，在接触丰富任务中验证平滑控制效果。",
+        "whyImportant": "解决VLA异步执行中的手抖和失败问题，轻量级方案易于部署。",
         "reasonTags": [
-          "等变性",
-          "几何归纳",
-          "旋转泛化",
-          "VLA"
+          "VLA",
+          "异步控制",
+          "轻量适配器",
+          "延迟感知"
         ],
         "innovationPoints": [
-          "首次在VLA中实现端到端SO(2)等变",
-          "冻结视觉骨干上的近似等变模块",
-          "流匹配扩散头结合等变性"
+          "首次针对VLA异步控制的残差适配器设计",
+          "利用运动后缀提供延迟补偿",
+          "参数高效且骨架无关"
         ],
-        "noveltyVerdict": "将等变思想引入VLA是自然且重要的进步，实现方法通用性强。",
-        "duplicateRisk": "medium",
-        "dedupeNote": "与Co-VLA、EventVLA等改进不同，专注于几何对称性先验。",
+        "noveltyVerdict": "创新性中等：工程化解决方案，但解决实际问题。",
+        "duplicateRisk": "low",
+        "dedupeNote": "其他VLA工作未明确处理异步执行问题，ACNet填补空白。",
         "retrievalGroups": [
           "category",
           "robotics",
@@ -2651,115 +2674,290 @@ window.PAPERS_SITE_DATA = {
         ],
         "mergedCount": 1,
         "mergedTitles": [
-          "EquiVLA: A General Framework for Rotationally Equivariant Vision-Language-Action Models"
-        ]
-      },
-      {
-        "id": "2606.20274v1",
-        "title": "Lagrange: An Open-Vocabulary, Energy-Based Sparse Framework for Generalized End-to-End Driving",
-        "summary": "Scaling end-to-end autonomous driving to complex, open-world environments requires perceptual models that generalize to anomalous scenarios and planners that produce kinematically valid trajectories. Existing paradigms face a distinct dichotomy between representational efficiency and generalization capacity.",
-        "summaryRaw": "Scaling end-to-end autonomous driving to complex, open-world environments requires perceptual models that generalize to anomalous scenarios and planners that produce kinematically valid trajectories. Existing paradigms face a distinct dichotomy between representational efficiency and generalization capacity. Dense models (e.g., occupancy networks), while geometrically robust, incur critical computational bottlenecks and struggle with high-level semantic reasoning. Conversely, sparse, query-based planners are efficient but reliant on closed-set definitions, rendering them vulnerable to out-of-distribution (OOD) events. Although recent Vision-Language-Action (VLA) models offer open-vocabulary reasoning, their autoregressive, discrete token generation fundamentally conflicts with the continuous, high-frequency control requirements of vehicle dynamics. To address this, we propose Lagrange, an open-vocabulary, computationally sparse driving framework based on Masked Latent Fields (MLF). Rather than relying on dense volumetric reconstructions or closed-set query mechanisms, Lagrange exploits Vision-Language Models (VLMs) to encode class-agnostic object proposals into continuous semantic visual tokens. We introduce an intent-driven masked cross-attention module that temporally filters irrelevant entities, decoding the attended tokens into an implicit continuous energy field defined over spatial coordinates. By framing decision-making as a Lagrangian action minimization problem spanning this energy field, we enforce strict compliance with vehicle kinematics while executing collision avoidance. Extensive offline evaluations on both standard (nuScenes) and long-tail (CODA) benchmarks demonstrate that Lagrange establishes a promising framework for robust, interpretable, and kinematically feasible open-world autonomy.",
-        "link": "https://arxiv.org/abs/2606.20274v1",
-        "pdfLink": "https://arxiv.org/pdf/2606.20274v1",
-        "published": "2026-06-18T14:18:01Z",
-        "updated": "2026-06-18T14:18:01Z",
-        "authors": [
-          "Shihao Ji",
-          "HongXi Li",
-          "Zihui Song",
-          "Mingyu Li"
-        ],
-        "categories": [
-          "cs.AI"
-        ],
-        "score": 87,
-        "importanceLevel": "A",
-        "lane": "VLA",
-        "dimensionScores": {
-          "relevance": 80,
-          "novelty": 82,
-          "impact": 80,
-          "practicality": 75,
-          "coreAlignment": 85
-        },
-        "oneSentenceSummary": "Lagrange以能量模型实现开放词汇稀疏端到端驾驶，兼顾泛化与动力学。",
-        "summaryCn": "现有端到端驾驶面临密集模型计算瓶颈与稀疏模型封闭集定义的矛盾。Lagrange用能量基模型统一开放词汇语义理解和连续控制：稀疏查询保持效率，能量函数提供开放词汇泛化，同时输出运动学可行的轨迹，克服VLA类方法离散生成与车辆控制的冲突。",
-        "whyImportant": "弥合开放词汇推理与连续动力学的鸿沟，推动VLA驾驶落地。",
-        "reasonTags": [
-          "端到端驾驶",
-          "能量模型",
-          "开放词汇",
-          "稀疏框架"
-        ],
-        "innovationPoints": [
-          "能量基模型实现开放词汇与连续控制的统一",
-          "稀疏查询保持计算效率",
-          "规避VLA离散生成的动力学冲突"
-        ],
-        "noveltyVerdict": "巧妙融合能量模型与稀疏检测，解决VLA类方法在驾驶中的固有问题。",
-        "duplicateRisk": "medium",
-        "dedupeNote": "专注于驾驶的开放词汇规划，而非通用机器人VLA，与一般VLA互补。",
-        "retrievalGroups": [
-          "category",
-          "driving",
-          "vla_core"
-        ],
-        "mergedCount": 1,
-        "mergedTitles": [
-          "Lagrange: An Open-Vocabulary, Energy-Based Sparse Framework for Generalized End-to-End Driving"
+          "Action ControlNet: A Lightweight Delay-Aware Adapter for Smooth Asynchronous Control in Vision-Language-Action Models"
         ]
       }
     ],
     "wam": [
       {
-        "id": "2606.20562v1",
-        "title": "MemoryWAM: Efficient World Action Modeling with Persistent Memory",
-        "summary": "Robust robotic manipulation in the real world requires not only an understanding of the current observation, but also memory and dynamics modeling. World action models (WAMs) possess these capabilities by jointly modeling visual foresight and actions conditioned on both current and historical observations, making them a promising paradig…",
-        "summaryRaw": "Robust robotic manipulation in the real world requires not only an understanding of the current observation, but also memory and dynamics modeling. World action models (WAMs) possess these capabilities by jointly modeling visual foresight and actions conditioned on both current and historical observations, making them a promising paradigm for robotic manipulation. However, existing WAMs face a fundamental trade-off: methods with efficient inference typically condition only on a bounded window of recent observations and therefore struggle in non-Markovian environments, whereas methods that preserve long histories incur time and space costs that grow substantially with sequence length. To address this challenge, we introduce MemoryWAM, a world action model with efficient persistent memory. MemoryWAM uses a hybrid memory design that combines recent frames, event-boundary anchor frames, and compact gist tokens that summarize long-range history. A tailored attention mechanism enables retrieval of both detailed short-term context and compressed long-term context, supporting memory-dependent decision-making with reduced inference latency and GPU memory usage. Across long-horizon, memory-dependent manipulation tasks in both simulation and the real world, MemoryWAM outperforms strong vision-language-action (VLA) and WAM baselines while maintaining favorable computational efficiency.",
-        "link": "https://arxiv.org/abs/2606.20562v1",
-        "pdfLink": "https://arxiv.org/pdf/2606.20562v1",
-        "published": "2026-06-18T17:59:51Z",
-        "updated": "2026-06-18T17:59:51Z",
+        "id": "2606.25473v1",
+        "title": "Causal-rCM: A Unified Teacher-Forcing and Self-Forcing Open Recipe for Autoregressive Diffusion Distillation in Streaming Video Generation and Interactive World Models",
+        "summary": "Autoregressive video diffusion with causal diffusion transformers has emerged as a major paradigm for real-time streaming video generation and action-conditioned interactive world models. In this work, we extend rCM, an advanced diffusion distillation framework, to autoregressive video diffusion.",
+        "summaryRaw": "Autoregressive video diffusion with causal diffusion transformers has emerged as a major paradigm for real-time streaming video generation and action-conditioned interactive world models. In this work, we extend rCM, an advanced diffusion distillation framework, to autoregressive video diffusion. The core philosophy of rCM lies in the complementarity between forward and reverse divergences, represented by consistency models (CMs) and distribution matching distillation (DMD), respectively, in diffusion distillation. This philosophy naturally carries over to the autoregressive setting, where teacher-forcing (TF) provides an offline, forward-divergence causal training paradigm, while self-forcing (SF) corresponds to an on-policy, reverse-divergence refinement. Our contributions are: (1) through extensive experiments, we show that teacher-forcing CM is currently the best complement to self-forcing DMD as an initialization strategy (2) we present the first implementation of teacher-forcing-based continuous-time CMs (e.g., sCM/MeanFlow) for autoregressive video diffusion, enabled by our custom-mask FlashAttention-2 JVP kernel, achieving 10$\\times$ faster convergence compared to discrete-time CMs (dCMs) (3) we introduce Causal-rCM, a leading, unified, and scalable algorithm-infrastructure open recipe for diffusion distillation and causal training (4) we achieve state-of-the-art streaming video generation performance in both frame-wise and chunk-wise settings, using only synthetic data for training. Notably, our distilled 2-step causal Wan2.1-1.3B model achieves a VBench-T2V score of 84.63 with only 1 or 2 sampling steps. We further apply Causal-rCM to Cosmos 3, an advanced omnimodal world foundation model for physical AI with action-conditioned generation capability, enabling an interactive world model.",
+        "link": "https://arxiv.org/abs/2606.25473v1",
+        "pdfLink": "https://arxiv.org/pdf/2606.25473v1",
+        "published": "2026-06-24T06:58:02Z",
+        "updated": "2026-06-24T06:58:02Z",
         "authors": [
-          "Sizhe Yang",
-          "Juncheng Mu",
-          "Tianming Wei",
-          "Chenhao Lu",
-          "Xiaofan Li",
-          "Linning Xu",
-          "Zhengrong Xue",
-          "Zhecheng Yuan"
+          "Kaiwen Zheng",
+          "Guande He",
+          "Min Zhao",
+          "Jintao Zhang",
+          "Huayu Chen",
+          "Jianfei Chen",
+          "Chen-Hsuan Lin",
+          "Ming-Yu Liu"
+        ],
+        "categories": [
+          "cs.CV",
+          "cs.LG"
+        ],
+        "score": 87,
+        "importanceLevel": "A",
+        "lane": "WAM",
+        "dimensionScores": {
+          "relevance": 83,
+          "novelty": 88,
+          "impact": 80,
+          "practicality": 75,
+          "coreAlignment": 90
+        },
+        "oneSentenceSummary": "Causal-rCM:统一教师强迫与自强迫蒸馏，用于交互世界模型。",
+        "summaryCn": "将rCM蒸馏框架扩展至自回归视频扩散，利用教师强迫（前向散度）与自强迫（反向散度）的互补性，通过一致性模型和分布匹配蒸馏的结合，实现高效动作条件世界模型蒸馏，为实时交互式世界模型提供开放方案。",
+        "whyImportant": "为交互式世界模型的高效推理提供系统性蒸馏方法，降低计算成本。",
+        "reasonTags": [
+          "世界动作模型",
+          "扩散蒸馏",
+          "自回归视频生成",
+          "交互世界模型"
+        ],
+        "innovationPoints": [
+          "首次将rCM统一框架应用于自回归视频扩散",
+          "展示教师强迫与自强迫在蒸馏中的互补性",
+          "提供开放方案促进交互式世界模型发展"
+        ],
+        "noveltyVerdict": "创新性高：蒸馏范式创新，为世界模型实时推理铺路。",
+        "duplicateRisk": "low",
+        "dedupeNote": "虽为方法论文，但直接面向交互式世界模型，核心WAM贡献。",
+        "retrievalGroups": [
+          "category",
+          "wam_core"
+        ],
+        "mergedCount": 1,
+        "mergedTitles": [
+          "Causal-rCM: A Unified Teacher-Forcing and Self-Forcing Open Recipe for Autoregressive Diffusion Distillation in Streaming Video Generation and Interactive World Models"
+        ]
+      },
+      {
+        "id": "2606.25880v1",
+        "title": "USS: Unified Spatial-Semantic Prompts for Embodied Visual Tracking with Latent Dynamics Learning",
+        "summary": "Embodied Visual Tracking (EVT) requires an agent to continuously follow a specified target while actively moving through dynamic environments. However, prevailing EVT paradigms predominantly rely on language-based target indication.",
+        "summaryRaw": "Embodied Visual Tracking (EVT) requires an agent to continuously follow a specified target while actively moving through dynamic environments. However, prevailing EVT paradigms predominantly rely on language-based target indication. While language is expressive and convenient, cluttered scenes often contain multiple objects that satisfy the same semantic description, leading to ambiguous target grounding. We therefore propose a paradigm shift, reframing target indication in EVT from text-only specification to unified spatial-semantic prompting. Based on this paradigm, we introduce Unified Spatial-Semantic Prompts for Embodied Visual Tracking with Latent Dynamics Learning, USS, an end-to-end embodied tracking framework that supports text, point, bounding box, and mask prompts within a unified architecture. USS encodes heterogeneous prompts with modality-specific encoders, fuses prompt tokens with visual features through hybrid attention, and decodes compact prompt-conditioned representations into egocentric waypoints. To further improve temporal robustness, USS incorporates a latent world model that predicts future representations through self-supervised alignment. Real-robot experiments demonstrate that explicit spatial target cues yield higher success rates than text-only prompts, particularly in scenarios involving similar distractors and longer-horizon tracking where maintaining instance-level target identity is critical. In the simulation benchmark, USS also achieves state-of-the-art performance among non-MLLM-based methods and competitive results against recent MLLM-based approaches with faster inference speed. Our findings reveal that spatial-semantic prompting provides a more precise and flexible target indication interface for embodied visual tracking. Project site: https://arescheah.github.io/uss-project-page/.",
+        "link": "https://arxiv.org/abs/2606.25880v1",
+        "pdfLink": "https://arxiv.org/pdf/2606.25880v1",
+        "published": "2026-06-24T14:25:05Z",
+        "updated": "2026-06-24T14:25:05Z",
+        "authors": [
+          "Yuchen Xie",
+          "Xinyu Zhou",
+          "Kuangji Zuo",
+          "Yanshuo Lu",
+          "Fengrui Huang",
+          "Boyu Ma",
+          "Jianfei Yang"
+        ],
+        "categories": [
+          "cs.CV"
+        ],
+        "score": 82,
+        "importanceLevel": "B",
+        "lane": "WAM",
+        "dimensionScores": {
+          "relevance": 78,
+          "novelty": 83,
+          "impact": 75,
+          "practicality": 70,
+          "coreAlignment": 80
+        },
+        "oneSentenceSummary": "USS:统一空间语义提示与潜在动力学学习的具身跟踪。",
+        "summaryCn": "针对具身视觉跟踪中语言歧义，USS支持文本、点、框、掩码多模态提示，编码后融合目标信息，通过潜在动力学模块建模时序运动，实现长期跟踪。实验表明多提示统一架构在复杂场景下提升跟踪鲁棒性。",
+        "whyImportant": "统一提示范式提升具身跟踪灵活性，潜在动力学学习辅助世界建模。",
+        "reasonTags": [
+          "具身视觉跟踪",
+          "动力学学习",
+          "多模态提示",
+          "世界模型"
+        ],
+        "innovationPoints": [
+          "统一处理多种空间语义提示",
+          "引入潜在动力学学习建模运动",
+          "端到端框架提升跟踪鲁棒性"
+        ],
+        "noveltyVerdict": "创新性中等：统一提示有价值，动力学学习模块非核心差异。",
+        "duplicateRisk": "low",
+        "dedupeNote": "有别于传统2D跟踪，该工作融合动力学学习，但WAM属性较弱，仍入选。",
+        "retrievalGroups": [
+          "category",
+          "robotics",
+          "wam_core"
+        ],
+        "mergedCount": 1,
+        "mergedTitles": [
+          "USS: Unified Spatial-Semantic Prompts for Embodied Visual Tracking with Latent Dynamics Learning"
+        ]
+      },
+      {
+        "id": "2606.25295v1",
+        "title": "DynaMOMA: Instantaneous Prediction of Grasp Poses for Mobile Manipulation of Dynamic Objects",
+        "summary": "Mobile manipulation is a fundamental robotics task and has advanced rapidly in recent years, enabling robots to navigate, reach, and interact with objects in complex environments. However, mobile manipulation of dynamic objects remains highly challenging, as robots must coordinate the mobile base and arm while adapting to continuously ev…",
+        "summaryRaw": "Mobile manipulation is a fundamental robotics task and has advanced rapidly in recent years, enabling robots to navigate, reach, and interact with objects in complex environments. However, mobile manipulation of dynamic objects remains highly challenging, as robots must coordinate the mobile base and arm while adapting to continuously evolving target poses. A key challenge lies in predicting temporally consistent short-horizon grasp trajectories from dynamic observations. In this work, we propose \\ours{}, a dynamic mobile manipulation framework that couples instantaneous grasp trajectory prediction with whole-body control policy. Our predictor uses an anchor-based diffusion model to generate temporally consistent short-horizon grasp trajectories conditioned on historical observations. The predicted trajectories are then encoded as compact features and fed to a whole-body reinforcement learning policy, which controls the mobile manipulator for dynamic grasping. We further introduce a anticipation-guided reward that equips the policy with an anticipatory grasping horizon by adaptively shifting the target from the current grasp observation to the instantaneously predicted grasp trajectory. Through extensive experiments in Isaac Gym simulation, we show that our method achieves strong performance in mobile manipulation of dynamic objects across diverse settings and grasping metrics. Furthermore, our predictor and policy demonstrate strong generalizability in real-world experiments.",
+        "link": "https://arxiv.org/abs/2606.25295v1",
+        "pdfLink": "https://arxiv.org/pdf/2606.25295v1",
+        "published": "2026-06-24T01:58:15Z",
+        "updated": "2026-06-24T01:58:15Z",
+        "authors": [
+          "Zhinan Yu",
+          "Junyan Xu",
+          "Jiazhao Zhang",
+          "Zheng Qin",
+          "Yijie Tang",
+          "Yuhang Huang",
+          "Yihan Cao",
+          "Zhiyuan Yu"
         ],
         "categories": [
           "cs.RO"
         ],
-        "score": 89,
+        "score": 80,
+        "importanceLevel": "B",
+        "lane": "WAM",
+        "dimensionScores": {
+          "relevance": 76,
+          "novelty": 80,
+          "impact": 78,
+          "practicality": 75,
+          "coreAlignment": 82
+        },
+        "oneSentenceSummary": "DynaMOMA:锚点扩散预测抓取轨迹，耦合全身强化学习控制。",
+        "summaryCn": "针对动态物体移动操作，DynaMOMA耦合瞬时抓取轨迹预测与全身控制策略。预测器利用锚点扩散模型，基于历史观测生成时序一致短时抓取轨迹，编码为紧凑特征传入强化学习控制器，实现移动基座与臂的协同动态抓取。",
+        "whyImportant": "将扩散预测与全身控制结合，推动移动操作向动态环境拓展。",
+        "reasonTags": [
+          "世界模型",
+          "抓取预测",
+          "扩散模型",
+          "全身控制"
+        ],
+        "innovationPoints": [
+          "锚点扩散模型预测时序抓取轨迹",
+          "将动态预测与全身强化学习耦合",
+          "解决移动操作中的动态适应问题"
+        ],
+        "noveltyVerdict": "创新性较高：动态抓取轨迹预测与控制的结合有新颖性。",
+        "duplicateRisk": "low",
+        "dedupeNote": "区别于静态抓取检测，该工作专攻动态物体，具有WAM属性。",
+        "retrievalGroups": [
+          "category",
+          "robotics"
+        ],
+        "mergedCount": 1,
+        "mergedTitles": [
+          "DynaMOMA: Instantaneous Prediction of Grasp Poses for Mobile Manipulation of Dynamic Objects"
+        ]
+      },
+      {
+        "id": "2606.25736v1",
+        "title": "UniTeD: Unified Temporal Diffusion for Joint Perception and Planning in Autonomous Driving",
+        "summary": "Diffusion models have shown strong potential for multi-modal planning in end-to-end autonomous driving. However, most existing methods confine diffusion to the planning module, conditioning on fixed outputs from separate discriminative perception networks.",
+        "summaryRaw": "Diffusion models have shown strong potential for multi-modal planning in end-to-end autonomous driving. However, most existing methods confine diffusion to the planning module, conditioning on fixed outputs from separate discriminative perception networks. This decoupled design propagates perception errors to the planner, increasing optimization difficulty and reducing robustness. To overcome these limitations, we propose UniTeD, a Unified Temporal Diffusion framework that jointly models perception and planning through iterative denoising in a shared generative space. By enabling bidirectional information exchange, the framework facilitates mutual refinement between tasks and improves robustness via noise-conditioned multi-task training. We further extend this unified diffusion paradigm to a streaming setting by incorporating temporal context. A Temporal Transition Module (TTM) is introduced to resolve the noise-level mismatch between historical and current frames. In addition, we propose an Anchor Refresh Strategy (ARS) to alleviate the training-inference distribution shift commonly observed in sparse diffusion-based end-to-end driving frameworks. Without bells and whistles, UniTeD achieves state-of-the-art performance across multiple benchmarks, surpassing both recent discriminative end-to-end methods and diffusion-based planning approaches.",
+        "link": "https://arxiv.org/abs/2606.25736v1",
+        "pdfLink": "https://arxiv.org/pdf/2606.25736v1",
+        "published": "2026-06-24T12:03:54Z",
+        "updated": "2026-06-24T12:03:54Z",
+        "authors": [
+          "Bo Zhao",
+          "Xinting Zhao",
+          "Naifan Li",
+          "Erkang Cheng",
+          "Haibin Ling"
+        ],
+        "categories": [
+          "cs.CV"
+        ],
+        "score": 78,
+        "importanceLevel": "B",
+        "lane": "WAM",
+        "dimensionScores": {
+          "relevance": 74,
+          "novelty": 82,
+          "impact": 76,
+          "practicality": 70,
+          "coreAlignment": 80
+        },
+        "oneSentenceSummary": "UniTeD:统一时序扩散，联合建模自动驾驶感知与规划。",
+        "summaryCn": "UniTeD首次将感知与规划纳入统一扩散生成空间，通过迭代去噪实现双向信息交换与相互优化，并引入时序过渡模块适用流式处理。在nuScenes基准上，联合建模优于解耦基线，提升规划鲁棒性并降低误差传播。",
+        "whyImportant": "为端到端自动驾驶提供新范式，生成式联合建模有望改善可靠性。",
+        "reasonTags": [
+          "世界模型",
+          "端到端自动驾驶",
+          "扩散模型",
+          "联合感知规划"
+        ],
+        "innovationPoints": [
+          "首次统一时序扩散同时生成感知与规划",
+          "噪声条件多任务训练增强鲁棒性",
+          "流式扩展保持时序一致性"
+        ],
+        "noveltyVerdict": "创新性较高：将扩散模型用于联合感知规划，思路新颖。",
+        "duplicateRisk": "low",
+        "dedupeNote": "与现有扩散规划工作不同，引入感知空间联合生成，赋予世界模型特性。",
+        "retrievalGroups": [
+          "category",
+          "driving"
+        ],
+        "mergedCount": 1,
+        "mergedTitles": [
+          "UniTeD: Unified Temporal Diffusion for Joint Perception and Planning in Autonomous Driving"
+        ]
+      },
+      {
+        "id": "2606.26025v1",
+        "title": "In-Context World Modeling for Robotic Control",
+        "summary": "Modern Vision-Language-Action (VLA) models often fail to generalize to novel setups, such as altered camera viewpoints or robot morphologies, because they are typically conditioned only on current observations and language instructions. By ignoring the underlying system configuration as a variable, these models implicitly assume a fixed…",
+        "summaryRaw": "Modern Vision-Language-Action (VLA) models often fail to generalize to novel setups, such as altered camera viewpoints or robot morphologies, because they are typically conditioned only on current observations and language instructions. By ignoring the underlying system configuration as a variable, these models implicitly assume a fixed execution context encountered during training, necessitating data-intensive fine-tuning for any new environment. In this work, we introduce In-Context World Modeling (ICWM), a framework that treats system identification as an in-context adaptation problem. ICWM enables robot policies to autonomously infer essential system variables from a short history of self-generated, task-agnostic interactions. Unlike traditional In-Context Learning that uses demonstrations to specify what task to perform, ICWM leverages the context window to understand how the system operates. By processing these interactions before task execution, the model implicitly captures the world dynamics of the current system, enabling adaptation to novel configurations without parameter updates. Extensive experiments in simulation and on real-world robot platforms demonstrate that ICWM significantly outperforms standard VLA baselines on novel camera viewpoints.",
+        "link": "https://arxiv.org/abs/2606.26025v1",
+        "pdfLink": "https://arxiv.org/pdf/2606.26025v1",
+        "published": "2026-06-24T16:53:36Z",
+        "updated": "2026-06-24T16:53:36Z",
+        "authors": [
+          "Siyin Wang",
+          "Junhao Shi",
+          "Senyu Fei",
+          "Zhaoyang Fu",
+          "Li Ji",
+          "Jingjing Gong",
+          "Xipeng Qiu"
+        ],
+        "categories": [
+          "cs.CV",
+          "cs.RO"
+        ],
+        "score": 88,
         "importanceLevel": "A",
         "lane": "Both",
         "dimensionScores": {
-          "relevance": 90,
-          "novelty": 85,
-          "impact": 80,
-          "practicality": 80,
-          "coreAlignment": 90
+          "relevance": 85,
+          "novelty": 90,
+          "impact": 84,
+          "practicality": 78,
+          "coreAlignment": 88
         },
-        "oneSentenceSummary": "MemoryWAM用混合持久记忆打破世界动作模型的长序列效率瓶颈。",
-        "summaryCn": "现有世界动作模型推理效率高则上下文窗口受限，长历史保留则计算成本随序列增长。MemoryWAM提出混合记忆设计：近期帧、事件边界锚帧和紧凑记忆令牌，实现恒定时间复杂度的持久记忆。在非马尔可夫机器人操作任务中显著提升性能并保持高效。",
-        "whyImportant": "突破WAM记忆-效率权衡，对现实长程操作至关重要。",
+        "oneSentenceSummary": "ICWM:上下文世界建模，自交互推断系统变量，策略自适应。",
+        "summaryCn": "ICWM将系统辨识视为上下文适应问题，让策略从短历史任务无关交互中推断配置变量，无需微调即可泛化至新视角和形态。框架结合上下文编码与动作生成，在多种环境变化下验证零样本泛化能力，为VLA适应提供新范式。",
+        "whyImportant": "为VLA泛化提供新思路：通过在线交互自动适应系统变化，避免重训练。",
         "reasonTags": [
-          "世界动作模型",
-          "持久记忆",
-          "混合记忆",
-          "效率"
+          "世界模型",
+          "上下文学习",
+          "系统辨识",
+          "VLA泛化"
         ],
         "innovationPoints": [
-          "事件边界锚帧与记忆令牌的混合设计",
-          "恒定时间复杂度读取长历史",
-          "在操作基准上验证非马尔可夫鲁棒性"
+          "提出上下文世界建模框架",
+          "利用自交互推断系统动态",
+          "实现零样本配置泛化"
         ],
-        "noveltyVerdict": "聪明地结合近期与事件记忆，在WAM中实现高效长上下文，设计精妙。",
-        "duplicateRisk": "medium",
-        "dedupeNote": "与EventVLA的视觉记忆机制不同，MemoryWAM聚焦动作条件世界模型的时序持久性。",
+        "noveltyVerdict": "创新性强：将上下文学习引入世界建模，区别于传统微调。",
+        "duplicateRisk": "low",
+        "dedupeNote": "不同于传统上下文学习演示任务，ICWM学习系统动态，独特视角。",
         "retrievalGroups": [
           "category",
           "robotics",
@@ -2768,284 +2966,52 @@ window.PAPERS_SITE_DATA = {
         ],
         "mergedCount": 1,
         "mergedTitles": [
-          "MemoryWAM: Efficient World Action Modeling with Persistent Memory"
+          "In-Context World Modeling for Robotic Control"
         ]
       },
       {
-        "id": "2606.20083v1",
-        "title": "Holo-World: Unified Camera, Object and Weather Control for Video World Model",
-        "summary": "Video world models are moving toward preserving an observed world under controllable camera and object motion while allowing its environmental state to change. Yet these controls remain isolated, and weather generation typically relies on a source video or reconstructed scene that already specifies future structure.",
-        "summaryRaw": "Video world models are moving toward preserving an observed world under controllable camera and object motion while allowing its environmental state to change. Yet these controls remain isolated, and weather generation typically relies on a source video or reconstructed scene that already specifies future structure. We study a first-frame-anchored source-to-state setting, where the model starts from a single image and follows explicit camera and object controls and an optional weather instruction, then generates a video that either preserves the source world or transfers it to a target weather state. To address these challenges, we first build HoloStateData, a state video dataset that turns diverse videos into unified control samples for camera, object, and weather supervision. Second, we introduce Holo-World, a unified controllable video world model that jointly controls scene from a single image. Its Unified Scene Adapter factorizes world preservation and weather transfer into distinct parameter subspaces, using rendered background, geometry buffers, and object controls to maintain controlled scene structure while modeling weather-dependent appearance and particle effects. Additionally, Scene-Weather Decomposed CFG guides scene and weather residuals separately, strengthening target weather effects without over-amplifying the full condition. Quantitative and qualitative experiments demonstrate that Holo-World maintains precise camera and object control with consistent scene structure while transferring scenes into diverse target weather state, outperforming video-to-video weather editing baselines on weather-state generation. Our project page is available at \\url{https://xiangchenyin.github.io/Holo-World/}.",
-        "link": "https://arxiv.org/abs/2606.20083v1",
-        "pdfLink": "https://arxiv.org/pdf/2606.20083v1",
-        "published": "2026-06-18T11:01:34Z",
-        "updated": "2026-06-18T11:01:34Z",
+        "id": "2606.25527v1",
+        "title": "Beyond One-Size-Fits-All: Diagnosis-Driven Online Reinforcement Learning with Offline Priors",
+        "summary": "Online reinforcement learning (RL) agents increasingly depend on knowledge acquired offline to achieve practical efficiency. Originally studied in offline-to-online RL, this paradigm now spans foundation model post-training and embodied intelligence, with prior types expanding from offline datasets and pre-trained policies to increasingl…",
+        "summaryRaw": "Online reinforcement learning (RL) agents increasingly depend on knowledge acquired offline to achieve practical efficiency. Originally studied in offline-to-online RL, this paradigm now spans foundation model post-training and embodied intelligence, with prior types expanding from offline datasets and pre-trained policies to increasingly diverse knowledge sources such as multimodal foundation models and generative world models. Offline priors have become central to how deep RL is developed and deployed. However, this reliance introduces a challenge that the prevailing benchmark-driven paradigm cannot resolve: because prior validity varies across deployments and shifts during training, no single approach to managing it is universally optimal, and benchmark rankings offer limited guidance for real-world deployments. Rather than pursuing universal solutions, we argue that the field should shift to diagnosis-driven tension management, in which deployment-specific evidence guides how the learner relates to its priors throughout training, enabling both flexible and adaptive deployment. We support this position with a framework characterizing how priors reshape online optimization through three functional roles, controlled experiments demonstrating help-or-hurt reversals, cross-domain evidence from foundation model post-training to embodied intelligence, and engagement with five substantive counterarguments.",
+        "link": "https://arxiv.org/abs/2606.25527v1",
+        "pdfLink": "https://arxiv.org/pdf/2606.25527v1",
+        "published": "2026-06-24T08:05:28Z",
+        "updated": "2026-06-24T08:05:28Z",
         "authors": [
-          "Xiangchen Yin",
-          "Wenzhang Sun",
-          "Jiahui Yuan",
-          "Zijie Liu",
-          "Yinda Chen",
-          "Wei Li",
-          "Dachun Kai",
-          "Chunfeng Wang"
+          "Guozheng Ma",
+          "Lu Li",
+          "Zilin Wang",
+          "Pierre-Luc Bacon",
+          "Dacheng Tao"
         ],
         "categories": [
-          "cs.CV"
+          "cs.LG"
         ],
-        "score": 77,
-        "importanceLevel": "B",
-        "lane": "WAM",
-        "dimensionScores": {
-          "relevance": 70,
-          "novelty": 80,
-          "impact": 70,
-          "practicality": 65,
-          "coreAlignment": 85
-        },
-        "oneSentenceSummary": "Holo-World单图驱动可控视频世界，联合相机、物体和天气控制。",
-        "summaryCn": "现有视频世界模型控制孤立，天气生成依赖源视频。提出首帧锚定的源-状态设置：从单图开始，根据相机、物体控制及可选天气指令，生成保持源世界或迁移至目标天气的视频。构建HoloStateData数据集和统一控制架构，实现三方面联合生成。",
-        "whyImportant": "首次单图实现相机、物体、天气统一可控的视频世界模型。",
-        "reasonTags": [
-          "视频世界模型",
-          "可控生成",
-          "天气转换",
-          "单图驱动"
-        ],
-        "innovationPoints": [
-          "首帧锚定的源-状态设定",
-          "三方面联合控制模块",
-          "构建专用控制数据集"
-        ],
-        "noveltyVerdict": "在可控世界模型中加入多因素联合控制，扩展了世界模型的能力边界。",
-        "duplicateRisk": "medium",
-        "dedupeNote": "与机器人动作模型不同，更偏向视觉世界生成，但可为具身仿真提供环境。",
-        "retrievalGroups": [
-          "category",
-          "wam_core"
-        ],
-        "mergedCount": 1,
-        "mergedTitles": [
-          "Holo-World: Unified Camera, Object and Weather Control for Video World Model"
-        ]
-      },
-      {
-        "id": "2606.19889v1",
-        "title": "SurgVista: Long-Horizon Surgical World Modeling with Plausible Instrument-Tissue Dynamics",
-        "summary": "Scaling robot policy learning for autonomous surgery is challenging, as expert demonstrations are expensive and in vivo exploration poses substantial safety risks. Surgical world models address this by generating realistic, action-conditioned future frames from an initial observation, but existing methods exhibit two persistent failure m…",
-        "summaryRaw": "Scaling robot policy learning for autonomous surgery is challenging, as expert demonstrations are expensive and in vivo exploration poses substantial safety risks. Surgical world models address this by generating realistic, action-conditioned future frames from an initial observation, but existing methods exhibit two persistent failure modes: spatial interaction incoherence, where visible instrument contact fails to induce spatially consistent tissue deformation, and temporal fidelity collapse, where prediction errors compound across autoregressive rollouts and progressively corrupt visual quality. We present SurgVista, a surgical world model that mitigates both failures through two training recipes. Deformation Consistency Regularization extracts scene-point trajectories from training videos and enforces cross-frame coherence through latent contrastive learning, strengthening physically consistent instrument-tissue dynamics. Drift Adaptation Training mitigates long-horizon drift by perturbing conditioning frames with online prediction residuals and photometric augmentations calibrated to long-horizon drift statistics, sustaining visual fidelity over extended rollouts. To enable rigorous evaluation, we further introduce SurgWorld-Bench, featuring diverse procedure types, long-range rollouts, and decoupled metrics for instrument-motion accuracy and tissue-response fidelity. Extensive experiments show that SurgVista consistently outperforms state-of-the-art methods across visual quality, temporal consistency, and interaction fidelity, with gains widening as the prediction horizon grows.",
-        "link": "https://arxiv.org/abs/2606.19889v1",
-        "pdfLink": "https://arxiv.org/pdf/2606.19889v1",
-        "published": "2026-06-18T07:47:28Z",
-        "updated": "2026-06-18T07:47:28Z",
-        "authors": [
-          "Wentao Pan",
-          "Wuyang Li",
-          "Shengyuan Liu",
-          "Xinyu Liu",
-          "Hengyu Liu",
-          "Yixuan Yuan"
-        ],
-        "categories": [
-          "cs.CV"
-        ],
-        "score": 74,
-        "importanceLevel": "B",
-        "lane": "WAM",
-        "dimensionScores": {
-          "relevance": 70,
-          "novelty": 75,
-          "impact": 65,
-          "practicality": 60,
-          "coreAlignment": 85
-        },
-        "oneSentenceSummary": "SurgVista使用变形一致性正则提高手术世界模型的交互真实性。",
-        "summaryCn": "现有手术世界模型出现空间交互不连贯和时间保真度衰减。SurgVista提出变形一致性正则：从训练视频提取场景点轨迹，通过潜在对比学习强化跨帧一致性；并应用时间感知噪声注入，缓解自回归误差累积。在真实手术数据上生成更连贯的组织-器械交互视频。",
-        "whyImportant": "提升手术世界模型物理可信度，推动手术机器人仿真训练。",
-        "reasonTags": [
-          "手术世界模型",
-          "一致性正则",
-          "物理交互",
-          "医学机器人"
-        ],
-        "innovationPoints": [
-          "变形一致性正则增强器械-组织交互",
-          "时间感知噪声注入缓解漂移",
-          "长程自回归质量提升"
-        ],
-        "noveltyVerdict": "针对手术场景的特定改进，方法具有领域针对性。",
-        "duplicateRisk": "low",
-        "dedupeNote": "专用于手术的世界模型，与其他通用或驾驶世界模型不同。",
-        "retrievalGroups": [
-          "category",
-          "robotics",
-          "wam_core"
-        ],
-        "mergedCount": 1,
-        "mergedTitles": [
-          "SurgVista: Long-Horizon Surgical World Modeling with Plausible Instrument-Tissue Dynamics"
-        ]
-      },
-      {
-        "id": "2606.19928v1",
-        "title": "SWAP: Symmetric Equivariant World-Model for Agile Robot Parkour",
-        "summary": "While latent world models enable the proactive predictions required for extreme parkour, their purely data-driven nature forces them to redundantly encode left-right symmetric interactions as independent patterns. This inflates the learning burden and hinders the capture of geometric regularities, restricting the latent space's efficienc…",
-        "summaryRaw": "While latent world models enable the proactive predictions required for extreme parkour, their purely data-driven nature forces them to redundantly encode left-right symmetric interactions as independent patterns. This inflates the learning burden and hinders the capture of geometric regularities, restricting the latent space's efficiency for downstream policies. To address this, we propose SWAP, an end-to-end equivariant symmetric world model. This framework embeds symmetry directly into both the world model and the actor-critic networks. In real-world tests, the robot leaps across a 2.13 m gap and climbs a 1.63 m platform, breaking records for quadruped parkour. Furthermore, the framework exhibits robust geometric generalization to unseen mirrored terrains and exceptional zero-shot transferability across diverse outdoor environments. These results demonstrate that symmetry equivariance is an effective structural prior for pushing the physical boundaries of learned legged locomotion.",
-        "link": "https://arxiv.org/abs/2606.19928v1",
-        "pdfLink": "https://arxiv.org/pdf/2606.19928v1",
-        "published": "2026-06-18T08:28:30Z",
-        "updated": "2026-06-18T08:28:30Z",
-        "authors": [
-          "Kaixin Lan",
-          "Ze Wang",
-          "Hongyi Li",
-          "Lei Jiang",
-          "Chaojie Fu",
-          "Chengkai Su",
-          "Choi Lam Wong",
-          "Yongbin Jin"
-        ],
-        "categories": [
-          "cs.RO"
-        ],
-        "score": 75,
-        "importanceLevel": "B",
-        "lane": "WAM",
-        "dimensionScores": {
-          "relevance": 65,
-          "novelty": 75,
-          "impact": 80,
-          "practicality": 70,
-          "coreAlignment": 80
-        },
-        "oneSentenceSummary": "SWAP利用对称等变世界模型实现四足机器人极限跑酷。",
-        "summaryCn": "数据驱动的世界模型冗余编码左右对称交互，增加学习负担。SWAP将对称性直接嵌入世界模型和actor-critic网络，实现端到端等变。实机测试中跨越2.13m间隙和1.63m高台，破纪录；且无需微调可泛化至镜像地形，零样本迁移到室外多样环境。",
-        "whyImportant": "对称等变世界模型大幅提升样本效率与泛化，实现运动纪录。",
-        "reasonTags": [
-          "世界模型",
-          "等变性",
-          "跑酷",
-          "四足机器人"
-        ],
-        "innovationPoints": [
-          "世界模型中嵌入对称等变",
-          "actor-critic同享等变结构",
-          "物理极限成绩与强零样本迁移"
-        ],
-        "noveltyVerdict": "将对称先验融入世界模型驱动高动态运动，设计针对性强且结果惊艳。",
-        "duplicateRisk": "low",
-        "dedupeNote": "专注于运动的世界模型，有别于操作的MemoryWAM或视觉的Holo-World。",
-        "retrievalGroups": [
-          "category",
-          "robotics",
-          "wam_core"
-        ],
-        "mergedCount": 1,
-        "mergedTitles": [
-          "SWAP: Symmetric Equivariant World-Model for Agile Robot Parkour"
-        ]
-      },
-      {
-        "id": "2606.19836v1",
-        "title": "World Engine: Towards the Era of Post-Training for Autonomous Driving",
-        "summary": "Autonomous vehicles must operate safely in the real world, where errors can have severe consequences. Although modern end-to-end driving policies excel in routine scenarios, their reliability is limited by the scarcity of safety-critical ``long-tail'' events in real driving datasets.",
-        "summaryRaw": "Autonomous vehicles must operate safely in the real world, where errors can have severe consequences. Although modern end-to-end driving policies excel in routine scenarios, their reliability is limited by the scarcity of safety-critical ``long-tail'' events in real driving datasets. These rare interactions define the practical safety boundary of the learned policy, yet they are difficult to collect at scale in the real world. Here we show that this fundamental limitation can be addressed by post-training pre-trained driving models on synthesized high-stakes interactions. We introduce World Engine, a generative framework that reconstructs high-fidelity interactive environments from real-world logs and systematically extrapolates them into realistic safety-critical variations. This paradigm enables reinforcement-based post-training to align policies with safety constraints, circumventing the physical risks inherent in real-world exploration. On a public benchmark built on nuPlan, World Engine substantially reduces failures in rare safety-critical scenarios and yields significantly larger gains than scaling pre-training data alone. Furthermore, when deployed on a production-scale autonomous driving system, the resulting policy reduces simulated collisions and demonstrates measurable improvements in on-road testing, showing that post-training on synthesized, safety-critical interactions offers a scalable and effective pathway to safer autonomous driving. The full codebase suite, including training, is released to the public.",
-        "link": "https://arxiv.org/abs/2606.19836v1",
-        "pdfLink": "https://arxiv.org/pdf/2606.19836v1",
-        "published": "2026-06-18T06:28:33Z",
-        "updated": "2026-06-18T06:28:33Z",
-        "authors": [
-          "Tianyu Li",
-          "Li Chen",
-          "Caojun Wang",
-          "Haochen Liu",
-          "Kashyap Chitta",
-          "Zhenjie Yang",
-          "Yuhang Lu",
-          "Naisheng Ye"
-        ],
-        "categories": [
-          "cs.CV",
-          "cs.RO"
-        ],
-        "score": 78,
-        "importanceLevel": "B",
-        "lane": "WAM",
-        "dimensionScores": {
-          "relevance": 70,
-          "novelty": 80,
-          "impact": 80,
-          "practicality": 75,
-          "coreAlignment": 80
-        },
-        "oneSentenceSummary": "World Engine从真实日志合成安全关键场景，用于驾驶策略后训练。",
-        "summaryCn": "端到端驾驶策略受限于长尾安全关键数据稀缺。提出World Engine生成框架：从真实驾驶日志重建高保真交互环境，系统化外推至安全关键变体。利用这些合成数据进行强化后训练，在不依赖真实事故数据的前提下提升策略安全边界，实验证明显著减少碰撞。",
-        "whyImportant": "无需真实事故数据即可系统提升驾驶策略的安全性，范式新颖。",
-        "reasonTags": [
-          "世界模型",
-          "驾驶安全",
-          "后训练",
-          "长尾场景"
-        ],
-        "innovationPoints": [
-          "从日志重建可交互环境并外推变体",
-          "基于合成数据的安全强化对齐",
-          "不依赖真实事故数据扩展安全边界"
-        ],
-        "noveltyVerdict": "将生成式世界模型与驾驶策略后训练结合，思路新颖且具行业价值。",
-        "duplicateRisk": "medium",
-        "dedupeNote": "区别于一般视频世界模型，专注于驾驶场景的安全变体生成与策略更新。",
-        "retrievalGroups": [
-          "category",
-          "driving"
-        ],
-        "mergedCount": 1,
-        "mergedTitles": [
-          "World Engine: Towards the Era of Post-Training for Autonomous Driving"
-        ]
-      },
-      {
-        "id": "2606.19990v1",
-        "title": "Reward as An Agent for Embodied World Models",
-        "summary": "While RL has become a promising tool for refining world models, existing methods largely rely on conservative rollouts near the training distribution, limiting exploration, behavioral diversity, and richer dynamic discovery. In this work, we challenge this conservative paradigm.",
-        "summaryRaw": "While RL has become a promising tool for refining world models, existing methods largely rely on conservative rollouts near the training distribution, limiting exploration, behavioral diversity, and richer dynamic discovery. In this work, we challenge this conservative paradigm. We argue that the core limitation is not exploration itself, but the lack of reliable verification strategies to support broader exploration. Without reliable verification, expanded exploration becomes highly susceptible to reward hacking, where policies exploit imperfect rewards without achieving genuine improvement. To evaluate this motivation, we instantiate our method in embodied world models, where physical plausibility, and task completion provide a rigorous testbed for scalable RL under complex dynamics. On the verification side, we introduce Reward as an Agent, an agentic reward framework that actively evaluates generated behaviors to provide robust reward signals and mitigate reward hacking under distribution shifts. On the exploration side, we introduce Dynamic-Aware Rollout Diversification through DynDiff-GRPO, which explicitly expands action-space exploration to diversify trajectories, broaden state-action coverage, and encourage richer embodied behaviors beyond conservative rollout regimes. By unifying Reward as an Agent with DynDiff-GRPO, we enable RL on a more reliable reward foundation with substantially diversified sampling, effectively mitigating reward hacking while yielding significant accuracy gains across multiple open-source world models, thereby demonstrating that broader exploration can scale successfully when grounded in robust verification.",
-        "link": "https://arxiv.org/abs/2606.19990v1",
-        "pdfLink": "https://arxiv.org/pdf/2606.19990v1",
-        "published": "2026-06-18T09:29:30Z",
-        "updated": "2026-06-18T09:29:30Z",
-        "authors": [
-          "Pu Li",
-          "Zhigang Lin",
-          "Qiang Wu",
-          "Yongxuan Lv",
-          "Fei Wang",
-          "Shan You"
-        ],
-        "categories": [
-          "cs.AI"
-        ],
-        "score": 42,
-        "importanceLevel": "B",
+        "score": 58,
+        "importanceLevel": "A",
         "lane": "Peripheral",
         "dimensionScores": {
-          "relevance": 26,
-          "novelty": 12,
-          "impact": 3,
-          "practicality": 4,
-          "coreAlignment": 18
+          "relevance": 25,
+          "novelty": 22,
+          "impact": 8,
+          "practicality": 5,
+          "coreAlignment": 17
         },
         "oneSentenceSummary": "该论文是偏相关方向的重点候选，值得优先阅读。",
-        "summaryCn": "论文核心内容是：While RL has become a promising tool for refining world models, existing methods largely rely on conservative rollouts near the tra…",
-        "whyImportant": "命中WAM、机器人、通用框架主题，分类覆盖cs.AI，并体现较强的新颖性与影响潜力。",
+        "summaryCn": "论文核心内容是：Online reinforcement learning (RL) agents increasingly depend on knowledge acquired offline to achieve practical efficiency.",
+        "whyImportant": "命中WAM、机器人、新基准、通用框架主题，分类覆盖cs.LG，并体现较强的新颖性与影响潜力。",
         "reasonTags": [
           "WAM",
           "机器人",
+          "新基准",
           "通用框架"
         ],
         "innovationPoints": [
-          "提出具有跟踪价值的方法设计"
+          "包含新基准或新数据评测",
+          "提供真实场景实验验证"
         ],
-        "noveltyVerdict": "创新点清晰，属于值得重点跟进的增量改进。",
+        "noveltyVerdict": "创新信号强，像是带新范式或新基准的工作。",
         "duplicateRisk": "low",
         "dedupeNote": "该论文在Peripheral方向上具备独立问题设置或代表性贡献，可作为当日候选保留。",
         "retrievalGroups": [
@@ -3055,27 +3021,3023 @@ window.PAPERS_SITE_DATA = {
         ],
         "mergedCount": 1,
         "mergedTitles": [
-          "Reward as An Agent for Embodied World Models"
+          "Beyond One-Size-Fits-All: Diagnosis-Driven Online Reinforcement Learning with Offline Priors"
         ]
       }
     ]
   },
   "dailyBrief": {
-    "overall": "今日论文聚焦VLA效率革命（免训练层压缩）、双臂协调结构先验、长程关键帧记忆、信息论故障预测、旋转等变性，以及WAM的持久记忆、统一视频世界控制、手术世界模型、对称跑酷世界模型、驾驶世界引擎，另有安全RL基准、人形数据标准、流匹配连续动作、LiDAR预训练、占用VLM等进展。",
-    "vla": "核心VLA突破：Finetuning VLA训练无关层压缩大幅降本；Co-VLA引入协调感知动作专家应对双臂；EventVLA用动态关键帧记忆处理遮挡长程任务；Tri-Info以信息论信号实现跨模型故障预测；EquiVLA赋予旋转等变性减少数据需求；Lagrange结合开放词汇推理与能量稀疏规划用于驾驶。",
-    "wam": "世界动作模型亮点：MemoryWAM提出高效持久记忆解决长序列建模；Holo-World实现相机、物体、天气全可控视频世界；SurgVista增强手术交互一致性的世界模型；SWAP利用对称等变世界模型达成跑酷纪录；World Engine基于真实日志合成安全关键场景用于驾驶策略后训练。",
-    "retrieval": "从机器人、驾驶、VLA、WAM等类别中检索55篇，筛选出20篇最具影响力和新颖性的VLA/WAM及机器人论文，强调核心对齐与实用价值。"
+    "overall": "今日论文聚焦VLA与WAM前沿，人形机器人全身控制、空间视觉提示、动作先验预训练、RL微调等方向进展显著，世界动作模型方面因果蒸馏与上下文世界建模值得关注。",
+    "vla": "VLA方向涵盖从全身运动到精细操控的多项突破，WOLF-VLA将最优控制与VLA结合，SVP-IL解耦语义与空间，动作先验预训练提升跨具身泛化，FORCE和ROAD-VLA分别提出高效RL微调方案。",
+    "wam": "WAM方向中，Causal-rCM为交互式世界模型提供蒸馏方案，上下文世界建模ICWM通过在线交互推断系统动态，DynaMOMA预测动态抓取轨迹，UniTeD统一时序扩散联合感知与规划。",
+    "retrieval": "本次检索覆盖cs.RO、cs.CV等类别，通过语义匹配与启发式筛选，聚焦VLA与WAM核心及高影响力机器人论文，共选出20篇。"
   },
   "trendBrief": {
     "windowDays": 7,
-    "dateRange": "2026-06-09 - 2026-06-19",
-    "overview": "近 7 天累计归档 140 篇总榜论文，主航道重心偏向 机器人扩展，其中 S 级高优先级论文共 26 篇。",
+    "dateRange": "2026-06-10 - 2026-06-25",
+    "overview": "近 7 天累计归档 140 篇总榜论文，主航道重心偏向 机器人扩展，其中 S 级高优先级论文共 24 篇。",
     "hotspots": "高频主题主要集中在 机器人、新基准、VLA，系统共自动合并 0 篇近似工作，减少了重复阅读负担。",
     "vla": "VLA 方向在近几天约占总榜的 30%，重点仍落在通用策略、语言条件动作与具身控制。",
     "wam": "WAM 方向在近几天约占总榜的 29%，更集中于世界模型、动作条件预测与规划建模。",
     "watchlist": "建议优先连续跟踪 机器人、新基准、VLA 相关工作，尤其关注同时具备高新颖性与高落地性的代表论文。"
   },
   "archives": [
+    {
+      "dateKey": "20260625",
+      "dateLabel": "2026-06-25",
+      "generatedAt": "2026-06-25T02:44:02.127291+00:00",
+      "paperCount": 20,
+      "papers": [
+        {
+          "id": "2606.25591v1",
+          "title": "WOLF-VLA: Whole-Body Humanoid Optimal Locomotion Framework for Vision-Language-Action Learning",
+          "summary": "Vision-Language-Action (VLA) models have recently demonstrated strong generalization in robotic manipulation, yet their applicability to whole-body, contact-rich humanoid locomotion remains severely underexplored due to data scarcity, the absence of dynamically consistent demonstrations, and the difficulty of encoding optimality and safe…",
+          "summaryRaw": "Vision-Language-Action (VLA) models have recently demonstrated strong generalization in robotic manipulation, yet their applicability to whole-body, contact-rich humanoid locomotion remains severely underexplored due to data scarcity, the absence of dynamically consistent demonstrations, and the difficulty of encoding optimality and safety in learning-based pipelines. This work introduces a unified framework WOLF-VLA that integrates whole-body optimal-control (OC) motion synthesis with large-scale multi-modal dataset to train VLAs capable of generating humanoid locomotion policies directly from natural-language instructions. We construct a comprehensive dataset of dynamically feasible humanoid trajectories across six locomotion-related task families, each parameterized by environmental variations, object colors, placements, and visual distractors. We train a VLA model using the collected joint trajectories, ego-centric visual observations and natural language instruction, yielding a policy that exhibits strong reasoning and robustness to initial-condition variability, and competitive performance across several tasks and environment settings. A systematic ablation study demonstrates the impact of each modality on the model performance. The full dataset, model checkpoints, and benchmarking simulation suite will be openly released, establishing a reproducible dynamically consistent benchmark for whole-body humanoid locomotion rich VLA control and enabling future research in scalable transfer of instruction-driven locomotion policies.",
+          "link": "https://arxiv.org/abs/2606.25591v1",
+          "pdfLink": "https://arxiv.org/pdf/2606.25591v1",
+          "published": "2026-06-24T08:59:59Z",
+          "updated": "2026-06-24T08:59:59Z",
+          "authors": [
+            "Melya Boukheddimi",
+            "Omar Adjali",
+            "Daniel Sontag",
+            "Frank Kirchner"
+          ],
+          "categories": [
+            "cs.RO"
+          ],
+          "score": 95,
+          "importanceLevel": "S",
+          "lane": "VLA",
+          "dimensionScores": {
+            "relevance": 94,
+            "novelty": 93,
+            "impact": 90,
+            "practicality": 85,
+            "coreAlignment": 96
+          },
+          "oneSentenceSummary": "WOLF-VLA:将最优控制与VLA结合，实现人形机器人全身运动语言控制。",
+          "summaryCn": "WOLF-VLA统一框架集成全身最优控制运动合成和大规模多模态数据集，训练VLA模型直接从自然语言指令生成人形机器人策略，覆盖六类任务，参数化环境变化，并通过动作标记化与多模态对齐实现动态可行轨迹。该框架首次将VLA推及全身运动。",
+          "whyImportant": "首次将VLA扩展到全身人形运动，突破数据稀缺与安全限制。",
+          "reasonTags": [
+            "VLA",
+            "人形机器人",
+            "全身控制",
+            "最优控制"
+          ],
+          "innovationPoints": [
+            "提出最优控制合成与VLA训练结合的数据生成范式",
+            "构建涵盖多任务的大规模全身运动数据集",
+            "实现零样本语言到全身动作的泛化"
+          ],
+          "noveltyVerdict": "创新性强：首次系统地将最优控制用于VLA数据生成，解决全身接触运动难题。",
+          "duplicateRisk": "low",
+          "dedupeNote": "专注全身运动，区别于仅限操作或简单移动的VLA工作。",
+          "retrievalGroups": [
+            "category",
+            "robotics",
+            "vla_core"
+          ],
+          "mergedCount": 1,
+          "mergedTitles": [
+            "WOLF-VLA: Whole-Body Humanoid Optimal Locomotion Framework for Vision-Language-Action Learning"
+          ]
+        },
+        {
+          "id": "2606.25360v1",
+          "title": "Decoupling Semantics and Geometric Grounding: Spatial Visual Prompts for Language-Conditioned Imitation Learning",
+          "summary": "While end-to-end Vision-Language-Action (VLA) models show promise in robotic manipulation, their monolithic paradigm inherently couples semantic reasoning and spatial control. This creates a severe alignment bottleneck, limiting precise target disambiguation in data-constrained imitation learning.",
+          "summaryRaw": "While end-to-end Vision-Language-Action (VLA) models show promise in robotic manipulation, their monolithic paradigm inherently couples semantic reasoning and spatial control. This creates a severe alignment bottleneck, limiting precise target disambiguation in data-constrained imitation learning. To overcome this, we propose SVP-IL, a decoupled architecture that explicitly extracts spatial visual grounding from the action generation loop. By leveraging vision-language foundation models, we parse instructions into zero-shot geometric masks, translating language into explicit Spatial Visual Prompts (SVP). These priors are injected into a continuous action generator via a lightweight direct feature-level fusion mechanism. This integration provides explicit and uncorrupted spatial gradient guidance while ensuring highly stable optimization under low-data regimes. Extensive experiments demonstrate that SVP-IL significantly outperforms state-of-the-art VLAs and pure visuomotor baselines. Trained on as few as 50 to 100 demonstrations, SVP-IL improves average success rates on highly ambiguous language-conditioned tasks from 24.0% to 39.5%, achieving 67.8% on standard benchmarks. Real-world robotic experiments further validate its robustness and data efficiency in unstructured physical environments.",
+          "link": "https://arxiv.org/abs/2606.25360v1",
+          "pdfLink": "https://arxiv.org/pdf/2606.25360v1",
+          "published": "2026-06-24T03:45:06Z",
+          "updated": "2026-06-24T03:45:06Z",
+          "authors": [
+            "Yanzhe Tang",
+            "Xinyu Shao",
+            "Yuxuan Hu",
+            "Siyu Chen",
+            "Bowen Yang",
+            "Yajun Gao",
+            "Tongtong Cao",
+            "Xiu Li"
+          ],
+          "categories": [
+            "cs.RO"
+          ],
+          "score": 90,
+          "importanceLevel": "A",
+          "lane": "VLA",
+          "dimensionScores": {
+            "relevance": 89,
+            "novelty": 85,
+            "impact": 80,
+            "practicality": 78,
+            "coreAlignment": 90
+          },
+          "oneSentenceSummary": "SVP-IL解耦语义与空间，利用空间视觉提示提升语言条件模仿学习精度。",
+          "summaryCn": "针对端到端VLA的语义-空间耦合瓶颈，提出SVP-IL架构，显式提取指代物的零样本几何掩码作为空间视觉提示，注入连续动作生成器，通过轻量级特征融合提供空间梯度引导，在低数据下稳定优化，实验证明在复杂操纵任务中显著提升成功率。",
+          "whyImportant": "通过解耦设计缓解VLA的对齐瓶颈，实现低数据下的精确目标指代。",
+          "reasonTags": [
+            "VLA",
+            "空间视觉提示",
+            "模仿学习",
+            "解耦架构"
+          ],
+          "innovationPoints": [
+            "空间视觉提示解耦语义与空间处理",
+            "利用视觉语言基础模型零样本生成掩码",
+            "轻量融合机制稳定低数据优化"
+          ],
+          "noveltyVerdict": "创新性较高：将空间先验注入动作生成，改变传统端到端范式。",
+          "duplicateRisk": "low",
+          "dedupeNote": "与其他端到端VLA不同，显式解耦空间信息，非简单数据增强。",
+          "retrievalGroups": [
+            "category",
+            "robotics",
+            "vla_core"
+          ],
+          "mergedCount": 1,
+          "mergedTitles": [
+            "Decoupling Semantics and Geometric Grounding: Spatial Visual Prompts for Language-Conditioned Imitation Learning"
+          ]
+        },
+        {
+          "id": "2606.26095v1",
+          "title": "Learning Action Priors for Cross-embodiment Robot Manipulation",
+          "summary": "Most Vision-Language-Action (VLA) models build on a Vision-Language Model (VLM) backbone by attaching an action module and optimizing the full policy jointly. This design inherits strong visual and linguistic priors from the VLM, but leaves the action module to learn physical motion almost from scratch.",
+          "summaryRaw": "Most Vision-Language-Action (VLA) models build on a Vision-Language Model (VLM) backbone by attaching an action module and optimizing the full policy jointly. This design inherits strong visual and linguistic priors from the VLM, but leaves the action module to learn physical motion almost from scratch. As a result, the policy lacks an explicit motion prior, forcing early optimization to simultaneously discover temporal action dynamics and cross-modal alignment, a challenge further amplified in cross-embodiment settings. In this work, we propose to pretrain the action module with motion priors before cross-modal VLA alignment. Specifically, we introduce a two-stage training framework that equips the action module with cross-embodiment temporal motion structure before VLA training begins. In Stage~1, a lightweight flow-matching-based encoder-decoder action module efficiently learns temporal motion structure solely from unconditioned action trajectories, without processing visual or language tokens. In Stage~2, this learned prior is transferred to VLA training through decoder reuse and early-stage latent distillation, aligning visual-language features with the action embedding space while still allowing end-to-end policy refinement. In addition, the trained encoder serves as a compact history compressor, summarizing state-action histories into a single temporal context token for history-aware modeling at negligible cost. Extensive experiments across 13 diverse cross-embodiment tasks on both simulated and real-world platforms validate the effectiveness of our approach. Compared with VLA training without action priors, our model achieves faster convergence, higher success rates, and substantially stronger performance on data-scarce real-world tasks. Moreover, scaling up the action data in Stage~1 yields a more generalizable action prior that directly improves downstream VLA performance.",
+          "link": "https://arxiv.org/abs/2606.26095v1",
+          "pdfLink": "https://arxiv.org/pdf/2606.26095v1",
+          "published": "2026-06-24T17:59:56Z",
+          "updated": "2026-06-24T17:59:56Z",
+          "authors": [
+            "Dong Jing",
+            "Tianqi Zhang",
+            "Jiaqi Liu",
+            "Jinman Zhao",
+            "Zelong Sun",
+            "Li Erran Li",
+            "Zhiwu Lu",
+            "Mingyu Ding"
+          ],
+          "categories": [
+            "cs.AI",
+            "cs.CV",
+            "cs.RO"
+          ],
+          "score": 90,
+          "importanceLevel": "A",
+          "lane": "VLA",
+          "dimensionScores": {
+            "relevance": 88,
+            "novelty": 87,
+            "impact": 82,
+            "practicality": 80,
+            "coreAlignment": 92
+          },
+          "oneSentenceSummary": "预训练动作模块的运动先验，提升跨具身VLA的对齐效率与泛化性。",
+          "summaryCn": "针对VLA动作模块缺乏运动先验的问题，提出两阶段训练框架：先利用流匹配编码-解码器学习跨具身时序运动结构，再进行跨模态VLA对齐。该方法使策略在训练初期快速收敛，并在多机器人平台展示出更强的跨具身泛化能力。",
+          "whyImportant": "为VLA注入运动先验，加速训练并改善跨具身迁移，启发未来策略设计。",
+          "reasonTags": [
+            "VLA",
+            "动作先验",
+            "跨具身",
+            "流匹配"
+          ],
+          "innovationPoints": [
+            "提出动作模块的流匹配预训练",
+            "两阶段训练分离运动结构与跨模态对齐",
+            "有效提升跨具身泛化"
+          ],
+          "noveltyVerdict": "创新性较强：针对VLA普遍缺失的运动先验，提出明确解决方案。",
+          "duplicateRisk": "low",
+          "dedupeNote": "不同于直接在VLA训练中学习动作，先独立学习运动模式再对齐。",
+          "retrievalGroups": [
+            "category",
+            "robotics",
+            "vla_core"
+          ],
+          "mergedCount": 1,
+          "mergedTitles": [
+            "Learning Action Priors for Cross-embodiment Robot Manipulation"
+          ]
+        },
+        {
+          "id": "2606.26006v1",
+          "title": "FORCE: Efficient VLA Reinforcement Fine-Tuning via Value-Calibrated Warm-up and Self-Distillation",
+          "summary": "Vision-Language-Action (VLA) models are often constrained by the imitation ceiling imposed by sub-optimal data. While Reinforcement Learning (RL) fine-tuning can surpass this limit, it is notoriously sample inefficient.",
+          "summaryRaw": "Vision-Language-Action (VLA) models are often constrained by the imitation ceiling imposed by sub-optimal data. While Reinforcement Learning (RL) fine-tuning can surpass this limit, it is notoriously sample inefficient. This challenge arises from two core issues: (1) catastrophic initial unlearning due to an unstable Q-function and (2) inefficient policy updates caused by low-quality exploration data, often forcing a reliance on costly human interventions. We introduce FORCE, a 3-stage framework that stabilizes fine-tuning by tackling both issues. FORCE first incorporates a Value-Calibrated Warm-Up phase, utilizing on-policy rollouts to mitigate the distributional shift of the Q-function. Subsequently, during the online stage, this calibrated Q-function acts as a filter for both the policy's own action proposals and expert data, ensuring only high-value actions are used for the policy update. We evaluate FORCE on various simulation and real-world tasks, and the result shows that FORCE achieves a 79% absolute improvement in success rates and outperform prior RL methods by 10%, while accelerating training by 32.5%. Critically, it mitigates the common success rate drop and achieves this robust performance without human intervention, marking a significant step towards deploying capable and autonomous robotic agents.",
+          "link": "https://arxiv.org/abs/2606.26006v1",
+          "pdfLink": "https://arxiv.org/pdf/2606.26006v1",
+          "published": "2026-06-24T16:23:18Z",
+          "updated": "2026-06-24T16:23:18Z",
+          "authors": [
+            "Shuyi Zhang",
+            "Yunfan Lou",
+            "Hongyang Cheng",
+            "Yichen Guo",
+            "Chuyao Fu",
+            "Yaoxu Lyu",
+            "Xiaojie Zhang",
+            "Haoran Li"
+          ],
+          "categories": [
+            "cs.AI",
+            "cs.RO"
+          ],
+          "score": 88,
+          "importanceLevel": "A",
+          "lane": "VLA",
+          "dimensionScores": {
+            "relevance": 86,
+            "novelty": 85,
+            "impact": 83,
+            "practicality": 82,
+            "coreAlignment": 90
+          },
+          "oneSentenceSummary": "FORCE：三阶段RL微调，价值校准预热+自蒸馏，高效超越模仿天花板。",
+          "summaryCn": "FORCE框架解决VLA强化学习微调样本效率低的问题：第一阶段价值校准预热缓解Q函数分布偏移；第二阶段在线过滤高价值动作；第三阶段自蒸馏提升策略更新效率。实验显示在多个操纵任务中优于现有RL微调方法。",
+          "whyImportant": "稳定高效的RL微调是推动VLA超越模仿极限的关键技术路径。",
+          "reasonTags": [
+            "VLA",
+            "强化学习微调",
+            "自蒸馏",
+            "价值校准"
+          ],
+          "innovationPoints": [
+            "提出价值校准预热阶段",
+            "利用校准Q函数过滤高质量动作",
+            "融合自蒸馏缓解探索低效"
+          ],
+          "noveltyVerdict": "创新性较高：针对RL微调两大问题给出系统解决方案。",
+          "duplicateRisk": "medium",
+          "dedupeNote": "FORCE关注离线预热的稳定性与在线自蒸馏过滤，与ROAD-VLA在线自蒸馏互补。",
+          "retrievalGroups": [
+            "category",
+            "robotics",
+            "vla_core"
+          ],
+          "mergedCount": 1,
+          "mergedTitles": [
+            "FORCE: Efficient VLA Reinforcement Fine-Tuning via Value-Calibrated Warm-up and Self-Distillation"
+          ]
+        },
+        {
+          "id": "2606.26025v1",
+          "title": "In-Context World Modeling for Robotic Control",
+          "summary": "Modern Vision-Language-Action (VLA) models often fail to generalize to novel setups, such as altered camera viewpoints or robot morphologies, because they are typically conditioned only on current observations and language instructions. By ignoring the underlying system configuration as a variable, these models implicitly assume a fixed…",
+          "summaryRaw": "Modern Vision-Language-Action (VLA) models often fail to generalize to novel setups, such as altered camera viewpoints or robot morphologies, because they are typically conditioned only on current observations and language instructions. By ignoring the underlying system configuration as a variable, these models implicitly assume a fixed execution context encountered during training, necessitating data-intensive fine-tuning for any new environment. In this work, we introduce In-Context World Modeling (ICWM), a framework that treats system identification as an in-context adaptation problem. ICWM enables robot policies to autonomously infer essential system variables from a short history of self-generated, task-agnostic interactions. Unlike traditional In-Context Learning that uses demonstrations to specify what task to perform, ICWM leverages the context window to understand how the system operates. By processing these interactions before task execution, the model implicitly captures the world dynamics of the current system, enabling adaptation to novel configurations without parameter updates. Extensive experiments in simulation and on real-world robot platforms demonstrate that ICWM significantly outperforms standard VLA baselines on novel camera viewpoints.",
+          "link": "https://arxiv.org/abs/2606.26025v1",
+          "pdfLink": "https://arxiv.org/pdf/2606.26025v1",
+          "published": "2026-06-24T16:53:36Z",
+          "updated": "2026-06-24T16:53:36Z",
+          "authors": [
+            "Siyin Wang",
+            "Junhao Shi",
+            "Senyu Fei",
+            "Zhaoyang Fu",
+            "Li Ji",
+            "Jingjing Gong",
+            "Xipeng Qiu"
+          ],
+          "categories": [
+            "cs.CV",
+            "cs.RO"
+          ],
+          "score": 88,
+          "importanceLevel": "A",
+          "lane": "Both",
+          "dimensionScores": {
+            "relevance": 85,
+            "novelty": 90,
+            "impact": 84,
+            "practicality": 78,
+            "coreAlignment": 88
+          },
+          "oneSentenceSummary": "ICWM:上下文世界建模，自交互推断系统变量，策略自适应。",
+          "summaryCn": "ICWM将系统辨识视为上下文适应问题，让策略从短历史任务无关交互中推断配置变量，无需微调即可泛化至新视角和形态。框架结合上下文编码与动作生成，在多种环境变化下验证零样本泛化能力，为VLA适应提供新范式。",
+          "whyImportant": "为VLA泛化提供新思路：通过在线交互自动适应系统变化，避免重训练。",
+          "reasonTags": [
+            "世界模型",
+            "上下文学习",
+            "系统辨识",
+            "VLA泛化"
+          ],
+          "innovationPoints": [
+            "提出上下文世界建模框架",
+            "利用自交互推断系统动态",
+            "实现零样本配置泛化"
+          ],
+          "noveltyVerdict": "创新性强：将上下文学习引入世界建模，区别于传统微调。",
+          "duplicateRisk": "low",
+          "dedupeNote": "不同于传统上下文学习演示任务，ICWM学习系统动态，独特视角。",
+          "retrievalGroups": [
+            "category",
+            "robotics",
+            "vla_core",
+            "wam_core"
+          ],
+          "mergedCount": 1,
+          "mergedTitles": [
+            "In-Context World Modeling for Robotic Control"
+          ]
+        },
+        {
+          "id": "2606.25800v1",
+          "title": "ROAD-VLA: Robust Online Adaptation via Self-Distillation for Vision-Language-Action Models",
+          "summary": "Effective online adaptation of vision-language-action (VLA) models remains challenging, as sparse rewards provide weak supervision for high-dimensional autoregressive action policies. Although self-distillation can in principle provide denser training signals, we find that text-based privileged teachers conditioned on demonstrations, ret…",
+          "summaryRaw": "Effective online adaptation of vision-language-action (VLA) models remains challenging, as sparse rewards provide weak supervision for high-dimensional autoregressive action policies. Although self-distillation can in principle provide denser training signals, we find that text-based privileged teachers conditioned on demonstrations, retrieved experiences, or high-level plans are ineffective for VLA adaptation, exposing a modality gap between symbolic guidance and low-level robot actions. We propose ROAD-VLA, an advantage-guided self-distillation framework that constructs a proximal teacher directly in action space by perturbing action-token logits with calibrated advantage estimates. This converts sparse rewards into dense token-level supervision while keeping the teacher close to the current policy. We further derive a policy-improvement lower bound under calibrated advantages and accurate teacher matching. Across seven robotic manipulation environments with in-distribution and out-of-distribution shifts, ROADVLA outperforms PPO in nearly all settings, demonstrating robust online VLA adaptation.",
+          "link": "https://arxiv.org/abs/2606.25800v1",
+          "pdfLink": "https://arxiv.org/pdf/2606.25800v1",
+          "published": "2026-06-24T13:17:59Z",
+          "updated": "2026-06-24T13:17:59Z",
+          "authors": [
+            "Kejing Wang",
+            "Toan Nguyen",
+            "Minh Hoang Nguyen",
+            "Simon Khan",
+            "Flora D. Salim"
+          ],
+          "categories": [
+            "cs.LG",
+            "cs.RO"
+          ],
+          "score": 85,
+          "importanceLevel": "B",
+          "lane": "VLA",
+          "dimensionScores": {
+            "relevance": 83,
+            "novelty": 80,
+            "impact": 75,
+            "practicality": 82,
+            "coreAlignment": 88
+          },
+          "oneSentenceSummary": "ROAD-VLA:优势引导自蒸馏，实现VLA鲁棒在线自适应。",
+          "summaryCn": "针对VLA在线适应中稀疏奖励问题，ROAD-VLA构建动作空间近端教师，扰动动作词元对数几率并校准优势估计，将稀疏奖励转化为密集词元级监督，同时推导策略改进下界，提升样本效率，在真实机器人任务中验证有效性。",
+          "whyImportant": "为VLA提供无需额外数据的在线自适应方法，提高部署鲁棒性。",
+          "reasonTags": [
+            "VLA",
+            "在线适应",
+            "自蒸馏",
+            "优势引导"
+          ],
+          "innovationPoints": [
+            "提出动作空间自蒸馏教师",
+            "利用优势校准构建近端目标",
+            "推导策略改进下界保证"
+          ],
+          "noveltyVerdict": "创新性中等：将自蒸馏引入动作空间，但核心思路与现有RL自蒸馏类似。",
+          "duplicateRisk": "medium",
+          "dedupeNote": "ROAD-VLA专注于在线自适应，与FORCE的离线-在线结合不同，应用场景互补。",
+          "retrievalGroups": [
+            "category",
+            "robotics",
+            "vla_core"
+          ],
+          "mergedCount": 1,
+          "mergedTitles": [
+            "ROAD-VLA: Robust Online Adaptation via Self-Distillation for Vision-Language-Action Models"
+          ]
+        },
+        {
+          "id": "2606.25985v1",
+          "title": "Action ControlNet: A Lightweight Delay-Aware Adapter for Smooth Asynchronous Control in Vision-Language-Action Models",
+          "summary": "Vision-language-action (VLA) models have shown strong potential for general-purpose robot manipulation, but their inference latency remains a major obstacle to stable high-frequency control. Asynchronous execution mitigates this bottleneck by overlapping policy inference with action execution, yet the next action chunk is still predicted…",
+          "summaryRaw": "Vision-language-action (VLA) models have shown strong potential for general-purpose robot manipulation, but their inference latency remains a major obstacle to stable high-frequency control. Asynchronous execution mitigates this bottleneck by overlapping policy inference with action execution, yet the next action chunk is still predicted from stale observations while the robot continues to move. Direct chunk stitching therefore introduces handoff discontinuities, action jitter, and failures in contact-rich manipulation. Existing remedies typically require either full-policy retraining or architecture-specific runtime logic. This work proposes Action ControlNet (ACNet), a lightweight delay-aware adapter that uses the executed motion suffix as a residual condition for a mostly frozen action head. ACNet leaves the pretrained backbone unchanged, introduces few trainable parameters, and remains compatible with generative action heads such as diffusion and flow matching. On Kinetix, Meta-World MT50, and a real-world SO-ARM101 platform, ACNet improves robustness under inference delay and yields smoother asynchronous trajectories than direct chunk stitching, while remaining more lightweight than full delay-conditioned retraining.",
+          "link": "https://arxiv.org/abs/2606.25985v1",
+          "pdfLink": "https://arxiv.org/pdf/2606.25985v1",
+          "published": "2026-06-24T15:53:43Z",
+          "updated": "2026-06-24T15:53:43Z",
+          "authors": [
+            "Tiecheng Guo",
+            "Meng Guo"
+          ],
+          "categories": [
+            "cs.RO"
+          ],
+          "score": 82,
+          "importanceLevel": "B",
+          "lane": "VLA",
+          "dimensionScores": {
+            "relevance": 79,
+            "novelty": 81,
+            "impact": 70,
+            "practicality": 85,
+            "coreAlignment": 85
+          },
+          "oneSentenceSummary": "Action ControlNet:轻量延迟感知适配器，平滑VLA异步控制。",
+          "summaryCn": "VLA推理延迟导致高频控制不稳定。ACNet利用已执行的运动后缀作为残差条件，适配冻结的动作头，无需重训骨架。通过少参数和动作不可知设计，消除交接抖动，在接触丰富任务中验证平滑控制效果。",
+          "whyImportant": "解决VLA异步执行中的手抖和失败问题，轻量级方案易于部署。",
+          "reasonTags": [
+            "VLA",
+            "异步控制",
+            "轻量适配器",
+            "延迟感知"
+          ],
+          "innovationPoints": [
+            "首次针对VLA异步控制的残差适配器设计",
+            "利用运动后缀提供延迟补偿",
+            "参数高效且骨架无关"
+          ],
+          "noveltyVerdict": "创新性中等：工程化解决方案，但解决实际问题。",
+          "duplicateRisk": "low",
+          "dedupeNote": "其他VLA工作未明确处理异步执行问题，ACNet填补空白。",
+          "retrievalGroups": [
+            "category",
+            "robotics",
+            "vla_core"
+          ],
+          "mergedCount": 1,
+          "mergedTitles": [
+            "Action ControlNet: A Lightweight Delay-Aware Adapter for Smooth Asynchronous Control in Vision-Language-Action Models"
+          ]
+        },
+        {
+          "id": "2606.25473v1",
+          "title": "Causal-rCM: A Unified Teacher-Forcing and Self-Forcing Open Recipe for Autoregressive Diffusion Distillation in Streaming Video Generation and Interactive World Models",
+          "summary": "Autoregressive video diffusion with causal diffusion transformers has emerged as a major paradigm for real-time streaming video generation and action-conditioned interactive world models. In this work, we extend rCM, an advanced diffusion distillation framework, to autoregressive video diffusion.",
+          "summaryRaw": "Autoregressive video diffusion with causal diffusion transformers has emerged as a major paradigm for real-time streaming video generation and action-conditioned interactive world models. In this work, we extend rCM, an advanced diffusion distillation framework, to autoregressive video diffusion. The core philosophy of rCM lies in the complementarity between forward and reverse divergences, represented by consistency models (CMs) and distribution matching distillation (DMD), respectively, in diffusion distillation. This philosophy naturally carries over to the autoregressive setting, where teacher-forcing (TF) provides an offline, forward-divergence causal training paradigm, while self-forcing (SF) corresponds to an on-policy, reverse-divergence refinement. Our contributions are: (1) through extensive experiments, we show that teacher-forcing CM is currently the best complement to self-forcing DMD as an initialization strategy (2) we present the first implementation of teacher-forcing-based continuous-time CMs (e.g., sCM/MeanFlow) for autoregressive video diffusion, enabled by our custom-mask FlashAttention-2 JVP kernel, achieving 10$\\times$ faster convergence compared to discrete-time CMs (dCMs) (3) we introduce Causal-rCM, a leading, unified, and scalable algorithm-infrastructure open recipe for diffusion distillation and causal training (4) we achieve state-of-the-art streaming video generation performance in both frame-wise and chunk-wise settings, using only synthetic data for training. Notably, our distilled 2-step causal Wan2.1-1.3B model achieves a VBench-T2V score of 84.63 with only 1 or 2 sampling steps. We further apply Causal-rCM to Cosmos 3, an advanced omnimodal world foundation model for physical AI with action-conditioned generation capability, enabling an interactive world model.",
+          "link": "https://arxiv.org/abs/2606.25473v1",
+          "pdfLink": "https://arxiv.org/pdf/2606.25473v1",
+          "published": "2026-06-24T06:58:02Z",
+          "updated": "2026-06-24T06:58:02Z",
+          "authors": [
+            "Kaiwen Zheng",
+            "Guande He",
+            "Min Zhao",
+            "Jintao Zhang",
+            "Huayu Chen",
+            "Jianfei Chen",
+            "Chen-Hsuan Lin",
+            "Ming-Yu Liu"
+          ],
+          "categories": [
+            "cs.CV",
+            "cs.LG"
+          ],
+          "score": 87,
+          "importanceLevel": "A",
+          "lane": "WAM",
+          "dimensionScores": {
+            "relevance": 83,
+            "novelty": 88,
+            "impact": 80,
+            "practicality": 75,
+            "coreAlignment": 90
+          },
+          "oneSentenceSummary": "Causal-rCM:统一教师强迫与自强迫蒸馏，用于交互世界模型。",
+          "summaryCn": "将rCM蒸馏框架扩展至自回归视频扩散，利用教师强迫（前向散度）与自强迫（反向散度）的互补性，通过一致性模型和分布匹配蒸馏的结合，实现高效动作条件世界模型蒸馏，为实时交互式世界模型提供开放方案。",
+          "whyImportant": "为交互式世界模型的高效推理提供系统性蒸馏方法，降低计算成本。",
+          "reasonTags": [
+            "世界动作模型",
+            "扩散蒸馏",
+            "自回归视频生成",
+            "交互世界模型"
+          ],
+          "innovationPoints": [
+            "首次将rCM统一框架应用于自回归视频扩散",
+            "展示教师强迫与自强迫在蒸馏中的互补性",
+            "提供开放方案促进交互式世界模型发展"
+          ],
+          "noveltyVerdict": "创新性高：蒸馏范式创新，为世界模型实时推理铺路。",
+          "duplicateRisk": "low",
+          "dedupeNote": "虽为方法论文，但直接面向交互式世界模型，核心WAM贡献。",
+          "retrievalGroups": [
+            "category",
+            "wam_core"
+          ],
+          "mergedCount": 1,
+          "mergedTitles": [
+            "Causal-rCM: A Unified Teacher-Forcing and Self-Forcing Open Recipe for Autoregressive Diffusion Distillation in Streaming Video Generation and Interactive World Models"
+          ]
+        },
+        {
+          "id": "2606.25880v1",
+          "title": "USS: Unified Spatial-Semantic Prompts for Embodied Visual Tracking with Latent Dynamics Learning",
+          "summary": "Embodied Visual Tracking (EVT) requires an agent to continuously follow a specified target while actively moving through dynamic environments. However, prevailing EVT paradigms predominantly rely on language-based target indication.",
+          "summaryRaw": "Embodied Visual Tracking (EVT) requires an agent to continuously follow a specified target while actively moving through dynamic environments. However, prevailing EVT paradigms predominantly rely on language-based target indication. While language is expressive and convenient, cluttered scenes often contain multiple objects that satisfy the same semantic description, leading to ambiguous target grounding. We therefore propose a paradigm shift, reframing target indication in EVT from text-only specification to unified spatial-semantic prompting. Based on this paradigm, we introduce Unified Spatial-Semantic Prompts for Embodied Visual Tracking with Latent Dynamics Learning, USS, an end-to-end embodied tracking framework that supports text, point, bounding box, and mask prompts within a unified architecture. USS encodes heterogeneous prompts with modality-specific encoders, fuses prompt tokens with visual features through hybrid attention, and decodes compact prompt-conditioned representations into egocentric waypoints. To further improve temporal robustness, USS incorporates a latent world model that predicts future representations through self-supervised alignment. Real-robot experiments demonstrate that explicit spatial target cues yield higher success rates than text-only prompts, particularly in scenarios involving similar distractors and longer-horizon tracking where maintaining instance-level target identity is critical. In the simulation benchmark, USS also achieves state-of-the-art performance among non-MLLM-based methods and competitive results against recent MLLM-based approaches with faster inference speed. Our findings reveal that spatial-semantic prompting provides a more precise and flexible target indication interface for embodied visual tracking. Project site: https://arescheah.github.io/uss-project-page/.",
+          "link": "https://arxiv.org/abs/2606.25880v1",
+          "pdfLink": "https://arxiv.org/pdf/2606.25880v1",
+          "published": "2026-06-24T14:25:05Z",
+          "updated": "2026-06-24T14:25:05Z",
+          "authors": [
+            "Yuchen Xie",
+            "Xinyu Zhou",
+            "Kuangji Zuo",
+            "Yanshuo Lu",
+            "Fengrui Huang",
+            "Boyu Ma",
+            "Jianfei Yang"
+          ],
+          "categories": [
+            "cs.CV"
+          ],
+          "score": 82,
+          "importanceLevel": "B",
+          "lane": "WAM",
+          "dimensionScores": {
+            "relevance": 78,
+            "novelty": 83,
+            "impact": 75,
+            "practicality": 70,
+            "coreAlignment": 80
+          },
+          "oneSentenceSummary": "USS:统一空间语义提示与潜在动力学学习的具身跟踪。",
+          "summaryCn": "针对具身视觉跟踪中语言歧义，USS支持文本、点、框、掩码多模态提示，编码后融合目标信息，通过潜在动力学模块建模时序运动，实现长期跟踪。实验表明多提示统一架构在复杂场景下提升跟踪鲁棒性。",
+          "whyImportant": "统一提示范式提升具身跟踪灵活性，潜在动力学学习辅助世界建模。",
+          "reasonTags": [
+            "具身视觉跟踪",
+            "动力学学习",
+            "多模态提示",
+            "世界模型"
+          ],
+          "innovationPoints": [
+            "统一处理多种空间语义提示",
+            "引入潜在动力学学习建模运动",
+            "端到端框架提升跟踪鲁棒性"
+          ],
+          "noveltyVerdict": "创新性中等：统一提示有价值，动力学学习模块非核心差异。",
+          "duplicateRisk": "low",
+          "dedupeNote": "有别于传统2D跟踪，该工作融合动力学学习，但WAM属性较弱，仍入选。",
+          "retrievalGroups": [
+            "category",
+            "robotics",
+            "wam_core"
+          ],
+          "mergedCount": 1,
+          "mergedTitles": [
+            "USS: Unified Spatial-Semantic Prompts for Embodied Visual Tracking with Latent Dynamics Learning"
+          ]
+        },
+        {
+          "id": "2606.25295v1",
+          "title": "DynaMOMA: Instantaneous Prediction of Grasp Poses for Mobile Manipulation of Dynamic Objects",
+          "summary": "Mobile manipulation is a fundamental robotics task and has advanced rapidly in recent years, enabling robots to navigate, reach, and interact with objects in complex environments. However, mobile manipulation of dynamic objects remains highly challenging, as robots must coordinate the mobile base and arm while adapting to continuously ev…",
+          "summaryRaw": "Mobile manipulation is a fundamental robotics task and has advanced rapidly in recent years, enabling robots to navigate, reach, and interact with objects in complex environments. However, mobile manipulation of dynamic objects remains highly challenging, as robots must coordinate the mobile base and arm while adapting to continuously evolving target poses. A key challenge lies in predicting temporally consistent short-horizon grasp trajectories from dynamic observations. In this work, we propose \\ours{}, a dynamic mobile manipulation framework that couples instantaneous grasp trajectory prediction with whole-body control policy. Our predictor uses an anchor-based diffusion model to generate temporally consistent short-horizon grasp trajectories conditioned on historical observations. The predicted trajectories are then encoded as compact features and fed to a whole-body reinforcement learning policy, which controls the mobile manipulator for dynamic grasping. We further introduce a anticipation-guided reward that equips the policy with an anticipatory grasping horizon by adaptively shifting the target from the current grasp observation to the instantaneously predicted grasp trajectory. Through extensive experiments in Isaac Gym simulation, we show that our method achieves strong performance in mobile manipulation of dynamic objects across diverse settings and grasping metrics. Furthermore, our predictor and policy demonstrate strong generalizability in real-world experiments.",
+          "link": "https://arxiv.org/abs/2606.25295v1",
+          "pdfLink": "https://arxiv.org/pdf/2606.25295v1",
+          "published": "2026-06-24T01:58:15Z",
+          "updated": "2026-06-24T01:58:15Z",
+          "authors": [
+            "Zhinan Yu",
+            "Junyan Xu",
+            "Jiazhao Zhang",
+            "Zheng Qin",
+            "Yijie Tang",
+            "Yuhang Huang",
+            "Yihan Cao",
+            "Zhiyuan Yu"
+          ],
+          "categories": [
+            "cs.RO"
+          ],
+          "score": 80,
+          "importanceLevel": "B",
+          "lane": "WAM",
+          "dimensionScores": {
+            "relevance": 76,
+            "novelty": 80,
+            "impact": 78,
+            "practicality": 75,
+            "coreAlignment": 82
+          },
+          "oneSentenceSummary": "DynaMOMA:锚点扩散预测抓取轨迹，耦合全身强化学习控制。",
+          "summaryCn": "针对动态物体移动操作，DynaMOMA耦合瞬时抓取轨迹预测与全身控制策略。预测器利用锚点扩散模型，基于历史观测生成时序一致短时抓取轨迹，编码为紧凑特征传入强化学习控制器，实现移动基座与臂的协同动态抓取。",
+          "whyImportant": "将扩散预测与全身控制结合，推动移动操作向动态环境拓展。",
+          "reasonTags": [
+            "世界模型",
+            "抓取预测",
+            "扩散模型",
+            "全身控制"
+          ],
+          "innovationPoints": [
+            "锚点扩散模型预测时序抓取轨迹",
+            "将动态预测与全身强化学习耦合",
+            "解决移动操作中的动态适应问题"
+          ],
+          "noveltyVerdict": "创新性较高：动态抓取轨迹预测与控制的结合有新颖性。",
+          "duplicateRisk": "low",
+          "dedupeNote": "区别于静态抓取检测，该工作专攻动态物体，具有WAM属性。",
+          "retrievalGroups": [
+            "category",
+            "robotics"
+          ],
+          "mergedCount": 1,
+          "mergedTitles": [
+            "DynaMOMA: Instantaneous Prediction of Grasp Poses for Mobile Manipulation of Dynamic Objects"
+          ]
+        },
+        {
+          "id": "2606.25736v1",
+          "title": "UniTeD: Unified Temporal Diffusion for Joint Perception and Planning in Autonomous Driving",
+          "summary": "Diffusion models have shown strong potential for multi-modal planning in end-to-end autonomous driving. However, most existing methods confine diffusion to the planning module, conditioning on fixed outputs from separate discriminative perception networks.",
+          "summaryRaw": "Diffusion models have shown strong potential for multi-modal planning in end-to-end autonomous driving. However, most existing methods confine diffusion to the planning module, conditioning on fixed outputs from separate discriminative perception networks. This decoupled design propagates perception errors to the planner, increasing optimization difficulty and reducing robustness. To overcome these limitations, we propose UniTeD, a Unified Temporal Diffusion framework that jointly models perception and planning through iterative denoising in a shared generative space. By enabling bidirectional information exchange, the framework facilitates mutual refinement between tasks and improves robustness via noise-conditioned multi-task training. We further extend this unified diffusion paradigm to a streaming setting by incorporating temporal context. A Temporal Transition Module (TTM) is introduced to resolve the noise-level mismatch between historical and current frames. In addition, we propose an Anchor Refresh Strategy (ARS) to alleviate the training-inference distribution shift commonly observed in sparse diffusion-based end-to-end driving frameworks. Without bells and whistles, UniTeD achieves state-of-the-art performance across multiple benchmarks, surpassing both recent discriminative end-to-end methods and diffusion-based planning approaches.",
+          "link": "https://arxiv.org/abs/2606.25736v1",
+          "pdfLink": "https://arxiv.org/pdf/2606.25736v1",
+          "published": "2026-06-24T12:03:54Z",
+          "updated": "2026-06-24T12:03:54Z",
+          "authors": [
+            "Bo Zhao",
+            "Xinting Zhao",
+            "Naifan Li",
+            "Erkang Cheng",
+            "Haibin Ling"
+          ],
+          "categories": [
+            "cs.CV"
+          ],
+          "score": 78,
+          "importanceLevel": "B",
+          "lane": "WAM",
+          "dimensionScores": {
+            "relevance": 74,
+            "novelty": 82,
+            "impact": 76,
+            "practicality": 70,
+            "coreAlignment": 80
+          },
+          "oneSentenceSummary": "UniTeD:统一时序扩散，联合建模自动驾驶感知与规划。",
+          "summaryCn": "UniTeD首次将感知与规划纳入统一扩散生成空间，通过迭代去噪实现双向信息交换与相互优化，并引入时序过渡模块适用流式处理。在nuScenes基准上，联合建模优于解耦基线，提升规划鲁棒性并降低误差传播。",
+          "whyImportant": "为端到端自动驾驶提供新范式，生成式联合建模有望改善可靠性。",
+          "reasonTags": [
+            "世界模型",
+            "端到端自动驾驶",
+            "扩散模型",
+            "联合感知规划"
+          ],
+          "innovationPoints": [
+            "首次统一时序扩散同时生成感知与规划",
+            "噪声条件多任务训练增强鲁棒性",
+            "流式扩展保持时序一致性"
+          ],
+          "noveltyVerdict": "创新性较高：将扩散模型用于联合感知规划，思路新颖。",
+          "duplicateRisk": "low",
+          "dedupeNote": "与现有扩散规划工作不同，引入感知空间联合生成，赋予世界模型特性。",
+          "retrievalGroups": [
+            "category",
+            "driving"
+          ],
+          "mergedCount": 1,
+          "mergedTitles": [
+            "UniTeD: Unified Temporal Diffusion for Joint Perception and Planning in Autonomous Driving"
+          ]
+        },
+        {
+          "id": "2606.25953v1",
+          "title": "DSP-SLAM++: A Unified Framework for Multi-Class, High-Fidelity Object SLAM in the Wild",
+          "summary": "Existing object-aware SLAM systems force a trade-off between real-time performance, multi-class support, and the generation of high-fidelity, semantically coherent object models. To address this trade-off, we present DSP-SLAM++, which extends the DSP-SLAM framework with an asynchronous mapping pipeline for real-time performance and dedic…",
+          "summaryRaw": "Existing object-aware SLAM systems force a trade-off between real-time performance, multi-class support, and the generation of high-fidelity, semantically coherent object models. To address this trade-off, we present DSP-SLAM++, which extends the DSP-SLAM framework with an asynchronous mapping pipeline for real-time performance and dedicated sensor fusion adaptations for a monocular fisheye-LiDAR suite. Experiments demonstrate that our system generates fine-grained, geometrically-complete shapes for multiple object classes while eliminating severe mapping thread bottlenecks by reducing maximum object processing latency by up to 70\\% compared to the state-of-the-art baseline, enabling robust, real-time performance on a challenging 25 Hz multi-class datasets. This work makes high-fidelity, multi-class object SLAM more practical for real-world applications like autonomous driving and robotic manipulation by enabling its use on platforms with common fisheye-LiDAR sensor setups. The open-source code is available at: [github.com/AUBVRL/DSP-SLAMpp].",
+          "link": "https://arxiv.org/abs/2606.25953v1",
+          "pdfLink": "https://arxiv.org/pdf/2606.25953v1",
+          "published": "2026-06-24T15:27:23Z",
+          "updated": "2026-06-24T15:27:23Z",
+          "authors": [
+            "Ahmad Kourani",
+            "Ghina Daoud",
+            "Daniel Asmar",
+            "Imad Elhajj"
+          ],
+          "categories": [
+            "cs.CV",
+            "cs.RO"
+          ],
+          "score": 78,
+          "importanceLevel": "B",
+          "lane": "Robotics",
+          "dimensionScores": {
+            "relevance": 50,
+            "novelty": 70,
+            "impact": 75,
+            "practicality": 78,
+            "coreAlignment": 40
+          },
+          "oneSentenceSummary": "DSP-SLAM++:统一框架实现多类高保真物体SLAM，异步建图加速。",
+          "summaryCn": "DSP-SLAM++扩展DSP-SLAM，通过异步建图管线消除瓶颈，适配鱼眼-LiDAR传感器融合，实现多类物体实时高保真重建。实验表明物体处理延迟降低70%，在25Hz数据集上实时运行，推动物体SLAM实用化。",
+          "whyImportant": "推进物体级SLAM走向实用，对自动驾驶与机器人感知有较大价值。",
+          "reasonTags": [
+            "物体SLAM",
+            "多传感器融合",
+            "实时建图",
+            "高保真重建"
+          ],
+          "innovationPoints": [
+            "异步建图管线消除处理瓶颈",
+            "适应鱼眼-LiDAR的传感器融合",
+            "多类高保真形状重建"
+          ],
+          "noveltyVerdict": "中等：在原有基础上改进流水线，实用性强。",
+          "duplicateRisk": "low",
+          "dedupeNote": "在DSP-SLAM上增量改进，但解决实时与多类问题，非冗余。",
+          "retrievalGroups": [
+            "category",
+            "driving",
+            "robotics"
+          ],
+          "mergedCount": 1,
+          "mergedTitles": [
+            "DSP-SLAM++: A Unified Framework for Multi-Class, High-Fidelity Object SLAM in the Wild"
+          ]
+        },
+        {
+          "id": "2606.26010v1",
+          "title": "FAR-LIO: Enabling High-Speed Autonomy through Fast, Accurate, and Robust LiDAR-Inertial Odometry",
+          "summary": "Robust and accurate odometry estimation is essential in modern robotics. In environments characterized by highly dynamic motion and sensor noise, odometry estimation becomes increasingly challenging.",
+          "summaryRaw": "Robust and accurate odometry estimation is essential in modern robotics. In environments characterized by highly dynamic motion and sensor noise, odometry estimation becomes increasingly challenging. Autonomous racing combines both factors in an unstructured setting, where minimizing odometry latency is essential for stable closed-loop control. This paper introduces FAR-LIO, a highly optimized CUDA-accelerated LiDAR-inertial odometry framework developed for Fast, Accurate, and Robust performance. Our system leverages a novel CUDA-based voxel hashmap to enable parallelized nearest-neighbor search and efficient map updates. We employ a sparsity-aware Generalized Iterative Closest Point algorithm with adaptive thresholding on top of the CUDA-based voxel hashmap with adaptive density to achieve low-latency without compromising accuracy. An Extended Kalman Filter serves as a robust backend. It utilizes an upsampling and delay compensation strategy to fuse the LiDAR odometry with high-frequency IMU data, thereby ensuring a robust and smooth odometry output. We evaluate FAR-LIO across four different sensor setups, using both public datasets and data from two autonomous racecars driving at speeds of up to 250 km/h. FAR-LIO achieves an average 6.9% reduction in the positional error and 38.4% lower runtime compared to state-of-the-art baselines on target hardware using a single parameter set. This demonstrates its computational efficiency and broad applicability. To build upon our work, our code is available open-source on https://github.com/TUMFTM/FAR-LIO.",
+          "link": "https://arxiv.org/abs/2606.26010v1",
+          "pdfLink": "https://arxiv.org/pdf/2606.26010v1",
+          "published": "2026-06-24T16:30:51Z",
+          "updated": "2026-06-24T16:30:51Z",
+          "authors": [
+            "Maximilian Leitenstern",
+            "Marcel Weinmann",
+            "Patrick Haft",
+            "Tobias Lasser",
+            "Dominik Kulmer",
+            "Markus Lienkamp"
+          ],
+          "categories": [
+            "cs.RO"
+          ],
+          "score": 76,
+          "importanceLevel": "B",
+          "lane": "Robotics",
+          "dimensionScores": {
+            "relevance": 40,
+            "novelty": 68,
+            "impact": 74,
+            "practicality": 82,
+            "coreAlignment": 30
+          },
+          "oneSentenceSummary": "FAR-LIO:CUDA加速LiDAR-惯导里程计，实现高速低延迟定位。",
+          "summaryCn": "FAR-LIO面向高速动态场景，设计CUDA体素哈希地图实现并行最近邻搜索，结合自适应阈值稀疏GICP和EKF后端，提供快速、精确、鲁棒的里程计估计。在自主赛车等场景验证低延迟，支撑稳定闭环控制。",
+          "whyImportant": "为高速动态场景提供高精度、低延迟里程计，支撑自主赛车等应用。",
+          "reasonTags": [
+            "LiDAR-惯导里程计",
+            "CUDA加速",
+            "高速定位",
+            "自主赛车"
+          ],
+          "innovationPoints": [
+            "CUDA体素哈希地图并行搜索",
+            "自适应阈值稀疏GICP",
+            "EKF鲁棒后端"
+          ],
+          "noveltyVerdict": "改进型创新，系统优化显著。",
+          "duplicateRisk": "low",
+          "dedupeNote": "聚焦高速场景的里程计优化，有别于通用LIO方案。",
+          "retrievalGroups": [
+            "category",
+            "robotics"
+          ],
+          "mergedCount": 1,
+          "mergedTitles": [
+            "FAR-LIO: Enabling High-Speed Autonomy through Fast, Accurate, and Robust LiDAR-Inertial Odometry"
+          ]
+        },
+        {
+          "id": "2606.26046v1",
+          "title": "RoboAtlas: Contextual Active SLAM",
+          "summary": "We present RoboAtlas, a contextual Active SLAM framework that adaptively balances geometric exploration and semantic reasoning using a scalable 3D semantic mapping system, OpenRoboVox. RoboAtlas integrates frontier exploration, global semantic-map reasoning, and egocentric VLM-based reasoning through a contextual multi-armed bandit that…",
+          "summaryRaw": "We present RoboAtlas, a contextual Active SLAM framework that adaptively balances geometric exploration and semantic reasoning using a scalable 3D semantic mapping system, OpenRoboVox. RoboAtlas integrates frontier exploration, global semantic-map reasoning, and egocentric VLM-based reasoning through a contextual multi-armed bandit that transitions from exploration to semantically guided navigation as scene understanding improves. We evaluate the system in simulation and on a Unitree Go2 robot in large-scale real-world environments exceeding 1800 m2 with approx. 30k mapped semantic instances, achieving a 100% task success rate. On the GOAT-Bench \"Val Unseen\" benchmark, RoboAtlas achieves state-of-the-art performance with highest reported success rate (SR) of 90.6%, using GPT-4o, improving over the strongest prior baseline by 17.8 percentage points in SR. Using the much smaller Qwen2.5-VL-7B model, it still achieves 88.8% SR, outperforming all baselines using GPT-4o in SR, and revealing the importance of the information gained by our semantic mapping framework over simply replacing the underlying foundation model. The results demonstrate that grounding foundation models with large-scale 3D semantic maps enables robust and efficient contextual Active SLAM.",
+          "link": "https://arxiv.org/abs/2606.26046v1",
+          "pdfLink": "https://arxiv.org/pdf/2606.26046v1",
+          "published": "2026-06-24T17:26:07Z",
+          "updated": "2026-06-24T17:26:07Z",
+          "authors": [
+            "Alexander Schperberg",
+            "Shivam K. Panda",
+            "Abraham P. Vinod",
+            "M. K. Jawed",
+            "Stefano Di Cairano"
+          ],
+          "categories": [
+            "cs.CV",
+            "cs.RO"
+          ],
+          "score": 75,
+          "importanceLevel": "B",
+          "lane": "Robotics",
+          "dimensionScores": {
+            "relevance": 45,
+            "novelty": 72,
+            "impact": 78,
+            "practicality": 70,
+            "coreAlignment": 35
+          },
+          "oneSentenceSummary": "RoboAtlas:上下文主动SLAM，自适应平衡探索与语义推理。",
+          "summaryCn": "RoboAtlas集成前沿探索、全局语义地图推理和设备端VLM推理，通过上下文多臂老虎机动态切换探索与语义导航。在1800+平米真实环境测试100%任务成功，GOAT-Bench上取得90.6%成功率 SOTA，实证高效。",
+          "whyImportant": "结合语义推理的主动SLAM，在开放世界任务中成功率极高。",
+          "reasonTags": [
+            "主动SLAM",
+            "语义建图",
+            "多臂老虎机",
+            "开放世界"
+          ],
+          "innovationPoints": [
+            "上下文多臂老虎机切换探索/语义模式",
+            "融合3D语义地图与设备端VLM推理",
+            "大规模真实环境验证"
+          ],
+          "noveltyVerdict": "创新性较高：将语义理解与主动探索动态结合。",
+          "duplicateRisk": "low",
+          "dedupeNote": "与纯探索或纯语义SLAM不同，动态平衡策略新颖。",
+          "retrievalGroups": [
+            "category",
+            "robotics"
+          ],
+          "mergedCount": 1,
+          "mergedTitles": [
+            "RoboAtlas: Contextual Active SLAM"
+          ]
+        },
+        {
+          "id": "2606.25497v1",
+          "title": "SAGE-Nav: Leveraging LLM Planning and Alignment Fusion for Hierarchical Scene Graph-Guided Navigation",
+          "summary": "Object-Goal Navigation (ObjNav) requires embodied agents to autonomously locate specified targets using only egocentric visual observations. Existing monolithic methods struggle with long-horizon reasoning and generalize poorly to novel environments.",
+          "summaryRaw": "Object-Goal Navigation (ObjNav) requires embodied agents to autonomously locate specified targets using only egocentric visual observations. Existing monolithic methods struggle with long-horizon reasoning and generalize poorly to novel environments. To address these limitations, we propose SAGE-Nav, a novel hierarchical framework that integrates the reasoning capabilities of Large Language Models (LLMs) with dynamic scene graphs. Crucially, it decouples asynchronous global semantic planning from the high-frequency reactive control loop. The LLM serves as a global planner, decomposing abstract instructions into a sequence of semantically grounded waypoints. To translate these plans into dense multi-modal guidance, we design a Hierarchical Scene Graph Encoder (HSGE) that leverages relational graph convolutions to produce structure-aware embeddings preserving both semantic and spatial topology. Furthermore, we develop the Goal-aware Alignment-Fusion Network (GAFN) to dynamically fuse real-time perception with these structural priors. Using an adaptive gating mechanism with an explicit inductive bias, GAFN ensures robust visual-topological alignment for the low-level policy. Extensive evaluations in the i-THOR and RoboTHOR environments demonstrate that SAGE-Nav achieves state-of-the-art performance, delivering substantial gains in navigation efficiency and zero-shot generalization while maintaining the low control latency required for physical robotic deployment.",
+          "link": "https://arxiv.org/abs/2606.25497v1",
+          "pdfLink": "https://arxiv.org/pdf/2606.25497v1",
+          "published": "2026-06-24T07:24:39Z",
+          "updated": "2026-06-24T07:24:39Z",
+          "authors": [
+            "Hao Su",
+            "Yuehao Huang",
+            "Yukai Ma",
+            "Yong Liu",
+            "Jiajun Lv"
+          ],
+          "categories": [
+            "cs.RO"
+          ],
+          "score": 74,
+          "importanceLevel": "B",
+          "lane": "Robotics",
+          "dimensionScores": {
+            "relevance": 42,
+            "novelty": 70,
+            "impact": 73,
+            "practicality": 68,
+            "coreAlignment": 30
+          },
+          "oneSentenceSummary": "SAGE-Nav:LLM规划+层次场景图引导导航，解耦规划与控制。",
+          "summaryCn": "SAGE-Nav利用LLM全局规划生成语义路点序列，层次场景图编码器产生结构感知嵌入，为高频控制提供多模态引导。解耦异步规划与控制，改善长期推理和泛化，在目标导航任务中表现优异。",
+          "whyImportant": "改善目标导航的长期推理，提高泛化性。",
+          "reasonTags": [
+            "目标导航",
+            "LLM",
+            "场景图",
+            "层次架构"
+          ],
+          "innovationPoints": [
+            "LLM全局规划分解为路点",
+            "层次场景图编码器产生结构感知嵌入",
+            "异步解耦规划与控制"
+          ],
+          "noveltyVerdict": "中等：结合现有技术但架构设计合理。",
+          "duplicateRisk": "low",
+          "dedupeNote": "与其他LLM规划导航不同，强调层次场景图与高频控制解耦。",
+          "retrievalGroups": [
+            "category",
+            "robotics"
+          ],
+          "mergedCount": 1,
+          "mergedTitles": [
+            "SAGE-Nav: Leveraging LLM Planning and Alignment Fusion for Hierarchical Scene Graph-Guided Navigation"
+          ]
+        },
+        {
+          "id": "2606.26017v1",
+          "title": "G2DP: Diffusion Planning with Spatio-Temporal Grid Guidance",
+          "summary": "In autonomous driving, diffusion-based planners have emerged as a promising paradigm for robust motion planning in dense and interactive traffic, as they can effectively model diverse driving behaviors. However, their inherent stochasticity often requires explicit guidance during denoising to ensure safety and route adherence for robust…",
+          "summaryRaw": "In autonomous driving, diffusion-based planners have emerged as a promising paradigm for robust motion planning in dense and interactive traffic, as they can effectively model diverse driving behaviors. However, their inherent stochasticity often requires explicit guidance during denoising to ensure safety and route adherence for robust closed-loop execution. Existing guidance typically relies on sparse, entity-centric geometric queries or post-hoc refinement, yielding limited situational awareness and fragile performance in interactive scenes. To address this issue, we propose G2DP (Grid-Guided Diffusion Planning), a diffusion-based planner that directly enforces dense environmental constraints through inference-time guidance. Specifically, G2DP constructs a differentiable spatio-temporal cost volume by fusing probabilistic future occupancy distributions with a route-progress map. By formulating this volume as a continuous safety energy functional, it injects dense gradients directly into the denoising loop, actively steering trajectory generation toward collision-free and progress-optimal regions. Extensive closed-loop evaluations show that G2DP achieves state-of-the-art performance on nuPlan, outperforming the strongest imitation-learning baseline by +7.2 points in reactive score. It further maintains top scores in zero-shot transfers to interPlan and DeepScenario benchmarks, with collision avoidance improving by +10.15 over the unguided approach on interPlan. These results demonstrate that spatio-temporal cost grids serve as an effective representation for robust guidance in diffusion-based planning.",
+          "link": "https://arxiv.org/abs/2606.26017v1",
+          "pdfLink": "https://arxiv.org/pdf/2606.26017v1",
+          "published": "2026-06-24T16:38:55Z",
+          "updated": "2026-06-24T16:38:55Z",
+          "authors": [
+            "Hang Yu",
+            "Ye Jin",
+            "Alessandro Canevaro",
+            "Julian Schmidt",
+            "Julian Jordan",
+            "Peizheng Li",
+            "Marc Kaufeld",
+            "Silvan Lindner"
+          ],
+          "categories": [
+            "cs.RO"
+          ],
+          "score": 73,
+          "importanceLevel": "B",
+          "lane": "Robotics",
+          "dimensionScores": {
+            "relevance": 40,
+            "novelty": 75,
+            "impact": 70,
+            "practicality": 72,
+            "coreAlignment": 35
+          },
+          "oneSentenceSummary": "G2DP:时空网格引导的扩散规划，增强自动驾驶交互安全。",
+          "summaryCn": "G2DP构建可微分时空成本体，融合概率未来占用分布与路线进度图，在推理时通过梯度引导强化环境约束，使扩散规划器生成安全且遵循路线的轨迹。在密集交互场景中验证鲁棒性。",
+          "whyImportant": "为扩散规划器提供密集环境约束引导，提升复杂交通场景表现。",
+          "reasonTags": [
+            "扩散规划",
+            "时空成本体",
+            "自动驾驶",
+            "推理引导"
+          ],
+          "innovationPoints": [
+            "可微分时空成本体融合占用与路线",
+            "推理时梯度引导强化约束",
+            "无需重训即插即用"
+          ],
+          "noveltyVerdict": "创新性中等：改进扩散规划引导方式。",
+          "duplicateRisk": "low",
+          "dedupeNote": "与依赖稀疏查询的扩散规划不同，使用密集体素引导。",
+          "retrievalGroups": [
+            "category",
+            "driving",
+            "robotics"
+          ],
+          "mergedCount": 1,
+          "mergedTitles": [
+            "G2DP: Diffusion Planning with Spatio-Temporal Grid Guidance"
+          ]
+        },
+        {
+          "id": "2606.25527v1",
+          "title": "Beyond One-Size-Fits-All: Diagnosis-Driven Online Reinforcement Learning with Offline Priors",
+          "summary": "Online reinforcement learning (RL) agents increasingly depend on knowledge acquired offline to achieve practical efficiency. Originally studied in offline-to-online RL, this paradigm now spans foundation model post-training and embodied intelligence, with prior types expanding from offline datasets and pre-trained policies to increasingl…",
+          "summaryRaw": "Online reinforcement learning (RL) agents increasingly depend on knowledge acquired offline to achieve practical efficiency. Originally studied in offline-to-online RL, this paradigm now spans foundation model post-training and embodied intelligence, with prior types expanding from offline datasets and pre-trained policies to increasingly diverse knowledge sources such as multimodal foundation models and generative world models. Offline priors have become central to how deep RL is developed and deployed. However, this reliance introduces a challenge that the prevailing benchmark-driven paradigm cannot resolve: because prior validity varies across deployments and shifts during training, no single approach to managing it is universally optimal, and benchmark rankings offer limited guidance for real-world deployments. Rather than pursuing universal solutions, we argue that the field should shift to diagnosis-driven tension management, in which deployment-specific evidence guides how the learner relates to its priors throughout training, enabling both flexible and adaptive deployment. We support this position with a framework characterizing how priors reshape online optimization through three functional roles, controlled experiments demonstrating help-or-hurt reversals, cross-domain evidence from foundation model post-training to embodied intelligence, and engagement with five substantive counterarguments.",
+          "link": "https://arxiv.org/abs/2606.25527v1",
+          "pdfLink": "https://arxiv.org/pdf/2606.25527v1",
+          "published": "2026-06-24T08:05:28Z",
+          "updated": "2026-06-24T08:05:28Z",
+          "authors": [
+            "Guozheng Ma",
+            "Lu Li",
+            "Zilin Wang",
+            "Pierre-Luc Bacon",
+            "Dacheng Tao"
+          ],
+          "categories": [
+            "cs.LG"
+          ],
+          "score": 70,
+          "importanceLevel": "B",
+          "lane": "Peripheral",
+          "dimensionScores": {
+            "relevance": 50,
+            "novelty": 72,
+            "impact": 68,
+            "practicality": 55,
+            "coreAlignment": 40
+          },
+          "oneSentenceSummary": "提出诊断驱动在线RL框架，根据先验有效性动态选择策略。",
+          "summaryCn": "针对在线RL依赖离线先验但先验有效性变化的问题，提出诊断驱动范式，构建模块评估先验质量并动态调整策略，避免单一方案。通过理论分析和实验验证，为异构先验管理提供新思路，可应用于机器人。",
+          "whyImportant": "对RL在机器人中利用异构先验有指导意义。",
+          "reasonTags": [
+            "在线强化学习",
+            "先验管理",
+            "诊断驱动",
+            "机器人"
+          ],
+          "innovationPoints": [
+            "诊断模块评估先验有效性",
+            "动态策略选择机制",
+            "超越统一基准范式"
+          ],
+          "noveltyVerdict": "新颖：挑战现有基准驱动范式。",
+          "duplicateRisk": "low",
+          "dedupeNote": "非特定VLA/WAM，但提供RL通用框架，有一定启发性。",
+          "retrievalGroups": [
+            "category",
+            "robotics",
+            "wam_core"
+          ],
+          "mergedCount": 1,
+          "mergedTitles": [
+            "Beyond One-Size-Fits-All: Diagnosis-Driven Online Reinforcement Learning with Offline Priors"
+          ]
+        },
+        {
+          "id": "2606.25503v1",
+          "title": "AISPO: Enhancing Depth Reliability for Robotic Manipulation of Non-Lambertian Objects via Affine-Invariant Shape Prior",
+          "summary": "Reliable depth perception is critical for robotic manipulation, especially for non-Lambertian objects such as transparent or highly specular surfaces, where raw depth measurements are often corrupted or missing. These failures frequently propagate to motion planning, resulting in invalid grasp poses and execution errors.",
+          "summaryRaw": "Reliable depth perception is critical for robotic manipulation, especially for non-Lambertian objects such as transparent or highly specular surfaces, where raw depth measurements are often corrupted or missing. These failures frequently propagate to motion planning, resulting in invalid grasp poses and execution errors. We propose AISPO, a depth completion framework that improves depth reliability for manipulation in challenging sensing conditions. AISPO combines multi-scale RGB-D feature fusion with an affine-invariant shape prior to enforce geometric consistency and mitigate catastrophic depth failures. Unlike methods that focus primarily on average depth accuracy, our approach emphasizes physical plausibility and structural integrity of the predicted depth maps. Extensive benchmark evaluations demonstrate competitive performance and strong generalization to unseen objects and novel scenes. Real-world grasping experiments further show that enhanced depth reliability significantly improves manipulation success rates, particularly for transparent objects where many existing methods fail to produce physically usable depth estimates.",
+          "link": "https://arxiv.org/abs/2606.25503v1",
+          "pdfLink": "https://arxiv.org/pdf/2606.25503v1",
+          "published": "2026-06-24T07:37:11Z",
+          "updated": "2026-06-24T07:37:11Z",
+          "authors": [
+            "Zhiming Chen",
+            "Linfang Zheng",
+            "Kun Zhang",
+            "Hyung Jin Chang",
+            "Wei Zhang",
+            "Hongyu Yu",
+            "Hua Chen"
+          ],
+          "categories": [
+            "cs.CV",
+            "cs.RO"
+          ],
+          "score": 68,
+          "importanceLevel": "B",
+          "lane": "Robotics",
+          "dimensionScores": {
+            "relevance": 45,
+            "novelty": 68,
+            "impact": 60,
+            "practicality": 70,
+            "coreAlignment": 35
+          },
+          "oneSentenceSummary": "AISPO:利用仿射不变形状先验增强非朗伯物体深度可靠性。",
+          "summaryCn": "AISPO结合多尺度RGB-D特征融合与仿射不变形状先验，修复透明、镜面等物体的深度图，确保几何一致性和物理合理性。在多个基准上验证泛化性，并集成至真实机器人操作任务提升抓取成功率。",
+          "whyImportant": "提升透明/镜面物体的深度感知鲁棒性，对操作至关重要。",
+          "reasonTags": [
+            "深度补全",
+            "非朗伯物体",
+            "形状先验",
+            "机器人操作"
+          ],
+          "innovationPoints": [
+            "多尺度RGB-D融合+形状先验",
+            "强调物理真实性而非平均精度",
+            "良好泛化性"
+          ],
+          "noveltyVerdict": "中等：结合几何先验的深度补全。",
+          "duplicateRisk": "low",
+          "dedupeNote": "区别于侧重平均精度的补全方法，关注操作鲁棒性。",
+          "retrievalGroups": [
+            "category",
+            "robotics"
+          ],
+          "mergedCount": 1,
+          "mergedTitles": [
+            "AISPO: Enhancing Depth Reliability for Robotic Manipulation of Non-Lambertian Objects via Affine-Invariant Shape Prior"
+          ]
+        },
+        {
+          "id": "2606.25646v1",
+          "title": "Calousel: Extrinsic Calibration of Non-overlapping Multi-camera Systems from Pure Rotation",
+          "summary": "Extrinsic calibration of multi-camera systems with non-overlapping FOVs has been a challenging problem in the robotics literature. Conventional target-based methods impose substantial target setup overhead, either deploying large calibration targets or requiring pre-measured multi-target poses.",
+          "summaryRaw": "Extrinsic calibration of multi-camera systems with non-overlapping FOVs has been a challenging problem in the robotics literature. Conventional target-based methods impose substantial target setup overhead, either deploying large calibration targets or requiring pre-measured multi-target poses. Motion-based approaches instead suffer from drift error, scale ambiguity, and motion degeneracy. Securing both accuracy and usability, we propose a novel calibration method that leverages pure rotational motion, requiring only a single static calibration board. The key idea is to make all cameras sequentially observe the same target under a shared geometric reference, even without overlapping views. To integrate these time-separated observations, we formulate the problem using a latent turntable frame and a 3D error on SE(3) within a global optimization framework. We validate the proposed method on both a controlled camera rig and a full-scale vehicle platform with heterogeneous cameras, and analyze robustness under non-ideal turntable motion. Extensive experiments show that our approach maintains competitive accuracy without specialized precision hardware, proving its strong suitability for realistic on-site deployments. Our code is publicly available here.",
+          "link": "https://arxiv.org/abs/2606.25646v1",
+          "pdfLink": "https://arxiv.org/pdf/2606.25646v1",
+          "published": "2026-06-24T09:54:20Z",
+          "updated": "2026-06-24T09:54:20Z",
+          "authors": [
+            "Gwanhyeong Song",
+            "Chaehyeon Song",
+            "Ayoung Kim"
+          ],
+          "categories": [
+            "cs.CV",
+            "cs.RO"
+          ],
+          "score": 67,
+          "importanceLevel": "B",
+          "lane": "Robotics",
+          "dimensionScores": {
+            "relevance": 40,
+            "novelty": 70,
+            "impact": 60,
+            "practicality": 72,
+            "coreAlignment": 25
+          },
+          "oneSentenceSummary": "Calousel:纯旋转标定无重叠多相机系统，仅需单标定板。",
+          "summaryCn": "提出基于纯旋转运动的外参标定方法，所有相机顺序观察同一静态靶标，通过隐式转台帧建立几何参考，在SE(3)全局优化下求解外参。验证表明高精度、易用，无需重叠视场。",
+          "whyImportant": "简化多相机系统标定流程，提高易用性。",
+          "reasonTags": [
+            "外参标定",
+            "多相机系统",
+            "纯旋转",
+            "机器人感知"
+          ],
+          "innovationPoints": [
+            "纯旋转运动下顺序观察统一靶标",
+            "基于SE(3)误差的全局优化",
+            "无需重叠视场"
+          ],
+          "noveltyVerdict": "中等偏上：纯旋转标定有创新，但标定问题较成熟。",
+          "duplicateRisk": "low",
+          "dedupeNote": "与其他非重叠标定方法不同，利用纯旋转避免运动退化。",
+          "retrievalGroups": [
+            "category",
+            "robotics"
+          ],
+          "mergedCount": 1,
+          "mergedTitles": [
+            "Calousel: Extrinsic Calibration of Non-overlapping Multi-camera Systems from Pure Rotation"
+          ]
+        },
+        {
+          "id": "2606.25620v1",
+          "title": "1000 Rallies: An Event-Camera Dataset and Real-Time Learned Ball-State Estimation for Robotic Table Tennis",
+          "summary": "Robotic table tennis has emerged as a compelling benchmark for real-time robotic perception due to its fast ball dynamics and stringent timing requirements. Accurate, high-frequency, and low-latency ball state estimation is critical for reliable trajectory prediction and timely control.",
+          "summaryRaw": "Robotic table tennis has emerged as a compelling benchmark for real-time robotic perception due to its fast ball dynamics and stringent timing requirements. Accurate, high-frequency, and low-latency ball state estimation is critical for reliable trajectory prediction and timely control. Traditional frame-based cameras face an inherent trade-off: low frame rates leave temporal blind spots that miss fast-moving objects and high frame rates raise data and computational cost. Event cameras instead offer microsecond temporal resolution and, under sufficient illumination, remain largely free of motion blur even at high ball speeds. However, the community lacks large-scale datasets to develop and benchmark event-based perception in realistic sports scenarios. We address this gap by introducing the first large-scale event-camera dataset for table tennis, comprising over 1000 rallies from a diverse group of players ranging from amateurs to elite-level athletes. Each recording captures the event stream alongside 14 synchronized high-speed frame-based cameras at 200 FPS, which we use to produce 1 kHz pseudo ground-truth labels for ball position, velocity, and spin. Building on this dataset, we train a convolutional neural network robust to background player motion that jointly estimates the ball's position and velocity in the image-plane from events. Treating the predicted velocity as an additional measurement in the Kalman filter reduces bounce-point prediction error by 36% relative to a position-only baseline. Finally, we close the perception-action loop by integrating the event-based system with a Stäubli robotic arm, enabling the first real-time human-robot table tennis rallies driven by event-based perception.",
+          "link": "https://arxiv.org/abs/2606.25620v1",
+          "pdfLink": "https://arxiv.org/pdf/2606.25620v1",
+          "published": "2026-06-24T09:28:21Z",
+          "updated": "2026-06-24T09:28:21Z",
+          "authors": [
+            "Raphaela Kreiser",
+            "Asude Aydin",
+            "Yin Bi",
+            "Claudio Fanconi",
+            "Peter Dürr",
+            "Naoya Takahashi"
+          ],
+          "categories": [
+            "cs.CV",
+            "cs.RO"
+          ],
+          "score": 65,
+          "importanceLevel": "B",
+          "lane": "Robotics",
+          "dimensionScores": {
+            "relevance": 45,
+            "novelty": 65,
+            "impact": 62,
+            "practicality": 60,
+            "coreAlignment": 30
+          },
+          "oneSentenceSummary": "1000 Rallies:首个大规模乒乓球事件相机数据集与实时球估计。",
+          "summaryCn": "发布包含1000+回合的事件相机乒乓球数据集，提供高速动态下的高时域分辨率数据。基于该数据集训练实时球状态估计网络，利用事件流低延迟特性，实现毫秒级预测，助力机器人乒乓球感知研究。",
+          "whyImportant": "促进事件相机在高速动态场景的感知研究，推动机器人乒乓球。",
+          "reasonTags": [
+            "事件相机",
+            "乒乓球",
+            "数据集",
+            "球状态估计"
+          ],
+          "innovationPoints": [
+            "首个大规模赛事数据集",
+            "利用事件相机高时域分辨率",
+            "实时球状态估计网络"
+          ],
+          "noveltyVerdict": "中等：数据集新，方法基于现有学习技术。",
+          "duplicateRisk": "low",
+          "dedupeNote": "填补事件相机在球类运动的数据空白，与其他机器人数据集互补。",
+          "retrievalGroups": [
+            "category",
+            "robotics"
+          ],
+          "mergedCount": 1,
+          "mergedTitles": [
+            "1000 Rallies: An Event-Camera Dataset and Real-Time Learned Ball-State Estimation for Robotic Table Tennis"
+          ]
+        }
+      ],
+      "paperSets": {
+        "overall": [
+          {
+            "id": "2606.25591v1",
+            "title": "WOLF-VLA: Whole-Body Humanoid Optimal Locomotion Framework for Vision-Language-Action Learning",
+            "summary": "Vision-Language-Action (VLA) models have recently demonstrated strong generalization in robotic manipulation, yet their applicability to whole-body, contact-rich humanoid locomotion remains severely underexplored due to data scarcity, the absence of dynamically consistent demonstrations, and the difficulty of encoding optimality and safe…",
+            "summaryRaw": "Vision-Language-Action (VLA) models have recently demonstrated strong generalization in robotic manipulation, yet their applicability to whole-body, contact-rich humanoid locomotion remains severely underexplored due to data scarcity, the absence of dynamically consistent demonstrations, and the difficulty of encoding optimality and safety in learning-based pipelines. This work introduces a unified framework WOLF-VLA that integrates whole-body optimal-control (OC) motion synthesis with large-scale multi-modal dataset to train VLAs capable of generating humanoid locomotion policies directly from natural-language instructions. We construct a comprehensive dataset of dynamically feasible humanoid trajectories across six locomotion-related task families, each parameterized by environmental variations, object colors, placements, and visual distractors. We train a VLA model using the collected joint trajectories, ego-centric visual observations and natural language instruction, yielding a policy that exhibits strong reasoning and robustness to initial-condition variability, and competitive performance across several tasks and environment settings. A systematic ablation study demonstrates the impact of each modality on the model performance. The full dataset, model checkpoints, and benchmarking simulation suite will be openly released, establishing a reproducible dynamically consistent benchmark for whole-body humanoid locomotion rich VLA control and enabling future research in scalable transfer of instruction-driven locomotion policies.",
+            "link": "https://arxiv.org/abs/2606.25591v1",
+            "pdfLink": "https://arxiv.org/pdf/2606.25591v1",
+            "published": "2026-06-24T08:59:59Z",
+            "updated": "2026-06-24T08:59:59Z",
+            "authors": [
+              "Melya Boukheddimi",
+              "Omar Adjali",
+              "Daniel Sontag",
+              "Frank Kirchner"
+            ],
+            "categories": [
+              "cs.RO"
+            ],
+            "score": 95,
+            "importanceLevel": "S",
+            "lane": "VLA",
+            "dimensionScores": {
+              "relevance": 94,
+              "novelty": 93,
+              "impact": 90,
+              "practicality": 85,
+              "coreAlignment": 96
+            },
+            "oneSentenceSummary": "WOLF-VLA:将最优控制与VLA结合，实现人形机器人全身运动语言控制。",
+            "summaryCn": "WOLF-VLA统一框架集成全身最优控制运动合成和大规模多模态数据集，训练VLA模型直接从自然语言指令生成人形机器人策略，覆盖六类任务，参数化环境变化，并通过动作标记化与多模态对齐实现动态可行轨迹。该框架首次将VLA推及全身运动。",
+            "whyImportant": "首次将VLA扩展到全身人形运动，突破数据稀缺与安全限制。",
+            "reasonTags": [
+              "VLA",
+              "人形机器人",
+              "全身控制",
+              "最优控制"
+            ],
+            "innovationPoints": [
+              "提出最优控制合成与VLA训练结合的数据生成范式",
+              "构建涵盖多任务的大规模全身运动数据集",
+              "实现零样本语言到全身动作的泛化"
+            ],
+            "noveltyVerdict": "创新性强：首次系统地将最优控制用于VLA数据生成，解决全身接触运动难题。",
+            "duplicateRisk": "low",
+            "dedupeNote": "专注全身运动，区别于仅限操作或简单移动的VLA工作。",
+            "retrievalGroups": [
+              "category",
+              "robotics",
+              "vla_core"
+            ],
+            "mergedCount": 1,
+            "mergedTitles": [
+              "WOLF-VLA: Whole-Body Humanoid Optimal Locomotion Framework for Vision-Language-Action Learning"
+            ]
+          },
+          {
+            "id": "2606.25360v1",
+            "title": "Decoupling Semantics and Geometric Grounding: Spatial Visual Prompts for Language-Conditioned Imitation Learning",
+            "summary": "While end-to-end Vision-Language-Action (VLA) models show promise in robotic manipulation, their monolithic paradigm inherently couples semantic reasoning and spatial control. This creates a severe alignment bottleneck, limiting precise target disambiguation in data-constrained imitation learning.",
+            "summaryRaw": "While end-to-end Vision-Language-Action (VLA) models show promise in robotic manipulation, their monolithic paradigm inherently couples semantic reasoning and spatial control. This creates a severe alignment bottleneck, limiting precise target disambiguation in data-constrained imitation learning. To overcome this, we propose SVP-IL, a decoupled architecture that explicitly extracts spatial visual grounding from the action generation loop. By leveraging vision-language foundation models, we parse instructions into zero-shot geometric masks, translating language into explicit Spatial Visual Prompts (SVP). These priors are injected into a continuous action generator via a lightweight direct feature-level fusion mechanism. This integration provides explicit and uncorrupted spatial gradient guidance while ensuring highly stable optimization under low-data regimes. Extensive experiments demonstrate that SVP-IL significantly outperforms state-of-the-art VLAs and pure visuomotor baselines. Trained on as few as 50 to 100 demonstrations, SVP-IL improves average success rates on highly ambiguous language-conditioned tasks from 24.0% to 39.5%, achieving 67.8% on standard benchmarks. Real-world robotic experiments further validate its robustness and data efficiency in unstructured physical environments.",
+            "link": "https://arxiv.org/abs/2606.25360v1",
+            "pdfLink": "https://arxiv.org/pdf/2606.25360v1",
+            "published": "2026-06-24T03:45:06Z",
+            "updated": "2026-06-24T03:45:06Z",
+            "authors": [
+              "Yanzhe Tang",
+              "Xinyu Shao",
+              "Yuxuan Hu",
+              "Siyu Chen",
+              "Bowen Yang",
+              "Yajun Gao",
+              "Tongtong Cao",
+              "Xiu Li"
+            ],
+            "categories": [
+              "cs.RO"
+            ],
+            "score": 90,
+            "importanceLevel": "A",
+            "lane": "VLA",
+            "dimensionScores": {
+              "relevance": 89,
+              "novelty": 85,
+              "impact": 80,
+              "practicality": 78,
+              "coreAlignment": 90
+            },
+            "oneSentenceSummary": "SVP-IL解耦语义与空间，利用空间视觉提示提升语言条件模仿学习精度。",
+            "summaryCn": "针对端到端VLA的语义-空间耦合瓶颈，提出SVP-IL架构，显式提取指代物的零样本几何掩码作为空间视觉提示，注入连续动作生成器，通过轻量级特征融合提供空间梯度引导，在低数据下稳定优化，实验证明在复杂操纵任务中显著提升成功率。",
+            "whyImportant": "通过解耦设计缓解VLA的对齐瓶颈，实现低数据下的精确目标指代。",
+            "reasonTags": [
+              "VLA",
+              "空间视觉提示",
+              "模仿学习",
+              "解耦架构"
+            ],
+            "innovationPoints": [
+              "空间视觉提示解耦语义与空间处理",
+              "利用视觉语言基础模型零样本生成掩码",
+              "轻量融合机制稳定低数据优化"
+            ],
+            "noveltyVerdict": "创新性较高：将空间先验注入动作生成，改变传统端到端范式。",
+            "duplicateRisk": "low",
+            "dedupeNote": "与其他端到端VLA不同，显式解耦空间信息，非简单数据增强。",
+            "retrievalGroups": [
+              "category",
+              "robotics",
+              "vla_core"
+            ],
+            "mergedCount": 1,
+            "mergedTitles": [
+              "Decoupling Semantics and Geometric Grounding: Spatial Visual Prompts for Language-Conditioned Imitation Learning"
+            ]
+          },
+          {
+            "id": "2606.26095v1",
+            "title": "Learning Action Priors for Cross-embodiment Robot Manipulation",
+            "summary": "Most Vision-Language-Action (VLA) models build on a Vision-Language Model (VLM) backbone by attaching an action module and optimizing the full policy jointly. This design inherits strong visual and linguistic priors from the VLM, but leaves the action module to learn physical motion almost from scratch.",
+            "summaryRaw": "Most Vision-Language-Action (VLA) models build on a Vision-Language Model (VLM) backbone by attaching an action module and optimizing the full policy jointly. This design inherits strong visual and linguistic priors from the VLM, but leaves the action module to learn physical motion almost from scratch. As a result, the policy lacks an explicit motion prior, forcing early optimization to simultaneously discover temporal action dynamics and cross-modal alignment, a challenge further amplified in cross-embodiment settings. In this work, we propose to pretrain the action module with motion priors before cross-modal VLA alignment. Specifically, we introduce a two-stage training framework that equips the action module with cross-embodiment temporal motion structure before VLA training begins. In Stage~1, a lightweight flow-matching-based encoder-decoder action module efficiently learns temporal motion structure solely from unconditioned action trajectories, without processing visual or language tokens. In Stage~2, this learned prior is transferred to VLA training through decoder reuse and early-stage latent distillation, aligning visual-language features with the action embedding space while still allowing end-to-end policy refinement. In addition, the trained encoder serves as a compact history compressor, summarizing state-action histories into a single temporal context token for history-aware modeling at negligible cost. Extensive experiments across 13 diverse cross-embodiment tasks on both simulated and real-world platforms validate the effectiveness of our approach. Compared with VLA training without action priors, our model achieves faster convergence, higher success rates, and substantially stronger performance on data-scarce real-world tasks. Moreover, scaling up the action data in Stage~1 yields a more generalizable action prior that directly improves downstream VLA performance.",
+            "link": "https://arxiv.org/abs/2606.26095v1",
+            "pdfLink": "https://arxiv.org/pdf/2606.26095v1",
+            "published": "2026-06-24T17:59:56Z",
+            "updated": "2026-06-24T17:59:56Z",
+            "authors": [
+              "Dong Jing",
+              "Tianqi Zhang",
+              "Jiaqi Liu",
+              "Jinman Zhao",
+              "Zelong Sun",
+              "Li Erran Li",
+              "Zhiwu Lu",
+              "Mingyu Ding"
+            ],
+            "categories": [
+              "cs.AI",
+              "cs.CV",
+              "cs.RO"
+            ],
+            "score": 90,
+            "importanceLevel": "A",
+            "lane": "VLA",
+            "dimensionScores": {
+              "relevance": 88,
+              "novelty": 87,
+              "impact": 82,
+              "practicality": 80,
+              "coreAlignment": 92
+            },
+            "oneSentenceSummary": "预训练动作模块的运动先验，提升跨具身VLA的对齐效率与泛化性。",
+            "summaryCn": "针对VLA动作模块缺乏运动先验的问题，提出两阶段训练框架：先利用流匹配编码-解码器学习跨具身时序运动结构，再进行跨模态VLA对齐。该方法使策略在训练初期快速收敛，并在多机器人平台展示出更强的跨具身泛化能力。",
+            "whyImportant": "为VLA注入运动先验，加速训练并改善跨具身迁移，启发未来策略设计。",
+            "reasonTags": [
+              "VLA",
+              "动作先验",
+              "跨具身",
+              "流匹配"
+            ],
+            "innovationPoints": [
+              "提出动作模块的流匹配预训练",
+              "两阶段训练分离运动结构与跨模态对齐",
+              "有效提升跨具身泛化"
+            ],
+            "noveltyVerdict": "创新性较强：针对VLA普遍缺失的运动先验，提出明确解决方案。",
+            "duplicateRisk": "low",
+            "dedupeNote": "不同于直接在VLA训练中学习动作，先独立学习运动模式再对齐。",
+            "retrievalGroups": [
+              "category",
+              "robotics",
+              "vla_core"
+            ],
+            "mergedCount": 1,
+            "mergedTitles": [
+              "Learning Action Priors for Cross-embodiment Robot Manipulation"
+            ]
+          },
+          {
+            "id": "2606.26006v1",
+            "title": "FORCE: Efficient VLA Reinforcement Fine-Tuning via Value-Calibrated Warm-up and Self-Distillation",
+            "summary": "Vision-Language-Action (VLA) models are often constrained by the imitation ceiling imposed by sub-optimal data. While Reinforcement Learning (RL) fine-tuning can surpass this limit, it is notoriously sample inefficient.",
+            "summaryRaw": "Vision-Language-Action (VLA) models are often constrained by the imitation ceiling imposed by sub-optimal data. While Reinforcement Learning (RL) fine-tuning can surpass this limit, it is notoriously sample inefficient. This challenge arises from two core issues: (1) catastrophic initial unlearning due to an unstable Q-function and (2) inefficient policy updates caused by low-quality exploration data, often forcing a reliance on costly human interventions. We introduce FORCE, a 3-stage framework that stabilizes fine-tuning by tackling both issues. FORCE first incorporates a Value-Calibrated Warm-Up phase, utilizing on-policy rollouts to mitigate the distributional shift of the Q-function. Subsequently, during the online stage, this calibrated Q-function acts as a filter for both the policy's own action proposals and expert data, ensuring only high-value actions are used for the policy update. We evaluate FORCE on various simulation and real-world tasks, and the result shows that FORCE achieves a 79% absolute improvement in success rates and outperform prior RL methods by 10%, while accelerating training by 32.5%. Critically, it mitigates the common success rate drop and achieves this robust performance without human intervention, marking a significant step towards deploying capable and autonomous robotic agents.",
+            "link": "https://arxiv.org/abs/2606.26006v1",
+            "pdfLink": "https://arxiv.org/pdf/2606.26006v1",
+            "published": "2026-06-24T16:23:18Z",
+            "updated": "2026-06-24T16:23:18Z",
+            "authors": [
+              "Shuyi Zhang",
+              "Yunfan Lou",
+              "Hongyang Cheng",
+              "Yichen Guo",
+              "Chuyao Fu",
+              "Yaoxu Lyu",
+              "Xiaojie Zhang",
+              "Haoran Li"
+            ],
+            "categories": [
+              "cs.AI",
+              "cs.RO"
+            ],
+            "score": 88,
+            "importanceLevel": "A",
+            "lane": "VLA",
+            "dimensionScores": {
+              "relevance": 86,
+              "novelty": 85,
+              "impact": 83,
+              "practicality": 82,
+              "coreAlignment": 90
+            },
+            "oneSentenceSummary": "FORCE：三阶段RL微调，价值校准预热+自蒸馏，高效超越模仿天花板。",
+            "summaryCn": "FORCE框架解决VLA强化学习微调样本效率低的问题：第一阶段价值校准预热缓解Q函数分布偏移；第二阶段在线过滤高价值动作；第三阶段自蒸馏提升策略更新效率。实验显示在多个操纵任务中优于现有RL微调方法。",
+            "whyImportant": "稳定高效的RL微调是推动VLA超越模仿极限的关键技术路径。",
+            "reasonTags": [
+              "VLA",
+              "强化学习微调",
+              "自蒸馏",
+              "价值校准"
+            ],
+            "innovationPoints": [
+              "提出价值校准预热阶段",
+              "利用校准Q函数过滤高质量动作",
+              "融合自蒸馏缓解探索低效"
+            ],
+            "noveltyVerdict": "创新性较高：针对RL微调两大问题给出系统解决方案。",
+            "duplicateRisk": "medium",
+            "dedupeNote": "FORCE关注离线预热的稳定性与在线自蒸馏过滤，与ROAD-VLA在线自蒸馏互补。",
+            "retrievalGroups": [
+              "category",
+              "robotics",
+              "vla_core"
+            ],
+            "mergedCount": 1,
+            "mergedTitles": [
+              "FORCE: Efficient VLA Reinforcement Fine-Tuning via Value-Calibrated Warm-up and Self-Distillation"
+            ]
+          },
+          {
+            "id": "2606.26025v1",
+            "title": "In-Context World Modeling for Robotic Control",
+            "summary": "Modern Vision-Language-Action (VLA) models often fail to generalize to novel setups, such as altered camera viewpoints or robot morphologies, because they are typically conditioned only on current observations and language instructions. By ignoring the underlying system configuration as a variable, these models implicitly assume a fixed…",
+            "summaryRaw": "Modern Vision-Language-Action (VLA) models often fail to generalize to novel setups, such as altered camera viewpoints or robot morphologies, because they are typically conditioned only on current observations and language instructions. By ignoring the underlying system configuration as a variable, these models implicitly assume a fixed execution context encountered during training, necessitating data-intensive fine-tuning for any new environment. In this work, we introduce In-Context World Modeling (ICWM), a framework that treats system identification as an in-context adaptation problem. ICWM enables robot policies to autonomously infer essential system variables from a short history of self-generated, task-agnostic interactions. Unlike traditional In-Context Learning that uses demonstrations to specify what task to perform, ICWM leverages the context window to understand how the system operates. By processing these interactions before task execution, the model implicitly captures the world dynamics of the current system, enabling adaptation to novel configurations without parameter updates. Extensive experiments in simulation and on real-world robot platforms demonstrate that ICWM significantly outperforms standard VLA baselines on novel camera viewpoints.",
+            "link": "https://arxiv.org/abs/2606.26025v1",
+            "pdfLink": "https://arxiv.org/pdf/2606.26025v1",
+            "published": "2026-06-24T16:53:36Z",
+            "updated": "2026-06-24T16:53:36Z",
+            "authors": [
+              "Siyin Wang",
+              "Junhao Shi",
+              "Senyu Fei",
+              "Zhaoyang Fu",
+              "Li Ji",
+              "Jingjing Gong",
+              "Xipeng Qiu"
+            ],
+            "categories": [
+              "cs.CV",
+              "cs.RO"
+            ],
+            "score": 88,
+            "importanceLevel": "A",
+            "lane": "Both",
+            "dimensionScores": {
+              "relevance": 85,
+              "novelty": 90,
+              "impact": 84,
+              "practicality": 78,
+              "coreAlignment": 88
+            },
+            "oneSentenceSummary": "ICWM:上下文世界建模，自交互推断系统变量，策略自适应。",
+            "summaryCn": "ICWM将系统辨识视为上下文适应问题，让策略从短历史任务无关交互中推断配置变量，无需微调即可泛化至新视角和形态。框架结合上下文编码与动作生成，在多种环境变化下验证零样本泛化能力，为VLA适应提供新范式。",
+            "whyImportant": "为VLA泛化提供新思路：通过在线交互自动适应系统变化，避免重训练。",
+            "reasonTags": [
+              "世界模型",
+              "上下文学习",
+              "系统辨识",
+              "VLA泛化"
+            ],
+            "innovationPoints": [
+              "提出上下文世界建模框架",
+              "利用自交互推断系统动态",
+              "实现零样本配置泛化"
+            ],
+            "noveltyVerdict": "创新性强：将上下文学习引入世界建模，区别于传统微调。",
+            "duplicateRisk": "low",
+            "dedupeNote": "不同于传统上下文学习演示任务，ICWM学习系统动态，独特视角。",
+            "retrievalGroups": [
+              "category",
+              "robotics",
+              "vla_core",
+              "wam_core"
+            ],
+            "mergedCount": 1,
+            "mergedTitles": [
+              "In-Context World Modeling for Robotic Control"
+            ]
+          },
+          {
+            "id": "2606.25800v1",
+            "title": "ROAD-VLA: Robust Online Adaptation via Self-Distillation for Vision-Language-Action Models",
+            "summary": "Effective online adaptation of vision-language-action (VLA) models remains challenging, as sparse rewards provide weak supervision for high-dimensional autoregressive action policies. Although self-distillation can in principle provide denser training signals, we find that text-based privileged teachers conditioned on demonstrations, ret…",
+            "summaryRaw": "Effective online adaptation of vision-language-action (VLA) models remains challenging, as sparse rewards provide weak supervision for high-dimensional autoregressive action policies. Although self-distillation can in principle provide denser training signals, we find that text-based privileged teachers conditioned on demonstrations, retrieved experiences, or high-level plans are ineffective for VLA adaptation, exposing a modality gap between symbolic guidance and low-level robot actions. We propose ROAD-VLA, an advantage-guided self-distillation framework that constructs a proximal teacher directly in action space by perturbing action-token logits with calibrated advantage estimates. This converts sparse rewards into dense token-level supervision while keeping the teacher close to the current policy. We further derive a policy-improvement lower bound under calibrated advantages and accurate teacher matching. Across seven robotic manipulation environments with in-distribution and out-of-distribution shifts, ROADVLA outperforms PPO in nearly all settings, demonstrating robust online VLA adaptation.",
+            "link": "https://arxiv.org/abs/2606.25800v1",
+            "pdfLink": "https://arxiv.org/pdf/2606.25800v1",
+            "published": "2026-06-24T13:17:59Z",
+            "updated": "2026-06-24T13:17:59Z",
+            "authors": [
+              "Kejing Wang",
+              "Toan Nguyen",
+              "Minh Hoang Nguyen",
+              "Simon Khan",
+              "Flora D. Salim"
+            ],
+            "categories": [
+              "cs.LG",
+              "cs.RO"
+            ],
+            "score": 85,
+            "importanceLevel": "B",
+            "lane": "VLA",
+            "dimensionScores": {
+              "relevance": 83,
+              "novelty": 80,
+              "impact": 75,
+              "practicality": 82,
+              "coreAlignment": 88
+            },
+            "oneSentenceSummary": "ROAD-VLA:优势引导自蒸馏，实现VLA鲁棒在线自适应。",
+            "summaryCn": "针对VLA在线适应中稀疏奖励问题，ROAD-VLA构建动作空间近端教师，扰动动作词元对数几率并校准优势估计，将稀疏奖励转化为密集词元级监督，同时推导策略改进下界，提升样本效率，在真实机器人任务中验证有效性。",
+            "whyImportant": "为VLA提供无需额外数据的在线自适应方法，提高部署鲁棒性。",
+            "reasonTags": [
+              "VLA",
+              "在线适应",
+              "自蒸馏",
+              "优势引导"
+            ],
+            "innovationPoints": [
+              "提出动作空间自蒸馏教师",
+              "利用优势校准构建近端目标",
+              "推导策略改进下界保证"
+            ],
+            "noveltyVerdict": "创新性中等：将自蒸馏引入动作空间，但核心思路与现有RL自蒸馏类似。",
+            "duplicateRisk": "medium",
+            "dedupeNote": "ROAD-VLA专注于在线自适应，与FORCE的离线-在线结合不同，应用场景互补。",
+            "retrievalGroups": [
+              "category",
+              "robotics",
+              "vla_core"
+            ],
+            "mergedCount": 1,
+            "mergedTitles": [
+              "ROAD-VLA: Robust Online Adaptation via Self-Distillation for Vision-Language-Action Models"
+            ]
+          },
+          {
+            "id": "2606.25985v1",
+            "title": "Action ControlNet: A Lightweight Delay-Aware Adapter for Smooth Asynchronous Control in Vision-Language-Action Models",
+            "summary": "Vision-language-action (VLA) models have shown strong potential for general-purpose robot manipulation, but their inference latency remains a major obstacle to stable high-frequency control. Asynchronous execution mitigates this bottleneck by overlapping policy inference with action execution, yet the next action chunk is still predicted…",
+            "summaryRaw": "Vision-language-action (VLA) models have shown strong potential for general-purpose robot manipulation, but their inference latency remains a major obstacle to stable high-frequency control. Asynchronous execution mitigates this bottleneck by overlapping policy inference with action execution, yet the next action chunk is still predicted from stale observations while the robot continues to move. Direct chunk stitching therefore introduces handoff discontinuities, action jitter, and failures in contact-rich manipulation. Existing remedies typically require either full-policy retraining or architecture-specific runtime logic. This work proposes Action ControlNet (ACNet), a lightweight delay-aware adapter that uses the executed motion suffix as a residual condition for a mostly frozen action head. ACNet leaves the pretrained backbone unchanged, introduces few trainable parameters, and remains compatible with generative action heads such as diffusion and flow matching. On Kinetix, Meta-World MT50, and a real-world SO-ARM101 platform, ACNet improves robustness under inference delay and yields smoother asynchronous trajectories than direct chunk stitching, while remaining more lightweight than full delay-conditioned retraining.",
+            "link": "https://arxiv.org/abs/2606.25985v1",
+            "pdfLink": "https://arxiv.org/pdf/2606.25985v1",
+            "published": "2026-06-24T15:53:43Z",
+            "updated": "2026-06-24T15:53:43Z",
+            "authors": [
+              "Tiecheng Guo",
+              "Meng Guo"
+            ],
+            "categories": [
+              "cs.RO"
+            ],
+            "score": 82,
+            "importanceLevel": "B",
+            "lane": "VLA",
+            "dimensionScores": {
+              "relevance": 79,
+              "novelty": 81,
+              "impact": 70,
+              "practicality": 85,
+              "coreAlignment": 85
+            },
+            "oneSentenceSummary": "Action ControlNet:轻量延迟感知适配器，平滑VLA异步控制。",
+            "summaryCn": "VLA推理延迟导致高频控制不稳定。ACNet利用已执行的运动后缀作为残差条件，适配冻结的动作头，无需重训骨架。通过少参数和动作不可知设计，消除交接抖动，在接触丰富任务中验证平滑控制效果。",
+            "whyImportant": "解决VLA异步执行中的手抖和失败问题，轻量级方案易于部署。",
+            "reasonTags": [
+              "VLA",
+              "异步控制",
+              "轻量适配器",
+              "延迟感知"
+            ],
+            "innovationPoints": [
+              "首次针对VLA异步控制的残差适配器设计",
+              "利用运动后缀提供延迟补偿",
+              "参数高效且骨架无关"
+            ],
+            "noveltyVerdict": "创新性中等：工程化解决方案，但解决实际问题。",
+            "duplicateRisk": "low",
+            "dedupeNote": "其他VLA工作未明确处理异步执行问题，ACNet填补空白。",
+            "retrievalGroups": [
+              "category",
+              "robotics",
+              "vla_core"
+            ],
+            "mergedCount": 1,
+            "mergedTitles": [
+              "Action ControlNet: A Lightweight Delay-Aware Adapter for Smooth Asynchronous Control in Vision-Language-Action Models"
+            ]
+          },
+          {
+            "id": "2606.25473v1",
+            "title": "Causal-rCM: A Unified Teacher-Forcing and Self-Forcing Open Recipe for Autoregressive Diffusion Distillation in Streaming Video Generation and Interactive World Models",
+            "summary": "Autoregressive video diffusion with causal diffusion transformers has emerged as a major paradigm for real-time streaming video generation and action-conditioned interactive world models. In this work, we extend rCM, an advanced diffusion distillation framework, to autoregressive video diffusion.",
+            "summaryRaw": "Autoregressive video diffusion with causal diffusion transformers has emerged as a major paradigm for real-time streaming video generation and action-conditioned interactive world models. In this work, we extend rCM, an advanced diffusion distillation framework, to autoregressive video diffusion. The core philosophy of rCM lies in the complementarity between forward and reverse divergences, represented by consistency models (CMs) and distribution matching distillation (DMD), respectively, in diffusion distillation. This philosophy naturally carries over to the autoregressive setting, where teacher-forcing (TF) provides an offline, forward-divergence causal training paradigm, while self-forcing (SF) corresponds to an on-policy, reverse-divergence refinement. Our contributions are: (1) through extensive experiments, we show that teacher-forcing CM is currently the best complement to self-forcing DMD as an initialization strategy (2) we present the first implementation of teacher-forcing-based continuous-time CMs (e.g., sCM/MeanFlow) for autoregressive video diffusion, enabled by our custom-mask FlashAttention-2 JVP kernel, achieving 10$\\times$ faster convergence compared to discrete-time CMs (dCMs) (3) we introduce Causal-rCM, a leading, unified, and scalable algorithm-infrastructure open recipe for diffusion distillation and causal training (4) we achieve state-of-the-art streaming video generation performance in both frame-wise and chunk-wise settings, using only synthetic data for training. Notably, our distilled 2-step causal Wan2.1-1.3B model achieves a VBench-T2V score of 84.63 with only 1 or 2 sampling steps. We further apply Causal-rCM to Cosmos 3, an advanced omnimodal world foundation model for physical AI with action-conditioned generation capability, enabling an interactive world model.",
+            "link": "https://arxiv.org/abs/2606.25473v1",
+            "pdfLink": "https://arxiv.org/pdf/2606.25473v1",
+            "published": "2026-06-24T06:58:02Z",
+            "updated": "2026-06-24T06:58:02Z",
+            "authors": [
+              "Kaiwen Zheng",
+              "Guande He",
+              "Min Zhao",
+              "Jintao Zhang",
+              "Huayu Chen",
+              "Jianfei Chen",
+              "Chen-Hsuan Lin",
+              "Ming-Yu Liu"
+            ],
+            "categories": [
+              "cs.CV",
+              "cs.LG"
+            ],
+            "score": 87,
+            "importanceLevel": "A",
+            "lane": "WAM",
+            "dimensionScores": {
+              "relevance": 83,
+              "novelty": 88,
+              "impact": 80,
+              "practicality": 75,
+              "coreAlignment": 90
+            },
+            "oneSentenceSummary": "Causal-rCM:统一教师强迫与自强迫蒸馏，用于交互世界模型。",
+            "summaryCn": "将rCM蒸馏框架扩展至自回归视频扩散，利用教师强迫（前向散度）与自强迫（反向散度）的互补性，通过一致性模型和分布匹配蒸馏的结合，实现高效动作条件世界模型蒸馏，为实时交互式世界模型提供开放方案。",
+            "whyImportant": "为交互式世界模型的高效推理提供系统性蒸馏方法，降低计算成本。",
+            "reasonTags": [
+              "世界动作模型",
+              "扩散蒸馏",
+              "自回归视频生成",
+              "交互世界模型"
+            ],
+            "innovationPoints": [
+              "首次将rCM统一框架应用于自回归视频扩散",
+              "展示教师强迫与自强迫在蒸馏中的互补性",
+              "提供开放方案促进交互式世界模型发展"
+            ],
+            "noveltyVerdict": "创新性高：蒸馏范式创新，为世界模型实时推理铺路。",
+            "duplicateRisk": "low",
+            "dedupeNote": "虽为方法论文，但直接面向交互式世界模型，核心WAM贡献。",
+            "retrievalGroups": [
+              "category",
+              "wam_core"
+            ],
+            "mergedCount": 1,
+            "mergedTitles": [
+              "Causal-rCM: A Unified Teacher-Forcing and Self-Forcing Open Recipe for Autoregressive Diffusion Distillation in Streaming Video Generation and Interactive World Models"
+            ]
+          },
+          {
+            "id": "2606.25880v1",
+            "title": "USS: Unified Spatial-Semantic Prompts for Embodied Visual Tracking with Latent Dynamics Learning",
+            "summary": "Embodied Visual Tracking (EVT) requires an agent to continuously follow a specified target while actively moving through dynamic environments. However, prevailing EVT paradigms predominantly rely on language-based target indication.",
+            "summaryRaw": "Embodied Visual Tracking (EVT) requires an agent to continuously follow a specified target while actively moving through dynamic environments. However, prevailing EVT paradigms predominantly rely on language-based target indication. While language is expressive and convenient, cluttered scenes often contain multiple objects that satisfy the same semantic description, leading to ambiguous target grounding. We therefore propose a paradigm shift, reframing target indication in EVT from text-only specification to unified spatial-semantic prompting. Based on this paradigm, we introduce Unified Spatial-Semantic Prompts for Embodied Visual Tracking with Latent Dynamics Learning, USS, an end-to-end embodied tracking framework that supports text, point, bounding box, and mask prompts within a unified architecture. USS encodes heterogeneous prompts with modality-specific encoders, fuses prompt tokens with visual features through hybrid attention, and decodes compact prompt-conditioned representations into egocentric waypoints. To further improve temporal robustness, USS incorporates a latent world model that predicts future representations through self-supervised alignment. Real-robot experiments demonstrate that explicit spatial target cues yield higher success rates than text-only prompts, particularly in scenarios involving similar distractors and longer-horizon tracking where maintaining instance-level target identity is critical. In the simulation benchmark, USS also achieves state-of-the-art performance among non-MLLM-based methods and competitive results against recent MLLM-based approaches with faster inference speed. Our findings reveal that spatial-semantic prompting provides a more precise and flexible target indication interface for embodied visual tracking. Project site: https://arescheah.github.io/uss-project-page/.",
+            "link": "https://arxiv.org/abs/2606.25880v1",
+            "pdfLink": "https://arxiv.org/pdf/2606.25880v1",
+            "published": "2026-06-24T14:25:05Z",
+            "updated": "2026-06-24T14:25:05Z",
+            "authors": [
+              "Yuchen Xie",
+              "Xinyu Zhou",
+              "Kuangji Zuo",
+              "Yanshuo Lu",
+              "Fengrui Huang",
+              "Boyu Ma",
+              "Jianfei Yang"
+            ],
+            "categories": [
+              "cs.CV"
+            ],
+            "score": 82,
+            "importanceLevel": "B",
+            "lane": "WAM",
+            "dimensionScores": {
+              "relevance": 78,
+              "novelty": 83,
+              "impact": 75,
+              "practicality": 70,
+              "coreAlignment": 80
+            },
+            "oneSentenceSummary": "USS:统一空间语义提示与潜在动力学学习的具身跟踪。",
+            "summaryCn": "针对具身视觉跟踪中语言歧义，USS支持文本、点、框、掩码多模态提示，编码后融合目标信息，通过潜在动力学模块建模时序运动，实现长期跟踪。实验表明多提示统一架构在复杂场景下提升跟踪鲁棒性。",
+            "whyImportant": "统一提示范式提升具身跟踪灵活性，潜在动力学学习辅助世界建模。",
+            "reasonTags": [
+              "具身视觉跟踪",
+              "动力学学习",
+              "多模态提示",
+              "世界模型"
+            ],
+            "innovationPoints": [
+              "统一处理多种空间语义提示",
+              "引入潜在动力学学习建模运动",
+              "端到端框架提升跟踪鲁棒性"
+            ],
+            "noveltyVerdict": "创新性中等：统一提示有价值，动力学学习模块非核心差异。",
+            "duplicateRisk": "low",
+            "dedupeNote": "有别于传统2D跟踪，该工作融合动力学学习，但WAM属性较弱，仍入选。",
+            "retrievalGroups": [
+              "category",
+              "robotics",
+              "wam_core"
+            ],
+            "mergedCount": 1,
+            "mergedTitles": [
+              "USS: Unified Spatial-Semantic Prompts for Embodied Visual Tracking with Latent Dynamics Learning"
+            ]
+          },
+          {
+            "id": "2606.25295v1",
+            "title": "DynaMOMA: Instantaneous Prediction of Grasp Poses for Mobile Manipulation of Dynamic Objects",
+            "summary": "Mobile manipulation is a fundamental robotics task and has advanced rapidly in recent years, enabling robots to navigate, reach, and interact with objects in complex environments. However, mobile manipulation of dynamic objects remains highly challenging, as robots must coordinate the mobile base and arm while adapting to continuously ev…",
+            "summaryRaw": "Mobile manipulation is a fundamental robotics task and has advanced rapidly in recent years, enabling robots to navigate, reach, and interact with objects in complex environments. However, mobile manipulation of dynamic objects remains highly challenging, as robots must coordinate the mobile base and arm while adapting to continuously evolving target poses. A key challenge lies in predicting temporally consistent short-horizon grasp trajectories from dynamic observations. In this work, we propose \\ours{}, a dynamic mobile manipulation framework that couples instantaneous grasp trajectory prediction with whole-body control policy. Our predictor uses an anchor-based diffusion model to generate temporally consistent short-horizon grasp trajectories conditioned on historical observations. The predicted trajectories are then encoded as compact features and fed to a whole-body reinforcement learning policy, which controls the mobile manipulator for dynamic grasping. We further introduce a anticipation-guided reward that equips the policy with an anticipatory grasping horizon by adaptively shifting the target from the current grasp observation to the instantaneously predicted grasp trajectory. Through extensive experiments in Isaac Gym simulation, we show that our method achieves strong performance in mobile manipulation of dynamic objects across diverse settings and grasping metrics. Furthermore, our predictor and policy demonstrate strong generalizability in real-world experiments.",
+            "link": "https://arxiv.org/abs/2606.25295v1",
+            "pdfLink": "https://arxiv.org/pdf/2606.25295v1",
+            "published": "2026-06-24T01:58:15Z",
+            "updated": "2026-06-24T01:58:15Z",
+            "authors": [
+              "Zhinan Yu",
+              "Junyan Xu",
+              "Jiazhao Zhang",
+              "Zheng Qin",
+              "Yijie Tang",
+              "Yuhang Huang",
+              "Yihan Cao",
+              "Zhiyuan Yu"
+            ],
+            "categories": [
+              "cs.RO"
+            ],
+            "score": 80,
+            "importanceLevel": "B",
+            "lane": "WAM",
+            "dimensionScores": {
+              "relevance": 76,
+              "novelty": 80,
+              "impact": 78,
+              "practicality": 75,
+              "coreAlignment": 82
+            },
+            "oneSentenceSummary": "DynaMOMA:锚点扩散预测抓取轨迹，耦合全身强化学习控制。",
+            "summaryCn": "针对动态物体移动操作，DynaMOMA耦合瞬时抓取轨迹预测与全身控制策略。预测器利用锚点扩散模型，基于历史观测生成时序一致短时抓取轨迹，编码为紧凑特征传入强化学习控制器，实现移动基座与臂的协同动态抓取。",
+            "whyImportant": "将扩散预测与全身控制结合，推动移动操作向动态环境拓展。",
+            "reasonTags": [
+              "世界模型",
+              "抓取预测",
+              "扩散模型",
+              "全身控制"
+            ],
+            "innovationPoints": [
+              "锚点扩散模型预测时序抓取轨迹",
+              "将动态预测与全身强化学习耦合",
+              "解决移动操作中的动态适应问题"
+            ],
+            "noveltyVerdict": "创新性较高：动态抓取轨迹预测与控制的结合有新颖性。",
+            "duplicateRisk": "low",
+            "dedupeNote": "区别于静态抓取检测，该工作专攻动态物体，具有WAM属性。",
+            "retrievalGroups": [
+              "category",
+              "robotics"
+            ],
+            "mergedCount": 1,
+            "mergedTitles": [
+              "DynaMOMA: Instantaneous Prediction of Grasp Poses for Mobile Manipulation of Dynamic Objects"
+            ]
+          },
+          {
+            "id": "2606.25736v1",
+            "title": "UniTeD: Unified Temporal Diffusion for Joint Perception and Planning in Autonomous Driving",
+            "summary": "Diffusion models have shown strong potential for multi-modal planning in end-to-end autonomous driving. However, most existing methods confine diffusion to the planning module, conditioning on fixed outputs from separate discriminative perception networks.",
+            "summaryRaw": "Diffusion models have shown strong potential for multi-modal planning in end-to-end autonomous driving. However, most existing methods confine diffusion to the planning module, conditioning on fixed outputs from separate discriminative perception networks. This decoupled design propagates perception errors to the planner, increasing optimization difficulty and reducing robustness. To overcome these limitations, we propose UniTeD, a Unified Temporal Diffusion framework that jointly models perception and planning through iterative denoising in a shared generative space. By enabling bidirectional information exchange, the framework facilitates mutual refinement between tasks and improves robustness via noise-conditioned multi-task training. We further extend this unified diffusion paradigm to a streaming setting by incorporating temporal context. A Temporal Transition Module (TTM) is introduced to resolve the noise-level mismatch between historical and current frames. In addition, we propose an Anchor Refresh Strategy (ARS) to alleviate the training-inference distribution shift commonly observed in sparse diffusion-based end-to-end driving frameworks. Without bells and whistles, UniTeD achieves state-of-the-art performance across multiple benchmarks, surpassing both recent discriminative end-to-end methods and diffusion-based planning approaches.",
+            "link": "https://arxiv.org/abs/2606.25736v1",
+            "pdfLink": "https://arxiv.org/pdf/2606.25736v1",
+            "published": "2026-06-24T12:03:54Z",
+            "updated": "2026-06-24T12:03:54Z",
+            "authors": [
+              "Bo Zhao",
+              "Xinting Zhao",
+              "Naifan Li",
+              "Erkang Cheng",
+              "Haibin Ling"
+            ],
+            "categories": [
+              "cs.CV"
+            ],
+            "score": 78,
+            "importanceLevel": "B",
+            "lane": "WAM",
+            "dimensionScores": {
+              "relevance": 74,
+              "novelty": 82,
+              "impact": 76,
+              "practicality": 70,
+              "coreAlignment": 80
+            },
+            "oneSentenceSummary": "UniTeD:统一时序扩散，联合建模自动驾驶感知与规划。",
+            "summaryCn": "UniTeD首次将感知与规划纳入统一扩散生成空间，通过迭代去噪实现双向信息交换与相互优化，并引入时序过渡模块适用流式处理。在nuScenes基准上，联合建模优于解耦基线，提升规划鲁棒性并降低误差传播。",
+            "whyImportant": "为端到端自动驾驶提供新范式，生成式联合建模有望改善可靠性。",
+            "reasonTags": [
+              "世界模型",
+              "端到端自动驾驶",
+              "扩散模型",
+              "联合感知规划"
+            ],
+            "innovationPoints": [
+              "首次统一时序扩散同时生成感知与规划",
+              "噪声条件多任务训练增强鲁棒性",
+              "流式扩展保持时序一致性"
+            ],
+            "noveltyVerdict": "创新性较高：将扩散模型用于联合感知规划，思路新颖。",
+            "duplicateRisk": "low",
+            "dedupeNote": "与现有扩散规划工作不同，引入感知空间联合生成，赋予世界模型特性。",
+            "retrievalGroups": [
+              "category",
+              "driving"
+            ],
+            "mergedCount": 1,
+            "mergedTitles": [
+              "UniTeD: Unified Temporal Diffusion for Joint Perception and Planning in Autonomous Driving"
+            ]
+          },
+          {
+            "id": "2606.25953v1",
+            "title": "DSP-SLAM++: A Unified Framework for Multi-Class, High-Fidelity Object SLAM in the Wild",
+            "summary": "Existing object-aware SLAM systems force a trade-off between real-time performance, multi-class support, and the generation of high-fidelity, semantically coherent object models. To address this trade-off, we present DSP-SLAM++, which extends the DSP-SLAM framework with an asynchronous mapping pipeline for real-time performance and dedic…",
+            "summaryRaw": "Existing object-aware SLAM systems force a trade-off between real-time performance, multi-class support, and the generation of high-fidelity, semantically coherent object models. To address this trade-off, we present DSP-SLAM++, which extends the DSP-SLAM framework with an asynchronous mapping pipeline for real-time performance and dedicated sensor fusion adaptations for a monocular fisheye-LiDAR suite. Experiments demonstrate that our system generates fine-grained, geometrically-complete shapes for multiple object classes while eliminating severe mapping thread bottlenecks by reducing maximum object processing latency by up to 70\\% compared to the state-of-the-art baseline, enabling robust, real-time performance on a challenging 25 Hz multi-class datasets. This work makes high-fidelity, multi-class object SLAM more practical for real-world applications like autonomous driving and robotic manipulation by enabling its use on platforms with common fisheye-LiDAR sensor setups. The open-source code is available at: [github.com/AUBVRL/DSP-SLAMpp].",
+            "link": "https://arxiv.org/abs/2606.25953v1",
+            "pdfLink": "https://arxiv.org/pdf/2606.25953v1",
+            "published": "2026-06-24T15:27:23Z",
+            "updated": "2026-06-24T15:27:23Z",
+            "authors": [
+              "Ahmad Kourani",
+              "Ghina Daoud",
+              "Daniel Asmar",
+              "Imad Elhajj"
+            ],
+            "categories": [
+              "cs.CV",
+              "cs.RO"
+            ],
+            "score": 78,
+            "importanceLevel": "B",
+            "lane": "Robotics",
+            "dimensionScores": {
+              "relevance": 50,
+              "novelty": 70,
+              "impact": 75,
+              "practicality": 78,
+              "coreAlignment": 40
+            },
+            "oneSentenceSummary": "DSP-SLAM++:统一框架实现多类高保真物体SLAM，异步建图加速。",
+            "summaryCn": "DSP-SLAM++扩展DSP-SLAM，通过异步建图管线消除瓶颈，适配鱼眼-LiDAR传感器融合，实现多类物体实时高保真重建。实验表明物体处理延迟降低70%，在25Hz数据集上实时运行，推动物体SLAM实用化。",
+            "whyImportant": "推进物体级SLAM走向实用，对自动驾驶与机器人感知有较大价值。",
+            "reasonTags": [
+              "物体SLAM",
+              "多传感器融合",
+              "实时建图",
+              "高保真重建"
+            ],
+            "innovationPoints": [
+              "异步建图管线消除处理瓶颈",
+              "适应鱼眼-LiDAR的传感器融合",
+              "多类高保真形状重建"
+            ],
+            "noveltyVerdict": "中等：在原有基础上改进流水线，实用性强。",
+            "duplicateRisk": "low",
+            "dedupeNote": "在DSP-SLAM上增量改进，但解决实时与多类问题，非冗余。",
+            "retrievalGroups": [
+              "category",
+              "driving",
+              "robotics"
+            ],
+            "mergedCount": 1,
+            "mergedTitles": [
+              "DSP-SLAM++: A Unified Framework for Multi-Class, High-Fidelity Object SLAM in the Wild"
+            ]
+          },
+          {
+            "id": "2606.26010v1",
+            "title": "FAR-LIO: Enabling High-Speed Autonomy through Fast, Accurate, and Robust LiDAR-Inertial Odometry",
+            "summary": "Robust and accurate odometry estimation is essential in modern robotics. In environments characterized by highly dynamic motion and sensor noise, odometry estimation becomes increasingly challenging.",
+            "summaryRaw": "Robust and accurate odometry estimation is essential in modern robotics. In environments characterized by highly dynamic motion and sensor noise, odometry estimation becomes increasingly challenging. Autonomous racing combines both factors in an unstructured setting, where minimizing odometry latency is essential for stable closed-loop control. This paper introduces FAR-LIO, a highly optimized CUDA-accelerated LiDAR-inertial odometry framework developed for Fast, Accurate, and Robust performance. Our system leverages a novel CUDA-based voxel hashmap to enable parallelized nearest-neighbor search and efficient map updates. We employ a sparsity-aware Generalized Iterative Closest Point algorithm with adaptive thresholding on top of the CUDA-based voxel hashmap with adaptive density to achieve low-latency without compromising accuracy. An Extended Kalman Filter serves as a robust backend. It utilizes an upsampling and delay compensation strategy to fuse the LiDAR odometry with high-frequency IMU data, thereby ensuring a robust and smooth odometry output. We evaluate FAR-LIO across four different sensor setups, using both public datasets and data from two autonomous racecars driving at speeds of up to 250 km/h. FAR-LIO achieves an average 6.9% reduction in the positional error and 38.4% lower runtime compared to state-of-the-art baselines on target hardware using a single parameter set. This demonstrates its computational efficiency and broad applicability. To build upon our work, our code is available open-source on https://github.com/TUMFTM/FAR-LIO.",
+            "link": "https://arxiv.org/abs/2606.26010v1",
+            "pdfLink": "https://arxiv.org/pdf/2606.26010v1",
+            "published": "2026-06-24T16:30:51Z",
+            "updated": "2026-06-24T16:30:51Z",
+            "authors": [
+              "Maximilian Leitenstern",
+              "Marcel Weinmann",
+              "Patrick Haft",
+              "Tobias Lasser",
+              "Dominik Kulmer",
+              "Markus Lienkamp"
+            ],
+            "categories": [
+              "cs.RO"
+            ],
+            "score": 76,
+            "importanceLevel": "B",
+            "lane": "Robotics",
+            "dimensionScores": {
+              "relevance": 40,
+              "novelty": 68,
+              "impact": 74,
+              "practicality": 82,
+              "coreAlignment": 30
+            },
+            "oneSentenceSummary": "FAR-LIO:CUDA加速LiDAR-惯导里程计，实现高速低延迟定位。",
+            "summaryCn": "FAR-LIO面向高速动态场景，设计CUDA体素哈希地图实现并行最近邻搜索，结合自适应阈值稀疏GICP和EKF后端，提供快速、精确、鲁棒的里程计估计。在自主赛车等场景验证低延迟，支撑稳定闭环控制。",
+            "whyImportant": "为高速动态场景提供高精度、低延迟里程计，支撑自主赛车等应用。",
+            "reasonTags": [
+              "LiDAR-惯导里程计",
+              "CUDA加速",
+              "高速定位",
+              "自主赛车"
+            ],
+            "innovationPoints": [
+              "CUDA体素哈希地图并行搜索",
+              "自适应阈值稀疏GICP",
+              "EKF鲁棒后端"
+            ],
+            "noveltyVerdict": "改进型创新，系统优化显著。",
+            "duplicateRisk": "low",
+            "dedupeNote": "聚焦高速场景的里程计优化，有别于通用LIO方案。",
+            "retrievalGroups": [
+              "category",
+              "robotics"
+            ],
+            "mergedCount": 1,
+            "mergedTitles": [
+              "FAR-LIO: Enabling High-Speed Autonomy through Fast, Accurate, and Robust LiDAR-Inertial Odometry"
+            ]
+          },
+          {
+            "id": "2606.26046v1",
+            "title": "RoboAtlas: Contextual Active SLAM",
+            "summary": "We present RoboAtlas, a contextual Active SLAM framework that adaptively balances geometric exploration and semantic reasoning using a scalable 3D semantic mapping system, OpenRoboVox. RoboAtlas integrates frontier exploration, global semantic-map reasoning, and egocentric VLM-based reasoning through a contextual multi-armed bandit that…",
+            "summaryRaw": "We present RoboAtlas, a contextual Active SLAM framework that adaptively balances geometric exploration and semantic reasoning using a scalable 3D semantic mapping system, OpenRoboVox. RoboAtlas integrates frontier exploration, global semantic-map reasoning, and egocentric VLM-based reasoning through a contextual multi-armed bandit that transitions from exploration to semantically guided navigation as scene understanding improves. We evaluate the system in simulation and on a Unitree Go2 robot in large-scale real-world environments exceeding 1800 m2 with approx. 30k mapped semantic instances, achieving a 100% task success rate. On the GOAT-Bench \"Val Unseen\" benchmark, RoboAtlas achieves state-of-the-art performance with highest reported success rate (SR) of 90.6%, using GPT-4o, improving over the strongest prior baseline by 17.8 percentage points in SR. Using the much smaller Qwen2.5-VL-7B model, it still achieves 88.8% SR, outperforming all baselines using GPT-4o in SR, and revealing the importance of the information gained by our semantic mapping framework over simply replacing the underlying foundation model. The results demonstrate that grounding foundation models with large-scale 3D semantic maps enables robust and efficient contextual Active SLAM.",
+            "link": "https://arxiv.org/abs/2606.26046v1",
+            "pdfLink": "https://arxiv.org/pdf/2606.26046v1",
+            "published": "2026-06-24T17:26:07Z",
+            "updated": "2026-06-24T17:26:07Z",
+            "authors": [
+              "Alexander Schperberg",
+              "Shivam K. Panda",
+              "Abraham P. Vinod",
+              "M. K. Jawed",
+              "Stefano Di Cairano"
+            ],
+            "categories": [
+              "cs.CV",
+              "cs.RO"
+            ],
+            "score": 75,
+            "importanceLevel": "B",
+            "lane": "Robotics",
+            "dimensionScores": {
+              "relevance": 45,
+              "novelty": 72,
+              "impact": 78,
+              "practicality": 70,
+              "coreAlignment": 35
+            },
+            "oneSentenceSummary": "RoboAtlas:上下文主动SLAM，自适应平衡探索与语义推理。",
+            "summaryCn": "RoboAtlas集成前沿探索、全局语义地图推理和设备端VLM推理，通过上下文多臂老虎机动态切换探索与语义导航。在1800+平米真实环境测试100%任务成功，GOAT-Bench上取得90.6%成功率 SOTA，实证高效。",
+            "whyImportant": "结合语义推理的主动SLAM，在开放世界任务中成功率极高。",
+            "reasonTags": [
+              "主动SLAM",
+              "语义建图",
+              "多臂老虎机",
+              "开放世界"
+            ],
+            "innovationPoints": [
+              "上下文多臂老虎机切换探索/语义模式",
+              "融合3D语义地图与设备端VLM推理",
+              "大规模真实环境验证"
+            ],
+            "noveltyVerdict": "创新性较高：将语义理解与主动探索动态结合。",
+            "duplicateRisk": "low",
+            "dedupeNote": "与纯探索或纯语义SLAM不同，动态平衡策略新颖。",
+            "retrievalGroups": [
+              "category",
+              "robotics"
+            ],
+            "mergedCount": 1,
+            "mergedTitles": [
+              "RoboAtlas: Contextual Active SLAM"
+            ]
+          },
+          {
+            "id": "2606.25497v1",
+            "title": "SAGE-Nav: Leveraging LLM Planning and Alignment Fusion for Hierarchical Scene Graph-Guided Navigation",
+            "summary": "Object-Goal Navigation (ObjNav) requires embodied agents to autonomously locate specified targets using only egocentric visual observations. Existing monolithic methods struggle with long-horizon reasoning and generalize poorly to novel environments.",
+            "summaryRaw": "Object-Goal Navigation (ObjNav) requires embodied agents to autonomously locate specified targets using only egocentric visual observations. Existing monolithic methods struggle with long-horizon reasoning and generalize poorly to novel environments. To address these limitations, we propose SAGE-Nav, a novel hierarchical framework that integrates the reasoning capabilities of Large Language Models (LLMs) with dynamic scene graphs. Crucially, it decouples asynchronous global semantic planning from the high-frequency reactive control loop. The LLM serves as a global planner, decomposing abstract instructions into a sequence of semantically grounded waypoints. To translate these plans into dense multi-modal guidance, we design a Hierarchical Scene Graph Encoder (HSGE) that leverages relational graph convolutions to produce structure-aware embeddings preserving both semantic and spatial topology. Furthermore, we develop the Goal-aware Alignment-Fusion Network (GAFN) to dynamically fuse real-time perception with these structural priors. Using an adaptive gating mechanism with an explicit inductive bias, GAFN ensures robust visual-topological alignment for the low-level policy. Extensive evaluations in the i-THOR and RoboTHOR environments demonstrate that SAGE-Nav achieves state-of-the-art performance, delivering substantial gains in navigation efficiency and zero-shot generalization while maintaining the low control latency required for physical robotic deployment.",
+            "link": "https://arxiv.org/abs/2606.25497v1",
+            "pdfLink": "https://arxiv.org/pdf/2606.25497v1",
+            "published": "2026-06-24T07:24:39Z",
+            "updated": "2026-06-24T07:24:39Z",
+            "authors": [
+              "Hao Su",
+              "Yuehao Huang",
+              "Yukai Ma",
+              "Yong Liu",
+              "Jiajun Lv"
+            ],
+            "categories": [
+              "cs.RO"
+            ],
+            "score": 74,
+            "importanceLevel": "B",
+            "lane": "Robotics",
+            "dimensionScores": {
+              "relevance": 42,
+              "novelty": 70,
+              "impact": 73,
+              "practicality": 68,
+              "coreAlignment": 30
+            },
+            "oneSentenceSummary": "SAGE-Nav:LLM规划+层次场景图引导导航，解耦规划与控制。",
+            "summaryCn": "SAGE-Nav利用LLM全局规划生成语义路点序列，层次场景图编码器产生结构感知嵌入，为高频控制提供多模态引导。解耦异步规划与控制，改善长期推理和泛化，在目标导航任务中表现优异。",
+            "whyImportant": "改善目标导航的长期推理，提高泛化性。",
+            "reasonTags": [
+              "目标导航",
+              "LLM",
+              "场景图",
+              "层次架构"
+            ],
+            "innovationPoints": [
+              "LLM全局规划分解为路点",
+              "层次场景图编码器产生结构感知嵌入",
+              "异步解耦规划与控制"
+            ],
+            "noveltyVerdict": "中等：结合现有技术但架构设计合理。",
+            "duplicateRisk": "low",
+            "dedupeNote": "与其他LLM规划导航不同，强调层次场景图与高频控制解耦。",
+            "retrievalGroups": [
+              "category",
+              "robotics"
+            ],
+            "mergedCount": 1,
+            "mergedTitles": [
+              "SAGE-Nav: Leveraging LLM Planning and Alignment Fusion for Hierarchical Scene Graph-Guided Navigation"
+            ]
+          },
+          {
+            "id": "2606.26017v1",
+            "title": "G2DP: Diffusion Planning with Spatio-Temporal Grid Guidance",
+            "summary": "In autonomous driving, diffusion-based planners have emerged as a promising paradigm for robust motion planning in dense and interactive traffic, as they can effectively model diverse driving behaviors. However, their inherent stochasticity often requires explicit guidance during denoising to ensure safety and route adherence for robust…",
+            "summaryRaw": "In autonomous driving, diffusion-based planners have emerged as a promising paradigm for robust motion planning in dense and interactive traffic, as they can effectively model diverse driving behaviors. However, their inherent stochasticity often requires explicit guidance during denoising to ensure safety and route adherence for robust closed-loop execution. Existing guidance typically relies on sparse, entity-centric geometric queries or post-hoc refinement, yielding limited situational awareness and fragile performance in interactive scenes. To address this issue, we propose G2DP (Grid-Guided Diffusion Planning), a diffusion-based planner that directly enforces dense environmental constraints through inference-time guidance. Specifically, G2DP constructs a differentiable spatio-temporal cost volume by fusing probabilistic future occupancy distributions with a route-progress map. By formulating this volume as a continuous safety energy functional, it injects dense gradients directly into the denoising loop, actively steering trajectory generation toward collision-free and progress-optimal regions. Extensive closed-loop evaluations show that G2DP achieves state-of-the-art performance on nuPlan, outperforming the strongest imitation-learning baseline by +7.2 points in reactive score. It further maintains top scores in zero-shot transfers to interPlan and DeepScenario benchmarks, with collision avoidance improving by +10.15 over the unguided approach on interPlan. These results demonstrate that spatio-temporal cost grids serve as an effective representation for robust guidance in diffusion-based planning.",
+            "link": "https://arxiv.org/abs/2606.26017v1",
+            "pdfLink": "https://arxiv.org/pdf/2606.26017v1",
+            "published": "2026-06-24T16:38:55Z",
+            "updated": "2026-06-24T16:38:55Z",
+            "authors": [
+              "Hang Yu",
+              "Ye Jin",
+              "Alessandro Canevaro",
+              "Julian Schmidt",
+              "Julian Jordan",
+              "Peizheng Li",
+              "Marc Kaufeld",
+              "Silvan Lindner"
+            ],
+            "categories": [
+              "cs.RO"
+            ],
+            "score": 73,
+            "importanceLevel": "B",
+            "lane": "Robotics",
+            "dimensionScores": {
+              "relevance": 40,
+              "novelty": 75,
+              "impact": 70,
+              "practicality": 72,
+              "coreAlignment": 35
+            },
+            "oneSentenceSummary": "G2DP:时空网格引导的扩散规划，增强自动驾驶交互安全。",
+            "summaryCn": "G2DP构建可微分时空成本体，融合概率未来占用分布与路线进度图，在推理时通过梯度引导强化环境约束，使扩散规划器生成安全且遵循路线的轨迹。在密集交互场景中验证鲁棒性。",
+            "whyImportant": "为扩散规划器提供密集环境约束引导，提升复杂交通场景表现。",
+            "reasonTags": [
+              "扩散规划",
+              "时空成本体",
+              "自动驾驶",
+              "推理引导"
+            ],
+            "innovationPoints": [
+              "可微分时空成本体融合占用与路线",
+              "推理时梯度引导强化约束",
+              "无需重训即插即用"
+            ],
+            "noveltyVerdict": "创新性中等：改进扩散规划引导方式。",
+            "duplicateRisk": "low",
+            "dedupeNote": "与依赖稀疏查询的扩散规划不同，使用密集体素引导。",
+            "retrievalGroups": [
+              "category",
+              "driving",
+              "robotics"
+            ],
+            "mergedCount": 1,
+            "mergedTitles": [
+              "G2DP: Diffusion Planning with Spatio-Temporal Grid Guidance"
+            ]
+          },
+          {
+            "id": "2606.25527v1",
+            "title": "Beyond One-Size-Fits-All: Diagnosis-Driven Online Reinforcement Learning with Offline Priors",
+            "summary": "Online reinforcement learning (RL) agents increasingly depend on knowledge acquired offline to achieve practical efficiency. Originally studied in offline-to-online RL, this paradigm now spans foundation model post-training and embodied intelligence, with prior types expanding from offline datasets and pre-trained policies to increasingl…",
+            "summaryRaw": "Online reinforcement learning (RL) agents increasingly depend on knowledge acquired offline to achieve practical efficiency. Originally studied in offline-to-online RL, this paradigm now spans foundation model post-training and embodied intelligence, with prior types expanding from offline datasets and pre-trained policies to increasingly diverse knowledge sources such as multimodal foundation models and generative world models. Offline priors have become central to how deep RL is developed and deployed. However, this reliance introduces a challenge that the prevailing benchmark-driven paradigm cannot resolve: because prior validity varies across deployments and shifts during training, no single approach to managing it is universally optimal, and benchmark rankings offer limited guidance for real-world deployments. Rather than pursuing universal solutions, we argue that the field should shift to diagnosis-driven tension management, in which deployment-specific evidence guides how the learner relates to its priors throughout training, enabling both flexible and adaptive deployment. We support this position with a framework characterizing how priors reshape online optimization through three functional roles, controlled experiments demonstrating help-or-hurt reversals, cross-domain evidence from foundation model post-training to embodied intelligence, and engagement with five substantive counterarguments.",
+            "link": "https://arxiv.org/abs/2606.25527v1",
+            "pdfLink": "https://arxiv.org/pdf/2606.25527v1",
+            "published": "2026-06-24T08:05:28Z",
+            "updated": "2026-06-24T08:05:28Z",
+            "authors": [
+              "Guozheng Ma",
+              "Lu Li",
+              "Zilin Wang",
+              "Pierre-Luc Bacon",
+              "Dacheng Tao"
+            ],
+            "categories": [
+              "cs.LG"
+            ],
+            "score": 70,
+            "importanceLevel": "B",
+            "lane": "Peripheral",
+            "dimensionScores": {
+              "relevance": 50,
+              "novelty": 72,
+              "impact": 68,
+              "practicality": 55,
+              "coreAlignment": 40
+            },
+            "oneSentenceSummary": "提出诊断驱动在线RL框架，根据先验有效性动态选择策略。",
+            "summaryCn": "针对在线RL依赖离线先验但先验有效性变化的问题，提出诊断驱动范式，构建模块评估先验质量并动态调整策略，避免单一方案。通过理论分析和实验验证，为异构先验管理提供新思路，可应用于机器人。",
+            "whyImportant": "对RL在机器人中利用异构先验有指导意义。",
+            "reasonTags": [
+              "在线强化学习",
+              "先验管理",
+              "诊断驱动",
+              "机器人"
+            ],
+            "innovationPoints": [
+              "诊断模块评估先验有效性",
+              "动态策略选择机制",
+              "超越统一基准范式"
+            ],
+            "noveltyVerdict": "新颖：挑战现有基准驱动范式。",
+            "duplicateRisk": "low",
+            "dedupeNote": "非特定VLA/WAM，但提供RL通用框架，有一定启发性。",
+            "retrievalGroups": [
+              "category",
+              "robotics",
+              "wam_core"
+            ],
+            "mergedCount": 1,
+            "mergedTitles": [
+              "Beyond One-Size-Fits-All: Diagnosis-Driven Online Reinforcement Learning with Offline Priors"
+            ]
+          },
+          {
+            "id": "2606.25503v1",
+            "title": "AISPO: Enhancing Depth Reliability for Robotic Manipulation of Non-Lambertian Objects via Affine-Invariant Shape Prior",
+            "summary": "Reliable depth perception is critical for robotic manipulation, especially for non-Lambertian objects such as transparent or highly specular surfaces, where raw depth measurements are often corrupted or missing. These failures frequently propagate to motion planning, resulting in invalid grasp poses and execution errors.",
+            "summaryRaw": "Reliable depth perception is critical for robotic manipulation, especially for non-Lambertian objects such as transparent or highly specular surfaces, where raw depth measurements are often corrupted or missing. These failures frequently propagate to motion planning, resulting in invalid grasp poses and execution errors. We propose AISPO, a depth completion framework that improves depth reliability for manipulation in challenging sensing conditions. AISPO combines multi-scale RGB-D feature fusion with an affine-invariant shape prior to enforce geometric consistency and mitigate catastrophic depth failures. Unlike methods that focus primarily on average depth accuracy, our approach emphasizes physical plausibility and structural integrity of the predicted depth maps. Extensive benchmark evaluations demonstrate competitive performance and strong generalization to unseen objects and novel scenes. Real-world grasping experiments further show that enhanced depth reliability significantly improves manipulation success rates, particularly for transparent objects where many existing methods fail to produce physically usable depth estimates.",
+            "link": "https://arxiv.org/abs/2606.25503v1",
+            "pdfLink": "https://arxiv.org/pdf/2606.25503v1",
+            "published": "2026-06-24T07:37:11Z",
+            "updated": "2026-06-24T07:37:11Z",
+            "authors": [
+              "Zhiming Chen",
+              "Linfang Zheng",
+              "Kun Zhang",
+              "Hyung Jin Chang",
+              "Wei Zhang",
+              "Hongyu Yu",
+              "Hua Chen"
+            ],
+            "categories": [
+              "cs.CV",
+              "cs.RO"
+            ],
+            "score": 68,
+            "importanceLevel": "B",
+            "lane": "Robotics",
+            "dimensionScores": {
+              "relevance": 45,
+              "novelty": 68,
+              "impact": 60,
+              "practicality": 70,
+              "coreAlignment": 35
+            },
+            "oneSentenceSummary": "AISPO:利用仿射不变形状先验增强非朗伯物体深度可靠性。",
+            "summaryCn": "AISPO结合多尺度RGB-D特征融合与仿射不变形状先验，修复透明、镜面等物体的深度图，确保几何一致性和物理合理性。在多个基准上验证泛化性，并集成至真实机器人操作任务提升抓取成功率。",
+            "whyImportant": "提升透明/镜面物体的深度感知鲁棒性，对操作至关重要。",
+            "reasonTags": [
+              "深度补全",
+              "非朗伯物体",
+              "形状先验",
+              "机器人操作"
+            ],
+            "innovationPoints": [
+              "多尺度RGB-D融合+形状先验",
+              "强调物理真实性而非平均精度",
+              "良好泛化性"
+            ],
+            "noveltyVerdict": "中等：结合几何先验的深度补全。",
+            "duplicateRisk": "low",
+            "dedupeNote": "区别于侧重平均精度的补全方法，关注操作鲁棒性。",
+            "retrievalGroups": [
+              "category",
+              "robotics"
+            ],
+            "mergedCount": 1,
+            "mergedTitles": [
+              "AISPO: Enhancing Depth Reliability for Robotic Manipulation of Non-Lambertian Objects via Affine-Invariant Shape Prior"
+            ]
+          },
+          {
+            "id": "2606.25646v1",
+            "title": "Calousel: Extrinsic Calibration of Non-overlapping Multi-camera Systems from Pure Rotation",
+            "summary": "Extrinsic calibration of multi-camera systems with non-overlapping FOVs has been a challenging problem in the robotics literature. Conventional target-based methods impose substantial target setup overhead, either deploying large calibration targets or requiring pre-measured multi-target poses.",
+            "summaryRaw": "Extrinsic calibration of multi-camera systems with non-overlapping FOVs has been a challenging problem in the robotics literature. Conventional target-based methods impose substantial target setup overhead, either deploying large calibration targets or requiring pre-measured multi-target poses. Motion-based approaches instead suffer from drift error, scale ambiguity, and motion degeneracy. Securing both accuracy and usability, we propose a novel calibration method that leverages pure rotational motion, requiring only a single static calibration board. The key idea is to make all cameras sequentially observe the same target under a shared geometric reference, even without overlapping views. To integrate these time-separated observations, we formulate the problem using a latent turntable frame and a 3D error on SE(3) within a global optimization framework. We validate the proposed method on both a controlled camera rig and a full-scale vehicle platform with heterogeneous cameras, and analyze robustness under non-ideal turntable motion. Extensive experiments show that our approach maintains competitive accuracy without specialized precision hardware, proving its strong suitability for realistic on-site deployments. Our code is publicly available here.",
+            "link": "https://arxiv.org/abs/2606.25646v1",
+            "pdfLink": "https://arxiv.org/pdf/2606.25646v1",
+            "published": "2026-06-24T09:54:20Z",
+            "updated": "2026-06-24T09:54:20Z",
+            "authors": [
+              "Gwanhyeong Song",
+              "Chaehyeon Song",
+              "Ayoung Kim"
+            ],
+            "categories": [
+              "cs.CV",
+              "cs.RO"
+            ],
+            "score": 67,
+            "importanceLevel": "B",
+            "lane": "Robotics",
+            "dimensionScores": {
+              "relevance": 40,
+              "novelty": 70,
+              "impact": 60,
+              "practicality": 72,
+              "coreAlignment": 25
+            },
+            "oneSentenceSummary": "Calousel:纯旋转标定无重叠多相机系统，仅需单标定板。",
+            "summaryCn": "提出基于纯旋转运动的外参标定方法，所有相机顺序观察同一静态靶标，通过隐式转台帧建立几何参考，在SE(3)全局优化下求解外参。验证表明高精度、易用，无需重叠视场。",
+            "whyImportant": "简化多相机系统标定流程，提高易用性。",
+            "reasonTags": [
+              "外参标定",
+              "多相机系统",
+              "纯旋转",
+              "机器人感知"
+            ],
+            "innovationPoints": [
+              "纯旋转运动下顺序观察统一靶标",
+              "基于SE(3)误差的全局优化",
+              "无需重叠视场"
+            ],
+            "noveltyVerdict": "中等偏上：纯旋转标定有创新，但标定问题较成熟。",
+            "duplicateRisk": "low",
+            "dedupeNote": "与其他非重叠标定方法不同，利用纯旋转避免运动退化。",
+            "retrievalGroups": [
+              "category",
+              "robotics"
+            ],
+            "mergedCount": 1,
+            "mergedTitles": [
+              "Calousel: Extrinsic Calibration of Non-overlapping Multi-camera Systems from Pure Rotation"
+            ]
+          },
+          {
+            "id": "2606.25620v1",
+            "title": "1000 Rallies: An Event-Camera Dataset and Real-Time Learned Ball-State Estimation for Robotic Table Tennis",
+            "summary": "Robotic table tennis has emerged as a compelling benchmark for real-time robotic perception due to its fast ball dynamics and stringent timing requirements. Accurate, high-frequency, and low-latency ball state estimation is critical for reliable trajectory prediction and timely control.",
+            "summaryRaw": "Robotic table tennis has emerged as a compelling benchmark for real-time robotic perception due to its fast ball dynamics and stringent timing requirements. Accurate, high-frequency, and low-latency ball state estimation is critical for reliable trajectory prediction and timely control. Traditional frame-based cameras face an inherent trade-off: low frame rates leave temporal blind spots that miss fast-moving objects and high frame rates raise data and computational cost. Event cameras instead offer microsecond temporal resolution and, under sufficient illumination, remain largely free of motion blur even at high ball speeds. However, the community lacks large-scale datasets to develop and benchmark event-based perception in realistic sports scenarios. We address this gap by introducing the first large-scale event-camera dataset for table tennis, comprising over 1000 rallies from a diverse group of players ranging from amateurs to elite-level athletes. Each recording captures the event stream alongside 14 synchronized high-speed frame-based cameras at 200 FPS, which we use to produce 1 kHz pseudo ground-truth labels for ball position, velocity, and spin. Building on this dataset, we train a convolutional neural network robust to background player motion that jointly estimates the ball's position and velocity in the image-plane from events. Treating the predicted velocity as an additional measurement in the Kalman filter reduces bounce-point prediction error by 36% relative to a position-only baseline. Finally, we close the perception-action loop by integrating the event-based system with a Stäubli robotic arm, enabling the first real-time human-robot table tennis rallies driven by event-based perception.",
+            "link": "https://arxiv.org/abs/2606.25620v1",
+            "pdfLink": "https://arxiv.org/pdf/2606.25620v1",
+            "published": "2026-06-24T09:28:21Z",
+            "updated": "2026-06-24T09:28:21Z",
+            "authors": [
+              "Raphaela Kreiser",
+              "Asude Aydin",
+              "Yin Bi",
+              "Claudio Fanconi",
+              "Peter Dürr",
+              "Naoya Takahashi"
+            ],
+            "categories": [
+              "cs.CV",
+              "cs.RO"
+            ],
+            "score": 65,
+            "importanceLevel": "B",
+            "lane": "Robotics",
+            "dimensionScores": {
+              "relevance": 45,
+              "novelty": 65,
+              "impact": 62,
+              "practicality": 60,
+              "coreAlignment": 30
+            },
+            "oneSentenceSummary": "1000 Rallies:首个大规模乒乓球事件相机数据集与实时球估计。",
+            "summaryCn": "发布包含1000+回合的事件相机乒乓球数据集，提供高速动态下的高时域分辨率数据。基于该数据集训练实时球状态估计网络，利用事件流低延迟特性，实现毫秒级预测，助力机器人乒乓球感知研究。",
+            "whyImportant": "促进事件相机在高速动态场景的感知研究，推动机器人乒乓球。",
+            "reasonTags": [
+              "事件相机",
+              "乒乓球",
+              "数据集",
+              "球状态估计"
+            ],
+            "innovationPoints": [
+              "首个大规模赛事数据集",
+              "利用事件相机高时域分辨率",
+              "实时球状态估计网络"
+            ],
+            "noveltyVerdict": "中等：数据集新，方法基于现有学习技术。",
+            "duplicateRisk": "low",
+            "dedupeNote": "填补事件相机在球类运动的数据空白，与其他机器人数据集互补。",
+            "retrievalGroups": [
+              "category",
+              "robotics"
+            ],
+            "mergedCount": 1,
+            "mergedTitles": [
+              "1000 Rallies: An Event-Camera Dataset and Real-Time Learned Ball-State Estimation for Robotic Table Tennis"
+            ]
+          }
+        ],
+        "vla": [
+          {
+            "id": "2606.25591v1",
+            "title": "WOLF-VLA: Whole-Body Humanoid Optimal Locomotion Framework for Vision-Language-Action Learning",
+            "summary": "Vision-Language-Action (VLA) models have recently demonstrated strong generalization in robotic manipulation, yet their applicability to whole-body, contact-rich humanoid locomotion remains severely underexplored due to data scarcity, the absence of dynamically consistent demonstrations, and the difficulty of encoding optimality and safe…",
+            "summaryRaw": "Vision-Language-Action (VLA) models have recently demonstrated strong generalization in robotic manipulation, yet their applicability to whole-body, contact-rich humanoid locomotion remains severely underexplored due to data scarcity, the absence of dynamically consistent demonstrations, and the difficulty of encoding optimality and safety in learning-based pipelines. This work introduces a unified framework WOLF-VLA that integrates whole-body optimal-control (OC) motion synthesis with large-scale multi-modal dataset to train VLAs capable of generating humanoid locomotion policies directly from natural-language instructions. We construct a comprehensive dataset of dynamically feasible humanoid trajectories across six locomotion-related task families, each parameterized by environmental variations, object colors, placements, and visual distractors. We train a VLA model using the collected joint trajectories, ego-centric visual observations and natural language instruction, yielding a policy that exhibits strong reasoning and robustness to initial-condition variability, and competitive performance across several tasks and environment settings. A systematic ablation study demonstrates the impact of each modality on the model performance. The full dataset, model checkpoints, and benchmarking simulation suite will be openly released, establishing a reproducible dynamically consistent benchmark for whole-body humanoid locomotion rich VLA control and enabling future research in scalable transfer of instruction-driven locomotion policies.",
+            "link": "https://arxiv.org/abs/2606.25591v1",
+            "pdfLink": "https://arxiv.org/pdf/2606.25591v1",
+            "published": "2026-06-24T08:59:59Z",
+            "updated": "2026-06-24T08:59:59Z",
+            "authors": [
+              "Melya Boukheddimi",
+              "Omar Adjali",
+              "Daniel Sontag",
+              "Frank Kirchner"
+            ],
+            "categories": [
+              "cs.RO"
+            ],
+            "score": 95,
+            "importanceLevel": "S",
+            "lane": "VLA",
+            "dimensionScores": {
+              "relevance": 94,
+              "novelty": 93,
+              "impact": 90,
+              "practicality": 85,
+              "coreAlignment": 96
+            },
+            "oneSentenceSummary": "WOLF-VLA:将最优控制与VLA结合，实现人形机器人全身运动语言控制。",
+            "summaryCn": "WOLF-VLA统一框架集成全身最优控制运动合成和大规模多模态数据集，训练VLA模型直接从自然语言指令生成人形机器人策略，覆盖六类任务，参数化环境变化，并通过动作标记化与多模态对齐实现动态可行轨迹。该框架首次将VLA推及全身运动。",
+            "whyImportant": "首次将VLA扩展到全身人形运动，突破数据稀缺与安全限制。",
+            "reasonTags": [
+              "VLA",
+              "人形机器人",
+              "全身控制",
+              "最优控制"
+            ],
+            "innovationPoints": [
+              "提出最优控制合成与VLA训练结合的数据生成范式",
+              "构建涵盖多任务的大规模全身运动数据集",
+              "实现零样本语言到全身动作的泛化"
+            ],
+            "noveltyVerdict": "创新性强：首次系统地将最优控制用于VLA数据生成，解决全身接触运动难题。",
+            "duplicateRisk": "low",
+            "dedupeNote": "专注全身运动，区别于仅限操作或简单移动的VLA工作。",
+            "retrievalGroups": [
+              "category",
+              "robotics",
+              "vla_core"
+            ],
+            "mergedCount": 1,
+            "mergedTitles": [
+              "WOLF-VLA: Whole-Body Humanoid Optimal Locomotion Framework for Vision-Language-Action Learning"
+            ]
+          },
+          {
+            "id": "2606.25360v1",
+            "title": "Decoupling Semantics and Geometric Grounding: Spatial Visual Prompts for Language-Conditioned Imitation Learning",
+            "summary": "While end-to-end Vision-Language-Action (VLA) models show promise in robotic manipulation, their monolithic paradigm inherently couples semantic reasoning and spatial control. This creates a severe alignment bottleneck, limiting precise target disambiguation in data-constrained imitation learning.",
+            "summaryRaw": "While end-to-end Vision-Language-Action (VLA) models show promise in robotic manipulation, their monolithic paradigm inherently couples semantic reasoning and spatial control. This creates a severe alignment bottleneck, limiting precise target disambiguation in data-constrained imitation learning. To overcome this, we propose SVP-IL, a decoupled architecture that explicitly extracts spatial visual grounding from the action generation loop. By leveraging vision-language foundation models, we parse instructions into zero-shot geometric masks, translating language into explicit Spatial Visual Prompts (SVP). These priors are injected into a continuous action generator via a lightweight direct feature-level fusion mechanism. This integration provides explicit and uncorrupted spatial gradient guidance while ensuring highly stable optimization under low-data regimes. Extensive experiments demonstrate that SVP-IL significantly outperforms state-of-the-art VLAs and pure visuomotor baselines. Trained on as few as 50 to 100 demonstrations, SVP-IL improves average success rates on highly ambiguous language-conditioned tasks from 24.0% to 39.5%, achieving 67.8% on standard benchmarks. Real-world robotic experiments further validate its robustness and data efficiency in unstructured physical environments.",
+            "link": "https://arxiv.org/abs/2606.25360v1",
+            "pdfLink": "https://arxiv.org/pdf/2606.25360v1",
+            "published": "2026-06-24T03:45:06Z",
+            "updated": "2026-06-24T03:45:06Z",
+            "authors": [
+              "Yanzhe Tang",
+              "Xinyu Shao",
+              "Yuxuan Hu",
+              "Siyu Chen",
+              "Bowen Yang",
+              "Yajun Gao",
+              "Tongtong Cao",
+              "Xiu Li"
+            ],
+            "categories": [
+              "cs.RO"
+            ],
+            "score": 90,
+            "importanceLevel": "A",
+            "lane": "VLA",
+            "dimensionScores": {
+              "relevance": 89,
+              "novelty": 85,
+              "impact": 80,
+              "practicality": 78,
+              "coreAlignment": 90
+            },
+            "oneSentenceSummary": "SVP-IL解耦语义与空间，利用空间视觉提示提升语言条件模仿学习精度。",
+            "summaryCn": "针对端到端VLA的语义-空间耦合瓶颈，提出SVP-IL架构，显式提取指代物的零样本几何掩码作为空间视觉提示，注入连续动作生成器，通过轻量级特征融合提供空间梯度引导，在低数据下稳定优化，实验证明在复杂操纵任务中显著提升成功率。",
+            "whyImportant": "通过解耦设计缓解VLA的对齐瓶颈，实现低数据下的精确目标指代。",
+            "reasonTags": [
+              "VLA",
+              "空间视觉提示",
+              "模仿学习",
+              "解耦架构"
+            ],
+            "innovationPoints": [
+              "空间视觉提示解耦语义与空间处理",
+              "利用视觉语言基础模型零样本生成掩码",
+              "轻量融合机制稳定低数据优化"
+            ],
+            "noveltyVerdict": "创新性较高：将空间先验注入动作生成，改变传统端到端范式。",
+            "duplicateRisk": "low",
+            "dedupeNote": "与其他端到端VLA不同，显式解耦空间信息，非简单数据增强。",
+            "retrievalGroups": [
+              "category",
+              "robotics",
+              "vla_core"
+            ],
+            "mergedCount": 1,
+            "mergedTitles": [
+              "Decoupling Semantics and Geometric Grounding: Spatial Visual Prompts for Language-Conditioned Imitation Learning"
+            ]
+          },
+          {
+            "id": "2606.26095v1",
+            "title": "Learning Action Priors for Cross-embodiment Robot Manipulation",
+            "summary": "Most Vision-Language-Action (VLA) models build on a Vision-Language Model (VLM) backbone by attaching an action module and optimizing the full policy jointly. This design inherits strong visual and linguistic priors from the VLM, but leaves the action module to learn physical motion almost from scratch.",
+            "summaryRaw": "Most Vision-Language-Action (VLA) models build on a Vision-Language Model (VLM) backbone by attaching an action module and optimizing the full policy jointly. This design inherits strong visual and linguistic priors from the VLM, but leaves the action module to learn physical motion almost from scratch. As a result, the policy lacks an explicit motion prior, forcing early optimization to simultaneously discover temporal action dynamics and cross-modal alignment, a challenge further amplified in cross-embodiment settings. In this work, we propose to pretrain the action module with motion priors before cross-modal VLA alignment. Specifically, we introduce a two-stage training framework that equips the action module with cross-embodiment temporal motion structure before VLA training begins. In Stage~1, a lightweight flow-matching-based encoder-decoder action module efficiently learns temporal motion structure solely from unconditioned action trajectories, without processing visual or language tokens. In Stage~2, this learned prior is transferred to VLA training through decoder reuse and early-stage latent distillation, aligning visual-language features with the action embedding space while still allowing end-to-end policy refinement. In addition, the trained encoder serves as a compact history compressor, summarizing state-action histories into a single temporal context token for history-aware modeling at negligible cost. Extensive experiments across 13 diverse cross-embodiment tasks on both simulated and real-world platforms validate the effectiveness of our approach. Compared with VLA training without action priors, our model achieves faster convergence, higher success rates, and substantially stronger performance on data-scarce real-world tasks. Moreover, scaling up the action data in Stage~1 yields a more generalizable action prior that directly improves downstream VLA performance.",
+            "link": "https://arxiv.org/abs/2606.26095v1",
+            "pdfLink": "https://arxiv.org/pdf/2606.26095v1",
+            "published": "2026-06-24T17:59:56Z",
+            "updated": "2026-06-24T17:59:56Z",
+            "authors": [
+              "Dong Jing",
+              "Tianqi Zhang",
+              "Jiaqi Liu",
+              "Jinman Zhao",
+              "Zelong Sun",
+              "Li Erran Li",
+              "Zhiwu Lu",
+              "Mingyu Ding"
+            ],
+            "categories": [
+              "cs.AI",
+              "cs.CV",
+              "cs.RO"
+            ],
+            "score": 90,
+            "importanceLevel": "A",
+            "lane": "VLA",
+            "dimensionScores": {
+              "relevance": 88,
+              "novelty": 87,
+              "impact": 82,
+              "practicality": 80,
+              "coreAlignment": 92
+            },
+            "oneSentenceSummary": "预训练动作模块的运动先验，提升跨具身VLA的对齐效率与泛化性。",
+            "summaryCn": "针对VLA动作模块缺乏运动先验的问题，提出两阶段训练框架：先利用流匹配编码-解码器学习跨具身时序运动结构，再进行跨模态VLA对齐。该方法使策略在训练初期快速收敛，并在多机器人平台展示出更强的跨具身泛化能力。",
+            "whyImportant": "为VLA注入运动先验，加速训练并改善跨具身迁移，启发未来策略设计。",
+            "reasonTags": [
+              "VLA",
+              "动作先验",
+              "跨具身",
+              "流匹配"
+            ],
+            "innovationPoints": [
+              "提出动作模块的流匹配预训练",
+              "两阶段训练分离运动结构与跨模态对齐",
+              "有效提升跨具身泛化"
+            ],
+            "noveltyVerdict": "创新性较强：针对VLA普遍缺失的运动先验，提出明确解决方案。",
+            "duplicateRisk": "low",
+            "dedupeNote": "不同于直接在VLA训练中学习动作，先独立学习运动模式再对齐。",
+            "retrievalGroups": [
+              "category",
+              "robotics",
+              "vla_core"
+            ],
+            "mergedCount": 1,
+            "mergedTitles": [
+              "Learning Action Priors for Cross-embodiment Robot Manipulation"
+            ]
+          },
+          {
+            "id": "2606.26006v1",
+            "title": "FORCE: Efficient VLA Reinforcement Fine-Tuning via Value-Calibrated Warm-up and Self-Distillation",
+            "summary": "Vision-Language-Action (VLA) models are often constrained by the imitation ceiling imposed by sub-optimal data. While Reinforcement Learning (RL) fine-tuning can surpass this limit, it is notoriously sample inefficient.",
+            "summaryRaw": "Vision-Language-Action (VLA) models are often constrained by the imitation ceiling imposed by sub-optimal data. While Reinforcement Learning (RL) fine-tuning can surpass this limit, it is notoriously sample inefficient. This challenge arises from two core issues: (1) catastrophic initial unlearning due to an unstable Q-function and (2) inefficient policy updates caused by low-quality exploration data, often forcing a reliance on costly human interventions. We introduce FORCE, a 3-stage framework that stabilizes fine-tuning by tackling both issues. FORCE first incorporates a Value-Calibrated Warm-Up phase, utilizing on-policy rollouts to mitigate the distributional shift of the Q-function. Subsequently, during the online stage, this calibrated Q-function acts as a filter for both the policy's own action proposals and expert data, ensuring only high-value actions are used for the policy update. We evaluate FORCE on various simulation and real-world tasks, and the result shows that FORCE achieves a 79% absolute improvement in success rates and outperform prior RL methods by 10%, while accelerating training by 32.5%. Critically, it mitigates the common success rate drop and achieves this robust performance without human intervention, marking a significant step towards deploying capable and autonomous robotic agents.",
+            "link": "https://arxiv.org/abs/2606.26006v1",
+            "pdfLink": "https://arxiv.org/pdf/2606.26006v1",
+            "published": "2026-06-24T16:23:18Z",
+            "updated": "2026-06-24T16:23:18Z",
+            "authors": [
+              "Shuyi Zhang",
+              "Yunfan Lou",
+              "Hongyang Cheng",
+              "Yichen Guo",
+              "Chuyao Fu",
+              "Yaoxu Lyu",
+              "Xiaojie Zhang",
+              "Haoran Li"
+            ],
+            "categories": [
+              "cs.AI",
+              "cs.RO"
+            ],
+            "score": 88,
+            "importanceLevel": "A",
+            "lane": "VLA",
+            "dimensionScores": {
+              "relevance": 86,
+              "novelty": 85,
+              "impact": 83,
+              "practicality": 82,
+              "coreAlignment": 90
+            },
+            "oneSentenceSummary": "FORCE：三阶段RL微调，价值校准预热+自蒸馏，高效超越模仿天花板。",
+            "summaryCn": "FORCE框架解决VLA强化学习微调样本效率低的问题：第一阶段价值校准预热缓解Q函数分布偏移；第二阶段在线过滤高价值动作；第三阶段自蒸馏提升策略更新效率。实验显示在多个操纵任务中优于现有RL微调方法。",
+            "whyImportant": "稳定高效的RL微调是推动VLA超越模仿极限的关键技术路径。",
+            "reasonTags": [
+              "VLA",
+              "强化学习微调",
+              "自蒸馏",
+              "价值校准"
+            ],
+            "innovationPoints": [
+              "提出价值校准预热阶段",
+              "利用校准Q函数过滤高质量动作",
+              "融合自蒸馏缓解探索低效"
+            ],
+            "noveltyVerdict": "创新性较高：针对RL微调两大问题给出系统解决方案。",
+            "duplicateRisk": "medium",
+            "dedupeNote": "FORCE关注离线预热的稳定性与在线自蒸馏过滤，与ROAD-VLA在线自蒸馏互补。",
+            "retrievalGroups": [
+              "category",
+              "robotics",
+              "vla_core"
+            ],
+            "mergedCount": 1,
+            "mergedTitles": [
+              "FORCE: Efficient VLA Reinforcement Fine-Tuning via Value-Calibrated Warm-up and Self-Distillation"
+            ]
+          },
+          {
+            "id": "2606.25800v1",
+            "title": "ROAD-VLA: Robust Online Adaptation via Self-Distillation for Vision-Language-Action Models",
+            "summary": "Effective online adaptation of vision-language-action (VLA) models remains challenging, as sparse rewards provide weak supervision for high-dimensional autoregressive action policies. Although self-distillation can in principle provide denser training signals, we find that text-based privileged teachers conditioned on demonstrations, ret…",
+            "summaryRaw": "Effective online adaptation of vision-language-action (VLA) models remains challenging, as sparse rewards provide weak supervision for high-dimensional autoregressive action policies. Although self-distillation can in principle provide denser training signals, we find that text-based privileged teachers conditioned on demonstrations, retrieved experiences, or high-level plans are ineffective for VLA adaptation, exposing a modality gap between symbolic guidance and low-level robot actions. We propose ROAD-VLA, an advantage-guided self-distillation framework that constructs a proximal teacher directly in action space by perturbing action-token logits with calibrated advantage estimates. This converts sparse rewards into dense token-level supervision while keeping the teacher close to the current policy. We further derive a policy-improvement lower bound under calibrated advantages and accurate teacher matching. Across seven robotic manipulation environments with in-distribution and out-of-distribution shifts, ROADVLA outperforms PPO in nearly all settings, demonstrating robust online VLA adaptation.",
+            "link": "https://arxiv.org/abs/2606.25800v1",
+            "pdfLink": "https://arxiv.org/pdf/2606.25800v1",
+            "published": "2026-06-24T13:17:59Z",
+            "updated": "2026-06-24T13:17:59Z",
+            "authors": [
+              "Kejing Wang",
+              "Toan Nguyen",
+              "Minh Hoang Nguyen",
+              "Simon Khan",
+              "Flora D. Salim"
+            ],
+            "categories": [
+              "cs.LG",
+              "cs.RO"
+            ],
+            "score": 85,
+            "importanceLevel": "B",
+            "lane": "VLA",
+            "dimensionScores": {
+              "relevance": 83,
+              "novelty": 80,
+              "impact": 75,
+              "practicality": 82,
+              "coreAlignment": 88
+            },
+            "oneSentenceSummary": "ROAD-VLA:优势引导自蒸馏，实现VLA鲁棒在线自适应。",
+            "summaryCn": "针对VLA在线适应中稀疏奖励问题，ROAD-VLA构建动作空间近端教师，扰动动作词元对数几率并校准优势估计，将稀疏奖励转化为密集词元级监督，同时推导策略改进下界，提升样本效率，在真实机器人任务中验证有效性。",
+            "whyImportant": "为VLA提供无需额外数据的在线自适应方法，提高部署鲁棒性。",
+            "reasonTags": [
+              "VLA",
+              "在线适应",
+              "自蒸馏",
+              "优势引导"
+            ],
+            "innovationPoints": [
+              "提出动作空间自蒸馏教师",
+              "利用优势校准构建近端目标",
+              "推导策略改进下界保证"
+            ],
+            "noveltyVerdict": "创新性中等：将自蒸馏引入动作空间，但核心思路与现有RL自蒸馏类似。",
+            "duplicateRisk": "medium",
+            "dedupeNote": "ROAD-VLA专注于在线自适应，与FORCE的离线-在线结合不同，应用场景互补。",
+            "retrievalGroups": [
+              "category",
+              "robotics",
+              "vla_core"
+            ],
+            "mergedCount": 1,
+            "mergedTitles": [
+              "ROAD-VLA: Robust Online Adaptation via Self-Distillation for Vision-Language-Action Models"
+            ]
+          },
+          {
+            "id": "2606.25985v1",
+            "title": "Action ControlNet: A Lightweight Delay-Aware Adapter for Smooth Asynchronous Control in Vision-Language-Action Models",
+            "summary": "Vision-language-action (VLA) models have shown strong potential for general-purpose robot manipulation, but their inference latency remains a major obstacle to stable high-frequency control. Asynchronous execution mitigates this bottleneck by overlapping policy inference with action execution, yet the next action chunk is still predicted…",
+            "summaryRaw": "Vision-language-action (VLA) models have shown strong potential for general-purpose robot manipulation, but their inference latency remains a major obstacle to stable high-frequency control. Asynchronous execution mitigates this bottleneck by overlapping policy inference with action execution, yet the next action chunk is still predicted from stale observations while the robot continues to move. Direct chunk stitching therefore introduces handoff discontinuities, action jitter, and failures in contact-rich manipulation. Existing remedies typically require either full-policy retraining or architecture-specific runtime logic. This work proposes Action ControlNet (ACNet), a lightweight delay-aware adapter that uses the executed motion suffix as a residual condition for a mostly frozen action head. ACNet leaves the pretrained backbone unchanged, introduces few trainable parameters, and remains compatible with generative action heads such as diffusion and flow matching. On Kinetix, Meta-World MT50, and a real-world SO-ARM101 platform, ACNet improves robustness under inference delay and yields smoother asynchronous trajectories than direct chunk stitching, while remaining more lightweight than full delay-conditioned retraining.",
+            "link": "https://arxiv.org/abs/2606.25985v1",
+            "pdfLink": "https://arxiv.org/pdf/2606.25985v1",
+            "published": "2026-06-24T15:53:43Z",
+            "updated": "2026-06-24T15:53:43Z",
+            "authors": [
+              "Tiecheng Guo",
+              "Meng Guo"
+            ],
+            "categories": [
+              "cs.RO"
+            ],
+            "score": 82,
+            "importanceLevel": "B",
+            "lane": "VLA",
+            "dimensionScores": {
+              "relevance": 79,
+              "novelty": 81,
+              "impact": 70,
+              "practicality": 85,
+              "coreAlignment": 85
+            },
+            "oneSentenceSummary": "Action ControlNet:轻量延迟感知适配器，平滑VLA异步控制。",
+            "summaryCn": "VLA推理延迟导致高频控制不稳定。ACNet利用已执行的运动后缀作为残差条件，适配冻结的动作头，无需重训骨架。通过少参数和动作不可知设计，消除交接抖动，在接触丰富任务中验证平滑控制效果。",
+            "whyImportant": "解决VLA异步执行中的手抖和失败问题，轻量级方案易于部署。",
+            "reasonTags": [
+              "VLA",
+              "异步控制",
+              "轻量适配器",
+              "延迟感知"
+            ],
+            "innovationPoints": [
+              "首次针对VLA异步控制的残差适配器设计",
+              "利用运动后缀提供延迟补偿",
+              "参数高效且骨架无关"
+            ],
+            "noveltyVerdict": "创新性中等：工程化解决方案，但解决实际问题。",
+            "duplicateRisk": "low",
+            "dedupeNote": "其他VLA工作未明确处理异步执行问题，ACNet填补空白。",
+            "retrievalGroups": [
+              "category",
+              "robotics",
+              "vla_core"
+            ],
+            "mergedCount": 1,
+            "mergedTitles": [
+              "Action ControlNet: A Lightweight Delay-Aware Adapter for Smooth Asynchronous Control in Vision-Language-Action Models"
+            ]
+          }
+        ],
+        "wam": [
+          {
+            "id": "2606.25473v1",
+            "title": "Causal-rCM: A Unified Teacher-Forcing and Self-Forcing Open Recipe for Autoregressive Diffusion Distillation in Streaming Video Generation and Interactive World Models",
+            "summary": "Autoregressive video diffusion with causal diffusion transformers has emerged as a major paradigm for real-time streaming video generation and action-conditioned interactive world models. In this work, we extend rCM, an advanced diffusion distillation framework, to autoregressive video diffusion.",
+            "summaryRaw": "Autoregressive video diffusion with causal diffusion transformers has emerged as a major paradigm for real-time streaming video generation and action-conditioned interactive world models. In this work, we extend rCM, an advanced diffusion distillation framework, to autoregressive video diffusion. The core philosophy of rCM lies in the complementarity between forward and reverse divergences, represented by consistency models (CMs) and distribution matching distillation (DMD), respectively, in diffusion distillation. This philosophy naturally carries over to the autoregressive setting, where teacher-forcing (TF) provides an offline, forward-divergence causal training paradigm, while self-forcing (SF) corresponds to an on-policy, reverse-divergence refinement. Our contributions are: (1) through extensive experiments, we show that teacher-forcing CM is currently the best complement to self-forcing DMD as an initialization strategy (2) we present the first implementation of teacher-forcing-based continuous-time CMs (e.g., sCM/MeanFlow) for autoregressive video diffusion, enabled by our custom-mask FlashAttention-2 JVP kernel, achieving 10$\\times$ faster convergence compared to discrete-time CMs (dCMs) (3) we introduce Causal-rCM, a leading, unified, and scalable algorithm-infrastructure open recipe for diffusion distillation and causal training (4) we achieve state-of-the-art streaming video generation performance in both frame-wise and chunk-wise settings, using only synthetic data for training. Notably, our distilled 2-step causal Wan2.1-1.3B model achieves a VBench-T2V score of 84.63 with only 1 or 2 sampling steps. We further apply Causal-rCM to Cosmos 3, an advanced omnimodal world foundation model for physical AI with action-conditioned generation capability, enabling an interactive world model.",
+            "link": "https://arxiv.org/abs/2606.25473v1",
+            "pdfLink": "https://arxiv.org/pdf/2606.25473v1",
+            "published": "2026-06-24T06:58:02Z",
+            "updated": "2026-06-24T06:58:02Z",
+            "authors": [
+              "Kaiwen Zheng",
+              "Guande He",
+              "Min Zhao",
+              "Jintao Zhang",
+              "Huayu Chen",
+              "Jianfei Chen",
+              "Chen-Hsuan Lin",
+              "Ming-Yu Liu"
+            ],
+            "categories": [
+              "cs.CV",
+              "cs.LG"
+            ],
+            "score": 87,
+            "importanceLevel": "A",
+            "lane": "WAM",
+            "dimensionScores": {
+              "relevance": 83,
+              "novelty": 88,
+              "impact": 80,
+              "practicality": 75,
+              "coreAlignment": 90
+            },
+            "oneSentenceSummary": "Causal-rCM:统一教师强迫与自强迫蒸馏，用于交互世界模型。",
+            "summaryCn": "将rCM蒸馏框架扩展至自回归视频扩散，利用教师强迫（前向散度）与自强迫（反向散度）的互补性，通过一致性模型和分布匹配蒸馏的结合，实现高效动作条件世界模型蒸馏，为实时交互式世界模型提供开放方案。",
+            "whyImportant": "为交互式世界模型的高效推理提供系统性蒸馏方法，降低计算成本。",
+            "reasonTags": [
+              "世界动作模型",
+              "扩散蒸馏",
+              "自回归视频生成",
+              "交互世界模型"
+            ],
+            "innovationPoints": [
+              "首次将rCM统一框架应用于自回归视频扩散",
+              "展示教师强迫与自强迫在蒸馏中的互补性",
+              "提供开放方案促进交互式世界模型发展"
+            ],
+            "noveltyVerdict": "创新性高：蒸馏范式创新，为世界模型实时推理铺路。",
+            "duplicateRisk": "low",
+            "dedupeNote": "虽为方法论文，但直接面向交互式世界模型，核心WAM贡献。",
+            "retrievalGroups": [
+              "category",
+              "wam_core"
+            ],
+            "mergedCount": 1,
+            "mergedTitles": [
+              "Causal-rCM: A Unified Teacher-Forcing and Self-Forcing Open Recipe for Autoregressive Diffusion Distillation in Streaming Video Generation and Interactive World Models"
+            ]
+          },
+          {
+            "id": "2606.25880v1",
+            "title": "USS: Unified Spatial-Semantic Prompts for Embodied Visual Tracking with Latent Dynamics Learning",
+            "summary": "Embodied Visual Tracking (EVT) requires an agent to continuously follow a specified target while actively moving through dynamic environments. However, prevailing EVT paradigms predominantly rely on language-based target indication.",
+            "summaryRaw": "Embodied Visual Tracking (EVT) requires an agent to continuously follow a specified target while actively moving through dynamic environments. However, prevailing EVT paradigms predominantly rely on language-based target indication. While language is expressive and convenient, cluttered scenes often contain multiple objects that satisfy the same semantic description, leading to ambiguous target grounding. We therefore propose a paradigm shift, reframing target indication in EVT from text-only specification to unified spatial-semantic prompting. Based on this paradigm, we introduce Unified Spatial-Semantic Prompts for Embodied Visual Tracking with Latent Dynamics Learning, USS, an end-to-end embodied tracking framework that supports text, point, bounding box, and mask prompts within a unified architecture. USS encodes heterogeneous prompts with modality-specific encoders, fuses prompt tokens with visual features through hybrid attention, and decodes compact prompt-conditioned representations into egocentric waypoints. To further improve temporal robustness, USS incorporates a latent world model that predicts future representations through self-supervised alignment. Real-robot experiments demonstrate that explicit spatial target cues yield higher success rates than text-only prompts, particularly in scenarios involving similar distractors and longer-horizon tracking where maintaining instance-level target identity is critical. In the simulation benchmark, USS also achieves state-of-the-art performance among non-MLLM-based methods and competitive results against recent MLLM-based approaches with faster inference speed. Our findings reveal that spatial-semantic prompting provides a more precise and flexible target indication interface for embodied visual tracking. Project site: https://arescheah.github.io/uss-project-page/.",
+            "link": "https://arxiv.org/abs/2606.25880v1",
+            "pdfLink": "https://arxiv.org/pdf/2606.25880v1",
+            "published": "2026-06-24T14:25:05Z",
+            "updated": "2026-06-24T14:25:05Z",
+            "authors": [
+              "Yuchen Xie",
+              "Xinyu Zhou",
+              "Kuangji Zuo",
+              "Yanshuo Lu",
+              "Fengrui Huang",
+              "Boyu Ma",
+              "Jianfei Yang"
+            ],
+            "categories": [
+              "cs.CV"
+            ],
+            "score": 82,
+            "importanceLevel": "B",
+            "lane": "WAM",
+            "dimensionScores": {
+              "relevance": 78,
+              "novelty": 83,
+              "impact": 75,
+              "practicality": 70,
+              "coreAlignment": 80
+            },
+            "oneSentenceSummary": "USS:统一空间语义提示与潜在动力学学习的具身跟踪。",
+            "summaryCn": "针对具身视觉跟踪中语言歧义，USS支持文本、点、框、掩码多模态提示，编码后融合目标信息，通过潜在动力学模块建模时序运动，实现长期跟踪。实验表明多提示统一架构在复杂场景下提升跟踪鲁棒性。",
+            "whyImportant": "统一提示范式提升具身跟踪灵活性，潜在动力学学习辅助世界建模。",
+            "reasonTags": [
+              "具身视觉跟踪",
+              "动力学学习",
+              "多模态提示",
+              "世界模型"
+            ],
+            "innovationPoints": [
+              "统一处理多种空间语义提示",
+              "引入潜在动力学学习建模运动",
+              "端到端框架提升跟踪鲁棒性"
+            ],
+            "noveltyVerdict": "创新性中等：统一提示有价值，动力学学习模块非核心差异。",
+            "duplicateRisk": "low",
+            "dedupeNote": "有别于传统2D跟踪，该工作融合动力学学习，但WAM属性较弱，仍入选。",
+            "retrievalGroups": [
+              "category",
+              "robotics",
+              "wam_core"
+            ],
+            "mergedCount": 1,
+            "mergedTitles": [
+              "USS: Unified Spatial-Semantic Prompts for Embodied Visual Tracking with Latent Dynamics Learning"
+            ]
+          },
+          {
+            "id": "2606.25295v1",
+            "title": "DynaMOMA: Instantaneous Prediction of Grasp Poses for Mobile Manipulation of Dynamic Objects",
+            "summary": "Mobile manipulation is a fundamental robotics task and has advanced rapidly in recent years, enabling robots to navigate, reach, and interact with objects in complex environments. However, mobile manipulation of dynamic objects remains highly challenging, as robots must coordinate the mobile base and arm while adapting to continuously ev…",
+            "summaryRaw": "Mobile manipulation is a fundamental robotics task and has advanced rapidly in recent years, enabling robots to navigate, reach, and interact with objects in complex environments. However, mobile manipulation of dynamic objects remains highly challenging, as robots must coordinate the mobile base and arm while adapting to continuously evolving target poses. A key challenge lies in predicting temporally consistent short-horizon grasp trajectories from dynamic observations. In this work, we propose \\ours{}, a dynamic mobile manipulation framework that couples instantaneous grasp trajectory prediction with whole-body control policy. Our predictor uses an anchor-based diffusion model to generate temporally consistent short-horizon grasp trajectories conditioned on historical observations. The predicted trajectories are then encoded as compact features and fed to a whole-body reinforcement learning policy, which controls the mobile manipulator for dynamic grasping. We further introduce a anticipation-guided reward that equips the policy with an anticipatory grasping horizon by adaptively shifting the target from the current grasp observation to the instantaneously predicted grasp trajectory. Through extensive experiments in Isaac Gym simulation, we show that our method achieves strong performance in mobile manipulation of dynamic objects across diverse settings and grasping metrics. Furthermore, our predictor and policy demonstrate strong generalizability in real-world experiments.",
+            "link": "https://arxiv.org/abs/2606.25295v1",
+            "pdfLink": "https://arxiv.org/pdf/2606.25295v1",
+            "published": "2026-06-24T01:58:15Z",
+            "updated": "2026-06-24T01:58:15Z",
+            "authors": [
+              "Zhinan Yu",
+              "Junyan Xu",
+              "Jiazhao Zhang",
+              "Zheng Qin",
+              "Yijie Tang",
+              "Yuhang Huang",
+              "Yihan Cao",
+              "Zhiyuan Yu"
+            ],
+            "categories": [
+              "cs.RO"
+            ],
+            "score": 80,
+            "importanceLevel": "B",
+            "lane": "WAM",
+            "dimensionScores": {
+              "relevance": 76,
+              "novelty": 80,
+              "impact": 78,
+              "practicality": 75,
+              "coreAlignment": 82
+            },
+            "oneSentenceSummary": "DynaMOMA:锚点扩散预测抓取轨迹，耦合全身强化学习控制。",
+            "summaryCn": "针对动态物体移动操作，DynaMOMA耦合瞬时抓取轨迹预测与全身控制策略。预测器利用锚点扩散模型，基于历史观测生成时序一致短时抓取轨迹，编码为紧凑特征传入强化学习控制器，实现移动基座与臂的协同动态抓取。",
+            "whyImportant": "将扩散预测与全身控制结合，推动移动操作向动态环境拓展。",
+            "reasonTags": [
+              "世界模型",
+              "抓取预测",
+              "扩散模型",
+              "全身控制"
+            ],
+            "innovationPoints": [
+              "锚点扩散模型预测时序抓取轨迹",
+              "将动态预测与全身强化学习耦合",
+              "解决移动操作中的动态适应问题"
+            ],
+            "noveltyVerdict": "创新性较高：动态抓取轨迹预测与控制的结合有新颖性。",
+            "duplicateRisk": "low",
+            "dedupeNote": "区别于静态抓取检测，该工作专攻动态物体，具有WAM属性。",
+            "retrievalGroups": [
+              "category",
+              "robotics"
+            ],
+            "mergedCount": 1,
+            "mergedTitles": [
+              "DynaMOMA: Instantaneous Prediction of Grasp Poses for Mobile Manipulation of Dynamic Objects"
+            ]
+          },
+          {
+            "id": "2606.25736v1",
+            "title": "UniTeD: Unified Temporal Diffusion for Joint Perception and Planning in Autonomous Driving",
+            "summary": "Diffusion models have shown strong potential for multi-modal planning in end-to-end autonomous driving. However, most existing methods confine diffusion to the planning module, conditioning on fixed outputs from separate discriminative perception networks.",
+            "summaryRaw": "Diffusion models have shown strong potential for multi-modal planning in end-to-end autonomous driving. However, most existing methods confine diffusion to the planning module, conditioning on fixed outputs from separate discriminative perception networks. This decoupled design propagates perception errors to the planner, increasing optimization difficulty and reducing robustness. To overcome these limitations, we propose UniTeD, a Unified Temporal Diffusion framework that jointly models perception and planning through iterative denoising in a shared generative space. By enabling bidirectional information exchange, the framework facilitates mutual refinement between tasks and improves robustness via noise-conditioned multi-task training. We further extend this unified diffusion paradigm to a streaming setting by incorporating temporal context. A Temporal Transition Module (TTM) is introduced to resolve the noise-level mismatch between historical and current frames. In addition, we propose an Anchor Refresh Strategy (ARS) to alleviate the training-inference distribution shift commonly observed in sparse diffusion-based end-to-end driving frameworks. Without bells and whistles, UniTeD achieves state-of-the-art performance across multiple benchmarks, surpassing both recent discriminative end-to-end methods and diffusion-based planning approaches.",
+            "link": "https://arxiv.org/abs/2606.25736v1",
+            "pdfLink": "https://arxiv.org/pdf/2606.25736v1",
+            "published": "2026-06-24T12:03:54Z",
+            "updated": "2026-06-24T12:03:54Z",
+            "authors": [
+              "Bo Zhao",
+              "Xinting Zhao",
+              "Naifan Li",
+              "Erkang Cheng",
+              "Haibin Ling"
+            ],
+            "categories": [
+              "cs.CV"
+            ],
+            "score": 78,
+            "importanceLevel": "B",
+            "lane": "WAM",
+            "dimensionScores": {
+              "relevance": 74,
+              "novelty": 82,
+              "impact": 76,
+              "practicality": 70,
+              "coreAlignment": 80
+            },
+            "oneSentenceSummary": "UniTeD:统一时序扩散，联合建模自动驾驶感知与规划。",
+            "summaryCn": "UniTeD首次将感知与规划纳入统一扩散生成空间，通过迭代去噪实现双向信息交换与相互优化，并引入时序过渡模块适用流式处理。在nuScenes基准上，联合建模优于解耦基线，提升规划鲁棒性并降低误差传播。",
+            "whyImportant": "为端到端自动驾驶提供新范式，生成式联合建模有望改善可靠性。",
+            "reasonTags": [
+              "世界模型",
+              "端到端自动驾驶",
+              "扩散模型",
+              "联合感知规划"
+            ],
+            "innovationPoints": [
+              "首次统一时序扩散同时生成感知与规划",
+              "噪声条件多任务训练增强鲁棒性",
+              "流式扩展保持时序一致性"
+            ],
+            "noveltyVerdict": "创新性较高：将扩散模型用于联合感知规划，思路新颖。",
+            "duplicateRisk": "low",
+            "dedupeNote": "与现有扩散规划工作不同，引入感知空间联合生成，赋予世界模型特性。",
+            "retrievalGroups": [
+              "category",
+              "driving"
+            ],
+            "mergedCount": 1,
+            "mergedTitles": [
+              "UniTeD: Unified Temporal Diffusion for Joint Perception and Planning in Autonomous Driving"
+            ]
+          },
+          {
+            "id": "2606.26025v1",
+            "title": "In-Context World Modeling for Robotic Control",
+            "summary": "Modern Vision-Language-Action (VLA) models often fail to generalize to novel setups, such as altered camera viewpoints or robot morphologies, because they are typically conditioned only on current observations and language instructions. By ignoring the underlying system configuration as a variable, these models implicitly assume a fixed…",
+            "summaryRaw": "Modern Vision-Language-Action (VLA) models often fail to generalize to novel setups, such as altered camera viewpoints or robot morphologies, because they are typically conditioned only on current observations and language instructions. By ignoring the underlying system configuration as a variable, these models implicitly assume a fixed execution context encountered during training, necessitating data-intensive fine-tuning for any new environment. In this work, we introduce In-Context World Modeling (ICWM), a framework that treats system identification as an in-context adaptation problem. ICWM enables robot policies to autonomously infer essential system variables from a short history of self-generated, task-agnostic interactions. Unlike traditional In-Context Learning that uses demonstrations to specify what task to perform, ICWM leverages the context window to understand how the system operates. By processing these interactions before task execution, the model implicitly captures the world dynamics of the current system, enabling adaptation to novel configurations without parameter updates. Extensive experiments in simulation and on real-world robot platforms demonstrate that ICWM significantly outperforms standard VLA baselines on novel camera viewpoints.",
+            "link": "https://arxiv.org/abs/2606.26025v1",
+            "pdfLink": "https://arxiv.org/pdf/2606.26025v1",
+            "published": "2026-06-24T16:53:36Z",
+            "updated": "2026-06-24T16:53:36Z",
+            "authors": [
+              "Siyin Wang",
+              "Junhao Shi",
+              "Senyu Fei",
+              "Zhaoyang Fu",
+              "Li Ji",
+              "Jingjing Gong",
+              "Xipeng Qiu"
+            ],
+            "categories": [
+              "cs.CV",
+              "cs.RO"
+            ],
+            "score": 88,
+            "importanceLevel": "A",
+            "lane": "Both",
+            "dimensionScores": {
+              "relevance": 85,
+              "novelty": 90,
+              "impact": 84,
+              "practicality": 78,
+              "coreAlignment": 88
+            },
+            "oneSentenceSummary": "ICWM:上下文世界建模，自交互推断系统变量，策略自适应。",
+            "summaryCn": "ICWM将系统辨识视为上下文适应问题，让策略从短历史任务无关交互中推断配置变量，无需微调即可泛化至新视角和形态。框架结合上下文编码与动作生成，在多种环境变化下验证零样本泛化能力，为VLA适应提供新范式。",
+            "whyImportant": "为VLA泛化提供新思路：通过在线交互自动适应系统变化，避免重训练。",
+            "reasonTags": [
+              "世界模型",
+              "上下文学习",
+              "系统辨识",
+              "VLA泛化"
+            ],
+            "innovationPoints": [
+              "提出上下文世界建模框架",
+              "利用自交互推断系统动态",
+              "实现零样本配置泛化"
+            ],
+            "noveltyVerdict": "创新性强：将上下文学习引入世界建模，区别于传统微调。",
+            "duplicateRisk": "low",
+            "dedupeNote": "不同于传统上下文学习演示任务，ICWM学习系统动态，独特视角。",
+            "retrievalGroups": [
+              "category",
+              "robotics",
+              "vla_core",
+              "wam_core"
+            ],
+            "mergedCount": 1,
+            "mergedTitles": [
+              "In-Context World Modeling for Robotic Control"
+            ]
+          },
+          {
+            "id": "2606.25527v1",
+            "title": "Beyond One-Size-Fits-All: Diagnosis-Driven Online Reinforcement Learning with Offline Priors",
+            "summary": "Online reinforcement learning (RL) agents increasingly depend on knowledge acquired offline to achieve practical efficiency. Originally studied in offline-to-online RL, this paradigm now spans foundation model post-training and embodied intelligence, with prior types expanding from offline datasets and pre-trained policies to increasingl…",
+            "summaryRaw": "Online reinforcement learning (RL) agents increasingly depend on knowledge acquired offline to achieve practical efficiency. Originally studied in offline-to-online RL, this paradigm now spans foundation model post-training and embodied intelligence, with prior types expanding from offline datasets and pre-trained policies to increasingly diverse knowledge sources such as multimodal foundation models and generative world models. Offline priors have become central to how deep RL is developed and deployed. However, this reliance introduces a challenge that the prevailing benchmark-driven paradigm cannot resolve: because prior validity varies across deployments and shifts during training, no single approach to managing it is universally optimal, and benchmark rankings offer limited guidance for real-world deployments. Rather than pursuing universal solutions, we argue that the field should shift to diagnosis-driven tension management, in which deployment-specific evidence guides how the learner relates to its priors throughout training, enabling both flexible and adaptive deployment. We support this position with a framework characterizing how priors reshape online optimization through three functional roles, controlled experiments demonstrating help-or-hurt reversals, cross-domain evidence from foundation model post-training to embodied intelligence, and engagement with five substantive counterarguments.",
+            "link": "https://arxiv.org/abs/2606.25527v1",
+            "pdfLink": "https://arxiv.org/pdf/2606.25527v1",
+            "published": "2026-06-24T08:05:28Z",
+            "updated": "2026-06-24T08:05:28Z",
+            "authors": [
+              "Guozheng Ma",
+              "Lu Li",
+              "Zilin Wang",
+              "Pierre-Luc Bacon",
+              "Dacheng Tao"
+            ],
+            "categories": [
+              "cs.LG"
+            ],
+            "score": 58,
+            "importanceLevel": "A",
+            "lane": "Peripheral",
+            "dimensionScores": {
+              "relevance": 25,
+              "novelty": 22,
+              "impact": 8,
+              "practicality": 5,
+              "coreAlignment": 17
+            },
+            "oneSentenceSummary": "该论文是偏相关方向的重点候选，值得优先阅读。",
+            "summaryCn": "论文核心内容是：Online reinforcement learning (RL) agents increasingly depend on knowledge acquired offline to achieve practical efficiency.",
+            "whyImportant": "命中WAM、机器人、新基准、通用框架主题，分类覆盖cs.LG，并体现较强的新颖性与影响潜力。",
+            "reasonTags": [
+              "WAM",
+              "机器人",
+              "新基准",
+              "通用框架"
+            ],
+            "innovationPoints": [
+              "包含新基准或新数据评测",
+              "提供真实场景实验验证"
+            ],
+            "noveltyVerdict": "创新信号强，像是带新范式或新基准的工作。",
+            "duplicateRisk": "low",
+            "dedupeNote": "该论文在Peripheral方向上具备独立问题设置或代表性贡献，可作为当日候选保留。",
+            "retrievalGroups": [
+              "category",
+              "robotics",
+              "wam_core"
+            ],
+            "mergedCount": 1,
+            "mergedTitles": [
+              "Beyond One-Size-Fits-All: Diagnosis-Driven Online Reinforcement Learning with Offline Priors"
+            ]
+          }
+        ]
+      },
+      "dailyBrief": {
+        "overall": "今日论文聚焦VLA与WAM前沿，人形机器人全身控制、空间视觉提示、动作先验预训练、RL微调等方向进展显著，世界动作模型方面因果蒸馏与上下文世界建模值得关注。",
+        "vla": "VLA方向涵盖从全身运动到精细操控的多项突破，WOLF-VLA将最优控制与VLA结合，SVP-IL解耦语义与空间，动作先验预训练提升跨具身泛化，FORCE和ROAD-VLA分别提出高效RL微调方案。",
+        "wam": "WAM方向中，Causal-rCM为交互式世界模型提供蒸馏方案，上下文世界建模ICWM通过在线交互推断系统动态，DynaMOMA预测动态抓取轨迹，UniTeD统一时序扩散联合感知与规划。",
+        "retrieval": "本次检索覆盖cs.RO、cs.CV等类别，通过语义匹配与启发式筛选，聚焦VLA与WAM核心及高影响力机器人论文，共选出20篇。"
+      }
+    },
     {
       "dateKey": "20260619",
       "dateLabel": "2026-06-19",
