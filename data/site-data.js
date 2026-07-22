@@ -1,5 +1,5 @@
 window.PAPERS_SITE_DATA = {
-  "generatedAt": "2026-07-21T02:05:49.255563+00:00",
+  "generatedAt": "2026-07-22T02:04:08.894716+00:00",
   "description": "按北京时间每天 08:00 的固定批次归档，保留左侧历史日期归档，并使用 DeepSeek 生成精简中文摘要。",
   "dateWindowDays": 1,
   "categories": [
@@ -34,8 +34,8 @@ window.PAPERS_SITE_DATA = {
   "selectionMethod": "empty",
   "modelInfo": null,
   "batchWindow": {
-    "start": "2026-07-20T08:00:00+08:00",
-    "end": "2026-07-21T08:00:00+08:00"
+    "start": "2026-07-21T08:00:00+08:00",
+    "end": "2026-07-22T08:00:00+08:00"
   },
   "currentDateKey": "20260715",
   "papers": [
