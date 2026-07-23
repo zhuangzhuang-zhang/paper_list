@@ -1,5 +1,5 @@
 window.PAPERS_SITE_DATA = {
-  "generatedAt": "2026-07-22T02:04:08.894716+00:00",
+  "generatedAt": "2026-07-23T02:11:07.642162+00:00",
   "description": "按北京时间每天 08:00 的固定批次归档，保留左侧历史日期归档，并使用 DeepSeek 生成精简中文摘要。",
   "dateWindowDays": 1,
   "categories": [
@@ -31,2668 +31,1483 @@ window.PAPERS_SITE_DATA = {
     "practicality": "是否有真实场景、真实机器人/驾驶或较强落地信号",
     "coreAlignment": "是否属于你最关心的 VLA 或 WAM 主航道工作"
   },
-  "selectionMethod": "empty",
-  "modelInfo": null,
-  "batchWindow": {
-    "start": "2026-07-21T08:00:00+08:00",
-    "end": "2026-07-22T08:00:00+08:00"
+  "selectionMethod": "deepseek_research_assistant",
+  "modelInfo": {
+    "provider": "deepseek",
+    "model": "deepseek-v4-pro",
+    "candidateCount": 6
   },
-  "currentDateKey": "20260715",
+  "batchWindow": {
+    "start": "2026-07-22T08:00:00+08:00",
+    "end": "2026-07-23T08:00:00+08:00"
+  },
+  "currentDateKey": "20260723",
   "papers": [
     {
-      "id": "2607.12287v1",
-      "title": "Reducing Temporal Redundancy for Efficient Vision-Language-Action Inference",
-      "summary": "Vision-Language-Action (VLA) models exhibit strong generalization for robotic manipulation, yet their high inference latency limits real time deployment. We identify two primary sources of temporal redundancy in existing VLA pipelines: repeated visual encoding of highly similar consecutive frames and multi step iterative sampling in diff…",
-      "summaryRaw": "Vision-Language-Action (VLA) models exhibit strong generalization for robotic manipulation, yet their high inference latency limits real time deployment. We identify two primary sources of temporal redundancy in existing VLA pipelines: repeated visual encoding of highly similar consecutive frames and multi step iterative sampling in diffusion based policies. To address this, we propose a system level acceleration strategy that reduces computation in both perception and action generation. On the perception side, we incrementally update only tokens corresponding to dynamic scene regions instead of re-encoding entire frames. On the policy side, we compress diffusion sampling into a compact 2-step schedule through efficiency oriented training while preserving action precision. Experiments on Libero, RobotWin, and Real Robot Platforms demonstrate over 2 times speedup while maintaining high performance, achieving up to 98% success rate on general manipulation benchmarks. Our codes will be released on Github.",
-      "link": "https://arxiv.org/abs/2607.12287v1",
-      "pdfLink": "https://arxiv.org/pdf/2607.12287v1",
-      "published": "2026-07-14T02:48:31Z",
-      "updated": "2026-07-14T02:48:31Z",
+      "id": "2607.20175v1",
+      "title": "PerceptDrive: Perception Prior World-Action Modeling with Adaptive Expert Routing for End-to-End Autonomous Driving",
+      "summary": "Frozen perception foundation models encode rich geometric, semantic, and dynamic knowledge. Yet narrow conditioning interfaces may attenuate task-relevant cues, while static fusion cannot adjust expert contributions to each scene.",
+      "summaryRaw": "Frozen perception foundation models encode rich geometric, semantic, and dynamic knowledge. Yet narrow conditioning interfaces may attenuate task-relevant cues, while static fusion cannot adjust expert contributions to each scene. We cast this challenge as the prior-to-plan transfer problem and introduce PerceptDrive, a perception prior world-action modeling framework with adaptive expert routing. PerceptDrive feeds teacher-distilled priors from a frozen, driving-adapted provider and dense observation latents from a frozen self-supervised video encoder into a trainable expert-routed world-action model. Expert-specific query branches process these signals, while a prior-retention objective anchors each branch to its prior. A router predicts soft gates from a shared scene representation and combines the expert conditions before trajectory generation. During training, privileged rule-based sub-metric estimates for branch-specific trajectory drafts provide soft-gate distillation targets. The predicted action-free future latent conditions a flow-matching actor. At inference, privileged components are absent; with one front-facing camera, PerceptDrive generates one trajectory per planning step without test-time scoring, reranking, or search. Experiments show that PerceptDrive achieves state-of-the-art performance with 90.4 PDMS on NAVSIM v1 and 90.2 EPDMS on NAVSIM v2, outperforming existing methods. Ablations confirm complementary gains from prior retention and scene-conditioned routing, alongside differential reliance on the three priors. These results demonstrate that preserving and adaptively routing perception priors improves direct planning without test-time candidate selection.",
+      "link": "https://arxiv.org/abs/2607.20175v1",
+      "pdfLink": "https://arxiv.org/pdf/2607.20175v1",
+      "published": "2026-07-22T14:09:15Z",
+      "updated": "2026-07-22T14:09:15Z",
       "authors": [
-        "Yuzhou Wu",
-        "Yuxin Zheng",
-        "Muchun Niu",
-        "Yishan Yang",
-        "Tianhao Liu",
-        "hanwen kang",
-        "Jiajian Jing",
-        "Linfeng Zhang"
-      ],
-      "categories": [
-        "cs.RO"
-      ],
-      "score": 95,
-      "importanceLevel": "S",
-      "lane": "VLA",
-      "dimensionScores": {
-        "relevance": 95,
-        "novelty": 85,
-        "impact": 95,
-        "practicality": 100,
-        "coreAlignment": 98
-      },
-      "oneSentenceSummary": "通过减少时序冗余将VLA推理速度提升超2倍。",
-      "summaryCn": "提出系统级加速策略，减少VLA感知中的重复视觉编码与动作生成中的多步扩散采样，在保持精度的同时实现超2倍加速，在多个基准和真实机器人上验证。",
-      "whyImportant": "解决VLA实时部署瓶颈，大幅提升效率。",
-      "reasonTags": [
-        "VLA加速",
-        "时序冗余",
-        "系统优化"
-      ],
-      "innovationPoints": [
-        "增量更新动态视觉token",
-        "压缩扩散采样至2步调度",
-        "联合优化感知与推理"
-      ],
-      "noveltyVerdict": "工程优化为主，但解决关键部署问题。",
-      "duplicateRisk": "low",
-      "dedupeNote": "与异步推理等工作互补，侧重时序冗余消除。",
-      "retrievalGroups": [
-        "category",
-        "robotics",
-        "vla_core"
-      ],
-      "mergedCount": 1,
-      "mergedTitles": [
-        "Reducing Temporal Redundancy for Efficient Vision-Language-Action Inference"
-      ]
-    },
-    {
-      "id": "2607.12356v1",
-      "title": "VistaVLA: Geometry- and Semantic-Aware 3D Gaussian-Grounded VLA for Robotic Manipulation",
-      "summary": "Vision-Language-Action (VLA) models have emerged as a powerful end-to-end paradigm for robotic manipulation by mapping language instructions and 2D visual inputs directly to actions. However, these models lack an explicit, scene-level 3D representation, limiting their ability to reason over spatial layouts and geometric constraints.",
-      "summaryRaw": "Vision-Language-Action (VLA) models have emerged as a powerful end-to-end paradigm for robotic manipulation by mapping language instructions and 2D visual inputs directly to actions. However, these models lack an explicit, scene-level 3D representation, limiting their ability to reason over spatial layouts and geometric constraints. While recent efforts incorporate explicit 3D cues, such as depth maps or point clouds, to improve geometric awareness, they primarily capture low-level structures and lack high-level semantic grounding in 3D space. In human cognition, interaction with the physical world relies on a 3D semantic cognitive map - an internal mental model that integrates spatial layouts with semantic context to enable persistent, viewpoint-invariant reasoning. In light of this, we present VistaVLA, a novel two-stage framework that constructs a geometry- and semantics-aware 3D cognitive representation from 3D Gaussian primitives and grounds it as compact context tokens for VLA policy learning. Specifically, VistaVLA lifts multi-view vision-language features into 3D Gaussian primitives, forming geometry-anchored semantic tokens that align view-consistent spatial grounding with 2D visual feature spaces. To make this 3D representation computationally tractable for effective VLA control, we introduce Merge-then-Query (MtQ), a token summarization mechanism. MtQ compresses dense Gaussian primitives into a highly compact set of spatially informative tokens, achieving a 99% token reduction while preserving action-relevant 3D layouts and semantic context. Extensive evaluations in both simulated and real-world environments demonstrate the effectiveness of VistaVLA. Notably, in real-world scenarios, VistaVLA improves success rates by 22.8% across seven real-world tasks and by 30.0% over the VLA-Adapter baseline on challenging out-of-distribution tasks.",
-      "link": "https://arxiv.org/abs/2607.12356v1",
-      "pdfLink": "https://arxiv.org/pdf/2607.12356v1",
-      "published": "2026-07-14T05:08:50Z",
-      "updated": "2026-07-14T05:08:50Z",
-      "authors": [
-        "Mohan Liu",
-        "Zhihao Gu",
-        "Xuanyu Chen",
-        "Haitian Zhang",
-        "Kaimin Mao",
-        "Yan Wu",
-        "Wei-Yun Yau",
-        "Lin Wang"
-      ],
-      "categories": [
-        "cs.RO"
-      ],
-      "score": 90,
-      "importanceLevel": "A",
-      "lane": "VLA",
-      "dimensionScores": {
-        "relevance": 95,
-        "novelty": 90,
-        "impact": 85,
-        "practicality": 80,
-        "coreAlignment": 95
-      },
-      "oneSentenceSummary": "构建3D高斯认知地图，增强VLA空间推理。",
-      "summaryCn": "VistaVLA利用3D高斯泼溅构建场景级几何语义认知地图，为VLA提供显式3D空间理解，提升在需要空间布局和几何约束的机器人操作任务上的性能。",
-      "whyImportant": "弥补VLA对3D空间理解不足的缺陷。",
-      "reasonTags": [
-        "VLA",
-        "3D高斯",
-        "认知地图"
-      ],
-      "innovationPoints": [
-        "引入3D高斯作为VLA场景表征",
-        "融合几何与语义构建认知地图",
-        "增强空间任务泛化"
-      ],
-      "noveltyVerdict": "首次将3D高斯引入VLA，创新性强。",
-      "duplicateRisk": "low",
-      "dedupeNote": "与2D VLA方法明显不同，提供3D接地。",
-      "retrievalGroups": [
-        "category",
-        "robotics",
-        "vla_core"
-      ],
-      "mergedCount": 1,
-      "mergedTitles": [
-        "VistaVLA: Geometry- and Semantic-Aware 3D Gaussian-Grounded VLA for Robotic Manipulation"
-      ]
-    },
-    {
-      "id": "2607.12659v1",
-      "title": "Jetson-PI: Towards Onboard Real-Time Robot Control via Foresight-Aligned Asynchronous Inference",
-      "summary": "Vision-Language-Action (VLA) models have achieved impressive performance on diverse embodied tasks. However, deploying VLA models on low-power onboard devices, such as the Jetson Orin, remains challenging due to their high computational complexity, which leads to substantial inference latency and low control frequency.",
-      "summaryRaw": "Vision-Language-Action (VLA) models have achieved impressive performance on diverse embodied tasks. However, deploying VLA models on low-power onboard devices, such as the Jetson Orin, remains challenging due to their high computational complexity, which leads to substantial inference latency and low control frequency. Asynchronous inference can partially mask this latency by parallelizing action execution and subsequent inference, but it introduces two critical issues: perception-execution misalignment and long reaction time. In this paper, we propose Jetson-PI, a method for efficient VLA deployment on onboard devices via Foresight-Aligned Asynchronous Correction. To address misalignment, we train a lightweight future correction module that predicts future environment representation conditioned on committed actions, enabling the action expert to directly predict actions from the future time step. To reduce reaction time, we introduce confidence-based scheduling optimization that adaptively balances VLM and action expert invocations, complemented by system-level accelerations including CUDA graph reuse, GPU-resident intermediate buffering, and flow unrolling. Extensive experiments demonstrate that Jetson-PI achieves 8.66x and 5.41x improvements in control frequency compared with naive PyTorch and vla.cpp on NVIDIA Jetson Orin, while outperforming VLASH by 14.8\\% in average success rate on the LIBERO benchmark. The code of our asynchronous algorithm is available on https://github.com/PKU-SEC-Lab/Jetson-PI, and our efficient llama.cpp-based inference engine is available on https://github.com/PKU-SEC-Lab/Jetson-PI-Edge.",
-      "link": "https://arxiv.org/abs/2607.12659v1",
-      "pdfLink": "https://arxiv.org/pdf/2607.12659v1",
-      "published": "2026-07-14T11:38:36Z",
-      "updated": "2026-07-14T11:38:36Z",
-      "authors": [
-        "Zebin Yang",
-        "Qi Wang",
-        "Yunhe Wang",
-        "Xiurui Guo",
-        "Bo Yu",
-        "Shaoshan Liu",
-        "Jiafeng Xu",
-        "Hao Dong"
-      ],
-      "categories": [
-        "cs.AI",
-        "cs.RO"
-      ],
-      "score": 88,
-      "importanceLevel": "A",
-      "lane": "VLA",
-      "dimensionScores": {
-        "relevance": 90,
-        "novelty": 85,
-        "impact": 85,
-        "practicality": 90,
-        "coreAlignment": 95
-      },
-      "oneSentenceSummary": "通过异步推理与未来对齐实现VLA边缘端实时控制。",
-      "summaryCn": "提出Jetson-PI，通过轻量级未来校正模块预测环境，使动作专家从未来状态预测动作，解决异步推理的感知-执行错位与反应延迟，提升VLA在Jetson上的控制频率。",
-      "whyImportant": "推动VLA在低功耗设备上的部署。",
-      "reasonTags": [
-        "VLA部署",
-        "异步推理",
-        "边缘计算"
-      ],
-      "innovationPoints": [
-        "未来校正模块补偿异步错位",
-        "轻量级设计适配Jetson",
-        "提高控制频率"
-      ],
-      "noveltyVerdict": "针对异步错位提出有效方案，实用性强。",
-      "duplicateRisk": "medium",
-      "dedupeNote": "与12287不同，解决异步推理错位而非时序冗余。",
-      "retrievalGroups": [
-        "category",
-        "robotics",
-        "vla_core"
-      ],
-      "mergedCount": 1,
-      "mergedTitles": [
-        "Jetson-PI: Towards Onboard Real-Time Robot Control via Foresight-Aligned Asynchronous Inference"
-      ]
-    },
-    {
-      "id": "2607.12894v1",
-      "title": "Hy-Embodied-VLM-1.0: Efficient Physical-World Agents",
-      "summary": "Building capable embodied agents requires not only multimodal perception and understanding, but also agentic capabilities for reasoning about actions, adapting to evolving situations, and interacting with the physical world. In this report, we introduce Hy-Embodied-VLM-1.0, an efficient and powerful embodied foundation model specifically…",
-      "summaryRaw": "Building capable embodied agents requires not only multimodal perception and understanding, but also agentic capabilities for reasoning about actions, adapting to evolving situations, and interacting with the physical world. In this report, we introduce Hy-Embodied-VLM-1.0, an efficient and powerful embodied foundation model specifically designed for embodied agents operating in the physical world. To cultivate such capabilities from the pre-training stage onward, we define an action-centric capability taxonomy comprising three progressive dimensions: Action-Relevant State Understanding, Action-Transition Reasoning, and Sequential and Adaptive Reasoning. Guided by this taxonomy, we develop a systematic data pipeline and curate data mixtures spanning both pre-training and post-training. To deliver strong physical-world understanding and interaction capabilities while supporting latency-sensitive deployment, we build our model on the Hy3-A3B language backbone and the Hy-ViT2 vision encoder. Its efficient Mixture-of-Experts architecture combines strong model capacity with high inference efficiency. We evaluate Hy-Embodied-VLM-1.0 on a comprehensive suite of 38 benchmarks covering embodied perception, physical-world understanding, and embodied reasoning. The model achieves the best performance among similarly sized models on 19 of the 38 benchmarks and substantially outperforms strong competitors, including Qwen3.6-A3B and Cosmos 3. Compared with the previous-generation Hy-Embodied-0.5 MoT-2B, Hy-Embodied-VLM-1.0 improves average performance by 8.4%. Despite activating only 3B parameters, it achieves performance close to that of the previous-generation model with 32B activated parameters. Beyond static benchmark evaluation, Hy-Embodied-VLM-1.0 also demonstrates strong performance on embodied agentic tasks requiring multi-turn interaction and long-horizon reasoning.",
-      "link": "https://arxiv.org/abs/2607.12894v1",
-      "pdfLink": "https://arxiv.org/pdf/2607.12894v1",
-      "published": "2026-07-14T15:34:17Z",
-      "updated": "2026-07-14T15:34:17Z",
-      "authors": [
-        "Ziyi Wang",
-        "Xumin Yu",
-        "Yongming Rao",
-        "Yonggen Ling",
-        "Yunheng Li",
-        "Oran Wang",
-        "Mingqi Gao",
-        "Yuchen Zhou"
+        "Yushan Liu",
+        "Tianxiong Lv",
+        "Bohua Wang",
+        "Hangqi Fan",
+        "Chenxu Zhao",
+        "He Zheng",
+        "Xuchang Zhong",
+        "Yifan Xie"
       ],
       "categories": [
         "cs.CV"
       ],
       "score": 85,
       "importanceLevel": "A",
-      "lane": "Robotics",
-      "dimensionScores": {
-        "relevance": 80,
-        "novelty": 85,
-        "impact": 90,
-        "practicality": 85,
-        "coreAlignment": 75
-      },
-      "oneSentenceSummary": "高效具身VLM基础模型，以行动为中心构建。",
-      "summaryCn": "Hy-Embodied-VLM-1.0专为物理世界具身智能体设计，定义行动相关状态理解、行动转换推理和顺序自适应推理三阶段能力，构建数据管线实现性能与延迟平衡。",
-      "whyImportant": "为具身智能提供强大视觉语言基础。",
-      "reasonTags": [
-        "具身智能",
-        "VLM",
-        "基础模型"
-      ],
-      "innovationPoints": [
-        "行动中心三阶能力分类",
-        "系统预训练与后训练数据",
-        "高效推理设计"
-      ],
-      "noveltyVerdict": "系统性构建具身VLM，推动基础模型发展。",
-      "duplicateRisk": "low",
-      "dedupeNote": "作为基础模型，不同于特定VLA策略。",
-      "retrievalGroups": [
-        "category",
-        "general",
-        "robotics"
-      ],
-      "mergedCount": 1,
-      "mergedTitles": [
-        "Hy-Embodied-VLM-1.0: Efficient Physical-World Agents"
-      ]
-    },
-    {
-      "id": "2607.12571v1",
-      "title": "TrustVLA: Mechanism-Guided Inference-Time Defense Against Vision-Language-Action Backdoors",
-      "summary": "Vision-Language-Action (VLA) models are deployed through pipelines that end users cannot audit, and a poisoned VLA can behave normally on clean observations while a small visual trigger redirects a long-horizon robot policy before any failure becomes observable. Existing vision or language defenses rarely explain what a triggered VLA rep…",
-      "summaryRaw": "Vision-Language-Action (VLA) models are deployed through pipelines that end users cannot audit, and a poisoned VLA can behave normally on clean observations while a small visual trigger redirects a long-horizon robot policy before any failure becomes observable. Existing vision or language defenses rarely explain what a triggered VLA representation looks like or how to recover behavior without retraining. We study this gap through two independently proposed VLA attacks from groups with distinct injection strategies, BadVLA and INFUSE; the latter persists after downstream clean adaptation. Across the evaluated poisoned models, we identify a recurring internal mechanism: a \\emph{compact causal footprint}, namely a small visual support that is attention-seeded, spatially compact, and \\emph{causal} in a precise sense -- masking it returns a clean-calibrated evidence-evolution score to the normal operating region. This footprint motivates TrustVLA, a mechanism-guided inference-time defense that adapts the Dirichlet evidence framework from trusted classification to monitor per-token, per-layer epistemic uncertainty in VLA policies. With only a small clean calibration set, TrustVLA (i)~detects abnormal evidence evolution, (ii)~localizes the compact support by counterfactual mechanism-score drop, and (iii)~recovers the observation by localized inpainting. Across OpenVLA/LIBERO and $π_{0.5}$ transfer evaluations, TrustVLA reduces attack success while preserving clean-task performance, providing a retraining-free, mechanism-guided defense for visual-triggered VLA backdoors.",
-      "link": "https://arxiv.org/abs/2607.12571v1",
-      "pdfLink": "https://arxiv.org/pdf/2607.12571v1",
-      "published": "2026-07-14T09:43:52Z",
-      "updated": "2026-07-14T09:43:52Z",
-      "authors": [
-        "Pinhan Fu",
-        "Xianda Guo",
-        "Xuetao Li",
-        "Wenke Huang",
-        "Ruilin Wang",
-        "Weiheng Zhao",
-        "Wei Sui",
-        "Mang Ye"
-      ],
-      "categories": [
-        "cs.RO"
-      ],
-      "score": 82,
-      "importanceLevel": "A",
-      "lane": "VLA",
-      "dimensionScores": {
-        "relevance": 90,
-        "novelty": 80,
-        "impact": 80,
-        "practicality": 70,
-        "coreAlignment": 90
-      },
-      "oneSentenceSummary": "揭示VLA后门攻击机制并提出推理时防御。",
-      "summaryCn": "研究VLA后门，发现共同内部机制——紧凑因果足迹，即注意力种子的空间紧凑因果区域，掩盖该区域可恢复洁净行为，实现无重训练推理时防御。",
-      "whyImportant": "提升VLA安全性，防范隐蔽后门攻击。",
-      "reasonTags": [
-        "VLA安全",
-        "后门防御",
-        "因果推理"
-      ],
-      "innovationPoints": [
-        "首次揭示VLA后门因果足迹",
-        "推理时防御无需重训练",
-        "跨攻击策略有效"
-      ],
-      "noveltyVerdict": "从机制层面理解后门，创新性强。",
-      "duplicateRisk": "low",
-      "dedupeNote": "专注于VLA后门机理，非通用鲁棒性。",
-      "retrievalGroups": [
-        "category",
-        "robotics",
-        "vla_core"
-      ],
-      "mergedCount": 1,
-      "mergedTitles": [
-        "TrustVLA: Mechanism-Guided Inference-Time Defense Against Vision-Language-Action Backdoors"
-      ]
-    },
-    {
-      "id": "2607.12784v1",
-      "title": "Directional Constraints for Efficient Exploration in Safe Reinforcement Learning",
-      "summary": "Reinforcement Learning has revolutionized the landscape of robotic research, allowing robust learning of complex robotic skills in simulation. However, real-world deployment in open-ended environments requires strong safety guarantees to prevent dangerous or harmful behaviors.",
-      "summaryRaw": "Reinforcement Learning has revolutionized the landscape of robotic research, allowing robust learning of complex robotic skills in simulation. However, real-world deployment in open-ended environments requires strong safety guarantees to prevent dangerous or harmful behaviors. Safe Reinforcement Learning methods address this requirement by enforcing safety constraints. Nevertheless, learning under constraints often reduces learning speed and could lead to suboptimal task performance, as the agent must solve a more complex constrained optimization problem compared to unconstrained settings. To tackle this issue, in this work, we propose an extension of the ATACOM framework, a state-of-the-art reliable safety layer that can be integrated with existing Reinforcement Learning algorithms to enforce constraints derived from prior knowledge of the system or learned directly from data. Our proposed method, named ATACOM Directional Constraints (ATACOM-DC), significantly improves the safety-performance trade-off by introducing directional constraints that distinguish between actions approaching and moving away from constraint boundaries, activating constraint enforcement only when necessary. We evaluate our method across a range of challenging robotic control tasks in simulation, analyzing both constraint-violation costs and achieved task performance. Code and additional material at https://atacom-dc.robot-learning.net.",
-      "link": "https://arxiv.org/abs/2607.12784v1",
-      "pdfLink": "https://arxiv.org/pdf/2607.12784v1",
-      "published": "2026-07-14T13:59:20Z",
-      "updated": "2026-07-14T13:59:20Z",
-      "authors": [
-        "Paolo Magliano",
-        "Puze Liu",
-        "Jan Peters",
-        "Davide Tateo",
-        "Raffaello Camoriano"
-      ],
-      "categories": [
-        "cs.LG",
-        "cs.RO"
-      ],
-      "score": 78,
-      "importanceLevel": "B",
-      "lane": "Robotics",
-      "dimensionScores": {
-        "relevance": 70,
-        "novelty": 80,
-        "impact": 75,
-        "practicality": 80,
-        "coreAlignment": 70
-      },
-      "oneSentenceSummary": "引入方向性约束提升安全强化学习探索效率。",
-      "summaryCn": "扩展ATACOM框架，提出方向性约束方法，在安全强化学习中引导高效探索并保证安全性，无需牺牲任务性能，适用于真实机器人。",
-      "whyImportant": "提升安全学习效率，促进可信机器人学习。",
-      "reasonTags": [
-        "安全RL",
-        "约束探索",
-        "机器人"
-      ],
-      "innovationPoints": [
-        "方向性约束加速探索",
-        "集成ATACOM保证安全"
-      ],
-      "noveltyVerdict": "增量改进，但实用价值高。",
-      "duplicateRisk": "low",
-      "dedupeNote": "与纯约束方法不同，侧重探索方向。",
-      "retrievalGroups": [
-        "category",
-        "robotics"
-      ],
-      "mergedCount": 1,
-      "mergedTitles": [
-        "Directional Constraints for Efficient Exploration in Safe Reinforcement Learning"
-      ]
-    },
-    {
-      "id": "2607.12466v1",
-      "title": "Deployable Human Preference Alignment in Robotics: Learning Representative Rewards from Diverse Human Preferences",
-      "summary": "Aligning robot policies with human preferences is essential for deployment to diverse end users. In per-user alignment approach, preference feedback is often sparse, so learning becomes unstable and vulnerable to human preference noise, and a growing number of individualized policies makes validation difficult before deployment.",
-      "summaryRaw": "Aligning robot policies with human preferences is essential for deployment to diverse end users. In per-user alignment approach, preference feedback is often sparse, so learning becomes unstable and vulnerable to human preference noise, and a growing number of individualized policies makes validation difficult before deployment. A single shared policy approach to user alignment avoids this cost but fails to capture heterogeneous preferences and often neglects minority preferences. To address these challenges, we introduce Preference-based REward Clustering (PREC), a novel framework that learns a compact set of policies from binary preference labels provided by diverse users. From a dataset of user trajectories and their preference labels, PREC first sets the labels aside and aggregates trajectories across users to learn a population-level shared trajectory encoder, alleviating limited per-user coverage and avoiding label noise during representation learning. Using this representation, PREC jointly assigns users to preference-coherent clusters and learns a representative reward model per cluster using preference labels, from which a policy is optimized for each cluster. Clustering similar users compensates for the limited number of labels available from each user and mitigates the effect of label noise. At the same time, maintaining a manageable number of reward models reduces the validation burden at deployment. Experiments across diverse simulated locomotion environments show that PREC groups users who label different trajectory subsets into preference-coherent clusters more accurately than baseline methods. Under sparse and noisy feedback, policies trained with PREC improve all three social welfare metrics over an existing single shared-policy user-alignment approach and even outperform per-user alignment approaches.",
-      "link": "https://arxiv.org/abs/2607.12466v1",
-      "pdfLink": "https://arxiv.org/pdf/2607.12466v1",
-      "published": "2026-07-14T07:50:43Z",
-      "updated": "2026-07-14T07:50:43Z",
-      "authors": [
-        "Taehyung Kim",
-        "Gwangmo Lee",
-        "Minjun Chang",
-        "Sunghyun Lim",
-        "Jongeun Choi"
-      ],
-      "categories": [
-        "cs.RO"
-      ],
-      "score": 77,
-      "importanceLevel": "B",
-      "lane": "Robotics",
-      "dimensionScores": {
-        "relevance": 75,
-        "novelty": 80,
-        "impact": 70,
-        "practicality": 75,
-        "coreAlignment": 65
-      },
-      "oneSentenceSummary": "通过偏好聚类学习代表策略，对齐多样用户。",
-      "summaryCn": "PREC框架从多样化用户偏好标签学习紧凑策略集，先聚合轨迹学习共享编码器，再聚类偏好训练少量代表策略，缓解稀疏反馈和异构偏好问题。",
-      "whyImportant": "实现多用户策略高效对齐。",
-      "reasonTags": [
-        "偏好对齐",
-        "策略聚类",
-        "人机交互"
-      ],
-      "innovationPoints": [
-        "偏好聚类形成代表策略",
-        "共享编码器缓解稀疏"
-      ],
-      "noveltyVerdict": "偏好聚类方法有创新，兼顾个性化与效率。",
-      "duplicateRisk": "low",
-      "dedupeNote": "与单用户或共享策略不同，平衡两者。",
-      "retrievalGroups": [
-        "category",
-        "robotics"
-      ],
-      "mergedCount": 1,
-      "mergedTitles": [
-        "Deployable Human Preference Alignment in Robotics: Learning Representative Rewards from Diverse Human Preferences"
-      ]
-    },
-    {
-      "id": "2607.12892v1",
-      "title": "UR-VC: Unsupervised Robotic Value Correction for Time-Derived Progress Proxies",
-      "summary": "Modern robot learning systems increasingly rely on dense progress or value signals to evaluate intermediate states, guide policy learning, and detect task completion, making the quality of these signals critical. Since such dense labels are rarely available at scale, normalized time within a demonstration is often used as a scalable subs…",
-      "summaryRaw": "Modern robot learning systems increasingly rely on dense progress or value signals to evaluate intermediate states, guide policy learning, and detect task completion, making the quality of these signals critical. Since such dense labels are rarely available at scale, normalized time within a demonstration is often used as a scalable substitute: later frames are treated as higher progress. However, this time-derived label is only a noisy proxy for physical task progress. In contact-rich manipulation, a robot may make progress and then lose it through slips, failed grasps, or partial undoing, while the time-derived label continues to increase monotonically. We introduce Unsupervised Robotic Value Correction (UR-VC), an offline, training-free method for correcting time-derived progress labels. UR-VC exploits a simple regularity in demonstration data: similar states often recur across different episodes, but at different timestamps. Instead of trusting the timestamp from a single trajectory, UR-VC retrieves similar states from other episodes and aggregates their time-derived labels to obtain a corrected progress estimate. UR-VC requires no manual progress labels, reward annotations, or additional value model. We evaluate UR-VC on real bimanual cloth flatten-and-fold data, a long-horizon deformable-object manipulation task with visible intermediate progress. The corrected labels capture local regressions and non-uniform progress that normalized time cannot represent, while preserving the overall task trend. We further use the corrected signal to construct advantage labels for VLA training, following recent advantage-conditioned policy learning. UR-VC shows a positive trend in real-robot task success under matched data, model, and training settings.",
-      "link": "https://arxiv.org/abs/2607.12892v1",
-      "pdfLink": "https://arxiv.org/pdf/2607.12892v1",
-      "published": "2026-07-14T15:33:33Z",
-      "updated": "2026-07-14T15:33:33Z",
-      "authors": [
-        "Lirui Zhao",
-        "Modi Shi",
-        "Li Chen",
-        "Qi Liu",
-        "Ping Luo",
-        "Hongyang Li"
-      ],
-      "categories": [
-        "cs.AI",
-        "cs.RO"
-      ],
-      "score": 76,
-      "importanceLevel": "B",
-      "lane": "Robotics",
-      "dimensionScores": {
-        "relevance": 75,
-        "novelty": 75,
-        "impact": 70,
-        "practicality": 80,
-        "coreAlignment": 70
-      },
-      "oneSentenceSummary": "无监督校正时间进度标签，提升演示学习。",
-      "summaryCn": "UR-VC利用演示数据中相似状态再现规律，自动校正嘈杂的时间衍生进度标签，为机器人学习提供更准确价值信号，无需训练。",
-      "whyImportant": "改善演示学习奖励信号质量。",
-      "reasonTags": [
-        "价值校正",
-        "无监督",
-        "演示学习"
-      ],
-      "innovationPoints": [
-        "状态再现规律校正标签",
-        "离线无训练"
-      ],
-      "noveltyVerdict": "简单有效的无监督校正，实用价值高。",
-      "duplicateRisk": "low",
-      "dedupeNote": "专注于价值信号校正，非一般数据增强。",
-      "retrievalGroups": [
-        "category",
-        "robotics"
-      ],
-      "mergedCount": 1,
-      "mergedTitles": [
-        "UR-VC: Unsupervised Robotic Value Correction for Time-Derived Progress Proxies"
-      ]
-    },
-    {
-      "id": "2607.12800v1",
-      "title": "UniVR: Thinking in Visual Space for Unified Visual Reasoning",
-      "summary": "Learning broad world knowledge directly from raw visual data is a fundamental capability of intelligence. We introduce UniVR, the first investigation into simultaneously learning complex reasoning, fine-grained physical dynamics, and long-term planning from pure visual demonstrations.",
-      "summaryRaw": "Learning broad world knowledge directly from raw visual data is a fundamental capability of intelligence. We introduce UniVR, the first investigation into simultaneously learning complex reasoning, fine-grained physical dynamics, and long-term planning from pure visual demonstrations. At its core, UniVR features VR-GRPO, a reinforcement learning paradigm with complementary global and step-level rewards. This approach enforces logical coherence and physical consistency throughout the reasoning process without requiring task-specific heuristics or image-text pairs. To train and evaluate UniVR, we construct VR-X, a large-scale benchmark curated from 16 diverse sources spanning long-horizon manipulation, spatial puzzles, and physical reasoning. It is the first comprehensive suite to assess these heterogeneous capabilities under a purely visual protocol. Remarkably, UniVR achieves up to a 25% improvement on VR-X, and its superior visual reasoning also boosts performance on various multimodal understanding benchmarks. These findings underscore the vast potential of reasoning within visual spaces, with all code, data, and models are open-sourced for further research.",
-      "link": "https://arxiv.org/abs/2607.12800v1",
-      "pdfLink": "https://arxiv.org/pdf/2607.12800v1",
-      "published": "2026-07-14T14:15:13Z",
-      "updated": "2026-07-14T14:15:13Z",
-      "authors": [
-        "Zhongwei Ren",
-        "Yunchao Wei",
-        "Yao Zhao",
-        "Weibo Gong",
-        "Xiao Liu",
-        "Anran Wang",
-        "Xiangtai Li",
-        "Xiaojie Jin"
-      ],
-      "categories": [
-        "cs.CV"
-      ],
-      "score": 75,
-      "importanceLevel": "B",
       "lane": "WAM",
       "dimensionScores": {
-        "relevance": 70,
+        "relevance": 90,
         "novelty": 85,
-        "impact": 75,
-        "practicality": 60,
-        "coreAlignment": 70
+        "impact": 80,
+        "practicality": 80,
+        "coreAlignment": 90
       },
-      "oneSentenceSummary": "纯视觉演示学习物理动力学与规划。",
-      "summaryCn": "UniVR通过强化学习从纯视觉演示中同时学习复杂推理、精细物理动力学和长期规划，无需任务特定启发式或图文对，性能大幅提升。",
-      "whyImportant": "展示纯视觉世界模型与规划的可能性。",
+      "oneSentenceSummary": "PerceptDrive提出感知先验世界-行动模型，通过自适应专家路由实现端到端自动驾驶。",
+      "summaryCn": "PerceptDrive利用冻结的感知基础模型提供先验，并训练可学习的专家路由世界-行动模型，通过自适应融合多个专家分支生成轨迹，结合保留先验的目标进行训练。",
+      "whyImportant": "将世界模型与感知先验结合，通过自适应路由提升端到端驾驶性能。",
       "reasonTags": [
-        "世界模型",
-        "视觉推理",
-        "规划"
+        "世界-行动模型",
+        "自适应专家路由",
+        "端到端自动驾驶"
       ],
       "innovationPoints": [
-        "纯视觉动力学学习与推理",
-        "VR-GRPO全局与步骤奖励"
+        "提出世界-行动模型与感知先验结合框架",
+        "自适应专家路由动态融合多个先验分支",
+        "保留先验目标确保专家分支对齐"
       ],
-      "noveltyVerdict": "开创纯视觉世界模型推理，新颖性强。",
+      "noveltyVerdict": "新颖地将世界模型与自适应路由结合用于驾驶，具有一定创新性。",
       "duplicateRisk": "low",
-      "dedupeNote": "不依赖语言或动作标注，纯视频驱动。",
+      "dedupeNote": "无重复，聚焦世界-行动模型与自适应路由。",
       "retrievalGroups": [
-        "category",
-        "robotics"
-      ],
-      "mergedCount": 1,
-      "mergedTitles": [
-        "UniVR: Thinking in Visual Space for Unified Visual Reasoning"
-      ]
-    },
-    {
-      "id": "2607.12630v1",
-      "title": "Instance-Enriched Semantic Maps for Visual Language Navigation",
-      "summary": "Visual Language Navigation (VLN) aims to enable an embodied agent to navigate complex environments by following natural language instructions. Recent approaches build semantic spatial maps and leverage Large Language Models (LLMs) for reasoning and decision making.",
-      "summaryRaw": "Visual Language Navigation (VLN) aims to enable an embodied agent to navigate complex environments by following natural language instructions. Recent approaches build semantic spatial maps and leverage Large Language Models (LLMs) for reasoning and decision making. Despite these advances, existing systems lack instance-level object detail and robustness to diverse user queries, limiting reliable navigation in complex indoor environments. To address these limitations, we propose Instance-Enriched Semantic Maps, a unified framework with three key contributions: (1) Instance-level two-and-a-half-dimensional (2.5D) rich information mapping that constructs maps from color and depth observations via open-vocabulary panoptic segmentation, preserving vertical distinctions and capturing small objects, while storing diverse semantic attributes and natural language captions enriched with room-level context. (2) Robust query processing via LLM-based target selection, which dynamically routes queries across type-specialized experts and integrates their outputs through score-level fusion, enabling consistent goal selection across diverse query formulations. (3) Storage-efficient semantic representation that achieves approximately 96% reduction compared to three-dimensional (3D) scene-graph approaches while preserving sufficient spatial information for navigation. The proposed 2.5D representation outperforms the 3D baseline by over 27% in prediction-normalized Area Under the Curve (AUC). In navigation experiments, our method achieves over 17% improvement in object retrieval and over 23% in navigation success compared to the baseline across diverse query types. The project page is available at https://rcilab.github.io/iesm_vln.",
-      "link": "https://arxiv.org/abs/2607.12630v1",
-      "pdfLink": "https://arxiv.org/pdf/2607.12630v1",
-      "published": "2026-07-14T11:09:48Z",
-      "updated": "2026-07-14T11:09:48Z",
-      "authors": [
-        "Jiho Hong",
-        "Eunae Kang",
-        "Sanghyun Kim",
-        "Young-Sik Shin"
-      ],
-      "categories": [
-        "cs.CV",
-        "cs.RO"
-      ],
-      "score": 75,
-      "importanceLevel": "B",
-      "lane": "VLA",
-      "dimensionScores": {
-        "relevance": 85,
-        "novelty": 78,
-        "impact": 70,
-        "practicality": 75,
-        "coreAlignment": 85
-      },
-      "oneSentenceSummary": "构建实例级语义地图提升视觉语言导航。",
-      "summaryCn": "提出实例级2.5D语义地图，结合开放词汇分割和房间级上下文，为VLN提供细粒度物体信息和空间语义，提升导航决策准确性。",
-      "whyImportant": "增强语言驱动导航的鲁棒性。",
-      "reasonTags": [
-        "VLN",
-        "语义地图",
-        "实例级"
-      ],
-      "innovationPoints": [
-        "2.5D实例级地图",
-        "开放词汇分割",
-        "房间上下文集成"
-      ],
-      "noveltyVerdict": "实例级信息引入VLN，提升场景理解。",
-      "duplicateRisk": "low",
-      "dedupeNote": "与现有网格地图互补，提供更细粒度。",
-      "retrievalGroups": [
-        "category",
-        "general",
-        "robotics"
-      ],
-      "mergedCount": 1,
-      "mergedTitles": [
-        "Instance-Enriched Semantic Maps for Visual Language Navigation"
-      ]
-    },
-    {
-      "id": "2607.12818v1",
-      "title": "Breaking Déjà Vu: Independent Auditing of Visual Place Recognition through Vision-Language Reasoning",
-      "summary": "Visual place recognition (VPR) is a key enabler of accurate localization and long-term autonomous navigation in robotics applications, such as loop closure detection for simultaneous localisation and mapping (SLAM). However, real-world VPR deployment relies on selecting an image matching threshold that balances precision and recall.",
-      "summaryRaw": "Visual place recognition (VPR) is a key enabler of accurate localization and long-term autonomous navigation in robotics applications, such as loop closure detection for simultaneous localisation and mapping (SLAM). However, real-world VPR deployment relies on selecting an image matching threshold that balances precision and recall. These thresholds are typically tuned using labeled validation data and fixed during deployment, making them unreliable under environmental changes where ground truth is unavailable. This is particularly problematic in safety-critical robotics, where accepting a false loop closure can corrupt the estimated trajectory and map. In this work, we introduce Visual Place Recognition Auditing, an independent post-retrieval verification framework that leverages Vision-Language Models (VLMs) to assess retrieved matches by reasoning jointly over query and candidate images. Unlike conventional verification methods, our approach performs instance-level verification without requiring architecture-specific confidence measures, dataset-dependent thresholds, or prior knowledge of the deployment environment. We evaluate our method on six benchmark datasets using five state-of-the-art VPR methods and four VLMs. Results show that VLM-based auditing improves recall@1 by 13.6% on average as compared to state-of-the-art methods while reducing false acceptance rates to 12%, maintaining precision above 95% and coverage above 75%.",
-      "link": "https://arxiv.org/abs/2607.12818v1",
-      "pdfLink": "https://arxiv.org/pdf/2607.12818v1",
-      "published": "2026-07-14T14:30:24Z",
-      "updated": "2026-07-14T14:30:24Z",
-      "authors": [
-        "Sania Waheed",
-        "Michael Milford",
-        "Sarvapali D. Ramchurn",
-        "Shoaib Ehsan"
-      ],
-      "categories": [
-        "cs.CV"
-      ],
-      "score": 74,
-      "importanceLevel": "B",
-      "lane": "Robotics",
-      "dimensionScores": {
-        "relevance": 65,
-        "novelty": 80,
-        "impact": 70,
-        "practicality": 70,
-        "coreAlignment": 60
-      },
-      "oneSentenceSummary": "VLM独立审计视觉地点识别减少误匹配。",
-      "summaryCn": "提出VPR审计框架，利用VLM对检索匹配进行后验证，联合推理查询和候选图像，无需真值即可评估匹配质量，提高SLAM可靠性。",
-      "whyImportant": "提升环境变化下定位鲁棒性。",
-      "reasonTags": [
-        "VPR",
-        "审计",
-        "VLM"
-      ],
-      "innovationPoints": [
-        "独立后检索验证",
-        "VLM联合推理评估"
-      ],
-      "noveltyVerdict": "将VLM用于VPR审计，提高可信度。",
-      "duplicateRisk": "low",
-      "dedupeNote": "附加验证层，非重新设计VPR。",
-      "retrievalGroups": [
-        "category",
-        "robotics"
-      ],
-      "mergedCount": 1,
-      "mergedTitles": [
-        "Breaking Déjà Vu: Independent Auditing of Visual Place Recognition through Vision-Language Reasoning"
-      ]
-    },
-    {
-      "id": "2607.12732v1",
-      "title": "Globalized Constrained Stein Variational Inference for Diverse Feasible Robot Motion Planning",
-      "summary": "Robot motion planning is inherently multimodal, yet classical planners typically return only a single solution. Probabilistic formulations address this limitation by maintaining a distribution over motions, allowing the planner to reason over multiple low-cost alternatives.",
-      "summaryRaw": "Robot motion planning is inherently multimodal, yet classical planners typically return only a single solution. Probabilistic formulations address this limitation by maintaining a distribution over motions, allowing the planner to reason over multiple low-cost alternatives. In robotics, however, motion samples must also satisfy strict constraints, including collision avoidance, joint limits, contact conditions, and dynamics consistency. These hard requirements make motion sampling substantially more challenging: within a limited planning budget, the ensemble must cover diverse low-cost motions while ensuring that every sample remains feasible under the relevant constraints. We propose SteinSQP (Stein Variational Sequential Quadratic Programming), a constrained Stein variational inference method for diverse feasible robot motion sampling. SteinSQP evolves an interacting particle ensemble, as in Stein variational methods, while embedding constraints directly into a kernel-space SQP subproblem. We solve the resulting constrained Stein-Newton subproblem with a GPU-friendly matrix-free primal-dual algorithm, enabling efficient batched ensemble updates. To globalize the method, we introduce an ensemble-level merit function that jointly balances objective value, constraint violation, and particle diversity. Across five constrained motion-planning tasks, SteinSQP returns fully feasible ensembles while preserving diverse motion alternatives. Compared with first-order constrained Stein baselines and serial multistart nonlinear programming, SteinSQP shows faster and more robust ensemble convergence in terms of iterations, improves particle-wise feasibility, and achieves faster batched time-to-solution on challenging robot-scale tasks.",
-      "link": "https://arxiv.org/abs/2607.12732v1",
-      "pdfLink": "https://arxiv.org/pdf/2607.12732v1",
-      "published": "2026-07-14T13:02:45Z",
-      "updated": "2026-07-14T13:02:45Z",
-      "authors": [
-        "Jiayun Li",
-        "Georgia Chalvatzaki"
-      ],
-      "categories": [
-        "cs.RO"
-      ],
-      "score": 73,
-      "importanceLevel": "B",
-      "lane": "Robotics",
-      "dimensionScores": {
-        "relevance": 65,
-        "novelty": 80,
-        "impact": 70,
-        "practicality": 70,
-        "coreAlignment": 65
-      },
-      "oneSentenceSummary": "约束变分推断生成多样可行运动规划。",
-      "summaryCn": "SteinSQP结合约束Stein变分推断与序列二次规划，演化粒子集合确保硬约束，同时覆盖多样化低成本运动。",
-      "whyImportant": "提供多样且可行的运动方案。",
-      "reasonTags": [
-        "运动规划",
-        "变分推断",
-        "多样性"
-      ],
-      "innovationPoints": [
-        "约束Stein变分推断用于规划",
-        "序列二次规划保证可行性"
-      ],
-      "noveltyVerdict": "概率推断与硬约束结合，方法新颖。",
-      "duplicateRisk": "low",
-      "dedupeNote": "与单解规划器不同，强调多模态约束。",
-      "retrievalGroups": [
-        "category",
-        "robotics"
-      ],
-      "mergedCount": 1,
-      "mergedTitles": [
-        "Globalized Constrained Stein Variational Inference for Diverse Feasible Robot Motion Planning"
-      ]
-    },
-    {
-      "id": "2607.12423v1",
-      "title": "Model-Based Diffusion Optimal Control for Multi-Robot Motion Planning",
-      "summary": "Multi-Robot Motion Planning in continuous environments, where robots must generate dynamically feasible, collision-free trajectories, is challenging due to the combinatorial growth of the joint trajectory space and the difficulty of enforcing dynamic feasibility and hard safety constraints. Recent approaches recast trajectory planning as…",
-      "summaryRaw": "Multi-Robot Motion Planning in continuous environments, where robots must generate dynamically feasible, collision-free trajectories, is challenging due to the combinatorial growth of the joint trajectory space and the difficulty of enforcing dynamic feasibility and hard safety constraints. Recent approaches recast trajectory planning as probabilistic inference, sampling from a posterior over trajectories using diffusion models whose score functions are learned from demonstration data. While showing promising performance, these approaches are limited: they often rely on sizable demonstration datasets and struggle to rigorously enforce dynamics and hard safety constraints during sampling. To this end, we introduce Model-Based Diffusion Optimal Control (MDOC), a model-based diffusion planner that efficiently produces dynamically feasible trajectories without relying on data. Crucially, we show that MDOC's safety mechanism -- combining known dynamics models with Control Barrier Function-constrained projections -- naturally scales to multi-robot planning settings through Conflict-Based Search. Across simulation experiments, this integrated method consistently outperforms representative baseline planners in sample efficiency, geometric smoothness, and success rate, while reducing computation time and producing collision-free trajectories.",
-      "link": "https://arxiv.org/abs/2607.12423v1",
-      "pdfLink": "https://arxiv.org/pdf/2607.12423v1",
-      "published": "2026-07-14T06:54:03Z",
-      "updated": "2026-07-14T06:54:03Z",
-      "authors": [
-        "Zhilin He",
-        "Yorai Shaoul",
-        "Jiaoyang Li"
-      ],
-      "categories": [
-        "cs.RO"
-      ],
-      "score": 72,
-      "importanceLevel": "B",
-      "lane": "Robotics",
-      "dimensionScores": {
-        "relevance": 60,
-        "novelty": 75,
-        "impact": 65,
-        "practicality": 70,
-        "coreAlignment": 60
-      },
-      "oneSentenceSummary": "模型基扩散最优控制实现无数据运动规划。",
-      "summaryCn": "MDOC不依赖演示数据，利用动力学模型和投影算子引导扩散采样，严格满足动力学与安全约束，高效生成多机器人可行轨迹。",
-      "whyImportant": "无需大量数据降低扩散规划门槛。",
-      "reasonTags": [
-        "运动规划",
-        "扩散模型",
-        "模型基"
-      ],
-      "innovationPoints": [
-        "无数据扩散规划",
-        "模型引导约束满足"
-      ],
-      "noveltyVerdict": "动力学与扩散结合，提高约束能力。",
-      "duplicateRisk": "low",
-      "dedupeNote": "与数据驱动扩散规划器互补。",
-      "retrievalGroups": [
-        "category",
-        "robotics"
-      ],
-      "mergedCount": 1,
-      "mergedTitles": [
-        "Model-Based Diffusion Optimal Control for Multi-Robot Motion Planning"
-      ]
-    },
-    {
-      "id": "2607.12811v1",
-      "title": "PixelLoop: Shortcut Topological Navigation with Pixel-Level Loops",
-      "summary": "Although topological mapping and navigation have been studied extensively, the specific role and downstream effect of loop closures in purely topological representations has received relatively little attention. Importantly, loop closure over topological maps is distinct from loop closure over globally referenced trajectories and metric…",
-      "summaryRaw": "Although topological mapping and navigation have been studied extensively, the specific role and downstream effect of loop closures in purely topological representations has received relatively little attention. Importantly, loop closure over topological maps is distinct from loop closure over globally referenced trajectories and metric maps. Building on recent denser topologies grounded in pixel-level, relative 3D geometry, we propose PixelLoop which introduces loop closures directly in pixel space. Unlike sparse image-level edges or pose-graph corrections in SLAM, our pixel-level closures act as dense topological shortcuts that alter planning connectivity and cost propagation rather than merely aligning coordinates. This dense connectivity enables stable any-point-to-any-point navigation and produces costmaps that align accurately with geometric shortest paths. In particular, we showcase the distinct advantage of applying loop closures to fine-grained pixel topologies rather than image-level topologies. Across extensive simulated experiments, PixelLoop achieves over 35% absolute improvement in both Success Rate and SPL compared to image-relative baselines, with the largest gains in scenarios requiring shortcut exploitation. Results are further validated through real-world mobile robot deployments, demonstrating that dense pixel-level loop closures provide a practical and robust foundation for topological visual navigation. Project Page: https://pixelloop-nav.github.io/",
-      "link": "https://arxiv.org/abs/2607.12811v1",
-      "pdfLink": "https://arxiv.org/pdf/2607.12811v1",
-      "published": "2026-07-14T14:23:43Z",
-      "updated": "2026-07-14T14:23:43Z",
-      "authors": [
-        "Sarthak Chittawar",
-        "Vansh Garg",
-        "Aditya Vadali",
-        "Krish Pandya",
-        "Rohit Jayanti",
-        "Sourav Garg",
-        "Madhava Krishna"
-      ],
-      "categories": [
-        "cs.AI",
-        "cs.RO"
-      ],
-      "score": 71,
-      "importanceLevel": "B",
-      "lane": "Robotics",
-      "dimensionScores": {
-        "relevance": 60,
-        "novelty": 75,
-        "impact": 65,
-        "practicality": 70,
-        "coreAlignment": 60
-      },
-      "oneSentenceSummary": "像素级环路闭合实现拓扑导航捷径。",
-      "summaryCn": "像素环路直接在像素空间引入闭环作为稠密拓扑捷径，改变规划连接与代价传播，实现稳定任意点对点导航。",
-      "whyImportant": "增强拓扑导航连通性和效率。",
-      "reasonTags": [
-        "拓扑导航",
-        "像素环路",
-        "代价传播"
-      ],
-      "innovationPoints": [
-        "像素级闭环作为拓扑捷径",
-        "稠密连通性提升规划"
-      ],
-      "noveltyVerdict": "将闭环下沉到像素级拓扑，新颖。",
-      "duplicateRisk": "low",
-      "dedupeNote": "与图像边缘拓扑导航不同，提供像素级闭环。",
-      "retrievalGroups": [
-        "category",
-        "robotics"
-      ],
-      "mergedCount": 1,
-      "mergedTitles": [
-        "PixelLoop: Shortcut Topological Navigation with Pixel-Level Loops"
-      ]
-    },
-    {
-      "id": "2607.12593v1",
-      "title": "Improving Autonomous Nano-drones Performance via Automated End-to-End Optimization and Deployment of DNNs",
-      "summary": "The evolution of energy-efficient ultra-low-power (ULP) parallel processors and the diffusion of convolutional neural networks (CNNs) are fueling the advent of autonomous driving nano-sized unmanned aerial vehicles (UAVs). These sub-10 cm robotic platforms are envisioned as next-generation ubiquitous smart-sensors and unobtrusive robotic…",
-      "summaryRaw": "The evolution of energy-efficient ultra-low-power (ULP) parallel processors and the diffusion of convolutional neural networks (CNNs) are fueling the advent of autonomous driving nano-sized unmanned aerial vehicles (UAVs). These sub-10 cm robotic platforms are envisioned as next-generation ubiquitous smart-sensors and unobtrusive robotic-helpers. However, the limited computational/memory resources available aboard nano-UAVs introduce the challenge of minimizing and optimizing vision-based CNNs -- which to date require error-prone, labor-intensive iterative development flows. This work explores methodologies and software tools to streamline and automate all the deployment of vision-based CNN navigation on a ULP multicore system-on-chip acting as a mission computer on a Crazyflie 2.1 nano-UAV. We focus on the deployment of PULP-Dronet, a state-of-the-art CNN for autonomous navigation of nano-UAVs, from the initial training to the final closed-loop evaluation. Compared to the original hand-crafted CNN, our results show a 2x reduction of memory footprint and a speedup of 1.6x in inference time while guaranteeing the same prediction accuracy and significantly improving the behavior in the field, achieving: i) obstacle avoidance with a peak braking-speed of 1.65 m/s and improving the speed/braking-space ratio of the baseline, ii) free flight in a familiar environment up to 1.96 m/s (0.5 m/s for the baseline), and iii) lane following on a path featuring a 90 deg turn -- all while using for computation less than 1.6% of the drone's power budget. To foster new applications and future research, we open-source all the software design in a ready-to-run project compatible with the Crazyflie 2.1",
-      "link": "https://arxiv.org/abs/2607.12593v1",
-      "pdfLink": "https://arxiv.org/pdf/2607.12593v1",
-      "published": "2026-07-14T10:12:15Z",
-      "updated": "2026-07-14T10:12:15Z",
-      "authors": [
-        "Vlad Niculescu",
-        "Lorenzo Lamberti",
-        "Francesco Conti",
-        "Luca Benini",
-        "Daniele Palossi"
-      ],
-      "categories": [
-        "cs.RO"
-      ],
-      "score": 66,
-      "importanceLevel": "A",
-      "lane": "Robotics",
-      "dimensionScores": {
-        "relevance": 45,
-        "novelty": 7,
-        "impact": 11,
-        "practicality": 9,
-        "coreAlignment": 22
-      },
-      "oneSentenceSummary": "该论文是偏机器人的重点候选，值得优先阅读。",
-      "summaryCn": "论文核心内容是：The evolution of energy-efficient ultra-low-power (ULP) parallel processors and the diffusion of convolutional neural networks (CNN…",
-      "whyImportant": "命中机器人、自动驾驶、新基准主题，分类覆盖cs.RO，并体现较强的新颖性与影响潜力。",
-      "reasonTags": [
-        "机器人",
-        "自动驾驶",
-        "新基准"
-      ],
-      "innovationPoints": [
-        "提出具有跟踪价值的方法设计"
-      ],
-      "noveltyVerdict": "更偏实用推进型工作，适合结合上下文继续判断。",
-      "duplicateRisk": "low",
-      "dedupeNote": "该论文在Robotics方向上具备独立问题设置或代表性贡献，可作为当日候选保留。",
-      "retrievalGroups": [
-        "category",
-        "driving",
-        "robotics"
-      ],
-      "mergedCount": 1,
-      "mergedTitles": [
-        "Improving Autonomous Nano-drones Performance via Automated End-to-End Optimization and Deployment of DNNs"
-      ]
-    },
-    {
-      "id": "2607.12702v1",
-      "title": "Vision-Based Dribbling for Humanoid Soccer via Privileged Representation Learning",
-      "summary": "Recent advances in humanoid robotics have highlighted the importance of deployable loco-manipulation skills. Dribbling a soccer ball while evading active opponents requires simultaneous balance, precise ball control, and awareness of a dynamic adversary under onboard sensing and real-time constraints.",
-      "summaryRaw": "Recent advances in humanoid robotics have highlighted the importance of deployable loco-manipulation skills. Dribbling a soccer ball while evading active opponents requires simultaneous balance, precise ball control, and awareness of a dynamic adversary under onboard sensing and real-time constraints. Existing approaches typically separate perception and motion, which can be effective in controlled settings but may fail under occlusions, fast ball movements, and complex opponent interactions, since perception is not directly optimized for control. We propose an integrated approach in which a temporal depth encoder is embedded into a reinforcement learning policy through a task-specific projection layer. We apply this framework to a simulated Booster T1 humanoid robot and show that it is possible to learn vision-based, opponent-aware dribbling directly from depth observations, without explicit state estimation or privileged scene information. The learned policy achieves 100% success in nominal target-driven dribbling and 96% success with a single static obstacle, while reaching 46% success against an actively moving ball-attacker opponent. These results demonstrate that the proposed framework supports robust vision-based dribbling in nominal and moderately dynamic settings, and provides a strong foundation for handling more challenging moving-adversary scenarios.",
-      "link": "https://arxiv.org/abs/2607.12702v1",
-      "pdfLink": "https://arxiv.org/pdf/2607.12702v1",
-      "published": "2026-07-14T12:27:58Z",
-      "updated": "2026-07-14T12:27:58Z",
-      "authors": [
-        "Flavio Maiorana",
-        "Valerio Spagnoli",
-        "Eugenio Bugli",
-        "Flavio Volpi",
-        "Daniele Affinita",
-        "Vincenzo Suriani",
-        "Daniele Nardi",
-        "Luca Iocchi"
-      ],
-      "categories": [
-        "cs.RO"
-      ],
-      "score": 66,
-      "importanceLevel": "A",
-      "lane": "Robotics",
-      "dimensionScores": {
-        "relevance": 44,
-        "novelty": 12,
-        "impact": 9,
-        "practicality": 7,
-        "coreAlignment": 14
-      },
-      "oneSentenceSummary": "该论文是偏机器人的重点候选，值得优先阅读。",
-      "summaryCn": "论文核心内容是：Recent advances in humanoid robotics have highlighted the importance of deployable loco-manipulation skills.",
-      "whyImportant": "命中机器人、通用框架主题，分类覆盖cs.RO，并体现较强的新颖性与影响潜力。",
-      "reasonTags": [
-        "机器人",
-        "通用框架"
-      ],
-      "innovationPoints": [
-        "提出具有跟踪价值的方法设计"
-      ],
-      "noveltyVerdict": "创新点清晰，属于值得重点跟进的增量改进。",
-      "duplicateRisk": "low",
-      "dedupeNote": "该论文在Robotics方向上具备独立问题设置或代表性贡献，可作为当日候选保留。",
-      "retrievalGroups": [
-        "category",
-        "robotics"
-      ],
-      "mergedCount": 1,
-      "mergedTitles": [
-        "Vision-Based Dribbling for Humanoid Soccer via Privileged Representation Learning"
-      ]
-    },
-    {
-      "id": "2607.12787v1",
-      "title": "Do We Really Need Multimodal Emotion Language Models Larger Than 1B Parameters?",
-      "summary": "Recent advances in multimodal large language models (MLLMs) have significantly improved the performance of multimodal emotion recognition (MER) and enabled interpretable description generation by jointly modeling video, audio, and language, etc. However, these performance improvements are often accompanied by an increase in model paramet…",
-      "summaryRaw": "Recent advances in multimodal large language models (MLLMs) have significantly improved the performance of multimodal emotion recognition (MER) and enabled interpretable description generation by jointly modeling video, audio, and language, etc. However, these performance improvements are often accompanied by an increase in model parameter size (e.g, at least 7B), which simultaneously incurs high computational costs and reduces inference efficiency, thereby hindering real-time deployment on resource-constrained platforms such as robots and mobile devices. This raises a fundamental question: do we really need the multimodal MER model larger than 1B parameters for high-quality MER? In this paper, we challenge the assumption that larger models are inherently necessary and proposes a lightweight MER framework (called Light-MER), which achieves better and faster multimodal sentiment understanding and recognition through knowledge distillation. It can transfer knowledge from a strong, large-scale teacher model to a lightweight sub-billion-parameter student model, aiming to preserve rich multimodal emotion reasoning and recognition while substantially improving deployment efficiency. Specifically, we introduce two new optimization strategies to enhance knowledge transfer: (1) a new optimal transport loss that combines Sliced Wasserstein Distance with hidden-state alignment, and (2) a new multi-reward optimization strategy based on GRPO that balances MER performance and efficiency, aimed at further enhancing the learning capabilities of student models. Extensive experiments on nine benchmark datasets demonstrate that Light-MER achieves state-of-the-art performance while significantly improving inference efficiency. This highlights the strong potential of small multimodal emotion language models for future research. Code is available at https://github.com/GAIR-Lab/Light-MER.",
-      "link": "https://arxiv.org/abs/2607.12787v1",
-      "pdfLink": "https://arxiv.org/pdf/2607.12787v1",
-      "published": "2026-07-14T14:01:29Z",
-      "updated": "2026-07-14T14:01:29Z",
-      "authors": [
-        "Kaiwen Zheng",
-        "Junchen Fu",
-        "Wenhao Deng",
-        "Hu Han",
-        "Joemon M. Jose",
-        "Xuri Ge"
-      ],
-      "categories": [
-        "cs.AI",
-        "cs.CV"
-      ],
-      "score": 53,
-      "importanceLevel": "A",
-      "lane": "Peripheral",
-      "dimensionScores": {
-        "relevance": 15,
-        "novelty": 17,
-        "impact": 19,
-        "practicality": 8,
-        "coreAlignment": 14
-      },
-      "oneSentenceSummary": "该论文是偏相关方向的重点候选，值得优先阅读。",
-      "summaryCn": "论文核心内容是：Recent advances in multimodal large language models (MLLMs) have significantly improved the performance of multimodal emotion recog…",
-      "whyImportant": "命中机器人、新基准主题，分类覆盖cs.AI / cs.CV，并体现较强的新颖性与影响潜力。",
-      "reasonTags": [
-        "机器人",
-        "新基准"
-      ],
-      "innovationPoints": [
-        "包含新基准或新数据评测"
-      ],
-      "noveltyVerdict": "创新点清晰，属于值得重点跟进的增量改进。",
-      "duplicateRisk": "low",
-      "dedupeNote": "该论文在Peripheral方向上具备独立问题设置或代表性贡献，可作为当日候选保留。",
-      "retrievalGroups": [
-        "category",
-        "robotics"
-      ],
-      "mergedCount": 1,
-      "mergedTitles": [
-        "Do We Really Need Multimodal Emotion Language Models Larger Than 1B Parameters?"
-      ]
-    },
-    {
-      "id": "2607.12293v1",
-      "title": "Adaptive Cross-Modal Fusion with Sparse Attention for Pedestrian Crossing Intention Prediction",
-      "summary": "Predicting pedestrian crossing intention is a safety-critical task for autonomous driving, yet existing approaches often rely on single-modal inputs or dense multimodal fusion strategies that inadequately capture complementary visual and kinematic information while introducing redundant inter-modal interactions. We propose ADAPT (Adaptiv…",
-      "summaryRaw": "Predicting pedestrian crossing intention is a safety-critical task for autonomous driving, yet existing approaches often rely on single-modal inputs or dense multimodal fusion strategies that inadequately capture complementary visual and kinematic information while introducing redundant inter-modal interactions. We propose ADAPT (Adaptive Domain-Aware Pedestrian Crossing Transformer), a multimodal framework that jointly models local and global visual context together with temporal motion dynamics for accurate pedestrian crossing intention prediction. ADAPT processes four spatially aligned visual modalities, including RGB images, local depth maps, global semantic maps, and global depth maps, together with ego-vehicle speed, pedestrian bounding boxes, and skeleton pose information through five specialized modules: a weight-shared Swin Transformer V2 backbone for visual feature extraction, a Cross-Modality Guided Attention module for hierarchical visual fusion, a Mamba-based Motion Feature Encoding module for efficient temporal modeling, a Sparse Cross-Modal Attention module that selectively preserves the most informative inter-modal interactions, and a Vision Transformer-based Temporal Feature Fusion module for sequence-level prediction. Extensive experiments on the JAAD and PIE benchmark datasets demonstrate that ADAPT consistently outperforms existing state-of-the-art methods while maintaining low computational complexity. On JAAD, the proposed method achieves an AUC of 0.73 on JAADbeh and 0.85 on JAADall, while on PIE it achieves an accuracy of 0.92 and an AUC of 0.90. Furthermore, ADAPT performs inference in only 17.23 ms per sample, offering an effective balance between predictive accuracy and real-time deployment efficiency for intelligent transportation and autonomous driving applications.",
-      "link": "https://arxiv.org/abs/2607.12293v1",
-      "pdfLink": "https://arxiv.org/pdf/2607.12293v1",
-      "published": "2026-07-14T03:05:09Z",
-      "updated": "2026-07-14T03:05:09Z",
-      "authors": [
-        "Md Mahfuzur Rahman",
-        "Pengzhan Zhou",
-        "A F M Abdun Noor",
-        "Md Imam Ahasan",
-        "Kah Ong Michael Goh",
-        "S. M. Hasan Mahmud",
-        "Md Mustafizur Rahman",
-        "Kaixin Gao"
-      ],
-      "categories": [
-        "cs.CV"
-      ],
-      "score": 54,
-      "importanceLevel": "A",
-      "lane": "Robotics",
-      "dimensionScores": {
-        "relevance": 19,
-        "novelty": 17,
-        "impact": 8,
-        "practicality": 13,
-        "coreAlignment": 11
-      },
-      "oneSentenceSummary": "该论文是偏机器人的重点候选，值得优先阅读。",
-      "summaryCn": "论文核心内容是：Predicting pedestrian crossing intention is a safety-critical task for autonomous driving, yet existing approaches often rely on si…",
-      "whyImportant": "命中自动驾驶、新基准主题，分类覆盖cs.CV，并体现较强的新颖性与影响潜力。",
-      "reasonTags": [
-        "自动驾驶",
-        "新基准"
-      ],
-      "innovationPoints": [
-        "包含新基准或新数据评测"
-      ],
-      "noveltyVerdict": "创新点清晰，属于值得重点跟进的增量改进。",
-      "duplicateRisk": "low",
-      "dedupeNote": "该论文在Robotics方向上具备独立问题设置或代表性贡献，可作为当日候选保留。",
-      "retrievalGroups": [
-        "category",
         "driving"
       ],
       "mergedCount": 1,
       "mergedTitles": [
-        "Adaptive Cross-Modal Fusion with Sparse Attention for Pedestrian Crossing Intention Prediction"
+        "PerceptDrive: Perception Prior World-Action Modeling with Adaptive Expert Routing for End-to-End Autonomous Driving"
       ]
     },
     {
-      "id": "2607.12370v1",
-      "title": "StratMamba: Strategic and Reactive Stream Partitioning for Path-Efficient LiDAR-Based Obstacle Avoidance",
-      "summary": "This paper proposes StratMamba, a dual-stream Mamba-based temporal modeling architecture, to more efficiently capture long-horizon temporal dependencies required for robot navigation in complex and obstacle-rich environments. StratMamba leverages a combination of fast-decay and slow-decay memory architectures, where the fast-decay compon…",
-      "summaryRaw": "This paper proposes StratMamba, a dual-stream Mamba-based temporal modeling architecture, to more efficiently capture long-horizon temporal dependencies required for robot navigation in complex and obstacle-rich environments. StratMamba leverages a combination of fast-decay and slow-decay memory architectures, where the fast-decay component processes high-frequency LiDAR data for reactive obstacle avoidance, while the slow-decay component maintains longer-horizon goal information for strategic planning. We perform extensive evaluations of different obstacle avoidance scenarios in IsaacLab and Gazebo, while also validating successful sim-to-real deployment on a Unitree GO1 quadruped robot navigating in the presence of static/dynamic obstacles. Comparisons with other temporal RL baselines, such as LSTM, Transformer, and Vanilla-Mamba, show that our StratMamba achieves exceptional temporal reasoning efficiency with a lower timeout rate, while maintaining the fastest navigation speed (576 median steps, 5.0% better than Vanilla-Mamba). It also achieves the highest path optimality (0.915 path efficiency) across all baselines. Real-world evaluation reveals that StratMamba maintains more robust performance across extended LiDAR ranges compared to vanilla Mamba and the Transformer, demonstrating that dual-stream partitioning effectively balances reactive safety with strategic navigation under challenging sensing conditions.",
-      "link": "https://arxiv.org/abs/2607.12370v1",
-      "pdfLink": "https://arxiv.org/pdf/2607.12370v1",
-      "published": "2026-07-14T05:42:28Z",
-      "updated": "2026-07-14T05:42:28Z",
+      "id": "2607.20071v1",
+      "title": "GaussianSeed: Hierarchical Gaussian Seeding for High-Resolution 3D Occupancy Prediction",
+      "summary": "Vision-centric 3D occupancy prediction provides dense scene representations essential for autonomous driving and robotic navigation, yet existing methods struggle to scale to high voxel resolutions due to prohibitive computational costs. To address this, we introduce GaussianSeed, a progressive multi-scale Gaussian occupancy prediction f…",
+      "summaryRaw": "Vision-centric 3D occupancy prediction provides dense scene representations essential for autonomous driving and robotic navigation, yet existing methods struggle to scale to high voxel resolutions due to prohibitive computational costs. To address this, we introduce GaussianSeed, a progressive multi-scale Gaussian occupancy prediction framework that organizes primitives into a coarse-to-fine hierarchy. Benefiting from this hierarchical design, GaussianSeed effectively circumvents the memory bottlenecks inherent in dense representations, successfully scaling to a $0.1\\text{m}$ spatial resolution while maintaining real-time inference capabilities. To comprehensively evaluate high-resolution geometric perception, we further construct TJScenes, a panoramic six-camera occupancy dataset with highly detailed $0.1\\text{m}$ annotations. Extensive experiments on Occ3D-nuScenes and TJScenes demonstrate that GaussianSeed delivers the lowest latency among all evaluated methods while maintaining highly competitive accuracy, advancing the efficiency-quality frontier of high-resolution 3D occupancy prediction.",
+      "link": "https://arxiv.org/abs/2607.20071v1",
+      "pdfLink": "https://arxiv.org/pdf/2607.20071v1",
+      "published": "2026-07-22T12:18:30Z",
+      "updated": "2026-07-22T12:18:30Z",
       "authors": [
-        "Hung-Chieh Wu",
-        "Xiaopan Zhang",
-        "Kasra Sinaei",
-        "Ryan Abnavi",
-        "Kasun Weerakoon",
-        "Christopher Bradley",
-        "Seyed Fakoorian",
-        "Jiachen Li"
+        "Xinzhuo Li",
+        "Xianghui Pan",
+        "Jiayuan Du",
+        "Wei Wei",
+        "Liuyi Wang",
+        "Chengju Liu",
+        "Qijun Chen"
       ],
       "categories": [
-        "cs.RO"
+        "cs.CV"
       ],
-      "score": 50,
-      "importanceLevel": "A",
-      "lane": "Robotics",
-      "dimensionScores": {
-        "relevance": 20,
-        "novelty": 7,
-        "impact": 12,
-        "practicality": 17,
-        "coreAlignment": 14
-      },
-      "oneSentenceSummary": "该论文是偏机器人的重点候选，值得优先阅读。",
-      "summaryCn": "论文核心内容是：This paper proposes StratMamba, a dual-stream Mamba-based temporal modeling architecture, to more efficiently capture long-horizon…",
-      "whyImportant": "命中机器人、新基准、真实实验主题，分类覆盖cs.RO，并体现较强的新颖性与影响潜力。",
-      "reasonTags": [
-        "机器人",
-        "新基准",
-        "真实实验"
-      ],
-      "innovationPoints": [
-        "提供真实场景实验验证"
-      ],
-      "noveltyVerdict": "更偏实用推进型工作，适合结合上下文继续判断。",
-      "duplicateRisk": "low",
-      "dedupeNote": "该论文在Robotics方向上具备独立问题设置或代表性贡献，可作为当日候选保留。",
-      "retrievalGroups": [
-        "category",
-        "robotics"
-      ],
-      "mergedCount": 1,
-      "mergedTitles": [
-        "StratMamba: Strategic and Reactive Stream Partitioning for Path-Efficient LiDAR-Based Obstacle Avoidance"
-      ]
-    },
-    {
-      "id": "2607.12489v1",
-      "title": "Infra-Swarm: Robust Vision-Based Multi-Robot Swarming via Near-Infrared Spectral Vision",
-      "summary": "Distributed swarms typically rely on either active wireless communication or passive vision, and they are frequently hindered by bandwidth constraints or environmental sensitivity. This paper proposes Infra-Swarm, a robust vision-based swarm.",
-      "summaryRaw": "Distributed swarms typically rely on either active wireless communication or passive vision, and they are frequently hindered by bandwidth constraints or environmental sensitivity. This paper proposes Infra-Swarm, a robust vision-based swarm. Each robot is equipped with a near-infrared light source and four ordinary gray-scale cameras. The Infra-Swarm system directly measures the centimeter-level 3D position of neighbors based on the position (bearing) and intensity (strength) of optical flares in the captured images. By utilizing 940 nm narrow-band filters to physically reject 99.2% of ambient light interference, the perception front-end achieves hardware-level robustness against illumination variations. Furthermore, its minimal computational overhead provides a resilient foundation for the massive scalability of robotic collectives on resource-constrained hardware.",
-      "link": "https://arxiv.org/abs/2607.12489v1",
-      "pdfLink": "https://arxiv.org/pdf/2607.12489v1",
-      "published": "2026-07-14T08:22:55Z",
-      "updated": "2026-07-14T08:22:55Z",
-      "authors": [
-        "Haoyu Chen",
-        "Qijin Li",
-        "Wanyu Xiang",
-        "Xiuxiu Lin",
-        "Zian Ning",
-        "Shiyu Zhao"
-      ],
-      "categories": [
-        "cs.RO"
-      ],
-      "score": 44,
+      "score": 70,
       "importanceLevel": "B",
       "lane": "Robotics",
       "dimensionScores": {
-        "relevance": 24,
-        "novelty": 12,
-        "impact": 6,
-        "practicality": 8,
-        "coreAlignment": 14
+        "relevance": 30,
+        "novelty": 80,
+        "impact": 60,
+        "practicality": 70,
+        "coreAlignment": 20
       },
-      "oneSentenceSummary": "该论文是偏机器人的重点候选，值得优先阅读。",
-      "summaryCn": "论文核心内容是：Distributed swarms typically rely on either active wireless communication or passive vision, and they are frequently hindered by ba…",
-      "whyImportant": "命中机器人、通用框架主题，分类覆盖cs.RO，并体现较强的新颖性与影响潜力。",
+      "oneSentenceSummary": "GaussianSeed提出分层高斯播种框架，实现高分辨率3D占用预测。",
+      "summaryCn": "GaussianSeed采用渐进式多尺度高斯占用预测，通过粗到细的层次化设计实现0.1m分辨率实时推理，并构建了TJScenes数据集进行评估。",
+      "whyImportant": "解决了高分辨率占用预测的计算瓶颈，推动精细几何感知。",
       "reasonTags": [
-        "机器人",
-        "通用框架"
+        "3D占用预测",
+        "分层高斯",
+        "高分辨率"
       ],
       "innovationPoints": [
-        "提出具有跟踪价值的方法设计"
+        "分层高斯表示避免稠密计算",
+        "支持0.1m分辨率实时推理",
+        "构建高质量数据集TJScenes"
       ],
-      "noveltyVerdict": "创新点清晰，属于值得重点跟进的增量改进。",
+      "noveltyVerdict": "方法新颖，有效提升占用预测分辨率。",
       "duplicateRisk": "low",
-      "dedupeNote": "该论文在Robotics方向上具备独立问题设置或代表性贡献，可作为当日候选保留。",
+      "dedupeNote": "其他论文不涉及占用预测。",
       "retrievalGroups": [
-        "category",
-        "robotics"
+        "driving"
       ],
       "mergedCount": 1,
       "mergedTitles": [
-        "Infra-Swarm: Robust Vision-Based Multi-Robot Swarming via Near-Infrared Spectral Vision"
+        "GaussianSeed: Hierarchical Gaussian Seeding for High-Resolution 3D Occupancy Prediction"
+      ]
+    },
+    {
+      "id": "2607.19774v1",
+      "title": "Defer to Plan: Adaptive Multi-Agent Fusion for End-to-End V2X Driving",
+      "summary": "Vehicle-to-everything-aided autonomous driving (V2X-AD) significantly enhances driving performance through information sharing. However, existing collaborative perception methods only optimize module-level perception capabilities and fail to effectively serve the ultimate planning and control tasks.",
+      "summaryRaw": "Vehicle-to-everything-aided autonomous driving (V2X-AD) significantly enhances driving performance through information sharing. However, existing collaborative perception methods only optimize module-level perception capabilities and fail to effectively serve the ultimate planning and control tasks. We propose an end-to-end collaborative driving system that directly optimizes planning task performance. The system employs MotionNetwork to fuse historical temporal information, utilizes attention mechanisms to efficiently compress spatial features into compact tokens, and adaptively fuses multi-agent features through an autoregressive decoder. Additionally, we introduce Mixture-of-Experts (MoE) architecture to enhance the model's representation capacity for heterogeneous features. Experiments demonstrate that our method achieves a driving score of 79.72, surpassing the state-of-the-art CoDriving baseline (77.15) by 3.33% in closed-loop evaluation while maintaining communication efficiency.",
+      "link": "https://arxiv.org/abs/2607.19774v1",
+      "pdfLink": "https://arxiv.org/pdf/2607.19774v1",
+      "published": "2026-07-22T05:44:47Z",
+      "updated": "2026-07-22T05:44:47Z",
+      "authors": [
+        "Nuoran Li",
+        "Zhang Zhang",
+        "Yueran Zhao",
+        "Tianze Wang",
+        "Chao Sun"
+      ],
+      "categories": [
+        "cs.RO"
+      ],
+      "score": 65,
+      "importanceLevel": "B",
+      "lane": "Robotics",
+      "dimensionScores": {
+        "relevance": 20,
+        "novelty": 70,
+        "impact": 50,
+        "practicality": 60,
+        "coreAlignment": 15
+      },
+      "oneSentenceSummary": "Defer to Plan提出自适应多智能体融合的端到端V2X驾驶系统。",
+      "summaryCn": "该系统直接优化规划任务，使用MotionNetwork融合时序信息，注意力压缩空间特征，并通过自回归解码器自适应融合多智能体特征，引入MoE增强异质性表征。",
+      "whyImportant": "将协作感知与规划端到端结合，提升V2X驾驶性能。",
+      "reasonTags": [
+        "V2X驾驶",
+        "端到端规划",
+        "多智能体融合"
+      ],
+      "innovationPoints": [
+        "端到端优化规划而非感知",
+        "自回归解码器自适应融合",
+        "MoE处理异质性特征"
+      ],
+      "noveltyVerdict": "将端到端框架扩展到V2X，有一定创新。",
+      "duplicateRisk": "medium",
+      "dedupeNote": "侧重V2X场景下的多智能体融合规划。",
+      "retrievalGroups": [
+        "driving"
+      ],
+      "mergedCount": 1,
+      "mergedTitles": [
+        "Defer to Plan: Adaptive Multi-Agent Fusion for End-to-End V2X Driving"
+      ]
+    },
+    {
+      "id": "2607.19911v1",
+      "title": "LoRFT: Benchmarking Long-Range Vehicle Trajectory Reconstruction from Fixed Highway Cameras",
+      "summary": "Long-range vehicle trajectories provide important spatio-temporal evidence for traffic safety analysis, autonomous driving evaluation, and data-driven traffic management, yet continuously recovering them from fixed highway cameras remains difficult. As vehicles recede into distant road regions, perspective compression and scale decay oft…",
+      "summaryRaw": "Long-range vehicle trajectories provide important spatio-temporal evidence for traffic safety analysis, autonomous driving evaluation, and data-driven traffic management, yet continuously recovering them from fixed highway cameras remains difficult. As vehicles recede into distant road regions, perspective compression and scale decay often fragment or prematurely terminate automatic tracklets, even when their continuation remains identifiable from motion consistency across neighboring frames. We formulate this problem as recovering the far-range continuation of a vehicle trajectory from a reliable near-field tracklet. We introduce LoRFT, to our knowledge the first open benchmark dedicated to long-range vehicle trajectory reconstruction from fixed highway cameras. LoRFT comprises 22 expressway surveillance scenes, 366,109 video frames, 6,601 manually verified trajectories, 2,694,889 bounding boxes, road-geometry annotations, scene-level splits, and evaluation scripts. We further propose Map-RSTNet, a map-aware residual sequence-to-sequence model that reconstructs distant trajectories in a road-geometry-aligned state space and dynamically refreshes local road geometry during decoding. On LoRFT, Map-RSTNet reduces ADE, FDE, and 5-second RMSE by 11.0%, 15.4%, and 10.5%, respectively, relative to the strongest baseline. These results demonstrate that road-geometry-aware reconstruction can extend usable trajectory records from existing fixed-camera infrastructure. LoRFT provides a reproducible testbed for long-range vehicle trajectory reconstruction.",
+      "link": "https://arxiv.org/abs/2607.19911v1",
+      "pdfLink": "https://arxiv.org/pdf/2607.19911v1",
+      "published": "2026-07-22T08:42:58Z",
+      "updated": "2026-07-22T08:42:58Z",
+      "authors": [
+        "Yufan Zhu",
+        "Kefu Yi",
+        "Xueju Zhang",
+        "Yunyang Tian",
+        "Long Chen",
+        "Zixuan Xiao"
+      ],
+      "categories": [
+        "cs.CV"
+      ],
+      "score": 60,
+      "importanceLevel": "B",
+      "lane": "Robotics",
+      "dimensionScores": {
+        "relevance": 15,
+        "novelty": 50,
+        "impact": 40,
+        "practicality": 50,
+        "coreAlignment": 10
+      },
+      "oneSentenceSummary": "LoRFT提出首个长距离车辆轨迹重建的开放基准。",
+      "summaryCn": "LoRFT包含22个高速公路监控场景、36万帧视频和6601条人工验证轨迹，旨在从近场轨迹恢复远场车辆轨迹，应对透视压缩和尺度衰减挑战。",
+      "whyImportant": "为长距离轨迹重建提供标准化数据集和评估方法。",
+      "reasonTags": [
+        "轨迹重建",
+        "基准数据集",
+        "高速公路场景"
+      ],
+      "innovationPoints": [
+        "首个长距离重建基准",
+        "大规模人工标注轨迹",
+        "形式化远场恢复问题"
+      ],
+      "noveltyVerdict": "作为基准有一定贡献，但方法创新不足。",
+      "duplicateRisk": "low",
+      "dedupeNote": "数据集论文，与其他方法论文不重复。",
+      "retrievalGroups": [
+        "driving"
+      ],
+      "mergedCount": 1,
+      "mergedTitles": [
+        "LoRFT: Benchmarking Long-Range Vehicle Trajectory Reconstruction from Fixed Highway Cameras"
+      ]
+    },
+    {
+      "id": "2607.19701v1",
+      "title": "SafeGen: Goal-Conditioned Video Diffusion of Safety-Critical Scenarios for VLM-Based Autonomous Driving",
+      "summary": "VLMs are increasingly deployed in AD systems, creating an urgent need for rigorous safety evaluation under rare yet safety-critical scenarios. Among these, interactions with vulnerable road users represent a major source of real-world failures.",
+      "summaryRaw": "VLMs are increasingly deployed in AD systems, creating an urgent need for rigorous safety evaluation under rare yet safety-critical scenarios. Among these, interactions with vulnerable road users represent a major source of real-world failures. However, existing safety-critical scenario generation methods predominantly rely on simulator-based pipelines, which suffer from a substantial sim-to-real gap and often fail to capture realistic, diverse, and unforeseen human-vehicle interaction dynamics. We present SafeGen, a goal-conditioned diffusion framework for safety-critical scenario generation in VLMADs. Our key insight is to formulate scenario generation as a goal-conditioned diffusion process, where a predefined catastrophic end-state serves as a strong supervisory signal, guiding the generation of temporally coherent video trajectories that naturally evolve toward safety-critical outcomes. Building on this formulation, we introduce Context Grounded End State Reasoning, which leverages VLMs to analyze benign driving contexts and infer latent vulnerabilities in human-vehicle interactions, producing structured end-state specifications that induce high-risk scenarios. Conditioned on these targets, we further propose End State Conditioned Video Evolution, which grounds semantic threats into physically plausible visual dynamics. Specifically, we instantiate high-risk agents within the scene via depth-aware geometric projection, followed by boundary-conditioned diffusion to generate intermediate frames with consistent motion patterns and temporal coherence. Extensive experiments across 3 VLMADs demonstrate that SafeGen increases the Judge Overall Score, a metric using a VLM judge to evaluate VLMADs' understanding and decision-making, by 24.25% on average compared to SoTA baselines. Furthermore, fine-tuning a VLMAD improves performance in real-world driving scenes by an average of 15.9%.",
+      "link": "https://arxiv.org/abs/2607.19701v1",
+      "pdfLink": "https://arxiv.org/pdf/2607.19701v1",
+      "published": "2026-07-22T03:05:32Z",
+      "updated": "2026-07-22T03:05:32Z",
+      "authors": [
+        "Jiangfan Liu",
+        "Zexuan Cui",
+        "Tianyuan Zhang",
+        "Zonglei Jing",
+        "Zonghao Ying",
+        "Yaoyuan Zhang",
+        "Jiakai Wang",
+        "Xiaoqi Jiang"
+      ],
+      "categories": [
+        "cs.CV"
+      ],
+      "score": 55,
+      "importanceLevel": "B",
+      "lane": "Peripheral",
+      "dimensionScores": {
+        "relevance": 10,
+        "novelty": 65,
+        "impact": 40,
+        "practicality": 30,
+        "coreAlignment": 5
+      },
+      "oneSentenceSummary": "SafeGen通过目标条件视频扩散生成安全关键场景以测试VLM自动驾驶。",
+      "summaryCn": "SafeGen将场景生成建模为目标条件扩散过程，以预定义的灾难性终态为监督信号，生成自然演化的安全关键视频轨迹，用于VLM驾驶系统评估。",
+      "whyImportant": "为VLM驾驶提供真实多样的安全关键场景以评估安全性。",
+      "reasonTags": [
+        "安全关键场景生成",
+        "视频扩散",
+        "VLM测试"
+      ],
+      "innovationPoints": [
+        "目标条件扩散引导生成",
+        "利用灾难性终态作为监督",
+        "缩小仿真与现实差距"
+      ],
+      "noveltyVerdict": "将扩散模型用于安全场景生成，有一定新颖性。",
+      "duplicateRisk": "low",
+      "dedupeNote": "侧重场景生成，与其他论文不同。",
+      "retrievalGroups": [
+        "driving"
+      ],
+      "mergedCount": 1,
+      "mergedTitles": [
+        "SafeGen: Goal-Conditioned Video Diffusion of Safety-Critical Scenarios for VLM-Based Autonomous Driving"
+      ]
+    },
+    {
+      "id": "2607.19781v1",
+      "title": "WASABI: Whole-graph Assignment-based Stabilizer for lAne topology By Inter-frame tracking",
+      "summary": "Autonomous driving requires understanding the road as a graph of drivable lanes and their connectivity, beyond the ego lane alone, to follow routes through intersections and reason about cross- and merging-traffic. Recent perception models infer such lane topology, i.e., lane segments together with their inter-lane connectivity (LCLC), f…",
+      "summaryRaw": "Autonomous driving requires understanding the road as a graph of drivable lanes and their connectivity, beyond the ego lane alone, to follow routes through intersections and reason about cross- and merging-traffic. Recent perception models infer such lane topology, i.e., lane segments together with their inter-lane connectivity (LCLC), from onboard sensors over a 360-degree BEV view. Due to neural perception's imperfections, their outputs retain structural instabilities such as missed detections, lost or incorrect LCLC, over-detection, and label flicker. This paper presents WASABI, a real-time post-processing pipeline that stabilizes lane topology outputs both within and across frames by treating lane segments and their LCLC connectivity as joint tracking targets, under onboard real-time constraints (10 Hz / 20 ms / up to 200 input lanes). The pipeline integrates segment tracking with connectivity, noise-robust topology-aware refinement, and a resource-constrained real-time design. On internal validation data (16 sequences), WASABI improves LCLC detection F1 from 0.834 to 0.948 (+0.114, +13.6%) and reduces centerline lateral error from 2.50 m to 0.95 m, while reducing detection false-positives by 24.6%. Temporal-stability metrics on the same data show LCLC toggle rate reduced by 63.3% and boundary-label flicker rate by 30.2%, confirming across-frame stabilization beyond per-frame accuracy.",
+      "link": "https://arxiv.org/abs/2607.19781v1",
+      "pdfLink": "https://arxiv.org/pdf/2607.19781v1",
+      "published": "2026-07-22T05:59:22Z",
+      "updated": "2026-07-22T05:59:22Z",
+      "authors": [
+        "Tetsuhiro Uchida",
+        "Myu Sasaki",
+        "Kensho Nakajima",
+        "Yasuhiro Shimada",
+        "Toru Saito"
+      ],
+      "categories": [
+        "cs.CV"
+      ],
+      "score": 50,
+      "importanceLevel": "B",
+      "lane": "Robotics",
+      "dimensionScores": {
+        "relevance": 10,
+        "novelty": 60,
+        "impact": 30,
+        "practicality": 60,
+        "coreAlignment": 10
+      },
+      "oneSentenceSummary": "WASABI通过帧间跟踪稳定车道拓扑输出，提升感知一致性。",
+      "summaryCn": "WASABI将车道段及其连接关系作为联合跟踪目标，在实时约束下对神经网络车道拓扑输出进行后处理，消除不稳定检测、标签闪烁等问题。",
+      "whyImportant": "提高车道拓扑感知的稳定性和可靠性，对下游规划有益。",
+      "reasonTags": [
+        "车道拓扑",
+        "实时后处理",
+        "帧间稳定化"
+      ],
+      "innovationPoints": [
+        "将车道段和连接联合跟踪",
+        "实时处理速度10Hz",
+        "解决结构不稳定问题"
+      ],
+      "noveltyVerdict": "后处理方法有一定实用价值，但创新性一般。",
+      "duplicateRisk": "low",
+      "dedupeNote": "专注后处理稳定化，不涉及感知模型本身。",
+      "retrievalGroups": [
+        "driving"
+      ],
+      "mergedCount": 1,
+      "mergedTitles": [
+        "WASABI: Whole-graph Assignment-based Stabilizer for lAne topology By Inter-frame tracking"
       ]
     }
   ],
   "paperSets": {
     "overall": [
       {
-        "id": "2607.12287v1",
-        "title": "Reducing Temporal Redundancy for Efficient Vision-Language-Action Inference",
-        "summary": "Vision-Language-Action (VLA) models exhibit strong generalization for robotic manipulation, yet their high inference latency limits real time deployment. We identify two primary sources of temporal redundancy in existing VLA pipelines: repeated visual encoding of highly similar consecutive frames and multi step iterative sampling in diff…",
-        "summaryRaw": "Vision-Language-Action (VLA) models exhibit strong generalization for robotic manipulation, yet their high inference latency limits real time deployment. We identify two primary sources of temporal redundancy in existing VLA pipelines: repeated visual encoding of highly similar consecutive frames and multi step iterative sampling in diffusion based policies. To address this, we propose a system level acceleration strategy that reduces computation in both perception and action generation. On the perception side, we incrementally update only tokens corresponding to dynamic scene regions instead of re-encoding entire frames. On the policy side, we compress diffusion sampling into a compact 2-step schedule through efficiency oriented training while preserving action precision. Experiments on Libero, RobotWin, and Real Robot Platforms demonstrate over 2 times speedup while maintaining high performance, achieving up to 98% success rate on general manipulation benchmarks. Our codes will be released on Github.",
-        "link": "https://arxiv.org/abs/2607.12287v1",
-        "pdfLink": "https://arxiv.org/pdf/2607.12287v1",
-        "published": "2026-07-14T02:48:31Z",
-        "updated": "2026-07-14T02:48:31Z",
+        "id": "2607.20175v1",
+        "title": "PerceptDrive: Perception Prior World-Action Modeling with Adaptive Expert Routing for End-to-End Autonomous Driving",
+        "summary": "Frozen perception foundation models encode rich geometric, semantic, and dynamic knowledge. Yet narrow conditioning interfaces may attenuate task-relevant cues, while static fusion cannot adjust expert contributions to each scene.",
+        "summaryRaw": "Frozen perception foundation models encode rich geometric, semantic, and dynamic knowledge. Yet narrow conditioning interfaces may attenuate task-relevant cues, while static fusion cannot adjust expert contributions to each scene. We cast this challenge as the prior-to-plan transfer problem and introduce PerceptDrive, a perception prior world-action modeling framework with adaptive expert routing. PerceptDrive feeds teacher-distilled priors from a frozen, driving-adapted provider and dense observation latents from a frozen self-supervised video encoder into a trainable expert-routed world-action model. Expert-specific query branches process these signals, while a prior-retention objective anchors each branch to its prior. A router predicts soft gates from a shared scene representation and combines the expert conditions before trajectory generation. During training, privileged rule-based sub-metric estimates for branch-specific trajectory drafts provide soft-gate distillation targets. The predicted action-free future latent conditions a flow-matching actor. At inference, privileged components are absent; with one front-facing camera, PerceptDrive generates one trajectory per planning step without test-time scoring, reranking, or search. Experiments show that PerceptDrive achieves state-of-the-art performance with 90.4 PDMS on NAVSIM v1 and 90.2 EPDMS on NAVSIM v2, outperforming existing methods. Ablations confirm complementary gains from prior retention and scene-conditioned routing, alongside differential reliance on the three priors. These results demonstrate that preserving and adaptively routing perception priors improves direct planning without test-time candidate selection.",
+        "link": "https://arxiv.org/abs/2607.20175v1",
+        "pdfLink": "https://arxiv.org/pdf/2607.20175v1",
+        "published": "2026-07-22T14:09:15Z",
+        "updated": "2026-07-22T14:09:15Z",
         "authors": [
-          "Yuzhou Wu",
-          "Yuxin Zheng",
-          "Muchun Niu",
-          "Yishan Yang",
-          "Tianhao Liu",
-          "hanwen kang",
-          "Jiajian Jing",
-          "Linfeng Zhang"
-        ],
-        "categories": [
-          "cs.RO"
-        ],
-        "score": 95,
-        "importanceLevel": "S",
-        "lane": "VLA",
-        "dimensionScores": {
-          "relevance": 95,
-          "novelty": 85,
-          "impact": 95,
-          "practicality": 100,
-          "coreAlignment": 98
-        },
-        "oneSentenceSummary": "通过减少时序冗余将VLA推理速度提升超2倍。",
-        "summaryCn": "提出系统级加速策略，减少VLA感知中的重复视觉编码与动作生成中的多步扩散采样，在保持精度的同时实现超2倍加速，在多个基准和真实机器人上验证。",
-        "whyImportant": "解决VLA实时部署瓶颈，大幅提升效率。",
-        "reasonTags": [
-          "VLA加速",
-          "时序冗余",
-          "系统优化"
-        ],
-        "innovationPoints": [
-          "增量更新动态视觉token",
-          "压缩扩散采样至2步调度",
-          "联合优化感知与推理"
-        ],
-        "noveltyVerdict": "工程优化为主，但解决关键部署问题。",
-        "duplicateRisk": "low",
-        "dedupeNote": "与异步推理等工作互补，侧重时序冗余消除。",
-        "retrievalGroups": [
-          "category",
-          "robotics",
-          "vla_core"
-        ],
-        "mergedCount": 1,
-        "mergedTitles": [
-          "Reducing Temporal Redundancy for Efficient Vision-Language-Action Inference"
-        ]
-      },
-      {
-        "id": "2607.12356v1",
-        "title": "VistaVLA: Geometry- and Semantic-Aware 3D Gaussian-Grounded VLA for Robotic Manipulation",
-        "summary": "Vision-Language-Action (VLA) models have emerged as a powerful end-to-end paradigm for robotic manipulation by mapping language instructions and 2D visual inputs directly to actions. However, these models lack an explicit, scene-level 3D representation, limiting their ability to reason over spatial layouts and geometric constraints.",
-        "summaryRaw": "Vision-Language-Action (VLA) models have emerged as a powerful end-to-end paradigm for robotic manipulation by mapping language instructions and 2D visual inputs directly to actions. However, these models lack an explicit, scene-level 3D representation, limiting their ability to reason over spatial layouts and geometric constraints. While recent efforts incorporate explicit 3D cues, such as depth maps or point clouds, to improve geometric awareness, they primarily capture low-level structures and lack high-level semantic grounding in 3D space. In human cognition, interaction with the physical world relies on a 3D semantic cognitive map - an internal mental model that integrates spatial layouts with semantic context to enable persistent, viewpoint-invariant reasoning. In light of this, we present VistaVLA, a novel two-stage framework that constructs a geometry- and semantics-aware 3D cognitive representation from 3D Gaussian primitives and grounds it as compact context tokens for VLA policy learning. Specifically, VistaVLA lifts multi-view vision-language features into 3D Gaussian primitives, forming geometry-anchored semantic tokens that align view-consistent spatial grounding with 2D visual feature spaces. To make this 3D representation computationally tractable for effective VLA control, we introduce Merge-then-Query (MtQ), a token summarization mechanism. MtQ compresses dense Gaussian primitives into a highly compact set of spatially informative tokens, achieving a 99% token reduction while preserving action-relevant 3D layouts and semantic context. Extensive evaluations in both simulated and real-world environments demonstrate the effectiveness of VistaVLA. Notably, in real-world scenarios, VistaVLA improves success rates by 22.8% across seven real-world tasks and by 30.0% over the VLA-Adapter baseline on challenging out-of-distribution tasks.",
-        "link": "https://arxiv.org/abs/2607.12356v1",
-        "pdfLink": "https://arxiv.org/pdf/2607.12356v1",
-        "published": "2026-07-14T05:08:50Z",
-        "updated": "2026-07-14T05:08:50Z",
-        "authors": [
-          "Mohan Liu",
-          "Zhihao Gu",
-          "Xuanyu Chen",
-          "Haitian Zhang",
-          "Kaimin Mao",
-          "Yan Wu",
-          "Wei-Yun Yau",
-          "Lin Wang"
-        ],
-        "categories": [
-          "cs.RO"
-        ],
-        "score": 90,
-        "importanceLevel": "A",
-        "lane": "VLA",
-        "dimensionScores": {
-          "relevance": 95,
-          "novelty": 90,
-          "impact": 85,
-          "practicality": 80,
-          "coreAlignment": 95
-        },
-        "oneSentenceSummary": "构建3D高斯认知地图，增强VLA空间推理。",
-        "summaryCn": "VistaVLA利用3D高斯泼溅构建场景级几何语义认知地图，为VLA提供显式3D空间理解，提升在需要空间布局和几何约束的机器人操作任务上的性能。",
-        "whyImportant": "弥补VLA对3D空间理解不足的缺陷。",
-        "reasonTags": [
-          "VLA",
-          "3D高斯",
-          "认知地图"
-        ],
-        "innovationPoints": [
-          "引入3D高斯作为VLA场景表征",
-          "融合几何与语义构建认知地图",
-          "增强空间任务泛化"
-        ],
-        "noveltyVerdict": "首次将3D高斯引入VLA，创新性强。",
-        "duplicateRisk": "low",
-        "dedupeNote": "与2D VLA方法明显不同，提供3D接地。",
-        "retrievalGroups": [
-          "category",
-          "robotics",
-          "vla_core"
-        ],
-        "mergedCount": 1,
-        "mergedTitles": [
-          "VistaVLA: Geometry- and Semantic-Aware 3D Gaussian-Grounded VLA for Robotic Manipulation"
-        ]
-      },
-      {
-        "id": "2607.12659v1",
-        "title": "Jetson-PI: Towards Onboard Real-Time Robot Control via Foresight-Aligned Asynchronous Inference",
-        "summary": "Vision-Language-Action (VLA) models have achieved impressive performance on diverse embodied tasks. However, deploying VLA models on low-power onboard devices, such as the Jetson Orin, remains challenging due to their high computational complexity, which leads to substantial inference latency and low control frequency.",
-        "summaryRaw": "Vision-Language-Action (VLA) models have achieved impressive performance on diverse embodied tasks. However, deploying VLA models on low-power onboard devices, such as the Jetson Orin, remains challenging due to their high computational complexity, which leads to substantial inference latency and low control frequency. Asynchronous inference can partially mask this latency by parallelizing action execution and subsequent inference, but it introduces two critical issues: perception-execution misalignment and long reaction time. In this paper, we propose Jetson-PI, a method for efficient VLA deployment on onboard devices via Foresight-Aligned Asynchronous Correction. To address misalignment, we train a lightweight future correction module that predicts future environment representation conditioned on committed actions, enabling the action expert to directly predict actions from the future time step. To reduce reaction time, we introduce confidence-based scheduling optimization that adaptively balances VLM and action expert invocations, complemented by system-level accelerations including CUDA graph reuse, GPU-resident intermediate buffering, and flow unrolling. Extensive experiments demonstrate that Jetson-PI achieves 8.66x and 5.41x improvements in control frequency compared with naive PyTorch and vla.cpp on NVIDIA Jetson Orin, while outperforming VLASH by 14.8\\% in average success rate on the LIBERO benchmark. The code of our asynchronous algorithm is available on https://github.com/PKU-SEC-Lab/Jetson-PI, and our efficient llama.cpp-based inference engine is available on https://github.com/PKU-SEC-Lab/Jetson-PI-Edge.",
-        "link": "https://arxiv.org/abs/2607.12659v1",
-        "pdfLink": "https://arxiv.org/pdf/2607.12659v1",
-        "published": "2026-07-14T11:38:36Z",
-        "updated": "2026-07-14T11:38:36Z",
-        "authors": [
-          "Zebin Yang",
-          "Qi Wang",
-          "Yunhe Wang",
-          "Xiurui Guo",
-          "Bo Yu",
-          "Shaoshan Liu",
-          "Jiafeng Xu",
-          "Hao Dong"
-        ],
-        "categories": [
-          "cs.AI",
-          "cs.RO"
-        ],
-        "score": 88,
-        "importanceLevel": "A",
-        "lane": "VLA",
-        "dimensionScores": {
-          "relevance": 90,
-          "novelty": 85,
-          "impact": 85,
-          "practicality": 90,
-          "coreAlignment": 95
-        },
-        "oneSentenceSummary": "通过异步推理与未来对齐实现VLA边缘端实时控制。",
-        "summaryCn": "提出Jetson-PI，通过轻量级未来校正模块预测环境，使动作专家从未来状态预测动作，解决异步推理的感知-执行错位与反应延迟，提升VLA在Jetson上的控制频率。",
-        "whyImportant": "推动VLA在低功耗设备上的部署。",
-        "reasonTags": [
-          "VLA部署",
-          "异步推理",
-          "边缘计算"
-        ],
-        "innovationPoints": [
-          "未来校正模块补偿异步错位",
-          "轻量级设计适配Jetson",
-          "提高控制频率"
-        ],
-        "noveltyVerdict": "针对异步错位提出有效方案，实用性强。",
-        "duplicateRisk": "medium",
-        "dedupeNote": "与12287不同，解决异步推理错位而非时序冗余。",
-        "retrievalGroups": [
-          "category",
-          "robotics",
-          "vla_core"
-        ],
-        "mergedCount": 1,
-        "mergedTitles": [
-          "Jetson-PI: Towards Onboard Real-Time Robot Control via Foresight-Aligned Asynchronous Inference"
-        ]
-      },
-      {
-        "id": "2607.12894v1",
-        "title": "Hy-Embodied-VLM-1.0: Efficient Physical-World Agents",
-        "summary": "Building capable embodied agents requires not only multimodal perception and understanding, but also agentic capabilities for reasoning about actions, adapting to evolving situations, and interacting with the physical world. In this report, we introduce Hy-Embodied-VLM-1.0, an efficient and powerful embodied foundation model specifically…",
-        "summaryRaw": "Building capable embodied agents requires not only multimodal perception and understanding, but also agentic capabilities for reasoning about actions, adapting to evolving situations, and interacting with the physical world. In this report, we introduce Hy-Embodied-VLM-1.0, an efficient and powerful embodied foundation model specifically designed for embodied agents operating in the physical world. To cultivate such capabilities from the pre-training stage onward, we define an action-centric capability taxonomy comprising three progressive dimensions: Action-Relevant State Understanding, Action-Transition Reasoning, and Sequential and Adaptive Reasoning. Guided by this taxonomy, we develop a systematic data pipeline and curate data mixtures spanning both pre-training and post-training. To deliver strong physical-world understanding and interaction capabilities while supporting latency-sensitive deployment, we build our model on the Hy3-A3B language backbone and the Hy-ViT2 vision encoder. Its efficient Mixture-of-Experts architecture combines strong model capacity with high inference efficiency. We evaluate Hy-Embodied-VLM-1.0 on a comprehensive suite of 38 benchmarks covering embodied perception, physical-world understanding, and embodied reasoning. The model achieves the best performance among similarly sized models on 19 of the 38 benchmarks and substantially outperforms strong competitors, including Qwen3.6-A3B and Cosmos 3. Compared with the previous-generation Hy-Embodied-0.5 MoT-2B, Hy-Embodied-VLM-1.0 improves average performance by 8.4%. Despite activating only 3B parameters, it achieves performance close to that of the previous-generation model with 32B activated parameters. Beyond static benchmark evaluation, Hy-Embodied-VLM-1.0 also demonstrates strong performance on embodied agentic tasks requiring multi-turn interaction and long-horizon reasoning.",
-        "link": "https://arxiv.org/abs/2607.12894v1",
-        "pdfLink": "https://arxiv.org/pdf/2607.12894v1",
-        "published": "2026-07-14T15:34:17Z",
-        "updated": "2026-07-14T15:34:17Z",
-        "authors": [
-          "Ziyi Wang",
-          "Xumin Yu",
-          "Yongming Rao",
-          "Yonggen Ling",
-          "Yunheng Li",
-          "Oran Wang",
-          "Mingqi Gao",
-          "Yuchen Zhou"
+          "Yushan Liu",
+          "Tianxiong Lv",
+          "Bohua Wang",
+          "Hangqi Fan",
+          "Chenxu Zhao",
+          "He Zheng",
+          "Xuchang Zhong",
+          "Yifan Xie"
         ],
         "categories": [
           "cs.CV"
         ],
         "score": 85,
         "importanceLevel": "A",
-        "lane": "Robotics",
-        "dimensionScores": {
-          "relevance": 80,
-          "novelty": 85,
-          "impact": 90,
-          "practicality": 85,
-          "coreAlignment": 75
-        },
-        "oneSentenceSummary": "高效具身VLM基础模型，以行动为中心构建。",
-        "summaryCn": "Hy-Embodied-VLM-1.0专为物理世界具身智能体设计，定义行动相关状态理解、行动转换推理和顺序自适应推理三阶段能力，构建数据管线实现性能与延迟平衡。",
-        "whyImportant": "为具身智能提供强大视觉语言基础。",
-        "reasonTags": [
-          "具身智能",
-          "VLM",
-          "基础模型"
-        ],
-        "innovationPoints": [
-          "行动中心三阶能力分类",
-          "系统预训练与后训练数据",
-          "高效推理设计"
-        ],
-        "noveltyVerdict": "系统性构建具身VLM，推动基础模型发展。",
-        "duplicateRisk": "low",
-        "dedupeNote": "作为基础模型，不同于特定VLA策略。",
-        "retrievalGroups": [
-          "category",
-          "general",
-          "robotics"
-        ],
-        "mergedCount": 1,
-        "mergedTitles": [
-          "Hy-Embodied-VLM-1.0: Efficient Physical-World Agents"
-        ]
-      },
-      {
-        "id": "2607.12571v1",
-        "title": "TrustVLA: Mechanism-Guided Inference-Time Defense Against Vision-Language-Action Backdoors",
-        "summary": "Vision-Language-Action (VLA) models are deployed through pipelines that end users cannot audit, and a poisoned VLA can behave normally on clean observations while a small visual trigger redirects a long-horizon robot policy before any failure becomes observable. Existing vision or language defenses rarely explain what a triggered VLA rep…",
-        "summaryRaw": "Vision-Language-Action (VLA) models are deployed through pipelines that end users cannot audit, and a poisoned VLA can behave normally on clean observations while a small visual trigger redirects a long-horizon robot policy before any failure becomes observable. Existing vision or language defenses rarely explain what a triggered VLA representation looks like or how to recover behavior without retraining. We study this gap through two independently proposed VLA attacks from groups with distinct injection strategies, BadVLA and INFUSE; the latter persists after downstream clean adaptation. Across the evaluated poisoned models, we identify a recurring internal mechanism: a \\emph{compact causal footprint}, namely a small visual support that is attention-seeded, spatially compact, and \\emph{causal} in a precise sense -- masking it returns a clean-calibrated evidence-evolution score to the normal operating region. This footprint motivates TrustVLA, a mechanism-guided inference-time defense that adapts the Dirichlet evidence framework from trusted classification to monitor per-token, per-layer epistemic uncertainty in VLA policies. With only a small clean calibration set, TrustVLA (i)~detects abnormal evidence evolution, (ii)~localizes the compact support by counterfactual mechanism-score drop, and (iii)~recovers the observation by localized inpainting. Across OpenVLA/LIBERO and $π_{0.5}$ transfer evaluations, TrustVLA reduces attack success while preserving clean-task performance, providing a retraining-free, mechanism-guided defense for visual-triggered VLA backdoors.",
-        "link": "https://arxiv.org/abs/2607.12571v1",
-        "pdfLink": "https://arxiv.org/pdf/2607.12571v1",
-        "published": "2026-07-14T09:43:52Z",
-        "updated": "2026-07-14T09:43:52Z",
-        "authors": [
-          "Pinhan Fu",
-          "Xianda Guo",
-          "Xuetao Li",
-          "Wenke Huang",
-          "Ruilin Wang",
-          "Weiheng Zhao",
-          "Wei Sui",
-          "Mang Ye"
-        ],
-        "categories": [
-          "cs.RO"
-        ],
-        "score": 82,
-        "importanceLevel": "A",
-        "lane": "VLA",
-        "dimensionScores": {
-          "relevance": 90,
-          "novelty": 80,
-          "impact": 80,
-          "practicality": 70,
-          "coreAlignment": 90
-        },
-        "oneSentenceSummary": "揭示VLA后门攻击机制并提出推理时防御。",
-        "summaryCn": "研究VLA后门，发现共同内部机制——紧凑因果足迹，即注意力种子的空间紧凑因果区域，掩盖该区域可恢复洁净行为，实现无重训练推理时防御。",
-        "whyImportant": "提升VLA安全性，防范隐蔽后门攻击。",
-        "reasonTags": [
-          "VLA安全",
-          "后门防御",
-          "因果推理"
-        ],
-        "innovationPoints": [
-          "首次揭示VLA后门因果足迹",
-          "推理时防御无需重训练",
-          "跨攻击策略有效"
-        ],
-        "noveltyVerdict": "从机制层面理解后门，创新性强。",
-        "duplicateRisk": "low",
-        "dedupeNote": "专注于VLA后门机理，非通用鲁棒性。",
-        "retrievalGroups": [
-          "category",
-          "robotics",
-          "vla_core"
-        ],
-        "mergedCount": 1,
-        "mergedTitles": [
-          "TrustVLA: Mechanism-Guided Inference-Time Defense Against Vision-Language-Action Backdoors"
-        ]
-      },
-      {
-        "id": "2607.12784v1",
-        "title": "Directional Constraints for Efficient Exploration in Safe Reinforcement Learning",
-        "summary": "Reinforcement Learning has revolutionized the landscape of robotic research, allowing robust learning of complex robotic skills in simulation. However, real-world deployment in open-ended environments requires strong safety guarantees to prevent dangerous or harmful behaviors.",
-        "summaryRaw": "Reinforcement Learning has revolutionized the landscape of robotic research, allowing robust learning of complex robotic skills in simulation. However, real-world deployment in open-ended environments requires strong safety guarantees to prevent dangerous or harmful behaviors. Safe Reinforcement Learning methods address this requirement by enforcing safety constraints. Nevertheless, learning under constraints often reduces learning speed and could lead to suboptimal task performance, as the agent must solve a more complex constrained optimization problem compared to unconstrained settings. To tackle this issue, in this work, we propose an extension of the ATACOM framework, a state-of-the-art reliable safety layer that can be integrated with existing Reinforcement Learning algorithms to enforce constraints derived from prior knowledge of the system or learned directly from data. Our proposed method, named ATACOM Directional Constraints (ATACOM-DC), significantly improves the safety-performance trade-off by introducing directional constraints that distinguish between actions approaching and moving away from constraint boundaries, activating constraint enforcement only when necessary. We evaluate our method across a range of challenging robotic control tasks in simulation, analyzing both constraint-violation costs and achieved task performance. Code and additional material at https://atacom-dc.robot-learning.net.",
-        "link": "https://arxiv.org/abs/2607.12784v1",
-        "pdfLink": "https://arxiv.org/pdf/2607.12784v1",
-        "published": "2026-07-14T13:59:20Z",
-        "updated": "2026-07-14T13:59:20Z",
-        "authors": [
-          "Paolo Magliano",
-          "Puze Liu",
-          "Jan Peters",
-          "Davide Tateo",
-          "Raffaello Camoriano"
-        ],
-        "categories": [
-          "cs.LG",
-          "cs.RO"
-        ],
-        "score": 78,
-        "importanceLevel": "B",
-        "lane": "Robotics",
-        "dimensionScores": {
-          "relevance": 70,
-          "novelty": 80,
-          "impact": 75,
-          "practicality": 80,
-          "coreAlignment": 70
-        },
-        "oneSentenceSummary": "引入方向性约束提升安全强化学习探索效率。",
-        "summaryCn": "扩展ATACOM框架，提出方向性约束方法，在安全强化学习中引导高效探索并保证安全性，无需牺牲任务性能，适用于真实机器人。",
-        "whyImportant": "提升安全学习效率，促进可信机器人学习。",
-        "reasonTags": [
-          "安全RL",
-          "约束探索",
-          "机器人"
-        ],
-        "innovationPoints": [
-          "方向性约束加速探索",
-          "集成ATACOM保证安全"
-        ],
-        "noveltyVerdict": "增量改进，但实用价值高。",
-        "duplicateRisk": "low",
-        "dedupeNote": "与纯约束方法不同，侧重探索方向。",
-        "retrievalGroups": [
-          "category",
-          "robotics"
-        ],
-        "mergedCount": 1,
-        "mergedTitles": [
-          "Directional Constraints for Efficient Exploration in Safe Reinforcement Learning"
-        ]
-      },
-      {
-        "id": "2607.12466v1",
-        "title": "Deployable Human Preference Alignment in Robotics: Learning Representative Rewards from Diverse Human Preferences",
-        "summary": "Aligning robot policies with human preferences is essential for deployment to diverse end users. In per-user alignment approach, preference feedback is often sparse, so learning becomes unstable and vulnerable to human preference noise, and a growing number of individualized policies makes validation difficult before deployment.",
-        "summaryRaw": "Aligning robot policies with human preferences is essential for deployment to diverse end users. In per-user alignment approach, preference feedback is often sparse, so learning becomes unstable and vulnerable to human preference noise, and a growing number of individualized policies makes validation difficult before deployment. A single shared policy approach to user alignment avoids this cost but fails to capture heterogeneous preferences and often neglects minority preferences. To address these challenges, we introduce Preference-based REward Clustering (PREC), a novel framework that learns a compact set of policies from binary preference labels provided by diverse users. From a dataset of user trajectories and their preference labels, PREC first sets the labels aside and aggregates trajectories across users to learn a population-level shared trajectory encoder, alleviating limited per-user coverage and avoiding label noise during representation learning. Using this representation, PREC jointly assigns users to preference-coherent clusters and learns a representative reward model per cluster using preference labels, from which a policy is optimized for each cluster. Clustering similar users compensates for the limited number of labels available from each user and mitigates the effect of label noise. At the same time, maintaining a manageable number of reward models reduces the validation burden at deployment. Experiments across diverse simulated locomotion environments show that PREC groups users who label different trajectory subsets into preference-coherent clusters more accurately than baseline methods. Under sparse and noisy feedback, policies trained with PREC improve all three social welfare metrics over an existing single shared-policy user-alignment approach and even outperform per-user alignment approaches.",
-        "link": "https://arxiv.org/abs/2607.12466v1",
-        "pdfLink": "https://arxiv.org/pdf/2607.12466v1",
-        "published": "2026-07-14T07:50:43Z",
-        "updated": "2026-07-14T07:50:43Z",
-        "authors": [
-          "Taehyung Kim",
-          "Gwangmo Lee",
-          "Minjun Chang",
-          "Sunghyun Lim",
-          "Jongeun Choi"
-        ],
-        "categories": [
-          "cs.RO"
-        ],
-        "score": 77,
-        "importanceLevel": "B",
-        "lane": "Robotics",
-        "dimensionScores": {
-          "relevance": 75,
-          "novelty": 80,
-          "impact": 70,
-          "practicality": 75,
-          "coreAlignment": 65
-        },
-        "oneSentenceSummary": "通过偏好聚类学习代表策略，对齐多样用户。",
-        "summaryCn": "PREC框架从多样化用户偏好标签学习紧凑策略集，先聚合轨迹学习共享编码器，再聚类偏好训练少量代表策略，缓解稀疏反馈和异构偏好问题。",
-        "whyImportant": "实现多用户策略高效对齐。",
-        "reasonTags": [
-          "偏好对齐",
-          "策略聚类",
-          "人机交互"
-        ],
-        "innovationPoints": [
-          "偏好聚类形成代表策略",
-          "共享编码器缓解稀疏"
-        ],
-        "noveltyVerdict": "偏好聚类方法有创新，兼顾个性化与效率。",
-        "duplicateRisk": "low",
-        "dedupeNote": "与单用户或共享策略不同，平衡两者。",
-        "retrievalGroups": [
-          "category",
-          "robotics"
-        ],
-        "mergedCount": 1,
-        "mergedTitles": [
-          "Deployable Human Preference Alignment in Robotics: Learning Representative Rewards from Diverse Human Preferences"
-        ]
-      },
-      {
-        "id": "2607.12892v1",
-        "title": "UR-VC: Unsupervised Robotic Value Correction for Time-Derived Progress Proxies",
-        "summary": "Modern robot learning systems increasingly rely on dense progress or value signals to evaluate intermediate states, guide policy learning, and detect task completion, making the quality of these signals critical. Since such dense labels are rarely available at scale, normalized time within a demonstration is often used as a scalable subs…",
-        "summaryRaw": "Modern robot learning systems increasingly rely on dense progress or value signals to evaluate intermediate states, guide policy learning, and detect task completion, making the quality of these signals critical. Since such dense labels are rarely available at scale, normalized time within a demonstration is often used as a scalable substitute: later frames are treated as higher progress. However, this time-derived label is only a noisy proxy for physical task progress. In contact-rich manipulation, a robot may make progress and then lose it through slips, failed grasps, or partial undoing, while the time-derived label continues to increase monotonically. We introduce Unsupervised Robotic Value Correction (UR-VC), an offline, training-free method for correcting time-derived progress labels. UR-VC exploits a simple regularity in demonstration data: similar states often recur across different episodes, but at different timestamps. Instead of trusting the timestamp from a single trajectory, UR-VC retrieves similar states from other episodes and aggregates their time-derived labels to obtain a corrected progress estimate. UR-VC requires no manual progress labels, reward annotations, or additional value model. We evaluate UR-VC on real bimanual cloth flatten-and-fold data, a long-horizon deformable-object manipulation task with visible intermediate progress. The corrected labels capture local regressions and non-uniform progress that normalized time cannot represent, while preserving the overall task trend. We further use the corrected signal to construct advantage labels for VLA training, following recent advantage-conditioned policy learning. UR-VC shows a positive trend in real-robot task success under matched data, model, and training settings.",
-        "link": "https://arxiv.org/abs/2607.12892v1",
-        "pdfLink": "https://arxiv.org/pdf/2607.12892v1",
-        "published": "2026-07-14T15:33:33Z",
-        "updated": "2026-07-14T15:33:33Z",
-        "authors": [
-          "Lirui Zhao",
-          "Modi Shi",
-          "Li Chen",
-          "Qi Liu",
-          "Ping Luo",
-          "Hongyang Li"
-        ],
-        "categories": [
-          "cs.AI",
-          "cs.RO"
-        ],
-        "score": 76,
-        "importanceLevel": "B",
-        "lane": "Robotics",
-        "dimensionScores": {
-          "relevance": 75,
-          "novelty": 75,
-          "impact": 70,
-          "practicality": 80,
-          "coreAlignment": 70
-        },
-        "oneSentenceSummary": "无监督校正时间进度标签，提升演示学习。",
-        "summaryCn": "UR-VC利用演示数据中相似状态再现规律，自动校正嘈杂的时间衍生进度标签，为机器人学习提供更准确价值信号，无需训练。",
-        "whyImportant": "改善演示学习奖励信号质量。",
-        "reasonTags": [
-          "价值校正",
-          "无监督",
-          "演示学习"
-        ],
-        "innovationPoints": [
-          "状态再现规律校正标签",
-          "离线无训练"
-        ],
-        "noveltyVerdict": "简单有效的无监督校正，实用价值高。",
-        "duplicateRisk": "low",
-        "dedupeNote": "专注于价值信号校正，非一般数据增强。",
-        "retrievalGroups": [
-          "category",
-          "robotics"
-        ],
-        "mergedCount": 1,
-        "mergedTitles": [
-          "UR-VC: Unsupervised Robotic Value Correction for Time-Derived Progress Proxies"
-        ]
-      },
-      {
-        "id": "2607.12800v1",
-        "title": "UniVR: Thinking in Visual Space for Unified Visual Reasoning",
-        "summary": "Learning broad world knowledge directly from raw visual data is a fundamental capability of intelligence. We introduce UniVR, the first investigation into simultaneously learning complex reasoning, fine-grained physical dynamics, and long-term planning from pure visual demonstrations.",
-        "summaryRaw": "Learning broad world knowledge directly from raw visual data is a fundamental capability of intelligence. We introduce UniVR, the first investigation into simultaneously learning complex reasoning, fine-grained physical dynamics, and long-term planning from pure visual demonstrations. At its core, UniVR features VR-GRPO, a reinforcement learning paradigm with complementary global and step-level rewards. This approach enforces logical coherence and physical consistency throughout the reasoning process without requiring task-specific heuristics or image-text pairs. To train and evaluate UniVR, we construct VR-X, a large-scale benchmark curated from 16 diverse sources spanning long-horizon manipulation, spatial puzzles, and physical reasoning. It is the first comprehensive suite to assess these heterogeneous capabilities under a purely visual protocol. Remarkably, UniVR achieves up to a 25% improvement on VR-X, and its superior visual reasoning also boosts performance on various multimodal understanding benchmarks. These findings underscore the vast potential of reasoning within visual spaces, with all code, data, and models are open-sourced for further research.",
-        "link": "https://arxiv.org/abs/2607.12800v1",
-        "pdfLink": "https://arxiv.org/pdf/2607.12800v1",
-        "published": "2026-07-14T14:15:13Z",
-        "updated": "2026-07-14T14:15:13Z",
-        "authors": [
-          "Zhongwei Ren",
-          "Yunchao Wei",
-          "Yao Zhao",
-          "Weibo Gong",
-          "Xiao Liu",
-          "Anran Wang",
-          "Xiangtai Li",
-          "Xiaojie Jin"
-        ],
-        "categories": [
-          "cs.CV"
-        ],
-        "score": 75,
-        "importanceLevel": "B",
         "lane": "WAM",
         "dimensionScores": {
-          "relevance": 70,
+          "relevance": 90,
           "novelty": 85,
-          "impact": 75,
-          "practicality": 60,
-          "coreAlignment": 70
+          "impact": 80,
+          "practicality": 80,
+          "coreAlignment": 90
         },
-        "oneSentenceSummary": "纯视觉演示学习物理动力学与规划。",
-        "summaryCn": "UniVR通过强化学习从纯视觉演示中同时学习复杂推理、精细物理动力学和长期规划，无需任务特定启发式或图文对，性能大幅提升。",
-        "whyImportant": "展示纯视觉世界模型与规划的可能性。",
+        "oneSentenceSummary": "PerceptDrive提出感知先验世界-行动模型，通过自适应专家路由实现端到端自动驾驶。",
+        "summaryCn": "PerceptDrive利用冻结的感知基础模型提供先验，并训练可学习的专家路由世界-行动模型，通过自适应融合多个专家分支生成轨迹，结合保留先验的目标进行训练。",
+        "whyImportant": "将世界模型与感知先验结合，通过自适应路由提升端到端驾驶性能。",
         "reasonTags": [
-          "世界模型",
-          "视觉推理",
-          "规划"
+          "世界-行动模型",
+          "自适应专家路由",
+          "端到端自动驾驶"
         ],
         "innovationPoints": [
-          "纯视觉动力学学习与推理",
-          "VR-GRPO全局与步骤奖励"
+          "提出世界-行动模型与感知先验结合框架",
+          "自适应专家路由动态融合多个先验分支",
+          "保留先验目标确保专家分支对齐"
         ],
-        "noveltyVerdict": "开创纯视觉世界模型推理，新颖性强。",
+        "noveltyVerdict": "新颖地将世界模型与自适应路由结合用于驾驶，具有一定创新性。",
         "duplicateRisk": "low",
-        "dedupeNote": "不依赖语言或动作标注，纯视频驱动。",
+        "dedupeNote": "无重复，聚焦世界-行动模型与自适应路由。",
         "retrievalGroups": [
-          "category",
-          "robotics"
-        ],
-        "mergedCount": 1,
-        "mergedTitles": [
-          "UniVR: Thinking in Visual Space for Unified Visual Reasoning"
-        ]
-      },
-      {
-        "id": "2607.12630v1",
-        "title": "Instance-Enriched Semantic Maps for Visual Language Navigation",
-        "summary": "Visual Language Navigation (VLN) aims to enable an embodied agent to navigate complex environments by following natural language instructions. Recent approaches build semantic spatial maps and leverage Large Language Models (LLMs) for reasoning and decision making.",
-        "summaryRaw": "Visual Language Navigation (VLN) aims to enable an embodied agent to navigate complex environments by following natural language instructions. Recent approaches build semantic spatial maps and leverage Large Language Models (LLMs) for reasoning and decision making. Despite these advances, existing systems lack instance-level object detail and robustness to diverse user queries, limiting reliable navigation in complex indoor environments. To address these limitations, we propose Instance-Enriched Semantic Maps, a unified framework with three key contributions: (1) Instance-level two-and-a-half-dimensional (2.5D) rich information mapping that constructs maps from color and depth observations via open-vocabulary panoptic segmentation, preserving vertical distinctions and capturing small objects, while storing diverse semantic attributes and natural language captions enriched with room-level context. (2) Robust query processing via LLM-based target selection, which dynamically routes queries across type-specialized experts and integrates their outputs through score-level fusion, enabling consistent goal selection across diverse query formulations. (3) Storage-efficient semantic representation that achieves approximately 96% reduction compared to three-dimensional (3D) scene-graph approaches while preserving sufficient spatial information for navigation. The proposed 2.5D representation outperforms the 3D baseline by over 27% in prediction-normalized Area Under the Curve (AUC). In navigation experiments, our method achieves over 17% improvement in object retrieval and over 23% in navigation success compared to the baseline across diverse query types. The project page is available at https://rcilab.github.io/iesm_vln.",
-        "link": "https://arxiv.org/abs/2607.12630v1",
-        "pdfLink": "https://arxiv.org/pdf/2607.12630v1",
-        "published": "2026-07-14T11:09:48Z",
-        "updated": "2026-07-14T11:09:48Z",
-        "authors": [
-          "Jiho Hong",
-          "Eunae Kang",
-          "Sanghyun Kim",
-          "Young-Sik Shin"
-        ],
-        "categories": [
-          "cs.CV",
-          "cs.RO"
-        ],
-        "score": 75,
-        "importanceLevel": "B",
-        "lane": "VLA",
-        "dimensionScores": {
-          "relevance": 85,
-          "novelty": 78,
-          "impact": 70,
-          "practicality": 75,
-          "coreAlignment": 85
-        },
-        "oneSentenceSummary": "构建实例级语义地图提升视觉语言导航。",
-        "summaryCn": "提出实例级2.5D语义地图，结合开放词汇分割和房间级上下文，为VLN提供细粒度物体信息和空间语义，提升导航决策准确性。",
-        "whyImportant": "增强语言驱动导航的鲁棒性。",
-        "reasonTags": [
-          "VLN",
-          "语义地图",
-          "实例级"
-        ],
-        "innovationPoints": [
-          "2.5D实例级地图",
-          "开放词汇分割",
-          "房间上下文集成"
-        ],
-        "noveltyVerdict": "实例级信息引入VLN，提升场景理解。",
-        "duplicateRisk": "low",
-        "dedupeNote": "与现有网格地图互补，提供更细粒度。",
-        "retrievalGroups": [
-          "category",
-          "general",
-          "robotics"
-        ],
-        "mergedCount": 1,
-        "mergedTitles": [
-          "Instance-Enriched Semantic Maps for Visual Language Navigation"
-        ]
-      },
-      {
-        "id": "2607.12818v1",
-        "title": "Breaking Déjà Vu: Independent Auditing of Visual Place Recognition through Vision-Language Reasoning",
-        "summary": "Visual place recognition (VPR) is a key enabler of accurate localization and long-term autonomous navigation in robotics applications, such as loop closure detection for simultaneous localisation and mapping (SLAM). However, real-world VPR deployment relies on selecting an image matching threshold that balances precision and recall.",
-        "summaryRaw": "Visual place recognition (VPR) is a key enabler of accurate localization and long-term autonomous navigation in robotics applications, such as loop closure detection for simultaneous localisation and mapping (SLAM). However, real-world VPR deployment relies on selecting an image matching threshold that balances precision and recall. These thresholds are typically tuned using labeled validation data and fixed during deployment, making them unreliable under environmental changes where ground truth is unavailable. This is particularly problematic in safety-critical robotics, where accepting a false loop closure can corrupt the estimated trajectory and map. In this work, we introduce Visual Place Recognition Auditing, an independent post-retrieval verification framework that leverages Vision-Language Models (VLMs) to assess retrieved matches by reasoning jointly over query and candidate images. Unlike conventional verification methods, our approach performs instance-level verification without requiring architecture-specific confidence measures, dataset-dependent thresholds, or prior knowledge of the deployment environment. We evaluate our method on six benchmark datasets using five state-of-the-art VPR methods and four VLMs. Results show that VLM-based auditing improves recall@1 by 13.6% on average as compared to state-of-the-art methods while reducing false acceptance rates to 12%, maintaining precision above 95% and coverage above 75%.",
-        "link": "https://arxiv.org/abs/2607.12818v1",
-        "pdfLink": "https://arxiv.org/pdf/2607.12818v1",
-        "published": "2026-07-14T14:30:24Z",
-        "updated": "2026-07-14T14:30:24Z",
-        "authors": [
-          "Sania Waheed",
-          "Michael Milford",
-          "Sarvapali D. Ramchurn",
-          "Shoaib Ehsan"
-        ],
-        "categories": [
-          "cs.CV"
-        ],
-        "score": 74,
-        "importanceLevel": "B",
-        "lane": "Robotics",
-        "dimensionScores": {
-          "relevance": 65,
-          "novelty": 80,
-          "impact": 70,
-          "practicality": 70,
-          "coreAlignment": 60
-        },
-        "oneSentenceSummary": "VLM独立审计视觉地点识别减少误匹配。",
-        "summaryCn": "提出VPR审计框架，利用VLM对检索匹配进行后验证，联合推理查询和候选图像，无需真值即可评估匹配质量，提高SLAM可靠性。",
-        "whyImportant": "提升环境变化下定位鲁棒性。",
-        "reasonTags": [
-          "VPR",
-          "审计",
-          "VLM"
-        ],
-        "innovationPoints": [
-          "独立后检索验证",
-          "VLM联合推理评估"
-        ],
-        "noveltyVerdict": "将VLM用于VPR审计，提高可信度。",
-        "duplicateRisk": "low",
-        "dedupeNote": "附加验证层，非重新设计VPR。",
-        "retrievalGroups": [
-          "category",
-          "robotics"
-        ],
-        "mergedCount": 1,
-        "mergedTitles": [
-          "Breaking Déjà Vu: Independent Auditing of Visual Place Recognition through Vision-Language Reasoning"
-        ]
-      },
-      {
-        "id": "2607.12732v1",
-        "title": "Globalized Constrained Stein Variational Inference for Diverse Feasible Robot Motion Planning",
-        "summary": "Robot motion planning is inherently multimodal, yet classical planners typically return only a single solution. Probabilistic formulations address this limitation by maintaining a distribution over motions, allowing the planner to reason over multiple low-cost alternatives.",
-        "summaryRaw": "Robot motion planning is inherently multimodal, yet classical planners typically return only a single solution. Probabilistic formulations address this limitation by maintaining a distribution over motions, allowing the planner to reason over multiple low-cost alternatives. In robotics, however, motion samples must also satisfy strict constraints, including collision avoidance, joint limits, contact conditions, and dynamics consistency. These hard requirements make motion sampling substantially more challenging: within a limited planning budget, the ensemble must cover diverse low-cost motions while ensuring that every sample remains feasible under the relevant constraints. We propose SteinSQP (Stein Variational Sequential Quadratic Programming), a constrained Stein variational inference method for diverse feasible robot motion sampling. SteinSQP evolves an interacting particle ensemble, as in Stein variational methods, while embedding constraints directly into a kernel-space SQP subproblem. We solve the resulting constrained Stein-Newton subproblem with a GPU-friendly matrix-free primal-dual algorithm, enabling efficient batched ensemble updates. To globalize the method, we introduce an ensemble-level merit function that jointly balances objective value, constraint violation, and particle diversity. Across five constrained motion-planning tasks, SteinSQP returns fully feasible ensembles while preserving diverse motion alternatives. Compared with first-order constrained Stein baselines and serial multistart nonlinear programming, SteinSQP shows faster and more robust ensemble convergence in terms of iterations, improves particle-wise feasibility, and achieves faster batched time-to-solution on challenging robot-scale tasks.",
-        "link": "https://arxiv.org/abs/2607.12732v1",
-        "pdfLink": "https://arxiv.org/pdf/2607.12732v1",
-        "published": "2026-07-14T13:02:45Z",
-        "updated": "2026-07-14T13:02:45Z",
-        "authors": [
-          "Jiayun Li",
-          "Georgia Chalvatzaki"
-        ],
-        "categories": [
-          "cs.RO"
-        ],
-        "score": 73,
-        "importanceLevel": "B",
-        "lane": "Robotics",
-        "dimensionScores": {
-          "relevance": 65,
-          "novelty": 80,
-          "impact": 70,
-          "practicality": 70,
-          "coreAlignment": 65
-        },
-        "oneSentenceSummary": "约束变分推断生成多样可行运动规划。",
-        "summaryCn": "SteinSQP结合约束Stein变分推断与序列二次规划，演化粒子集合确保硬约束，同时覆盖多样化低成本运动。",
-        "whyImportant": "提供多样且可行的运动方案。",
-        "reasonTags": [
-          "运动规划",
-          "变分推断",
-          "多样性"
-        ],
-        "innovationPoints": [
-          "约束Stein变分推断用于规划",
-          "序列二次规划保证可行性"
-        ],
-        "noveltyVerdict": "概率推断与硬约束结合，方法新颖。",
-        "duplicateRisk": "low",
-        "dedupeNote": "与单解规划器不同，强调多模态约束。",
-        "retrievalGroups": [
-          "category",
-          "robotics"
-        ],
-        "mergedCount": 1,
-        "mergedTitles": [
-          "Globalized Constrained Stein Variational Inference for Diverse Feasible Robot Motion Planning"
-        ]
-      },
-      {
-        "id": "2607.12423v1",
-        "title": "Model-Based Diffusion Optimal Control for Multi-Robot Motion Planning",
-        "summary": "Multi-Robot Motion Planning in continuous environments, where robots must generate dynamically feasible, collision-free trajectories, is challenging due to the combinatorial growth of the joint trajectory space and the difficulty of enforcing dynamic feasibility and hard safety constraints. Recent approaches recast trajectory planning as…",
-        "summaryRaw": "Multi-Robot Motion Planning in continuous environments, where robots must generate dynamically feasible, collision-free trajectories, is challenging due to the combinatorial growth of the joint trajectory space and the difficulty of enforcing dynamic feasibility and hard safety constraints. Recent approaches recast trajectory planning as probabilistic inference, sampling from a posterior over trajectories using diffusion models whose score functions are learned from demonstration data. While showing promising performance, these approaches are limited: they often rely on sizable demonstration datasets and struggle to rigorously enforce dynamics and hard safety constraints during sampling. To this end, we introduce Model-Based Diffusion Optimal Control (MDOC), a model-based diffusion planner that efficiently produces dynamically feasible trajectories without relying on data. Crucially, we show that MDOC's safety mechanism -- combining known dynamics models with Control Barrier Function-constrained projections -- naturally scales to multi-robot planning settings through Conflict-Based Search. Across simulation experiments, this integrated method consistently outperforms representative baseline planners in sample efficiency, geometric smoothness, and success rate, while reducing computation time and producing collision-free trajectories.",
-        "link": "https://arxiv.org/abs/2607.12423v1",
-        "pdfLink": "https://arxiv.org/pdf/2607.12423v1",
-        "published": "2026-07-14T06:54:03Z",
-        "updated": "2026-07-14T06:54:03Z",
-        "authors": [
-          "Zhilin He",
-          "Yorai Shaoul",
-          "Jiaoyang Li"
-        ],
-        "categories": [
-          "cs.RO"
-        ],
-        "score": 72,
-        "importanceLevel": "B",
-        "lane": "Robotics",
-        "dimensionScores": {
-          "relevance": 60,
-          "novelty": 75,
-          "impact": 65,
-          "practicality": 70,
-          "coreAlignment": 60
-        },
-        "oneSentenceSummary": "模型基扩散最优控制实现无数据运动规划。",
-        "summaryCn": "MDOC不依赖演示数据，利用动力学模型和投影算子引导扩散采样，严格满足动力学与安全约束，高效生成多机器人可行轨迹。",
-        "whyImportant": "无需大量数据降低扩散规划门槛。",
-        "reasonTags": [
-          "运动规划",
-          "扩散模型",
-          "模型基"
-        ],
-        "innovationPoints": [
-          "无数据扩散规划",
-          "模型引导约束满足"
-        ],
-        "noveltyVerdict": "动力学与扩散结合，提高约束能力。",
-        "duplicateRisk": "low",
-        "dedupeNote": "与数据驱动扩散规划器互补。",
-        "retrievalGroups": [
-          "category",
-          "robotics"
-        ],
-        "mergedCount": 1,
-        "mergedTitles": [
-          "Model-Based Diffusion Optimal Control for Multi-Robot Motion Planning"
-        ]
-      },
-      {
-        "id": "2607.12811v1",
-        "title": "PixelLoop: Shortcut Topological Navigation with Pixel-Level Loops",
-        "summary": "Although topological mapping and navigation have been studied extensively, the specific role and downstream effect of loop closures in purely topological representations has received relatively little attention. Importantly, loop closure over topological maps is distinct from loop closure over globally referenced trajectories and metric…",
-        "summaryRaw": "Although topological mapping and navigation have been studied extensively, the specific role and downstream effect of loop closures in purely topological representations has received relatively little attention. Importantly, loop closure over topological maps is distinct from loop closure over globally referenced trajectories and metric maps. Building on recent denser topologies grounded in pixel-level, relative 3D geometry, we propose PixelLoop which introduces loop closures directly in pixel space. Unlike sparse image-level edges or pose-graph corrections in SLAM, our pixel-level closures act as dense topological shortcuts that alter planning connectivity and cost propagation rather than merely aligning coordinates. This dense connectivity enables stable any-point-to-any-point navigation and produces costmaps that align accurately with geometric shortest paths. In particular, we showcase the distinct advantage of applying loop closures to fine-grained pixel topologies rather than image-level topologies. Across extensive simulated experiments, PixelLoop achieves over 35% absolute improvement in both Success Rate and SPL compared to image-relative baselines, with the largest gains in scenarios requiring shortcut exploitation. Results are further validated through real-world mobile robot deployments, demonstrating that dense pixel-level loop closures provide a practical and robust foundation for topological visual navigation. Project Page: https://pixelloop-nav.github.io/",
-        "link": "https://arxiv.org/abs/2607.12811v1",
-        "pdfLink": "https://arxiv.org/pdf/2607.12811v1",
-        "published": "2026-07-14T14:23:43Z",
-        "updated": "2026-07-14T14:23:43Z",
-        "authors": [
-          "Sarthak Chittawar",
-          "Vansh Garg",
-          "Aditya Vadali",
-          "Krish Pandya",
-          "Rohit Jayanti",
-          "Sourav Garg",
-          "Madhava Krishna"
-        ],
-        "categories": [
-          "cs.AI",
-          "cs.RO"
-        ],
-        "score": 71,
-        "importanceLevel": "B",
-        "lane": "Robotics",
-        "dimensionScores": {
-          "relevance": 60,
-          "novelty": 75,
-          "impact": 65,
-          "practicality": 70,
-          "coreAlignment": 60
-        },
-        "oneSentenceSummary": "像素级环路闭合实现拓扑导航捷径。",
-        "summaryCn": "像素环路直接在像素空间引入闭环作为稠密拓扑捷径，改变规划连接与代价传播，实现稳定任意点对点导航。",
-        "whyImportant": "增强拓扑导航连通性和效率。",
-        "reasonTags": [
-          "拓扑导航",
-          "像素环路",
-          "代价传播"
-        ],
-        "innovationPoints": [
-          "像素级闭环作为拓扑捷径",
-          "稠密连通性提升规划"
-        ],
-        "noveltyVerdict": "将闭环下沉到像素级拓扑，新颖。",
-        "duplicateRisk": "low",
-        "dedupeNote": "与图像边缘拓扑导航不同，提供像素级闭环。",
-        "retrievalGroups": [
-          "category",
-          "robotics"
-        ],
-        "mergedCount": 1,
-        "mergedTitles": [
-          "PixelLoop: Shortcut Topological Navigation with Pixel-Level Loops"
-        ]
-      },
-      {
-        "id": "2607.12593v1",
-        "title": "Improving Autonomous Nano-drones Performance via Automated End-to-End Optimization and Deployment of DNNs",
-        "summary": "The evolution of energy-efficient ultra-low-power (ULP) parallel processors and the diffusion of convolutional neural networks (CNNs) are fueling the advent of autonomous driving nano-sized unmanned aerial vehicles (UAVs). These sub-10 cm robotic platforms are envisioned as next-generation ubiquitous smart-sensors and unobtrusive robotic…",
-        "summaryRaw": "The evolution of energy-efficient ultra-low-power (ULP) parallel processors and the diffusion of convolutional neural networks (CNNs) are fueling the advent of autonomous driving nano-sized unmanned aerial vehicles (UAVs). These sub-10 cm robotic platforms are envisioned as next-generation ubiquitous smart-sensors and unobtrusive robotic-helpers. However, the limited computational/memory resources available aboard nano-UAVs introduce the challenge of minimizing and optimizing vision-based CNNs -- which to date require error-prone, labor-intensive iterative development flows. This work explores methodologies and software tools to streamline and automate all the deployment of vision-based CNN navigation on a ULP multicore system-on-chip acting as a mission computer on a Crazyflie 2.1 nano-UAV. We focus on the deployment of PULP-Dronet, a state-of-the-art CNN for autonomous navigation of nano-UAVs, from the initial training to the final closed-loop evaluation. Compared to the original hand-crafted CNN, our results show a 2x reduction of memory footprint and a speedup of 1.6x in inference time while guaranteeing the same prediction accuracy and significantly improving the behavior in the field, achieving: i) obstacle avoidance with a peak braking-speed of 1.65 m/s and improving the speed/braking-space ratio of the baseline, ii) free flight in a familiar environment up to 1.96 m/s (0.5 m/s for the baseline), and iii) lane following on a path featuring a 90 deg turn -- all while using for computation less than 1.6% of the drone's power budget. To foster new applications and future research, we open-source all the software design in a ready-to-run project compatible with the Crazyflie 2.1",
-        "link": "https://arxiv.org/abs/2607.12593v1",
-        "pdfLink": "https://arxiv.org/pdf/2607.12593v1",
-        "published": "2026-07-14T10:12:15Z",
-        "updated": "2026-07-14T10:12:15Z",
-        "authors": [
-          "Vlad Niculescu",
-          "Lorenzo Lamberti",
-          "Francesco Conti",
-          "Luca Benini",
-          "Daniele Palossi"
-        ],
-        "categories": [
-          "cs.RO"
-        ],
-        "score": 66,
-        "importanceLevel": "A",
-        "lane": "Robotics",
-        "dimensionScores": {
-          "relevance": 45,
-          "novelty": 7,
-          "impact": 11,
-          "practicality": 9,
-          "coreAlignment": 22
-        },
-        "oneSentenceSummary": "该论文是偏机器人的重点候选，值得优先阅读。",
-        "summaryCn": "论文核心内容是：The evolution of energy-efficient ultra-low-power (ULP) parallel processors and the diffusion of convolutional neural networks (CNN…",
-        "whyImportant": "命中机器人、自动驾驶、新基准主题，分类覆盖cs.RO，并体现较强的新颖性与影响潜力。",
-        "reasonTags": [
-          "机器人",
-          "自动驾驶",
-          "新基准"
-        ],
-        "innovationPoints": [
-          "提出具有跟踪价值的方法设计"
-        ],
-        "noveltyVerdict": "更偏实用推进型工作，适合结合上下文继续判断。",
-        "duplicateRisk": "low",
-        "dedupeNote": "该论文在Robotics方向上具备独立问题设置或代表性贡献，可作为当日候选保留。",
-        "retrievalGroups": [
-          "category",
-          "driving",
-          "robotics"
-        ],
-        "mergedCount": 1,
-        "mergedTitles": [
-          "Improving Autonomous Nano-drones Performance via Automated End-to-End Optimization and Deployment of DNNs"
-        ]
-      },
-      {
-        "id": "2607.12702v1",
-        "title": "Vision-Based Dribbling for Humanoid Soccer via Privileged Representation Learning",
-        "summary": "Recent advances in humanoid robotics have highlighted the importance of deployable loco-manipulation skills. Dribbling a soccer ball while evading active opponents requires simultaneous balance, precise ball control, and awareness of a dynamic adversary under onboard sensing and real-time constraints.",
-        "summaryRaw": "Recent advances in humanoid robotics have highlighted the importance of deployable loco-manipulation skills. Dribbling a soccer ball while evading active opponents requires simultaneous balance, precise ball control, and awareness of a dynamic adversary under onboard sensing and real-time constraints. Existing approaches typically separate perception and motion, which can be effective in controlled settings but may fail under occlusions, fast ball movements, and complex opponent interactions, since perception is not directly optimized for control. We propose an integrated approach in which a temporal depth encoder is embedded into a reinforcement learning policy through a task-specific projection layer. We apply this framework to a simulated Booster T1 humanoid robot and show that it is possible to learn vision-based, opponent-aware dribbling directly from depth observations, without explicit state estimation or privileged scene information. The learned policy achieves 100% success in nominal target-driven dribbling and 96% success with a single static obstacle, while reaching 46% success against an actively moving ball-attacker opponent. These results demonstrate that the proposed framework supports robust vision-based dribbling in nominal and moderately dynamic settings, and provides a strong foundation for handling more challenging moving-adversary scenarios.",
-        "link": "https://arxiv.org/abs/2607.12702v1",
-        "pdfLink": "https://arxiv.org/pdf/2607.12702v1",
-        "published": "2026-07-14T12:27:58Z",
-        "updated": "2026-07-14T12:27:58Z",
-        "authors": [
-          "Flavio Maiorana",
-          "Valerio Spagnoli",
-          "Eugenio Bugli",
-          "Flavio Volpi",
-          "Daniele Affinita",
-          "Vincenzo Suriani",
-          "Daniele Nardi",
-          "Luca Iocchi"
-        ],
-        "categories": [
-          "cs.RO"
-        ],
-        "score": 66,
-        "importanceLevel": "A",
-        "lane": "Robotics",
-        "dimensionScores": {
-          "relevance": 44,
-          "novelty": 12,
-          "impact": 9,
-          "practicality": 7,
-          "coreAlignment": 14
-        },
-        "oneSentenceSummary": "该论文是偏机器人的重点候选，值得优先阅读。",
-        "summaryCn": "论文核心内容是：Recent advances in humanoid robotics have highlighted the importance of deployable loco-manipulation skills.",
-        "whyImportant": "命中机器人、通用框架主题，分类覆盖cs.RO，并体现较强的新颖性与影响潜力。",
-        "reasonTags": [
-          "机器人",
-          "通用框架"
-        ],
-        "innovationPoints": [
-          "提出具有跟踪价值的方法设计"
-        ],
-        "noveltyVerdict": "创新点清晰，属于值得重点跟进的增量改进。",
-        "duplicateRisk": "low",
-        "dedupeNote": "该论文在Robotics方向上具备独立问题设置或代表性贡献，可作为当日候选保留。",
-        "retrievalGroups": [
-          "category",
-          "robotics"
-        ],
-        "mergedCount": 1,
-        "mergedTitles": [
-          "Vision-Based Dribbling for Humanoid Soccer via Privileged Representation Learning"
-        ]
-      },
-      {
-        "id": "2607.12787v1",
-        "title": "Do We Really Need Multimodal Emotion Language Models Larger Than 1B Parameters?",
-        "summary": "Recent advances in multimodal large language models (MLLMs) have significantly improved the performance of multimodal emotion recognition (MER) and enabled interpretable description generation by jointly modeling video, audio, and language, etc. However, these performance improvements are often accompanied by an increase in model paramet…",
-        "summaryRaw": "Recent advances in multimodal large language models (MLLMs) have significantly improved the performance of multimodal emotion recognition (MER) and enabled interpretable description generation by jointly modeling video, audio, and language, etc. However, these performance improvements are often accompanied by an increase in model parameter size (e.g, at least 7B), which simultaneously incurs high computational costs and reduces inference efficiency, thereby hindering real-time deployment on resource-constrained platforms such as robots and mobile devices. This raises a fundamental question: do we really need the multimodal MER model larger than 1B parameters for high-quality MER? In this paper, we challenge the assumption that larger models are inherently necessary and proposes a lightweight MER framework (called Light-MER), which achieves better and faster multimodal sentiment understanding and recognition through knowledge distillation. It can transfer knowledge from a strong, large-scale teacher model to a lightweight sub-billion-parameter student model, aiming to preserve rich multimodal emotion reasoning and recognition while substantially improving deployment efficiency. Specifically, we introduce two new optimization strategies to enhance knowledge transfer: (1) a new optimal transport loss that combines Sliced Wasserstein Distance with hidden-state alignment, and (2) a new multi-reward optimization strategy based on GRPO that balances MER performance and efficiency, aimed at further enhancing the learning capabilities of student models. Extensive experiments on nine benchmark datasets demonstrate that Light-MER achieves state-of-the-art performance while significantly improving inference efficiency. This highlights the strong potential of small multimodal emotion language models for future research. Code is available at https://github.com/GAIR-Lab/Light-MER.",
-        "link": "https://arxiv.org/abs/2607.12787v1",
-        "pdfLink": "https://arxiv.org/pdf/2607.12787v1",
-        "published": "2026-07-14T14:01:29Z",
-        "updated": "2026-07-14T14:01:29Z",
-        "authors": [
-          "Kaiwen Zheng",
-          "Junchen Fu",
-          "Wenhao Deng",
-          "Hu Han",
-          "Joemon M. Jose",
-          "Xuri Ge"
-        ],
-        "categories": [
-          "cs.AI",
-          "cs.CV"
-        ],
-        "score": 53,
-        "importanceLevel": "A",
-        "lane": "Peripheral",
-        "dimensionScores": {
-          "relevance": 15,
-          "novelty": 17,
-          "impact": 19,
-          "practicality": 8,
-          "coreAlignment": 14
-        },
-        "oneSentenceSummary": "该论文是偏相关方向的重点候选，值得优先阅读。",
-        "summaryCn": "论文核心内容是：Recent advances in multimodal large language models (MLLMs) have significantly improved the performance of multimodal emotion recog…",
-        "whyImportant": "命中机器人、新基准主题，分类覆盖cs.AI / cs.CV，并体现较强的新颖性与影响潜力。",
-        "reasonTags": [
-          "机器人",
-          "新基准"
-        ],
-        "innovationPoints": [
-          "包含新基准或新数据评测"
-        ],
-        "noveltyVerdict": "创新点清晰，属于值得重点跟进的增量改进。",
-        "duplicateRisk": "low",
-        "dedupeNote": "该论文在Peripheral方向上具备独立问题设置或代表性贡献，可作为当日候选保留。",
-        "retrievalGroups": [
-          "category",
-          "robotics"
-        ],
-        "mergedCount": 1,
-        "mergedTitles": [
-          "Do We Really Need Multimodal Emotion Language Models Larger Than 1B Parameters?"
-        ]
-      },
-      {
-        "id": "2607.12293v1",
-        "title": "Adaptive Cross-Modal Fusion with Sparse Attention for Pedestrian Crossing Intention Prediction",
-        "summary": "Predicting pedestrian crossing intention is a safety-critical task for autonomous driving, yet existing approaches often rely on single-modal inputs or dense multimodal fusion strategies that inadequately capture complementary visual and kinematic information while introducing redundant inter-modal interactions. We propose ADAPT (Adaptiv…",
-        "summaryRaw": "Predicting pedestrian crossing intention is a safety-critical task for autonomous driving, yet existing approaches often rely on single-modal inputs or dense multimodal fusion strategies that inadequately capture complementary visual and kinematic information while introducing redundant inter-modal interactions. We propose ADAPT (Adaptive Domain-Aware Pedestrian Crossing Transformer), a multimodal framework that jointly models local and global visual context together with temporal motion dynamics for accurate pedestrian crossing intention prediction. ADAPT processes four spatially aligned visual modalities, including RGB images, local depth maps, global semantic maps, and global depth maps, together with ego-vehicle speed, pedestrian bounding boxes, and skeleton pose information through five specialized modules: a weight-shared Swin Transformer V2 backbone for visual feature extraction, a Cross-Modality Guided Attention module for hierarchical visual fusion, a Mamba-based Motion Feature Encoding module for efficient temporal modeling, a Sparse Cross-Modal Attention module that selectively preserves the most informative inter-modal interactions, and a Vision Transformer-based Temporal Feature Fusion module for sequence-level prediction. Extensive experiments on the JAAD and PIE benchmark datasets demonstrate that ADAPT consistently outperforms existing state-of-the-art methods while maintaining low computational complexity. On JAAD, the proposed method achieves an AUC of 0.73 on JAADbeh and 0.85 on JAADall, while on PIE it achieves an accuracy of 0.92 and an AUC of 0.90. Furthermore, ADAPT performs inference in only 17.23 ms per sample, offering an effective balance between predictive accuracy and real-time deployment efficiency for intelligent transportation and autonomous driving applications.",
-        "link": "https://arxiv.org/abs/2607.12293v1",
-        "pdfLink": "https://arxiv.org/pdf/2607.12293v1",
-        "published": "2026-07-14T03:05:09Z",
-        "updated": "2026-07-14T03:05:09Z",
-        "authors": [
-          "Md Mahfuzur Rahman",
-          "Pengzhan Zhou",
-          "A F M Abdun Noor",
-          "Md Imam Ahasan",
-          "Kah Ong Michael Goh",
-          "S. M. Hasan Mahmud",
-          "Md Mustafizur Rahman",
-          "Kaixin Gao"
-        ],
-        "categories": [
-          "cs.CV"
-        ],
-        "score": 54,
-        "importanceLevel": "A",
-        "lane": "Robotics",
-        "dimensionScores": {
-          "relevance": 19,
-          "novelty": 17,
-          "impact": 8,
-          "practicality": 13,
-          "coreAlignment": 11
-        },
-        "oneSentenceSummary": "该论文是偏机器人的重点候选，值得优先阅读。",
-        "summaryCn": "论文核心内容是：Predicting pedestrian crossing intention is a safety-critical task for autonomous driving, yet existing approaches often rely on si…",
-        "whyImportant": "命中自动驾驶、新基准主题，分类覆盖cs.CV，并体现较强的新颖性与影响潜力。",
-        "reasonTags": [
-          "自动驾驶",
-          "新基准"
-        ],
-        "innovationPoints": [
-          "包含新基准或新数据评测"
-        ],
-        "noveltyVerdict": "创新点清晰，属于值得重点跟进的增量改进。",
-        "duplicateRisk": "low",
-        "dedupeNote": "该论文在Robotics方向上具备独立问题设置或代表性贡献，可作为当日候选保留。",
-        "retrievalGroups": [
-          "category",
           "driving"
         ],
         "mergedCount": 1,
         "mergedTitles": [
-          "Adaptive Cross-Modal Fusion with Sparse Attention for Pedestrian Crossing Intention Prediction"
+          "PerceptDrive: Perception Prior World-Action Modeling with Adaptive Expert Routing for End-to-End Autonomous Driving"
         ]
       },
       {
-        "id": "2607.12370v1",
-        "title": "StratMamba: Strategic and Reactive Stream Partitioning for Path-Efficient LiDAR-Based Obstacle Avoidance",
-        "summary": "This paper proposes StratMamba, a dual-stream Mamba-based temporal modeling architecture, to more efficiently capture long-horizon temporal dependencies required for robot navigation in complex and obstacle-rich environments. StratMamba leverages a combination of fast-decay and slow-decay memory architectures, where the fast-decay compon…",
-        "summaryRaw": "This paper proposes StratMamba, a dual-stream Mamba-based temporal modeling architecture, to more efficiently capture long-horizon temporal dependencies required for robot navigation in complex and obstacle-rich environments. StratMamba leverages a combination of fast-decay and slow-decay memory architectures, where the fast-decay component processes high-frequency LiDAR data for reactive obstacle avoidance, while the slow-decay component maintains longer-horizon goal information for strategic planning. We perform extensive evaluations of different obstacle avoidance scenarios in IsaacLab and Gazebo, while also validating successful sim-to-real deployment on a Unitree GO1 quadruped robot navigating in the presence of static/dynamic obstacles. Comparisons with other temporal RL baselines, such as LSTM, Transformer, and Vanilla-Mamba, show that our StratMamba achieves exceptional temporal reasoning efficiency with a lower timeout rate, while maintaining the fastest navigation speed (576 median steps, 5.0% better than Vanilla-Mamba). It also achieves the highest path optimality (0.915 path efficiency) across all baselines. Real-world evaluation reveals that StratMamba maintains more robust performance across extended LiDAR ranges compared to vanilla Mamba and the Transformer, demonstrating that dual-stream partitioning effectively balances reactive safety with strategic navigation under challenging sensing conditions.",
-        "link": "https://arxiv.org/abs/2607.12370v1",
-        "pdfLink": "https://arxiv.org/pdf/2607.12370v1",
-        "published": "2026-07-14T05:42:28Z",
-        "updated": "2026-07-14T05:42:28Z",
+        "id": "2607.20071v1",
+        "title": "GaussianSeed: Hierarchical Gaussian Seeding for High-Resolution 3D Occupancy Prediction",
+        "summary": "Vision-centric 3D occupancy prediction provides dense scene representations essential for autonomous driving and robotic navigation, yet existing methods struggle to scale to high voxel resolutions due to prohibitive computational costs. To address this, we introduce GaussianSeed, a progressive multi-scale Gaussian occupancy prediction f…",
+        "summaryRaw": "Vision-centric 3D occupancy prediction provides dense scene representations essential for autonomous driving and robotic navigation, yet existing methods struggle to scale to high voxel resolutions due to prohibitive computational costs. To address this, we introduce GaussianSeed, a progressive multi-scale Gaussian occupancy prediction framework that organizes primitives into a coarse-to-fine hierarchy. Benefiting from this hierarchical design, GaussianSeed effectively circumvents the memory bottlenecks inherent in dense representations, successfully scaling to a $0.1\\text{m}$ spatial resolution while maintaining real-time inference capabilities. To comprehensively evaluate high-resolution geometric perception, we further construct TJScenes, a panoramic six-camera occupancy dataset with highly detailed $0.1\\text{m}$ annotations. Extensive experiments on Occ3D-nuScenes and TJScenes demonstrate that GaussianSeed delivers the lowest latency among all evaluated methods while maintaining highly competitive accuracy, advancing the efficiency-quality frontier of high-resolution 3D occupancy prediction.",
+        "link": "https://arxiv.org/abs/2607.20071v1",
+        "pdfLink": "https://arxiv.org/pdf/2607.20071v1",
+        "published": "2026-07-22T12:18:30Z",
+        "updated": "2026-07-22T12:18:30Z",
         "authors": [
-          "Hung-Chieh Wu",
-          "Xiaopan Zhang",
-          "Kasra Sinaei",
-          "Ryan Abnavi",
-          "Kasun Weerakoon",
-          "Christopher Bradley",
-          "Seyed Fakoorian",
-          "Jiachen Li"
-        ],
-        "categories": [
-          "cs.RO"
-        ],
-        "score": 50,
-        "importanceLevel": "A",
-        "lane": "Robotics",
-        "dimensionScores": {
-          "relevance": 20,
-          "novelty": 7,
-          "impact": 12,
-          "practicality": 17,
-          "coreAlignment": 14
-        },
-        "oneSentenceSummary": "该论文是偏机器人的重点候选，值得优先阅读。",
-        "summaryCn": "论文核心内容是：This paper proposes StratMamba, a dual-stream Mamba-based temporal modeling architecture, to more efficiently capture long-horizon…",
-        "whyImportant": "命中机器人、新基准、真实实验主题，分类覆盖cs.RO，并体现较强的新颖性与影响潜力。",
-        "reasonTags": [
-          "机器人",
-          "新基准",
-          "真实实验"
-        ],
-        "innovationPoints": [
-          "提供真实场景实验验证"
-        ],
-        "noveltyVerdict": "更偏实用推进型工作，适合结合上下文继续判断。",
-        "duplicateRisk": "low",
-        "dedupeNote": "该论文在Robotics方向上具备独立问题设置或代表性贡献，可作为当日候选保留。",
-        "retrievalGroups": [
-          "category",
-          "robotics"
-        ],
-        "mergedCount": 1,
-        "mergedTitles": [
-          "StratMamba: Strategic and Reactive Stream Partitioning for Path-Efficient LiDAR-Based Obstacle Avoidance"
-        ]
-      },
-      {
-        "id": "2607.12489v1",
-        "title": "Infra-Swarm: Robust Vision-Based Multi-Robot Swarming via Near-Infrared Spectral Vision",
-        "summary": "Distributed swarms typically rely on either active wireless communication or passive vision, and they are frequently hindered by bandwidth constraints or environmental sensitivity. This paper proposes Infra-Swarm, a robust vision-based swarm.",
-        "summaryRaw": "Distributed swarms typically rely on either active wireless communication or passive vision, and they are frequently hindered by bandwidth constraints or environmental sensitivity. This paper proposes Infra-Swarm, a robust vision-based swarm. Each robot is equipped with a near-infrared light source and four ordinary gray-scale cameras. The Infra-Swarm system directly measures the centimeter-level 3D position of neighbors based on the position (bearing) and intensity (strength) of optical flares in the captured images. By utilizing 940 nm narrow-band filters to physically reject 99.2% of ambient light interference, the perception front-end achieves hardware-level robustness against illumination variations. Furthermore, its minimal computational overhead provides a resilient foundation for the massive scalability of robotic collectives on resource-constrained hardware.",
-        "link": "https://arxiv.org/abs/2607.12489v1",
-        "pdfLink": "https://arxiv.org/pdf/2607.12489v1",
-        "published": "2026-07-14T08:22:55Z",
-        "updated": "2026-07-14T08:22:55Z",
-        "authors": [
-          "Haoyu Chen",
-          "Qijin Li",
-          "Wanyu Xiang",
-          "Xiuxiu Lin",
-          "Zian Ning",
-          "Shiyu Zhao"
-        ],
-        "categories": [
-          "cs.RO"
-        ],
-        "score": 44,
-        "importanceLevel": "B",
-        "lane": "Robotics",
-        "dimensionScores": {
-          "relevance": 24,
-          "novelty": 12,
-          "impact": 6,
-          "practicality": 8,
-          "coreAlignment": 14
-        },
-        "oneSentenceSummary": "该论文是偏机器人的重点候选，值得优先阅读。",
-        "summaryCn": "论文核心内容是：Distributed swarms typically rely on either active wireless communication or passive vision, and they are frequently hindered by ba…",
-        "whyImportant": "命中机器人、通用框架主题，分类覆盖cs.RO，并体现较强的新颖性与影响潜力。",
-        "reasonTags": [
-          "机器人",
-          "通用框架"
-        ],
-        "innovationPoints": [
-          "提出具有跟踪价值的方法设计"
-        ],
-        "noveltyVerdict": "创新点清晰，属于值得重点跟进的增量改进。",
-        "duplicateRisk": "low",
-        "dedupeNote": "该论文在Robotics方向上具备独立问题设置或代表性贡献，可作为当日候选保留。",
-        "retrievalGroups": [
-          "category",
-          "robotics"
-        ],
-        "mergedCount": 1,
-        "mergedTitles": [
-          "Infra-Swarm: Robust Vision-Based Multi-Robot Swarming via Near-Infrared Spectral Vision"
-        ]
-      }
-    ],
-    "vla": [
-      {
-        "id": "2607.12287v1",
-        "title": "Reducing Temporal Redundancy for Efficient Vision-Language-Action Inference",
-        "summary": "Vision-Language-Action (VLA) models exhibit strong generalization for robotic manipulation, yet their high inference latency limits real time deployment. We identify two primary sources of temporal redundancy in existing VLA pipelines: repeated visual encoding of highly similar consecutive frames and multi step iterative sampling in diff…",
-        "summaryRaw": "Vision-Language-Action (VLA) models exhibit strong generalization for robotic manipulation, yet their high inference latency limits real time deployment. We identify two primary sources of temporal redundancy in existing VLA pipelines: repeated visual encoding of highly similar consecutive frames and multi step iterative sampling in diffusion based policies. To address this, we propose a system level acceleration strategy that reduces computation in both perception and action generation. On the perception side, we incrementally update only tokens corresponding to dynamic scene regions instead of re-encoding entire frames. On the policy side, we compress diffusion sampling into a compact 2-step schedule through efficiency oriented training while preserving action precision. Experiments on Libero, RobotWin, and Real Robot Platforms demonstrate over 2 times speedup while maintaining high performance, achieving up to 98% success rate on general manipulation benchmarks. Our codes will be released on Github.",
-        "link": "https://arxiv.org/abs/2607.12287v1",
-        "pdfLink": "https://arxiv.org/pdf/2607.12287v1",
-        "published": "2026-07-14T02:48:31Z",
-        "updated": "2026-07-14T02:48:31Z",
-        "authors": [
-          "Yuzhou Wu",
-          "Yuxin Zheng",
-          "Muchun Niu",
-          "Yishan Yang",
-          "Tianhao Liu",
-          "hanwen kang",
-          "Jiajian Jing",
-          "Linfeng Zhang"
-        ],
-        "categories": [
-          "cs.RO"
-        ],
-        "score": 95,
-        "importanceLevel": "S",
-        "lane": "VLA",
-        "dimensionScores": {
-          "relevance": 95,
-          "novelty": 85,
-          "impact": 95,
-          "practicality": 100,
-          "coreAlignment": 98
-        },
-        "oneSentenceSummary": "通过减少时序冗余将VLA推理速度提升超2倍。",
-        "summaryCn": "提出系统级加速策略，减少VLA感知中的重复视觉编码与动作生成中的多步扩散采样，在保持精度的同时实现超2倍加速，在多个基准和真实机器人上验证。",
-        "whyImportant": "解决VLA实时部署瓶颈，大幅提升效率。",
-        "reasonTags": [
-          "VLA加速",
-          "时序冗余",
-          "系统优化"
-        ],
-        "innovationPoints": [
-          "增量更新动态视觉token",
-          "压缩扩散采样至2步调度",
-          "联合优化感知与推理"
-        ],
-        "noveltyVerdict": "工程优化为主，但解决关键部署问题。",
-        "duplicateRisk": "low",
-        "dedupeNote": "与异步推理等工作互补，侧重时序冗余消除。",
-        "retrievalGroups": [
-          "category",
-          "robotics",
-          "vla_core"
-        ],
-        "mergedCount": 1,
-        "mergedTitles": [
-          "Reducing Temporal Redundancy for Efficient Vision-Language-Action Inference"
-        ]
-      },
-      {
-        "id": "2607.12356v1",
-        "title": "VistaVLA: Geometry- and Semantic-Aware 3D Gaussian-Grounded VLA for Robotic Manipulation",
-        "summary": "Vision-Language-Action (VLA) models have emerged as a powerful end-to-end paradigm for robotic manipulation by mapping language instructions and 2D visual inputs directly to actions. However, these models lack an explicit, scene-level 3D representation, limiting their ability to reason over spatial layouts and geometric constraints.",
-        "summaryRaw": "Vision-Language-Action (VLA) models have emerged as a powerful end-to-end paradigm for robotic manipulation by mapping language instructions and 2D visual inputs directly to actions. However, these models lack an explicit, scene-level 3D representation, limiting their ability to reason over spatial layouts and geometric constraints. While recent efforts incorporate explicit 3D cues, such as depth maps or point clouds, to improve geometric awareness, they primarily capture low-level structures and lack high-level semantic grounding in 3D space. In human cognition, interaction with the physical world relies on a 3D semantic cognitive map - an internal mental model that integrates spatial layouts with semantic context to enable persistent, viewpoint-invariant reasoning. In light of this, we present VistaVLA, a novel two-stage framework that constructs a geometry- and semantics-aware 3D cognitive representation from 3D Gaussian primitives and grounds it as compact context tokens for VLA policy learning. Specifically, VistaVLA lifts multi-view vision-language features into 3D Gaussian primitives, forming geometry-anchored semantic tokens that align view-consistent spatial grounding with 2D visual feature spaces. To make this 3D representation computationally tractable for effective VLA control, we introduce Merge-then-Query (MtQ), a token summarization mechanism. MtQ compresses dense Gaussian primitives into a highly compact set of spatially informative tokens, achieving a 99% token reduction while preserving action-relevant 3D layouts and semantic context. Extensive evaluations in both simulated and real-world environments demonstrate the effectiveness of VistaVLA. Notably, in real-world scenarios, VistaVLA improves success rates by 22.8% across seven real-world tasks and by 30.0% over the VLA-Adapter baseline on challenging out-of-distribution tasks.",
-        "link": "https://arxiv.org/abs/2607.12356v1",
-        "pdfLink": "https://arxiv.org/pdf/2607.12356v1",
-        "published": "2026-07-14T05:08:50Z",
-        "updated": "2026-07-14T05:08:50Z",
-        "authors": [
-          "Mohan Liu",
-          "Zhihao Gu",
-          "Xuanyu Chen",
-          "Haitian Zhang",
-          "Kaimin Mao",
-          "Yan Wu",
-          "Wei-Yun Yau",
-          "Lin Wang"
-        ],
-        "categories": [
-          "cs.RO"
-        ],
-        "score": 90,
-        "importanceLevel": "A",
-        "lane": "VLA",
-        "dimensionScores": {
-          "relevance": 95,
-          "novelty": 90,
-          "impact": 85,
-          "practicality": 80,
-          "coreAlignment": 95
-        },
-        "oneSentenceSummary": "构建3D高斯认知地图，增强VLA空间推理。",
-        "summaryCn": "VistaVLA利用3D高斯泼溅构建场景级几何语义认知地图，为VLA提供显式3D空间理解，提升在需要空间布局和几何约束的机器人操作任务上的性能。",
-        "whyImportant": "弥补VLA对3D空间理解不足的缺陷。",
-        "reasonTags": [
-          "VLA",
-          "3D高斯",
-          "认知地图"
-        ],
-        "innovationPoints": [
-          "引入3D高斯作为VLA场景表征",
-          "融合几何与语义构建认知地图",
-          "增强空间任务泛化"
-        ],
-        "noveltyVerdict": "首次将3D高斯引入VLA，创新性强。",
-        "duplicateRisk": "low",
-        "dedupeNote": "与2D VLA方法明显不同，提供3D接地。",
-        "retrievalGroups": [
-          "category",
-          "robotics",
-          "vla_core"
-        ],
-        "mergedCount": 1,
-        "mergedTitles": [
-          "VistaVLA: Geometry- and Semantic-Aware 3D Gaussian-Grounded VLA for Robotic Manipulation"
-        ]
-      },
-      {
-        "id": "2607.12659v1",
-        "title": "Jetson-PI: Towards Onboard Real-Time Robot Control via Foresight-Aligned Asynchronous Inference",
-        "summary": "Vision-Language-Action (VLA) models have achieved impressive performance on diverse embodied tasks. However, deploying VLA models on low-power onboard devices, such as the Jetson Orin, remains challenging due to their high computational complexity, which leads to substantial inference latency and low control frequency.",
-        "summaryRaw": "Vision-Language-Action (VLA) models have achieved impressive performance on diverse embodied tasks. However, deploying VLA models on low-power onboard devices, such as the Jetson Orin, remains challenging due to their high computational complexity, which leads to substantial inference latency and low control frequency. Asynchronous inference can partially mask this latency by parallelizing action execution and subsequent inference, but it introduces two critical issues: perception-execution misalignment and long reaction time. In this paper, we propose Jetson-PI, a method for efficient VLA deployment on onboard devices via Foresight-Aligned Asynchronous Correction. To address misalignment, we train a lightweight future correction module that predicts future environment representation conditioned on committed actions, enabling the action expert to directly predict actions from the future time step. To reduce reaction time, we introduce confidence-based scheduling optimization that adaptively balances VLM and action expert invocations, complemented by system-level accelerations including CUDA graph reuse, GPU-resident intermediate buffering, and flow unrolling. Extensive experiments demonstrate that Jetson-PI achieves 8.66x and 5.41x improvements in control frequency compared with naive PyTorch and vla.cpp on NVIDIA Jetson Orin, while outperforming VLASH by 14.8\\% in average success rate on the LIBERO benchmark. The code of our asynchronous algorithm is available on https://github.com/PKU-SEC-Lab/Jetson-PI, and our efficient llama.cpp-based inference engine is available on https://github.com/PKU-SEC-Lab/Jetson-PI-Edge.",
-        "link": "https://arxiv.org/abs/2607.12659v1",
-        "pdfLink": "https://arxiv.org/pdf/2607.12659v1",
-        "published": "2026-07-14T11:38:36Z",
-        "updated": "2026-07-14T11:38:36Z",
-        "authors": [
-          "Zebin Yang",
-          "Qi Wang",
-          "Yunhe Wang",
-          "Xiurui Guo",
-          "Bo Yu",
-          "Shaoshan Liu",
-          "Jiafeng Xu",
-          "Hao Dong"
-        ],
-        "categories": [
-          "cs.AI",
-          "cs.RO"
-        ],
-        "score": 88,
-        "importanceLevel": "A",
-        "lane": "VLA",
-        "dimensionScores": {
-          "relevance": 90,
-          "novelty": 85,
-          "impact": 85,
-          "practicality": 90,
-          "coreAlignment": 95
-        },
-        "oneSentenceSummary": "通过异步推理与未来对齐实现VLA边缘端实时控制。",
-        "summaryCn": "提出Jetson-PI，通过轻量级未来校正模块预测环境，使动作专家从未来状态预测动作，解决异步推理的感知-执行错位与反应延迟，提升VLA在Jetson上的控制频率。",
-        "whyImportant": "推动VLA在低功耗设备上的部署。",
-        "reasonTags": [
-          "VLA部署",
-          "异步推理",
-          "边缘计算"
-        ],
-        "innovationPoints": [
-          "未来校正模块补偿异步错位",
-          "轻量级设计适配Jetson",
-          "提高控制频率"
-        ],
-        "noveltyVerdict": "针对异步错位提出有效方案，实用性强。",
-        "duplicateRisk": "medium",
-        "dedupeNote": "与12287不同，解决异步推理错位而非时序冗余。",
-        "retrievalGroups": [
-          "category",
-          "robotics",
-          "vla_core"
-        ],
-        "mergedCount": 1,
-        "mergedTitles": [
-          "Jetson-PI: Towards Onboard Real-Time Robot Control via Foresight-Aligned Asynchronous Inference"
-        ]
-      },
-      {
-        "id": "2607.12571v1",
-        "title": "TrustVLA: Mechanism-Guided Inference-Time Defense Against Vision-Language-Action Backdoors",
-        "summary": "Vision-Language-Action (VLA) models are deployed through pipelines that end users cannot audit, and a poisoned VLA can behave normally on clean observations while a small visual trigger redirects a long-horizon robot policy before any failure becomes observable. Existing vision or language defenses rarely explain what a triggered VLA rep…",
-        "summaryRaw": "Vision-Language-Action (VLA) models are deployed through pipelines that end users cannot audit, and a poisoned VLA can behave normally on clean observations while a small visual trigger redirects a long-horizon robot policy before any failure becomes observable. Existing vision or language defenses rarely explain what a triggered VLA representation looks like or how to recover behavior without retraining. We study this gap through two independently proposed VLA attacks from groups with distinct injection strategies, BadVLA and INFUSE; the latter persists after downstream clean adaptation. Across the evaluated poisoned models, we identify a recurring internal mechanism: a \\emph{compact causal footprint}, namely a small visual support that is attention-seeded, spatially compact, and \\emph{causal} in a precise sense -- masking it returns a clean-calibrated evidence-evolution score to the normal operating region. This footprint motivates TrustVLA, a mechanism-guided inference-time defense that adapts the Dirichlet evidence framework from trusted classification to monitor per-token, per-layer epistemic uncertainty in VLA policies. With only a small clean calibration set, TrustVLA (i)~detects abnormal evidence evolution, (ii)~localizes the compact support by counterfactual mechanism-score drop, and (iii)~recovers the observation by localized inpainting. Across OpenVLA/LIBERO and $π_{0.5}$ transfer evaluations, TrustVLA reduces attack success while preserving clean-task performance, providing a retraining-free, mechanism-guided defense for visual-triggered VLA backdoors.",
-        "link": "https://arxiv.org/abs/2607.12571v1",
-        "pdfLink": "https://arxiv.org/pdf/2607.12571v1",
-        "published": "2026-07-14T09:43:52Z",
-        "updated": "2026-07-14T09:43:52Z",
-        "authors": [
-          "Pinhan Fu",
-          "Xianda Guo",
-          "Xuetao Li",
-          "Wenke Huang",
-          "Ruilin Wang",
-          "Weiheng Zhao",
-          "Wei Sui",
-          "Mang Ye"
-        ],
-        "categories": [
-          "cs.RO"
-        ],
-        "score": 82,
-        "importanceLevel": "A",
-        "lane": "VLA",
-        "dimensionScores": {
-          "relevance": 90,
-          "novelty": 80,
-          "impact": 80,
-          "practicality": 70,
-          "coreAlignment": 90
-        },
-        "oneSentenceSummary": "揭示VLA后门攻击机制并提出推理时防御。",
-        "summaryCn": "研究VLA后门，发现共同内部机制——紧凑因果足迹，即注意力种子的空间紧凑因果区域，掩盖该区域可恢复洁净行为，实现无重训练推理时防御。",
-        "whyImportant": "提升VLA安全性，防范隐蔽后门攻击。",
-        "reasonTags": [
-          "VLA安全",
-          "后门防御",
-          "因果推理"
-        ],
-        "innovationPoints": [
-          "首次揭示VLA后门因果足迹",
-          "推理时防御无需重训练",
-          "跨攻击策略有效"
-        ],
-        "noveltyVerdict": "从机制层面理解后门，创新性强。",
-        "duplicateRisk": "low",
-        "dedupeNote": "专注于VLA后门机理，非通用鲁棒性。",
-        "retrievalGroups": [
-          "category",
-          "robotics",
-          "vla_core"
-        ],
-        "mergedCount": 1,
-        "mergedTitles": [
-          "TrustVLA: Mechanism-Guided Inference-Time Defense Against Vision-Language-Action Backdoors"
-        ]
-      },
-      {
-        "id": "2607.12892v1",
-        "title": "UR-VC: Unsupervised Robotic Value Correction for Time-Derived Progress Proxies",
-        "summary": "Modern robot learning systems increasingly rely on dense progress or value signals to evaluate intermediate states, guide policy learning, and detect task completion, making the quality of these signals critical. Since such dense labels are rarely available at scale, normalized time within a demonstration is often used as a scalable subs…",
-        "summaryRaw": "Modern robot learning systems increasingly rely on dense progress or value signals to evaluate intermediate states, guide policy learning, and detect task completion, making the quality of these signals critical. Since such dense labels are rarely available at scale, normalized time within a demonstration is often used as a scalable substitute: later frames are treated as higher progress. However, this time-derived label is only a noisy proxy for physical task progress. In contact-rich manipulation, a robot may make progress and then lose it through slips, failed grasps, or partial undoing, while the time-derived label continues to increase monotonically. We introduce Unsupervised Robotic Value Correction (UR-VC), an offline, training-free method for correcting time-derived progress labels. UR-VC exploits a simple regularity in demonstration data: similar states often recur across different episodes, but at different timestamps. Instead of trusting the timestamp from a single trajectory, UR-VC retrieves similar states from other episodes and aggregates their time-derived labels to obtain a corrected progress estimate. UR-VC requires no manual progress labels, reward annotations, or additional value model. We evaluate UR-VC on real bimanual cloth flatten-and-fold data, a long-horizon deformable-object manipulation task with visible intermediate progress. The corrected labels capture local regressions and non-uniform progress that normalized time cannot represent, while preserving the overall task trend. We further use the corrected signal to construct advantage labels for VLA training, following recent advantage-conditioned policy learning. UR-VC shows a positive trend in real-robot task success under matched data, model, and training settings.",
-        "link": "https://arxiv.org/abs/2607.12892v1",
-        "pdfLink": "https://arxiv.org/pdf/2607.12892v1",
-        "published": "2026-07-14T15:33:33Z",
-        "updated": "2026-07-14T15:33:33Z",
-        "authors": [
-          "Lirui Zhao",
-          "Modi Shi",
-          "Li Chen",
-          "Qi Liu",
-          "Ping Luo",
-          "Hongyang Li"
-        ],
-        "categories": [
-          "cs.AI",
-          "cs.RO"
-        ],
-        "score": 61,
-        "importanceLevel": "A",
-        "lane": "Robotics",
-        "dimensionScores": {
-          "relevance": 54,
-          "novelty": 7,
-          "impact": 9,
-          "practicality": 0,
-          "coreAlignment": 25
-        },
-        "oneSentenceSummary": "该论文是偏机器人的重点候选，值得优先阅读。",
-        "summaryCn": "论文核心内容是：Modern robot learning systems increasingly rely on dense progress or value signals to evaluate intermediate states, guide policy le…",
-        "whyImportant": "命中VLA、机器人主题，分类覆盖cs.AI / cs.RO，并体现较强的新颖性与影响潜力。",
-        "reasonTags": [
-          "VLA",
-          "机器人"
-        ],
-        "innovationPoints": [
-          "提出具有跟踪价值的方法设计"
-        ],
-        "noveltyVerdict": "更偏实用推进型工作，适合结合上下文继续判断。",
-        "duplicateRisk": "low",
-        "dedupeNote": "该论文在Robotics方向上具备独立问题设置或代表性贡献，可作为当日候选保留。",
-        "retrievalGroups": [
-          "category",
-          "robotics"
-        ],
-        "mergedCount": 1,
-        "mergedTitles": [
-          "UR-VC: Unsupervised Robotic Value Correction for Time-Derived Progress Proxies"
-        ]
-      }
-    ],
-    "wam": [
-      {
-        "id": "2607.12800v1",
-        "title": "UniVR: Thinking in Visual Space for Unified Visual Reasoning",
-        "summary": "Learning broad world knowledge directly from raw visual data is a fundamental capability of intelligence. We introduce UniVR, the first investigation into simultaneously learning complex reasoning, fine-grained physical dynamics, and long-term planning from pure visual demonstrations.",
-        "summaryRaw": "Learning broad world knowledge directly from raw visual data is a fundamental capability of intelligence. We introduce UniVR, the first investigation into simultaneously learning complex reasoning, fine-grained physical dynamics, and long-term planning from pure visual demonstrations. At its core, UniVR features VR-GRPO, a reinforcement learning paradigm with complementary global and step-level rewards. This approach enforces logical coherence and physical consistency throughout the reasoning process without requiring task-specific heuristics or image-text pairs. To train and evaluate UniVR, we construct VR-X, a large-scale benchmark curated from 16 diverse sources spanning long-horizon manipulation, spatial puzzles, and physical reasoning. It is the first comprehensive suite to assess these heterogeneous capabilities under a purely visual protocol. Remarkably, UniVR achieves up to a 25% improvement on VR-X, and its superior visual reasoning also boosts performance on various multimodal understanding benchmarks. These findings underscore the vast potential of reasoning within visual spaces, with all code, data, and models are open-sourced for further research.",
-        "link": "https://arxiv.org/abs/2607.12800v1",
-        "pdfLink": "https://arxiv.org/pdf/2607.12800v1",
-        "published": "2026-07-14T14:15:13Z",
-        "updated": "2026-07-14T14:15:13Z",
-        "authors": [
-          "Zhongwei Ren",
-          "Yunchao Wei",
-          "Yao Zhao",
-          "Weibo Gong",
-          "Xiao Liu",
-          "Anran Wang",
-          "Xiangtai Li",
-          "Xiaojie Jin"
+          "Xinzhuo Li",
+          "Xianghui Pan",
+          "Jiayuan Du",
+          "Wei Wei",
+          "Liuyi Wang",
+          "Chengju Liu",
+          "Qijun Chen"
         ],
         "categories": [
           "cs.CV"
         ],
-        "score": 75,
+        "score": 70,
         "importanceLevel": "B",
-        "lane": "WAM",
+        "lane": "Robotics",
         "dimensionScores": {
-          "relevance": 70,
-          "novelty": 85,
-          "impact": 75,
+          "relevance": 30,
+          "novelty": 80,
+          "impact": 60,
+          "practicality": 70,
+          "coreAlignment": 20
+        },
+        "oneSentenceSummary": "GaussianSeed提出分层高斯播种框架，实现高分辨率3D占用预测。",
+        "summaryCn": "GaussianSeed采用渐进式多尺度高斯占用预测，通过粗到细的层次化设计实现0.1m分辨率实时推理，并构建了TJScenes数据集进行评估。",
+        "whyImportant": "解决了高分辨率占用预测的计算瓶颈，推动精细几何感知。",
+        "reasonTags": [
+          "3D占用预测",
+          "分层高斯",
+          "高分辨率"
+        ],
+        "innovationPoints": [
+          "分层高斯表示避免稠密计算",
+          "支持0.1m分辨率实时推理",
+          "构建高质量数据集TJScenes"
+        ],
+        "noveltyVerdict": "方法新颖，有效提升占用预测分辨率。",
+        "duplicateRisk": "low",
+        "dedupeNote": "其他论文不涉及占用预测。",
+        "retrievalGroups": [
+          "driving"
+        ],
+        "mergedCount": 1,
+        "mergedTitles": [
+          "GaussianSeed: Hierarchical Gaussian Seeding for High-Resolution 3D Occupancy Prediction"
+        ]
+      },
+      {
+        "id": "2607.19774v1",
+        "title": "Defer to Plan: Adaptive Multi-Agent Fusion for End-to-End V2X Driving",
+        "summary": "Vehicle-to-everything-aided autonomous driving (V2X-AD) significantly enhances driving performance through information sharing. However, existing collaborative perception methods only optimize module-level perception capabilities and fail to effectively serve the ultimate planning and control tasks.",
+        "summaryRaw": "Vehicle-to-everything-aided autonomous driving (V2X-AD) significantly enhances driving performance through information sharing. However, existing collaborative perception methods only optimize module-level perception capabilities and fail to effectively serve the ultimate planning and control tasks. We propose an end-to-end collaborative driving system that directly optimizes planning task performance. The system employs MotionNetwork to fuse historical temporal information, utilizes attention mechanisms to efficiently compress spatial features into compact tokens, and adaptively fuses multi-agent features through an autoregressive decoder. Additionally, we introduce Mixture-of-Experts (MoE) architecture to enhance the model's representation capacity for heterogeneous features. Experiments demonstrate that our method achieves a driving score of 79.72, surpassing the state-of-the-art CoDriving baseline (77.15) by 3.33% in closed-loop evaluation while maintaining communication efficiency.",
+        "link": "https://arxiv.org/abs/2607.19774v1",
+        "pdfLink": "https://arxiv.org/pdf/2607.19774v1",
+        "published": "2026-07-22T05:44:47Z",
+        "updated": "2026-07-22T05:44:47Z",
+        "authors": [
+          "Nuoran Li",
+          "Zhang Zhang",
+          "Yueran Zhao",
+          "Tianze Wang",
+          "Chao Sun"
+        ],
+        "categories": [
+          "cs.RO"
+        ],
+        "score": 65,
+        "importanceLevel": "B",
+        "lane": "Robotics",
+        "dimensionScores": {
+          "relevance": 20,
+          "novelty": 70,
+          "impact": 50,
           "practicality": 60,
-          "coreAlignment": 70
-        },
-        "oneSentenceSummary": "纯视觉演示学习物理动力学与规划。",
-        "summaryCn": "UniVR通过强化学习从纯视觉演示中同时学习复杂推理、精细物理动力学和长期规划，无需任务特定启发式或图文对，性能大幅提升。",
-        "whyImportant": "展示纯视觉世界模型与规划的可能性。",
-        "reasonTags": [
-          "世界模型",
-          "视觉推理",
-          "规划"
-        ],
-        "innovationPoints": [
-          "纯视觉动力学学习与推理",
-          "VR-GRPO全局与步骤奖励"
-        ],
-        "noveltyVerdict": "开创纯视觉世界模型推理，新颖性强。",
-        "duplicateRisk": "low",
-        "dedupeNote": "不依赖语言或动作标注，纯视频驱动。",
-        "retrievalGroups": [
-          "category",
-          "robotics"
-        ],
-        "mergedCount": 1,
-        "mergedTitles": [
-          "UniVR: Thinking in Visual Space for Unified Visual Reasoning"
-        ]
-      },
-      {
-        "id": "2607.12474v1",
-        "title": "From Observation to Insight: Mechanistic World Models and the Quest for Autonomous Discovery",
-        "summary": "Recent advances in foundation models have transformed AI for Science, enabling remarkably accurate predictive performance across domains ranging from protein folding to weather forecasting. Yet prediction alone does not constitute scientific discovery.",
-        "summaryRaw": "Recent advances in foundation models have transformed AI for Science, enabling remarkably accurate predictive performance across domains ranging from protein folding to weather forecasting. Yet prediction alone does not constitute scientific discovery. Scientific understanding depends on uncovering the reusable explanatory mechanisms that generate observations, whereas contemporary machine learning remains fundamentally organised around predictive mappings rather than explanatory structure. In this paper, we argue that scientific discovery is fundamentally a problem of knowledge organisation. To this end, we introduce Mechanistic World Models, a new design paradigm that places reusable mechanisms at the centre of representation, computation and learning. Drawing on insights from the philosophy of science, we derive the computational capabilities required for discovery, identify the design principles and inductive pressures that encourage explanatory knowledge to emerge, and formalise the anatomy of a mechanism-centric world model. Finally, we show how diverse research directions including mechanistic interpretability, causal representation learning, equation discovery and modular architectures capture complementary ingredients of this paradigm while lacking a unified framework. We propose Mechanistic World Models as a conceptual foundation and computational blueprint for moving AI beyond predictive forecasting towards autonomous scientific discovery.",
-        "link": "https://arxiv.org/abs/2607.12474v1",
-        "pdfLink": "https://arxiv.org/pdf/2607.12474v1",
-        "published": "2026-07-14T08:03:27Z",
-        "updated": "2026-07-14T08:03:27Z",
-        "authors": [
-          "Ingmar Posner",
-          "Anson Lei",
-          "Bernhard Schölkopf"
-        ],
-        "categories": [
-          "cs.AI"
-        ],
-        "score": 36,
-        "importanceLevel": "B",
-        "lane": "Peripheral",
-        "dimensionScores": {
-          "relevance": 19,
-          "novelty": 17,
-          "impact": 3,
-          "practicality": 0,
-          "coreAlignment": 11
-        },
-        "oneSentenceSummary": "该论文是偏相关方向的重点候选，值得优先阅读。",
-        "summaryCn": "论文核心内容是：Recent advances in foundation models have transformed AI for Science, enabling remarkably accurate predictive performance across do…",
-        "whyImportant": "命中WAM、通用框架主题，分类覆盖cs.AI，并体现较强的新颖性与影响潜力。",
-        "reasonTags": [
-          "WAM",
-          "通用框架"
-        ],
-        "innovationPoints": [
-          "提出具有跟踪价值的方法设计"
-        ],
-        "noveltyVerdict": "创新点清晰，属于值得重点跟进的增量改进。",
-        "duplicateRisk": "low",
-        "dedupeNote": "该论文在Peripheral方向上具备独立问题设置或代表性贡献，可作为当日候选保留。",
-        "retrievalGroups": [
-          "category",
-          "general",
-          "wam_core"
-        ],
-        "mergedCount": 1,
-        "mergedTitles": [
-          "From Observation to Insight: Mechanistic World Models and the Quest for Autonomous Discovery"
-        ]
-      },
-      {
-        "id": "2607.12480v1",
-        "title": "TRACE: An Operational Reasoning Schema for Auditable Agentic Commitments",
-        "summary": "This paper defines TRACE (Typed Reasoning And Commitment Evidence): a typed, versioned schema for recording reasoning traces, a reference procedure for writing records against it, and one operating discipline, no durable state change without a record. The paper argues in three layers that reasoning is not in the language model: the autor…",
-        "summaryRaw": "This paper defines TRACE (Typed Reasoning And Commitment Evidence): a typed, versioned schema for recording reasoning traces, a reference procedure for writing records against it, and one operating discipline, no durable state change without a record. The paper argues in three layers that reasoning is not in the language model: the autoregressive mechanism natively computes association; chain-of-thought and reinforcement learning inherit its limits; and the formal constructs of reasoning theory, from Socratic procedure to Pearl's ladder, are absent as machinery. The schema answers the absence with fields and tests: the TraceRecord and its causal specialization, an eight-stage reference writer, a gate-first measurement regime, the TRACE-Bench protocol, and the consumers, memory admission, plan gating, temporal regret, and verdict reuse, whose more auditable decisions are the measure of the record. A record-consumer contract states what a record guarantees and what a consumer must honor in return, making the schema an operational interface rather than a passive document. Two worked examples run in the main text: a music-lessons argument traced from sentence to typed verdict, separating association, intervention, and prescription; and a flood search-and-rescue vignette in which a predictive world model reports confident plan success that its own support and out-of-distribution scores contradict, so the record defers the commitment, requests a bounded observation, revises append-only, and clears a different branch. The vignette is illustrative, not empirical; closed-loop evaluation is left to future work, so the contribution is the schema and its contract, not a performance claim. Appendices carry the full schema, writer algorithms and cost model, clinical and policy illustrations, the benchmark protocol, convergence metrics, and usage scenarios.",
-        "link": "https://arxiv.org/abs/2607.12480v1",
-        "pdfLink": "https://arxiv.org/pdf/2607.12480v1",
-        "published": "2026-07-14T08:08:21Z",
-        "updated": "2026-07-14T08:08:21Z",
-        "authors": [
-          "Edward Y. Chang",
-          "Emily J. Chang"
-        ],
-        "categories": [
-          "cs.AI"
-        ],
-        "score": 35,
-        "importanceLevel": "B",
-        "lane": "Peripheral",
-        "dimensionScores": {
-          "relevance": 23,
-          "novelty": 12,
-          "impact": 3,
-          "practicality": 0,
           "coreAlignment": 15
         },
-        "oneSentenceSummary": "该论文是偏相关方向的重点候选，值得优先阅读。",
-        "summaryCn": "论文核心内容是：This paper defines TRACE (Typed Reasoning And Commitment Evidence): a typed, versioned schema for recording reasoning traces, a ref…",
-        "whyImportant": "命中WAM、机器人、新基准主题，分类覆盖cs.AI，并体现较强的新颖性与影响潜力。",
+        "oneSentenceSummary": "Defer to Plan提出自适应多智能体融合的端到端V2X驾驶系统。",
+        "summaryCn": "该系统直接优化规划任务，使用MotionNetwork融合时序信息，注意力压缩空间特征，并通过自回归解码器自适应融合多智能体特征，引入MoE增强异质性表征。",
+        "whyImportant": "将协作感知与规划端到端结合，提升V2X驾驶性能。",
         "reasonTags": [
-          "WAM",
-          "机器人",
-          "新基准"
+          "V2X驾驶",
+          "端到端规划",
+          "多智能体融合"
         ],
         "innovationPoints": [
-          "包含新基准或新数据评测"
+          "端到端优化规划而非感知",
+          "自回归解码器自适应融合",
+          "MoE处理异质性特征"
         ],
-        "noveltyVerdict": "创新点清晰，属于值得重点跟进的增量改进。",
-        "duplicateRisk": "low",
-        "dedupeNote": "该论文在Peripheral方向上具备独立问题设置或代表性贡献，可作为当日候选保留。",
+        "noveltyVerdict": "将端到端框架扩展到V2X，有一定创新。",
+        "duplicateRisk": "medium",
+        "dedupeNote": "侧重V2X场景下的多智能体融合规划。",
         "retrievalGroups": [
-          "category",
-          "wam_core"
+          "driving"
         ],
         "mergedCount": 1,
         "mergedTitles": [
-          "TRACE: An Operational Reasoning Schema for Auditable Agentic Commitments"
+          "Defer to Plan: Adaptive Multi-Agent Fusion for End-to-End V2X Driving"
+        ]
+      },
+      {
+        "id": "2607.19911v1",
+        "title": "LoRFT: Benchmarking Long-Range Vehicle Trajectory Reconstruction from Fixed Highway Cameras",
+        "summary": "Long-range vehicle trajectories provide important spatio-temporal evidence for traffic safety analysis, autonomous driving evaluation, and data-driven traffic management, yet continuously recovering them from fixed highway cameras remains difficult. As vehicles recede into distant road regions, perspective compression and scale decay oft…",
+        "summaryRaw": "Long-range vehicle trajectories provide important spatio-temporal evidence for traffic safety analysis, autonomous driving evaluation, and data-driven traffic management, yet continuously recovering them from fixed highway cameras remains difficult. As vehicles recede into distant road regions, perspective compression and scale decay often fragment or prematurely terminate automatic tracklets, even when their continuation remains identifiable from motion consistency across neighboring frames. We formulate this problem as recovering the far-range continuation of a vehicle trajectory from a reliable near-field tracklet. We introduce LoRFT, to our knowledge the first open benchmark dedicated to long-range vehicle trajectory reconstruction from fixed highway cameras. LoRFT comprises 22 expressway surveillance scenes, 366,109 video frames, 6,601 manually verified trajectories, 2,694,889 bounding boxes, road-geometry annotations, scene-level splits, and evaluation scripts. We further propose Map-RSTNet, a map-aware residual sequence-to-sequence model that reconstructs distant trajectories in a road-geometry-aligned state space and dynamically refreshes local road geometry during decoding. On LoRFT, Map-RSTNet reduces ADE, FDE, and 5-second RMSE by 11.0%, 15.4%, and 10.5%, respectively, relative to the strongest baseline. These results demonstrate that road-geometry-aware reconstruction can extend usable trajectory records from existing fixed-camera infrastructure. LoRFT provides a reproducible testbed for long-range vehicle trajectory reconstruction.",
+        "link": "https://arxiv.org/abs/2607.19911v1",
+        "pdfLink": "https://arxiv.org/pdf/2607.19911v1",
+        "published": "2026-07-22T08:42:58Z",
+        "updated": "2026-07-22T08:42:58Z",
+        "authors": [
+          "Yufan Zhu",
+          "Kefu Yi",
+          "Xueju Zhang",
+          "Yunyang Tian",
+          "Long Chen",
+          "Zixuan Xiao"
+        ],
+        "categories": [
+          "cs.CV"
+        ],
+        "score": 60,
+        "importanceLevel": "B",
+        "lane": "Robotics",
+        "dimensionScores": {
+          "relevance": 15,
+          "novelty": 50,
+          "impact": 40,
+          "practicality": 50,
+          "coreAlignment": 10
+        },
+        "oneSentenceSummary": "LoRFT提出首个长距离车辆轨迹重建的开放基准。",
+        "summaryCn": "LoRFT包含22个高速公路监控场景、36万帧视频和6601条人工验证轨迹，旨在从近场轨迹恢复远场车辆轨迹，应对透视压缩和尺度衰减挑战。",
+        "whyImportant": "为长距离轨迹重建提供标准化数据集和评估方法。",
+        "reasonTags": [
+          "轨迹重建",
+          "基准数据集",
+          "高速公路场景"
+        ],
+        "innovationPoints": [
+          "首个长距离重建基准",
+          "大规模人工标注轨迹",
+          "形式化远场恢复问题"
+        ],
+        "noveltyVerdict": "作为基准有一定贡献，但方法创新不足。",
+        "duplicateRisk": "low",
+        "dedupeNote": "数据集论文，与其他方法论文不重复。",
+        "retrievalGroups": [
+          "driving"
+        ],
+        "mergedCount": 1,
+        "mergedTitles": [
+          "LoRFT: Benchmarking Long-Range Vehicle Trajectory Reconstruction from Fixed Highway Cameras"
+        ]
+      },
+      {
+        "id": "2607.19701v1",
+        "title": "SafeGen: Goal-Conditioned Video Diffusion of Safety-Critical Scenarios for VLM-Based Autonomous Driving",
+        "summary": "VLMs are increasingly deployed in AD systems, creating an urgent need for rigorous safety evaluation under rare yet safety-critical scenarios. Among these, interactions with vulnerable road users represent a major source of real-world failures.",
+        "summaryRaw": "VLMs are increasingly deployed in AD systems, creating an urgent need for rigorous safety evaluation under rare yet safety-critical scenarios. Among these, interactions with vulnerable road users represent a major source of real-world failures. However, existing safety-critical scenario generation methods predominantly rely on simulator-based pipelines, which suffer from a substantial sim-to-real gap and often fail to capture realistic, diverse, and unforeseen human-vehicle interaction dynamics. We present SafeGen, a goal-conditioned diffusion framework for safety-critical scenario generation in VLMADs. Our key insight is to formulate scenario generation as a goal-conditioned diffusion process, where a predefined catastrophic end-state serves as a strong supervisory signal, guiding the generation of temporally coherent video trajectories that naturally evolve toward safety-critical outcomes. Building on this formulation, we introduce Context Grounded End State Reasoning, which leverages VLMs to analyze benign driving contexts and infer latent vulnerabilities in human-vehicle interactions, producing structured end-state specifications that induce high-risk scenarios. Conditioned on these targets, we further propose End State Conditioned Video Evolution, which grounds semantic threats into physically plausible visual dynamics. Specifically, we instantiate high-risk agents within the scene via depth-aware geometric projection, followed by boundary-conditioned diffusion to generate intermediate frames with consistent motion patterns and temporal coherence. Extensive experiments across 3 VLMADs demonstrate that SafeGen increases the Judge Overall Score, a metric using a VLM judge to evaluate VLMADs' understanding and decision-making, by 24.25% on average compared to SoTA baselines. Furthermore, fine-tuning a VLMAD improves performance in real-world driving scenes by an average of 15.9%.",
+        "link": "https://arxiv.org/abs/2607.19701v1",
+        "pdfLink": "https://arxiv.org/pdf/2607.19701v1",
+        "published": "2026-07-22T03:05:32Z",
+        "updated": "2026-07-22T03:05:32Z",
+        "authors": [
+          "Jiangfan Liu",
+          "Zexuan Cui",
+          "Tianyuan Zhang",
+          "Zonglei Jing",
+          "Zonghao Ying",
+          "Yaoyuan Zhang",
+          "Jiakai Wang",
+          "Xiaoqi Jiang"
+        ],
+        "categories": [
+          "cs.CV"
+        ],
+        "score": 55,
+        "importanceLevel": "B",
+        "lane": "Peripheral",
+        "dimensionScores": {
+          "relevance": 10,
+          "novelty": 65,
+          "impact": 40,
+          "practicality": 30,
+          "coreAlignment": 5
+        },
+        "oneSentenceSummary": "SafeGen通过目标条件视频扩散生成安全关键场景以测试VLM自动驾驶。",
+        "summaryCn": "SafeGen将场景生成建模为目标条件扩散过程，以预定义的灾难性终态为监督信号，生成自然演化的安全关键视频轨迹，用于VLM驾驶系统评估。",
+        "whyImportant": "为VLM驾驶提供真实多样的安全关键场景以评估安全性。",
+        "reasonTags": [
+          "安全关键场景生成",
+          "视频扩散",
+          "VLM测试"
+        ],
+        "innovationPoints": [
+          "目标条件扩散引导生成",
+          "利用灾难性终态作为监督",
+          "缩小仿真与现实差距"
+        ],
+        "noveltyVerdict": "将扩散模型用于安全场景生成，有一定新颖性。",
+        "duplicateRisk": "low",
+        "dedupeNote": "侧重场景生成，与其他论文不同。",
+        "retrievalGroups": [
+          "driving"
+        ],
+        "mergedCount": 1,
+        "mergedTitles": [
+          "SafeGen: Goal-Conditioned Video Diffusion of Safety-Critical Scenarios for VLM-Based Autonomous Driving"
+        ]
+      },
+      {
+        "id": "2607.19781v1",
+        "title": "WASABI: Whole-graph Assignment-based Stabilizer for lAne topology By Inter-frame tracking",
+        "summary": "Autonomous driving requires understanding the road as a graph of drivable lanes and their connectivity, beyond the ego lane alone, to follow routes through intersections and reason about cross- and merging-traffic. Recent perception models infer such lane topology, i.e., lane segments together with their inter-lane connectivity (LCLC), f…",
+        "summaryRaw": "Autonomous driving requires understanding the road as a graph of drivable lanes and their connectivity, beyond the ego lane alone, to follow routes through intersections and reason about cross- and merging-traffic. Recent perception models infer such lane topology, i.e., lane segments together with their inter-lane connectivity (LCLC), from onboard sensors over a 360-degree BEV view. Due to neural perception's imperfections, their outputs retain structural instabilities such as missed detections, lost or incorrect LCLC, over-detection, and label flicker. This paper presents WASABI, a real-time post-processing pipeline that stabilizes lane topology outputs both within and across frames by treating lane segments and their LCLC connectivity as joint tracking targets, under onboard real-time constraints (10 Hz / 20 ms / up to 200 input lanes). The pipeline integrates segment tracking with connectivity, noise-robust topology-aware refinement, and a resource-constrained real-time design. On internal validation data (16 sequences), WASABI improves LCLC detection F1 from 0.834 to 0.948 (+0.114, +13.6%) and reduces centerline lateral error from 2.50 m to 0.95 m, while reducing detection false-positives by 24.6%. Temporal-stability metrics on the same data show LCLC toggle rate reduced by 63.3% and boundary-label flicker rate by 30.2%, confirming across-frame stabilization beyond per-frame accuracy.",
+        "link": "https://arxiv.org/abs/2607.19781v1",
+        "pdfLink": "https://arxiv.org/pdf/2607.19781v1",
+        "published": "2026-07-22T05:59:22Z",
+        "updated": "2026-07-22T05:59:22Z",
+        "authors": [
+          "Tetsuhiro Uchida",
+          "Myu Sasaki",
+          "Kensho Nakajima",
+          "Yasuhiro Shimada",
+          "Toru Saito"
+        ],
+        "categories": [
+          "cs.CV"
+        ],
+        "score": 50,
+        "importanceLevel": "B",
+        "lane": "Robotics",
+        "dimensionScores": {
+          "relevance": 10,
+          "novelty": 60,
+          "impact": 30,
+          "practicality": 60,
+          "coreAlignment": 10
+        },
+        "oneSentenceSummary": "WASABI通过帧间跟踪稳定车道拓扑输出，提升感知一致性。",
+        "summaryCn": "WASABI将车道段及其连接关系作为联合跟踪目标，在实时约束下对神经网络车道拓扑输出进行后处理，消除不稳定检测、标签闪烁等问题。",
+        "whyImportant": "提高车道拓扑感知的稳定性和可靠性，对下游规划有益。",
+        "reasonTags": [
+          "车道拓扑",
+          "实时后处理",
+          "帧间稳定化"
+        ],
+        "innovationPoints": [
+          "将车道段和连接联合跟踪",
+          "实时处理速度10Hz",
+          "解决结构不稳定问题"
+        ],
+        "noveltyVerdict": "后处理方法有一定实用价值，但创新性一般。",
+        "duplicateRisk": "low",
+        "dedupeNote": "专注后处理稳定化，不涉及感知模型本身。",
+        "retrievalGroups": [
+          "driving"
+        ],
+        "mergedCount": 1,
+        "mergedTitles": [
+          "WASABI: Whole-graph Assignment-based Stabilizer for lAne topology By Inter-frame tracking"
+        ]
+      }
+    ],
+    "vla": [],
+    "wam": [
+      {
+        "id": "2607.20175v1",
+        "title": "PerceptDrive: Perception Prior World-Action Modeling with Adaptive Expert Routing for End-to-End Autonomous Driving",
+        "summary": "Frozen perception foundation models encode rich geometric, semantic, and dynamic knowledge. Yet narrow conditioning interfaces may attenuate task-relevant cues, while static fusion cannot adjust expert contributions to each scene.",
+        "summaryRaw": "Frozen perception foundation models encode rich geometric, semantic, and dynamic knowledge. Yet narrow conditioning interfaces may attenuate task-relevant cues, while static fusion cannot adjust expert contributions to each scene. We cast this challenge as the prior-to-plan transfer problem and introduce PerceptDrive, a perception prior world-action modeling framework with adaptive expert routing. PerceptDrive feeds teacher-distilled priors from a frozen, driving-adapted provider and dense observation latents from a frozen self-supervised video encoder into a trainable expert-routed world-action model. Expert-specific query branches process these signals, while a prior-retention objective anchors each branch to its prior. A router predicts soft gates from a shared scene representation and combines the expert conditions before trajectory generation. During training, privileged rule-based sub-metric estimates for branch-specific trajectory drafts provide soft-gate distillation targets. The predicted action-free future latent conditions a flow-matching actor. At inference, privileged components are absent; with one front-facing camera, PerceptDrive generates one trajectory per planning step without test-time scoring, reranking, or search. Experiments show that PerceptDrive achieves state-of-the-art performance with 90.4 PDMS on NAVSIM v1 and 90.2 EPDMS on NAVSIM v2, outperforming existing methods. Ablations confirm complementary gains from prior retention and scene-conditioned routing, alongside differential reliance on the three priors. These results demonstrate that preserving and adaptively routing perception priors improves direct planning without test-time candidate selection.",
+        "link": "https://arxiv.org/abs/2607.20175v1",
+        "pdfLink": "https://arxiv.org/pdf/2607.20175v1",
+        "published": "2026-07-22T14:09:15Z",
+        "updated": "2026-07-22T14:09:15Z",
+        "authors": [
+          "Yushan Liu",
+          "Tianxiong Lv",
+          "Bohua Wang",
+          "Hangqi Fan",
+          "Chenxu Zhao",
+          "He Zheng",
+          "Xuchang Zhong",
+          "Yifan Xie"
+        ],
+        "categories": [
+          "cs.CV"
+        ],
+        "score": 85,
+        "importanceLevel": "A",
+        "lane": "WAM",
+        "dimensionScores": {
+          "relevance": 90,
+          "novelty": 85,
+          "impact": 80,
+          "practicality": 80,
+          "coreAlignment": 90
+        },
+        "oneSentenceSummary": "PerceptDrive提出感知先验世界-行动模型，通过自适应专家路由实现端到端自动驾驶。",
+        "summaryCn": "PerceptDrive利用冻结的感知基础模型提供先验，并训练可学习的专家路由世界-行动模型，通过自适应融合多个专家分支生成轨迹，结合保留先验的目标进行训练。",
+        "whyImportant": "将世界模型与感知先验结合，通过自适应路由提升端到端驾驶性能。",
+        "reasonTags": [
+          "世界-行动模型",
+          "自适应专家路由",
+          "端到端自动驾驶"
+        ],
+        "innovationPoints": [
+          "提出世界-行动模型与感知先验结合框架",
+          "自适应专家路由动态融合多个先验分支",
+          "保留先验目标确保专家分支对齐"
+        ],
+        "noveltyVerdict": "新颖地将世界模型与自适应路由结合用于驾驶，具有一定创新性。",
+        "duplicateRisk": "low",
+        "dedupeNote": "无重复，聚焦世界-行动模型与自适应路由。",
+        "retrievalGroups": [
+          "driving"
+        ],
+        "mergedCount": 1,
+        "mergedTitles": [
+          "PerceptDrive: Perception Prior World-Action Modeling with Adaptive Expert Routing for End-to-End Autonomous Driving"
         ]
       }
     ]
   },
   "dailyBrief": {
-    "overall": "今日聚焦VLA推理效率与3D空间感知，具身VLM基础模型Hy-Embodied-VLM-1.0，以及世界模型视觉推理UniVR等前沿。",
-    "vla": "多篇VLA效率提升：时序冗余消除与异步推理校正，3D高斯接地VistaVLA增强空间理解，TrustVLA后门防御。",
-    "wam": "UniVR展示纯视觉世界模型学习与规划，推动视觉推理与动力学预测结合。",
-    "retrieval": "检索涵盖VLA核心加速、具身VLM基础模型、安全RL、偏好对齐、运动规划等前沿工作。"
+    "overall": "今日自动驾驶方向论文为主，涵盖感知、规划与基准，其中PerceptDrive提出世界-行动模型值得关注。",
+    "vla": "无VLA论文。",
+    "wam": "PerceptDrive将感知先验与世界-行动模型结合，通过自适应专家路由实现端到端驾驶。",
+    "retrieval": "检索筛选侧重于自动驾驶领域的世界模型与端到端方法。"
   },
   "trendBrief": {
     "windowDays": 7,
-    "dateRange": "2026-06-26 - 2026-07-15",
-    "overview": "近 7 天累计归档 140 篇总榜论文，主航道重心偏向 机器人扩展，其中 S 级高优先级论文共 18 篇。",
+    "dateRange": "2026-06-30 - 2026-07-23",
+    "overview": "近 7 天累计归档 126 篇总榜论文，主航道重心偏向 机器人扩展，其中 S 级高优先级论文共 14 篇。",
     "hotspots": "高频主题主要集中在 机器人、新基准、真实实验，系统共自动合并 0 篇近似工作，减少了重复阅读负担。",
-    "vla": "VLA 方向在近几天约占总榜的 29%，重点仍落在通用策略、语言条件动作与具身控制。",
-    "wam": "WAM 方向在近几天约占总榜的 24%，更集中于世界模型、动作条件预测与规划建模。",
+    "vla": "VLA 方向在近几天约占总榜的 27%，重点仍落在通用策略、语言条件动作与具身控制。",
+    "wam": "WAM 方向在近几天约占总榜的 23%，更集中于世界模型、动作条件预测与规划建模。",
     "watchlist": "建议优先连续跟踪 机器人、新基准、真实实验 相关工作，尤其关注同时具备高新颖性与高落地性的代表论文。"
   },
   "archives": [
+    {
+      "dateKey": "20260723",
+      "dateLabel": "2026-07-23",
+      "generatedAt": "2026-07-23T02:11:07.642162+00:00",
+      "paperCount": 6,
+      "papers": [
+        {
+          "id": "2607.20175v1",
+          "title": "PerceptDrive: Perception Prior World-Action Modeling with Adaptive Expert Routing for End-to-End Autonomous Driving",
+          "summary": "Frozen perception foundation models encode rich geometric, semantic, and dynamic knowledge. Yet narrow conditioning interfaces may attenuate task-relevant cues, while static fusion cannot adjust expert contributions to each scene.",
+          "summaryRaw": "Frozen perception foundation models encode rich geometric, semantic, and dynamic knowledge. Yet narrow conditioning interfaces may attenuate task-relevant cues, while static fusion cannot adjust expert contributions to each scene. We cast this challenge as the prior-to-plan transfer problem and introduce PerceptDrive, a perception prior world-action modeling framework with adaptive expert routing. PerceptDrive feeds teacher-distilled priors from a frozen, driving-adapted provider and dense observation latents from a frozen self-supervised video encoder into a trainable expert-routed world-action model. Expert-specific query branches process these signals, while a prior-retention objective anchors each branch to its prior. A router predicts soft gates from a shared scene representation and combines the expert conditions before trajectory generation. During training, privileged rule-based sub-metric estimates for branch-specific trajectory drafts provide soft-gate distillation targets. The predicted action-free future latent conditions a flow-matching actor. At inference, privileged components are absent; with one front-facing camera, PerceptDrive generates one trajectory per planning step without test-time scoring, reranking, or search. Experiments show that PerceptDrive achieves state-of-the-art performance with 90.4 PDMS on NAVSIM v1 and 90.2 EPDMS on NAVSIM v2, outperforming existing methods. Ablations confirm complementary gains from prior retention and scene-conditioned routing, alongside differential reliance on the three priors. These results demonstrate that preserving and adaptively routing perception priors improves direct planning without test-time candidate selection.",
+          "link": "https://arxiv.org/abs/2607.20175v1",
+          "pdfLink": "https://arxiv.org/pdf/2607.20175v1",
+          "published": "2026-07-22T14:09:15Z",
+          "updated": "2026-07-22T14:09:15Z",
+          "authors": [
+            "Yushan Liu",
+            "Tianxiong Lv",
+            "Bohua Wang",
+            "Hangqi Fan",
+            "Chenxu Zhao",
+            "He Zheng",
+            "Xuchang Zhong",
+            "Yifan Xie"
+          ],
+          "categories": [
+            "cs.CV"
+          ],
+          "score": 85,
+          "importanceLevel": "A",
+          "lane": "WAM",
+          "dimensionScores": {
+            "relevance": 90,
+            "novelty": 85,
+            "impact": 80,
+            "practicality": 80,
+            "coreAlignment": 90
+          },
+          "oneSentenceSummary": "PerceptDrive提出感知先验世界-行动模型，通过自适应专家路由实现端到端自动驾驶。",
+          "summaryCn": "PerceptDrive利用冻结的感知基础模型提供先验，并训练可学习的专家路由世界-行动模型，通过自适应融合多个专家分支生成轨迹，结合保留先验的目标进行训练。",
+          "whyImportant": "将世界模型与感知先验结合，通过自适应路由提升端到端驾驶性能。",
+          "reasonTags": [
+            "世界-行动模型",
+            "自适应专家路由",
+            "端到端自动驾驶"
+          ],
+          "innovationPoints": [
+            "提出世界-行动模型与感知先验结合框架",
+            "自适应专家路由动态融合多个先验分支",
+            "保留先验目标确保专家分支对齐"
+          ],
+          "noveltyVerdict": "新颖地将世界模型与自适应路由结合用于驾驶，具有一定创新性。",
+          "duplicateRisk": "low",
+          "dedupeNote": "无重复，聚焦世界-行动模型与自适应路由。",
+          "retrievalGroups": [
+            "driving"
+          ],
+          "mergedCount": 1,
+          "mergedTitles": [
+            "PerceptDrive: Perception Prior World-Action Modeling with Adaptive Expert Routing for End-to-End Autonomous Driving"
+          ]
+        },
+        {
+          "id": "2607.20071v1",
+          "title": "GaussianSeed: Hierarchical Gaussian Seeding for High-Resolution 3D Occupancy Prediction",
+          "summary": "Vision-centric 3D occupancy prediction provides dense scene representations essential for autonomous driving and robotic navigation, yet existing methods struggle to scale to high voxel resolutions due to prohibitive computational costs. To address this, we introduce GaussianSeed, a progressive multi-scale Gaussian occupancy prediction f…",
+          "summaryRaw": "Vision-centric 3D occupancy prediction provides dense scene representations essential for autonomous driving and robotic navigation, yet existing methods struggle to scale to high voxel resolutions due to prohibitive computational costs. To address this, we introduce GaussianSeed, a progressive multi-scale Gaussian occupancy prediction framework that organizes primitives into a coarse-to-fine hierarchy. Benefiting from this hierarchical design, GaussianSeed effectively circumvents the memory bottlenecks inherent in dense representations, successfully scaling to a $0.1\\text{m}$ spatial resolution while maintaining real-time inference capabilities. To comprehensively evaluate high-resolution geometric perception, we further construct TJScenes, a panoramic six-camera occupancy dataset with highly detailed $0.1\\text{m}$ annotations. Extensive experiments on Occ3D-nuScenes and TJScenes demonstrate that GaussianSeed delivers the lowest latency among all evaluated methods while maintaining highly competitive accuracy, advancing the efficiency-quality frontier of high-resolution 3D occupancy prediction.",
+          "link": "https://arxiv.org/abs/2607.20071v1",
+          "pdfLink": "https://arxiv.org/pdf/2607.20071v1",
+          "published": "2026-07-22T12:18:30Z",
+          "updated": "2026-07-22T12:18:30Z",
+          "authors": [
+            "Xinzhuo Li",
+            "Xianghui Pan",
+            "Jiayuan Du",
+            "Wei Wei",
+            "Liuyi Wang",
+            "Chengju Liu",
+            "Qijun Chen"
+          ],
+          "categories": [
+            "cs.CV"
+          ],
+          "score": 70,
+          "importanceLevel": "B",
+          "lane": "Robotics",
+          "dimensionScores": {
+            "relevance": 30,
+            "novelty": 80,
+            "impact": 60,
+            "practicality": 70,
+            "coreAlignment": 20
+          },
+          "oneSentenceSummary": "GaussianSeed提出分层高斯播种框架，实现高分辨率3D占用预测。",
+          "summaryCn": "GaussianSeed采用渐进式多尺度高斯占用预测，通过粗到细的层次化设计实现0.1m分辨率实时推理，并构建了TJScenes数据集进行评估。",
+          "whyImportant": "解决了高分辨率占用预测的计算瓶颈，推动精细几何感知。",
+          "reasonTags": [
+            "3D占用预测",
+            "分层高斯",
+            "高分辨率"
+          ],
+          "innovationPoints": [
+            "分层高斯表示避免稠密计算",
+            "支持0.1m分辨率实时推理",
+            "构建高质量数据集TJScenes"
+          ],
+          "noveltyVerdict": "方法新颖，有效提升占用预测分辨率。",
+          "duplicateRisk": "low",
+          "dedupeNote": "其他论文不涉及占用预测。",
+          "retrievalGroups": [
+            "driving"
+          ],
+          "mergedCount": 1,
+          "mergedTitles": [
+            "GaussianSeed: Hierarchical Gaussian Seeding for High-Resolution 3D Occupancy Prediction"
+          ]
+        },
+        {
+          "id": "2607.19774v1",
+          "title": "Defer to Plan: Adaptive Multi-Agent Fusion for End-to-End V2X Driving",
+          "summary": "Vehicle-to-everything-aided autonomous driving (V2X-AD) significantly enhances driving performance through information sharing. However, existing collaborative perception methods only optimize module-level perception capabilities and fail to effectively serve the ultimate planning and control tasks.",
+          "summaryRaw": "Vehicle-to-everything-aided autonomous driving (V2X-AD) significantly enhances driving performance through information sharing. However, existing collaborative perception methods only optimize module-level perception capabilities and fail to effectively serve the ultimate planning and control tasks. We propose an end-to-end collaborative driving system that directly optimizes planning task performance. The system employs MotionNetwork to fuse historical temporal information, utilizes attention mechanisms to efficiently compress spatial features into compact tokens, and adaptively fuses multi-agent features through an autoregressive decoder. Additionally, we introduce Mixture-of-Experts (MoE) architecture to enhance the model's representation capacity for heterogeneous features. Experiments demonstrate that our method achieves a driving score of 79.72, surpassing the state-of-the-art CoDriving baseline (77.15) by 3.33% in closed-loop evaluation while maintaining communication efficiency.",
+          "link": "https://arxiv.org/abs/2607.19774v1",
+          "pdfLink": "https://arxiv.org/pdf/2607.19774v1",
+          "published": "2026-07-22T05:44:47Z",
+          "updated": "2026-07-22T05:44:47Z",
+          "authors": [
+            "Nuoran Li",
+            "Zhang Zhang",
+            "Yueran Zhao",
+            "Tianze Wang",
+            "Chao Sun"
+          ],
+          "categories": [
+            "cs.RO"
+          ],
+          "score": 65,
+          "importanceLevel": "B",
+          "lane": "Robotics",
+          "dimensionScores": {
+            "relevance": 20,
+            "novelty": 70,
+            "impact": 50,
+            "practicality": 60,
+            "coreAlignment": 15
+          },
+          "oneSentenceSummary": "Defer to Plan提出自适应多智能体融合的端到端V2X驾驶系统。",
+          "summaryCn": "该系统直接优化规划任务，使用MotionNetwork融合时序信息，注意力压缩空间特征，并通过自回归解码器自适应融合多智能体特征，引入MoE增强异质性表征。",
+          "whyImportant": "将协作感知与规划端到端结合，提升V2X驾驶性能。",
+          "reasonTags": [
+            "V2X驾驶",
+            "端到端规划",
+            "多智能体融合"
+          ],
+          "innovationPoints": [
+            "端到端优化规划而非感知",
+            "自回归解码器自适应融合",
+            "MoE处理异质性特征"
+          ],
+          "noveltyVerdict": "将端到端框架扩展到V2X，有一定创新。",
+          "duplicateRisk": "medium",
+          "dedupeNote": "侧重V2X场景下的多智能体融合规划。",
+          "retrievalGroups": [
+            "driving"
+          ],
+          "mergedCount": 1,
+          "mergedTitles": [
+            "Defer to Plan: Adaptive Multi-Agent Fusion for End-to-End V2X Driving"
+          ]
+        },
+        {
+          "id": "2607.19911v1",
+          "title": "LoRFT: Benchmarking Long-Range Vehicle Trajectory Reconstruction from Fixed Highway Cameras",
+          "summary": "Long-range vehicle trajectories provide important spatio-temporal evidence for traffic safety analysis, autonomous driving evaluation, and data-driven traffic management, yet continuously recovering them from fixed highway cameras remains difficult. As vehicles recede into distant road regions, perspective compression and scale decay oft…",
+          "summaryRaw": "Long-range vehicle trajectories provide important spatio-temporal evidence for traffic safety analysis, autonomous driving evaluation, and data-driven traffic management, yet continuously recovering them from fixed highway cameras remains difficult. As vehicles recede into distant road regions, perspective compression and scale decay often fragment or prematurely terminate automatic tracklets, even when their continuation remains identifiable from motion consistency across neighboring frames. We formulate this problem as recovering the far-range continuation of a vehicle trajectory from a reliable near-field tracklet. We introduce LoRFT, to our knowledge the first open benchmark dedicated to long-range vehicle trajectory reconstruction from fixed highway cameras. LoRFT comprises 22 expressway surveillance scenes, 366,109 video frames, 6,601 manually verified trajectories, 2,694,889 bounding boxes, road-geometry annotations, scene-level splits, and evaluation scripts. We further propose Map-RSTNet, a map-aware residual sequence-to-sequence model that reconstructs distant trajectories in a road-geometry-aligned state space and dynamically refreshes local road geometry during decoding. On LoRFT, Map-RSTNet reduces ADE, FDE, and 5-second RMSE by 11.0%, 15.4%, and 10.5%, respectively, relative to the strongest baseline. These results demonstrate that road-geometry-aware reconstruction can extend usable trajectory records from existing fixed-camera infrastructure. LoRFT provides a reproducible testbed for long-range vehicle trajectory reconstruction.",
+          "link": "https://arxiv.org/abs/2607.19911v1",
+          "pdfLink": "https://arxiv.org/pdf/2607.19911v1",
+          "published": "2026-07-22T08:42:58Z",
+          "updated": "2026-07-22T08:42:58Z",
+          "authors": [
+            "Yufan Zhu",
+            "Kefu Yi",
+            "Xueju Zhang",
+            "Yunyang Tian",
+            "Long Chen",
+            "Zixuan Xiao"
+          ],
+          "categories": [
+            "cs.CV"
+          ],
+          "score": 60,
+          "importanceLevel": "B",
+          "lane": "Robotics",
+          "dimensionScores": {
+            "relevance": 15,
+            "novelty": 50,
+            "impact": 40,
+            "practicality": 50,
+            "coreAlignment": 10
+          },
+          "oneSentenceSummary": "LoRFT提出首个长距离车辆轨迹重建的开放基准。",
+          "summaryCn": "LoRFT包含22个高速公路监控场景、36万帧视频和6601条人工验证轨迹，旨在从近场轨迹恢复远场车辆轨迹，应对透视压缩和尺度衰减挑战。",
+          "whyImportant": "为长距离轨迹重建提供标准化数据集和评估方法。",
+          "reasonTags": [
+            "轨迹重建",
+            "基准数据集",
+            "高速公路场景"
+          ],
+          "innovationPoints": [
+            "首个长距离重建基准",
+            "大规模人工标注轨迹",
+            "形式化远场恢复问题"
+          ],
+          "noveltyVerdict": "作为基准有一定贡献，但方法创新不足。",
+          "duplicateRisk": "low",
+          "dedupeNote": "数据集论文，与其他方法论文不重复。",
+          "retrievalGroups": [
+            "driving"
+          ],
+          "mergedCount": 1,
+          "mergedTitles": [
+            "LoRFT: Benchmarking Long-Range Vehicle Trajectory Reconstruction from Fixed Highway Cameras"
+          ]
+        },
+        {
+          "id": "2607.19701v1",
+          "title": "SafeGen: Goal-Conditioned Video Diffusion of Safety-Critical Scenarios for VLM-Based Autonomous Driving",
+          "summary": "VLMs are increasingly deployed in AD systems, creating an urgent need for rigorous safety evaluation under rare yet safety-critical scenarios. Among these, interactions with vulnerable road users represent a major source of real-world failures.",
+          "summaryRaw": "VLMs are increasingly deployed in AD systems, creating an urgent need for rigorous safety evaluation under rare yet safety-critical scenarios. Among these, interactions with vulnerable road users represent a major source of real-world failures. However, existing safety-critical scenario generation methods predominantly rely on simulator-based pipelines, which suffer from a substantial sim-to-real gap and often fail to capture realistic, diverse, and unforeseen human-vehicle interaction dynamics. We present SafeGen, a goal-conditioned diffusion framework for safety-critical scenario generation in VLMADs. Our key insight is to formulate scenario generation as a goal-conditioned diffusion process, where a predefined catastrophic end-state serves as a strong supervisory signal, guiding the generation of temporally coherent video trajectories that naturally evolve toward safety-critical outcomes. Building on this formulation, we introduce Context Grounded End State Reasoning, which leverages VLMs to analyze benign driving contexts and infer latent vulnerabilities in human-vehicle interactions, producing structured end-state specifications that induce high-risk scenarios. Conditioned on these targets, we further propose End State Conditioned Video Evolution, which grounds semantic threats into physically plausible visual dynamics. Specifically, we instantiate high-risk agents within the scene via depth-aware geometric projection, followed by boundary-conditioned diffusion to generate intermediate frames with consistent motion patterns and temporal coherence. Extensive experiments across 3 VLMADs demonstrate that SafeGen increases the Judge Overall Score, a metric using a VLM judge to evaluate VLMADs' understanding and decision-making, by 24.25% on average compared to SoTA baselines. Furthermore, fine-tuning a VLMAD improves performance in real-world driving scenes by an average of 15.9%.",
+          "link": "https://arxiv.org/abs/2607.19701v1",
+          "pdfLink": "https://arxiv.org/pdf/2607.19701v1",
+          "published": "2026-07-22T03:05:32Z",
+          "updated": "2026-07-22T03:05:32Z",
+          "authors": [
+            "Jiangfan Liu",
+            "Zexuan Cui",
+            "Tianyuan Zhang",
+            "Zonglei Jing",
+            "Zonghao Ying",
+            "Yaoyuan Zhang",
+            "Jiakai Wang",
+            "Xiaoqi Jiang"
+          ],
+          "categories": [
+            "cs.CV"
+          ],
+          "score": 55,
+          "importanceLevel": "B",
+          "lane": "Peripheral",
+          "dimensionScores": {
+            "relevance": 10,
+            "novelty": 65,
+            "impact": 40,
+            "practicality": 30,
+            "coreAlignment": 5
+          },
+          "oneSentenceSummary": "SafeGen通过目标条件视频扩散生成安全关键场景以测试VLM自动驾驶。",
+          "summaryCn": "SafeGen将场景生成建模为目标条件扩散过程，以预定义的灾难性终态为监督信号，生成自然演化的安全关键视频轨迹，用于VLM驾驶系统评估。",
+          "whyImportant": "为VLM驾驶提供真实多样的安全关键场景以评估安全性。",
+          "reasonTags": [
+            "安全关键场景生成",
+            "视频扩散",
+            "VLM测试"
+          ],
+          "innovationPoints": [
+            "目标条件扩散引导生成",
+            "利用灾难性终态作为监督",
+            "缩小仿真与现实差距"
+          ],
+          "noveltyVerdict": "将扩散模型用于安全场景生成，有一定新颖性。",
+          "duplicateRisk": "low",
+          "dedupeNote": "侧重场景生成，与其他论文不同。",
+          "retrievalGroups": [
+            "driving"
+          ],
+          "mergedCount": 1,
+          "mergedTitles": [
+            "SafeGen: Goal-Conditioned Video Diffusion of Safety-Critical Scenarios for VLM-Based Autonomous Driving"
+          ]
+        },
+        {
+          "id": "2607.19781v1",
+          "title": "WASABI: Whole-graph Assignment-based Stabilizer for lAne topology By Inter-frame tracking",
+          "summary": "Autonomous driving requires understanding the road as a graph of drivable lanes and their connectivity, beyond the ego lane alone, to follow routes through intersections and reason about cross- and merging-traffic. Recent perception models infer such lane topology, i.e., lane segments together with their inter-lane connectivity (LCLC), f…",
+          "summaryRaw": "Autonomous driving requires understanding the road as a graph of drivable lanes and their connectivity, beyond the ego lane alone, to follow routes through intersections and reason about cross- and merging-traffic. Recent perception models infer such lane topology, i.e., lane segments together with their inter-lane connectivity (LCLC), from onboard sensors over a 360-degree BEV view. Due to neural perception's imperfections, their outputs retain structural instabilities such as missed detections, lost or incorrect LCLC, over-detection, and label flicker. This paper presents WASABI, a real-time post-processing pipeline that stabilizes lane topology outputs both within and across frames by treating lane segments and their LCLC connectivity as joint tracking targets, under onboard real-time constraints (10 Hz / 20 ms / up to 200 input lanes). The pipeline integrates segment tracking with connectivity, noise-robust topology-aware refinement, and a resource-constrained real-time design. On internal validation data (16 sequences), WASABI improves LCLC detection F1 from 0.834 to 0.948 (+0.114, +13.6%) and reduces centerline lateral error from 2.50 m to 0.95 m, while reducing detection false-positives by 24.6%. Temporal-stability metrics on the same data show LCLC toggle rate reduced by 63.3% and boundary-label flicker rate by 30.2%, confirming across-frame stabilization beyond per-frame accuracy.",
+          "link": "https://arxiv.org/abs/2607.19781v1",
+          "pdfLink": "https://arxiv.org/pdf/2607.19781v1",
+          "published": "2026-07-22T05:59:22Z",
+          "updated": "2026-07-22T05:59:22Z",
+          "authors": [
+            "Tetsuhiro Uchida",
+            "Myu Sasaki",
+            "Kensho Nakajima",
+            "Yasuhiro Shimada",
+            "Toru Saito"
+          ],
+          "categories": [
+            "cs.CV"
+          ],
+          "score": 50,
+          "importanceLevel": "B",
+          "lane": "Robotics",
+          "dimensionScores": {
+            "relevance": 10,
+            "novelty": 60,
+            "impact": 30,
+            "practicality": 60,
+            "coreAlignment": 10
+          },
+          "oneSentenceSummary": "WASABI通过帧间跟踪稳定车道拓扑输出，提升感知一致性。",
+          "summaryCn": "WASABI将车道段及其连接关系作为联合跟踪目标，在实时约束下对神经网络车道拓扑输出进行后处理，消除不稳定检测、标签闪烁等问题。",
+          "whyImportant": "提高车道拓扑感知的稳定性和可靠性，对下游规划有益。",
+          "reasonTags": [
+            "车道拓扑",
+            "实时后处理",
+            "帧间稳定化"
+          ],
+          "innovationPoints": [
+            "将车道段和连接联合跟踪",
+            "实时处理速度10Hz",
+            "解决结构不稳定问题"
+          ],
+          "noveltyVerdict": "后处理方法有一定实用价值，但创新性一般。",
+          "duplicateRisk": "low",
+          "dedupeNote": "专注后处理稳定化，不涉及感知模型本身。",
+          "retrievalGroups": [
+            "driving"
+          ],
+          "mergedCount": 1,
+          "mergedTitles": [
+            "WASABI: Whole-graph Assignment-based Stabilizer for lAne topology By Inter-frame tracking"
+          ]
+        }
+      ],
+      "paperSets": {
+        "overall": [
+          {
+            "id": "2607.20175v1",
+            "title": "PerceptDrive: Perception Prior World-Action Modeling with Adaptive Expert Routing for End-to-End Autonomous Driving",
+            "summary": "Frozen perception foundation models encode rich geometric, semantic, and dynamic knowledge. Yet narrow conditioning interfaces may attenuate task-relevant cues, while static fusion cannot adjust expert contributions to each scene.",
+            "summaryRaw": "Frozen perception foundation models encode rich geometric, semantic, and dynamic knowledge. Yet narrow conditioning interfaces may attenuate task-relevant cues, while static fusion cannot adjust expert contributions to each scene. We cast this challenge as the prior-to-plan transfer problem and introduce PerceptDrive, a perception prior world-action modeling framework with adaptive expert routing. PerceptDrive feeds teacher-distilled priors from a frozen, driving-adapted provider and dense observation latents from a frozen self-supervised video encoder into a trainable expert-routed world-action model. Expert-specific query branches process these signals, while a prior-retention objective anchors each branch to its prior. A router predicts soft gates from a shared scene representation and combines the expert conditions before trajectory generation. During training, privileged rule-based sub-metric estimates for branch-specific trajectory drafts provide soft-gate distillation targets. The predicted action-free future latent conditions a flow-matching actor. At inference, privileged components are absent; with one front-facing camera, PerceptDrive generates one trajectory per planning step without test-time scoring, reranking, or search. Experiments show that PerceptDrive achieves state-of-the-art performance with 90.4 PDMS on NAVSIM v1 and 90.2 EPDMS on NAVSIM v2, outperforming existing methods. Ablations confirm complementary gains from prior retention and scene-conditioned routing, alongside differential reliance on the three priors. These results demonstrate that preserving and adaptively routing perception priors improves direct planning without test-time candidate selection.",
+            "link": "https://arxiv.org/abs/2607.20175v1",
+            "pdfLink": "https://arxiv.org/pdf/2607.20175v1",
+            "published": "2026-07-22T14:09:15Z",
+            "updated": "2026-07-22T14:09:15Z",
+            "authors": [
+              "Yushan Liu",
+              "Tianxiong Lv",
+              "Bohua Wang",
+              "Hangqi Fan",
+              "Chenxu Zhao",
+              "He Zheng",
+              "Xuchang Zhong",
+              "Yifan Xie"
+            ],
+            "categories": [
+              "cs.CV"
+            ],
+            "score": 85,
+            "importanceLevel": "A",
+            "lane": "WAM",
+            "dimensionScores": {
+              "relevance": 90,
+              "novelty": 85,
+              "impact": 80,
+              "practicality": 80,
+              "coreAlignment": 90
+            },
+            "oneSentenceSummary": "PerceptDrive提出感知先验世界-行动模型，通过自适应专家路由实现端到端自动驾驶。",
+            "summaryCn": "PerceptDrive利用冻结的感知基础模型提供先验，并训练可学习的专家路由世界-行动模型，通过自适应融合多个专家分支生成轨迹，结合保留先验的目标进行训练。",
+            "whyImportant": "将世界模型与感知先验结合，通过自适应路由提升端到端驾驶性能。",
+            "reasonTags": [
+              "世界-行动模型",
+              "自适应专家路由",
+              "端到端自动驾驶"
+            ],
+            "innovationPoints": [
+              "提出世界-行动模型与感知先验结合框架",
+              "自适应专家路由动态融合多个先验分支",
+              "保留先验目标确保专家分支对齐"
+            ],
+            "noveltyVerdict": "新颖地将世界模型与自适应路由结合用于驾驶，具有一定创新性。",
+            "duplicateRisk": "low",
+            "dedupeNote": "无重复，聚焦世界-行动模型与自适应路由。",
+            "retrievalGroups": [
+              "driving"
+            ],
+            "mergedCount": 1,
+            "mergedTitles": [
+              "PerceptDrive: Perception Prior World-Action Modeling with Adaptive Expert Routing for End-to-End Autonomous Driving"
+            ]
+          },
+          {
+            "id": "2607.20071v1",
+            "title": "GaussianSeed: Hierarchical Gaussian Seeding for High-Resolution 3D Occupancy Prediction",
+            "summary": "Vision-centric 3D occupancy prediction provides dense scene representations essential for autonomous driving and robotic navigation, yet existing methods struggle to scale to high voxel resolutions due to prohibitive computational costs. To address this, we introduce GaussianSeed, a progressive multi-scale Gaussian occupancy prediction f…",
+            "summaryRaw": "Vision-centric 3D occupancy prediction provides dense scene representations essential for autonomous driving and robotic navigation, yet existing methods struggle to scale to high voxel resolutions due to prohibitive computational costs. To address this, we introduce GaussianSeed, a progressive multi-scale Gaussian occupancy prediction framework that organizes primitives into a coarse-to-fine hierarchy. Benefiting from this hierarchical design, GaussianSeed effectively circumvents the memory bottlenecks inherent in dense representations, successfully scaling to a $0.1\\text{m}$ spatial resolution while maintaining real-time inference capabilities. To comprehensively evaluate high-resolution geometric perception, we further construct TJScenes, a panoramic six-camera occupancy dataset with highly detailed $0.1\\text{m}$ annotations. Extensive experiments on Occ3D-nuScenes and TJScenes demonstrate that GaussianSeed delivers the lowest latency among all evaluated methods while maintaining highly competitive accuracy, advancing the efficiency-quality frontier of high-resolution 3D occupancy prediction.",
+            "link": "https://arxiv.org/abs/2607.20071v1",
+            "pdfLink": "https://arxiv.org/pdf/2607.20071v1",
+            "published": "2026-07-22T12:18:30Z",
+            "updated": "2026-07-22T12:18:30Z",
+            "authors": [
+              "Xinzhuo Li",
+              "Xianghui Pan",
+              "Jiayuan Du",
+              "Wei Wei",
+              "Liuyi Wang",
+              "Chengju Liu",
+              "Qijun Chen"
+            ],
+            "categories": [
+              "cs.CV"
+            ],
+            "score": 70,
+            "importanceLevel": "B",
+            "lane": "Robotics",
+            "dimensionScores": {
+              "relevance": 30,
+              "novelty": 80,
+              "impact": 60,
+              "practicality": 70,
+              "coreAlignment": 20
+            },
+            "oneSentenceSummary": "GaussianSeed提出分层高斯播种框架，实现高分辨率3D占用预测。",
+            "summaryCn": "GaussianSeed采用渐进式多尺度高斯占用预测，通过粗到细的层次化设计实现0.1m分辨率实时推理，并构建了TJScenes数据集进行评估。",
+            "whyImportant": "解决了高分辨率占用预测的计算瓶颈，推动精细几何感知。",
+            "reasonTags": [
+              "3D占用预测",
+              "分层高斯",
+              "高分辨率"
+            ],
+            "innovationPoints": [
+              "分层高斯表示避免稠密计算",
+              "支持0.1m分辨率实时推理",
+              "构建高质量数据集TJScenes"
+            ],
+            "noveltyVerdict": "方法新颖，有效提升占用预测分辨率。",
+            "duplicateRisk": "low",
+            "dedupeNote": "其他论文不涉及占用预测。",
+            "retrievalGroups": [
+              "driving"
+            ],
+            "mergedCount": 1,
+            "mergedTitles": [
+              "GaussianSeed: Hierarchical Gaussian Seeding for High-Resolution 3D Occupancy Prediction"
+            ]
+          },
+          {
+            "id": "2607.19774v1",
+            "title": "Defer to Plan: Adaptive Multi-Agent Fusion for End-to-End V2X Driving",
+            "summary": "Vehicle-to-everything-aided autonomous driving (V2X-AD) significantly enhances driving performance through information sharing. However, existing collaborative perception methods only optimize module-level perception capabilities and fail to effectively serve the ultimate planning and control tasks.",
+            "summaryRaw": "Vehicle-to-everything-aided autonomous driving (V2X-AD) significantly enhances driving performance through information sharing. However, existing collaborative perception methods only optimize module-level perception capabilities and fail to effectively serve the ultimate planning and control tasks. We propose an end-to-end collaborative driving system that directly optimizes planning task performance. The system employs MotionNetwork to fuse historical temporal information, utilizes attention mechanisms to efficiently compress spatial features into compact tokens, and adaptively fuses multi-agent features through an autoregressive decoder. Additionally, we introduce Mixture-of-Experts (MoE) architecture to enhance the model's representation capacity for heterogeneous features. Experiments demonstrate that our method achieves a driving score of 79.72, surpassing the state-of-the-art CoDriving baseline (77.15) by 3.33% in closed-loop evaluation while maintaining communication efficiency.",
+            "link": "https://arxiv.org/abs/2607.19774v1",
+            "pdfLink": "https://arxiv.org/pdf/2607.19774v1",
+            "published": "2026-07-22T05:44:47Z",
+            "updated": "2026-07-22T05:44:47Z",
+            "authors": [
+              "Nuoran Li",
+              "Zhang Zhang",
+              "Yueran Zhao",
+              "Tianze Wang",
+              "Chao Sun"
+            ],
+            "categories": [
+              "cs.RO"
+            ],
+            "score": 65,
+            "importanceLevel": "B",
+            "lane": "Robotics",
+            "dimensionScores": {
+              "relevance": 20,
+              "novelty": 70,
+              "impact": 50,
+              "practicality": 60,
+              "coreAlignment": 15
+            },
+            "oneSentenceSummary": "Defer to Plan提出自适应多智能体融合的端到端V2X驾驶系统。",
+            "summaryCn": "该系统直接优化规划任务，使用MotionNetwork融合时序信息，注意力压缩空间特征，并通过自回归解码器自适应融合多智能体特征，引入MoE增强异质性表征。",
+            "whyImportant": "将协作感知与规划端到端结合，提升V2X驾驶性能。",
+            "reasonTags": [
+              "V2X驾驶",
+              "端到端规划",
+              "多智能体融合"
+            ],
+            "innovationPoints": [
+              "端到端优化规划而非感知",
+              "自回归解码器自适应融合",
+              "MoE处理异质性特征"
+            ],
+            "noveltyVerdict": "将端到端框架扩展到V2X，有一定创新。",
+            "duplicateRisk": "medium",
+            "dedupeNote": "侧重V2X场景下的多智能体融合规划。",
+            "retrievalGroups": [
+              "driving"
+            ],
+            "mergedCount": 1,
+            "mergedTitles": [
+              "Defer to Plan: Adaptive Multi-Agent Fusion for End-to-End V2X Driving"
+            ]
+          },
+          {
+            "id": "2607.19911v1",
+            "title": "LoRFT: Benchmarking Long-Range Vehicle Trajectory Reconstruction from Fixed Highway Cameras",
+            "summary": "Long-range vehicle trajectories provide important spatio-temporal evidence for traffic safety analysis, autonomous driving evaluation, and data-driven traffic management, yet continuously recovering them from fixed highway cameras remains difficult. As vehicles recede into distant road regions, perspective compression and scale decay oft…",
+            "summaryRaw": "Long-range vehicle trajectories provide important spatio-temporal evidence for traffic safety analysis, autonomous driving evaluation, and data-driven traffic management, yet continuously recovering them from fixed highway cameras remains difficult. As vehicles recede into distant road regions, perspective compression and scale decay often fragment or prematurely terminate automatic tracklets, even when their continuation remains identifiable from motion consistency across neighboring frames. We formulate this problem as recovering the far-range continuation of a vehicle trajectory from a reliable near-field tracklet. We introduce LoRFT, to our knowledge the first open benchmark dedicated to long-range vehicle trajectory reconstruction from fixed highway cameras. LoRFT comprises 22 expressway surveillance scenes, 366,109 video frames, 6,601 manually verified trajectories, 2,694,889 bounding boxes, road-geometry annotations, scene-level splits, and evaluation scripts. We further propose Map-RSTNet, a map-aware residual sequence-to-sequence model that reconstructs distant trajectories in a road-geometry-aligned state space and dynamically refreshes local road geometry during decoding. On LoRFT, Map-RSTNet reduces ADE, FDE, and 5-second RMSE by 11.0%, 15.4%, and 10.5%, respectively, relative to the strongest baseline. These results demonstrate that road-geometry-aware reconstruction can extend usable trajectory records from existing fixed-camera infrastructure. LoRFT provides a reproducible testbed for long-range vehicle trajectory reconstruction.",
+            "link": "https://arxiv.org/abs/2607.19911v1",
+            "pdfLink": "https://arxiv.org/pdf/2607.19911v1",
+            "published": "2026-07-22T08:42:58Z",
+            "updated": "2026-07-22T08:42:58Z",
+            "authors": [
+              "Yufan Zhu",
+              "Kefu Yi",
+              "Xueju Zhang",
+              "Yunyang Tian",
+              "Long Chen",
+              "Zixuan Xiao"
+            ],
+            "categories": [
+              "cs.CV"
+            ],
+            "score": 60,
+            "importanceLevel": "B",
+            "lane": "Robotics",
+            "dimensionScores": {
+              "relevance": 15,
+              "novelty": 50,
+              "impact": 40,
+              "practicality": 50,
+              "coreAlignment": 10
+            },
+            "oneSentenceSummary": "LoRFT提出首个长距离车辆轨迹重建的开放基准。",
+            "summaryCn": "LoRFT包含22个高速公路监控场景、36万帧视频和6601条人工验证轨迹，旨在从近场轨迹恢复远场车辆轨迹，应对透视压缩和尺度衰减挑战。",
+            "whyImportant": "为长距离轨迹重建提供标准化数据集和评估方法。",
+            "reasonTags": [
+              "轨迹重建",
+              "基准数据集",
+              "高速公路场景"
+            ],
+            "innovationPoints": [
+              "首个长距离重建基准",
+              "大规模人工标注轨迹",
+              "形式化远场恢复问题"
+            ],
+            "noveltyVerdict": "作为基准有一定贡献，但方法创新不足。",
+            "duplicateRisk": "low",
+            "dedupeNote": "数据集论文，与其他方法论文不重复。",
+            "retrievalGroups": [
+              "driving"
+            ],
+            "mergedCount": 1,
+            "mergedTitles": [
+              "LoRFT: Benchmarking Long-Range Vehicle Trajectory Reconstruction from Fixed Highway Cameras"
+            ]
+          },
+          {
+            "id": "2607.19701v1",
+            "title": "SafeGen: Goal-Conditioned Video Diffusion of Safety-Critical Scenarios for VLM-Based Autonomous Driving",
+            "summary": "VLMs are increasingly deployed in AD systems, creating an urgent need for rigorous safety evaluation under rare yet safety-critical scenarios. Among these, interactions with vulnerable road users represent a major source of real-world failures.",
+            "summaryRaw": "VLMs are increasingly deployed in AD systems, creating an urgent need for rigorous safety evaluation under rare yet safety-critical scenarios. Among these, interactions with vulnerable road users represent a major source of real-world failures. However, existing safety-critical scenario generation methods predominantly rely on simulator-based pipelines, which suffer from a substantial sim-to-real gap and often fail to capture realistic, diverse, and unforeseen human-vehicle interaction dynamics. We present SafeGen, a goal-conditioned diffusion framework for safety-critical scenario generation in VLMADs. Our key insight is to formulate scenario generation as a goal-conditioned diffusion process, where a predefined catastrophic end-state serves as a strong supervisory signal, guiding the generation of temporally coherent video trajectories that naturally evolve toward safety-critical outcomes. Building on this formulation, we introduce Context Grounded End State Reasoning, which leverages VLMs to analyze benign driving contexts and infer latent vulnerabilities in human-vehicle interactions, producing structured end-state specifications that induce high-risk scenarios. Conditioned on these targets, we further propose End State Conditioned Video Evolution, which grounds semantic threats into physically plausible visual dynamics. Specifically, we instantiate high-risk agents within the scene via depth-aware geometric projection, followed by boundary-conditioned diffusion to generate intermediate frames with consistent motion patterns and temporal coherence. Extensive experiments across 3 VLMADs demonstrate that SafeGen increases the Judge Overall Score, a metric using a VLM judge to evaluate VLMADs' understanding and decision-making, by 24.25% on average compared to SoTA baselines. Furthermore, fine-tuning a VLMAD improves performance in real-world driving scenes by an average of 15.9%.",
+            "link": "https://arxiv.org/abs/2607.19701v1",
+            "pdfLink": "https://arxiv.org/pdf/2607.19701v1",
+            "published": "2026-07-22T03:05:32Z",
+            "updated": "2026-07-22T03:05:32Z",
+            "authors": [
+              "Jiangfan Liu",
+              "Zexuan Cui",
+              "Tianyuan Zhang",
+              "Zonglei Jing",
+              "Zonghao Ying",
+              "Yaoyuan Zhang",
+              "Jiakai Wang",
+              "Xiaoqi Jiang"
+            ],
+            "categories": [
+              "cs.CV"
+            ],
+            "score": 55,
+            "importanceLevel": "B",
+            "lane": "Peripheral",
+            "dimensionScores": {
+              "relevance": 10,
+              "novelty": 65,
+              "impact": 40,
+              "practicality": 30,
+              "coreAlignment": 5
+            },
+            "oneSentenceSummary": "SafeGen通过目标条件视频扩散生成安全关键场景以测试VLM自动驾驶。",
+            "summaryCn": "SafeGen将场景生成建模为目标条件扩散过程，以预定义的灾难性终态为监督信号，生成自然演化的安全关键视频轨迹，用于VLM驾驶系统评估。",
+            "whyImportant": "为VLM驾驶提供真实多样的安全关键场景以评估安全性。",
+            "reasonTags": [
+              "安全关键场景生成",
+              "视频扩散",
+              "VLM测试"
+            ],
+            "innovationPoints": [
+              "目标条件扩散引导生成",
+              "利用灾难性终态作为监督",
+              "缩小仿真与现实差距"
+            ],
+            "noveltyVerdict": "将扩散模型用于安全场景生成，有一定新颖性。",
+            "duplicateRisk": "low",
+            "dedupeNote": "侧重场景生成，与其他论文不同。",
+            "retrievalGroups": [
+              "driving"
+            ],
+            "mergedCount": 1,
+            "mergedTitles": [
+              "SafeGen: Goal-Conditioned Video Diffusion of Safety-Critical Scenarios for VLM-Based Autonomous Driving"
+            ]
+          },
+          {
+            "id": "2607.19781v1",
+            "title": "WASABI: Whole-graph Assignment-based Stabilizer for lAne topology By Inter-frame tracking",
+            "summary": "Autonomous driving requires understanding the road as a graph of drivable lanes and their connectivity, beyond the ego lane alone, to follow routes through intersections and reason about cross- and merging-traffic. Recent perception models infer such lane topology, i.e., lane segments together with their inter-lane connectivity (LCLC), f…",
+            "summaryRaw": "Autonomous driving requires understanding the road as a graph of drivable lanes and their connectivity, beyond the ego lane alone, to follow routes through intersections and reason about cross- and merging-traffic. Recent perception models infer such lane topology, i.e., lane segments together with their inter-lane connectivity (LCLC), from onboard sensors over a 360-degree BEV view. Due to neural perception's imperfections, their outputs retain structural instabilities such as missed detections, lost or incorrect LCLC, over-detection, and label flicker. This paper presents WASABI, a real-time post-processing pipeline that stabilizes lane topology outputs both within and across frames by treating lane segments and their LCLC connectivity as joint tracking targets, under onboard real-time constraints (10 Hz / 20 ms / up to 200 input lanes). The pipeline integrates segment tracking with connectivity, noise-robust topology-aware refinement, and a resource-constrained real-time design. On internal validation data (16 sequences), WASABI improves LCLC detection F1 from 0.834 to 0.948 (+0.114, +13.6%) and reduces centerline lateral error from 2.50 m to 0.95 m, while reducing detection false-positives by 24.6%. Temporal-stability metrics on the same data show LCLC toggle rate reduced by 63.3% and boundary-label flicker rate by 30.2%, confirming across-frame stabilization beyond per-frame accuracy.",
+            "link": "https://arxiv.org/abs/2607.19781v1",
+            "pdfLink": "https://arxiv.org/pdf/2607.19781v1",
+            "published": "2026-07-22T05:59:22Z",
+            "updated": "2026-07-22T05:59:22Z",
+            "authors": [
+              "Tetsuhiro Uchida",
+              "Myu Sasaki",
+              "Kensho Nakajima",
+              "Yasuhiro Shimada",
+              "Toru Saito"
+            ],
+            "categories": [
+              "cs.CV"
+            ],
+            "score": 50,
+            "importanceLevel": "B",
+            "lane": "Robotics",
+            "dimensionScores": {
+              "relevance": 10,
+              "novelty": 60,
+              "impact": 30,
+              "practicality": 60,
+              "coreAlignment": 10
+            },
+            "oneSentenceSummary": "WASABI通过帧间跟踪稳定车道拓扑输出，提升感知一致性。",
+            "summaryCn": "WASABI将车道段及其连接关系作为联合跟踪目标，在实时约束下对神经网络车道拓扑输出进行后处理，消除不稳定检测、标签闪烁等问题。",
+            "whyImportant": "提高车道拓扑感知的稳定性和可靠性，对下游规划有益。",
+            "reasonTags": [
+              "车道拓扑",
+              "实时后处理",
+              "帧间稳定化"
+            ],
+            "innovationPoints": [
+              "将车道段和连接联合跟踪",
+              "实时处理速度10Hz",
+              "解决结构不稳定问题"
+            ],
+            "noveltyVerdict": "后处理方法有一定实用价值，但创新性一般。",
+            "duplicateRisk": "low",
+            "dedupeNote": "专注后处理稳定化，不涉及感知模型本身。",
+            "retrievalGroups": [
+              "driving"
+            ],
+            "mergedCount": 1,
+            "mergedTitles": [
+              "WASABI: Whole-graph Assignment-based Stabilizer for lAne topology By Inter-frame tracking"
+            ]
+          }
+        ],
+        "vla": [],
+        "wam": [
+          {
+            "id": "2607.20175v1",
+            "title": "PerceptDrive: Perception Prior World-Action Modeling with Adaptive Expert Routing for End-to-End Autonomous Driving",
+            "summary": "Frozen perception foundation models encode rich geometric, semantic, and dynamic knowledge. Yet narrow conditioning interfaces may attenuate task-relevant cues, while static fusion cannot adjust expert contributions to each scene.",
+            "summaryRaw": "Frozen perception foundation models encode rich geometric, semantic, and dynamic knowledge. Yet narrow conditioning interfaces may attenuate task-relevant cues, while static fusion cannot adjust expert contributions to each scene. We cast this challenge as the prior-to-plan transfer problem and introduce PerceptDrive, a perception prior world-action modeling framework with adaptive expert routing. PerceptDrive feeds teacher-distilled priors from a frozen, driving-adapted provider and dense observation latents from a frozen self-supervised video encoder into a trainable expert-routed world-action model. Expert-specific query branches process these signals, while a prior-retention objective anchors each branch to its prior. A router predicts soft gates from a shared scene representation and combines the expert conditions before trajectory generation. During training, privileged rule-based sub-metric estimates for branch-specific trajectory drafts provide soft-gate distillation targets. The predicted action-free future latent conditions a flow-matching actor. At inference, privileged components are absent; with one front-facing camera, PerceptDrive generates one trajectory per planning step without test-time scoring, reranking, or search. Experiments show that PerceptDrive achieves state-of-the-art performance with 90.4 PDMS on NAVSIM v1 and 90.2 EPDMS on NAVSIM v2, outperforming existing methods. Ablations confirm complementary gains from prior retention and scene-conditioned routing, alongside differential reliance on the three priors. These results demonstrate that preserving and adaptively routing perception priors improves direct planning without test-time candidate selection.",
+            "link": "https://arxiv.org/abs/2607.20175v1",
+            "pdfLink": "https://arxiv.org/pdf/2607.20175v1",
+            "published": "2026-07-22T14:09:15Z",
+            "updated": "2026-07-22T14:09:15Z",
+            "authors": [
+              "Yushan Liu",
+              "Tianxiong Lv",
+              "Bohua Wang",
+              "Hangqi Fan",
+              "Chenxu Zhao",
+              "He Zheng",
+              "Xuchang Zhong",
+              "Yifan Xie"
+            ],
+            "categories": [
+              "cs.CV"
+            ],
+            "score": 85,
+            "importanceLevel": "A",
+            "lane": "WAM",
+            "dimensionScores": {
+              "relevance": 90,
+              "novelty": 85,
+              "impact": 80,
+              "practicality": 80,
+              "coreAlignment": 90
+            },
+            "oneSentenceSummary": "PerceptDrive提出感知先验世界-行动模型，通过自适应专家路由实现端到端自动驾驶。",
+            "summaryCn": "PerceptDrive利用冻结的感知基础模型提供先验，并训练可学习的专家路由世界-行动模型，通过自适应融合多个专家分支生成轨迹，结合保留先验的目标进行训练。",
+            "whyImportant": "将世界模型与感知先验结合，通过自适应路由提升端到端驾驶性能。",
+            "reasonTags": [
+              "世界-行动模型",
+              "自适应专家路由",
+              "端到端自动驾驶"
+            ],
+            "innovationPoints": [
+              "提出世界-行动模型与感知先验结合框架",
+              "自适应专家路由动态融合多个先验分支",
+              "保留先验目标确保专家分支对齐"
+            ],
+            "noveltyVerdict": "新颖地将世界模型与自适应路由结合用于驾驶，具有一定创新性。",
+            "duplicateRisk": "low",
+            "dedupeNote": "无重复，聚焦世界-行动模型与自适应路由。",
+            "retrievalGroups": [
+              "driving"
+            ],
+            "mergedCount": 1,
+            "mergedTitles": [
+              "PerceptDrive: Perception Prior World-Action Modeling with Adaptive Expert Routing for End-to-End Autonomous Driving"
+            ]
+          }
+        ]
+      },
+      "dailyBrief": {
+        "overall": "今日自动驾驶方向论文为主，涵盖感知、规划与基准，其中PerceptDrive提出世界-行动模型值得关注。",
+        "vla": "无VLA论文。",
+        "wam": "PerceptDrive将感知先验与世界-行动模型结合，通过自适应专家路由实现端到端驾驶。",
+        "retrieval": "检索筛选侧重于自动驾驶领域的世界模型与端到端方法。"
+      }
+    },
     {
       "dateKey": "20260715",
       "dateLabel": "2026-07-15",
