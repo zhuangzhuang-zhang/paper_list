@@ -1,5 +1,5 @@
 window.PAPERS_SITE_DATA = {
-  "generatedAt": "2026-07-23T02:11:07.642162+00:00",
+  "generatedAt": "2026-07-24T02:07:12.453002+00:00",
   "description": "按北京时间每天 08:00 的固定批次归档，保留左侧历史日期归档，并使用 DeepSeek 生成精简中文摘要。",
   "dateWindowDays": 1,
   "categories": [
@@ -35,748 +35,493 @@ window.PAPERS_SITE_DATA = {
   "modelInfo": {
     "provider": "deepseek",
     "model": "deepseek-v4-pro",
-    "candidateCount": 6
+    "candidateCount": 1
   },
   "batchWindow": {
-    "start": "2026-07-22T08:00:00+08:00",
-    "end": "2026-07-23T08:00:00+08:00"
+    "start": "2026-07-23T08:00:00+08:00",
+    "end": "2026-07-24T08:00:00+08:00"
   },
-  "currentDateKey": "20260723",
+  "currentDateKey": "20260724",
   "papers": [
     {
-      "id": "2607.20175v1",
-      "title": "PerceptDrive: Perception Prior World-Action Modeling with Adaptive Expert Routing for End-to-End Autonomous Driving",
-      "summary": "Frozen perception foundation models encode rich geometric, semantic, and dynamic knowledge. Yet narrow conditioning interfaces may attenuate task-relevant cues, while static fusion cannot adjust expert contributions to each scene.",
-      "summaryRaw": "Frozen perception foundation models encode rich geometric, semantic, and dynamic knowledge. Yet narrow conditioning interfaces may attenuate task-relevant cues, while static fusion cannot adjust expert contributions to each scene. We cast this challenge as the prior-to-plan transfer problem and introduce PerceptDrive, a perception prior world-action modeling framework with adaptive expert routing. PerceptDrive feeds teacher-distilled priors from a frozen, driving-adapted provider and dense observation latents from a frozen self-supervised video encoder into a trainable expert-routed world-action model. Expert-specific query branches process these signals, while a prior-retention objective anchors each branch to its prior. A router predicts soft gates from a shared scene representation and combines the expert conditions before trajectory generation. During training, privileged rule-based sub-metric estimates for branch-specific trajectory drafts provide soft-gate distillation targets. The predicted action-free future latent conditions a flow-matching actor. At inference, privileged components are absent; with one front-facing camera, PerceptDrive generates one trajectory per planning step without test-time scoring, reranking, or search. Experiments show that PerceptDrive achieves state-of-the-art performance with 90.4 PDMS on NAVSIM v1 and 90.2 EPDMS on NAVSIM v2, outperforming existing methods. Ablations confirm complementary gains from prior retention and scene-conditioned routing, alongside differential reliance on the three priors. These results demonstrate that preserving and adaptively routing perception priors improves direct planning without test-time candidate selection.",
-      "link": "https://arxiv.org/abs/2607.20175v1",
-      "pdfLink": "https://arxiv.org/pdf/2607.20175v1",
-      "published": "2026-07-22T14:09:15Z",
-      "updated": "2026-07-22T14:09:15Z",
+      "id": "2607.20988v1",
+      "title": "HyWorldVLA: A Vision-Language-Action Model with Hybrid World Modeling for Autonomous Driving",
+      "summary": "Vision-Language-Action (VLA) models augmented with world modeling represent a promising paradigm for end-to-end autonomous driving. While pixel-level future prediction enables fine-grained spatiotemporal reasoning, it compromises robustness in noisy driving scenarios.",
+      "summaryRaw": "Vision-Language-Action (VLA) models augmented with world modeling represent a promising paradigm for end-to-end autonomous driving. While pixel-level future prediction enables fine-grained spatiotemporal reasoning, it compromises robustness in noisy driving scenarios. Conversely, latent-based world models alleviate this sensitivity but often incur limited interpretability and representational degradation due to absent pixel-level grounding. To reconcile this trade-off, we propose HyWorldVLA, a hybrid world-VLA framework that unifies pixel-level supervision and latent representation learning. In the pre-training stage, HyWorldVLA predicts video latents encoded by a pre-trained video VAE, while simultaneously reconstructing video frames to provide precise pixel-level grounding. During the subsequent co-fine-tuning phase, the model exclusively predicts latent features, which are fed into an action expert to generate trajectories. Extensive experiments on NAVSIM v1 and v2 benchmarks demonstrate that HyWorldVLA significantly outperforms both pixel-based and latent-based world model baselines. Notably, we present the first comprehensive qualitative and quantitative analysis of world model noise robustness in autonomous driving, establishing a new benchmark for evaluating future architectures.",
+      "link": "https://arxiv.org/abs/2607.20988v1",
+      "pdfLink": "https://arxiv.org/pdf/2607.20988v1",
+      "published": "2026-07-23T07:11:41Z",
+      "updated": "2026-07-23T07:11:41Z",
       "authors": [
-        "Yushan Liu",
-        "Tianxiong Lv",
-        "Bohua Wang",
-        "Hangqi Fan",
-        "Chenxu Zhao",
-        "He Zheng",
-        "Xuchang Zhong",
-        "Yifan Xie"
+        "Quanfu Yu",
+        "Xian Wu",
+        "Hao Xu",
+        "Liulong Ma"
       ],
       "categories": [
-        "cs.CV"
+        "cs.CV",
+        "cs.AI"
       ],
-      "score": 85,
-      "importanceLevel": "A",
-      "lane": "WAM",
-      "dimensionScores": {
-        "relevance": 90,
-        "novelty": 85,
-        "impact": 80,
-        "practicality": 80,
-        "coreAlignment": 90
-      },
-      "oneSentenceSummary": "PerceptDrive提出感知先验世界-行动模型，通过自适应专家路由实现端到端自动驾驶。",
-      "summaryCn": "PerceptDrive利用冻结的感知基础模型提供先验，并训练可学习的专家路由世界-行动模型，通过自适应融合多个专家分支生成轨迹，结合保留先验的目标进行训练。",
-      "whyImportant": "将世界模型与感知先验结合，通过自适应路由提升端到端驾驶性能。",
-      "reasonTags": [
-        "世界-行动模型",
-        "自适应专家路由",
-        "端到端自动驾驶"
-      ],
-      "innovationPoints": [
-        "提出世界-行动模型与感知先验结合框架",
-        "自适应专家路由动态融合多个先验分支",
-        "保留先验目标确保专家分支对齐"
-      ],
-      "noveltyVerdict": "新颖地将世界模型与自适应路由结合用于驾驶，具有一定创新性。",
-      "duplicateRisk": "low",
-      "dedupeNote": "无重复，聚焦世界-行动模型与自适应路由。",
-      "retrievalGroups": [
-        "driving"
-      ],
-      "mergedCount": 1,
-      "mergedTitles": [
-        "PerceptDrive: Perception Prior World-Action Modeling with Adaptive Expert Routing for End-to-End Autonomous Driving"
-      ]
-    },
-    {
-      "id": "2607.20071v1",
-      "title": "GaussianSeed: Hierarchical Gaussian Seeding for High-Resolution 3D Occupancy Prediction",
-      "summary": "Vision-centric 3D occupancy prediction provides dense scene representations essential for autonomous driving and robotic navigation, yet existing methods struggle to scale to high voxel resolutions due to prohibitive computational costs. To address this, we introduce GaussianSeed, a progressive multi-scale Gaussian occupancy prediction f…",
-      "summaryRaw": "Vision-centric 3D occupancy prediction provides dense scene representations essential for autonomous driving and robotic navigation, yet existing methods struggle to scale to high voxel resolutions due to prohibitive computational costs. To address this, we introduce GaussianSeed, a progressive multi-scale Gaussian occupancy prediction framework that organizes primitives into a coarse-to-fine hierarchy. Benefiting from this hierarchical design, GaussianSeed effectively circumvents the memory bottlenecks inherent in dense representations, successfully scaling to a $0.1\\text{m}$ spatial resolution while maintaining real-time inference capabilities. To comprehensively evaluate high-resolution geometric perception, we further construct TJScenes, a panoramic six-camera occupancy dataset with highly detailed $0.1\\text{m}$ annotations. Extensive experiments on Occ3D-nuScenes and TJScenes demonstrate that GaussianSeed delivers the lowest latency among all evaluated methods while maintaining highly competitive accuracy, advancing the efficiency-quality frontier of high-resolution 3D occupancy prediction.",
-      "link": "https://arxiv.org/abs/2607.20071v1",
-      "pdfLink": "https://arxiv.org/pdf/2607.20071v1",
-      "published": "2026-07-22T12:18:30Z",
-      "updated": "2026-07-22T12:18:30Z",
-      "authors": [
-        "Xinzhuo Li",
-        "Xianghui Pan",
-        "Jiayuan Du",
-        "Wei Wei",
-        "Liuyi Wang",
-        "Chengju Liu",
-        "Qijun Chen"
-      ],
-      "categories": [
-        "cs.CV"
-      ],
-      "score": 70,
+      "score": 84,
       "importanceLevel": "B",
-      "lane": "Robotics",
+      "lane": "Both",
       "dimensionScores": {
-        "relevance": 30,
-        "novelty": 80,
-        "impact": 60,
-        "practicality": 70,
-        "coreAlignment": 20
+        "relevance": 62,
+        "novelty": 12,
+        "impact": 9,
+        "practicality": 7,
+        "coreAlignment": 34
       },
-      "oneSentenceSummary": "GaussianSeed提出分层高斯播种框架，实现高分辨率3D占用预测。",
-      "summaryCn": "GaussianSeed采用渐进式多尺度高斯占用预测，通过粗到细的层次化设计实现0.1m分辨率实时推理，并构建了TJScenes数据集进行评估。",
-      "whyImportant": "解决了高分辨率占用预测的计算瓶颈，推动精细几何感知。",
+      "oneSentenceSummary": "HyWorldVLA结合像素级与潜在世界建模的自动驾驶VLA模型。",
+      "summaryCn": "HyWorldVLA提出了混合世界建模的视觉-语言-动作框架，用于端到端自动驾驶。该模型在预训练阶段同时预测视频潜变量并重建视频帧以提供像素级监督，在联合微调阶段仅预测潜变量，从而平衡鲁棒性与可解释性。该方法旨在解决纯像素预测对噪声敏感而纯潜变量表示可解释性不足的问题。",
+      "whyImportant": "提出混合世界建模方法，统一像素与潜变量优势，提升自动驾驶VLA鲁棒性与可解释性。",
       "reasonTags": [
-        "3D占用预测",
-        "分层高斯",
-        "高分辨率"
+        "混合世界建模",
+        "视觉-语言-动作",
+        "自动驾驶",
+        "视频预测"
       ],
       "innovationPoints": [
-        "分层高斯表示避免稠密计算",
-        "支持0.1m分辨率实时推理",
-        "构建高质量数据集TJScenes"
+        "提出像素与潜变量混合世界建模框架",
+        "分阶段训练策略：预训练联合重建与预测，微调专注潜变量",
+        "提升自动驾驶VLA的鲁棒性与可解释性"
       ],
-      "noveltyVerdict": "方法新颖，有效提升占用预测分辨率。",
+      "noveltyVerdict": "创新性较低：混合世界建模非全新概念，但自动驾驶应用有一定整合价值。",
       "duplicateRisk": "low",
-      "dedupeNote": "其他论文不涉及占用预测。",
+      "dedupeNote": "当前唯一候选论文，无重复风险。",
       "retrievalGroups": [
-        "driving"
+        "wam_core"
       ],
       "mergedCount": 1,
       "mergedTitles": [
-        "GaussianSeed: Hierarchical Gaussian Seeding for High-Resolution 3D Occupancy Prediction"
-      ]
-    },
-    {
-      "id": "2607.19774v1",
-      "title": "Defer to Plan: Adaptive Multi-Agent Fusion for End-to-End V2X Driving",
-      "summary": "Vehicle-to-everything-aided autonomous driving (V2X-AD) significantly enhances driving performance through information sharing. However, existing collaborative perception methods only optimize module-level perception capabilities and fail to effectively serve the ultimate planning and control tasks.",
-      "summaryRaw": "Vehicle-to-everything-aided autonomous driving (V2X-AD) significantly enhances driving performance through information sharing. However, existing collaborative perception methods only optimize module-level perception capabilities and fail to effectively serve the ultimate planning and control tasks. We propose an end-to-end collaborative driving system that directly optimizes planning task performance. The system employs MotionNetwork to fuse historical temporal information, utilizes attention mechanisms to efficiently compress spatial features into compact tokens, and adaptively fuses multi-agent features through an autoregressive decoder. Additionally, we introduce Mixture-of-Experts (MoE) architecture to enhance the model's representation capacity for heterogeneous features. Experiments demonstrate that our method achieves a driving score of 79.72, surpassing the state-of-the-art CoDriving baseline (77.15) by 3.33% in closed-loop evaluation while maintaining communication efficiency.",
-      "link": "https://arxiv.org/abs/2607.19774v1",
-      "pdfLink": "https://arxiv.org/pdf/2607.19774v1",
-      "published": "2026-07-22T05:44:47Z",
-      "updated": "2026-07-22T05:44:47Z",
-      "authors": [
-        "Nuoran Li",
-        "Zhang Zhang",
-        "Yueran Zhao",
-        "Tianze Wang",
-        "Chao Sun"
-      ],
-      "categories": [
-        "cs.RO"
-      ],
-      "score": 65,
-      "importanceLevel": "B",
-      "lane": "Robotics",
-      "dimensionScores": {
-        "relevance": 20,
-        "novelty": 70,
-        "impact": 50,
-        "practicality": 60,
-        "coreAlignment": 15
-      },
-      "oneSentenceSummary": "Defer to Plan提出自适应多智能体融合的端到端V2X驾驶系统。",
-      "summaryCn": "该系统直接优化规划任务，使用MotionNetwork融合时序信息，注意力压缩空间特征，并通过自回归解码器自适应融合多智能体特征，引入MoE增强异质性表征。",
-      "whyImportant": "将协作感知与规划端到端结合，提升V2X驾驶性能。",
-      "reasonTags": [
-        "V2X驾驶",
-        "端到端规划",
-        "多智能体融合"
-      ],
-      "innovationPoints": [
-        "端到端优化规划而非感知",
-        "自回归解码器自适应融合",
-        "MoE处理异质性特征"
-      ],
-      "noveltyVerdict": "将端到端框架扩展到V2X，有一定创新。",
-      "duplicateRisk": "medium",
-      "dedupeNote": "侧重V2X场景下的多智能体融合规划。",
-      "retrievalGroups": [
-        "driving"
-      ],
-      "mergedCount": 1,
-      "mergedTitles": [
-        "Defer to Plan: Adaptive Multi-Agent Fusion for End-to-End V2X Driving"
-      ]
-    },
-    {
-      "id": "2607.19911v1",
-      "title": "LoRFT: Benchmarking Long-Range Vehicle Trajectory Reconstruction from Fixed Highway Cameras",
-      "summary": "Long-range vehicle trajectories provide important spatio-temporal evidence for traffic safety analysis, autonomous driving evaluation, and data-driven traffic management, yet continuously recovering them from fixed highway cameras remains difficult. As vehicles recede into distant road regions, perspective compression and scale decay oft…",
-      "summaryRaw": "Long-range vehicle trajectories provide important spatio-temporal evidence for traffic safety analysis, autonomous driving evaluation, and data-driven traffic management, yet continuously recovering them from fixed highway cameras remains difficult. As vehicles recede into distant road regions, perspective compression and scale decay often fragment or prematurely terminate automatic tracklets, even when their continuation remains identifiable from motion consistency across neighboring frames. We formulate this problem as recovering the far-range continuation of a vehicle trajectory from a reliable near-field tracklet. We introduce LoRFT, to our knowledge the first open benchmark dedicated to long-range vehicle trajectory reconstruction from fixed highway cameras. LoRFT comprises 22 expressway surveillance scenes, 366,109 video frames, 6,601 manually verified trajectories, 2,694,889 bounding boxes, road-geometry annotations, scene-level splits, and evaluation scripts. We further propose Map-RSTNet, a map-aware residual sequence-to-sequence model that reconstructs distant trajectories in a road-geometry-aligned state space and dynamically refreshes local road geometry during decoding. On LoRFT, Map-RSTNet reduces ADE, FDE, and 5-second RMSE by 11.0%, 15.4%, and 10.5%, respectively, relative to the strongest baseline. These results demonstrate that road-geometry-aware reconstruction can extend usable trajectory records from existing fixed-camera infrastructure. LoRFT provides a reproducible testbed for long-range vehicle trajectory reconstruction.",
-      "link": "https://arxiv.org/abs/2607.19911v1",
-      "pdfLink": "https://arxiv.org/pdf/2607.19911v1",
-      "published": "2026-07-22T08:42:58Z",
-      "updated": "2026-07-22T08:42:58Z",
-      "authors": [
-        "Yufan Zhu",
-        "Kefu Yi",
-        "Xueju Zhang",
-        "Yunyang Tian",
-        "Long Chen",
-        "Zixuan Xiao"
-      ],
-      "categories": [
-        "cs.CV"
-      ],
-      "score": 60,
-      "importanceLevel": "B",
-      "lane": "Robotics",
-      "dimensionScores": {
-        "relevance": 15,
-        "novelty": 50,
-        "impact": 40,
-        "practicality": 50,
-        "coreAlignment": 10
-      },
-      "oneSentenceSummary": "LoRFT提出首个长距离车辆轨迹重建的开放基准。",
-      "summaryCn": "LoRFT包含22个高速公路监控场景、36万帧视频和6601条人工验证轨迹，旨在从近场轨迹恢复远场车辆轨迹，应对透视压缩和尺度衰减挑战。",
-      "whyImportant": "为长距离轨迹重建提供标准化数据集和评估方法。",
-      "reasonTags": [
-        "轨迹重建",
-        "基准数据集",
-        "高速公路场景"
-      ],
-      "innovationPoints": [
-        "首个长距离重建基准",
-        "大规模人工标注轨迹",
-        "形式化远场恢复问题"
-      ],
-      "noveltyVerdict": "作为基准有一定贡献，但方法创新不足。",
-      "duplicateRisk": "low",
-      "dedupeNote": "数据集论文，与其他方法论文不重复。",
-      "retrievalGroups": [
-        "driving"
-      ],
-      "mergedCount": 1,
-      "mergedTitles": [
-        "LoRFT: Benchmarking Long-Range Vehicle Trajectory Reconstruction from Fixed Highway Cameras"
-      ]
-    },
-    {
-      "id": "2607.19701v1",
-      "title": "SafeGen: Goal-Conditioned Video Diffusion of Safety-Critical Scenarios for VLM-Based Autonomous Driving",
-      "summary": "VLMs are increasingly deployed in AD systems, creating an urgent need for rigorous safety evaluation under rare yet safety-critical scenarios. Among these, interactions with vulnerable road users represent a major source of real-world failures.",
-      "summaryRaw": "VLMs are increasingly deployed in AD systems, creating an urgent need for rigorous safety evaluation under rare yet safety-critical scenarios. Among these, interactions with vulnerable road users represent a major source of real-world failures. However, existing safety-critical scenario generation methods predominantly rely on simulator-based pipelines, which suffer from a substantial sim-to-real gap and often fail to capture realistic, diverse, and unforeseen human-vehicle interaction dynamics. We present SafeGen, a goal-conditioned diffusion framework for safety-critical scenario generation in VLMADs. Our key insight is to formulate scenario generation as a goal-conditioned diffusion process, where a predefined catastrophic end-state serves as a strong supervisory signal, guiding the generation of temporally coherent video trajectories that naturally evolve toward safety-critical outcomes. Building on this formulation, we introduce Context Grounded End State Reasoning, which leverages VLMs to analyze benign driving contexts and infer latent vulnerabilities in human-vehicle interactions, producing structured end-state specifications that induce high-risk scenarios. Conditioned on these targets, we further propose End State Conditioned Video Evolution, which grounds semantic threats into physically plausible visual dynamics. Specifically, we instantiate high-risk agents within the scene via depth-aware geometric projection, followed by boundary-conditioned diffusion to generate intermediate frames with consistent motion patterns and temporal coherence. Extensive experiments across 3 VLMADs demonstrate that SafeGen increases the Judge Overall Score, a metric using a VLM judge to evaluate VLMADs' understanding and decision-making, by 24.25% on average compared to SoTA baselines. Furthermore, fine-tuning a VLMAD improves performance in real-world driving scenes by an average of 15.9%.",
-      "link": "https://arxiv.org/abs/2607.19701v1",
-      "pdfLink": "https://arxiv.org/pdf/2607.19701v1",
-      "published": "2026-07-22T03:05:32Z",
-      "updated": "2026-07-22T03:05:32Z",
-      "authors": [
-        "Jiangfan Liu",
-        "Zexuan Cui",
-        "Tianyuan Zhang",
-        "Zonglei Jing",
-        "Zonghao Ying",
-        "Yaoyuan Zhang",
-        "Jiakai Wang",
-        "Xiaoqi Jiang"
-      ],
-      "categories": [
-        "cs.CV"
-      ],
-      "score": 55,
-      "importanceLevel": "B",
-      "lane": "Peripheral",
-      "dimensionScores": {
-        "relevance": 10,
-        "novelty": 65,
-        "impact": 40,
-        "practicality": 30,
-        "coreAlignment": 5
-      },
-      "oneSentenceSummary": "SafeGen通过目标条件视频扩散生成安全关键场景以测试VLM自动驾驶。",
-      "summaryCn": "SafeGen将场景生成建模为目标条件扩散过程，以预定义的灾难性终态为监督信号，生成自然演化的安全关键视频轨迹，用于VLM驾驶系统评估。",
-      "whyImportant": "为VLM驾驶提供真实多样的安全关键场景以评估安全性。",
-      "reasonTags": [
-        "安全关键场景生成",
-        "视频扩散",
-        "VLM测试"
-      ],
-      "innovationPoints": [
-        "目标条件扩散引导生成",
-        "利用灾难性终态作为监督",
-        "缩小仿真与现实差距"
-      ],
-      "noveltyVerdict": "将扩散模型用于安全场景生成，有一定新颖性。",
-      "duplicateRisk": "low",
-      "dedupeNote": "侧重场景生成，与其他论文不同。",
-      "retrievalGroups": [
-        "driving"
-      ],
-      "mergedCount": 1,
-      "mergedTitles": [
-        "SafeGen: Goal-Conditioned Video Diffusion of Safety-Critical Scenarios for VLM-Based Autonomous Driving"
-      ]
-    },
-    {
-      "id": "2607.19781v1",
-      "title": "WASABI: Whole-graph Assignment-based Stabilizer for lAne topology By Inter-frame tracking",
-      "summary": "Autonomous driving requires understanding the road as a graph of drivable lanes and their connectivity, beyond the ego lane alone, to follow routes through intersections and reason about cross- and merging-traffic. Recent perception models infer such lane topology, i.e., lane segments together with their inter-lane connectivity (LCLC), f…",
-      "summaryRaw": "Autonomous driving requires understanding the road as a graph of drivable lanes and their connectivity, beyond the ego lane alone, to follow routes through intersections and reason about cross- and merging-traffic. Recent perception models infer such lane topology, i.e., lane segments together with their inter-lane connectivity (LCLC), from onboard sensors over a 360-degree BEV view. Due to neural perception's imperfections, their outputs retain structural instabilities such as missed detections, lost or incorrect LCLC, over-detection, and label flicker. This paper presents WASABI, a real-time post-processing pipeline that stabilizes lane topology outputs both within and across frames by treating lane segments and their LCLC connectivity as joint tracking targets, under onboard real-time constraints (10 Hz / 20 ms / up to 200 input lanes). The pipeline integrates segment tracking with connectivity, noise-robust topology-aware refinement, and a resource-constrained real-time design. On internal validation data (16 sequences), WASABI improves LCLC detection F1 from 0.834 to 0.948 (+0.114, +13.6%) and reduces centerline lateral error from 2.50 m to 0.95 m, while reducing detection false-positives by 24.6%. Temporal-stability metrics on the same data show LCLC toggle rate reduced by 63.3% and boundary-label flicker rate by 30.2%, confirming across-frame stabilization beyond per-frame accuracy.",
-      "link": "https://arxiv.org/abs/2607.19781v1",
-      "pdfLink": "https://arxiv.org/pdf/2607.19781v1",
-      "published": "2026-07-22T05:59:22Z",
-      "updated": "2026-07-22T05:59:22Z",
-      "authors": [
-        "Tetsuhiro Uchida",
-        "Myu Sasaki",
-        "Kensho Nakajima",
-        "Yasuhiro Shimada",
-        "Toru Saito"
-      ],
-      "categories": [
-        "cs.CV"
-      ],
-      "score": 50,
-      "importanceLevel": "B",
-      "lane": "Robotics",
-      "dimensionScores": {
-        "relevance": 10,
-        "novelty": 60,
-        "impact": 30,
-        "practicality": 60,
-        "coreAlignment": 10
-      },
-      "oneSentenceSummary": "WASABI通过帧间跟踪稳定车道拓扑输出，提升感知一致性。",
-      "summaryCn": "WASABI将车道段及其连接关系作为联合跟踪目标，在实时约束下对神经网络车道拓扑输出进行后处理，消除不稳定检测、标签闪烁等问题。",
-      "whyImportant": "提高车道拓扑感知的稳定性和可靠性，对下游规划有益。",
-      "reasonTags": [
-        "车道拓扑",
-        "实时后处理",
-        "帧间稳定化"
-      ],
-      "innovationPoints": [
-        "将车道段和连接联合跟踪",
-        "实时处理速度10Hz",
-        "解决结构不稳定问题"
-      ],
-      "noveltyVerdict": "后处理方法有一定实用价值，但创新性一般。",
-      "duplicateRisk": "low",
-      "dedupeNote": "专注后处理稳定化，不涉及感知模型本身。",
-      "retrievalGroups": [
-        "driving"
-      ],
-      "mergedCount": 1,
-      "mergedTitles": [
-        "WASABI: Whole-graph Assignment-based Stabilizer for lAne topology By Inter-frame tracking"
+        "HyWorldVLA: A Vision-Language-Action Model with Hybrid World Modeling for Autonomous Driving"
       ]
     }
   ],
   "paperSets": {
     "overall": [
       {
-        "id": "2607.20175v1",
-        "title": "PerceptDrive: Perception Prior World-Action Modeling with Adaptive Expert Routing for End-to-End Autonomous Driving",
-        "summary": "Frozen perception foundation models encode rich geometric, semantic, and dynamic knowledge. Yet narrow conditioning interfaces may attenuate task-relevant cues, while static fusion cannot adjust expert contributions to each scene.",
-        "summaryRaw": "Frozen perception foundation models encode rich geometric, semantic, and dynamic knowledge. Yet narrow conditioning interfaces may attenuate task-relevant cues, while static fusion cannot adjust expert contributions to each scene. We cast this challenge as the prior-to-plan transfer problem and introduce PerceptDrive, a perception prior world-action modeling framework with adaptive expert routing. PerceptDrive feeds teacher-distilled priors from a frozen, driving-adapted provider and dense observation latents from a frozen self-supervised video encoder into a trainable expert-routed world-action model. Expert-specific query branches process these signals, while a prior-retention objective anchors each branch to its prior. A router predicts soft gates from a shared scene representation and combines the expert conditions before trajectory generation. During training, privileged rule-based sub-metric estimates for branch-specific trajectory drafts provide soft-gate distillation targets. The predicted action-free future latent conditions a flow-matching actor. At inference, privileged components are absent; with one front-facing camera, PerceptDrive generates one trajectory per planning step without test-time scoring, reranking, or search. Experiments show that PerceptDrive achieves state-of-the-art performance with 90.4 PDMS on NAVSIM v1 and 90.2 EPDMS on NAVSIM v2, outperforming existing methods. Ablations confirm complementary gains from prior retention and scene-conditioned routing, alongside differential reliance on the three priors. These results demonstrate that preserving and adaptively routing perception priors improves direct planning without test-time candidate selection.",
-        "link": "https://arxiv.org/abs/2607.20175v1",
-        "pdfLink": "https://arxiv.org/pdf/2607.20175v1",
-        "published": "2026-07-22T14:09:15Z",
-        "updated": "2026-07-22T14:09:15Z",
+        "id": "2607.20988v1",
+        "title": "HyWorldVLA: A Vision-Language-Action Model with Hybrid World Modeling for Autonomous Driving",
+        "summary": "Vision-Language-Action (VLA) models augmented with world modeling represent a promising paradigm for end-to-end autonomous driving. While pixel-level future prediction enables fine-grained spatiotemporal reasoning, it compromises robustness in noisy driving scenarios.",
+        "summaryRaw": "Vision-Language-Action (VLA) models augmented with world modeling represent a promising paradigm for end-to-end autonomous driving. While pixel-level future prediction enables fine-grained spatiotemporal reasoning, it compromises robustness in noisy driving scenarios. Conversely, latent-based world models alleviate this sensitivity but often incur limited interpretability and representational degradation due to absent pixel-level grounding. To reconcile this trade-off, we propose HyWorldVLA, a hybrid world-VLA framework that unifies pixel-level supervision and latent representation learning. In the pre-training stage, HyWorldVLA predicts video latents encoded by a pre-trained video VAE, while simultaneously reconstructing video frames to provide precise pixel-level grounding. During the subsequent co-fine-tuning phase, the model exclusively predicts latent features, which are fed into an action expert to generate trajectories. Extensive experiments on NAVSIM v1 and v2 benchmarks demonstrate that HyWorldVLA significantly outperforms both pixel-based and latent-based world model baselines. Notably, we present the first comprehensive qualitative and quantitative analysis of world model noise robustness in autonomous driving, establishing a new benchmark for evaluating future architectures.",
+        "link": "https://arxiv.org/abs/2607.20988v1",
+        "pdfLink": "https://arxiv.org/pdf/2607.20988v1",
+        "published": "2026-07-23T07:11:41Z",
+        "updated": "2026-07-23T07:11:41Z",
         "authors": [
-          "Yushan Liu",
-          "Tianxiong Lv",
-          "Bohua Wang",
-          "Hangqi Fan",
-          "Chenxu Zhao",
-          "He Zheng",
-          "Xuchang Zhong",
-          "Yifan Xie"
+          "Quanfu Yu",
+          "Xian Wu",
+          "Hao Xu",
+          "Liulong Ma"
         ],
         "categories": [
-          "cs.CV"
+          "cs.CV",
+          "cs.AI"
         ],
-        "score": 85,
-        "importanceLevel": "A",
-        "lane": "WAM",
-        "dimensionScores": {
-          "relevance": 90,
-          "novelty": 85,
-          "impact": 80,
-          "practicality": 80,
-          "coreAlignment": 90
-        },
-        "oneSentenceSummary": "PerceptDrive提出感知先验世界-行动模型，通过自适应专家路由实现端到端自动驾驶。",
-        "summaryCn": "PerceptDrive利用冻结的感知基础模型提供先验，并训练可学习的专家路由世界-行动模型，通过自适应融合多个专家分支生成轨迹，结合保留先验的目标进行训练。",
-        "whyImportant": "将世界模型与感知先验结合，通过自适应路由提升端到端驾驶性能。",
-        "reasonTags": [
-          "世界-行动模型",
-          "自适应专家路由",
-          "端到端自动驾驶"
-        ],
-        "innovationPoints": [
-          "提出世界-行动模型与感知先验结合框架",
-          "自适应专家路由动态融合多个先验分支",
-          "保留先验目标确保专家分支对齐"
-        ],
-        "noveltyVerdict": "新颖地将世界模型与自适应路由结合用于驾驶，具有一定创新性。",
-        "duplicateRisk": "low",
-        "dedupeNote": "无重复，聚焦世界-行动模型与自适应路由。",
-        "retrievalGroups": [
-          "driving"
-        ],
-        "mergedCount": 1,
-        "mergedTitles": [
-          "PerceptDrive: Perception Prior World-Action Modeling with Adaptive Expert Routing for End-to-End Autonomous Driving"
-        ]
-      },
-      {
-        "id": "2607.20071v1",
-        "title": "GaussianSeed: Hierarchical Gaussian Seeding for High-Resolution 3D Occupancy Prediction",
-        "summary": "Vision-centric 3D occupancy prediction provides dense scene representations essential for autonomous driving and robotic navigation, yet existing methods struggle to scale to high voxel resolutions due to prohibitive computational costs. To address this, we introduce GaussianSeed, a progressive multi-scale Gaussian occupancy prediction f…",
-        "summaryRaw": "Vision-centric 3D occupancy prediction provides dense scene representations essential for autonomous driving and robotic navigation, yet existing methods struggle to scale to high voxel resolutions due to prohibitive computational costs. To address this, we introduce GaussianSeed, a progressive multi-scale Gaussian occupancy prediction framework that organizes primitives into a coarse-to-fine hierarchy. Benefiting from this hierarchical design, GaussianSeed effectively circumvents the memory bottlenecks inherent in dense representations, successfully scaling to a $0.1\\text{m}$ spatial resolution while maintaining real-time inference capabilities. To comprehensively evaluate high-resolution geometric perception, we further construct TJScenes, a panoramic six-camera occupancy dataset with highly detailed $0.1\\text{m}$ annotations. Extensive experiments on Occ3D-nuScenes and TJScenes demonstrate that GaussianSeed delivers the lowest latency among all evaluated methods while maintaining highly competitive accuracy, advancing the efficiency-quality frontier of high-resolution 3D occupancy prediction.",
-        "link": "https://arxiv.org/abs/2607.20071v1",
-        "pdfLink": "https://arxiv.org/pdf/2607.20071v1",
-        "published": "2026-07-22T12:18:30Z",
-        "updated": "2026-07-22T12:18:30Z",
-        "authors": [
-          "Xinzhuo Li",
-          "Xianghui Pan",
-          "Jiayuan Du",
-          "Wei Wei",
-          "Liuyi Wang",
-          "Chengju Liu",
-          "Qijun Chen"
-        ],
-        "categories": [
-          "cs.CV"
-        ],
-        "score": 70,
+        "score": 84,
         "importanceLevel": "B",
-        "lane": "Robotics",
+        "lane": "Both",
         "dimensionScores": {
-          "relevance": 30,
-          "novelty": 80,
-          "impact": 60,
-          "practicality": 70,
-          "coreAlignment": 20
+          "relevance": 62,
+          "novelty": 12,
+          "impact": 9,
+          "practicality": 7,
+          "coreAlignment": 34
         },
-        "oneSentenceSummary": "GaussianSeed提出分层高斯播种框架，实现高分辨率3D占用预测。",
-        "summaryCn": "GaussianSeed采用渐进式多尺度高斯占用预测，通过粗到细的层次化设计实现0.1m分辨率实时推理，并构建了TJScenes数据集进行评估。",
-        "whyImportant": "解决了高分辨率占用预测的计算瓶颈，推动精细几何感知。",
+        "oneSentenceSummary": "HyWorldVLA结合像素级与潜在世界建模的自动驾驶VLA模型。",
+        "summaryCn": "HyWorldVLA提出了混合世界建模的视觉-语言-动作框架，用于端到端自动驾驶。该模型在预训练阶段同时预测视频潜变量并重建视频帧以提供像素级监督，在联合微调阶段仅预测潜变量，从而平衡鲁棒性与可解释性。该方法旨在解决纯像素预测对噪声敏感而纯潜变量表示可解释性不足的问题。",
+        "whyImportant": "提出混合世界建模方法，统一像素与潜变量优势，提升自动驾驶VLA鲁棒性与可解释性。",
         "reasonTags": [
-          "3D占用预测",
-          "分层高斯",
-          "高分辨率"
+          "混合世界建模",
+          "视觉-语言-动作",
+          "自动驾驶",
+          "视频预测"
         ],
         "innovationPoints": [
-          "分层高斯表示避免稠密计算",
-          "支持0.1m分辨率实时推理",
-          "构建高质量数据集TJScenes"
+          "提出像素与潜变量混合世界建模框架",
+          "分阶段训练策略：预训练联合重建与预测，微调专注潜变量",
+          "提升自动驾驶VLA的鲁棒性与可解释性"
         ],
-        "noveltyVerdict": "方法新颖，有效提升占用预测分辨率。",
+        "noveltyVerdict": "创新性较低：混合世界建模非全新概念，但自动驾驶应用有一定整合价值。",
         "duplicateRisk": "low",
-        "dedupeNote": "其他论文不涉及占用预测。",
+        "dedupeNote": "当前唯一候选论文，无重复风险。",
         "retrievalGroups": [
-          "driving"
+          "wam_core"
         ],
         "mergedCount": 1,
         "mergedTitles": [
-          "GaussianSeed: Hierarchical Gaussian Seeding for High-Resolution 3D Occupancy Prediction"
-        ]
-      },
-      {
-        "id": "2607.19774v1",
-        "title": "Defer to Plan: Adaptive Multi-Agent Fusion for End-to-End V2X Driving",
-        "summary": "Vehicle-to-everything-aided autonomous driving (V2X-AD) significantly enhances driving performance through information sharing. However, existing collaborative perception methods only optimize module-level perception capabilities and fail to effectively serve the ultimate planning and control tasks.",
-        "summaryRaw": "Vehicle-to-everything-aided autonomous driving (V2X-AD) significantly enhances driving performance through information sharing. However, existing collaborative perception methods only optimize module-level perception capabilities and fail to effectively serve the ultimate planning and control tasks. We propose an end-to-end collaborative driving system that directly optimizes planning task performance. The system employs MotionNetwork to fuse historical temporal information, utilizes attention mechanisms to efficiently compress spatial features into compact tokens, and adaptively fuses multi-agent features through an autoregressive decoder. Additionally, we introduce Mixture-of-Experts (MoE) architecture to enhance the model's representation capacity for heterogeneous features. Experiments demonstrate that our method achieves a driving score of 79.72, surpassing the state-of-the-art CoDriving baseline (77.15) by 3.33% in closed-loop evaluation while maintaining communication efficiency.",
-        "link": "https://arxiv.org/abs/2607.19774v1",
-        "pdfLink": "https://arxiv.org/pdf/2607.19774v1",
-        "published": "2026-07-22T05:44:47Z",
-        "updated": "2026-07-22T05:44:47Z",
-        "authors": [
-          "Nuoran Li",
-          "Zhang Zhang",
-          "Yueran Zhao",
-          "Tianze Wang",
-          "Chao Sun"
-        ],
-        "categories": [
-          "cs.RO"
-        ],
-        "score": 65,
-        "importanceLevel": "B",
-        "lane": "Robotics",
-        "dimensionScores": {
-          "relevance": 20,
-          "novelty": 70,
-          "impact": 50,
-          "practicality": 60,
-          "coreAlignment": 15
-        },
-        "oneSentenceSummary": "Defer to Plan提出自适应多智能体融合的端到端V2X驾驶系统。",
-        "summaryCn": "该系统直接优化规划任务，使用MotionNetwork融合时序信息，注意力压缩空间特征，并通过自回归解码器自适应融合多智能体特征，引入MoE增强异质性表征。",
-        "whyImportant": "将协作感知与规划端到端结合，提升V2X驾驶性能。",
-        "reasonTags": [
-          "V2X驾驶",
-          "端到端规划",
-          "多智能体融合"
-        ],
-        "innovationPoints": [
-          "端到端优化规划而非感知",
-          "自回归解码器自适应融合",
-          "MoE处理异质性特征"
-        ],
-        "noveltyVerdict": "将端到端框架扩展到V2X，有一定创新。",
-        "duplicateRisk": "medium",
-        "dedupeNote": "侧重V2X场景下的多智能体融合规划。",
-        "retrievalGroups": [
-          "driving"
-        ],
-        "mergedCount": 1,
-        "mergedTitles": [
-          "Defer to Plan: Adaptive Multi-Agent Fusion for End-to-End V2X Driving"
-        ]
-      },
-      {
-        "id": "2607.19911v1",
-        "title": "LoRFT: Benchmarking Long-Range Vehicle Trajectory Reconstruction from Fixed Highway Cameras",
-        "summary": "Long-range vehicle trajectories provide important spatio-temporal evidence for traffic safety analysis, autonomous driving evaluation, and data-driven traffic management, yet continuously recovering them from fixed highway cameras remains difficult. As vehicles recede into distant road regions, perspective compression and scale decay oft…",
-        "summaryRaw": "Long-range vehicle trajectories provide important spatio-temporal evidence for traffic safety analysis, autonomous driving evaluation, and data-driven traffic management, yet continuously recovering them from fixed highway cameras remains difficult. As vehicles recede into distant road regions, perspective compression and scale decay often fragment or prematurely terminate automatic tracklets, even when their continuation remains identifiable from motion consistency across neighboring frames. We formulate this problem as recovering the far-range continuation of a vehicle trajectory from a reliable near-field tracklet. We introduce LoRFT, to our knowledge the first open benchmark dedicated to long-range vehicle trajectory reconstruction from fixed highway cameras. LoRFT comprises 22 expressway surveillance scenes, 366,109 video frames, 6,601 manually verified trajectories, 2,694,889 bounding boxes, road-geometry annotations, scene-level splits, and evaluation scripts. We further propose Map-RSTNet, a map-aware residual sequence-to-sequence model that reconstructs distant trajectories in a road-geometry-aligned state space and dynamically refreshes local road geometry during decoding. On LoRFT, Map-RSTNet reduces ADE, FDE, and 5-second RMSE by 11.0%, 15.4%, and 10.5%, respectively, relative to the strongest baseline. These results demonstrate that road-geometry-aware reconstruction can extend usable trajectory records from existing fixed-camera infrastructure. LoRFT provides a reproducible testbed for long-range vehicle trajectory reconstruction.",
-        "link": "https://arxiv.org/abs/2607.19911v1",
-        "pdfLink": "https://arxiv.org/pdf/2607.19911v1",
-        "published": "2026-07-22T08:42:58Z",
-        "updated": "2026-07-22T08:42:58Z",
-        "authors": [
-          "Yufan Zhu",
-          "Kefu Yi",
-          "Xueju Zhang",
-          "Yunyang Tian",
-          "Long Chen",
-          "Zixuan Xiao"
-        ],
-        "categories": [
-          "cs.CV"
-        ],
-        "score": 60,
-        "importanceLevel": "B",
-        "lane": "Robotics",
-        "dimensionScores": {
-          "relevance": 15,
-          "novelty": 50,
-          "impact": 40,
-          "practicality": 50,
-          "coreAlignment": 10
-        },
-        "oneSentenceSummary": "LoRFT提出首个长距离车辆轨迹重建的开放基准。",
-        "summaryCn": "LoRFT包含22个高速公路监控场景、36万帧视频和6601条人工验证轨迹，旨在从近场轨迹恢复远场车辆轨迹，应对透视压缩和尺度衰减挑战。",
-        "whyImportant": "为长距离轨迹重建提供标准化数据集和评估方法。",
-        "reasonTags": [
-          "轨迹重建",
-          "基准数据集",
-          "高速公路场景"
-        ],
-        "innovationPoints": [
-          "首个长距离重建基准",
-          "大规模人工标注轨迹",
-          "形式化远场恢复问题"
-        ],
-        "noveltyVerdict": "作为基准有一定贡献，但方法创新不足。",
-        "duplicateRisk": "low",
-        "dedupeNote": "数据集论文，与其他方法论文不重复。",
-        "retrievalGroups": [
-          "driving"
-        ],
-        "mergedCount": 1,
-        "mergedTitles": [
-          "LoRFT: Benchmarking Long-Range Vehicle Trajectory Reconstruction from Fixed Highway Cameras"
-        ]
-      },
-      {
-        "id": "2607.19701v1",
-        "title": "SafeGen: Goal-Conditioned Video Diffusion of Safety-Critical Scenarios for VLM-Based Autonomous Driving",
-        "summary": "VLMs are increasingly deployed in AD systems, creating an urgent need for rigorous safety evaluation under rare yet safety-critical scenarios. Among these, interactions with vulnerable road users represent a major source of real-world failures.",
-        "summaryRaw": "VLMs are increasingly deployed in AD systems, creating an urgent need for rigorous safety evaluation under rare yet safety-critical scenarios. Among these, interactions with vulnerable road users represent a major source of real-world failures. However, existing safety-critical scenario generation methods predominantly rely on simulator-based pipelines, which suffer from a substantial sim-to-real gap and often fail to capture realistic, diverse, and unforeseen human-vehicle interaction dynamics. We present SafeGen, a goal-conditioned diffusion framework for safety-critical scenario generation in VLMADs. Our key insight is to formulate scenario generation as a goal-conditioned diffusion process, where a predefined catastrophic end-state serves as a strong supervisory signal, guiding the generation of temporally coherent video trajectories that naturally evolve toward safety-critical outcomes. Building on this formulation, we introduce Context Grounded End State Reasoning, which leverages VLMs to analyze benign driving contexts and infer latent vulnerabilities in human-vehicle interactions, producing structured end-state specifications that induce high-risk scenarios. Conditioned on these targets, we further propose End State Conditioned Video Evolution, which grounds semantic threats into physically plausible visual dynamics. Specifically, we instantiate high-risk agents within the scene via depth-aware geometric projection, followed by boundary-conditioned diffusion to generate intermediate frames with consistent motion patterns and temporal coherence. Extensive experiments across 3 VLMADs demonstrate that SafeGen increases the Judge Overall Score, a metric using a VLM judge to evaluate VLMADs' understanding and decision-making, by 24.25% on average compared to SoTA baselines. Furthermore, fine-tuning a VLMAD improves performance in real-world driving scenes by an average of 15.9%.",
-        "link": "https://arxiv.org/abs/2607.19701v1",
-        "pdfLink": "https://arxiv.org/pdf/2607.19701v1",
-        "published": "2026-07-22T03:05:32Z",
-        "updated": "2026-07-22T03:05:32Z",
-        "authors": [
-          "Jiangfan Liu",
-          "Zexuan Cui",
-          "Tianyuan Zhang",
-          "Zonglei Jing",
-          "Zonghao Ying",
-          "Yaoyuan Zhang",
-          "Jiakai Wang",
-          "Xiaoqi Jiang"
-        ],
-        "categories": [
-          "cs.CV"
-        ],
-        "score": 55,
-        "importanceLevel": "B",
-        "lane": "Peripheral",
-        "dimensionScores": {
-          "relevance": 10,
-          "novelty": 65,
-          "impact": 40,
-          "practicality": 30,
-          "coreAlignment": 5
-        },
-        "oneSentenceSummary": "SafeGen通过目标条件视频扩散生成安全关键场景以测试VLM自动驾驶。",
-        "summaryCn": "SafeGen将场景生成建模为目标条件扩散过程，以预定义的灾难性终态为监督信号，生成自然演化的安全关键视频轨迹，用于VLM驾驶系统评估。",
-        "whyImportant": "为VLM驾驶提供真实多样的安全关键场景以评估安全性。",
-        "reasonTags": [
-          "安全关键场景生成",
-          "视频扩散",
-          "VLM测试"
-        ],
-        "innovationPoints": [
-          "目标条件扩散引导生成",
-          "利用灾难性终态作为监督",
-          "缩小仿真与现实差距"
-        ],
-        "noveltyVerdict": "将扩散模型用于安全场景生成，有一定新颖性。",
-        "duplicateRisk": "low",
-        "dedupeNote": "侧重场景生成，与其他论文不同。",
-        "retrievalGroups": [
-          "driving"
-        ],
-        "mergedCount": 1,
-        "mergedTitles": [
-          "SafeGen: Goal-Conditioned Video Diffusion of Safety-Critical Scenarios for VLM-Based Autonomous Driving"
-        ]
-      },
-      {
-        "id": "2607.19781v1",
-        "title": "WASABI: Whole-graph Assignment-based Stabilizer for lAne topology By Inter-frame tracking",
-        "summary": "Autonomous driving requires understanding the road as a graph of drivable lanes and their connectivity, beyond the ego lane alone, to follow routes through intersections and reason about cross- and merging-traffic. Recent perception models infer such lane topology, i.e., lane segments together with their inter-lane connectivity (LCLC), f…",
-        "summaryRaw": "Autonomous driving requires understanding the road as a graph of drivable lanes and their connectivity, beyond the ego lane alone, to follow routes through intersections and reason about cross- and merging-traffic. Recent perception models infer such lane topology, i.e., lane segments together with their inter-lane connectivity (LCLC), from onboard sensors over a 360-degree BEV view. Due to neural perception's imperfections, their outputs retain structural instabilities such as missed detections, lost or incorrect LCLC, over-detection, and label flicker. This paper presents WASABI, a real-time post-processing pipeline that stabilizes lane topology outputs both within and across frames by treating lane segments and their LCLC connectivity as joint tracking targets, under onboard real-time constraints (10 Hz / 20 ms / up to 200 input lanes). The pipeline integrates segment tracking with connectivity, noise-robust topology-aware refinement, and a resource-constrained real-time design. On internal validation data (16 sequences), WASABI improves LCLC detection F1 from 0.834 to 0.948 (+0.114, +13.6%) and reduces centerline lateral error from 2.50 m to 0.95 m, while reducing detection false-positives by 24.6%. Temporal-stability metrics on the same data show LCLC toggle rate reduced by 63.3% and boundary-label flicker rate by 30.2%, confirming across-frame stabilization beyond per-frame accuracy.",
-        "link": "https://arxiv.org/abs/2607.19781v1",
-        "pdfLink": "https://arxiv.org/pdf/2607.19781v1",
-        "published": "2026-07-22T05:59:22Z",
-        "updated": "2026-07-22T05:59:22Z",
-        "authors": [
-          "Tetsuhiro Uchida",
-          "Myu Sasaki",
-          "Kensho Nakajima",
-          "Yasuhiro Shimada",
-          "Toru Saito"
-        ],
-        "categories": [
-          "cs.CV"
-        ],
-        "score": 50,
-        "importanceLevel": "B",
-        "lane": "Robotics",
-        "dimensionScores": {
-          "relevance": 10,
-          "novelty": 60,
-          "impact": 30,
-          "practicality": 60,
-          "coreAlignment": 10
-        },
-        "oneSentenceSummary": "WASABI通过帧间跟踪稳定车道拓扑输出，提升感知一致性。",
-        "summaryCn": "WASABI将车道段及其连接关系作为联合跟踪目标，在实时约束下对神经网络车道拓扑输出进行后处理，消除不稳定检测、标签闪烁等问题。",
-        "whyImportant": "提高车道拓扑感知的稳定性和可靠性，对下游规划有益。",
-        "reasonTags": [
-          "车道拓扑",
-          "实时后处理",
-          "帧间稳定化"
-        ],
-        "innovationPoints": [
-          "将车道段和连接联合跟踪",
-          "实时处理速度10Hz",
-          "解决结构不稳定问题"
-        ],
-        "noveltyVerdict": "后处理方法有一定实用价值，但创新性一般。",
-        "duplicateRisk": "low",
-        "dedupeNote": "专注后处理稳定化，不涉及感知模型本身。",
-        "retrievalGroups": [
-          "driving"
-        ],
-        "mergedCount": 1,
-        "mergedTitles": [
-          "WASABI: Whole-graph Assignment-based Stabilizer for lAne topology By Inter-frame tracking"
+          "HyWorldVLA: A Vision-Language-Action Model with Hybrid World Modeling for Autonomous Driving"
         ]
       }
     ],
-    "vla": [],
-    "wam": [
+    "vla": [
       {
-        "id": "2607.20175v1",
-        "title": "PerceptDrive: Perception Prior World-Action Modeling with Adaptive Expert Routing for End-to-End Autonomous Driving",
-        "summary": "Frozen perception foundation models encode rich geometric, semantic, and dynamic knowledge. Yet narrow conditioning interfaces may attenuate task-relevant cues, while static fusion cannot adjust expert contributions to each scene.",
-        "summaryRaw": "Frozen perception foundation models encode rich geometric, semantic, and dynamic knowledge. Yet narrow conditioning interfaces may attenuate task-relevant cues, while static fusion cannot adjust expert contributions to each scene. We cast this challenge as the prior-to-plan transfer problem and introduce PerceptDrive, a perception prior world-action modeling framework with adaptive expert routing. PerceptDrive feeds teacher-distilled priors from a frozen, driving-adapted provider and dense observation latents from a frozen self-supervised video encoder into a trainable expert-routed world-action model. Expert-specific query branches process these signals, while a prior-retention objective anchors each branch to its prior. A router predicts soft gates from a shared scene representation and combines the expert conditions before trajectory generation. During training, privileged rule-based sub-metric estimates for branch-specific trajectory drafts provide soft-gate distillation targets. The predicted action-free future latent conditions a flow-matching actor. At inference, privileged components are absent; with one front-facing camera, PerceptDrive generates one trajectory per planning step without test-time scoring, reranking, or search. Experiments show that PerceptDrive achieves state-of-the-art performance with 90.4 PDMS on NAVSIM v1 and 90.2 EPDMS on NAVSIM v2, outperforming existing methods. Ablations confirm complementary gains from prior retention and scene-conditioned routing, alongside differential reliance on the three priors. These results demonstrate that preserving and adaptively routing perception priors improves direct planning without test-time candidate selection.",
-        "link": "https://arxiv.org/abs/2607.20175v1",
-        "pdfLink": "https://arxiv.org/pdf/2607.20175v1",
-        "published": "2026-07-22T14:09:15Z",
-        "updated": "2026-07-22T14:09:15Z",
+        "id": "2607.20988v1",
+        "title": "HyWorldVLA: A Vision-Language-Action Model with Hybrid World Modeling for Autonomous Driving",
+        "summary": "Vision-Language-Action (VLA) models augmented with world modeling represent a promising paradigm for end-to-end autonomous driving. While pixel-level future prediction enables fine-grained spatiotemporal reasoning, it compromises robustness in noisy driving scenarios.",
+        "summaryRaw": "Vision-Language-Action (VLA) models augmented with world modeling represent a promising paradigm for end-to-end autonomous driving. While pixel-level future prediction enables fine-grained spatiotemporal reasoning, it compromises robustness in noisy driving scenarios. Conversely, latent-based world models alleviate this sensitivity but often incur limited interpretability and representational degradation due to absent pixel-level grounding. To reconcile this trade-off, we propose HyWorldVLA, a hybrid world-VLA framework that unifies pixel-level supervision and latent representation learning. In the pre-training stage, HyWorldVLA predicts video latents encoded by a pre-trained video VAE, while simultaneously reconstructing video frames to provide precise pixel-level grounding. During the subsequent co-fine-tuning phase, the model exclusively predicts latent features, which are fed into an action expert to generate trajectories. Extensive experiments on NAVSIM v1 and v2 benchmarks demonstrate that HyWorldVLA significantly outperforms both pixel-based and latent-based world model baselines. Notably, we present the first comprehensive qualitative and quantitative analysis of world model noise robustness in autonomous driving, establishing a new benchmark for evaluating future architectures.",
+        "link": "https://arxiv.org/abs/2607.20988v1",
+        "pdfLink": "https://arxiv.org/pdf/2607.20988v1",
+        "published": "2026-07-23T07:11:41Z",
+        "updated": "2026-07-23T07:11:41Z",
         "authors": [
-          "Yushan Liu",
-          "Tianxiong Lv",
-          "Bohua Wang",
-          "Hangqi Fan",
-          "Chenxu Zhao",
-          "He Zheng",
-          "Xuchang Zhong",
-          "Yifan Xie"
+          "Quanfu Yu",
+          "Xian Wu",
+          "Hao Xu",
+          "Liulong Ma"
         ],
         "categories": [
-          "cs.CV"
+          "cs.CV",
+          "cs.AI"
         ],
-        "score": 85,
-        "importanceLevel": "A",
-        "lane": "WAM",
+        "score": 84,
+        "importanceLevel": "B",
+        "lane": "Both",
         "dimensionScores": {
-          "relevance": 90,
-          "novelty": 85,
-          "impact": 80,
-          "practicality": 80,
-          "coreAlignment": 90
+          "relevance": 62,
+          "novelty": 12,
+          "impact": 9,
+          "practicality": 7,
+          "coreAlignment": 34
         },
-        "oneSentenceSummary": "PerceptDrive提出感知先验世界-行动模型，通过自适应专家路由实现端到端自动驾驶。",
-        "summaryCn": "PerceptDrive利用冻结的感知基础模型提供先验，并训练可学习的专家路由世界-行动模型，通过自适应融合多个专家分支生成轨迹，结合保留先验的目标进行训练。",
-        "whyImportant": "将世界模型与感知先验结合，通过自适应路由提升端到端驾驶性能。",
+        "oneSentenceSummary": "HyWorldVLA结合像素级与潜在世界建模的自动驾驶VLA模型。",
+        "summaryCn": "HyWorldVLA提出了混合世界建模的视觉-语言-动作框架，用于端到端自动驾驶。该模型在预训练阶段同时预测视频潜变量并重建视频帧以提供像素级监督，在联合微调阶段仅预测潜变量，从而平衡鲁棒性与可解释性。该方法旨在解决纯像素预测对噪声敏感而纯潜变量表示可解释性不足的问题。",
+        "whyImportant": "提出混合世界建模方法，统一像素与潜变量优势，提升自动驾驶VLA鲁棒性与可解释性。",
         "reasonTags": [
-          "世界-行动模型",
-          "自适应专家路由",
-          "端到端自动驾驶"
+          "混合世界建模",
+          "视觉-语言-动作",
+          "自动驾驶",
+          "视频预测"
         ],
         "innovationPoints": [
-          "提出世界-行动模型与感知先验结合框架",
-          "自适应专家路由动态融合多个先验分支",
-          "保留先验目标确保专家分支对齐"
+          "提出像素与潜变量混合世界建模框架",
+          "分阶段训练策略：预训练联合重建与预测，微调专注潜变量",
+          "提升自动驾驶VLA的鲁棒性与可解释性"
         ],
-        "noveltyVerdict": "新颖地将世界模型与自适应路由结合用于驾驶，具有一定创新性。",
+        "noveltyVerdict": "创新性较低：混合世界建模非全新概念，但自动驾驶应用有一定整合价值。",
         "duplicateRisk": "low",
-        "dedupeNote": "无重复，聚焦世界-行动模型与自适应路由。",
+        "dedupeNote": "当前唯一候选论文，无重复风险。",
         "retrievalGroups": [
-          "driving"
+          "wam_core"
         ],
         "mergedCount": 1,
         "mergedTitles": [
-          "PerceptDrive: Perception Prior World-Action Modeling with Adaptive Expert Routing for End-to-End Autonomous Driving"
+          "HyWorldVLA: A Vision-Language-Action Model with Hybrid World Modeling for Autonomous Driving"
+        ]
+      }
+    ],
+    "wam": [
+      {
+        "id": "2607.20988v1",
+        "title": "HyWorldVLA: A Vision-Language-Action Model with Hybrid World Modeling for Autonomous Driving",
+        "summary": "Vision-Language-Action (VLA) models augmented with world modeling represent a promising paradigm for end-to-end autonomous driving. While pixel-level future prediction enables fine-grained spatiotemporal reasoning, it compromises robustness in noisy driving scenarios.",
+        "summaryRaw": "Vision-Language-Action (VLA) models augmented with world modeling represent a promising paradigm for end-to-end autonomous driving. While pixel-level future prediction enables fine-grained spatiotemporal reasoning, it compromises robustness in noisy driving scenarios. Conversely, latent-based world models alleviate this sensitivity but often incur limited interpretability and representational degradation due to absent pixel-level grounding. To reconcile this trade-off, we propose HyWorldVLA, a hybrid world-VLA framework that unifies pixel-level supervision and latent representation learning. In the pre-training stage, HyWorldVLA predicts video latents encoded by a pre-trained video VAE, while simultaneously reconstructing video frames to provide precise pixel-level grounding. During the subsequent co-fine-tuning phase, the model exclusively predicts latent features, which are fed into an action expert to generate trajectories. Extensive experiments on NAVSIM v1 and v2 benchmarks demonstrate that HyWorldVLA significantly outperforms both pixel-based and latent-based world model baselines. Notably, we present the first comprehensive qualitative and quantitative analysis of world model noise robustness in autonomous driving, establishing a new benchmark for evaluating future architectures.",
+        "link": "https://arxiv.org/abs/2607.20988v1",
+        "pdfLink": "https://arxiv.org/pdf/2607.20988v1",
+        "published": "2026-07-23T07:11:41Z",
+        "updated": "2026-07-23T07:11:41Z",
+        "authors": [
+          "Quanfu Yu",
+          "Xian Wu",
+          "Hao Xu",
+          "Liulong Ma"
+        ],
+        "categories": [
+          "cs.CV",
+          "cs.AI"
+        ],
+        "score": 84,
+        "importanceLevel": "B",
+        "lane": "Both",
+        "dimensionScores": {
+          "relevance": 62,
+          "novelty": 12,
+          "impact": 9,
+          "practicality": 7,
+          "coreAlignment": 34
+        },
+        "oneSentenceSummary": "HyWorldVLA结合像素级与潜在世界建模的自动驾驶VLA模型。",
+        "summaryCn": "HyWorldVLA提出了混合世界建模的视觉-语言-动作框架，用于端到端自动驾驶。该模型在预训练阶段同时预测视频潜变量并重建视频帧以提供像素级监督，在联合微调阶段仅预测潜变量，从而平衡鲁棒性与可解释性。该方法旨在解决纯像素预测对噪声敏感而纯潜变量表示可解释性不足的问题。",
+        "whyImportant": "提出混合世界建模方法，统一像素与潜变量优势，提升自动驾驶VLA鲁棒性与可解释性。",
+        "reasonTags": [
+          "混合世界建模",
+          "视觉-语言-动作",
+          "自动驾驶",
+          "视频预测"
+        ],
+        "innovationPoints": [
+          "提出像素与潜变量混合世界建模框架",
+          "分阶段训练策略：预训练联合重建与预测，微调专注潜变量",
+          "提升自动驾驶VLA的鲁棒性与可解释性"
+        ],
+        "noveltyVerdict": "创新性较低：混合世界建模非全新概念，但自动驾驶应用有一定整合价值。",
+        "duplicateRisk": "low",
+        "dedupeNote": "当前唯一候选论文，无重复风险。",
+        "retrievalGroups": [
+          "wam_core"
+        ],
+        "mergedCount": 1,
+        "mergedTitles": [
+          "HyWorldVLA: A Vision-Language-Action Model with Hybrid World Modeling for Autonomous Driving"
         ]
       }
     ]
   },
   "dailyBrief": {
-    "overall": "今日自动驾驶方向论文为主，涵盖感知、规划与基准，其中PerceptDrive提出世界-行动模型值得关注。",
-    "vla": "无VLA论文。",
-    "wam": "PerceptDrive将感知先验与世界-行动模型结合，通过自适应专家路由实现端到端驾驶。",
-    "retrieval": "检索筛选侧重于自动驾驶领域的世界模型与端到端方法。"
+    "overall": "今日关注HyWorldVLA，一种混合世界建模的视觉-语言-动作模型，用于提升自动驾驶鲁棒性与可解释性。",
+    "vla": "VLA方面：HyWorldVLA通过像素与潜变量混合世界建模增强驾驶动作预测。",
+    "wam": "WAM方面：HyWorldVLA结合视频建模与动作，探索世界模型在驾驶决策中的应用。",
+    "retrieval": "检索聚焦自动驾驶与混合世界建模的交叉领域。"
   },
   "trendBrief": {
     "windowDays": 7,
-    "dateRange": "2026-06-30 - 2026-07-23",
-    "overview": "近 7 天累计归档 126 篇总榜论文，主航道重心偏向 机器人扩展，其中 S 级高优先级论文共 14 篇。",
+    "dateRange": "2026-07-01 - 2026-07-24",
+    "overview": "近 7 天累计归档 107 篇总榜论文，主航道重心偏向 机器人扩展，其中 S 级高优先级论文共 12 篇。",
     "hotspots": "高频主题主要集中在 机器人、新基准、真实实验，系统共自动合并 0 篇近似工作，减少了重复阅读负担。",
-    "vla": "VLA 方向在近几天约占总榜的 27%，重点仍落在通用策略、语言条件动作与具身控制。",
-    "wam": "WAM 方向在近几天约占总榜的 23%，更集中于世界模型、动作条件预测与规划建模。",
+    "vla": "VLA 方向在近几天约占总榜的 28%，重点仍落在通用策略、语言条件动作与具身控制。",
+    "wam": "WAM 方向在近几天约占总榜的 24%，更集中于世界模型、动作条件预测与规划建模。",
     "watchlist": "建议优先连续跟踪 机器人、新基准、真实实验 相关工作，尤其关注同时具备高新颖性与高落地性的代表论文。"
   },
   "archives": [
+    {
+      "dateKey": "20260724",
+      "dateLabel": "2026-07-24",
+      "generatedAt": "2026-07-24T02:07:12.453002+00:00",
+      "paperCount": 1,
+      "papers": [
+        {
+          "id": "2607.20988v1",
+          "title": "HyWorldVLA: A Vision-Language-Action Model with Hybrid World Modeling for Autonomous Driving",
+          "summary": "Vision-Language-Action (VLA) models augmented with world modeling represent a promising paradigm for end-to-end autonomous driving. While pixel-level future prediction enables fine-grained spatiotemporal reasoning, it compromises robustness in noisy driving scenarios.",
+          "summaryRaw": "Vision-Language-Action (VLA) models augmented with world modeling represent a promising paradigm for end-to-end autonomous driving. While pixel-level future prediction enables fine-grained spatiotemporal reasoning, it compromises robustness in noisy driving scenarios. Conversely, latent-based world models alleviate this sensitivity but often incur limited interpretability and representational degradation due to absent pixel-level grounding. To reconcile this trade-off, we propose HyWorldVLA, a hybrid world-VLA framework that unifies pixel-level supervision and latent representation learning. In the pre-training stage, HyWorldVLA predicts video latents encoded by a pre-trained video VAE, while simultaneously reconstructing video frames to provide precise pixel-level grounding. During the subsequent co-fine-tuning phase, the model exclusively predicts latent features, which are fed into an action expert to generate trajectories. Extensive experiments on NAVSIM v1 and v2 benchmarks demonstrate that HyWorldVLA significantly outperforms both pixel-based and latent-based world model baselines. Notably, we present the first comprehensive qualitative and quantitative analysis of world model noise robustness in autonomous driving, establishing a new benchmark for evaluating future architectures.",
+          "link": "https://arxiv.org/abs/2607.20988v1",
+          "pdfLink": "https://arxiv.org/pdf/2607.20988v1",
+          "published": "2026-07-23T07:11:41Z",
+          "updated": "2026-07-23T07:11:41Z",
+          "authors": [
+            "Quanfu Yu",
+            "Xian Wu",
+            "Hao Xu",
+            "Liulong Ma"
+          ],
+          "categories": [
+            "cs.CV",
+            "cs.AI"
+          ],
+          "score": 84,
+          "importanceLevel": "B",
+          "lane": "Both",
+          "dimensionScores": {
+            "relevance": 62,
+            "novelty": 12,
+            "impact": 9,
+            "practicality": 7,
+            "coreAlignment": 34
+          },
+          "oneSentenceSummary": "HyWorldVLA结合像素级与潜在世界建模的自动驾驶VLA模型。",
+          "summaryCn": "HyWorldVLA提出了混合世界建模的视觉-语言-动作框架，用于端到端自动驾驶。该模型在预训练阶段同时预测视频潜变量并重建视频帧以提供像素级监督，在联合微调阶段仅预测潜变量，从而平衡鲁棒性与可解释性。该方法旨在解决纯像素预测对噪声敏感而纯潜变量表示可解释性不足的问题。",
+          "whyImportant": "提出混合世界建模方法，统一像素与潜变量优势，提升自动驾驶VLA鲁棒性与可解释性。",
+          "reasonTags": [
+            "混合世界建模",
+            "视觉-语言-动作",
+            "自动驾驶",
+            "视频预测"
+          ],
+          "innovationPoints": [
+            "提出像素与潜变量混合世界建模框架",
+            "分阶段训练策略：预训练联合重建与预测，微调专注潜变量",
+            "提升自动驾驶VLA的鲁棒性与可解释性"
+          ],
+          "noveltyVerdict": "创新性较低：混合世界建模非全新概念，但自动驾驶应用有一定整合价值。",
+          "duplicateRisk": "low",
+          "dedupeNote": "当前唯一候选论文，无重复风险。",
+          "retrievalGroups": [
+            "wam_core"
+          ],
+          "mergedCount": 1,
+          "mergedTitles": [
+            "HyWorldVLA: A Vision-Language-Action Model with Hybrid World Modeling for Autonomous Driving"
+          ]
+        }
+      ],
+      "paperSets": {
+        "overall": [
+          {
+            "id": "2607.20988v1",
+            "title": "HyWorldVLA: A Vision-Language-Action Model with Hybrid World Modeling for Autonomous Driving",
+            "summary": "Vision-Language-Action (VLA) models augmented with world modeling represent a promising paradigm for end-to-end autonomous driving. While pixel-level future prediction enables fine-grained spatiotemporal reasoning, it compromises robustness in noisy driving scenarios.",
+            "summaryRaw": "Vision-Language-Action (VLA) models augmented with world modeling represent a promising paradigm for end-to-end autonomous driving. While pixel-level future prediction enables fine-grained spatiotemporal reasoning, it compromises robustness in noisy driving scenarios. Conversely, latent-based world models alleviate this sensitivity but often incur limited interpretability and representational degradation due to absent pixel-level grounding. To reconcile this trade-off, we propose HyWorldVLA, a hybrid world-VLA framework that unifies pixel-level supervision and latent representation learning. In the pre-training stage, HyWorldVLA predicts video latents encoded by a pre-trained video VAE, while simultaneously reconstructing video frames to provide precise pixel-level grounding. During the subsequent co-fine-tuning phase, the model exclusively predicts latent features, which are fed into an action expert to generate trajectories. Extensive experiments on NAVSIM v1 and v2 benchmarks demonstrate that HyWorldVLA significantly outperforms both pixel-based and latent-based world model baselines. Notably, we present the first comprehensive qualitative and quantitative analysis of world model noise robustness in autonomous driving, establishing a new benchmark for evaluating future architectures.",
+            "link": "https://arxiv.org/abs/2607.20988v1",
+            "pdfLink": "https://arxiv.org/pdf/2607.20988v1",
+            "published": "2026-07-23T07:11:41Z",
+            "updated": "2026-07-23T07:11:41Z",
+            "authors": [
+              "Quanfu Yu",
+              "Xian Wu",
+              "Hao Xu",
+              "Liulong Ma"
+            ],
+            "categories": [
+              "cs.CV",
+              "cs.AI"
+            ],
+            "score": 84,
+            "importanceLevel": "B",
+            "lane": "Both",
+            "dimensionScores": {
+              "relevance": 62,
+              "novelty": 12,
+              "impact": 9,
+              "practicality": 7,
+              "coreAlignment": 34
+            },
+            "oneSentenceSummary": "HyWorldVLA结合像素级与潜在世界建模的自动驾驶VLA模型。",
+            "summaryCn": "HyWorldVLA提出了混合世界建模的视觉-语言-动作框架，用于端到端自动驾驶。该模型在预训练阶段同时预测视频潜变量并重建视频帧以提供像素级监督，在联合微调阶段仅预测潜变量，从而平衡鲁棒性与可解释性。该方法旨在解决纯像素预测对噪声敏感而纯潜变量表示可解释性不足的问题。",
+            "whyImportant": "提出混合世界建模方法，统一像素与潜变量优势，提升自动驾驶VLA鲁棒性与可解释性。",
+            "reasonTags": [
+              "混合世界建模",
+              "视觉-语言-动作",
+              "自动驾驶",
+              "视频预测"
+            ],
+            "innovationPoints": [
+              "提出像素与潜变量混合世界建模框架",
+              "分阶段训练策略：预训练联合重建与预测，微调专注潜变量",
+              "提升自动驾驶VLA的鲁棒性与可解释性"
+            ],
+            "noveltyVerdict": "创新性较低：混合世界建模非全新概念，但自动驾驶应用有一定整合价值。",
+            "duplicateRisk": "low",
+            "dedupeNote": "当前唯一候选论文，无重复风险。",
+            "retrievalGroups": [
+              "wam_core"
+            ],
+            "mergedCount": 1,
+            "mergedTitles": [
+              "HyWorldVLA: A Vision-Language-Action Model with Hybrid World Modeling for Autonomous Driving"
+            ]
+          }
+        ],
+        "vla": [
+          {
+            "id": "2607.20988v1",
+            "title": "HyWorldVLA: A Vision-Language-Action Model with Hybrid World Modeling for Autonomous Driving",
+            "summary": "Vision-Language-Action (VLA) models augmented with world modeling represent a promising paradigm for end-to-end autonomous driving. While pixel-level future prediction enables fine-grained spatiotemporal reasoning, it compromises robustness in noisy driving scenarios.",
+            "summaryRaw": "Vision-Language-Action (VLA) models augmented with world modeling represent a promising paradigm for end-to-end autonomous driving. While pixel-level future prediction enables fine-grained spatiotemporal reasoning, it compromises robustness in noisy driving scenarios. Conversely, latent-based world models alleviate this sensitivity but often incur limited interpretability and representational degradation due to absent pixel-level grounding. To reconcile this trade-off, we propose HyWorldVLA, a hybrid world-VLA framework that unifies pixel-level supervision and latent representation learning. In the pre-training stage, HyWorldVLA predicts video latents encoded by a pre-trained video VAE, while simultaneously reconstructing video frames to provide precise pixel-level grounding. During the subsequent co-fine-tuning phase, the model exclusively predicts latent features, which are fed into an action expert to generate trajectories. Extensive experiments on NAVSIM v1 and v2 benchmarks demonstrate that HyWorldVLA significantly outperforms both pixel-based and latent-based world model baselines. Notably, we present the first comprehensive qualitative and quantitative analysis of world model noise robustness in autonomous driving, establishing a new benchmark for evaluating future architectures.",
+            "link": "https://arxiv.org/abs/2607.20988v1",
+            "pdfLink": "https://arxiv.org/pdf/2607.20988v1",
+            "published": "2026-07-23T07:11:41Z",
+            "updated": "2026-07-23T07:11:41Z",
+            "authors": [
+              "Quanfu Yu",
+              "Xian Wu",
+              "Hao Xu",
+              "Liulong Ma"
+            ],
+            "categories": [
+              "cs.CV",
+              "cs.AI"
+            ],
+            "score": 84,
+            "importanceLevel": "B",
+            "lane": "Both",
+            "dimensionScores": {
+              "relevance": 62,
+              "novelty": 12,
+              "impact": 9,
+              "practicality": 7,
+              "coreAlignment": 34
+            },
+            "oneSentenceSummary": "HyWorldVLA结合像素级与潜在世界建模的自动驾驶VLA模型。",
+            "summaryCn": "HyWorldVLA提出了混合世界建模的视觉-语言-动作框架，用于端到端自动驾驶。该模型在预训练阶段同时预测视频潜变量并重建视频帧以提供像素级监督，在联合微调阶段仅预测潜变量，从而平衡鲁棒性与可解释性。该方法旨在解决纯像素预测对噪声敏感而纯潜变量表示可解释性不足的问题。",
+            "whyImportant": "提出混合世界建模方法，统一像素与潜变量优势，提升自动驾驶VLA鲁棒性与可解释性。",
+            "reasonTags": [
+              "混合世界建模",
+              "视觉-语言-动作",
+              "自动驾驶",
+              "视频预测"
+            ],
+            "innovationPoints": [
+              "提出像素与潜变量混合世界建模框架",
+              "分阶段训练策略：预训练联合重建与预测，微调专注潜变量",
+              "提升自动驾驶VLA的鲁棒性与可解释性"
+            ],
+            "noveltyVerdict": "创新性较低：混合世界建模非全新概念，但自动驾驶应用有一定整合价值。",
+            "duplicateRisk": "low",
+            "dedupeNote": "当前唯一候选论文，无重复风险。",
+            "retrievalGroups": [
+              "wam_core"
+            ],
+            "mergedCount": 1,
+            "mergedTitles": [
+              "HyWorldVLA: A Vision-Language-Action Model with Hybrid World Modeling for Autonomous Driving"
+            ]
+          }
+        ],
+        "wam": [
+          {
+            "id": "2607.20988v1",
+            "title": "HyWorldVLA: A Vision-Language-Action Model with Hybrid World Modeling for Autonomous Driving",
+            "summary": "Vision-Language-Action (VLA) models augmented with world modeling represent a promising paradigm for end-to-end autonomous driving. While pixel-level future prediction enables fine-grained spatiotemporal reasoning, it compromises robustness in noisy driving scenarios.",
+            "summaryRaw": "Vision-Language-Action (VLA) models augmented with world modeling represent a promising paradigm for end-to-end autonomous driving. While pixel-level future prediction enables fine-grained spatiotemporal reasoning, it compromises robustness in noisy driving scenarios. Conversely, latent-based world models alleviate this sensitivity but often incur limited interpretability and representational degradation due to absent pixel-level grounding. To reconcile this trade-off, we propose HyWorldVLA, a hybrid world-VLA framework that unifies pixel-level supervision and latent representation learning. In the pre-training stage, HyWorldVLA predicts video latents encoded by a pre-trained video VAE, while simultaneously reconstructing video frames to provide precise pixel-level grounding. During the subsequent co-fine-tuning phase, the model exclusively predicts latent features, which are fed into an action expert to generate trajectories. Extensive experiments on NAVSIM v1 and v2 benchmarks demonstrate that HyWorldVLA significantly outperforms both pixel-based and latent-based world model baselines. Notably, we present the first comprehensive qualitative and quantitative analysis of world model noise robustness in autonomous driving, establishing a new benchmark for evaluating future architectures.",
+            "link": "https://arxiv.org/abs/2607.20988v1",
+            "pdfLink": "https://arxiv.org/pdf/2607.20988v1",
+            "published": "2026-07-23T07:11:41Z",
+            "updated": "2026-07-23T07:11:41Z",
+            "authors": [
+              "Quanfu Yu",
+              "Xian Wu",
+              "Hao Xu",
+              "Liulong Ma"
+            ],
+            "categories": [
+              "cs.CV",
+              "cs.AI"
+            ],
+            "score": 84,
+            "importanceLevel": "B",
+            "lane": "Both",
+            "dimensionScores": {
+              "relevance": 62,
+              "novelty": 12,
+              "impact": 9,
+              "practicality": 7,
+              "coreAlignment": 34
+            },
+            "oneSentenceSummary": "HyWorldVLA结合像素级与潜在世界建模的自动驾驶VLA模型。",
+            "summaryCn": "HyWorldVLA提出了混合世界建模的视觉-语言-动作框架，用于端到端自动驾驶。该模型在预训练阶段同时预测视频潜变量并重建视频帧以提供像素级监督，在联合微调阶段仅预测潜变量，从而平衡鲁棒性与可解释性。该方法旨在解决纯像素预测对噪声敏感而纯潜变量表示可解释性不足的问题。",
+            "whyImportant": "提出混合世界建模方法，统一像素与潜变量优势，提升自动驾驶VLA鲁棒性与可解释性。",
+            "reasonTags": [
+              "混合世界建模",
+              "视觉-语言-动作",
+              "自动驾驶",
+              "视频预测"
+            ],
+            "innovationPoints": [
+              "提出像素与潜变量混合世界建模框架",
+              "分阶段训练策略：预训练联合重建与预测，微调专注潜变量",
+              "提升自动驾驶VLA的鲁棒性与可解释性"
+            ],
+            "noveltyVerdict": "创新性较低：混合世界建模非全新概念，但自动驾驶应用有一定整合价值。",
+            "duplicateRisk": "low",
+            "dedupeNote": "当前唯一候选论文，无重复风险。",
+            "retrievalGroups": [
+              "wam_core"
+            ],
+            "mergedCount": 1,
+            "mergedTitles": [
+              "HyWorldVLA: A Vision-Language-Action Model with Hybrid World Modeling for Autonomous Driving"
+            ]
+          }
+        ]
+      },
+      "dailyBrief": {
+        "overall": "今日关注HyWorldVLA，一种混合世界建模的视觉-语言-动作模型，用于提升自动驾驶鲁棒性与可解释性。",
+        "vla": "VLA方面：HyWorldVLA通过像素与潜变量混合世界建模增强驾驶动作预测。",
+        "wam": "WAM方面：HyWorldVLA结合视频建模与动作，探索世界模型在驾驶决策中的应用。",
+        "retrieval": "检索聚焦自动驾驶与混合世界建模的交叉领域。"
+      }
+    },
     {
       "dateKey": "20260723",
       "dateLabel": "2026-07-23",
