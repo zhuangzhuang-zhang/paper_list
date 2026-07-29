@@ -1,5 +1,5 @@
 window.PAPERS_SITE_DATA = {
-  "generatedAt": "2026-07-28T01:59:54.849796+00:00",
+  "generatedAt": "2026-07-29T02:02:35.604459+00:00",
   "description": "按北京时间每天 08:00 的固定批次归档，保留左侧历史日期归档，并使用 DeepSeek 生成精简中文摘要。",
   "dateWindowDays": 1,
   "categories": [
@@ -31,255 +31,4703 @@ window.PAPERS_SITE_DATA = {
     "practicality": "是否有真实场景、真实机器人/驾驶或较强落地信号",
     "coreAlignment": "是否属于你最关心的 VLA 或 WAM 主航道工作"
   },
-  "selectionMethod": "empty",
-  "modelInfo": null,
-  "batchWindow": {
-    "start": "2026-07-27T08:00:00+08:00",
-    "end": "2026-07-28T08:00:00+08:00"
+  "selectionMethod": "deepseek_research_assistant",
+  "modelInfo": {
+    "provider": "deepseek",
+    "model": "deepseek-v4-pro",
+    "candidateCount": 45
   },
-  "currentDateKey": "20260724",
+  "batchWindow": {
+    "start": "2026-07-28T08:00:00+08:00",
+    "end": "2026-07-29T08:00:00+08:00"
+  },
+  "currentDateKey": "20260729",
   "papers": [
     {
-      "id": "2607.20988v1",
-      "title": "HyWorldVLA: A Vision-Language-Action Model with Hybrid World Modeling for Autonomous Driving",
-      "summary": "Vision-Language-Action (VLA) models augmented with world modeling represent a promising paradigm for end-to-end autonomous driving. While pixel-level future prediction enables fine-grained spatiotemporal reasoning, it compromises robustness in noisy driving scenarios.",
-      "summaryRaw": "Vision-Language-Action (VLA) models augmented with world modeling represent a promising paradigm for end-to-end autonomous driving. While pixel-level future prediction enables fine-grained spatiotemporal reasoning, it compromises robustness in noisy driving scenarios. Conversely, latent-based world models alleviate this sensitivity but often incur limited interpretability and representational degradation due to absent pixel-level grounding. To reconcile this trade-off, we propose HyWorldVLA, a hybrid world-VLA framework that unifies pixel-level supervision and latent representation learning. In the pre-training stage, HyWorldVLA predicts video latents encoded by a pre-trained video VAE, while simultaneously reconstructing video frames to provide precise pixel-level grounding. During the subsequent co-fine-tuning phase, the model exclusively predicts latent features, which are fed into an action expert to generate trajectories. Extensive experiments on NAVSIM v1 and v2 benchmarks demonstrate that HyWorldVLA significantly outperforms both pixel-based and latent-based world model baselines. Notably, we present the first comprehensive qualitative and quantitative analysis of world model noise robustness in autonomous driving, establishing a new benchmark for evaluating future architectures.",
-      "link": "https://arxiv.org/abs/2607.20988v1",
-      "pdfLink": "https://arxiv.org/pdf/2607.20988v1",
-      "published": "2026-07-23T07:11:41Z",
-      "updated": "2026-07-23T07:11:41Z",
+      "id": "2607.25895v1",
+      "title": "HiFi-UMI: Learning Deployable Manipulation Policies from High-Fidelity UMI Data Alone",
+      "summary": "Learning deployable manipulation policies is bottlenecked by the scarcity of data that is both high-fidelity and scalable. Real-robot teleoperation is accurate but costly to scale; robot-free UMI capture scales readily, and current practice uses the resulting data mainly for pre-training, adding a small real-robot \"anchor\" at post-traini…",
+      "summaryRaw": "Learning deployable manipulation policies is bottlenecked by the scarcity of data that is both high-fidelity and scalable. Real-robot teleoperation is accurate but costly to scale; robot-free UMI capture scales readily, and current practice uses the resulting data mainly for pre-training, adding a small real-robot \"anchor\" at post-training. We ask whether raising the fidelity of robot-free UMI data, rather than shrinking the real-robot fraction, can remove that anchor. We present HiFi-UMI, a portable UMI data-production system co-designed for trajectory accuracy, inter-gripper relative pose, synchronization, and field of view: head-mounted offline stereo-inertial SLAM, native rather than reconstructed relative pose, a shared microsecond GPIO trigger, and two wide-angle cameras per hand covering ~200 degrees. It reaches 3 mm workspace-local end-effector accuracy without external tracking infrastructure. Using this corpus, we demonstrate zero-robot post-training: a policy post-trained solely on HiFi-UMI demonstrations deploys directly on a real robot and matches in-domain teleoperation across three backbones spanning the vision-language-action and world-action-model families, with success-rate differences of -2.5, +3.1, and -0.6 percentage points on StarVLA-QwenPI, OpenPI-pi_0.5, and LingBot-VA; the strongest policy reaches 85% on a precision insertion task, even though the teleoperation baseline is collected in the evaluation scene and no HiFi-UMI trajectory is. Pre-training on 4,000 hours from the same corpus lowers action error on ten unseen tasks by 41% and, on StarVLA-QwenPI, raises real-robot success by a further 18.1 percentage points. We open-source HiFi-UMI-2K, 2,000 hours of microsecond-synchronized, ultra-wide-FoV demonstrations, each automatically reconstructed and validated through simulation replay, as a large-scale, high-fidelity resource for the robot-learning community.",
+      "link": "https://arxiv.org/abs/2607.25895v1",
+      "pdfLink": "https://arxiv.org/pdf/2607.25895v1",
+      "published": "2026-07-28T15:52:02Z",
+      "updated": "2026-07-28T15:52:02Z",
       "authors": [
-        "Quanfu Yu",
-        "Xian Wu",
-        "Hao Xu",
-        "Liulong Ma"
+        "Simple AI",
+        ":",
+        "Yuteng Wei",
+        "Jinming Ma",
+        "Jiawei Wang",
+        "Weitao Zhou",
+        "Yushen Zuo",
+        "Ke Rui"
+      ],
+      "categories": [
+        "cs.RO",
+        "cs.CV",
+        "cs.LG"
+      ],
+      "score": 88,
+      "importanceLevel": "S",
+      "lane": "VLA",
+      "dimensionScores": {
+        "relevance": 85,
+        "novelty": 75,
+        "impact": 80,
+        "practicality": 90,
+        "coreAlignment": 90
+      },
+      "oneSentenceSummary": "提出高保真UMI数据采集系统，实现无需真实机器人微调的部署级操作策略学习。",
+      "summaryCn": "HiFi-UMI 是便携式通用操作接口系统，通过头戴式双目视觉与同步触发，提供毫米级末端精度。基于此采集的高保真数据，无需真实机器人锚点即可训练出可直接部署的机器人操作策略，显著降低遥操作成本并提升数据可扩展性。",
+      "whyImportant": "大幅降低机器人数据采集成本与门槛，使仿真数据可直接训练可部署策略。",
+      "reasonTags": [
+        "机器人数据采集",
+        "操作策略学习",
+        "高保真仿真",
+        "通用操作接口"
+      ],
+      "innovationPoints": [
+        "提出高精度便携式UMI系统，实现毫米级末端执行器追踪。",
+        "证明纯仿真数据不需真实锚点即可训练可部署机器人策略。",
+        "双广角相机与同步触发显著提升数据一致性与覆盖范围。"
+      ],
+      "noveltyVerdict": "率先构建无需外部跟踪的高精度便携式数据采集系统，显著提升实用性与场景适应性。",
+      "duplicateRisk": "low",
+      "dedupeNote": "首次提出完全依赖高保真UMI数据训练可部署策略，无需真实机器人数据锚点。",
+      "retrievalGroups": [
+        "category"
+      ],
+      "mergedCount": 1,
+      "mergedTitles": [
+        "HiFi-UMI: Learning Deployable Manipulation Policies from High-Fidelity UMI Data Alone"
+      ]
+    },
+    {
+      "id": "2607.25487v1",
+      "title": "CoTinyVLA: Chain-of-Thought Distillation for a Sub-Billion-Parameter Vision-Language-Action Model",
+      "summary": "Vision-Language-Action (VLA) models translate natural-language commands into robot action sequences, but leading systems on the LIBERO-Plus robustness benchmark use three- to seven-billion-parameter backbones whose memory demands can exceed embedded robotic budgets. We present CoTinyVLA, a 0.9B-parameter action model on a Qwen3.5-0.8B ba…",
+      "summaryRaw": "Vision-Language-Action (VLA) models translate natural-language commands into robot action sequences, but leading systems on the LIBERO-Plus robustness benchmark use three- to seven-billion-parameter backbones whose memory demands can exceed embedded robotic budgets. We present CoTinyVLA, a 0.9B-parameter action model on a Qwen3.5-0.8B backbone that obtains that robustness by structuring supervision instead of enlarging the model. Three components target different axes of the problem: dual-view temporal input of 16 history frames per step with textual camera and time markers; hierarchical chain-of-thought (CoT) distillation from a 35B teacher into an episode-level Plan and a chunk-level Think span over task phase, gripper state and next subaction; and paraphrase augmentation expanding 40 base commands into 800 variants. On LIBERO-Plus, spanning 10,030 perturbed tasks across seven perturbation dimensions, CoTinyVLA reaches 90.8% on Spatial, 87.3% on Object, 86.6% on Goal and 80.7% on Long, leading the strongest 7B baseline on all four suites by 4.7, 2.8, 15.9 and 3.0 points, with every margin interval excluding zero. The gains concentrate on the hardest axes of the benchmark: across the eleven published baselines none exceeds 53.2% on Robot Initial States in any suite, whereas CoTinyVLA reaches 73.6% on Goal against 39.9% for the strongest baseline. Ablations show the three components to be separable by perturbation axis, and at a matched image budget how frames are divided between the two cameras and across time accounts for 8.6 points on its own. Closed-loop inference peaks at 2.25 GiB of allocated GPU memory, and paired interventions show the episode Plan to be load-bearing: replacing it with an empty or contradictory span costs 40 to 45 points of success. Structured supervision thus lets a 0.9B backbone exceed all of them. Code: https://github.com/BrainJellyPie/CoTinyVLA",
+      "link": "https://arxiv.org/abs/2607.25487v1",
+      "pdfLink": "https://arxiv.org/pdf/2607.25487v1",
+      "published": "2026-07-28T09:24:17Z",
+      "updated": "2026-07-28T09:24:17Z",
+      "authors": [
+        "Minhyeok Lee",
+        "Chiyoung Kim",
+        "Chanhoe Gu",
+        "Seongrok Kim",
+        "Sanghyuk Roy Choi",
+        "Donghwan Hwang",
+        "Donghun Ryu",
+        "Seokhyun Kim"
+      ],
+      "categories": [
+        "cs.AI",
+        "cs.CV"
+      ],
+      "score": 85,
+      "importanceLevel": "A",
+      "lane": "VLA",
+      "dimensionScores": {
+        "relevance": 90,
+        "novelty": 80,
+        "impact": 70,
+        "practicality": 85,
+        "coreAlignment": 95
+      },
+      "oneSentenceSummary": "通过思维链蒸馏，将9亿参数VLA模型的鲁棒性提升至与大型模型相当。",
+      "summaryCn": "CoTinyVLA 在0.9B参数骨干上通过双视角时序输入、分层思维链蒸馏及指令增强，实现LIBERO-Plus鲁棒基准上与数十亿参数模型相媲美的性能，显著降低嵌入式机器人部署的内存需求，为小型化通用操作模型提供可行路径。",
+      "whyImportant": "证明小模型通过结构监督即可达到大模型鲁棒性，推动具身智能边缘化部署。",
+      "reasonTags": [
+        "小型VLA",
+        "思维链蒸馏",
+        "鲁棒性提升",
+        "具身智能"
+      ],
+      "innovationPoints": [
+        "通过分层思维链从大模型蒸馏任务规划与动作推理。",
+        "双视角时序输入增强空间感知与动作连贯性。",
+        "指令增强扩充训练分布，提升泛化能力。"
+      ],
+      "noveltyVerdict": "开创性结合小模型与思维链监督，突破参数限制，实现鲁棒性飞跃。",
+      "duplicateRisk": "low",
+      "dedupeNote": "在极小参数下首次通过结构化监督达到大型VLA的鲁棒性，无类似压缩方案。",
+      "retrievalGroups": [
+        "category"
+      ],
+      "mergedCount": 1,
+      "mergedTitles": [
+        "CoTinyVLA: Chain-of-Thought Distillation for a Sub-Billion-Parameter Vision-Language-Action Model"
+      ]
+    },
+    {
+      "id": "2607.26037v1",
+      "title": "Wonder: Video World Model Done Better",
+      "summary": "We present Wonder, a general-purpose video world model for real-time, camera-controllable world exploration. Given an image or a conditional video, Wonder constructs a playable world where users can navigate interactively by moving the camera, discovering unseen regions, and revisiting previously observed areas in real time and over a lo…",
+      "summaryRaw": "We present Wonder, a general-purpose video world model for real-time, camera-controllable world exploration. Given an image or a conditional video, Wonder constructs a playable world where users can navigate interactively by moving the camera, discovering unseen regions, and revisiting previously observed areas in real time and over a long-term horizon. Achieving this capability requires a system-level co-design of control method, memory mechanism, and training strategy. We introduce a novel camera conditioning with a dense coordinate field whose renderings provide spatially aligned motion and orientation cues, allowing the model to interpret camera motion directly as visual evidence. To support fast and precise memory retrieval over a growing generation context, we propose an efficient sparse attention-based memory mechanism, enabling the model to selectively attend to a small set of relevant context tokens at inference time, regardless of actual context length. We further develop several techniques to rectify the self-forcing-style distillation pipeline, improving the student model's ability to respect control signals, as well as maintaining diverse generation modes and long-term memory from the teacher. Together, these components enable Wonder to synthesize diverse, minute-scale videos at 16 FPS while preserving coherent geometry, appearance, and dynamics across long rollouts. Beyond image-to-video generation, Wonder naturally supports video-conditioned generation, allowing existing dynamic scenes to be re-shot in real time.",
+      "link": "https://arxiv.org/abs/2607.26037v1",
+      "pdfLink": "https://arxiv.org/pdf/2607.26037v1",
+      "published": "2026-07-28T17:45:25Z",
+      "updated": "2026-07-28T17:45:25Z",
+      "authors": [
+        "Jiacong Xu",
+        "Hanwen Jiang",
+        "Zhixin Shu",
+        "Kalyan Sunkavalli",
+        "Vishal M. Patel",
+        "Yiqun Mei"
+      ],
+      "categories": [
+        "cs.CV"
+      ],
+      "score": 60,
+      "importanceLevel": "B",
+      "lane": "WAM",
+      "dimensionScores": {
+        "relevance": 70,
+        "novelty": 65,
+        "impact": 50,
+        "practicality": 40,
+        "coreAlignment": 60
+      },
+      "oneSentenceSummary": "可交互的视频世界模型，支持实时相机控制以探索未见过环境。",
+      "summaryCn": "Wonder 构建通用视频世界模型，引入密集坐标场相机条件与高效稀疏注意力记忆机制，支持实时、长期、可操控的相机探索。用户可从单帧或条件视频出发，在生成的动态世界中自由移动视角，发现和回访已见区域，应用于虚拟现实与仿真。",
+      "whyImportant": "为交互式视频生成提供高效记忆与精准控制，助力虚拟世界构建与仿真。",
+      "reasonTags": [
+        "视频世界模型",
+        "交互式探索",
+        "相机控制",
+        "动态场景生成"
+      ],
+      "innovationPoints": [
+        "密集坐标场渲染提供空间对齐的运动和方向线索。",
+        "稀疏注意力记忆机制实现长时上下文的快速精准检索。",
+        "联合设计控制、记忆与训练策略，实现实时可操控世界模型。"
+      ],
+      "noveltyVerdict": "将世界模型与实时相机控制深度结合，记忆机制创新性解决长序列生成难题。",
+      "duplicateRisk": "low",
+      "dedupeNote": "首个联合优化相机控制与记忆机制的可交互视频世界模型，不同于纯视频生成。",
+      "retrievalGroups": [
+        "category"
+      ],
+      "mergedCount": 1,
+      "mergedTitles": [
+        "Wonder: Video World Model Done Better"
+      ]
+    },
+    {
+      "id": "2607.26005v1",
+      "title": "Pictura: Perspective-View Self-Play at Scale for Driving",
+      "summary": "Self-play in simulation produces robust driving policies at scale. Demonstrations of such behavior have been made using privileged vectorized observations such as exact poses and velocities, even for occluded agents.",
+      "summaryRaw": "Self-play in simulation produces robust driving policies at scale. Demonstrations of such behavior have been made using privileged vectorized observations such as exact poses and velocities, even for occluded agents. This assumes that perception is solved and introduces a representation gap with the partial observation of a deployed agent driving from the perspective view of egocentric cameras. A common fix, distilling the privileged policy into a camera-input student, leaves the student imitating decisions its own view cannot justify. Instead, we establish perspective-view self-play as a practical training regime. We introduce Pictura, a GPU-accelerated multi-agent driving simulator that renders each agent's egocentric view at every step, mitigating the representation gap at its source. Pictura sustains up to 500K agent-steps/s (2M images/s) on a single H100. Using Pictura, we train Alberti by self-play with plain PPO. It is the first large-scale driving self-play policy trained directly from perspective images, without privileged observations. Training spans 50B agent steps for ~35M km of driving. It approaches the driving performance of its privileged vectorized counterpart, and transfers zero-shot to Waymo Open Motion Dataset layouts re-rendered in Pictura, where it outperforms privileged vectorized agents. Project page: https://valeoai.github.io/Pictura/",
+      "link": "https://arxiv.org/abs/2607.26005v1",
+      "pdfLink": "https://arxiv.org/pdf/2607.26005v1",
+      "published": "2026-07-28T17:20:39Z",
+      "updated": "2026-07-28T17:20:39Z",
+      "authors": [
+        "Yuan Yin",
+        "Elias Ramzi",
+        "Marc Lafon",
+        "Valentin Charraut",
+        "Victor Bares",
+        "Yihong Xu",
+        "Éloi Zablocki",
+        "Alexandre Boulch"
+      ],
+      "categories": [
+        "cs.CV",
+        "cs.AI",
+        "cs.RO"
+      ],
+      "score": 48,
+      "importanceLevel": "A",
+      "lane": "Peripheral",
+      "dimensionScores": {
+        "relevance": 22,
+        "novelty": 12,
+        "impact": 22,
+        "practicality": 4,
+        "coreAlignment": 22
+      },
+      "oneSentenceSummary": "该论文是偏相关方向的重点候选，值得优先阅读。",
+      "summaryCn": "论文核心内容是：Self-play in simulation produces robust driving policies at scale.",
+      "whyImportant": "命中机器人、自动驾驶、新基准主题，分类覆盖cs.CV / cs.AI，并体现较强的新颖性与影响潜力。",
+      "reasonTags": [
+        "机器人",
+        "自动驾驶",
+        "新基准"
+      ],
+      "innovationPoints": [
+        "包含新基准或新数据评测"
+      ],
+      "noveltyVerdict": "创新点清晰，属于值得重点跟进的增量改进。",
+      "duplicateRisk": "low",
+      "dedupeNote": "该论文在Peripheral方向上具备独立问题设置或代表性贡献，可作为当日候选保留。",
+      "retrievalGroups": [
+        "category"
+      ],
+      "mergedCount": 1,
+      "mergedTitles": [
+        "Pictura: Perspective-View Self-Play at Scale for Driving"
+      ]
+    },
+    {
+      "id": "2607.25234v1",
+      "title": "WHTMix: Efficient Stereo Depth Estimation via Walsh-Hadamard Token Mixing",
+      "summary": "Stereo depth estimation for driving, robotics and augmented reality must run at high resolution under tight latency budgets, yet in transformer-based matchers the global self-attention that aggregates scene context grows quadratically with the number of pixels and comes to dominate runtime. We show that the joint self-attention stage of…",
+      "summaryRaw": "Stereo depth estimation for driving, robotics and augmented reality must run at high resolution under tight latency budgets, yet in transformer-based matchers the global self-attention that aggregates scene context grows quadratically with the number of pixels and comes to dominate runtime. We show that the joint self-attention stage of a stereo transformer, whose role is to spread context across both views, can be replaced by a data-independent Walsh-Hadamard token mixer that mixes tokens globally in the transform domain at log-linear cost, while the data-dependent cross-attention that performs left-right correspondence is retained. On synthetic driving data the mixer matches the attention baseline in end-point error while reducing model compute by a factor of 2.46 and single-image inference latency by a factor of 2.65. A complexity analysis shows the benefit is governed by the ratio of sequence length to channel width, which explains why high-resolution stereo matching is a particularly favorable setting and why classification transformers are not; we confirm this token-to-channel scaling on non-stereo long-sequence benchmarks. Furthermore, we introduce a hybrid log-disparity loss function designed to up-weight small-disparity pixels corresponding to long-range objects. This approach reduces the error on distant objects without incurring any additional computational overhead.",
+      "link": "https://arxiv.org/abs/2607.25234v1",
+      "pdfLink": "https://arxiv.org/pdf/2607.25234v1",
+      "published": "2026-07-28T03:22:46Z",
+      "updated": "2026-07-28T03:22:46Z",
+      "authors": [
+        "Prathyush Sajith",
+        "Emadeldeen Hamdan",
+        "Ahmet Enis Cetin"
+      ],
+      "categories": [
+        "cs.CV"
+      ],
+      "score": 52,
+      "importanceLevel": "A",
+      "lane": "Robotics",
+      "dimensionScores": {
+        "relevance": 36,
+        "novelty": 12,
+        "impact": 3,
+        "practicality": 4,
+        "coreAlignment": 17
+      },
+      "oneSentenceSummary": "该论文是偏机器人的重点候选，值得优先阅读。",
+      "summaryCn": "论文核心内容是：Stereo depth estimation for driving, robotics and augmented reality must run at high resolution under tight latency budgets, yet in…",
+      "whyImportant": "命中机器人、自动驾驶、新基准主题，分类覆盖cs.CV，并体现较强的新颖性与影响潜力。",
+      "reasonTags": [
+        "机器人",
+        "自动驾驶",
+        "新基准"
+      ],
+      "innovationPoints": [
+        "包含新基准或新数据评测"
+      ],
+      "noveltyVerdict": "创新点清晰，属于值得重点跟进的增量改进。",
+      "duplicateRisk": "low",
+      "dedupeNote": "该论文在Robotics方向上具备独立问题设置或代表性贡献，可作为当日候选保留。",
+      "retrievalGroups": [
+        "category"
+      ],
+      "mergedCount": 1,
+      "mergedTitles": [
+        "WHTMix: Efficient Stereo Depth Estimation via Walsh-Hadamard Token Mixing"
+      ]
+    },
+    {
+      "id": "2607.25389v1",
+      "title": "HOME: Robust Hough-space Matching Method for Structured and Textureless Videos",
+      "summary": "Visual front-ends for robotic localization typically rely on point-based features such as Oriented FAST and Rotated BRIEF (ORB), which frequently fail in structured environments dominated by strong linear structures or textureless surfaces. While line-based Simultaneous Localization and Mapping (SLAM) systems mitigate this by utilizing l…",
+      "summaryRaw": "Visual front-ends for robotic localization typically rely on point-based features such as Oriented FAST and Rotated BRIEF (ORB), which frequently fail in structured environments dominated by strong linear structures or textureless surfaces. While line-based Simultaneous Localization and Mapping (SLAM) systems mitigate this by utilizing line segments, conventional line extraction and description algorithms are computationally prohibitive for real-time edge robotics. To address this fundamental bottleneck, we propose HOME (Hough-space One-dimensional Matching of Extrema), an ultra-lightweight, training-free feature matching framework. HOME transforms images into Hough space, mapping global linear structures to stable local extrema, which serve as keypoints, thereby reformulating complex line matching into highly efficient one-dimensional point matching. The proposed 1D radial descriptor mathematically guarantees rotational and translational invariance without the overhead of explicit orientation estimation. As a proof of concept to validate the matching accuracy and efficiency of HOME, this paper focuses on homography estimation. Extensive evaluations demonstrate that HOME achieves robust registration in challenging scenarios where point-based methods fail, operating at a much faster speed than existing line-based methods. Extending this robust matching engine to full 3D pose estimation remains a highly promising future direction.",
+      "link": "https://arxiv.org/abs/2607.25389v1",
+      "pdfLink": "https://arxiv.org/pdf/2607.25389v1",
+      "published": "2026-07-28T07:47:50Z",
+      "updated": "2026-07-28T07:47:50Z",
+      "authors": [
+        "Masaki Satoh"
+      ],
+      "categories": [
+        "cs.CV",
+        "cs.RO"
+      ],
+      "score": 51,
+      "importanceLevel": "A",
+      "lane": "Robotics",
+      "dimensionScores": {
+        "relevance": 36,
+        "novelty": 7,
+        "impact": 9,
+        "practicality": 8,
+        "coreAlignment": 17
+      },
+      "oneSentenceSummary": "该论文是偏机器人的重点候选，值得优先阅读。",
+      "summaryCn": "论文核心内容是：Visual front-ends for robotic localization typically rely on point-based features such as Oriented FAST and Rotated BRIEF (ORB), wh…",
+      "whyImportant": "命中机器人、新基准主题，分类覆盖cs.CV / cs.RO，并体现较强的新颖性与影响潜力。",
+      "reasonTags": [
+        "机器人",
+        "新基准"
+      ],
+      "innovationPoints": [
+        "提出具有跟踪价值的方法设计"
+      ],
+      "noveltyVerdict": "更偏实用推进型工作，适合结合上下文继续判断。",
+      "duplicateRisk": "low",
+      "dedupeNote": "该论文在Robotics方向上具备独立问题设置或代表性贡献，可作为当日候选保留。",
+      "retrievalGroups": [
+        "category"
+      ],
+      "mergedCount": 1,
+      "mergedTitles": [
+        "HOME: Robust Hough-space Matching Method for Structured and Textureless Videos"
+      ]
+    },
+    {
+      "id": "2607.25197v1",
+      "title": "LGFNet: A CTC-Guided Local-Global Fusion Framework for Single-Channel Sleep Staging",
+      "summary": "Sleep staging remains challenging due to long-range temporal dependencies, ambiguous stage transitions-particularly in N1-and substantial distribution shifts across subjects, sampling rates, and EEG montages. These difficulties are further amplified in single-channel, low-latency scenarios required by wearable and real-world applications.",
+      "summaryRaw": "Sleep staging remains challenging due to long-range temporal dependencies, ambiguous stage transitions-particularly in N1-and substantial distribution shifts across subjects, sampling rates, and EEG montages. These difficulties are further amplified in single-channel, low-latency scenarios required by wearable and real-world applications. To address these issues, we propose LGFNet, a CTC-guided sequence-to-sequence framework for robust sleep staging. LGFNet introduces a Local-Global Fusion encoder that jointly models fine-grained temporal dynamics and long-range sleep structure, overcoming the limitations of conventional serial hybrid architectures. A CTC-Attention joint training paradigm is adopted to unify temporal alignment with context-dependent modeling, enabling more accurate recognition of stage boundaries and transitions. Furthermore, a three-stage decoding strategy is devised, leveraging CTC-guided decoding and Viterbi-based smoothing to reduce error accumulation and enforce physiological consistency. Extensive cross-dataset evaluations on five public benchmarks demonstrate that LGFNet consistently outperforms state-of-the-art single-channel methods. In particular, on Sleep-EDF-78, LGFNet surpasses DMIN by +1.27% accuracy, +1.74% macro-F1, and +1.93% kappa, with pronounced gains on N1 and transition segments, highlighting its robustness and strong generalization across diverse sampling rates, montages, and recording environments.",
+      "link": "https://arxiv.org/abs/2607.25197v1",
+      "pdfLink": "https://arxiv.org/pdf/2607.25197v1",
+      "published": "2026-07-28T02:04:00Z",
+      "updated": "2026-07-28T02:04:00Z",
+      "authors": [
+        "Chongjian Wang",
+        "Zhenghang Hou",
+        "Junjie Gao",
+        "Xiaofang Zhong",
+        "Shiyuan Han",
+        "Tong Zhang"
+      ],
+      "categories": [
+        "cs.CV"
+      ],
+      "score": 50,
+      "importanceLevel": "A",
+      "lane": "Peripheral",
+      "dimensionScores": {
+        "relevance": 3,
+        "novelty": 26,
+        "impact": 17,
+        "practicality": 7,
+        "coreAlignment": 3
+      },
+      "oneSentenceSummary": "该论文是偏相关方向的重点候选，值得优先阅读。",
+      "summaryCn": "论文核心内容是：Sleep staging remains challenging due to long-range temporal dependencies, ambiguous stage transitions-particularly in N1-and subst…",
+      "whyImportant": "命中新基准、真实实验主题，分类覆盖cs.CV，并体现较强的新颖性与影响潜力。",
+      "reasonTags": [
+        "新基准",
+        "真实实验"
+      ],
+      "innovationPoints": [
+        "包含新基准或新数据评测",
+        "涉及新的训练或预训练范式",
+        "提供真实场景实验验证"
+      ],
+      "noveltyVerdict": "创新信号强，像是带新范式或新基准的工作。",
+      "duplicateRisk": "low",
+      "dedupeNote": "该论文在Peripheral方向上具备独立问题设置或代表性贡献，可作为当日候选保留。",
+      "retrievalGroups": [
+        "category"
+      ],
+      "mergedCount": 1,
+      "mergedTitles": [
+        "LGFNet: A CTC-Guided Local-Global Fusion Framework for Single-Channel Sleep Staging"
+      ]
+    },
+    {
+      "id": "2607.25215v1",
+      "title": "Leveraging Semantic Maps for City-Scale Cross-View Localization",
+      "summary": "We want robots to localize in previously untraversed environments against commonly available prior data. Rich semantic data available from OpenStreetMap can be useful in this task.",
+      "summaryRaw": "We want robots to localize in previously untraversed environments against commonly available prior data. Rich semantic data available from OpenStreetMap can be useful in this task. However, existing methods either ignore this semantic information, directly matching panoramas and overhead imagery, or dramatically compress the semantic information, working with a small set of fixed classes. To leverage this rich semantic information, two challenges need to be overcome. First, useful semantic information needs to be extracted from the robot's egocentric observations. Second, the observed information must be quickly associated with the large prior semantic map (e.g., up to 628 km^2). We show that VLMs are effective at both extracting relevant landmarks from panoramas, and identifying feasible correspondences between these landmarks and prior overhead landmarks. However, using VLMs to propose all correspondences scales poorly as the number of mapped landmarks increases. Instead, we propose distilling a lightweight matcher from a VLM which computes correspondences for all entities in a map. We use this output to form an observation likelihood which is fused over time with a Bayes filter to create a time series of pose estimates. To support further investigation into generalizable cross-view methods that leverage semantic information, we release a dataset of extracted semantics and evaluation trajectories spanning eleven environments, including panoramas we collected in a snowstorm and at night in Boston. We demonstrate our method, trained on a single city's fair-weather data, generalizes across location, lighting, weather, and other challenges. Code and datasets are available at https://efahnestock.github.io/loci/.",
+      "link": "https://arxiv.org/abs/2607.25215v1",
+      "pdfLink": "https://arxiv.org/pdf/2607.25215v1",
+      "published": "2026-07-28T02:44:56Z",
+      "updated": "2026-07-28T02:44:56Z",
+      "authors": [
+        "Ethan Fahnestock",
+        "Erick Fuentes",
+        "Philip R Osteen",
+        "Nicholas Roy"
+      ],
+      "categories": [
+        "cs.RO",
+        "cs.CV"
+      ],
+      "score": 36,
+      "importanceLevel": "B",
+      "lane": "Peripheral",
+      "dimensionScores": {
+        "relevance": 18,
+        "novelty": 12,
+        "impact": 12,
+        "practicality": 3,
+        "coreAlignment": 17
+      },
+      "oneSentenceSummary": "该论文是偏相关方向的重点候选，值得优先阅读。",
+      "summaryCn": "论文核心内容是：We want robots to localize in previously untraversed environments against commonly available prior data.",
+      "whyImportant": "命中机器人、新基准主题，分类覆盖cs.RO / cs.CV，并体现较强的新颖性与影响潜力。",
+      "reasonTags": [
+        "机器人",
+        "新基准"
+      ],
+      "innovationPoints": [
+        "包含新基准或新数据评测"
+      ],
+      "noveltyVerdict": "创新点清晰，属于值得重点跟进的增量改进。",
+      "duplicateRisk": "low",
+      "dedupeNote": "该论文在Peripheral方向上具备独立问题设置或代表性贡献，可作为当日候选保留。",
+      "retrievalGroups": [
+        "category"
+      ],
+      "mergedCount": 1,
+      "mergedTitles": [
+        "Leveraging Semantic Maps for City-Scale Cross-View Localization"
+      ]
+    },
+    {
+      "id": "2607.25791v1",
+      "title": "FLASH: Efficient Impact Fall Detection with Unified Hypergraph State-Space Model",
+      "summary": "Falls represent a critical public health challenge, and accurate detection of the impact moment when an individual hits the ground is crucial for timely intervention. Existing skeleton-based methods rely on graph neural networks modeling only pairwise joint connections, failing to capture multi-joint coordination characteristic of fall i…",
+      "summaryRaw": "Falls represent a critical public health challenge, and accurate detection of the impact moment when an individual hits the ground is crucial for timely intervention. Existing skeleton-based methods rely on graph neural networks modeling only pairwise joint connections, failing to capture multi-joint coordination characteristic of fall impacts, while transformer-based temporal models suffer from quadratic complexity limiting real-time deployment. We propose FLASH, a novel framework integrating single-matrix hypergraph representations with Mamba's selective state-space models through adaptive feedback mechanisms for efficient impact detection. Our approach constructs biomechanically-grounded hyperedges to model functional joint coordination while leveraging Mamba's linear-time complexity to capture temporal dynamics. Experiments on UP-Fall and UMAFall datasets demonstrate that FLASH achieves state-of-the-art accuracy with real-time inference capability and strong zero-shot cross-dataset generalization, while significantly reducing computational cost compared to dual-representation and transformer-based methods. The model provides interpretable feedback through learned attention patterns aligned with biomechanical principles. Code is available at https://github.com/Tresor-Koffi/FLASH-Impact-Fall-Detection.",
+      "link": "https://arxiv.org/abs/2607.25791v1",
+      "pdfLink": "https://arxiv.org/pdf/2607.25791v1",
+      "published": "2026-07-28T14:43:07Z",
+      "updated": "2026-07-28T14:43:07Z",
+      "authors": [
+        "Tresor Y. Koffi",
+        "Youssef Mourchid",
+        "Yohan Dupuis"
+      ],
+      "categories": [
+        "cs.CV"
+      ],
+      "score": 49,
+      "importanceLevel": "A",
+      "lane": "Peripheral",
+      "dimensionScores": {
+        "relevance": 3,
+        "novelty": 21,
+        "impact": 16,
+        "practicality": 12,
+        "coreAlignment": 3
+      },
+      "oneSentenceSummary": "该论文是偏相关方向的重点候选，值得优先阅读。",
+      "summaryCn": "论文核心内容是：Falls represent a critical public health challenge, and accurate detection of the impact moment when an individual hits the ground…",
+      "whyImportant": "命中新基准、通用框架主题，分类覆盖cs.CV，并体现较强的新颖性与影响潜力。",
+      "reasonTags": [
+        "新基准",
+        "通用框架"
+      ],
+      "innovationPoints": [
+        "包含新基准或新数据评测"
+      ],
+      "noveltyVerdict": "创新信号强，像是带新范式或新基准的工作。",
+      "duplicateRisk": "low",
+      "dedupeNote": "该论文在Peripheral方向上具备独立问题设置或代表性贡献，可作为当日候选保留。",
+      "retrievalGroups": [
+        "category"
+      ],
+      "mergedCount": 1,
+      "mergedTitles": [
+        "FLASH: Efficient Impact Fall Detection with Unified Hypergraph State-Space Model"
+      ]
+    },
+    {
+      "id": "2607.25524v1",
+      "title": "ReLATE: Reliability-Guided Evidence Fusion for Robust UAV--Satellite cross-view Geo-Localization",
+      "summary": "Unmanned aerial vehicle (UAV)-satellite cross-view geo-localization matches UAV images against satellite imagery and has achieved impressive accuracy on clean (non-degraded) image benchmarks. In real-world flights, however, UAV observations are frequently affected by adverse weather, illumination changes, platform motion, sensor noise, a…",
+      "summaryRaw": "Unmanned aerial vehicle (UAV)-satellite cross-view geo-localization matches UAV images against satellite imagery and has achieved impressive accuracy on clean (non-degraded) image benchmarks. In real-world flights, however, UAV observations are frequently affected by adverse weather, illumination changes, platform motion, sensor noise, and compression, while the robustness of existing methods under such degradations remains largely unexamined. In this paper, we present UAVSat-Deg, a large-scale robustness benchmark for degraded UAV-satellite geo-localization, comprising University-1652-Deg and SUES-200-Deg. UAVSat-Deg covers 27 corruption types, including 19 core and 8 compound corruptions, at three severity levels, supports bidirectional drone-to-satellite and satellite-to-drone retrieval as well as multi-height UAV acquisition, and contains more than 11.7 million pre-generated corrupted test images. Benchmarking representative methods under this protocol reveals substantial robustness gaps, particularly under severe and compound corruptions. To address this problem, we propose ReLATE, a Reliable Evidence Learning framework with Adaptive Token Evidence Regulation, which realizes reliability-adaptive feature fusion during descriptor construction. ReLATE estimates a structure-smoothed reliability field over visual tokens, aggregates trustworthy local evidence, and adaptively integrates it into query-derived representations; the regulated query representations are then combined with the CLS-token and GeM-pooled branches to form the final cross-view descriptor. Across both test sets and retrieval directions, ReLATE achieves the best average corrupted-test performance among the compared methods while maintaining competitive accuracy on clean images. The code and dataset will be available at https://github.com/JHC626/ReLATE.",
+      "link": "https://arxiv.org/abs/2607.25524v1",
+      "pdfLink": "https://arxiv.org/pdf/2607.25524v1",
+      "published": "2026-07-28T10:07:18Z",
+      "updated": "2026-07-28T10:07:18Z",
+      "authors": [
+        "Haochen Jiang",
+        "Jialei Pan",
+        "Yuzhe Sun",
+        "Zhe Dong",
+        "Lecheng Ren",
+        "Yanfeng Gu",
+        "Tianzhu Liu"
       ],
       "categories": [
         "cs.CV",
         "cs.AI"
       ],
-      "score": 84,
+      "score": 44,
       "importanceLevel": "B",
-      "lane": "Both",
+      "lane": "Peripheral",
       "dimensionScores": {
-        "relevance": 62,
-        "novelty": 12,
-        "impact": 9,
+        "relevance": 6,
+        "novelty": 17,
+        "impact": 20,
         "practicality": 7,
-        "coreAlignment": 34
+        "coreAlignment": 6
       },
-      "oneSentenceSummary": "HyWorldVLA结合像素级与潜在世界建模的自动驾驶VLA模型。",
-      "summaryCn": "HyWorldVLA提出了混合世界建模的视觉-语言-动作框架，用于端到端自动驾驶。该模型在预训练阶段同时预测视频潜变量并重建视频帧以提供像素级监督，在联合微调阶段仅预测潜变量，从而平衡鲁棒性与可解释性。该方法旨在解决纯像素预测对噪声敏感而纯潜变量表示可解释性不足的问题。",
-      "whyImportant": "提出混合世界建模方法，统一像素与潜变量优势，提升自动驾驶VLA鲁棒性与可解释性。",
+      "oneSentenceSummary": "该论文是偏相关方向的重点候选，值得优先阅读。",
+      "summaryCn": "论文核心内容是：Unmanned aerial vehicle (UAV)-satellite cross-view geo-localization matches UAV images against satellite imagery and has achieved i…",
+      "whyImportant": "命中新基准、真实实验主题，分类覆盖cs.CV / cs.AI，并体现较强的新颖性与影响潜力。",
       "reasonTags": [
-        "混合世界建模",
-        "视觉-语言-动作",
-        "自动驾驶",
-        "视频预测"
+        "新基准",
+        "真实实验"
       ],
       "innovationPoints": [
-        "提出像素与潜变量混合世界建模框架",
-        "分阶段训练策略：预训练联合重建与预测，微调专注潜变量",
-        "提升自动驾驶VLA的鲁棒性与可解释性"
+        "包含新基准或新数据评测",
+        "提供真实场景实验验证"
       ],
-      "noveltyVerdict": "创新性较低：混合世界建模非全新概念，但自动驾驶应用有一定整合价值。",
+      "noveltyVerdict": "创新点清晰，属于值得重点跟进的增量改进。",
       "duplicateRisk": "low",
-      "dedupeNote": "当前唯一候选论文，无重复风险。",
+      "dedupeNote": "该论文在Peripheral方向上具备独立问题设置或代表性贡献，可作为当日候选保留。",
       "retrievalGroups": [
-        "wam_core"
+        "category"
       ],
       "mergedCount": 1,
       "mergedTitles": [
-        "HyWorldVLA: A Vision-Language-Action Model with Hybrid World Modeling for Autonomous Driving"
+        "ReLATE: Reliability-Guided Evidence Fusion for Robust UAV--Satellite cross-view Geo-Localization"
+      ]
+    },
+    {
+      "id": "2607.25242v1",
+      "title": "Medical world models in healthcare: foundations, applications, and challenges for trustworthy clinical translation",
+      "summary": "Medical world models offer a framework for extending medical artificial intelligence beyond static prediction by representing evolving patient states and modelling how they change over time and in response to clinical interventions. This Review defines the conceptual boundaries, technical foundations, application domains, and evidence re…",
+      "summaryRaw": "Medical world models offer a framework for extending medical artificial intelligence beyond static prediction by representing evolving patient states and modelling how they change over time and in response to clinical interventions. This Review defines the conceptual boundaries, technical foundations, application domains, and evidence requirements of the field through a structured narrative synthesis with reproducible evidence mapping.We screened 1,455 unique records and assembled a corpus of 98 sources, including 14 studies that met a strict empirical definition of a medical world model. The field is organised around four capabilities: patient state representation, temporal dynamics modelling, intervention-conditioned simulation, and clinician-supervised planning. Evidence spans medical imaging, longitudinal electronic health records, treatment response modelling, physiological and multimodal state modelling, ultrasound and surgical interaction, and population and health-system simulation; clinical digital twins are treated as a cross-cutting integration framework.Current studies provide early evidence of technical feasibility for trajectory forecasting and comparison of candidate interventions, but most remain retrospective, task-specific, or preclinical. The evidence base is further limited by incomplete longitudinal intervention data, inconsistent action semantics, limited causal identifiability, long-horizon error accumulation, inadequate uncertainty estimation, and limited external validation. Clinical translation will therefore depend on precise intervention representations, robust causal and mechanistic grounding, calibrated trajectory-level uncertainty, safety-constrained planning, and prospective multicentre validation against clinically meaningful endpoints.",
+      "link": "https://arxiv.org/abs/2607.25242v1",
+      "pdfLink": "https://arxiv.org/pdf/2607.25242v1",
+      "published": "2026-07-28T03:35:47Z",
+      "updated": "2026-07-28T03:35:47Z",
+      "authors": [
+        "Zhaoyan Chen",
+        "Zhongxiu Cong",
+        "Zhuanfeng Jin",
+        "Wanshu Fan",
+        "Dongsheng Zhou",
+        "Qi Ai",
+        "Haifan Gong",
+        "Congyu Liao"
+      ],
+      "categories": [
+        "cs.CV"
+      ],
+      "score": 39,
+      "importanceLevel": "B",
+      "lane": "Peripheral",
+      "dimensionScores": {
+        "relevance": 19,
+        "novelty": 12,
+        "impact": 3,
+        "practicality": 8,
+        "coreAlignment": 11
+      },
+      "oneSentenceSummary": "该论文是偏相关方向的重点候选，值得优先阅读。",
+      "summaryCn": "论文核心内容是：Medical world models offer a framework for extending medical artificial intelligence beyond static prediction by representing evolv…",
+      "whyImportant": "命中WAM、通用框架主题，分类覆盖cs.CV，并体现较强的新颖性与影响潜力。",
+      "reasonTags": [
+        "WAM",
+        "通用框架"
+      ],
+      "innovationPoints": [
+        "提出具有跟踪价值的方法设计"
+      ],
+      "noveltyVerdict": "创新点清晰，属于值得重点跟进的增量改进。",
+      "duplicateRisk": "low",
+      "dedupeNote": "该论文在Peripheral方向上具备独立问题设置或代表性贡献，可作为当日候选保留。",
+      "retrievalGroups": [
+        "category"
+      ],
+      "mergedCount": 1,
+      "mergedTitles": [
+        "Medical world models in healthcare: foundations, applications, and challenges for trustworthy clinical translation"
+      ]
+    },
+    {
+      "id": "2607.25778v1",
+      "title": "A Unified Benchmark and Modality-Adaptive Network for Day-and-Night Drone-View Geo-Localization",
+      "summary": "Most existing drone-view geo-localization (DVGL) benchmarks contain drone imagery captured under a single illumination condition and lack geographically aligned visible drone images, infrared drone images, and satellite images from the same locations. To evaluate the generalization capability of DVGL methods under challenging illuminatio…",
+      "summaryRaw": "Most existing drone-view geo-localization (DVGL) benchmarks contain drone imagery captured under a single illumination condition and lack geographically aligned visible drone images, infrared drone images, and satellite images from the same locations. To evaluate the generalization capability of DVGL methods under challenging illumination conditions, some methods train models on a visible benchmark and test them on an independent infrared benchmark. This protocol essentially constitutes transfer between datasets, which makes it difficult to systematically evaluate DVGL across daytime and nighttime conditions within a unified benchmark. To address this limitation, we construct IRCHN,a real-world DVGL benchmark designed for localization across different illumination conditions. IRCHN contains 26,460 images collected from 8,820 geographic locations across four representative scene categories, including farmland, coastline, forest, and urban areas. Each location provides one visible drone image, one infrared drone image, and one corresponding satellite image, which enables unified evaluation of DVGL methods across different illumination conditions and sensing modalities. We further propose the Modality-Adaptive State-Space Transport Relation Network (MASTR-Net), a DVGL framework tailored to localization under varying illumination conditions. MASTR-Net integrates modality-adaptive feature enhancement, bidirectional selective state-space relation modeling, and soft optimal transport relation alignment to jointly reduce modality gaps and view-induced structural discrepancies. Extensive experiments demonstrate that MASTR-Net outperforms existing state-of-the-art methods on IRCHN for localization under varying illumination conditions and achieves competitive performance on two infrared benchmarks, IR-VL328 and CVGL-RGBT. Code: https://github.com/SongtianhaoXu/MASTR-Net",
+      "link": "https://arxiv.org/abs/2607.25778v1",
+      "pdfLink": "https://arxiv.org/pdf/2607.25778v1",
+      "published": "2026-07-28T14:34:57Z",
+      "updated": "2026-07-28T14:34:57Z",
+      "authors": [
+        "Songtianhao Xu",
+        "Zhongwei Chen",
+        "Zhao-Xu Yang",
+        "Weifeng Wang"
+      ],
+      "categories": [
+        "cs.CV"
+      ],
+      "score": 46,
+      "importanceLevel": "B",
+      "lane": "Peripheral",
+      "dimensionScores": {
+        "relevance": 3,
+        "novelty": 26,
+        "impact": 17,
+        "practicality": 3,
+        "coreAlignment": 3
+      },
+      "oneSentenceSummary": "该论文是偏相关方向的重点候选，值得优先阅读。",
+      "summaryCn": "论文核心内容是：Most existing drone-view geo-localization (DVGL) benchmarks contain drone imagery captured under a single illumination condition an…",
+      "whyImportant": "命中新基准、通用框架、真实实验主题，分类覆盖cs.CV，并体现较强的新颖性与影响潜力。",
+      "reasonTags": [
+        "新基准",
+        "通用框架",
+        "真实实验"
+      ],
+      "innovationPoints": [
+        "包含新基准或新数据评测",
+        "提供真实场景实验验证"
+      ],
+      "noveltyVerdict": "创新信号强，像是带新范式或新基准的工作。",
+      "duplicateRisk": "low",
+      "dedupeNote": "该论文在Peripheral方向上具备独立问题设置或代表性贡献，可作为当日候选保留。",
+      "retrievalGroups": [
+        "category"
+      ],
+      "mergedCount": 1,
+      "mergedTitles": [
+        "A Unified Benchmark and Modality-Adaptive Network for Day-and-Night Drone-View Geo-Localization"
+      ]
+    },
+    {
+      "id": "2607.25497v1",
+      "title": "Beyond Counts: A Distributional Robustness Margin For Pathology Foundation Models",
+      "summary": "Pathology foundation models are approaching clinical deployment, yet remain vulnerable to systematic non-biological variation across centres. Differences in tissue preparation, staining and scanning are strongly encoded in their representations, enabling shortcut learning and weakening generalisation across cohorts and institutions.",
+      "summaryRaw": "Pathology foundation models are approaching clinical deployment, yet remain vulnerable to systematic non-biological variation across centres. Differences in tissue preparation, staining and scanning are strongly encoded in their representations, enabling shortcut learning and weakening generalisation across cohorts and institutions. The Robustness Index (RI) quantifies whether local representation geometry is dominated by biology or by non-biological variation, but its count-based formulation discards distance information. We show that adding distance weights changes little because the deeper limitation lies in RI's pooled, fixed-neighbourhood design, which obscures sample-level heterogeneity and effectively evaluates only a model-dependent subset of samples. We introduce the Cross-confounder Robustness Margin (CRoMa), a sample-resolved measure that directly compares distances to cross-confounder biological matches and same-confounder biological distractors. CRoMa recasts robustness as a cohort-wide margin distribution rather than a single pooled score. We evaluated frozen representations from 20 tile-level encoders across three benchmarks and 4 slide-level encoders on a fourth. Rankings by median CRoMa were broadly consistent across datasets, while the underlying distributions revealed substantial within-model heterogeneity. Every tile encoder retained a confounder-dominated lower tail, whose prevalence and severity varied markedly across models. These distinct robustness profiles frame model selection as a Pareto trade-off between typical and lower-tail robustness. Higher CRoMa was also associated with smaller shortcut-induced performance drops after supervised adaptation. By turning representation geometry into a distributional robustness readout that anticipates downstream shortcut susceptibility, CRoMa provides a principled basis for robustness assessment and model selection.",
+      "link": "https://arxiv.org/abs/2607.25497v1",
+      "pdfLink": "https://arxiv.org/pdf/2607.25497v1",
+      "published": "2026-07-28T09:34:30Z",
+      "updated": "2026-07-28T09:34:30Z",
+      "authors": [
+        "Clément Grisi",
+        "Jeroen van der Laak",
+        "Geert Litjens"
+      ],
+      "categories": [
+        "cs.CV",
+        "cs.AI"
+      ],
+      "score": 43,
+      "importanceLevel": "B",
+      "lane": "Peripheral",
+      "dimensionScores": {
+        "relevance": 6,
+        "novelty": 22,
+        "impact": 9,
+        "practicality": 12,
+        "coreAlignment": 6
+      },
+      "oneSentenceSummary": "该论文是偏相关方向的重点候选，值得优先阅读。",
+      "summaryCn": "论文核心内容是：Pathology foundation models are approaching clinical deployment, yet remain vulnerable to systematic non-biological variation acros…",
+      "whyImportant": "命中新基准、通用框架主题，分类覆盖cs.CV / cs.AI，并体现较强的新颖性与影响潜力。",
+      "reasonTags": [
+        "新基准",
+        "通用框架"
+      ],
+      "innovationPoints": [
+        "包含新基准或新数据评测"
+      ],
+      "noveltyVerdict": "创新信号强，像是带新范式或新基准的工作。",
+      "duplicateRisk": "low",
+      "dedupeNote": "该论文在Peripheral方向上具备独立问题设置或代表性贡献，可作为当日候选保留。",
+      "retrievalGroups": [
+        "category"
+      ],
+      "mergedCount": 1,
+      "mergedTitles": [
+        "Beyond Counts: A Distributional Robustness Margin For Pathology Foundation Models"
+      ]
+    },
+    {
+      "id": "2607.25926v1",
+      "title": "Face De-Identification: A Domain-Centric Survey from Capture to Processing",
+      "summary": "Face de-identification (De-ID) aims to remove or conceal personally identifiable facial features in images or videos to prevent identity recognition while preserving utility for downstream tasks. With the rising emphasis on data privacy and responsible AI, face De-ID has emerged as an active research area spanning computer vision and pri…",
+      "summaryRaw": "Face de-identification (De-ID) aims to remove or conceal personally identifiable facial features in images or videos to prevent identity recognition while preserving utility for downstream tasks. With the rising emphasis on data privacy and responsible AI, face De-ID has emerged as an active research area spanning computer vision and privacy-preserving communities. Early approaches, and many contemporary ones, operate in the digital domain by modifying pixel-level or appearance-level features through post-capture processing. Recent advances extend face De-ID beyond post-processing by integrating privacy mechanisms directly into sensors during image acquisition, bridging sensing systems and downstream vision algorithms. In parallel, physical-domain methods explore wearable accessories and materials that conceal identity information in real-world environments prior to capture. In this survey, we present the first unified overview that spans the full data acquisition pipeline, encompassing the physical, sensor, and digital domains. Through this domain-centric lens, we systematically analyze current methodologies, technical progress, and the distinct challenges inherent to each stage. We then review and organize existing evaluation protocols, examining current practices and highlighting the critical need for standardized, comprehensive benchmarks. Finally, we identify key open problems and outline emerging research directions to guide future work in this rapidly evolving field. To support ongoing research, we maintain a project page that organizes relevant literature with collected datasets and open source code: https://github.com/CV-AC/Awesome-FaceDe-ID.",
+      "link": "https://arxiv.org/abs/2607.25926v1",
+      "pdfLink": "https://arxiv.org/pdf/2607.25926v1",
+      "published": "2026-07-28T16:15:12Z",
+      "updated": "2026-07-28T16:15:12Z",
+      "authors": [
+        "Hui Wei",
+        "Hao Yu",
+        "Guoying Zhao"
+      ],
+      "categories": [
+        "cs.CV",
+        "cs.AI"
+      ],
+      "score": 40,
+      "importanceLevel": "B",
+      "lane": "Peripheral",
+      "dimensionScores": {
+        "relevance": 6,
+        "novelty": 22,
+        "impact": 15,
+        "practicality": 3,
+        "coreAlignment": 6
+      },
+      "oneSentenceSummary": "该论文是偏相关方向的重点候选，值得优先阅读。",
+      "summaryCn": "论文核心内容是：Face de-identification (De-ID) aims to remove or conceal personally identifiable facial features in images or videos to prevent ide…",
+      "whyImportant": "命中新基准、通用框架、真实实验主题，分类覆盖cs.CV / cs.AI，并体现较强的新颖性与影响潜力。",
+      "reasonTags": [
+        "新基准",
+        "通用框架",
+        "真实实验"
+      ],
+      "innovationPoints": [
+        "包含新基准或新数据评测",
+        "提供真实场景实验验证"
+      ],
+      "noveltyVerdict": "创新信号强，像是带新范式或新基准的工作。",
+      "duplicateRisk": "low",
+      "dedupeNote": "该论文在Peripheral方向上具备独立问题设置或代表性贡献，可作为当日候选保留。",
+      "retrievalGroups": [
+        "category"
+      ],
+      "mergedCount": 1,
+      "mergedTitles": [
+        "Face De-Identification: A Domain-Centric Survey from Capture to Processing"
+      ]
+    },
+    {
+      "id": "2607.25294v1",
+      "title": "CLBench-V: Evaluating Multimodal Context Learning from Grounding to Knowledge Acquisition",
+      "summary": "Real-world tasks often require models to learn from task-specific context rather than relying only on pre-trained knowledge. While recent work has highlighted this capability as context learning, existing evaluations mainly focus on textual contexts.",
+      "summaryRaw": "Real-world tasks often require models to learn from task-specific context rather than relying only on pre-trained knowledge. While recent work has highlighted this capability as context learning, existing evaluations mainly focus on textual contexts. In many practical settings, however, the context to be learned from is multimodal: scientific findings are conveyed through figures and tables, financial indicators are scattered across converted reports, and spatial decisions depend on maps, scenes, or web pages. We introduce CLBench-V, a benchmark for multimodal context learning that addresses the difficulty of localizing where context use breaks down by organizing tasks around three dimensions: context grounding, new information application, and new knowledge learning. CLBench-V combines converted public benchmarks with newly constructed datasets spanning domains such as science, finance, long-document understanding, spatial reasoning, and web-based visual question answering. To reduce the cost of constructing domain-specific context-learning tasks, we further use automated construction and filtering procedures for our newly built datasets. Across 3,443 instances and six recent multimodal models, the best overall score is only 0.2847, indicating that multimodal context learning remains far from saturated. Moreover, InternVL3.5-30B-A3B performs best on context grounding and new knowledge learning, while Qwen3.5-Plus performs best on new information application. We further analyze judge reliability, context length, image count, and representative failure cases. Code is available at https://github.com/IamLihua/CLBench-V.",
+      "link": "https://arxiv.org/abs/2607.25294v1",
+      "pdfLink": "https://arxiv.org/pdf/2607.25294v1",
+      "published": "2026-07-28T05:06:43Z",
+      "updated": "2026-07-28T05:06:43Z",
+      "authors": [
+        "Lai Wei",
+        "Chengqi Li",
+        "Jiapeng Li",
+        "Ruina Hu",
+        "Yue Wang",
+        "Weiran Huang"
+      ],
+      "categories": [
+        "cs.CV",
+        "cs.AI",
+        "cs.LG"
+      ],
+      "score": 37,
+      "importanceLevel": "B",
+      "lane": "Peripheral",
+      "dimensionScores": {
+        "relevance": 8,
+        "novelty": 17,
+        "impact": 17,
+        "practicality": 3,
+        "coreAlignment": 8
+      },
+      "oneSentenceSummary": "该论文是偏相关方向的重点候选，值得优先阅读。",
+      "summaryCn": "论文核心内容是：Real-world tasks often require models to learn from task-specific context rather than relying only on pre-trained knowledge.",
+      "whyImportant": "命中新基准、真实实验主题，分类覆盖cs.CV / cs.AI，并体现较强的新颖性与影响潜力。",
+      "reasonTags": [
+        "新基准",
+        "真实实验"
+      ],
+      "innovationPoints": [
+        "包含新基准或新数据评测",
+        "提供真实场景实验验证"
+      ],
+      "noveltyVerdict": "创新点清晰，属于值得重点跟进的增量改进。",
+      "duplicateRisk": "low",
+      "dedupeNote": "该论文在Peripheral方向上具备独立问题设置或代表性贡献，可作为当日候选保留。",
+      "retrievalGroups": [
+        "category"
+      ],
+      "mergedCount": 1,
+      "mergedTitles": [
+        "CLBench-V: Evaluating Multimodal Context Learning from Grounding to Knowledge Acquisition"
+      ]
+    },
+    {
+      "id": "2607.25210v1",
+      "title": "ObliCity: A Benchmark and Baseline for Roof-to-Ground Projection Displacement Correction",
+      "summary": "Oblique-view urban remote sensing imagery inevitably exhibits geometric projection displacements between building roofs and footprints, leading to significant distortions in spatial structure. Existing approaches either ignore these deformations or handle them implicitly within segmentation-based frameworks, where progress is dominated b…",
+      "summaryRaw": "Oblique-view urban remote sensing imagery inevitably exhibits geometric projection displacements between building roofs and footprints, leading to significant distortions in spatial structure. Existing approaches either ignore these deformations or handle them implicitly within segmentation-based frameworks, where progress is dominated by general segmentation advances rather than improvements in geometric correction. In this work, we explicitly define roof-to-footprint offset vector (RFOV) extraction as an independent learning task that decouples geometric alignment from semantic segmentation. To support this task, we introduce the Oblique City dataset (ObliCity), the first large-scale benchmark that integrates high-resolution UAV imagery and globally distributed satellite data, covering diverse city morphologies and camera perspectives. Methodologically, we reformulate DragOSM into DragRoof, an ODE-based framework inspired by human annotation behavior. By simulating the continuous process of dragging roofs toward their footprints, DragRoof learns deterministic, geometry-consistent offset fields and adaptively determines convergence through an end token. Extensive experiments on ObliCity demonstrate that DragRoof achieves state-of-the-art RFOV extraction performance, requiring fewer inference steps while delivering superior directional and length accuracy. Our dataset and model establish a principled foundation for studying projection displacement correction in oblique remote sensing imagery. The source code and dataset will be avaliable at https://github.com/likaiucas/DragRoof.",
+      "link": "https://arxiv.org/abs/2607.25210v1",
+      "pdfLink": "https://arxiv.org/pdf/2607.25210v1",
+      "published": "2026-07-28T02:31:47Z",
+      "updated": "2026-07-28T02:31:47Z",
+      "authors": [
+        "Kai Li",
+        "Yupeng Deng",
+        "Ligao Deng",
+        "Zhihao Xi",
+        "Chenhao Wang",
+        "Jierui Zhang",
+        "Yingrui Ji",
+        "Yu Meng"
+      ],
+      "categories": [
+        "cs.CV"
+      ],
+      "score": 41,
+      "importanceLevel": "B",
+      "lane": "Peripheral",
+      "dimensionScores": {
+        "relevance": 3,
+        "novelty": 22,
+        "impact": 16,
+        "practicality": 3,
+        "coreAlignment": 3
+      },
+      "oneSentenceSummary": "该论文是偏相关方向的重点候选，值得优先阅读。",
+      "summaryCn": "论文核心内容是：Oblique-view urban remote sensing imagery inevitably exhibits geometric projection displacements between building roofs and footpri…",
+      "whyImportant": "命中新基准、通用框架主题，分类覆盖cs.CV，并体现较强的新颖性与影响潜力。",
+      "reasonTags": [
+        "新基准",
+        "通用框架"
+      ],
+      "innovationPoints": [
+        "包含新基准或新数据评测"
+      ],
+      "noveltyVerdict": "创新信号强，像是带新范式或新基准的工作。",
+      "duplicateRisk": "low",
+      "dedupeNote": "该论文在Peripheral方向上具备独立问题设置或代表性贡献，可作为当日候选保留。",
+      "retrievalGroups": [
+        "category"
+      ],
+      "mergedCount": 1,
+      "mergedTitles": [
+        "ObliCity: A Benchmark and Baseline for Roof-to-Ground Projection Displacement Correction"
+      ]
+    },
+    {
+      "id": "2607.25393v1",
+      "title": "Towards Reliable Stain Transfer: An Iterative Data-Model Co-Optimization Framework Based on Multimodal Expert-Guided Assessment",
+      "summary": "Histopathological examination primarily relies on hematoxylin and eosin (H&E) and immunohistochemistry (IHC) staining. Although IHC provides critical molecular information, it is costly and requires specialized expertise.",
+      "summaryRaw": "Histopathological examination primarily relies on hematoxylin and eosin (H&E) and immunohistochemistry (IHC) staining. Although IHC provides critical molecular information, it is costly and requires specialized expertise. Stain transfer provides an efficient alternative by computationally generating IHC from H&E images, but remains challenged by unified and interpretable modeling for heterogeneous biomarkers under pixel-unaligned supervision. We propose DMCoStain, a novel Data-Model Co-optimization framework for Stain transfer. It iteratively co-refines training data and model capability, improving staining accuracy and interpretability in both pathological and structural consistency. To refine training data in a clinically meaningful manner, it incorporates the Multimodal Expert-Guided Finer Selection (MEGFS) strategy, built upon a pioneering IHC-positive-expression (IPE) vision-language model (VLM) that emulates pathologist reasoning. To support MEGFS, we construct ImmunoInstruction, the first large-scale IPE instruction-following dataset with 150K VQA samples. Extensive experiments on multiple tissues and biomarkers demonstrate that DMCoStain achieves state-of-the-art (SOTA) accuracy. This paradigm offers strong practical value, and MEGFS also functions as a specialized evaluation tool for future model development. Dataset, code, and more details are in https://github.com/SikangSHU/DMCoStain.",
+      "link": "https://arxiv.org/abs/2607.25393v1",
+      "pdfLink": "https://arxiv.org/pdf/2607.25393v1",
+      "published": "2026-07-28T07:54:43Z",
+      "updated": "2026-07-28T07:54:43Z",
+      "authors": [
+        "Siyuan Xu",
+        "Yan Wang",
+        "Haofei Song",
+        "Lili Gao",
+        "Jiansheng Wang",
+        "Qing Zhang",
+        "Dan Huang",
+        "Boxiang Yun"
+      ],
+      "categories": [
+        "cs.CV"
+      ],
+      "score": 40,
+      "importanceLevel": "B",
+      "lane": "Peripheral",
+      "dimensionScores": {
+        "relevance": 3,
+        "novelty": 17,
+        "impact": 16,
+        "practicality": 7,
+        "coreAlignment": 3
+      },
+      "oneSentenceSummary": "该论文是偏相关方向的重点候选，值得优先阅读。",
+      "summaryCn": "论文核心内容是：Histopathological examination primarily relies on hematoxylin and eosin (H&E) and immunohistochemistry (IHC) staining.",
+      "whyImportant": "命中新基准、通用框架主题，分类覆盖cs.CV，并体现较强的新颖性与影响潜力。",
+      "reasonTags": [
+        "新基准",
+        "通用框架"
+      ],
+      "innovationPoints": [
+        "包含新基准或新数据评测"
+      ],
+      "noveltyVerdict": "创新点清晰，属于值得重点跟进的增量改进。",
+      "duplicateRisk": "low",
+      "dedupeNote": "该论文在Peripheral方向上具备独立问题设置或代表性贡献，可作为当日候选保留。",
+      "retrievalGroups": [
+        "category"
+      ],
+      "mergedCount": 1,
+      "mergedTitles": [
+        "Towards Reliable Stain Transfer: An Iterative Data-Model Co-Optimization Framework Based on Multimodal Expert-Guided Assessment"
+      ]
+    },
+    {
+      "id": "2607.25392v1",
+      "title": "RDVSv2: A Large-scale Benchmark for RGB-D Video Salient Object Detection",
+      "summary": "We introduce RDVSv2, a large-scale benchmark for RGB-D video salient object detection (RGB-D VSOD) with dense frame-level annotations. Existing datasets in this emerging field are often limited in scale and annotation quality, while also relying on less geometry-consistent depth cues.",
+      "summaryRaw": "We introduce RDVSv2, a large-scale benchmark for RGB-D video salient object detection (RGB-D VSOD) with dense frame-level annotations. Existing datasets in this emerging field are often limited in scale and annotation quality, while also relying on less geometry-consistent depth cues. To address these limitations, RDVSv2 is built from publicly accessible stereoscopic online videos and contains 249 video sequences with 29,077 annotated frames. It includes depth maps derived from stereoscopic videos, together with frame-wise salient object masks annotated with eye-tracking guidance. Compared with existing datasets, RDVSv2 is much larger in scale and covers more diverse and challenging scenarios. In addition, we establish a strong baseline for RGB-D VSOD based on Segment Anything Model 2 (SAM2). Specifically, we employ a parameter-efficient fine-tuning (PEFT) strategy to adapt the SAM2 encoder to jointly encode RGB, depth, and optical flow cues. Extensive experiments show that RDVSv2 is substantially more challenging for existing RGB-D VSOD methods. Meanwhile, the proposed baseline achieves state-of-the-art results on RDVSv2 and existing RGB-D VSOD benchmarks. We hope that RDVSv2 and the provided baseline will serve as useful resources for future research on RGB-D VSOD and related multi-modal video understanding tasks. Our dataset and code will be available at https://github.com/ltynick/RDVSv2.",
+      "link": "https://arxiv.org/abs/2607.25392v1",
+      "pdfLink": "https://arxiv.org/pdf/2607.25392v1",
+      "published": "2026-07-28T07:54:03Z",
+      "updated": "2026-07-28T07:54:03Z",
+      "authors": [
+        "Tianyu Li",
+        "Jiahao He",
+        "Keren Fu",
+        "Qijun Zhao"
+      ],
+      "categories": [
+        "cs.CV"
+      ],
+      "score": 40,
+      "importanceLevel": "B",
+      "lane": "Peripheral",
+      "dimensionScores": {
+        "relevance": 3,
+        "novelty": 17,
+        "impact": 16,
+        "practicality": 7,
+        "coreAlignment": 3
+      },
+      "oneSentenceSummary": "该论文是偏相关方向的重点候选，值得优先阅读。",
+      "summaryCn": "论文核心内容是：We introduce RDVSv2, a large-scale benchmark for RGB-D video salient object detection (RGB-D VSOD) with dense frame-level annotatio…",
+      "whyImportant": "命中新基准主题，分类覆盖cs.CV，并体现较强的新颖性与影响潜力。",
+      "reasonTags": [
+        "新基准"
+      ],
+      "innovationPoints": [
+        "包含新基准或新数据评测"
+      ],
+      "noveltyVerdict": "创新点清晰，属于值得重点跟进的增量改进。",
+      "duplicateRisk": "low",
+      "dedupeNote": "该论文在Peripheral方向上具备独立问题设置或代表性贡献，可作为当日候选保留。",
+      "retrievalGroups": [
+        "category"
+      ],
+      "mergedCount": 1,
+      "mergedTitles": [
+        "RDVSv2: A Large-scale Benchmark for RGB-D Video Salient Object Detection"
+      ]
+    },
+    {
+      "id": "2607.25830v1",
+      "title": "Beyond Static Costs: Learning-Dynamics Aware Loss Functions for Long-Tailed Classification",
+      "summary": "Deep learning models in computer vision face significant challenges when trained on long-tailed datasets, where a few majority classes dominate while many minority classes are severely underrepresented. Such imbalances frequently arise in real-world scenarios such as rare species recognition, manufacturing fault detection, and medical im…",
+      "summaryRaw": "Deep learning models in computer vision face significant challenges when trained on long-tailed datasets, where a few majority classes dominate while many minority classes are severely underrepresented. Such imbalances frequently arise in real-world scenarios such as rare species recognition, manufacturing fault detection, and medical image understanding, leading to biased models that underperform on tail classes. Existing reweighting methods typically rely on static class frequencies to penalize the model, ignoring the dynamic nature of how effectively a network actually learns a class over time. We address this by introducing a novel Learning-Dynamics Aware Loss (LDAL) function that shifts the focus from static sample counts to dynamic learning progress. LDAL framework adjusts class weights continuously by leveraging: (i) the strength of learned feature representations (semantic scale), (ii) the intrinsic learning difficulty of each class, measured via the Shannon entropy of its predictions, and (iii) an inter-epoch regularizer term that tracks prediction shifts between consecutive epochs to stabilize training and avoid local minima. LDAL is purely a objective function which incurs negligible computational overhead while adapting to the feature learning of the model. Experimental results on multiple benchmark datasets demonstrate that our approach significantly surpasses state-of-the-art reweighting loss functions, providing an optimal trade-off between accuracy and generalizability. The source code is available at https://github.com/sdm2026/ldal",
+      "link": "https://arxiv.org/abs/2607.25830v1",
+      "pdfLink": "https://arxiv.org/pdf/2607.25830v1",
+      "published": "2026-07-28T15:10:33Z",
+      "updated": "2026-07-28T15:10:33Z",
+      "authors": [
+        "Varad Shinde",
+        "Nikhil Kumar Shrey",
+        "Magesh Rajasekaran",
+        "Md Saiful Islam Sajol",
+        "Harshil Bhargava",
+        "Subhajit Sidanta",
+        "Supratik Mukhopadhyay",
+        "Yimin Zhu"
+      ],
+      "categories": [
+        "cs.CV"
+      ],
+      "score": 37,
+      "importanceLevel": "B",
+      "lane": "Peripheral",
+      "dimensionScores": {
+        "relevance": 3,
+        "novelty": 17,
+        "impact": 17,
+        "practicality": 3,
+        "coreAlignment": 3
+      },
+      "oneSentenceSummary": "该论文是偏相关方向的重点候选，值得优先阅读。",
+      "summaryCn": "论文核心内容是：Deep learning models in computer vision face significant challenges when trained on long-tailed datasets, where a few majority clas…",
+      "whyImportant": "命中新基准、真实实验主题，分类覆盖cs.CV，并体现较强的新颖性与影响潜力。",
+      "reasonTags": [
+        "新基准",
+        "真实实验"
+      ],
+      "innovationPoints": [
+        "包含新基准或新数据评测",
+        "提供真实场景实验验证"
+      ],
+      "noveltyVerdict": "创新点清晰，属于值得重点跟进的增量改进。",
+      "duplicateRisk": "low",
+      "dedupeNote": "该论文在Peripheral方向上具备独立问题设置或代表性贡献，可作为当日候选保留。",
+      "retrievalGroups": [
+        "category"
+      ],
+      "mergedCount": 1,
+      "mergedTitles": [
+        "Beyond Static Costs: Learning-Dynamics Aware Loss Functions for Long-Tailed Classification"
+      ]
+    },
+    {
+      "id": "2607.25275v1",
+      "title": "ScaleResfusion: Residual Rectified Flow based on Residual Vector Field",
+      "summary": "Real-world Image Restoration (Real-IR) aims to recover high-quality (HQ) images from complex and unknown degradations. Although recent diffusion-based methods have substantially improved perceptual quality, their current designs leave two key challenges unresolved.",
+      "summaryRaw": "Real-world Image Restoration (Real-IR) aims to recover high-quality (HQ) images from complex and unknown degradations. Although recent diffusion-based methods have substantially improved perceptual quality, their current designs leave two key challenges unresolved. Methods that start from Gaussian noise are slow and often less faithful to the degraded input. Residual-based methods usually train from scratch, which makes it hard to exploit modern pre-trained generative priors. In this paper, we present ScaleResfusion, a scalable diffusion framework for real-world image restoration built on pre-trained text-to-image rectified-flow models. The core of our method is Residual Rectified Flow, which introduces the residual term R into Standard Rectified Flow. Instead of starting from pure noise, it uses a residual transport path that starts from noisy low-quality (LQ) images and admits an exact acceleration point. By learning the residual vector field, Residual Rectified Flow keeps the output distribution and linear diffusion process consistent with the pre-trained rectified-flow models. This makes parameter-efficient fine-tuning possible at scale. We further introduce a knowledge-distillation pipeline to reduce sampling cost while maintaining restoration quality. Extensive experiments on multiple real-world restoration tasks show that ScaleResfusion achieves state-of-the-art performance with much higher efficiency. These results suggest a practical and scalable way to adapt large pre-trained diffusion models to real-world image restoration. Our code and models are available at https://github.com/YukinoshitaLove/ScaleResfusion.",
+      "link": "https://arxiv.org/abs/2607.25275v1",
+      "pdfLink": "https://arxiv.org/pdf/2607.25275v1",
+      "published": "2026-07-28T04:26:05Z",
+      "updated": "2026-07-28T04:26:05Z",
+      "authors": [
+        "Zhenning Shi",
+        "Chen Xu",
+        "Junhao Zhang",
+        "Kefei Zhang",
+        "Linjie Liu",
+        "Zhedong Zheng",
+        "Tao Li"
+      ],
+      "categories": [
+        "cs.CV",
+        "cs.AI"
+      ],
+      "score": 34,
+      "importanceLevel": "B",
+      "lane": "Peripheral",
+      "dimensionScores": {
+        "relevance": 6,
+        "novelty": 7,
+        "impact": 20,
+        "practicality": 7,
+        "coreAlignment": 6
+      },
+      "oneSentenceSummary": "该论文是偏相关方向的重点候选，值得优先阅读。",
+      "summaryCn": "论文核心内容是：Real-world Image Restoration (Real-IR) aims to recover high-quality (HQ) images from complex and unknown degradations.",
+      "whyImportant": "命中真实实验主题，分类覆盖cs.CV / cs.AI，并体现较强的新颖性与影响潜力。",
+      "reasonTags": [
+        "真实实验"
+      ],
+      "innovationPoints": [
+        "提供真实场景实验验证"
+      ],
+      "noveltyVerdict": "更偏实用推进型工作，适合结合上下文继续判断。",
+      "duplicateRisk": "low",
+      "dedupeNote": "该论文在Peripheral方向上具备独立问题设置或代表性贡献，可作为当日候选保留。",
+      "retrievalGroups": [
+        "category"
+      ],
+      "mergedCount": 1,
+      "mergedTitles": [
+        "ScaleResfusion: Residual Rectified Flow based on Residual Vector Field"
       ]
     }
   ],
   "paperSets": {
     "overall": [
       {
-        "id": "2607.20988v1",
-        "title": "HyWorldVLA: A Vision-Language-Action Model with Hybrid World Modeling for Autonomous Driving",
-        "summary": "Vision-Language-Action (VLA) models augmented with world modeling represent a promising paradigm for end-to-end autonomous driving. While pixel-level future prediction enables fine-grained spatiotemporal reasoning, it compromises robustness in noisy driving scenarios.",
-        "summaryRaw": "Vision-Language-Action (VLA) models augmented with world modeling represent a promising paradigm for end-to-end autonomous driving. While pixel-level future prediction enables fine-grained spatiotemporal reasoning, it compromises robustness in noisy driving scenarios. Conversely, latent-based world models alleviate this sensitivity but often incur limited interpretability and representational degradation due to absent pixel-level grounding. To reconcile this trade-off, we propose HyWorldVLA, a hybrid world-VLA framework that unifies pixel-level supervision and latent representation learning. In the pre-training stage, HyWorldVLA predicts video latents encoded by a pre-trained video VAE, while simultaneously reconstructing video frames to provide precise pixel-level grounding. During the subsequent co-fine-tuning phase, the model exclusively predicts latent features, which are fed into an action expert to generate trajectories. Extensive experiments on NAVSIM v1 and v2 benchmarks demonstrate that HyWorldVLA significantly outperforms both pixel-based and latent-based world model baselines. Notably, we present the first comprehensive qualitative and quantitative analysis of world model noise robustness in autonomous driving, establishing a new benchmark for evaluating future architectures.",
-        "link": "https://arxiv.org/abs/2607.20988v1",
-        "pdfLink": "https://arxiv.org/pdf/2607.20988v1",
-        "published": "2026-07-23T07:11:41Z",
-        "updated": "2026-07-23T07:11:41Z",
+        "id": "2607.25895v1",
+        "title": "HiFi-UMI: Learning Deployable Manipulation Policies from High-Fidelity UMI Data Alone",
+        "summary": "Learning deployable manipulation policies is bottlenecked by the scarcity of data that is both high-fidelity and scalable. Real-robot teleoperation is accurate but costly to scale; robot-free UMI capture scales readily, and current practice uses the resulting data mainly for pre-training, adding a small real-robot \"anchor\" at post-traini…",
+        "summaryRaw": "Learning deployable manipulation policies is bottlenecked by the scarcity of data that is both high-fidelity and scalable. Real-robot teleoperation is accurate but costly to scale; robot-free UMI capture scales readily, and current practice uses the resulting data mainly for pre-training, adding a small real-robot \"anchor\" at post-training. We ask whether raising the fidelity of robot-free UMI data, rather than shrinking the real-robot fraction, can remove that anchor. We present HiFi-UMI, a portable UMI data-production system co-designed for trajectory accuracy, inter-gripper relative pose, synchronization, and field of view: head-mounted offline stereo-inertial SLAM, native rather than reconstructed relative pose, a shared microsecond GPIO trigger, and two wide-angle cameras per hand covering ~200 degrees. It reaches 3 mm workspace-local end-effector accuracy without external tracking infrastructure. Using this corpus, we demonstrate zero-robot post-training: a policy post-trained solely on HiFi-UMI demonstrations deploys directly on a real robot and matches in-domain teleoperation across three backbones spanning the vision-language-action and world-action-model families, with success-rate differences of -2.5, +3.1, and -0.6 percentage points on StarVLA-QwenPI, OpenPI-pi_0.5, and LingBot-VA; the strongest policy reaches 85% on a precision insertion task, even though the teleoperation baseline is collected in the evaluation scene and no HiFi-UMI trajectory is. Pre-training on 4,000 hours from the same corpus lowers action error on ten unseen tasks by 41% and, on StarVLA-QwenPI, raises real-robot success by a further 18.1 percentage points. We open-source HiFi-UMI-2K, 2,000 hours of microsecond-synchronized, ultra-wide-FoV demonstrations, each automatically reconstructed and validated through simulation replay, as a large-scale, high-fidelity resource for the robot-learning community.",
+        "link": "https://arxiv.org/abs/2607.25895v1",
+        "pdfLink": "https://arxiv.org/pdf/2607.25895v1",
+        "published": "2026-07-28T15:52:02Z",
+        "updated": "2026-07-28T15:52:02Z",
         "authors": [
-          "Quanfu Yu",
-          "Xian Wu",
-          "Hao Xu",
-          "Liulong Ma"
+          "Simple AI",
+          ":",
+          "Yuteng Wei",
+          "Jinming Ma",
+          "Jiawei Wang",
+          "Weitao Zhou",
+          "Yushen Zuo",
+          "Ke Rui"
+        ],
+        "categories": [
+          "cs.RO",
+          "cs.CV",
+          "cs.LG"
+        ],
+        "score": 88,
+        "importanceLevel": "S",
+        "lane": "VLA",
+        "dimensionScores": {
+          "relevance": 85,
+          "novelty": 75,
+          "impact": 80,
+          "practicality": 90,
+          "coreAlignment": 90
+        },
+        "oneSentenceSummary": "提出高保真UMI数据采集系统，实现无需真实机器人微调的部署级操作策略学习。",
+        "summaryCn": "HiFi-UMI 是便携式通用操作接口系统，通过头戴式双目视觉与同步触发，提供毫米级末端精度。基于此采集的高保真数据，无需真实机器人锚点即可训练出可直接部署的机器人操作策略，显著降低遥操作成本并提升数据可扩展性。",
+        "whyImportant": "大幅降低机器人数据采集成本与门槛，使仿真数据可直接训练可部署策略。",
+        "reasonTags": [
+          "机器人数据采集",
+          "操作策略学习",
+          "高保真仿真",
+          "通用操作接口"
+        ],
+        "innovationPoints": [
+          "提出高精度便携式UMI系统，实现毫米级末端执行器追踪。",
+          "证明纯仿真数据不需真实锚点即可训练可部署机器人策略。",
+          "双广角相机与同步触发显著提升数据一致性与覆盖范围。"
+        ],
+        "noveltyVerdict": "率先构建无需外部跟踪的高精度便携式数据采集系统，显著提升实用性与场景适应性。",
+        "duplicateRisk": "low",
+        "dedupeNote": "首次提出完全依赖高保真UMI数据训练可部署策略，无需真实机器人数据锚点。",
+        "retrievalGroups": [
+          "category"
+        ],
+        "mergedCount": 1,
+        "mergedTitles": [
+          "HiFi-UMI: Learning Deployable Manipulation Policies from High-Fidelity UMI Data Alone"
+        ]
+      },
+      {
+        "id": "2607.25487v1",
+        "title": "CoTinyVLA: Chain-of-Thought Distillation for a Sub-Billion-Parameter Vision-Language-Action Model",
+        "summary": "Vision-Language-Action (VLA) models translate natural-language commands into robot action sequences, but leading systems on the LIBERO-Plus robustness benchmark use three- to seven-billion-parameter backbones whose memory demands can exceed embedded robotic budgets. We present CoTinyVLA, a 0.9B-parameter action model on a Qwen3.5-0.8B ba…",
+        "summaryRaw": "Vision-Language-Action (VLA) models translate natural-language commands into robot action sequences, but leading systems on the LIBERO-Plus robustness benchmark use three- to seven-billion-parameter backbones whose memory demands can exceed embedded robotic budgets. We present CoTinyVLA, a 0.9B-parameter action model on a Qwen3.5-0.8B backbone that obtains that robustness by structuring supervision instead of enlarging the model. Three components target different axes of the problem: dual-view temporal input of 16 history frames per step with textual camera and time markers; hierarchical chain-of-thought (CoT) distillation from a 35B teacher into an episode-level Plan and a chunk-level Think span over task phase, gripper state and next subaction; and paraphrase augmentation expanding 40 base commands into 800 variants. On LIBERO-Plus, spanning 10,030 perturbed tasks across seven perturbation dimensions, CoTinyVLA reaches 90.8% on Spatial, 87.3% on Object, 86.6% on Goal and 80.7% on Long, leading the strongest 7B baseline on all four suites by 4.7, 2.8, 15.9 and 3.0 points, with every margin interval excluding zero. The gains concentrate on the hardest axes of the benchmark: across the eleven published baselines none exceeds 53.2% on Robot Initial States in any suite, whereas CoTinyVLA reaches 73.6% on Goal against 39.9% for the strongest baseline. Ablations show the three components to be separable by perturbation axis, and at a matched image budget how frames are divided between the two cameras and across time accounts for 8.6 points on its own. Closed-loop inference peaks at 2.25 GiB of allocated GPU memory, and paired interventions show the episode Plan to be load-bearing: replacing it with an empty or contradictory span costs 40 to 45 points of success. Structured supervision thus lets a 0.9B backbone exceed all of them. Code: https://github.com/BrainJellyPie/CoTinyVLA",
+        "link": "https://arxiv.org/abs/2607.25487v1",
+        "pdfLink": "https://arxiv.org/pdf/2607.25487v1",
+        "published": "2026-07-28T09:24:17Z",
+        "updated": "2026-07-28T09:24:17Z",
+        "authors": [
+          "Minhyeok Lee",
+          "Chiyoung Kim",
+          "Chanhoe Gu",
+          "Seongrok Kim",
+          "Sanghyuk Roy Choi",
+          "Donghwan Hwang",
+          "Donghun Ryu",
+          "Seokhyun Kim"
+        ],
+        "categories": [
+          "cs.AI",
+          "cs.CV"
+        ],
+        "score": 85,
+        "importanceLevel": "A",
+        "lane": "VLA",
+        "dimensionScores": {
+          "relevance": 90,
+          "novelty": 80,
+          "impact": 70,
+          "practicality": 85,
+          "coreAlignment": 95
+        },
+        "oneSentenceSummary": "通过思维链蒸馏，将9亿参数VLA模型的鲁棒性提升至与大型模型相当。",
+        "summaryCn": "CoTinyVLA 在0.9B参数骨干上通过双视角时序输入、分层思维链蒸馏及指令增强，实现LIBERO-Plus鲁棒基准上与数十亿参数模型相媲美的性能，显著降低嵌入式机器人部署的内存需求，为小型化通用操作模型提供可行路径。",
+        "whyImportant": "证明小模型通过结构监督即可达到大模型鲁棒性，推动具身智能边缘化部署。",
+        "reasonTags": [
+          "小型VLA",
+          "思维链蒸馏",
+          "鲁棒性提升",
+          "具身智能"
+        ],
+        "innovationPoints": [
+          "通过分层思维链从大模型蒸馏任务规划与动作推理。",
+          "双视角时序输入增强空间感知与动作连贯性。",
+          "指令增强扩充训练分布，提升泛化能力。"
+        ],
+        "noveltyVerdict": "开创性结合小模型与思维链监督，突破参数限制，实现鲁棒性飞跃。",
+        "duplicateRisk": "low",
+        "dedupeNote": "在极小参数下首次通过结构化监督达到大型VLA的鲁棒性，无类似压缩方案。",
+        "retrievalGroups": [
+          "category"
+        ],
+        "mergedCount": 1,
+        "mergedTitles": [
+          "CoTinyVLA: Chain-of-Thought Distillation for a Sub-Billion-Parameter Vision-Language-Action Model"
+        ]
+      },
+      {
+        "id": "2607.26037v1",
+        "title": "Wonder: Video World Model Done Better",
+        "summary": "We present Wonder, a general-purpose video world model for real-time, camera-controllable world exploration. Given an image or a conditional video, Wonder constructs a playable world where users can navigate interactively by moving the camera, discovering unseen regions, and revisiting previously observed areas in real time and over a lo…",
+        "summaryRaw": "We present Wonder, a general-purpose video world model for real-time, camera-controllable world exploration. Given an image or a conditional video, Wonder constructs a playable world where users can navigate interactively by moving the camera, discovering unseen regions, and revisiting previously observed areas in real time and over a long-term horizon. Achieving this capability requires a system-level co-design of control method, memory mechanism, and training strategy. We introduce a novel camera conditioning with a dense coordinate field whose renderings provide spatially aligned motion and orientation cues, allowing the model to interpret camera motion directly as visual evidence. To support fast and precise memory retrieval over a growing generation context, we propose an efficient sparse attention-based memory mechanism, enabling the model to selectively attend to a small set of relevant context tokens at inference time, regardless of actual context length. We further develop several techniques to rectify the self-forcing-style distillation pipeline, improving the student model's ability to respect control signals, as well as maintaining diverse generation modes and long-term memory from the teacher. Together, these components enable Wonder to synthesize diverse, minute-scale videos at 16 FPS while preserving coherent geometry, appearance, and dynamics across long rollouts. Beyond image-to-video generation, Wonder naturally supports video-conditioned generation, allowing existing dynamic scenes to be re-shot in real time.",
+        "link": "https://arxiv.org/abs/2607.26037v1",
+        "pdfLink": "https://arxiv.org/pdf/2607.26037v1",
+        "published": "2026-07-28T17:45:25Z",
+        "updated": "2026-07-28T17:45:25Z",
+        "authors": [
+          "Jiacong Xu",
+          "Hanwen Jiang",
+          "Zhixin Shu",
+          "Kalyan Sunkavalli",
+          "Vishal M. Patel",
+          "Yiqun Mei"
+        ],
+        "categories": [
+          "cs.CV"
+        ],
+        "score": 60,
+        "importanceLevel": "B",
+        "lane": "WAM",
+        "dimensionScores": {
+          "relevance": 70,
+          "novelty": 65,
+          "impact": 50,
+          "practicality": 40,
+          "coreAlignment": 60
+        },
+        "oneSentenceSummary": "可交互的视频世界模型，支持实时相机控制以探索未见过环境。",
+        "summaryCn": "Wonder 构建通用视频世界模型，引入密集坐标场相机条件与高效稀疏注意力记忆机制，支持实时、长期、可操控的相机探索。用户可从单帧或条件视频出发，在生成的动态世界中自由移动视角，发现和回访已见区域，应用于虚拟现实与仿真。",
+        "whyImportant": "为交互式视频生成提供高效记忆与精准控制，助力虚拟世界构建与仿真。",
+        "reasonTags": [
+          "视频世界模型",
+          "交互式探索",
+          "相机控制",
+          "动态场景生成"
+        ],
+        "innovationPoints": [
+          "密集坐标场渲染提供空间对齐的运动和方向线索。",
+          "稀疏注意力记忆机制实现长时上下文的快速精准检索。",
+          "联合设计控制、记忆与训练策略，实现实时可操控世界模型。"
+        ],
+        "noveltyVerdict": "将世界模型与实时相机控制深度结合，记忆机制创新性解决长序列生成难题。",
+        "duplicateRisk": "low",
+        "dedupeNote": "首个联合优化相机控制与记忆机制的可交互视频世界模型，不同于纯视频生成。",
+        "retrievalGroups": [
+          "category"
+        ],
+        "mergedCount": 1,
+        "mergedTitles": [
+          "Wonder: Video World Model Done Better"
+        ]
+      },
+      {
+        "id": "2607.26005v1",
+        "title": "Pictura: Perspective-View Self-Play at Scale for Driving",
+        "summary": "Self-play in simulation produces robust driving policies at scale. Demonstrations of such behavior have been made using privileged vectorized observations such as exact poses and velocities, even for occluded agents.",
+        "summaryRaw": "Self-play in simulation produces robust driving policies at scale. Demonstrations of such behavior have been made using privileged vectorized observations such as exact poses and velocities, even for occluded agents. This assumes that perception is solved and introduces a representation gap with the partial observation of a deployed agent driving from the perspective view of egocentric cameras. A common fix, distilling the privileged policy into a camera-input student, leaves the student imitating decisions its own view cannot justify. Instead, we establish perspective-view self-play as a practical training regime. We introduce Pictura, a GPU-accelerated multi-agent driving simulator that renders each agent's egocentric view at every step, mitigating the representation gap at its source. Pictura sustains up to 500K agent-steps/s (2M images/s) on a single H100. Using Pictura, we train Alberti by self-play with plain PPO. It is the first large-scale driving self-play policy trained directly from perspective images, without privileged observations. Training spans 50B agent steps for ~35M km of driving. It approaches the driving performance of its privileged vectorized counterpart, and transfers zero-shot to Waymo Open Motion Dataset layouts re-rendered in Pictura, where it outperforms privileged vectorized agents. Project page: https://valeoai.github.io/Pictura/",
+        "link": "https://arxiv.org/abs/2607.26005v1",
+        "pdfLink": "https://arxiv.org/pdf/2607.26005v1",
+        "published": "2026-07-28T17:20:39Z",
+        "updated": "2026-07-28T17:20:39Z",
+        "authors": [
+          "Yuan Yin",
+          "Elias Ramzi",
+          "Marc Lafon",
+          "Valentin Charraut",
+          "Victor Bares",
+          "Yihong Xu",
+          "Éloi Zablocki",
+          "Alexandre Boulch"
+        ],
+        "categories": [
+          "cs.CV",
+          "cs.AI",
+          "cs.RO"
+        ],
+        "score": 48,
+        "importanceLevel": "A",
+        "lane": "Peripheral",
+        "dimensionScores": {
+          "relevance": 22,
+          "novelty": 12,
+          "impact": 22,
+          "practicality": 4,
+          "coreAlignment": 22
+        },
+        "oneSentenceSummary": "该论文是偏相关方向的重点候选，值得优先阅读。",
+        "summaryCn": "论文核心内容是：Self-play in simulation produces robust driving policies at scale.",
+        "whyImportant": "命中机器人、自动驾驶、新基准主题，分类覆盖cs.CV / cs.AI，并体现较强的新颖性与影响潜力。",
+        "reasonTags": [
+          "机器人",
+          "自动驾驶",
+          "新基准"
+        ],
+        "innovationPoints": [
+          "包含新基准或新数据评测"
+        ],
+        "noveltyVerdict": "创新点清晰，属于值得重点跟进的增量改进。",
+        "duplicateRisk": "low",
+        "dedupeNote": "该论文在Peripheral方向上具备独立问题设置或代表性贡献，可作为当日候选保留。",
+        "retrievalGroups": [
+          "category"
+        ],
+        "mergedCount": 1,
+        "mergedTitles": [
+          "Pictura: Perspective-View Self-Play at Scale for Driving"
+        ]
+      },
+      {
+        "id": "2607.25234v1",
+        "title": "WHTMix: Efficient Stereo Depth Estimation via Walsh-Hadamard Token Mixing",
+        "summary": "Stereo depth estimation for driving, robotics and augmented reality must run at high resolution under tight latency budgets, yet in transformer-based matchers the global self-attention that aggregates scene context grows quadratically with the number of pixels and comes to dominate runtime. We show that the joint self-attention stage of…",
+        "summaryRaw": "Stereo depth estimation for driving, robotics and augmented reality must run at high resolution under tight latency budgets, yet in transformer-based matchers the global self-attention that aggregates scene context grows quadratically with the number of pixels and comes to dominate runtime. We show that the joint self-attention stage of a stereo transformer, whose role is to spread context across both views, can be replaced by a data-independent Walsh-Hadamard token mixer that mixes tokens globally in the transform domain at log-linear cost, while the data-dependent cross-attention that performs left-right correspondence is retained. On synthetic driving data the mixer matches the attention baseline in end-point error while reducing model compute by a factor of 2.46 and single-image inference latency by a factor of 2.65. A complexity analysis shows the benefit is governed by the ratio of sequence length to channel width, which explains why high-resolution stereo matching is a particularly favorable setting and why classification transformers are not; we confirm this token-to-channel scaling on non-stereo long-sequence benchmarks. Furthermore, we introduce a hybrid log-disparity loss function designed to up-weight small-disparity pixels corresponding to long-range objects. This approach reduces the error on distant objects without incurring any additional computational overhead.",
+        "link": "https://arxiv.org/abs/2607.25234v1",
+        "pdfLink": "https://arxiv.org/pdf/2607.25234v1",
+        "published": "2026-07-28T03:22:46Z",
+        "updated": "2026-07-28T03:22:46Z",
+        "authors": [
+          "Prathyush Sajith",
+          "Emadeldeen Hamdan",
+          "Ahmet Enis Cetin"
+        ],
+        "categories": [
+          "cs.CV"
+        ],
+        "score": 52,
+        "importanceLevel": "A",
+        "lane": "Robotics",
+        "dimensionScores": {
+          "relevance": 36,
+          "novelty": 12,
+          "impact": 3,
+          "practicality": 4,
+          "coreAlignment": 17
+        },
+        "oneSentenceSummary": "该论文是偏机器人的重点候选，值得优先阅读。",
+        "summaryCn": "论文核心内容是：Stereo depth estimation for driving, robotics and augmented reality must run at high resolution under tight latency budgets, yet in…",
+        "whyImportant": "命中机器人、自动驾驶、新基准主题，分类覆盖cs.CV，并体现较强的新颖性与影响潜力。",
+        "reasonTags": [
+          "机器人",
+          "自动驾驶",
+          "新基准"
+        ],
+        "innovationPoints": [
+          "包含新基准或新数据评测"
+        ],
+        "noveltyVerdict": "创新点清晰，属于值得重点跟进的增量改进。",
+        "duplicateRisk": "low",
+        "dedupeNote": "该论文在Robotics方向上具备独立问题设置或代表性贡献，可作为当日候选保留。",
+        "retrievalGroups": [
+          "category"
+        ],
+        "mergedCount": 1,
+        "mergedTitles": [
+          "WHTMix: Efficient Stereo Depth Estimation via Walsh-Hadamard Token Mixing"
+        ]
+      },
+      {
+        "id": "2607.25389v1",
+        "title": "HOME: Robust Hough-space Matching Method for Structured and Textureless Videos",
+        "summary": "Visual front-ends for robotic localization typically rely on point-based features such as Oriented FAST and Rotated BRIEF (ORB), which frequently fail in structured environments dominated by strong linear structures or textureless surfaces. While line-based Simultaneous Localization and Mapping (SLAM) systems mitigate this by utilizing l…",
+        "summaryRaw": "Visual front-ends for robotic localization typically rely on point-based features such as Oriented FAST and Rotated BRIEF (ORB), which frequently fail in structured environments dominated by strong linear structures or textureless surfaces. While line-based Simultaneous Localization and Mapping (SLAM) systems mitigate this by utilizing line segments, conventional line extraction and description algorithms are computationally prohibitive for real-time edge robotics. To address this fundamental bottleneck, we propose HOME (Hough-space One-dimensional Matching of Extrema), an ultra-lightweight, training-free feature matching framework. HOME transforms images into Hough space, mapping global linear structures to stable local extrema, which serve as keypoints, thereby reformulating complex line matching into highly efficient one-dimensional point matching. The proposed 1D radial descriptor mathematically guarantees rotational and translational invariance without the overhead of explicit orientation estimation. As a proof of concept to validate the matching accuracy and efficiency of HOME, this paper focuses on homography estimation. Extensive evaluations demonstrate that HOME achieves robust registration in challenging scenarios where point-based methods fail, operating at a much faster speed than existing line-based methods. Extending this robust matching engine to full 3D pose estimation remains a highly promising future direction.",
+        "link": "https://arxiv.org/abs/2607.25389v1",
+        "pdfLink": "https://arxiv.org/pdf/2607.25389v1",
+        "published": "2026-07-28T07:47:50Z",
+        "updated": "2026-07-28T07:47:50Z",
+        "authors": [
+          "Masaki Satoh"
+        ],
+        "categories": [
+          "cs.CV",
+          "cs.RO"
+        ],
+        "score": 51,
+        "importanceLevel": "A",
+        "lane": "Robotics",
+        "dimensionScores": {
+          "relevance": 36,
+          "novelty": 7,
+          "impact": 9,
+          "practicality": 8,
+          "coreAlignment": 17
+        },
+        "oneSentenceSummary": "该论文是偏机器人的重点候选，值得优先阅读。",
+        "summaryCn": "论文核心内容是：Visual front-ends for robotic localization typically rely on point-based features such as Oriented FAST and Rotated BRIEF (ORB), wh…",
+        "whyImportant": "命中机器人、新基准主题，分类覆盖cs.CV / cs.RO，并体现较强的新颖性与影响潜力。",
+        "reasonTags": [
+          "机器人",
+          "新基准"
+        ],
+        "innovationPoints": [
+          "提出具有跟踪价值的方法设计"
+        ],
+        "noveltyVerdict": "更偏实用推进型工作，适合结合上下文继续判断。",
+        "duplicateRisk": "low",
+        "dedupeNote": "该论文在Robotics方向上具备独立问题设置或代表性贡献，可作为当日候选保留。",
+        "retrievalGroups": [
+          "category"
+        ],
+        "mergedCount": 1,
+        "mergedTitles": [
+          "HOME: Robust Hough-space Matching Method for Structured and Textureless Videos"
+        ]
+      },
+      {
+        "id": "2607.25197v1",
+        "title": "LGFNet: A CTC-Guided Local-Global Fusion Framework for Single-Channel Sleep Staging",
+        "summary": "Sleep staging remains challenging due to long-range temporal dependencies, ambiguous stage transitions-particularly in N1-and substantial distribution shifts across subjects, sampling rates, and EEG montages. These difficulties are further amplified in single-channel, low-latency scenarios required by wearable and real-world applications.",
+        "summaryRaw": "Sleep staging remains challenging due to long-range temporal dependencies, ambiguous stage transitions-particularly in N1-and substantial distribution shifts across subjects, sampling rates, and EEG montages. These difficulties are further amplified in single-channel, low-latency scenarios required by wearable and real-world applications. To address these issues, we propose LGFNet, a CTC-guided sequence-to-sequence framework for robust sleep staging. LGFNet introduces a Local-Global Fusion encoder that jointly models fine-grained temporal dynamics and long-range sleep structure, overcoming the limitations of conventional serial hybrid architectures. A CTC-Attention joint training paradigm is adopted to unify temporal alignment with context-dependent modeling, enabling more accurate recognition of stage boundaries and transitions. Furthermore, a three-stage decoding strategy is devised, leveraging CTC-guided decoding and Viterbi-based smoothing to reduce error accumulation and enforce physiological consistency. Extensive cross-dataset evaluations on five public benchmarks demonstrate that LGFNet consistently outperforms state-of-the-art single-channel methods. In particular, on Sleep-EDF-78, LGFNet surpasses DMIN by +1.27% accuracy, +1.74% macro-F1, and +1.93% kappa, with pronounced gains on N1 and transition segments, highlighting its robustness and strong generalization across diverse sampling rates, montages, and recording environments.",
+        "link": "https://arxiv.org/abs/2607.25197v1",
+        "pdfLink": "https://arxiv.org/pdf/2607.25197v1",
+        "published": "2026-07-28T02:04:00Z",
+        "updated": "2026-07-28T02:04:00Z",
+        "authors": [
+          "Chongjian Wang",
+          "Zhenghang Hou",
+          "Junjie Gao",
+          "Xiaofang Zhong",
+          "Shiyuan Han",
+          "Tong Zhang"
+        ],
+        "categories": [
+          "cs.CV"
+        ],
+        "score": 50,
+        "importanceLevel": "A",
+        "lane": "Peripheral",
+        "dimensionScores": {
+          "relevance": 3,
+          "novelty": 26,
+          "impact": 17,
+          "practicality": 7,
+          "coreAlignment": 3
+        },
+        "oneSentenceSummary": "该论文是偏相关方向的重点候选，值得优先阅读。",
+        "summaryCn": "论文核心内容是：Sleep staging remains challenging due to long-range temporal dependencies, ambiguous stage transitions-particularly in N1-and subst…",
+        "whyImportant": "命中新基准、真实实验主题，分类覆盖cs.CV，并体现较强的新颖性与影响潜力。",
+        "reasonTags": [
+          "新基准",
+          "真实实验"
+        ],
+        "innovationPoints": [
+          "包含新基准或新数据评测",
+          "涉及新的训练或预训练范式",
+          "提供真实场景实验验证"
+        ],
+        "noveltyVerdict": "创新信号强，像是带新范式或新基准的工作。",
+        "duplicateRisk": "low",
+        "dedupeNote": "该论文在Peripheral方向上具备独立问题设置或代表性贡献，可作为当日候选保留。",
+        "retrievalGroups": [
+          "category"
+        ],
+        "mergedCount": 1,
+        "mergedTitles": [
+          "LGFNet: A CTC-Guided Local-Global Fusion Framework for Single-Channel Sleep Staging"
+        ]
+      },
+      {
+        "id": "2607.25215v1",
+        "title": "Leveraging Semantic Maps for City-Scale Cross-View Localization",
+        "summary": "We want robots to localize in previously untraversed environments against commonly available prior data. Rich semantic data available from OpenStreetMap can be useful in this task.",
+        "summaryRaw": "We want robots to localize in previously untraversed environments against commonly available prior data. Rich semantic data available from OpenStreetMap can be useful in this task. However, existing methods either ignore this semantic information, directly matching panoramas and overhead imagery, or dramatically compress the semantic information, working with a small set of fixed classes. To leverage this rich semantic information, two challenges need to be overcome. First, useful semantic information needs to be extracted from the robot's egocentric observations. Second, the observed information must be quickly associated with the large prior semantic map (e.g., up to 628 km^2). We show that VLMs are effective at both extracting relevant landmarks from panoramas, and identifying feasible correspondences between these landmarks and prior overhead landmarks. However, using VLMs to propose all correspondences scales poorly as the number of mapped landmarks increases. Instead, we propose distilling a lightweight matcher from a VLM which computes correspondences for all entities in a map. We use this output to form an observation likelihood which is fused over time with a Bayes filter to create a time series of pose estimates. To support further investigation into generalizable cross-view methods that leverage semantic information, we release a dataset of extracted semantics and evaluation trajectories spanning eleven environments, including panoramas we collected in a snowstorm and at night in Boston. We demonstrate our method, trained on a single city's fair-weather data, generalizes across location, lighting, weather, and other challenges. Code and datasets are available at https://efahnestock.github.io/loci/.",
+        "link": "https://arxiv.org/abs/2607.25215v1",
+        "pdfLink": "https://arxiv.org/pdf/2607.25215v1",
+        "published": "2026-07-28T02:44:56Z",
+        "updated": "2026-07-28T02:44:56Z",
+        "authors": [
+          "Ethan Fahnestock",
+          "Erick Fuentes",
+          "Philip R Osteen",
+          "Nicholas Roy"
+        ],
+        "categories": [
+          "cs.RO",
+          "cs.CV"
+        ],
+        "score": 36,
+        "importanceLevel": "B",
+        "lane": "Peripheral",
+        "dimensionScores": {
+          "relevance": 18,
+          "novelty": 12,
+          "impact": 12,
+          "practicality": 3,
+          "coreAlignment": 17
+        },
+        "oneSentenceSummary": "该论文是偏相关方向的重点候选，值得优先阅读。",
+        "summaryCn": "论文核心内容是：We want robots to localize in previously untraversed environments against commonly available prior data.",
+        "whyImportant": "命中机器人、新基准主题，分类覆盖cs.RO / cs.CV，并体现较强的新颖性与影响潜力。",
+        "reasonTags": [
+          "机器人",
+          "新基准"
+        ],
+        "innovationPoints": [
+          "包含新基准或新数据评测"
+        ],
+        "noveltyVerdict": "创新点清晰，属于值得重点跟进的增量改进。",
+        "duplicateRisk": "low",
+        "dedupeNote": "该论文在Peripheral方向上具备独立问题设置或代表性贡献，可作为当日候选保留。",
+        "retrievalGroups": [
+          "category"
+        ],
+        "mergedCount": 1,
+        "mergedTitles": [
+          "Leveraging Semantic Maps for City-Scale Cross-View Localization"
+        ]
+      },
+      {
+        "id": "2607.25791v1",
+        "title": "FLASH: Efficient Impact Fall Detection with Unified Hypergraph State-Space Model",
+        "summary": "Falls represent a critical public health challenge, and accurate detection of the impact moment when an individual hits the ground is crucial for timely intervention. Existing skeleton-based methods rely on graph neural networks modeling only pairwise joint connections, failing to capture multi-joint coordination characteristic of fall i…",
+        "summaryRaw": "Falls represent a critical public health challenge, and accurate detection of the impact moment when an individual hits the ground is crucial for timely intervention. Existing skeleton-based methods rely on graph neural networks modeling only pairwise joint connections, failing to capture multi-joint coordination characteristic of fall impacts, while transformer-based temporal models suffer from quadratic complexity limiting real-time deployment. We propose FLASH, a novel framework integrating single-matrix hypergraph representations with Mamba's selective state-space models through adaptive feedback mechanisms for efficient impact detection. Our approach constructs biomechanically-grounded hyperedges to model functional joint coordination while leveraging Mamba's linear-time complexity to capture temporal dynamics. Experiments on UP-Fall and UMAFall datasets demonstrate that FLASH achieves state-of-the-art accuracy with real-time inference capability and strong zero-shot cross-dataset generalization, while significantly reducing computational cost compared to dual-representation and transformer-based methods. The model provides interpretable feedback through learned attention patterns aligned with biomechanical principles. Code is available at https://github.com/Tresor-Koffi/FLASH-Impact-Fall-Detection.",
+        "link": "https://arxiv.org/abs/2607.25791v1",
+        "pdfLink": "https://arxiv.org/pdf/2607.25791v1",
+        "published": "2026-07-28T14:43:07Z",
+        "updated": "2026-07-28T14:43:07Z",
+        "authors": [
+          "Tresor Y. Koffi",
+          "Youssef Mourchid",
+          "Yohan Dupuis"
+        ],
+        "categories": [
+          "cs.CV"
+        ],
+        "score": 49,
+        "importanceLevel": "A",
+        "lane": "Peripheral",
+        "dimensionScores": {
+          "relevance": 3,
+          "novelty": 21,
+          "impact": 16,
+          "practicality": 12,
+          "coreAlignment": 3
+        },
+        "oneSentenceSummary": "该论文是偏相关方向的重点候选，值得优先阅读。",
+        "summaryCn": "论文核心内容是：Falls represent a critical public health challenge, and accurate detection of the impact moment when an individual hits the ground…",
+        "whyImportant": "命中新基准、通用框架主题，分类覆盖cs.CV，并体现较强的新颖性与影响潜力。",
+        "reasonTags": [
+          "新基准",
+          "通用框架"
+        ],
+        "innovationPoints": [
+          "包含新基准或新数据评测"
+        ],
+        "noveltyVerdict": "创新信号强，像是带新范式或新基准的工作。",
+        "duplicateRisk": "low",
+        "dedupeNote": "该论文在Peripheral方向上具备独立问题设置或代表性贡献，可作为当日候选保留。",
+        "retrievalGroups": [
+          "category"
+        ],
+        "mergedCount": 1,
+        "mergedTitles": [
+          "FLASH: Efficient Impact Fall Detection with Unified Hypergraph State-Space Model"
+        ]
+      },
+      {
+        "id": "2607.25524v1",
+        "title": "ReLATE: Reliability-Guided Evidence Fusion for Robust UAV--Satellite cross-view Geo-Localization",
+        "summary": "Unmanned aerial vehicle (UAV)-satellite cross-view geo-localization matches UAV images against satellite imagery and has achieved impressive accuracy on clean (non-degraded) image benchmarks. In real-world flights, however, UAV observations are frequently affected by adverse weather, illumination changes, platform motion, sensor noise, a…",
+        "summaryRaw": "Unmanned aerial vehicle (UAV)-satellite cross-view geo-localization matches UAV images against satellite imagery and has achieved impressive accuracy on clean (non-degraded) image benchmarks. In real-world flights, however, UAV observations are frequently affected by adverse weather, illumination changes, platform motion, sensor noise, and compression, while the robustness of existing methods under such degradations remains largely unexamined. In this paper, we present UAVSat-Deg, a large-scale robustness benchmark for degraded UAV-satellite geo-localization, comprising University-1652-Deg and SUES-200-Deg. UAVSat-Deg covers 27 corruption types, including 19 core and 8 compound corruptions, at three severity levels, supports bidirectional drone-to-satellite and satellite-to-drone retrieval as well as multi-height UAV acquisition, and contains more than 11.7 million pre-generated corrupted test images. Benchmarking representative methods under this protocol reveals substantial robustness gaps, particularly under severe and compound corruptions. To address this problem, we propose ReLATE, a Reliable Evidence Learning framework with Adaptive Token Evidence Regulation, which realizes reliability-adaptive feature fusion during descriptor construction. ReLATE estimates a structure-smoothed reliability field over visual tokens, aggregates trustworthy local evidence, and adaptively integrates it into query-derived representations; the regulated query representations are then combined with the CLS-token and GeM-pooled branches to form the final cross-view descriptor. Across both test sets and retrieval directions, ReLATE achieves the best average corrupted-test performance among the compared methods while maintaining competitive accuracy on clean images. The code and dataset will be available at https://github.com/JHC626/ReLATE.",
+        "link": "https://arxiv.org/abs/2607.25524v1",
+        "pdfLink": "https://arxiv.org/pdf/2607.25524v1",
+        "published": "2026-07-28T10:07:18Z",
+        "updated": "2026-07-28T10:07:18Z",
+        "authors": [
+          "Haochen Jiang",
+          "Jialei Pan",
+          "Yuzhe Sun",
+          "Zhe Dong",
+          "Lecheng Ren",
+          "Yanfeng Gu",
+          "Tianzhu Liu"
         ],
         "categories": [
           "cs.CV",
           "cs.AI"
         ],
-        "score": 84,
+        "score": 44,
         "importanceLevel": "B",
-        "lane": "Both",
+        "lane": "Peripheral",
         "dimensionScores": {
-          "relevance": 62,
-          "novelty": 12,
-          "impact": 9,
+          "relevance": 6,
+          "novelty": 17,
+          "impact": 20,
           "practicality": 7,
-          "coreAlignment": 34
+          "coreAlignment": 6
         },
-        "oneSentenceSummary": "HyWorldVLA结合像素级与潜在世界建模的自动驾驶VLA模型。",
-        "summaryCn": "HyWorldVLA提出了混合世界建模的视觉-语言-动作框架，用于端到端自动驾驶。该模型在预训练阶段同时预测视频潜变量并重建视频帧以提供像素级监督，在联合微调阶段仅预测潜变量，从而平衡鲁棒性与可解释性。该方法旨在解决纯像素预测对噪声敏感而纯潜变量表示可解释性不足的问题。",
-        "whyImportant": "提出混合世界建模方法，统一像素与潜变量优势，提升自动驾驶VLA鲁棒性与可解释性。",
+        "oneSentenceSummary": "该论文是偏相关方向的重点候选，值得优先阅读。",
+        "summaryCn": "论文核心内容是：Unmanned aerial vehicle (UAV)-satellite cross-view geo-localization matches UAV images against satellite imagery and has achieved i…",
+        "whyImportant": "命中新基准、真实实验主题，分类覆盖cs.CV / cs.AI，并体现较强的新颖性与影响潜力。",
         "reasonTags": [
-          "混合世界建模",
-          "视觉-语言-动作",
-          "自动驾驶",
-          "视频预测"
+          "新基准",
+          "真实实验"
         ],
         "innovationPoints": [
-          "提出像素与潜变量混合世界建模框架",
-          "分阶段训练策略：预训练联合重建与预测，微调专注潜变量",
-          "提升自动驾驶VLA的鲁棒性与可解释性"
+          "包含新基准或新数据评测",
+          "提供真实场景实验验证"
         ],
-        "noveltyVerdict": "创新性较低：混合世界建模非全新概念，但自动驾驶应用有一定整合价值。",
+        "noveltyVerdict": "创新点清晰，属于值得重点跟进的增量改进。",
         "duplicateRisk": "low",
-        "dedupeNote": "当前唯一候选论文，无重复风险。",
+        "dedupeNote": "该论文在Peripheral方向上具备独立问题设置或代表性贡献，可作为当日候选保留。",
         "retrievalGroups": [
-          "wam_core"
+          "category"
         ],
         "mergedCount": 1,
         "mergedTitles": [
-          "HyWorldVLA: A Vision-Language-Action Model with Hybrid World Modeling for Autonomous Driving"
+          "ReLATE: Reliability-Guided Evidence Fusion for Robust UAV--Satellite cross-view Geo-Localization"
+        ]
+      },
+      {
+        "id": "2607.25242v1",
+        "title": "Medical world models in healthcare: foundations, applications, and challenges for trustworthy clinical translation",
+        "summary": "Medical world models offer a framework for extending medical artificial intelligence beyond static prediction by representing evolving patient states and modelling how they change over time and in response to clinical interventions. This Review defines the conceptual boundaries, technical foundations, application domains, and evidence re…",
+        "summaryRaw": "Medical world models offer a framework for extending medical artificial intelligence beyond static prediction by representing evolving patient states and modelling how they change over time and in response to clinical interventions. This Review defines the conceptual boundaries, technical foundations, application domains, and evidence requirements of the field through a structured narrative synthesis with reproducible evidence mapping.We screened 1,455 unique records and assembled a corpus of 98 sources, including 14 studies that met a strict empirical definition of a medical world model. The field is organised around four capabilities: patient state representation, temporal dynamics modelling, intervention-conditioned simulation, and clinician-supervised planning. Evidence spans medical imaging, longitudinal electronic health records, treatment response modelling, physiological and multimodal state modelling, ultrasound and surgical interaction, and population and health-system simulation; clinical digital twins are treated as a cross-cutting integration framework.Current studies provide early evidence of technical feasibility for trajectory forecasting and comparison of candidate interventions, but most remain retrospective, task-specific, or preclinical. The evidence base is further limited by incomplete longitudinal intervention data, inconsistent action semantics, limited causal identifiability, long-horizon error accumulation, inadequate uncertainty estimation, and limited external validation. Clinical translation will therefore depend on precise intervention representations, robust causal and mechanistic grounding, calibrated trajectory-level uncertainty, safety-constrained planning, and prospective multicentre validation against clinically meaningful endpoints.",
+        "link": "https://arxiv.org/abs/2607.25242v1",
+        "pdfLink": "https://arxiv.org/pdf/2607.25242v1",
+        "published": "2026-07-28T03:35:47Z",
+        "updated": "2026-07-28T03:35:47Z",
+        "authors": [
+          "Zhaoyan Chen",
+          "Zhongxiu Cong",
+          "Zhuanfeng Jin",
+          "Wanshu Fan",
+          "Dongsheng Zhou",
+          "Qi Ai",
+          "Haifan Gong",
+          "Congyu Liao"
+        ],
+        "categories": [
+          "cs.CV"
+        ],
+        "score": 39,
+        "importanceLevel": "B",
+        "lane": "Peripheral",
+        "dimensionScores": {
+          "relevance": 19,
+          "novelty": 12,
+          "impact": 3,
+          "practicality": 8,
+          "coreAlignment": 11
+        },
+        "oneSentenceSummary": "该论文是偏相关方向的重点候选，值得优先阅读。",
+        "summaryCn": "论文核心内容是：Medical world models offer a framework for extending medical artificial intelligence beyond static prediction by representing evolv…",
+        "whyImportant": "命中WAM、通用框架主题，分类覆盖cs.CV，并体现较强的新颖性与影响潜力。",
+        "reasonTags": [
+          "WAM",
+          "通用框架"
+        ],
+        "innovationPoints": [
+          "提出具有跟踪价值的方法设计"
+        ],
+        "noveltyVerdict": "创新点清晰，属于值得重点跟进的增量改进。",
+        "duplicateRisk": "low",
+        "dedupeNote": "该论文在Peripheral方向上具备独立问题设置或代表性贡献，可作为当日候选保留。",
+        "retrievalGroups": [
+          "category"
+        ],
+        "mergedCount": 1,
+        "mergedTitles": [
+          "Medical world models in healthcare: foundations, applications, and challenges for trustworthy clinical translation"
+        ]
+      },
+      {
+        "id": "2607.25778v1",
+        "title": "A Unified Benchmark and Modality-Adaptive Network for Day-and-Night Drone-View Geo-Localization",
+        "summary": "Most existing drone-view geo-localization (DVGL) benchmarks contain drone imagery captured under a single illumination condition and lack geographically aligned visible drone images, infrared drone images, and satellite images from the same locations. To evaluate the generalization capability of DVGL methods under challenging illuminatio…",
+        "summaryRaw": "Most existing drone-view geo-localization (DVGL) benchmarks contain drone imagery captured under a single illumination condition and lack geographically aligned visible drone images, infrared drone images, and satellite images from the same locations. To evaluate the generalization capability of DVGL methods under challenging illumination conditions, some methods train models on a visible benchmark and test them on an independent infrared benchmark. This protocol essentially constitutes transfer between datasets, which makes it difficult to systematically evaluate DVGL across daytime and nighttime conditions within a unified benchmark. To address this limitation, we construct IRCHN,a real-world DVGL benchmark designed for localization across different illumination conditions. IRCHN contains 26,460 images collected from 8,820 geographic locations across four representative scene categories, including farmland, coastline, forest, and urban areas. Each location provides one visible drone image, one infrared drone image, and one corresponding satellite image, which enables unified evaluation of DVGL methods across different illumination conditions and sensing modalities. We further propose the Modality-Adaptive State-Space Transport Relation Network (MASTR-Net), a DVGL framework tailored to localization under varying illumination conditions. MASTR-Net integrates modality-adaptive feature enhancement, bidirectional selective state-space relation modeling, and soft optimal transport relation alignment to jointly reduce modality gaps and view-induced structural discrepancies. Extensive experiments demonstrate that MASTR-Net outperforms existing state-of-the-art methods on IRCHN for localization under varying illumination conditions and achieves competitive performance on two infrared benchmarks, IR-VL328 and CVGL-RGBT. Code: https://github.com/SongtianhaoXu/MASTR-Net",
+        "link": "https://arxiv.org/abs/2607.25778v1",
+        "pdfLink": "https://arxiv.org/pdf/2607.25778v1",
+        "published": "2026-07-28T14:34:57Z",
+        "updated": "2026-07-28T14:34:57Z",
+        "authors": [
+          "Songtianhao Xu",
+          "Zhongwei Chen",
+          "Zhao-Xu Yang",
+          "Weifeng Wang"
+        ],
+        "categories": [
+          "cs.CV"
+        ],
+        "score": 46,
+        "importanceLevel": "B",
+        "lane": "Peripheral",
+        "dimensionScores": {
+          "relevance": 3,
+          "novelty": 26,
+          "impact": 17,
+          "practicality": 3,
+          "coreAlignment": 3
+        },
+        "oneSentenceSummary": "该论文是偏相关方向的重点候选，值得优先阅读。",
+        "summaryCn": "论文核心内容是：Most existing drone-view geo-localization (DVGL) benchmarks contain drone imagery captured under a single illumination condition an…",
+        "whyImportant": "命中新基准、通用框架、真实实验主题，分类覆盖cs.CV，并体现较强的新颖性与影响潜力。",
+        "reasonTags": [
+          "新基准",
+          "通用框架",
+          "真实实验"
+        ],
+        "innovationPoints": [
+          "包含新基准或新数据评测",
+          "提供真实场景实验验证"
+        ],
+        "noveltyVerdict": "创新信号强，像是带新范式或新基准的工作。",
+        "duplicateRisk": "low",
+        "dedupeNote": "该论文在Peripheral方向上具备独立问题设置或代表性贡献，可作为当日候选保留。",
+        "retrievalGroups": [
+          "category"
+        ],
+        "mergedCount": 1,
+        "mergedTitles": [
+          "A Unified Benchmark and Modality-Adaptive Network for Day-and-Night Drone-View Geo-Localization"
+        ]
+      },
+      {
+        "id": "2607.25497v1",
+        "title": "Beyond Counts: A Distributional Robustness Margin For Pathology Foundation Models",
+        "summary": "Pathology foundation models are approaching clinical deployment, yet remain vulnerable to systematic non-biological variation across centres. Differences in tissue preparation, staining and scanning are strongly encoded in their representations, enabling shortcut learning and weakening generalisation across cohorts and institutions.",
+        "summaryRaw": "Pathology foundation models are approaching clinical deployment, yet remain vulnerable to systematic non-biological variation across centres. Differences in tissue preparation, staining and scanning are strongly encoded in their representations, enabling shortcut learning and weakening generalisation across cohorts and institutions. The Robustness Index (RI) quantifies whether local representation geometry is dominated by biology or by non-biological variation, but its count-based formulation discards distance information. We show that adding distance weights changes little because the deeper limitation lies in RI's pooled, fixed-neighbourhood design, which obscures sample-level heterogeneity and effectively evaluates only a model-dependent subset of samples. We introduce the Cross-confounder Robustness Margin (CRoMa), a sample-resolved measure that directly compares distances to cross-confounder biological matches and same-confounder biological distractors. CRoMa recasts robustness as a cohort-wide margin distribution rather than a single pooled score. We evaluated frozen representations from 20 tile-level encoders across three benchmarks and 4 slide-level encoders on a fourth. Rankings by median CRoMa were broadly consistent across datasets, while the underlying distributions revealed substantial within-model heterogeneity. Every tile encoder retained a confounder-dominated lower tail, whose prevalence and severity varied markedly across models. These distinct robustness profiles frame model selection as a Pareto trade-off between typical and lower-tail robustness. Higher CRoMa was also associated with smaller shortcut-induced performance drops after supervised adaptation. By turning representation geometry into a distributional robustness readout that anticipates downstream shortcut susceptibility, CRoMa provides a principled basis for robustness assessment and model selection.",
+        "link": "https://arxiv.org/abs/2607.25497v1",
+        "pdfLink": "https://arxiv.org/pdf/2607.25497v1",
+        "published": "2026-07-28T09:34:30Z",
+        "updated": "2026-07-28T09:34:30Z",
+        "authors": [
+          "Clément Grisi",
+          "Jeroen van der Laak",
+          "Geert Litjens"
+        ],
+        "categories": [
+          "cs.CV",
+          "cs.AI"
+        ],
+        "score": 43,
+        "importanceLevel": "B",
+        "lane": "Peripheral",
+        "dimensionScores": {
+          "relevance": 6,
+          "novelty": 22,
+          "impact": 9,
+          "practicality": 12,
+          "coreAlignment": 6
+        },
+        "oneSentenceSummary": "该论文是偏相关方向的重点候选，值得优先阅读。",
+        "summaryCn": "论文核心内容是：Pathology foundation models are approaching clinical deployment, yet remain vulnerable to systematic non-biological variation acros…",
+        "whyImportant": "命中新基准、通用框架主题，分类覆盖cs.CV / cs.AI，并体现较强的新颖性与影响潜力。",
+        "reasonTags": [
+          "新基准",
+          "通用框架"
+        ],
+        "innovationPoints": [
+          "包含新基准或新数据评测"
+        ],
+        "noveltyVerdict": "创新信号强，像是带新范式或新基准的工作。",
+        "duplicateRisk": "low",
+        "dedupeNote": "该论文在Peripheral方向上具备独立问题设置或代表性贡献，可作为当日候选保留。",
+        "retrievalGroups": [
+          "category"
+        ],
+        "mergedCount": 1,
+        "mergedTitles": [
+          "Beyond Counts: A Distributional Robustness Margin For Pathology Foundation Models"
+        ]
+      },
+      {
+        "id": "2607.25926v1",
+        "title": "Face De-Identification: A Domain-Centric Survey from Capture to Processing",
+        "summary": "Face de-identification (De-ID) aims to remove or conceal personally identifiable facial features in images or videos to prevent identity recognition while preserving utility for downstream tasks. With the rising emphasis on data privacy and responsible AI, face De-ID has emerged as an active research area spanning computer vision and pri…",
+        "summaryRaw": "Face de-identification (De-ID) aims to remove or conceal personally identifiable facial features in images or videos to prevent identity recognition while preserving utility for downstream tasks. With the rising emphasis on data privacy and responsible AI, face De-ID has emerged as an active research area spanning computer vision and privacy-preserving communities. Early approaches, and many contemporary ones, operate in the digital domain by modifying pixel-level or appearance-level features through post-capture processing. Recent advances extend face De-ID beyond post-processing by integrating privacy mechanisms directly into sensors during image acquisition, bridging sensing systems and downstream vision algorithms. In parallel, physical-domain methods explore wearable accessories and materials that conceal identity information in real-world environments prior to capture. In this survey, we present the first unified overview that spans the full data acquisition pipeline, encompassing the physical, sensor, and digital domains. Through this domain-centric lens, we systematically analyze current methodologies, technical progress, and the distinct challenges inherent to each stage. We then review and organize existing evaluation protocols, examining current practices and highlighting the critical need for standardized, comprehensive benchmarks. Finally, we identify key open problems and outline emerging research directions to guide future work in this rapidly evolving field. To support ongoing research, we maintain a project page that organizes relevant literature with collected datasets and open source code: https://github.com/CV-AC/Awesome-FaceDe-ID.",
+        "link": "https://arxiv.org/abs/2607.25926v1",
+        "pdfLink": "https://arxiv.org/pdf/2607.25926v1",
+        "published": "2026-07-28T16:15:12Z",
+        "updated": "2026-07-28T16:15:12Z",
+        "authors": [
+          "Hui Wei",
+          "Hao Yu",
+          "Guoying Zhao"
+        ],
+        "categories": [
+          "cs.CV",
+          "cs.AI"
+        ],
+        "score": 40,
+        "importanceLevel": "B",
+        "lane": "Peripheral",
+        "dimensionScores": {
+          "relevance": 6,
+          "novelty": 22,
+          "impact": 15,
+          "practicality": 3,
+          "coreAlignment": 6
+        },
+        "oneSentenceSummary": "该论文是偏相关方向的重点候选，值得优先阅读。",
+        "summaryCn": "论文核心内容是：Face de-identification (De-ID) aims to remove or conceal personally identifiable facial features in images or videos to prevent ide…",
+        "whyImportant": "命中新基准、通用框架、真实实验主题，分类覆盖cs.CV / cs.AI，并体现较强的新颖性与影响潜力。",
+        "reasonTags": [
+          "新基准",
+          "通用框架",
+          "真实实验"
+        ],
+        "innovationPoints": [
+          "包含新基准或新数据评测",
+          "提供真实场景实验验证"
+        ],
+        "noveltyVerdict": "创新信号强，像是带新范式或新基准的工作。",
+        "duplicateRisk": "low",
+        "dedupeNote": "该论文在Peripheral方向上具备独立问题设置或代表性贡献，可作为当日候选保留。",
+        "retrievalGroups": [
+          "category"
+        ],
+        "mergedCount": 1,
+        "mergedTitles": [
+          "Face De-Identification: A Domain-Centric Survey from Capture to Processing"
+        ]
+      },
+      {
+        "id": "2607.25294v1",
+        "title": "CLBench-V: Evaluating Multimodal Context Learning from Grounding to Knowledge Acquisition",
+        "summary": "Real-world tasks often require models to learn from task-specific context rather than relying only on pre-trained knowledge. While recent work has highlighted this capability as context learning, existing evaluations mainly focus on textual contexts.",
+        "summaryRaw": "Real-world tasks often require models to learn from task-specific context rather than relying only on pre-trained knowledge. While recent work has highlighted this capability as context learning, existing evaluations mainly focus on textual contexts. In many practical settings, however, the context to be learned from is multimodal: scientific findings are conveyed through figures and tables, financial indicators are scattered across converted reports, and spatial decisions depend on maps, scenes, or web pages. We introduce CLBench-V, a benchmark for multimodal context learning that addresses the difficulty of localizing where context use breaks down by organizing tasks around three dimensions: context grounding, new information application, and new knowledge learning. CLBench-V combines converted public benchmarks with newly constructed datasets spanning domains such as science, finance, long-document understanding, spatial reasoning, and web-based visual question answering. To reduce the cost of constructing domain-specific context-learning tasks, we further use automated construction and filtering procedures for our newly built datasets. Across 3,443 instances and six recent multimodal models, the best overall score is only 0.2847, indicating that multimodal context learning remains far from saturated. Moreover, InternVL3.5-30B-A3B performs best on context grounding and new knowledge learning, while Qwen3.5-Plus performs best on new information application. We further analyze judge reliability, context length, image count, and representative failure cases. Code is available at https://github.com/IamLihua/CLBench-V.",
+        "link": "https://arxiv.org/abs/2607.25294v1",
+        "pdfLink": "https://arxiv.org/pdf/2607.25294v1",
+        "published": "2026-07-28T05:06:43Z",
+        "updated": "2026-07-28T05:06:43Z",
+        "authors": [
+          "Lai Wei",
+          "Chengqi Li",
+          "Jiapeng Li",
+          "Ruina Hu",
+          "Yue Wang",
+          "Weiran Huang"
+        ],
+        "categories": [
+          "cs.CV",
+          "cs.AI",
+          "cs.LG"
+        ],
+        "score": 37,
+        "importanceLevel": "B",
+        "lane": "Peripheral",
+        "dimensionScores": {
+          "relevance": 8,
+          "novelty": 17,
+          "impact": 17,
+          "practicality": 3,
+          "coreAlignment": 8
+        },
+        "oneSentenceSummary": "该论文是偏相关方向的重点候选，值得优先阅读。",
+        "summaryCn": "论文核心内容是：Real-world tasks often require models to learn from task-specific context rather than relying only on pre-trained knowledge.",
+        "whyImportant": "命中新基准、真实实验主题，分类覆盖cs.CV / cs.AI，并体现较强的新颖性与影响潜力。",
+        "reasonTags": [
+          "新基准",
+          "真实实验"
+        ],
+        "innovationPoints": [
+          "包含新基准或新数据评测",
+          "提供真实场景实验验证"
+        ],
+        "noveltyVerdict": "创新点清晰，属于值得重点跟进的增量改进。",
+        "duplicateRisk": "low",
+        "dedupeNote": "该论文在Peripheral方向上具备独立问题设置或代表性贡献，可作为当日候选保留。",
+        "retrievalGroups": [
+          "category"
+        ],
+        "mergedCount": 1,
+        "mergedTitles": [
+          "CLBench-V: Evaluating Multimodal Context Learning from Grounding to Knowledge Acquisition"
+        ]
+      },
+      {
+        "id": "2607.25210v1",
+        "title": "ObliCity: A Benchmark and Baseline for Roof-to-Ground Projection Displacement Correction",
+        "summary": "Oblique-view urban remote sensing imagery inevitably exhibits geometric projection displacements between building roofs and footprints, leading to significant distortions in spatial structure. Existing approaches either ignore these deformations or handle them implicitly within segmentation-based frameworks, where progress is dominated b…",
+        "summaryRaw": "Oblique-view urban remote sensing imagery inevitably exhibits geometric projection displacements between building roofs and footprints, leading to significant distortions in spatial structure. Existing approaches either ignore these deformations or handle them implicitly within segmentation-based frameworks, where progress is dominated by general segmentation advances rather than improvements in geometric correction. In this work, we explicitly define roof-to-footprint offset vector (RFOV) extraction as an independent learning task that decouples geometric alignment from semantic segmentation. To support this task, we introduce the Oblique City dataset (ObliCity), the first large-scale benchmark that integrates high-resolution UAV imagery and globally distributed satellite data, covering diverse city morphologies and camera perspectives. Methodologically, we reformulate DragOSM into DragRoof, an ODE-based framework inspired by human annotation behavior. By simulating the continuous process of dragging roofs toward their footprints, DragRoof learns deterministic, geometry-consistent offset fields and adaptively determines convergence through an end token. Extensive experiments on ObliCity demonstrate that DragRoof achieves state-of-the-art RFOV extraction performance, requiring fewer inference steps while delivering superior directional and length accuracy. Our dataset and model establish a principled foundation for studying projection displacement correction in oblique remote sensing imagery. The source code and dataset will be avaliable at https://github.com/likaiucas/DragRoof.",
+        "link": "https://arxiv.org/abs/2607.25210v1",
+        "pdfLink": "https://arxiv.org/pdf/2607.25210v1",
+        "published": "2026-07-28T02:31:47Z",
+        "updated": "2026-07-28T02:31:47Z",
+        "authors": [
+          "Kai Li",
+          "Yupeng Deng",
+          "Ligao Deng",
+          "Zhihao Xi",
+          "Chenhao Wang",
+          "Jierui Zhang",
+          "Yingrui Ji",
+          "Yu Meng"
+        ],
+        "categories": [
+          "cs.CV"
+        ],
+        "score": 41,
+        "importanceLevel": "B",
+        "lane": "Peripheral",
+        "dimensionScores": {
+          "relevance": 3,
+          "novelty": 22,
+          "impact": 16,
+          "practicality": 3,
+          "coreAlignment": 3
+        },
+        "oneSentenceSummary": "该论文是偏相关方向的重点候选，值得优先阅读。",
+        "summaryCn": "论文核心内容是：Oblique-view urban remote sensing imagery inevitably exhibits geometric projection displacements between building roofs and footpri…",
+        "whyImportant": "命中新基准、通用框架主题，分类覆盖cs.CV，并体现较强的新颖性与影响潜力。",
+        "reasonTags": [
+          "新基准",
+          "通用框架"
+        ],
+        "innovationPoints": [
+          "包含新基准或新数据评测"
+        ],
+        "noveltyVerdict": "创新信号强，像是带新范式或新基准的工作。",
+        "duplicateRisk": "low",
+        "dedupeNote": "该论文在Peripheral方向上具备独立问题设置或代表性贡献，可作为当日候选保留。",
+        "retrievalGroups": [
+          "category"
+        ],
+        "mergedCount": 1,
+        "mergedTitles": [
+          "ObliCity: A Benchmark and Baseline for Roof-to-Ground Projection Displacement Correction"
+        ]
+      },
+      {
+        "id": "2607.25393v1",
+        "title": "Towards Reliable Stain Transfer: An Iterative Data-Model Co-Optimization Framework Based on Multimodal Expert-Guided Assessment",
+        "summary": "Histopathological examination primarily relies on hematoxylin and eosin (H&E) and immunohistochemistry (IHC) staining. Although IHC provides critical molecular information, it is costly and requires specialized expertise.",
+        "summaryRaw": "Histopathological examination primarily relies on hematoxylin and eosin (H&E) and immunohistochemistry (IHC) staining. Although IHC provides critical molecular information, it is costly and requires specialized expertise. Stain transfer provides an efficient alternative by computationally generating IHC from H&E images, but remains challenged by unified and interpretable modeling for heterogeneous biomarkers under pixel-unaligned supervision. We propose DMCoStain, a novel Data-Model Co-optimization framework for Stain transfer. It iteratively co-refines training data and model capability, improving staining accuracy and interpretability in both pathological and structural consistency. To refine training data in a clinically meaningful manner, it incorporates the Multimodal Expert-Guided Finer Selection (MEGFS) strategy, built upon a pioneering IHC-positive-expression (IPE) vision-language model (VLM) that emulates pathologist reasoning. To support MEGFS, we construct ImmunoInstruction, the first large-scale IPE instruction-following dataset with 150K VQA samples. Extensive experiments on multiple tissues and biomarkers demonstrate that DMCoStain achieves state-of-the-art (SOTA) accuracy. This paradigm offers strong practical value, and MEGFS also functions as a specialized evaluation tool for future model development. Dataset, code, and more details are in https://github.com/SikangSHU/DMCoStain.",
+        "link": "https://arxiv.org/abs/2607.25393v1",
+        "pdfLink": "https://arxiv.org/pdf/2607.25393v1",
+        "published": "2026-07-28T07:54:43Z",
+        "updated": "2026-07-28T07:54:43Z",
+        "authors": [
+          "Siyuan Xu",
+          "Yan Wang",
+          "Haofei Song",
+          "Lili Gao",
+          "Jiansheng Wang",
+          "Qing Zhang",
+          "Dan Huang",
+          "Boxiang Yun"
+        ],
+        "categories": [
+          "cs.CV"
+        ],
+        "score": 40,
+        "importanceLevel": "B",
+        "lane": "Peripheral",
+        "dimensionScores": {
+          "relevance": 3,
+          "novelty": 17,
+          "impact": 16,
+          "practicality": 7,
+          "coreAlignment": 3
+        },
+        "oneSentenceSummary": "该论文是偏相关方向的重点候选，值得优先阅读。",
+        "summaryCn": "论文核心内容是：Histopathological examination primarily relies on hematoxylin and eosin (H&E) and immunohistochemistry (IHC) staining.",
+        "whyImportant": "命中新基准、通用框架主题，分类覆盖cs.CV，并体现较强的新颖性与影响潜力。",
+        "reasonTags": [
+          "新基准",
+          "通用框架"
+        ],
+        "innovationPoints": [
+          "包含新基准或新数据评测"
+        ],
+        "noveltyVerdict": "创新点清晰，属于值得重点跟进的增量改进。",
+        "duplicateRisk": "low",
+        "dedupeNote": "该论文在Peripheral方向上具备独立问题设置或代表性贡献，可作为当日候选保留。",
+        "retrievalGroups": [
+          "category"
+        ],
+        "mergedCount": 1,
+        "mergedTitles": [
+          "Towards Reliable Stain Transfer: An Iterative Data-Model Co-Optimization Framework Based on Multimodal Expert-Guided Assessment"
+        ]
+      },
+      {
+        "id": "2607.25392v1",
+        "title": "RDVSv2: A Large-scale Benchmark for RGB-D Video Salient Object Detection",
+        "summary": "We introduce RDVSv2, a large-scale benchmark for RGB-D video salient object detection (RGB-D VSOD) with dense frame-level annotations. Existing datasets in this emerging field are often limited in scale and annotation quality, while also relying on less geometry-consistent depth cues.",
+        "summaryRaw": "We introduce RDVSv2, a large-scale benchmark for RGB-D video salient object detection (RGB-D VSOD) with dense frame-level annotations. Existing datasets in this emerging field are often limited in scale and annotation quality, while also relying on less geometry-consistent depth cues. To address these limitations, RDVSv2 is built from publicly accessible stereoscopic online videos and contains 249 video sequences with 29,077 annotated frames. It includes depth maps derived from stereoscopic videos, together with frame-wise salient object masks annotated with eye-tracking guidance. Compared with existing datasets, RDVSv2 is much larger in scale and covers more diverse and challenging scenarios. In addition, we establish a strong baseline for RGB-D VSOD based on Segment Anything Model 2 (SAM2). Specifically, we employ a parameter-efficient fine-tuning (PEFT) strategy to adapt the SAM2 encoder to jointly encode RGB, depth, and optical flow cues. Extensive experiments show that RDVSv2 is substantially more challenging for existing RGB-D VSOD methods. Meanwhile, the proposed baseline achieves state-of-the-art results on RDVSv2 and existing RGB-D VSOD benchmarks. We hope that RDVSv2 and the provided baseline will serve as useful resources for future research on RGB-D VSOD and related multi-modal video understanding tasks. Our dataset and code will be available at https://github.com/ltynick/RDVSv2.",
+        "link": "https://arxiv.org/abs/2607.25392v1",
+        "pdfLink": "https://arxiv.org/pdf/2607.25392v1",
+        "published": "2026-07-28T07:54:03Z",
+        "updated": "2026-07-28T07:54:03Z",
+        "authors": [
+          "Tianyu Li",
+          "Jiahao He",
+          "Keren Fu",
+          "Qijun Zhao"
+        ],
+        "categories": [
+          "cs.CV"
+        ],
+        "score": 40,
+        "importanceLevel": "B",
+        "lane": "Peripheral",
+        "dimensionScores": {
+          "relevance": 3,
+          "novelty": 17,
+          "impact": 16,
+          "practicality": 7,
+          "coreAlignment": 3
+        },
+        "oneSentenceSummary": "该论文是偏相关方向的重点候选，值得优先阅读。",
+        "summaryCn": "论文核心内容是：We introduce RDVSv2, a large-scale benchmark for RGB-D video salient object detection (RGB-D VSOD) with dense frame-level annotatio…",
+        "whyImportant": "命中新基准主题，分类覆盖cs.CV，并体现较强的新颖性与影响潜力。",
+        "reasonTags": [
+          "新基准"
+        ],
+        "innovationPoints": [
+          "包含新基准或新数据评测"
+        ],
+        "noveltyVerdict": "创新点清晰，属于值得重点跟进的增量改进。",
+        "duplicateRisk": "low",
+        "dedupeNote": "该论文在Peripheral方向上具备独立问题设置或代表性贡献，可作为当日候选保留。",
+        "retrievalGroups": [
+          "category"
+        ],
+        "mergedCount": 1,
+        "mergedTitles": [
+          "RDVSv2: A Large-scale Benchmark for RGB-D Video Salient Object Detection"
+        ]
+      },
+      {
+        "id": "2607.25830v1",
+        "title": "Beyond Static Costs: Learning-Dynamics Aware Loss Functions for Long-Tailed Classification",
+        "summary": "Deep learning models in computer vision face significant challenges when trained on long-tailed datasets, where a few majority classes dominate while many minority classes are severely underrepresented. Such imbalances frequently arise in real-world scenarios such as rare species recognition, manufacturing fault detection, and medical im…",
+        "summaryRaw": "Deep learning models in computer vision face significant challenges when trained on long-tailed datasets, where a few majority classes dominate while many minority classes are severely underrepresented. Such imbalances frequently arise in real-world scenarios such as rare species recognition, manufacturing fault detection, and medical image understanding, leading to biased models that underperform on tail classes. Existing reweighting methods typically rely on static class frequencies to penalize the model, ignoring the dynamic nature of how effectively a network actually learns a class over time. We address this by introducing a novel Learning-Dynamics Aware Loss (LDAL) function that shifts the focus from static sample counts to dynamic learning progress. LDAL framework adjusts class weights continuously by leveraging: (i) the strength of learned feature representations (semantic scale), (ii) the intrinsic learning difficulty of each class, measured via the Shannon entropy of its predictions, and (iii) an inter-epoch regularizer term that tracks prediction shifts between consecutive epochs to stabilize training and avoid local minima. LDAL is purely a objective function which incurs negligible computational overhead while adapting to the feature learning of the model. Experimental results on multiple benchmark datasets demonstrate that our approach significantly surpasses state-of-the-art reweighting loss functions, providing an optimal trade-off between accuracy and generalizability. The source code is available at https://github.com/sdm2026/ldal",
+        "link": "https://arxiv.org/abs/2607.25830v1",
+        "pdfLink": "https://arxiv.org/pdf/2607.25830v1",
+        "published": "2026-07-28T15:10:33Z",
+        "updated": "2026-07-28T15:10:33Z",
+        "authors": [
+          "Varad Shinde",
+          "Nikhil Kumar Shrey",
+          "Magesh Rajasekaran",
+          "Md Saiful Islam Sajol",
+          "Harshil Bhargava",
+          "Subhajit Sidanta",
+          "Supratik Mukhopadhyay",
+          "Yimin Zhu"
+        ],
+        "categories": [
+          "cs.CV"
+        ],
+        "score": 37,
+        "importanceLevel": "B",
+        "lane": "Peripheral",
+        "dimensionScores": {
+          "relevance": 3,
+          "novelty": 17,
+          "impact": 17,
+          "practicality": 3,
+          "coreAlignment": 3
+        },
+        "oneSentenceSummary": "该论文是偏相关方向的重点候选，值得优先阅读。",
+        "summaryCn": "论文核心内容是：Deep learning models in computer vision face significant challenges when trained on long-tailed datasets, where a few majority clas…",
+        "whyImportant": "命中新基准、真实实验主题，分类覆盖cs.CV，并体现较强的新颖性与影响潜力。",
+        "reasonTags": [
+          "新基准",
+          "真实实验"
+        ],
+        "innovationPoints": [
+          "包含新基准或新数据评测",
+          "提供真实场景实验验证"
+        ],
+        "noveltyVerdict": "创新点清晰，属于值得重点跟进的增量改进。",
+        "duplicateRisk": "low",
+        "dedupeNote": "该论文在Peripheral方向上具备独立问题设置或代表性贡献，可作为当日候选保留。",
+        "retrievalGroups": [
+          "category"
+        ],
+        "mergedCount": 1,
+        "mergedTitles": [
+          "Beyond Static Costs: Learning-Dynamics Aware Loss Functions for Long-Tailed Classification"
+        ]
+      },
+      {
+        "id": "2607.25275v1",
+        "title": "ScaleResfusion: Residual Rectified Flow based on Residual Vector Field",
+        "summary": "Real-world Image Restoration (Real-IR) aims to recover high-quality (HQ) images from complex and unknown degradations. Although recent diffusion-based methods have substantially improved perceptual quality, their current designs leave two key challenges unresolved.",
+        "summaryRaw": "Real-world Image Restoration (Real-IR) aims to recover high-quality (HQ) images from complex and unknown degradations. Although recent diffusion-based methods have substantially improved perceptual quality, their current designs leave two key challenges unresolved. Methods that start from Gaussian noise are slow and often less faithful to the degraded input. Residual-based methods usually train from scratch, which makes it hard to exploit modern pre-trained generative priors. In this paper, we present ScaleResfusion, a scalable diffusion framework for real-world image restoration built on pre-trained text-to-image rectified-flow models. The core of our method is Residual Rectified Flow, which introduces the residual term R into Standard Rectified Flow. Instead of starting from pure noise, it uses a residual transport path that starts from noisy low-quality (LQ) images and admits an exact acceleration point. By learning the residual vector field, Residual Rectified Flow keeps the output distribution and linear diffusion process consistent with the pre-trained rectified-flow models. This makes parameter-efficient fine-tuning possible at scale. We further introduce a knowledge-distillation pipeline to reduce sampling cost while maintaining restoration quality. Extensive experiments on multiple real-world restoration tasks show that ScaleResfusion achieves state-of-the-art performance with much higher efficiency. These results suggest a practical and scalable way to adapt large pre-trained diffusion models to real-world image restoration. Our code and models are available at https://github.com/YukinoshitaLove/ScaleResfusion.",
+        "link": "https://arxiv.org/abs/2607.25275v1",
+        "pdfLink": "https://arxiv.org/pdf/2607.25275v1",
+        "published": "2026-07-28T04:26:05Z",
+        "updated": "2026-07-28T04:26:05Z",
+        "authors": [
+          "Zhenning Shi",
+          "Chen Xu",
+          "Junhao Zhang",
+          "Kefei Zhang",
+          "Linjie Liu",
+          "Zhedong Zheng",
+          "Tao Li"
+        ],
+        "categories": [
+          "cs.CV",
+          "cs.AI"
+        ],
+        "score": 34,
+        "importanceLevel": "B",
+        "lane": "Peripheral",
+        "dimensionScores": {
+          "relevance": 6,
+          "novelty": 7,
+          "impact": 20,
+          "practicality": 7,
+          "coreAlignment": 6
+        },
+        "oneSentenceSummary": "该论文是偏相关方向的重点候选，值得优先阅读。",
+        "summaryCn": "论文核心内容是：Real-world Image Restoration (Real-IR) aims to recover high-quality (HQ) images from complex and unknown degradations.",
+        "whyImportant": "命中真实实验主题，分类覆盖cs.CV / cs.AI，并体现较强的新颖性与影响潜力。",
+        "reasonTags": [
+          "真实实验"
+        ],
+        "innovationPoints": [
+          "提供真实场景实验验证"
+        ],
+        "noveltyVerdict": "更偏实用推进型工作，适合结合上下文继续判断。",
+        "duplicateRisk": "low",
+        "dedupeNote": "该论文在Peripheral方向上具备独立问题设置或代表性贡献，可作为当日候选保留。",
+        "retrievalGroups": [
+          "category"
+        ],
+        "mergedCount": 1,
+        "mergedTitles": [
+          "ScaleResfusion: Residual Rectified Flow based on Residual Vector Field"
         ]
       }
     ],
     "vla": [
       {
-        "id": "2607.20988v1",
-        "title": "HyWorldVLA: A Vision-Language-Action Model with Hybrid World Modeling for Autonomous Driving",
-        "summary": "Vision-Language-Action (VLA) models augmented with world modeling represent a promising paradigm for end-to-end autonomous driving. While pixel-level future prediction enables fine-grained spatiotemporal reasoning, it compromises robustness in noisy driving scenarios.",
-        "summaryRaw": "Vision-Language-Action (VLA) models augmented with world modeling represent a promising paradigm for end-to-end autonomous driving. While pixel-level future prediction enables fine-grained spatiotemporal reasoning, it compromises robustness in noisy driving scenarios. Conversely, latent-based world models alleviate this sensitivity but often incur limited interpretability and representational degradation due to absent pixel-level grounding. To reconcile this trade-off, we propose HyWorldVLA, a hybrid world-VLA framework that unifies pixel-level supervision and latent representation learning. In the pre-training stage, HyWorldVLA predicts video latents encoded by a pre-trained video VAE, while simultaneously reconstructing video frames to provide precise pixel-level grounding. During the subsequent co-fine-tuning phase, the model exclusively predicts latent features, which are fed into an action expert to generate trajectories. Extensive experiments on NAVSIM v1 and v2 benchmarks demonstrate that HyWorldVLA significantly outperforms both pixel-based and latent-based world model baselines. Notably, we present the first comprehensive qualitative and quantitative analysis of world model noise robustness in autonomous driving, establishing a new benchmark for evaluating future architectures.",
-        "link": "https://arxiv.org/abs/2607.20988v1",
-        "pdfLink": "https://arxiv.org/pdf/2607.20988v1",
-        "published": "2026-07-23T07:11:41Z",
-        "updated": "2026-07-23T07:11:41Z",
+        "id": "2607.25895v1",
+        "title": "HiFi-UMI: Learning Deployable Manipulation Policies from High-Fidelity UMI Data Alone",
+        "summary": "Learning deployable manipulation policies is bottlenecked by the scarcity of data that is both high-fidelity and scalable. Real-robot teleoperation is accurate but costly to scale; robot-free UMI capture scales readily, and current practice uses the resulting data mainly for pre-training, adding a small real-robot \"anchor\" at post-traini…",
+        "summaryRaw": "Learning deployable manipulation policies is bottlenecked by the scarcity of data that is both high-fidelity and scalable. Real-robot teleoperation is accurate but costly to scale; robot-free UMI capture scales readily, and current practice uses the resulting data mainly for pre-training, adding a small real-robot \"anchor\" at post-training. We ask whether raising the fidelity of robot-free UMI data, rather than shrinking the real-robot fraction, can remove that anchor. We present HiFi-UMI, a portable UMI data-production system co-designed for trajectory accuracy, inter-gripper relative pose, synchronization, and field of view: head-mounted offline stereo-inertial SLAM, native rather than reconstructed relative pose, a shared microsecond GPIO trigger, and two wide-angle cameras per hand covering ~200 degrees. It reaches 3 mm workspace-local end-effector accuracy without external tracking infrastructure. Using this corpus, we demonstrate zero-robot post-training: a policy post-trained solely on HiFi-UMI demonstrations deploys directly on a real robot and matches in-domain teleoperation across three backbones spanning the vision-language-action and world-action-model families, with success-rate differences of -2.5, +3.1, and -0.6 percentage points on StarVLA-QwenPI, OpenPI-pi_0.5, and LingBot-VA; the strongest policy reaches 85% on a precision insertion task, even though the teleoperation baseline is collected in the evaluation scene and no HiFi-UMI trajectory is. Pre-training on 4,000 hours from the same corpus lowers action error on ten unseen tasks by 41% and, on StarVLA-QwenPI, raises real-robot success by a further 18.1 percentage points. We open-source HiFi-UMI-2K, 2,000 hours of microsecond-synchronized, ultra-wide-FoV demonstrations, each automatically reconstructed and validated through simulation replay, as a large-scale, high-fidelity resource for the robot-learning community.",
+        "link": "https://arxiv.org/abs/2607.25895v1",
+        "pdfLink": "https://arxiv.org/pdf/2607.25895v1",
+        "published": "2026-07-28T15:52:02Z",
+        "updated": "2026-07-28T15:52:02Z",
         "authors": [
-          "Quanfu Yu",
-          "Xian Wu",
-          "Hao Xu",
-          "Liulong Ma"
+          "Simple AI",
+          ":",
+          "Yuteng Wei",
+          "Jinming Ma",
+          "Jiawei Wang",
+          "Weitao Zhou",
+          "Yushen Zuo",
+          "Ke Rui"
         ],
         "categories": [
+          "cs.RO",
           "cs.CV",
-          "cs.AI"
+          "cs.LG"
         ],
-        "score": 84,
-        "importanceLevel": "B",
-        "lane": "Both",
+        "score": 88,
+        "importanceLevel": "S",
+        "lane": "VLA",
         "dimensionScores": {
-          "relevance": 62,
-          "novelty": 12,
-          "impact": 9,
-          "practicality": 7,
-          "coreAlignment": 34
+          "relevance": 85,
+          "novelty": 75,
+          "impact": 80,
+          "practicality": 90,
+          "coreAlignment": 90
         },
-        "oneSentenceSummary": "HyWorldVLA结合像素级与潜在世界建模的自动驾驶VLA模型。",
-        "summaryCn": "HyWorldVLA提出了混合世界建模的视觉-语言-动作框架，用于端到端自动驾驶。该模型在预训练阶段同时预测视频潜变量并重建视频帧以提供像素级监督，在联合微调阶段仅预测潜变量，从而平衡鲁棒性与可解释性。该方法旨在解决纯像素预测对噪声敏感而纯潜变量表示可解释性不足的问题。",
-        "whyImportant": "提出混合世界建模方法，统一像素与潜变量优势，提升自动驾驶VLA鲁棒性与可解释性。",
+        "oneSentenceSummary": "提出高保真UMI数据采集系统，实现无需真实机器人微调的部署级操作策略学习。",
+        "summaryCn": "HiFi-UMI 是便携式通用操作接口系统，通过头戴式双目视觉与同步触发，提供毫米级末端精度。基于此采集的高保真数据，无需真实机器人锚点即可训练出可直接部署的机器人操作策略，显著降低遥操作成本并提升数据可扩展性。",
+        "whyImportant": "大幅降低机器人数据采集成本与门槛，使仿真数据可直接训练可部署策略。",
         "reasonTags": [
-          "混合世界建模",
-          "视觉-语言-动作",
-          "自动驾驶",
-          "视频预测"
+          "机器人数据采集",
+          "操作策略学习",
+          "高保真仿真",
+          "通用操作接口"
         ],
         "innovationPoints": [
-          "提出像素与潜变量混合世界建模框架",
-          "分阶段训练策略：预训练联合重建与预测，微调专注潜变量",
-          "提升自动驾驶VLA的鲁棒性与可解释性"
+          "提出高精度便携式UMI系统，实现毫米级末端执行器追踪。",
+          "证明纯仿真数据不需真实锚点即可训练可部署机器人策略。",
+          "双广角相机与同步触发显著提升数据一致性与覆盖范围。"
         ],
-        "noveltyVerdict": "创新性较低：混合世界建模非全新概念，但自动驾驶应用有一定整合价值。",
+        "noveltyVerdict": "率先构建无需外部跟踪的高精度便携式数据采集系统，显著提升实用性与场景适应性。",
         "duplicateRisk": "low",
-        "dedupeNote": "当前唯一候选论文，无重复风险。",
+        "dedupeNote": "首次提出完全依赖高保真UMI数据训练可部署策略，无需真实机器人数据锚点。",
         "retrievalGroups": [
-          "wam_core"
+          "category"
         ],
         "mergedCount": 1,
         "mergedTitles": [
-          "HyWorldVLA: A Vision-Language-Action Model with Hybrid World Modeling for Autonomous Driving"
+          "HiFi-UMI: Learning Deployable Manipulation Policies from High-Fidelity UMI Data Alone"
+        ]
+      },
+      {
+        "id": "2607.25487v1",
+        "title": "CoTinyVLA: Chain-of-Thought Distillation for a Sub-Billion-Parameter Vision-Language-Action Model",
+        "summary": "Vision-Language-Action (VLA) models translate natural-language commands into robot action sequences, but leading systems on the LIBERO-Plus robustness benchmark use three- to seven-billion-parameter backbones whose memory demands can exceed embedded robotic budgets. We present CoTinyVLA, a 0.9B-parameter action model on a Qwen3.5-0.8B ba…",
+        "summaryRaw": "Vision-Language-Action (VLA) models translate natural-language commands into robot action sequences, but leading systems on the LIBERO-Plus robustness benchmark use three- to seven-billion-parameter backbones whose memory demands can exceed embedded robotic budgets. We present CoTinyVLA, a 0.9B-parameter action model on a Qwen3.5-0.8B backbone that obtains that robustness by structuring supervision instead of enlarging the model. Three components target different axes of the problem: dual-view temporal input of 16 history frames per step with textual camera and time markers; hierarchical chain-of-thought (CoT) distillation from a 35B teacher into an episode-level Plan and a chunk-level Think span over task phase, gripper state and next subaction; and paraphrase augmentation expanding 40 base commands into 800 variants. On LIBERO-Plus, spanning 10,030 perturbed tasks across seven perturbation dimensions, CoTinyVLA reaches 90.8% on Spatial, 87.3% on Object, 86.6% on Goal and 80.7% on Long, leading the strongest 7B baseline on all four suites by 4.7, 2.8, 15.9 and 3.0 points, with every margin interval excluding zero. The gains concentrate on the hardest axes of the benchmark: across the eleven published baselines none exceeds 53.2% on Robot Initial States in any suite, whereas CoTinyVLA reaches 73.6% on Goal against 39.9% for the strongest baseline. Ablations show the three components to be separable by perturbation axis, and at a matched image budget how frames are divided between the two cameras and across time accounts for 8.6 points on its own. Closed-loop inference peaks at 2.25 GiB of allocated GPU memory, and paired interventions show the episode Plan to be load-bearing: replacing it with an empty or contradictory span costs 40 to 45 points of success. Structured supervision thus lets a 0.9B backbone exceed all of them. Code: https://github.com/BrainJellyPie/CoTinyVLA",
+        "link": "https://arxiv.org/abs/2607.25487v1",
+        "pdfLink": "https://arxiv.org/pdf/2607.25487v1",
+        "published": "2026-07-28T09:24:17Z",
+        "updated": "2026-07-28T09:24:17Z",
+        "authors": [
+          "Minhyeok Lee",
+          "Chiyoung Kim",
+          "Chanhoe Gu",
+          "Seongrok Kim",
+          "Sanghyuk Roy Choi",
+          "Donghwan Hwang",
+          "Donghun Ryu",
+          "Seokhyun Kim"
+        ],
+        "categories": [
+          "cs.AI",
+          "cs.CV"
+        ],
+        "score": 85,
+        "importanceLevel": "A",
+        "lane": "VLA",
+        "dimensionScores": {
+          "relevance": 90,
+          "novelty": 80,
+          "impact": 70,
+          "practicality": 85,
+          "coreAlignment": 95
+        },
+        "oneSentenceSummary": "通过思维链蒸馏，将9亿参数VLA模型的鲁棒性提升至与大型模型相当。",
+        "summaryCn": "CoTinyVLA 在0.9B参数骨干上通过双视角时序输入、分层思维链蒸馏及指令增强，实现LIBERO-Plus鲁棒基准上与数十亿参数模型相媲美的性能，显著降低嵌入式机器人部署的内存需求，为小型化通用操作模型提供可行路径。",
+        "whyImportant": "证明小模型通过结构监督即可达到大模型鲁棒性，推动具身智能边缘化部署。",
+        "reasonTags": [
+          "小型VLA",
+          "思维链蒸馏",
+          "鲁棒性提升",
+          "具身智能"
+        ],
+        "innovationPoints": [
+          "通过分层思维链从大模型蒸馏任务规划与动作推理。",
+          "双视角时序输入增强空间感知与动作连贯性。",
+          "指令增强扩充训练分布，提升泛化能力。"
+        ],
+        "noveltyVerdict": "开创性结合小模型与思维链监督，突破参数限制，实现鲁棒性飞跃。",
+        "duplicateRisk": "low",
+        "dedupeNote": "在极小参数下首次通过结构化监督达到大型VLA的鲁棒性，无类似压缩方案。",
+        "retrievalGroups": [
+          "category"
+        ],
+        "mergedCount": 1,
+        "mergedTitles": [
+          "CoTinyVLA: Chain-of-Thought Distillation for a Sub-Billion-Parameter Vision-Language-Action Model"
         ]
       }
     ],
     "wam": [
       {
-        "id": "2607.20988v1",
-        "title": "HyWorldVLA: A Vision-Language-Action Model with Hybrid World Modeling for Autonomous Driving",
-        "summary": "Vision-Language-Action (VLA) models augmented with world modeling represent a promising paradigm for end-to-end autonomous driving. While pixel-level future prediction enables fine-grained spatiotemporal reasoning, it compromises robustness in noisy driving scenarios.",
-        "summaryRaw": "Vision-Language-Action (VLA) models augmented with world modeling represent a promising paradigm for end-to-end autonomous driving. While pixel-level future prediction enables fine-grained spatiotemporal reasoning, it compromises robustness in noisy driving scenarios. Conversely, latent-based world models alleviate this sensitivity but often incur limited interpretability and representational degradation due to absent pixel-level grounding. To reconcile this trade-off, we propose HyWorldVLA, a hybrid world-VLA framework that unifies pixel-level supervision and latent representation learning. In the pre-training stage, HyWorldVLA predicts video latents encoded by a pre-trained video VAE, while simultaneously reconstructing video frames to provide precise pixel-level grounding. During the subsequent co-fine-tuning phase, the model exclusively predicts latent features, which are fed into an action expert to generate trajectories. Extensive experiments on NAVSIM v1 and v2 benchmarks demonstrate that HyWorldVLA significantly outperforms both pixel-based and latent-based world model baselines. Notably, we present the first comprehensive qualitative and quantitative analysis of world model noise robustness in autonomous driving, establishing a new benchmark for evaluating future architectures.",
-        "link": "https://arxiv.org/abs/2607.20988v1",
-        "pdfLink": "https://arxiv.org/pdf/2607.20988v1",
-        "published": "2026-07-23T07:11:41Z",
-        "updated": "2026-07-23T07:11:41Z",
+        "id": "2607.26037v1",
+        "title": "Wonder: Video World Model Done Better",
+        "summary": "We present Wonder, a general-purpose video world model for real-time, camera-controllable world exploration. Given an image or a conditional video, Wonder constructs a playable world where users can navigate interactively by moving the camera, discovering unseen regions, and revisiting previously observed areas in real time and over a lo…",
+        "summaryRaw": "We present Wonder, a general-purpose video world model for real-time, camera-controllable world exploration. Given an image or a conditional video, Wonder constructs a playable world where users can navigate interactively by moving the camera, discovering unseen regions, and revisiting previously observed areas in real time and over a long-term horizon. Achieving this capability requires a system-level co-design of control method, memory mechanism, and training strategy. We introduce a novel camera conditioning with a dense coordinate field whose renderings provide spatially aligned motion and orientation cues, allowing the model to interpret camera motion directly as visual evidence. To support fast and precise memory retrieval over a growing generation context, we propose an efficient sparse attention-based memory mechanism, enabling the model to selectively attend to a small set of relevant context tokens at inference time, regardless of actual context length. We further develop several techniques to rectify the self-forcing-style distillation pipeline, improving the student model's ability to respect control signals, as well as maintaining diverse generation modes and long-term memory from the teacher. Together, these components enable Wonder to synthesize diverse, minute-scale videos at 16 FPS while preserving coherent geometry, appearance, and dynamics across long rollouts. Beyond image-to-video generation, Wonder naturally supports video-conditioned generation, allowing existing dynamic scenes to be re-shot in real time.",
+        "link": "https://arxiv.org/abs/2607.26037v1",
+        "pdfLink": "https://arxiv.org/pdf/2607.26037v1",
+        "published": "2026-07-28T17:45:25Z",
+        "updated": "2026-07-28T17:45:25Z",
         "authors": [
-          "Quanfu Yu",
-          "Xian Wu",
-          "Hao Xu",
-          "Liulong Ma"
+          "Jiacong Xu",
+          "Hanwen Jiang",
+          "Zhixin Shu",
+          "Kalyan Sunkavalli",
+          "Vishal M. Patel",
+          "Yiqun Mei"
         ],
         "categories": [
-          "cs.CV",
-          "cs.AI"
+          "cs.CV"
         ],
-        "score": 84,
+        "score": 60,
         "importanceLevel": "B",
-        "lane": "Both",
+        "lane": "WAM",
         "dimensionScores": {
-          "relevance": 62,
-          "novelty": 12,
-          "impact": 9,
-          "practicality": 7,
-          "coreAlignment": 34
+          "relevance": 70,
+          "novelty": 65,
+          "impact": 50,
+          "practicality": 40,
+          "coreAlignment": 60
         },
-        "oneSentenceSummary": "HyWorldVLA结合像素级与潜在世界建模的自动驾驶VLA模型。",
-        "summaryCn": "HyWorldVLA提出了混合世界建模的视觉-语言-动作框架，用于端到端自动驾驶。该模型在预训练阶段同时预测视频潜变量并重建视频帧以提供像素级监督，在联合微调阶段仅预测潜变量，从而平衡鲁棒性与可解释性。该方法旨在解决纯像素预测对噪声敏感而纯潜变量表示可解释性不足的问题。",
-        "whyImportant": "提出混合世界建模方法，统一像素与潜变量优势，提升自动驾驶VLA鲁棒性与可解释性。",
+        "oneSentenceSummary": "可交互的视频世界模型，支持实时相机控制以探索未见过环境。",
+        "summaryCn": "Wonder 构建通用视频世界模型，引入密集坐标场相机条件与高效稀疏注意力记忆机制，支持实时、长期、可操控的相机探索。用户可从单帧或条件视频出发，在生成的动态世界中自由移动视角，发现和回访已见区域，应用于虚拟现实与仿真。",
+        "whyImportant": "为交互式视频生成提供高效记忆与精准控制，助力虚拟世界构建与仿真。",
         "reasonTags": [
-          "混合世界建模",
-          "视觉-语言-动作",
-          "自动驾驶",
-          "视频预测"
+          "视频世界模型",
+          "交互式探索",
+          "相机控制",
+          "动态场景生成"
         ],
         "innovationPoints": [
-          "提出像素与潜变量混合世界建模框架",
-          "分阶段训练策略：预训练联合重建与预测，微调专注潜变量",
-          "提升自动驾驶VLA的鲁棒性与可解释性"
+          "密集坐标场渲染提供空间对齐的运动和方向线索。",
+          "稀疏注意力记忆机制实现长时上下文的快速精准检索。",
+          "联合设计控制、记忆与训练策略，实现实时可操控世界模型。"
         ],
-        "noveltyVerdict": "创新性较低：混合世界建模非全新概念，但自动驾驶应用有一定整合价值。",
+        "noveltyVerdict": "将世界模型与实时相机控制深度结合，记忆机制创新性解决长序列生成难题。",
         "duplicateRisk": "low",
-        "dedupeNote": "当前唯一候选论文，无重复风险。",
+        "dedupeNote": "首个联合优化相机控制与记忆机制的可交互视频世界模型，不同于纯视频生成。",
         "retrievalGroups": [
-          "wam_core"
+          "category"
         ],
         "mergedCount": 1,
         "mergedTitles": [
-          "HyWorldVLA: A Vision-Language-Action Model with Hybrid World Modeling for Autonomous Driving"
+          "Wonder: Video World Model Done Better"
+        ]
+      },
+      {
+        "id": "2607.25242v1",
+        "title": "Medical world models in healthcare: foundations, applications, and challenges for trustworthy clinical translation",
+        "summary": "Medical world models offer a framework for extending medical artificial intelligence beyond static prediction by representing evolving patient states and modelling how they change over time and in response to clinical interventions. This Review defines the conceptual boundaries, technical foundations, application domains, and evidence re…",
+        "summaryRaw": "Medical world models offer a framework for extending medical artificial intelligence beyond static prediction by representing evolving patient states and modelling how they change over time and in response to clinical interventions. This Review defines the conceptual boundaries, technical foundations, application domains, and evidence requirements of the field through a structured narrative synthesis with reproducible evidence mapping.We screened 1,455 unique records and assembled a corpus of 98 sources, including 14 studies that met a strict empirical definition of a medical world model. The field is organised around four capabilities: patient state representation, temporal dynamics modelling, intervention-conditioned simulation, and clinician-supervised planning. Evidence spans medical imaging, longitudinal electronic health records, treatment response modelling, physiological and multimodal state modelling, ultrasound and surgical interaction, and population and health-system simulation; clinical digital twins are treated as a cross-cutting integration framework.Current studies provide early evidence of technical feasibility for trajectory forecasting and comparison of candidate interventions, but most remain retrospective, task-specific, or preclinical. The evidence base is further limited by incomplete longitudinal intervention data, inconsistent action semantics, limited causal identifiability, long-horizon error accumulation, inadequate uncertainty estimation, and limited external validation. Clinical translation will therefore depend on precise intervention representations, robust causal and mechanistic grounding, calibrated trajectory-level uncertainty, safety-constrained planning, and prospective multicentre validation against clinically meaningful endpoints.",
+        "link": "https://arxiv.org/abs/2607.25242v1",
+        "pdfLink": "https://arxiv.org/pdf/2607.25242v1",
+        "published": "2026-07-28T03:35:47Z",
+        "updated": "2026-07-28T03:35:47Z",
+        "authors": [
+          "Zhaoyan Chen",
+          "Zhongxiu Cong",
+          "Zhuanfeng Jin",
+          "Wanshu Fan",
+          "Dongsheng Zhou",
+          "Qi Ai",
+          "Haifan Gong",
+          "Congyu Liao"
+        ],
+        "categories": [
+          "cs.CV"
+        ],
+        "score": 39,
+        "importanceLevel": "B",
+        "lane": "Peripheral",
+        "dimensionScores": {
+          "relevance": 19,
+          "novelty": 12,
+          "impact": 3,
+          "practicality": 8,
+          "coreAlignment": 11
+        },
+        "oneSentenceSummary": "该论文是偏相关方向的重点候选，值得优先阅读。",
+        "summaryCn": "论文核心内容是：Medical world models offer a framework for extending medical artificial intelligence beyond static prediction by representing evolv…",
+        "whyImportant": "命中WAM、通用框架主题，分类覆盖cs.CV，并体现较强的新颖性与影响潜力。",
+        "reasonTags": [
+          "WAM",
+          "通用框架"
+        ],
+        "innovationPoints": [
+          "提出具有跟踪价值的方法设计"
+        ],
+        "noveltyVerdict": "创新点清晰，属于值得重点跟进的增量改进。",
+        "duplicateRisk": "low",
+        "dedupeNote": "该论文在Peripheral方向上具备独立问题设置或代表性贡献，可作为当日候选保留。",
+        "retrievalGroups": [
+          "category"
+        ],
+        "mergedCount": 1,
+        "mergedTitles": [
+          "Medical world models in healthcare: foundations, applications, and challenges for trustworthy clinical translation"
         ]
       }
     ]
   },
   "dailyBrief": {
-    "overall": "今日关注HyWorldVLA，一种混合世界建模的视觉-语言-动作模型，用于提升自动驾驶鲁棒性与可解释性。",
-    "vla": "VLA方面：HyWorldVLA通过像素与潜变量混合世界建模增强驾驶动作预测。",
-    "wam": "WAM方面：HyWorldVLA结合视频建模与动作，探索世界模型在驾驶决策中的应用。",
-    "retrieval": "检索聚焦自动驾驶与混合世界建模的交叉领域。"
+    "overall": "今日聚焦具身智能与视频世界模型：HiFi-UMI革新机器人数据采集范式；CoTinyVLA以小博大实现鲁棒VLA；Wonder打造可操控视频世界。",
+    "vla": "VLA方向：HiFi-UMI提供高保真数据方案，CoTinyVLA展示小模型大能量，共同推动通用操作策略落地。",
+    "wam": "WAM方向：Wonder通过高效记忆与相机控制，赋予视频世界模型实时交互能力，为仿真与虚拟环境注入活力。",
+    "retrieval": "本次检索从海量CV论文中精准筛选3篇核心论文，覆盖VLA与WAM前沿，过滤了大量不相关医疗、遥感、视觉泛化等方向，确保领域聚焦。"
   },
   "trendBrief": {
     "windowDays": 7,
-    "dateRange": "2026-07-01 - 2026-07-24",
-    "overview": "近 7 天累计归档 107 篇总榜论文，主航道重心偏向 机器人扩展，其中 S 级高优先级论文共 12 篇。",
-    "hotspots": "高频主题主要集中在 机器人、新基准、真实实验，系统共自动合并 0 篇近似工作，减少了重复阅读负担。",
-    "vla": "VLA 方向在近几天约占总榜的 28%，重点仍落在通用策略、语言条件动作与具身控制。",
-    "wam": "WAM 方向在近几天约占总榜的 24%，更集中于世界模型、动作条件预测与规划建模。",
-    "watchlist": "建议优先连续跟踪 机器人、新基准、真实实验 相关工作，尤其关注同时具备高新颖性与高落地性的代表论文。"
+    "dateRange": "2026-07-02 - 2026-07-29",
+    "overview": "近 7 天累计归档 107 篇总榜论文，主航道重心偏向 机器人扩展，其中 S 级高优先级论文共 10 篇。",
+    "hotspots": "高频主题主要集中在 新基准、机器人、真实实验，系统共自动合并 0 篇近似工作，减少了重复阅读负担。",
+    "vla": "VLA 方向在近几天约占总榜的 24%，重点仍落在通用策略、语言条件动作与具身控制。",
+    "wam": "WAM 方向在近几天约占总榜的 21%，更集中于世界模型、动作条件预测与规划建模。",
+    "watchlist": "建议优先连续跟踪 新基准、机器人、真实实验 相关工作，尤其关注同时具备高新颖性与高落地性的代表论文。"
   },
   "archives": [
+    {
+      "dateKey": "20260729",
+      "dateLabel": "2026-07-29",
+      "generatedAt": "2026-07-29T02:02:35.604459+00:00",
+      "paperCount": 20,
+      "papers": [
+        {
+          "id": "2607.25895v1",
+          "title": "HiFi-UMI: Learning Deployable Manipulation Policies from High-Fidelity UMI Data Alone",
+          "summary": "Learning deployable manipulation policies is bottlenecked by the scarcity of data that is both high-fidelity and scalable. Real-robot teleoperation is accurate but costly to scale; robot-free UMI capture scales readily, and current practice uses the resulting data mainly for pre-training, adding a small real-robot \"anchor\" at post-traini…",
+          "summaryRaw": "Learning deployable manipulation policies is bottlenecked by the scarcity of data that is both high-fidelity and scalable. Real-robot teleoperation is accurate but costly to scale; robot-free UMI capture scales readily, and current practice uses the resulting data mainly for pre-training, adding a small real-robot \"anchor\" at post-training. We ask whether raising the fidelity of robot-free UMI data, rather than shrinking the real-robot fraction, can remove that anchor. We present HiFi-UMI, a portable UMI data-production system co-designed for trajectory accuracy, inter-gripper relative pose, synchronization, and field of view: head-mounted offline stereo-inertial SLAM, native rather than reconstructed relative pose, a shared microsecond GPIO trigger, and two wide-angle cameras per hand covering ~200 degrees. It reaches 3 mm workspace-local end-effector accuracy without external tracking infrastructure. Using this corpus, we demonstrate zero-robot post-training: a policy post-trained solely on HiFi-UMI demonstrations deploys directly on a real robot and matches in-domain teleoperation across three backbones spanning the vision-language-action and world-action-model families, with success-rate differences of -2.5, +3.1, and -0.6 percentage points on StarVLA-QwenPI, OpenPI-pi_0.5, and LingBot-VA; the strongest policy reaches 85% on a precision insertion task, even though the teleoperation baseline is collected in the evaluation scene and no HiFi-UMI trajectory is. Pre-training on 4,000 hours from the same corpus lowers action error on ten unseen tasks by 41% and, on StarVLA-QwenPI, raises real-robot success by a further 18.1 percentage points. We open-source HiFi-UMI-2K, 2,000 hours of microsecond-synchronized, ultra-wide-FoV demonstrations, each automatically reconstructed and validated through simulation replay, as a large-scale, high-fidelity resource for the robot-learning community.",
+          "link": "https://arxiv.org/abs/2607.25895v1",
+          "pdfLink": "https://arxiv.org/pdf/2607.25895v1",
+          "published": "2026-07-28T15:52:02Z",
+          "updated": "2026-07-28T15:52:02Z",
+          "authors": [
+            "Simple AI",
+            ":",
+            "Yuteng Wei",
+            "Jinming Ma",
+            "Jiawei Wang",
+            "Weitao Zhou",
+            "Yushen Zuo",
+            "Ke Rui"
+          ],
+          "categories": [
+            "cs.RO",
+            "cs.CV",
+            "cs.LG"
+          ],
+          "score": 88,
+          "importanceLevel": "S",
+          "lane": "VLA",
+          "dimensionScores": {
+            "relevance": 85,
+            "novelty": 75,
+            "impact": 80,
+            "practicality": 90,
+            "coreAlignment": 90
+          },
+          "oneSentenceSummary": "提出高保真UMI数据采集系统，实现无需真实机器人微调的部署级操作策略学习。",
+          "summaryCn": "HiFi-UMI 是便携式通用操作接口系统，通过头戴式双目视觉与同步触发，提供毫米级末端精度。基于此采集的高保真数据，无需真实机器人锚点即可训练出可直接部署的机器人操作策略，显著降低遥操作成本并提升数据可扩展性。",
+          "whyImportant": "大幅降低机器人数据采集成本与门槛，使仿真数据可直接训练可部署策略。",
+          "reasonTags": [
+            "机器人数据采集",
+            "操作策略学习",
+            "高保真仿真",
+            "通用操作接口"
+          ],
+          "innovationPoints": [
+            "提出高精度便携式UMI系统，实现毫米级末端执行器追踪。",
+            "证明纯仿真数据不需真实锚点即可训练可部署机器人策略。",
+            "双广角相机与同步触发显著提升数据一致性与覆盖范围。"
+          ],
+          "noveltyVerdict": "率先构建无需外部跟踪的高精度便携式数据采集系统，显著提升实用性与场景适应性。",
+          "duplicateRisk": "low",
+          "dedupeNote": "首次提出完全依赖高保真UMI数据训练可部署策略，无需真实机器人数据锚点。",
+          "retrievalGroups": [
+            "category"
+          ],
+          "mergedCount": 1,
+          "mergedTitles": [
+            "HiFi-UMI: Learning Deployable Manipulation Policies from High-Fidelity UMI Data Alone"
+          ]
+        },
+        {
+          "id": "2607.25487v1",
+          "title": "CoTinyVLA: Chain-of-Thought Distillation for a Sub-Billion-Parameter Vision-Language-Action Model",
+          "summary": "Vision-Language-Action (VLA) models translate natural-language commands into robot action sequences, but leading systems on the LIBERO-Plus robustness benchmark use three- to seven-billion-parameter backbones whose memory demands can exceed embedded robotic budgets. We present CoTinyVLA, a 0.9B-parameter action model on a Qwen3.5-0.8B ba…",
+          "summaryRaw": "Vision-Language-Action (VLA) models translate natural-language commands into robot action sequences, but leading systems on the LIBERO-Plus robustness benchmark use three- to seven-billion-parameter backbones whose memory demands can exceed embedded robotic budgets. We present CoTinyVLA, a 0.9B-parameter action model on a Qwen3.5-0.8B backbone that obtains that robustness by structuring supervision instead of enlarging the model. Three components target different axes of the problem: dual-view temporal input of 16 history frames per step with textual camera and time markers; hierarchical chain-of-thought (CoT) distillation from a 35B teacher into an episode-level Plan and a chunk-level Think span over task phase, gripper state and next subaction; and paraphrase augmentation expanding 40 base commands into 800 variants. On LIBERO-Plus, spanning 10,030 perturbed tasks across seven perturbation dimensions, CoTinyVLA reaches 90.8% on Spatial, 87.3% on Object, 86.6% on Goal and 80.7% on Long, leading the strongest 7B baseline on all four suites by 4.7, 2.8, 15.9 and 3.0 points, with every margin interval excluding zero. The gains concentrate on the hardest axes of the benchmark: across the eleven published baselines none exceeds 53.2% on Robot Initial States in any suite, whereas CoTinyVLA reaches 73.6% on Goal against 39.9% for the strongest baseline. Ablations show the three components to be separable by perturbation axis, and at a matched image budget how frames are divided between the two cameras and across time accounts for 8.6 points on its own. Closed-loop inference peaks at 2.25 GiB of allocated GPU memory, and paired interventions show the episode Plan to be load-bearing: replacing it with an empty or contradictory span costs 40 to 45 points of success. Structured supervision thus lets a 0.9B backbone exceed all of them. Code: https://github.com/BrainJellyPie/CoTinyVLA",
+          "link": "https://arxiv.org/abs/2607.25487v1",
+          "pdfLink": "https://arxiv.org/pdf/2607.25487v1",
+          "published": "2026-07-28T09:24:17Z",
+          "updated": "2026-07-28T09:24:17Z",
+          "authors": [
+            "Minhyeok Lee",
+            "Chiyoung Kim",
+            "Chanhoe Gu",
+            "Seongrok Kim",
+            "Sanghyuk Roy Choi",
+            "Donghwan Hwang",
+            "Donghun Ryu",
+            "Seokhyun Kim"
+          ],
+          "categories": [
+            "cs.AI",
+            "cs.CV"
+          ],
+          "score": 85,
+          "importanceLevel": "A",
+          "lane": "VLA",
+          "dimensionScores": {
+            "relevance": 90,
+            "novelty": 80,
+            "impact": 70,
+            "practicality": 85,
+            "coreAlignment": 95
+          },
+          "oneSentenceSummary": "通过思维链蒸馏，将9亿参数VLA模型的鲁棒性提升至与大型模型相当。",
+          "summaryCn": "CoTinyVLA 在0.9B参数骨干上通过双视角时序输入、分层思维链蒸馏及指令增强，实现LIBERO-Plus鲁棒基准上与数十亿参数模型相媲美的性能，显著降低嵌入式机器人部署的内存需求，为小型化通用操作模型提供可行路径。",
+          "whyImportant": "证明小模型通过结构监督即可达到大模型鲁棒性，推动具身智能边缘化部署。",
+          "reasonTags": [
+            "小型VLA",
+            "思维链蒸馏",
+            "鲁棒性提升",
+            "具身智能"
+          ],
+          "innovationPoints": [
+            "通过分层思维链从大模型蒸馏任务规划与动作推理。",
+            "双视角时序输入增强空间感知与动作连贯性。",
+            "指令增强扩充训练分布，提升泛化能力。"
+          ],
+          "noveltyVerdict": "开创性结合小模型与思维链监督，突破参数限制，实现鲁棒性飞跃。",
+          "duplicateRisk": "low",
+          "dedupeNote": "在极小参数下首次通过结构化监督达到大型VLA的鲁棒性，无类似压缩方案。",
+          "retrievalGroups": [
+            "category"
+          ],
+          "mergedCount": 1,
+          "mergedTitles": [
+            "CoTinyVLA: Chain-of-Thought Distillation for a Sub-Billion-Parameter Vision-Language-Action Model"
+          ]
+        },
+        {
+          "id": "2607.26037v1",
+          "title": "Wonder: Video World Model Done Better",
+          "summary": "We present Wonder, a general-purpose video world model for real-time, camera-controllable world exploration. Given an image or a conditional video, Wonder constructs a playable world where users can navigate interactively by moving the camera, discovering unseen regions, and revisiting previously observed areas in real time and over a lo…",
+          "summaryRaw": "We present Wonder, a general-purpose video world model for real-time, camera-controllable world exploration. Given an image or a conditional video, Wonder constructs a playable world where users can navigate interactively by moving the camera, discovering unseen regions, and revisiting previously observed areas in real time and over a long-term horizon. Achieving this capability requires a system-level co-design of control method, memory mechanism, and training strategy. We introduce a novel camera conditioning with a dense coordinate field whose renderings provide spatially aligned motion and orientation cues, allowing the model to interpret camera motion directly as visual evidence. To support fast and precise memory retrieval over a growing generation context, we propose an efficient sparse attention-based memory mechanism, enabling the model to selectively attend to a small set of relevant context tokens at inference time, regardless of actual context length. We further develop several techniques to rectify the self-forcing-style distillation pipeline, improving the student model's ability to respect control signals, as well as maintaining diverse generation modes and long-term memory from the teacher. Together, these components enable Wonder to synthesize diverse, minute-scale videos at 16 FPS while preserving coherent geometry, appearance, and dynamics across long rollouts. Beyond image-to-video generation, Wonder naturally supports video-conditioned generation, allowing existing dynamic scenes to be re-shot in real time.",
+          "link": "https://arxiv.org/abs/2607.26037v1",
+          "pdfLink": "https://arxiv.org/pdf/2607.26037v1",
+          "published": "2026-07-28T17:45:25Z",
+          "updated": "2026-07-28T17:45:25Z",
+          "authors": [
+            "Jiacong Xu",
+            "Hanwen Jiang",
+            "Zhixin Shu",
+            "Kalyan Sunkavalli",
+            "Vishal M. Patel",
+            "Yiqun Mei"
+          ],
+          "categories": [
+            "cs.CV"
+          ],
+          "score": 60,
+          "importanceLevel": "B",
+          "lane": "WAM",
+          "dimensionScores": {
+            "relevance": 70,
+            "novelty": 65,
+            "impact": 50,
+            "practicality": 40,
+            "coreAlignment": 60
+          },
+          "oneSentenceSummary": "可交互的视频世界模型，支持实时相机控制以探索未见过环境。",
+          "summaryCn": "Wonder 构建通用视频世界模型，引入密集坐标场相机条件与高效稀疏注意力记忆机制，支持实时、长期、可操控的相机探索。用户可从单帧或条件视频出发，在生成的动态世界中自由移动视角，发现和回访已见区域，应用于虚拟现实与仿真。",
+          "whyImportant": "为交互式视频生成提供高效记忆与精准控制，助力虚拟世界构建与仿真。",
+          "reasonTags": [
+            "视频世界模型",
+            "交互式探索",
+            "相机控制",
+            "动态场景生成"
+          ],
+          "innovationPoints": [
+            "密集坐标场渲染提供空间对齐的运动和方向线索。",
+            "稀疏注意力记忆机制实现长时上下文的快速精准检索。",
+            "联合设计控制、记忆与训练策略，实现实时可操控世界模型。"
+          ],
+          "noveltyVerdict": "将世界模型与实时相机控制深度结合，记忆机制创新性解决长序列生成难题。",
+          "duplicateRisk": "low",
+          "dedupeNote": "首个联合优化相机控制与记忆机制的可交互视频世界模型，不同于纯视频生成。",
+          "retrievalGroups": [
+            "category"
+          ],
+          "mergedCount": 1,
+          "mergedTitles": [
+            "Wonder: Video World Model Done Better"
+          ]
+        },
+        {
+          "id": "2607.26005v1",
+          "title": "Pictura: Perspective-View Self-Play at Scale for Driving",
+          "summary": "Self-play in simulation produces robust driving policies at scale. Demonstrations of such behavior have been made using privileged vectorized observations such as exact poses and velocities, even for occluded agents.",
+          "summaryRaw": "Self-play in simulation produces robust driving policies at scale. Demonstrations of such behavior have been made using privileged vectorized observations such as exact poses and velocities, even for occluded agents. This assumes that perception is solved and introduces a representation gap with the partial observation of a deployed agent driving from the perspective view of egocentric cameras. A common fix, distilling the privileged policy into a camera-input student, leaves the student imitating decisions its own view cannot justify. Instead, we establish perspective-view self-play as a practical training regime. We introduce Pictura, a GPU-accelerated multi-agent driving simulator that renders each agent's egocentric view at every step, mitigating the representation gap at its source. Pictura sustains up to 500K agent-steps/s (2M images/s) on a single H100. Using Pictura, we train Alberti by self-play with plain PPO. It is the first large-scale driving self-play policy trained directly from perspective images, without privileged observations. Training spans 50B agent steps for ~35M km of driving. It approaches the driving performance of its privileged vectorized counterpart, and transfers zero-shot to Waymo Open Motion Dataset layouts re-rendered in Pictura, where it outperforms privileged vectorized agents. Project page: https://valeoai.github.io/Pictura/",
+          "link": "https://arxiv.org/abs/2607.26005v1",
+          "pdfLink": "https://arxiv.org/pdf/2607.26005v1",
+          "published": "2026-07-28T17:20:39Z",
+          "updated": "2026-07-28T17:20:39Z",
+          "authors": [
+            "Yuan Yin",
+            "Elias Ramzi",
+            "Marc Lafon",
+            "Valentin Charraut",
+            "Victor Bares",
+            "Yihong Xu",
+            "Éloi Zablocki",
+            "Alexandre Boulch"
+          ],
+          "categories": [
+            "cs.CV",
+            "cs.AI",
+            "cs.RO"
+          ],
+          "score": 48,
+          "importanceLevel": "A",
+          "lane": "Peripheral",
+          "dimensionScores": {
+            "relevance": 22,
+            "novelty": 12,
+            "impact": 22,
+            "practicality": 4,
+            "coreAlignment": 22
+          },
+          "oneSentenceSummary": "该论文是偏相关方向的重点候选，值得优先阅读。",
+          "summaryCn": "论文核心内容是：Self-play in simulation produces robust driving policies at scale.",
+          "whyImportant": "命中机器人、自动驾驶、新基准主题，分类覆盖cs.CV / cs.AI，并体现较强的新颖性与影响潜力。",
+          "reasonTags": [
+            "机器人",
+            "自动驾驶",
+            "新基准"
+          ],
+          "innovationPoints": [
+            "包含新基准或新数据评测"
+          ],
+          "noveltyVerdict": "创新点清晰，属于值得重点跟进的增量改进。",
+          "duplicateRisk": "low",
+          "dedupeNote": "该论文在Peripheral方向上具备独立问题设置或代表性贡献，可作为当日候选保留。",
+          "retrievalGroups": [
+            "category"
+          ],
+          "mergedCount": 1,
+          "mergedTitles": [
+            "Pictura: Perspective-View Self-Play at Scale for Driving"
+          ]
+        },
+        {
+          "id": "2607.25234v1",
+          "title": "WHTMix: Efficient Stereo Depth Estimation via Walsh-Hadamard Token Mixing",
+          "summary": "Stereo depth estimation for driving, robotics and augmented reality must run at high resolution under tight latency budgets, yet in transformer-based matchers the global self-attention that aggregates scene context grows quadratically with the number of pixels and comes to dominate runtime. We show that the joint self-attention stage of…",
+          "summaryRaw": "Stereo depth estimation for driving, robotics and augmented reality must run at high resolution under tight latency budgets, yet in transformer-based matchers the global self-attention that aggregates scene context grows quadratically with the number of pixels and comes to dominate runtime. We show that the joint self-attention stage of a stereo transformer, whose role is to spread context across both views, can be replaced by a data-independent Walsh-Hadamard token mixer that mixes tokens globally in the transform domain at log-linear cost, while the data-dependent cross-attention that performs left-right correspondence is retained. On synthetic driving data the mixer matches the attention baseline in end-point error while reducing model compute by a factor of 2.46 and single-image inference latency by a factor of 2.65. A complexity analysis shows the benefit is governed by the ratio of sequence length to channel width, which explains why high-resolution stereo matching is a particularly favorable setting and why classification transformers are not; we confirm this token-to-channel scaling on non-stereo long-sequence benchmarks. Furthermore, we introduce a hybrid log-disparity loss function designed to up-weight small-disparity pixels corresponding to long-range objects. This approach reduces the error on distant objects without incurring any additional computational overhead.",
+          "link": "https://arxiv.org/abs/2607.25234v1",
+          "pdfLink": "https://arxiv.org/pdf/2607.25234v1",
+          "published": "2026-07-28T03:22:46Z",
+          "updated": "2026-07-28T03:22:46Z",
+          "authors": [
+            "Prathyush Sajith",
+            "Emadeldeen Hamdan",
+            "Ahmet Enis Cetin"
+          ],
+          "categories": [
+            "cs.CV"
+          ],
+          "score": 52,
+          "importanceLevel": "A",
+          "lane": "Robotics",
+          "dimensionScores": {
+            "relevance": 36,
+            "novelty": 12,
+            "impact": 3,
+            "practicality": 4,
+            "coreAlignment": 17
+          },
+          "oneSentenceSummary": "该论文是偏机器人的重点候选，值得优先阅读。",
+          "summaryCn": "论文核心内容是：Stereo depth estimation for driving, robotics and augmented reality must run at high resolution under tight latency budgets, yet in…",
+          "whyImportant": "命中机器人、自动驾驶、新基准主题，分类覆盖cs.CV，并体现较强的新颖性与影响潜力。",
+          "reasonTags": [
+            "机器人",
+            "自动驾驶",
+            "新基准"
+          ],
+          "innovationPoints": [
+            "包含新基准或新数据评测"
+          ],
+          "noveltyVerdict": "创新点清晰，属于值得重点跟进的增量改进。",
+          "duplicateRisk": "low",
+          "dedupeNote": "该论文在Robotics方向上具备独立问题设置或代表性贡献，可作为当日候选保留。",
+          "retrievalGroups": [
+            "category"
+          ],
+          "mergedCount": 1,
+          "mergedTitles": [
+            "WHTMix: Efficient Stereo Depth Estimation via Walsh-Hadamard Token Mixing"
+          ]
+        },
+        {
+          "id": "2607.25389v1",
+          "title": "HOME: Robust Hough-space Matching Method for Structured and Textureless Videos",
+          "summary": "Visual front-ends for robotic localization typically rely on point-based features such as Oriented FAST and Rotated BRIEF (ORB), which frequently fail in structured environments dominated by strong linear structures or textureless surfaces. While line-based Simultaneous Localization and Mapping (SLAM) systems mitigate this by utilizing l…",
+          "summaryRaw": "Visual front-ends for robotic localization typically rely on point-based features such as Oriented FAST and Rotated BRIEF (ORB), which frequently fail in structured environments dominated by strong linear structures or textureless surfaces. While line-based Simultaneous Localization and Mapping (SLAM) systems mitigate this by utilizing line segments, conventional line extraction and description algorithms are computationally prohibitive for real-time edge robotics. To address this fundamental bottleneck, we propose HOME (Hough-space One-dimensional Matching of Extrema), an ultra-lightweight, training-free feature matching framework. HOME transforms images into Hough space, mapping global linear structures to stable local extrema, which serve as keypoints, thereby reformulating complex line matching into highly efficient one-dimensional point matching. The proposed 1D radial descriptor mathematically guarantees rotational and translational invariance without the overhead of explicit orientation estimation. As a proof of concept to validate the matching accuracy and efficiency of HOME, this paper focuses on homography estimation. Extensive evaluations demonstrate that HOME achieves robust registration in challenging scenarios where point-based methods fail, operating at a much faster speed than existing line-based methods. Extending this robust matching engine to full 3D pose estimation remains a highly promising future direction.",
+          "link": "https://arxiv.org/abs/2607.25389v1",
+          "pdfLink": "https://arxiv.org/pdf/2607.25389v1",
+          "published": "2026-07-28T07:47:50Z",
+          "updated": "2026-07-28T07:47:50Z",
+          "authors": [
+            "Masaki Satoh"
+          ],
+          "categories": [
+            "cs.CV",
+            "cs.RO"
+          ],
+          "score": 51,
+          "importanceLevel": "A",
+          "lane": "Robotics",
+          "dimensionScores": {
+            "relevance": 36,
+            "novelty": 7,
+            "impact": 9,
+            "practicality": 8,
+            "coreAlignment": 17
+          },
+          "oneSentenceSummary": "该论文是偏机器人的重点候选，值得优先阅读。",
+          "summaryCn": "论文核心内容是：Visual front-ends for robotic localization typically rely on point-based features such as Oriented FAST and Rotated BRIEF (ORB), wh…",
+          "whyImportant": "命中机器人、新基准主题，分类覆盖cs.CV / cs.RO，并体现较强的新颖性与影响潜力。",
+          "reasonTags": [
+            "机器人",
+            "新基准"
+          ],
+          "innovationPoints": [
+            "提出具有跟踪价值的方法设计"
+          ],
+          "noveltyVerdict": "更偏实用推进型工作，适合结合上下文继续判断。",
+          "duplicateRisk": "low",
+          "dedupeNote": "该论文在Robotics方向上具备独立问题设置或代表性贡献，可作为当日候选保留。",
+          "retrievalGroups": [
+            "category"
+          ],
+          "mergedCount": 1,
+          "mergedTitles": [
+            "HOME: Robust Hough-space Matching Method for Structured and Textureless Videos"
+          ]
+        },
+        {
+          "id": "2607.25197v1",
+          "title": "LGFNet: A CTC-Guided Local-Global Fusion Framework for Single-Channel Sleep Staging",
+          "summary": "Sleep staging remains challenging due to long-range temporal dependencies, ambiguous stage transitions-particularly in N1-and substantial distribution shifts across subjects, sampling rates, and EEG montages. These difficulties are further amplified in single-channel, low-latency scenarios required by wearable and real-world applications.",
+          "summaryRaw": "Sleep staging remains challenging due to long-range temporal dependencies, ambiguous stage transitions-particularly in N1-and substantial distribution shifts across subjects, sampling rates, and EEG montages. These difficulties are further amplified in single-channel, low-latency scenarios required by wearable and real-world applications. To address these issues, we propose LGFNet, a CTC-guided sequence-to-sequence framework for robust sleep staging. LGFNet introduces a Local-Global Fusion encoder that jointly models fine-grained temporal dynamics and long-range sleep structure, overcoming the limitations of conventional serial hybrid architectures. A CTC-Attention joint training paradigm is adopted to unify temporal alignment with context-dependent modeling, enabling more accurate recognition of stage boundaries and transitions. Furthermore, a three-stage decoding strategy is devised, leveraging CTC-guided decoding and Viterbi-based smoothing to reduce error accumulation and enforce physiological consistency. Extensive cross-dataset evaluations on five public benchmarks demonstrate that LGFNet consistently outperforms state-of-the-art single-channel methods. In particular, on Sleep-EDF-78, LGFNet surpasses DMIN by +1.27% accuracy, +1.74% macro-F1, and +1.93% kappa, with pronounced gains on N1 and transition segments, highlighting its robustness and strong generalization across diverse sampling rates, montages, and recording environments.",
+          "link": "https://arxiv.org/abs/2607.25197v1",
+          "pdfLink": "https://arxiv.org/pdf/2607.25197v1",
+          "published": "2026-07-28T02:04:00Z",
+          "updated": "2026-07-28T02:04:00Z",
+          "authors": [
+            "Chongjian Wang",
+            "Zhenghang Hou",
+            "Junjie Gao",
+            "Xiaofang Zhong",
+            "Shiyuan Han",
+            "Tong Zhang"
+          ],
+          "categories": [
+            "cs.CV"
+          ],
+          "score": 50,
+          "importanceLevel": "A",
+          "lane": "Peripheral",
+          "dimensionScores": {
+            "relevance": 3,
+            "novelty": 26,
+            "impact": 17,
+            "practicality": 7,
+            "coreAlignment": 3
+          },
+          "oneSentenceSummary": "该论文是偏相关方向的重点候选，值得优先阅读。",
+          "summaryCn": "论文核心内容是：Sleep staging remains challenging due to long-range temporal dependencies, ambiguous stage transitions-particularly in N1-and subst…",
+          "whyImportant": "命中新基准、真实实验主题，分类覆盖cs.CV，并体现较强的新颖性与影响潜力。",
+          "reasonTags": [
+            "新基准",
+            "真实实验"
+          ],
+          "innovationPoints": [
+            "包含新基准或新数据评测",
+            "涉及新的训练或预训练范式",
+            "提供真实场景实验验证"
+          ],
+          "noveltyVerdict": "创新信号强，像是带新范式或新基准的工作。",
+          "duplicateRisk": "low",
+          "dedupeNote": "该论文在Peripheral方向上具备独立问题设置或代表性贡献，可作为当日候选保留。",
+          "retrievalGroups": [
+            "category"
+          ],
+          "mergedCount": 1,
+          "mergedTitles": [
+            "LGFNet: A CTC-Guided Local-Global Fusion Framework for Single-Channel Sleep Staging"
+          ]
+        },
+        {
+          "id": "2607.25215v1",
+          "title": "Leveraging Semantic Maps for City-Scale Cross-View Localization",
+          "summary": "We want robots to localize in previously untraversed environments against commonly available prior data. Rich semantic data available from OpenStreetMap can be useful in this task.",
+          "summaryRaw": "We want robots to localize in previously untraversed environments against commonly available prior data. Rich semantic data available from OpenStreetMap can be useful in this task. However, existing methods either ignore this semantic information, directly matching panoramas and overhead imagery, or dramatically compress the semantic information, working with a small set of fixed classes. To leverage this rich semantic information, two challenges need to be overcome. First, useful semantic information needs to be extracted from the robot's egocentric observations. Second, the observed information must be quickly associated with the large prior semantic map (e.g., up to 628 km^2). We show that VLMs are effective at both extracting relevant landmarks from panoramas, and identifying feasible correspondences between these landmarks and prior overhead landmarks. However, using VLMs to propose all correspondences scales poorly as the number of mapped landmarks increases. Instead, we propose distilling a lightweight matcher from a VLM which computes correspondences for all entities in a map. We use this output to form an observation likelihood which is fused over time with a Bayes filter to create a time series of pose estimates. To support further investigation into generalizable cross-view methods that leverage semantic information, we release a dataset of extracted semantics and evaluation trajectories spanning eleven environments, including panoramas we collected in a snowstorm and at night in Boston. We demonstrate our method, trained on a single city's fair-weather data, generalizes across location, lighting, weather, and other challenges. Code and datasets are available at https://efahnestock.github.io/loci/.",
+          "link": "https://arxiv.org/abs/2607.25215v1",
+          "pdfLink": "https://arxiv.org/pdf/2607.25215v1",
+          "published": "2026-07-28T02:44:56Z",
+          "updated": "2026-07-28T02:44:56Z",
+          "authors": [
+            "Ethan Fahnestock",
+            "Erick Fuentes",
+            "Philip R Osteen",
+            "Nicholas Roy"
+          ],
+          "categories": [
+            "cs.RO",
+            "cs.CV"
+          ],
+          "score": 36,
+          "importanceLevel": "B",
+          "lane": "Peripheral",
+          "dimensionScores": {
+            "relevance": 18,
+            "novelty": 12,
+            "impact": 12,
+            "practicality": 3,
+            "coreAlignment": 17
+          },
+          "oneSentenceSummary": "该论文是偏相关方向的重点候选，值得优先阅读。",
+          "summaryCn": "论文核心内容是：We want robots to localize in previously untraversed environments against commonly available prior data.",
+          "whyImportant": "命中机器人、新基准主题，分类覆盖cs.RO / cs.CV，并体现较强的新颖性与影响潜力。",
+          "reasonTags": [
+            "机器人",
+            "新基准"
+          ],
+          "innovationPoints": [
+            "包含新基准或新数据评测"
+          ],
+          "noveltyVerdict": "创新点清晰，属于值得重点跟进的增量改进。",
+          "duplicateRisk": "low",
+          "dedupeNote": "该论文在Peripheral方向上具备独立问题设置或代表性贡献，可作为当日候选保留。",
+          "retrievalGroups": [
+            "category"
+          ],
+          "mergedCount": 1,
+          "mergedTitles": [
+            "Leveraging Semantic Maps for City-Scale Cross-View Localization"
+          ]
+        },
+        {
+          "id": "2607.25791v1",
+          "title": "FLASH: Efficient Impact Fall Detection with Unified Hypergraph State-Space Model",
+          "summary": "Falls represent a critical public health challenge, and accurate detection of the impact moment when an individual hits the ground is crucial for timely intervention. Existing skeleton-based methods rely on graph neural networks modeling only pairwise joint connections, failing to capture multi-joint coordination characteristic of fall i…",
+          "summaryRaw": "Falls represent a critical public health challenge, and accurate detection of the impact moment when an individual hits the ground is crucial for timely intervention. Existing skeleton-based methods rely on graph neural networks modeling only pairwise joint connections, failing to capture multi-joint coordination characteristic of fall impacts, while transformer-based temporal models suffer from quadratic complexity limiting real-time deployment. We propose FLASH, a novel framework integrating single-matrix hypergraph representations with Mamba's selective state-space models through adaptive feedback mechanisms for efficient impact detection. Our approach constructs biomechanically-grounded hyperedges to model functional joint coordination while leveraging Mamba's linear-time complexity to capture temporal dynamics. Experiments on UP-Fall and UMAFall datasets demonstrate that FLASH achieves state-of-the-art accuracy with real-time inference capability and strong zero-shot cross-dataset generalization, while significantly reducing computational cost compared to dual-representation and transformer-based methods. The model provides interpretable feedback through learned attention patterns aligned with biomechanical principles. Code is available at https://github.com/Tresor-Koffi/FLASH-Impact-Fall-Detection.",
+          "link": "https://arxiv.org/abs/2607.25791v1",
+          "pdfLink": "https://arxiv.org/pdf/2607.25791v1",
+          "published": "2026-07-28T14:43:07Z",
+          "updated": "2026-07-28T14:43:07Z",
+          "authors": [
+            "Tresor Y. Koffi",
+            "Youssef Mourchid",
+            "Yohan Dupuis"
+          ],
+          "categories": [
+            "cs.CV"
+          ],
+          "score": 49,
+          "importanceLevel": "A",
+          "lane": "Peripheral",
+          "dimensionScores": {
+            "relevance": 3,
+            "novelty": 21,
+            "impact": 16,
+            "practicality": 12,
+            "coreAlignment": 3
+          },
+          "oneSentenceSummary": "该论文是偏相关方向的重点候选，值得优先阅读。",
+          "summaryCn": "论文核心内容是：Falls represent a critical public health challenge, and accurate detection of the impact moment when an individual hits the ground…",
+          "whyImportant": "命中新基准、通用框架主题，分类覆盖cs.CV，并体现较强的新颖性与影响潜力。",
+          "reasonTags": [
+            "新基准",
+            "通用框架"
+          ],
+          "innovationPoints": [
+            "包含新基准或新数据评测"
+          ],
+          "noveltyVerdict": "创新信号强，像是带新范式或新基准的工作。",
+          "duplicateRisk": "low",
+          "dedupeNote": "该论文在Peripheral方向上具备独立问题设置或代表性贡献，可作为当日候选保留。",
+          "retrievalGroups": [
+            "category"
+          ],
+          "mergedCount": 1,
+          "mergedTitles": [
+            "FLASH: Efficient Impact Fall Detection with Unified Hypergraph State-Space Model"
+          ]
+        },
+        {
+          "id": "2607.25524v1",
+          "title": "ReLATE: Reliability-Guided Evidence Fusion for Robust UAV--Satellite cross-view Geo-Localization",
+          "summary": "Unmanned aerial vehicle (UAV)-satellite cross-view geo-localization matches UAV images against satellite imagery and has achieved impressive accuracy on clean (non-degraded) image benchmarks. In real-world flights, however, UAV observations are frequently affected by adverse weather, illumination changes, platform motion, sensor noise, a…",
+          "summaryRaw": "Unmanned aerial vehicle (UAV)-satellite cross-view geo-localization matches UAV images against satellite imagery and has achieved impressive accuracy on clean (non-degraded) image benchmarks. In real-world flights, however, UAV observations are frequently affected by adverse weather, illumination changes, platform motion, sensor noise, and compression, while the robustness of existing methods under such degradations remains largely unexamined. In this paper, we present UAVSat-Deg, a large-scale robustness benchmark for degraded UAV-satellite geo-localization, comprising University-1652-Deg and SUES-200-Deg. UAVSat-Deg covers 27 corruption types, including 19 core and 8 compound corruptions, at three severity levels, supports bidirectional drone-to-satellite and satellite-to-drone retrieval as well as multi-height UAV acquisition, and contains more than 11.7 million pre-generated corrupted test images. Benchmarking representative methods under this protocol reveals substantial robustness gaps, particularly under severe and compound corruptions. To address this problem, we propose ReLATE, a Reliable Evidence Learning framework with Adaptive Token Evidence Regulation, which realizes reliability-adaptive feature fusion during descriptor construction. ReLATE estimates a structure-smoothed reliability field over visual tokens, aggregates trustworthy local evidence, and adaptively integrates it into query-derived representations; the regulated query representations are then combined with the CLS-token and GeM-pooled branches to form the final cross-view descriptor. Across both test sets and retrieval directions, ReLATE achieves the best average corrupted-test performance among the compared methods while maintaining competitive accuracy on clean images. The code and dataset will be available at https://github.com/JHC626/ReLATE.",
+          "link": "https://arxiv.org/abs/2607.25524v1",
+          "pdfLink": "https://arxiv.org/pdf/2607.25524v1",
+          "published": "2026-07-28T10:07:18Z",
+          "updated": "2026-07-28T10:07:18Z",
+          "authors": [
+            "Haochen Jiang",
+            "Jialei Pan",
+            "Yuzhe Sun",
+            "Zhe Dong",
+            "Lecheng Ren",
+            "Yanfeng Gu",
+            "Tianzhu Liu"
+          ],
+          "categories": [
+            "cs.CV",
+            "cs.AI"
+          ],
+          "score": 44,
+          "importanceLevel": "B",
+          "lane": "Peripheral",
+          "dimensionScores": {
+            "relevance": 6,
+            "novelty": 17,
+            "impact": 20,
+            "practicality": 7,
+            "coreAlignment": 6
+          },
+          "oneSentenceSummary": "该论文是偏相关方向的重点候选，值得优先阅读。",
+          "summaryCn": "论文核心内容是：Unmanned aerial vehicle (UAV)-satellite cross-view geo-localization matches UAV images against satellite imagery and has achieved i…",
+          "whyImportant": "命中新基准、真实实验主题，分类覆盖cs.CV / cs.AI，并体现较强的新颖性与影响潜力。",
+          "reasonTags": [
+            "新基准",
+            "真实实验"
+          ],
+          "innovationPoints": [
+            "包含新基准或新数据评测",
+            "提供真实场景实验验证"
+          ],
+          "noveltyVerdict": "创新点清晰，属于值得重点跟进的增量改进。",
+          "duplicateRisk": "low",
+          "dedupeNote": "该论文在Peripheral方向上具备独立问题设置或代表性贡献，可作为当日候选保留。",
+          "retrievalGroups": [
+            "category"
+          ],
+          "mergedCount": 1,
+          "mergedTitles": [
+            "ReLATE: Reliability-Guided Evidence Fusion for Robust UAV--Satellite cross-view Geo-Localization"
+          ]
+        },
+        {
+          "id": "2607.25242v1",
+          "title": "Medical world models in healthcare: foundations, applications, and challenges for trustworthy clinical translation",
+          "summary": "Medical world models offer a framework for extending medical artificial intelligence beyond static prediction by representing evolving patient states and modelling how they change over time and in response to clinical interventions. This Review defines the conceptual boundaries, technical foundations, application domains, and evidence re…",
+          "summaryRaw": "Medical world models offer a framework for extending medical artificial intelligence beyond static prediction by representing evolving patient states and modelling how they change over time and in response to clinical interventions. This Review defines the conceptual boundaries, technical foundations, application domains, and evidence requirements of the field through a structured narrative synthesis with reproducible evidence mapping.We screened 1,455 unique records and assembled a corpus of 98 sources, including 14 studies that met a strict empirical definition of a medical world model. The field is organised around four capabilities: patient state representation, temporal dynamics modelling, intervention-conditioned simulation, and clinician-supervised planning. Evidence spans medical imaging, longitudinal electronic health records, treatment response modelling, physiological and multimodal state modelling, ultrasound and surgical interaction, and population and health-system simulation; clinical digital twins are treated as a cross-cutting integration framework.Current studies provide early evidence of technical feasibility for trajectory forecasting and comparison of candidate interventions, but most remain retrospective, task-specific, or preclinical. The evidence base is further limited by incomplete longitudinal intervention data, inconsistent action semantics, limited causal identifiability, long-horizon error accumulation, inadequate uncertainty estimation, and limited external validation. Clinical translation will therefore depend on precise intervention representations, robust causal and mechanistic grounding, calibrated trajectory-level uncertainty, safety-constrained planning, and prospective multicentre validation against clinically meaningful endpoints.",
+          "link": "https://arxiv.org/abs/2607.25242v1",
+          "pdfLink": "https://arxiv.org/pdf/2607.25242v1",
+          "published": "2026-07-28T03:35:47Z",
+          "updated": "2026-07-28T03:35:47Z",
+          "authors": [
+            "Zhaoyan Chen",
+            "Zhongxiu Cong",
+            "Zhuanfeng Jin",
+            "Wanshu Fan",
+            "Dongsheng Zhou",
+            "Qi Ai",
+            "Haifan Gong",
+            "Congyu Liao"
+          ],
+          "categories": [
+            "cs.CV"
+          ],
+          "score": 39,
+          "importanceLevel": "B",
+          "lane": "Peripheral",
+          "dimensionScores": {
+            "relevance": 19,
+            "novelty": 12,
+            "impact": 3,
+            "practicality": 8,
+            "coreAlignment": 11
+          },
+          "oneSentenceSummary": "该论文是偏相关方向的重点候选，值得优先阅读。",
+          "summaryCn": "论文核心内容是：Medical world models offer a framework for extending medical artificial intelligence beyond static prediction by representing evolv…",
+          "whyImportant": "命中WAM、通用框架主题，分类覆盖cs.CV，并体现较强的新颖性与影响潜力。",
+          "reasonTags": [
+            "WAM",
+            "通用框架"
+          ],
+          "innovationPoints": [
+            "提出具有跟踪价值的方法设计"
+          ],
+          "noveltyVerdict": "创新点清晰，属于值得重点跟进的增量改进。",
+          "duplicateRisk": "low",
+          "dedupeNote": "该论文在Peripheral方向上具备独立问题设置或代表性贡献，可作为当日候选保留。",
+          "retrievalGroups": [
+            "category"
+          ],
+          "mergedCount": 1,
+          "mergedTitles": [
+            "Medical world models in healthcare: foundations, applications, and challenges for trustworthy clinical translation"
+          ]
+        },
+        {
+          "id": "2607.25778v1",
+          "title": "A Unified Benchmark and Modality-Adaptive Network for Day-and-Night Drone-View Geo-Localization",
+          "summary": "Most existing drone-view geo-localization (DVGL) benchmarks contain drone imagery captured under a single illumination condition and lack geographically aligned visible drone images, infrared drone images, and satellite images from the same locations. To evaluate the generalization capability of DVGL methods under challenging illuminatio…",
+          "summaryRaw": "Most existing drone-view geo-localization (DVGL) benchmarks contain drone imagery captured under a single illumination condition and lack geographically aligned visible drone images, infrared drone images, and satellite images from the same locations. To evaluate the generalization capability of DVGL methods under challenging illumination conditions, some methods train models on a visible benchmark and test them on an independent infrared benchmark. This protocol essentially constitutes transfer between datasets, which makes it difficult to systematically evaluate DVGL across daytime and nighttime conditions within a unified benchmark. To address this limitation, we construct IRCHN,a real-world DVGL benchmark designed for localization across different illumination conditions. IRCHN contains 26,460 images collected from 8,820 geographic locations across four representative scene categories, including farmland, coastline, forest, and urban areas. Each location provides one visible drone image, one infrared drone image, and one corresponding satellite image, which enables unified evaluation of DVGL methods across different illumination conditions and sensing modalities. We further propose the Modality-Adaptive State-Space Transport Relation Network (MASTR-Net), a DVGL framework tailored to localization under varying illumination conditions. MASTR-Net integrates modality-adaptive feature enhancement, bidirectional selective state-space relation modeling, and soft optimal transport relation alignment to jointly reduce modality gaps and view-induced structural discrepancies. Extensive experiments demonstrate that MASTR-Net outperforms existing state-of-the-art methods on IRCHN for localization under varying illumination conditions and achieves competitive performance on two infrared benchmarks, IR-VL328 and CVGL-RGBT. Code: https://github.com/SongtianhaoXu/MASTR-Net",
+          "link": "https://arxiv.org/abs/2607.25778v1",
+          "pdfLink": "https://arxiv.org/pdf/2607.25778v1",
+          "published": "2026-07-28T14:34:57Z",
+          "updated": "2026-07-28T14:34:57Z",
+          "authors": [
+            "Songtianhao Xu",
+            "Zhongwei Chen",
+            "Zhao-Xu Yang",
+            "Weifeng Wang"
+          ],
+          "categories": [
+            "cs.CV"
+          ],
+          "score": 46,
+          "importanceLevel": "B",
+          "lane": "Peripheral",
+          "dimensionScores": {
+            "relevance": 3,
+            "novelty": 26,
+            "impact": 17,
+            "practicality": 3,
+            "coreAlignment": 3
+          },
+          "oneSentenceSummary": "该论文是偏相关方向的重点候选，值得优先阅读。",
+          "summaryCn": "论文核心内容是：Most existing drone-view geo-localization (DVGL) benchmarks contain drone imagery captured under a single illumination condition an…",
+          "whyImportant": "命中新基准、通用框架、真实实验主题，分类覆盖cs.CV，并体现较强的新颖性与影响潜力。",
+          "reasonTags": [
+            "新基准",
+            "通用框架",
+            "真实实验"
+          ],
+          "innovationPoints": [
+            "包含新基准或新数据评测",
+            "提供真实场景实验验证"
+          ],
+          "noveltyVerdict": "创新信号强，像是带新范式或新基准的工作。",
+          "duplicateRisk": "low",
+          "dedupeNote": "该论文在Peripheral方向上具备独立问题设置或代表性贡献，可作为当日候选保留。",
+          "retrievalGroups": [
+            "category"
+          ],
+          "mergedCount": 1,
+          "mergedTitles": [
+            "A Unified Benchmark and Modality-Adaptive Network for Day-and-Night Drone-View Geo-Localization"
+          ]
+        },
+        {
+          "id": "2607.25497v1",
+          "title": "Beyond Counts: A Distributional Robustness Margin For Pathology Foundation Models",
+          "summary": "Pathology foundation models are approaching clinical deployment, yet remain vulnerable to systematic non-biological variation across centres. Differences in tissue preparation, staining and scanning are strongly encoded in their representations, enabling shortcut learning and weakening generalisation across cohorts and institutions.",
+          "summaryRaw": "Pathology foundation models are approaching clinical deployment, yet remain vulnerable to systematic non-biological variation across centres. Differences in tissue preparation, staining and scanning are strongly encoded in their representations, enabling shortcut learning and weakening generalisation across cohorts and institutions. The Robustness Index (RI) quantifies whether local representation geometry is dominated by biology or by non-biological variation, but its count-based formulation discards distance information. We show that adding distance weights changes little because the deeper limitation lies in RI's pooled, fixed-neighbourhood design, which obscures sample-level heterogeneity and effectively evaluates only a model-dependent subset of samples. We introduce the Cross-confounder Robustness Margin (CRoMa), a sample-resolved measure that directly compares distances to cross-confounder biological matches and same-confounder biological distractors. CRoMa recasts robustness as a cohort-wide margin distribution rather than a single pooled score. We evaluated frozen representations from 20 tile-level encoders across three benchmarks and 4 slide-level encoders on a fourth. Rankings by median CRoMa were broadly consistent across datasets, while the underlying distributions revealed substantial within-model heterogeneity. Every tile encoder retained a confounder-dominated lower tail, whose prevalence and severity varied markedly across models. These distinct robustness profiles frame model selection as a Pareto trade-off between typical and lower-tail robustness. Higher CRoMa was also associated with smaller shortcut-induced performance drops after supervised adaptation. By turning representation geometry into a distributional robustness readout that anticipates downstream shortcut susceptibility, CRoMa provides a principled basis for robustness assessment and model selection.",
+          "link": "https://arxiv.org/abs/2607.25497v1",
+          "pdfLink": "https://arxiv.org/pdf/2607.25497v1",
+          "published": "2026-07-28T09:34:30Z",
+          "updated": "2026-07-28T09:34:30Z",
+          "authors": [
+            "Clément Grisi",
+            "Jeroen van der Laak",
+            "Geert Litjens"
+          ],
+          "categories": [
+            "cs.CV",
+            "cs.AI"
+          ],
+          "score": 43,
+          "importanceLevel": "B",
+          "lane": "Peripheral",
+          "dimensionScores": {
+            "relevance": 6,
+            "novelty": 22,
+            "impact": 9,
+            "practicality": 12,
+            "coreAlignment": 6
+          },
+          "oneSentenceSummary": "该论文是偏相关方向的重点候选，值得优先阅读。",
+          "summaryCn": "论文核心内容是：Pathology foundation models are approaching clinical deployment, yet remain vulnerable to systematic non-biological variation acros…",
+          "whyImportant": "命中新基准、通用框架主题，分类覆盖cs.CV / cs.AI，并体现较强的新颖性与影响潜力。",
+          "reasonTags": [
+            "新基准",
+            "通用框架"
+          ],
+          "innovationPoints": [
+            "包含新基准或新数据评测"
+          ],
+          "noveltyVerdict": "创新信号强，像是带新范式或新基准的工作。",
+          "duplicateRisk": "low",
+          "dedupeNote": "该论文在Peripheral方向上具备独立问题设置或代表性贡献，可作为当日候选保留。",
+          "retrievalGroups": [
+            "category"
+          ],
+          "mergedCount": 1,
+          "mergedTitles": [
+            "Beyond Counts: A Distributional Robustness Margin For Pathology Foundation Models"
+          ]
+        },
+        {
+          "id": "2607.25926v1",
+          "title": "Face De-Identification: A Domain-Centric Survey from Capture to Processing",
+          "summary": "Face de-identification (De-ID) aims to remove or conceal personally identifiable facial features in images or videos to prevent identity recognition while preserving utility for downstream tasks. With the rising emphasis on data privacy and responsible AI, face De-ID has emerged as an active research area spanning computer vision and pri…",
+          "summaryRaw": "Face de-identification (De-ID) aims to remove or conceal personally identifiable facial features in images or videos to prevent identity recognition while preserving utility for downstream tasks. With the rising emphasis on data privacy and responsible AI, face De-ID has emerged as an active research area spanning computer vision and privacy-preserving communities. Early approaches, and many contemporary ones, operate in the digital domain by modifying pixel-level or appearance-level features through post-capture processing. Recent advances extend face De-ID beyond post-processing by integrating privacy mechanisms directly into sensors during image acquisition, bridging sensing systems and downstream vision algorithms. In parallel, physical-domain methods explore wearable accessories and materials that conceal identity information in real-world environments prior to capture. In this survey, we present the first unified overview that spans the full data acquisition pipeline, encompassing the physical, sensor, and digital domains. Through this domain-centric lens, we systematically analyze current methodologies, technical progress, and the distinct challenges inherent to each stage. We then review and organize existing evaluation protocols, examining current practices and highlighting the critical need for standardized, comprehensive benchmarks. Finally, we identify key open problems and outline emerging research directions to guide future work in this rapidly evolving field. To support ongoing research, we maintain a project page that organizes relevant literature with collected datasets and open source code: https://github.com/CV-AC/Awesome-FaceDe-ID.",
+          "link": "https://arxiv.org/abs/2607.25926v1",
+          "pdfLink": "https://arxiv.org/pdf/2607.25926v1",
+          "published": "2026-07-28T16:15:12Z",
+          "updated": "2026-07-28T16:15:12Z",
+          "authors": [
+            "Hui Wei",
+            "Hao Yu",
+            "Guoying Zhao"
+          ],
+          "categories": [
+            "cs.CV",
+            "cs.AI"
+          ],
+          "score": 40,
+          "importanceLevel": "B",
+          "lane": "Peripheral",
+          "dimensionScores": {
+            "relevance": 6,
+            "novelty": 22,
+            "impact": 15,
+            "practicality": 3,
+            "coreAlignment": 6
+          },
+          "oneSentenceSummary": "该论文是偏相关方向的重点候选，值得优先阅读。",
+          "summaryCn": "论文核心内容是：Face de-identification (De-ID) aims to remove or conceal personally identifiable facial features in images or videos to prevent ide…",
+          "whyImportant": "命中新基准、通用框架、真实实验主题，分类覆盖cs.CV / cs.AI，并体现较强的新颖性与影响潜力。",
+          "reasonTags": [
+            "新基准",
+            "通用框架",
+            "真实实验"
+          ],
+          "innovationPoints": [
+            "包含新基准或新数据评测",
+            "提供真实场景实验验证"
+          ],
+          "noveltyVerdict": "创新信号强，像是带新范式或新基准的工作。",
+          "duplicateRisk": "low",
+          "dedupeNote": "该论文在Peripheral方向上具备独立问题设置或代表性贡献，可作为当日候选保留。",
+          "retrievalGroups": [
+            "category"
+          ],
+          "mergedCount": 1,
+          "mergedTitles": [
+            "Face De-Identification: A Domain-Centric Survey from Capture to Processing"
+          ]
+        },
+        {
+          "id": "2607.25294v1",
+          "title": "CLBench-V: Evaluating Multimodal Context Learning from Grounding to Knowledge Acquisition",
+          "summary": "Real-world tasks often require models to learn from task-specific context rather than relying only on pre-trained knowledge. While recent work has highlighted this capability as context learning, existing evaluations mainly focus on textual contexts.",
+          "summaryRaw": "Real-world tasks often require models to learn from task-specific context rather than relying only on pre-trained knowledge. While recent work has highlighted this capability as context learning, existing evaluations mainly focus on textual contexts. In many practical settings, however, the context to be learned from is multimodal: scientific findings are conveyed through figures and tables, financial indicators are scattered across converted reports, and spatial decisions depend on maps, scenes, or web pages. We introduce CLBench-V, a benchmark for multimodal context learning that addresses the difficulty of localizing where context use breaks down by organizing tasks around three dimensions: context grounding, new information application, and new knowledge learning. CLBench-V combines converted public benchmarks with newly constructed datasets spanning domains such as science, finance, long-document understanding, spatial reasoning, and web-based visual question answering. To reduce the cost of constructing domain-specific context-learning tasks, we further use automated construction and filtering procedures for our newly built datasets. Across 3,443 instances and six recent multimodal models, the best overall score is only 0.2847, indicating that multimodal context learning remains far from saturated. Moreover, InternVL3.5-30B-A3B performs best on context grounding and new knowledge learning, while Qwen3.5-Plus performs best on new information application. We further analyze judge reliability, context length, image count, and representative failure cases. Code is available at https://github.com/IamLihua/CLBench-V.",
+          "link": "https://arxiv.org/abs/2607.25294v1",
+          "pdfLink": "https://arxiv.org/pdf/2607.25294v1",
+          "published": "2026-07-28T05:06:43Z",
+          "updated": "2026-07-28T05:06:43Z",
+          "authors": [
+            "Lai Wei",
+            "Chengqi Li",
+            "Jiapeng Li",
+            "Ruina Hu",
+            "Yue Wang",
+            "Weiran Huang"
+          ],
+          "categories": [
+            "cs.CV",
+            "cs.AI",
+            "cs.LG"
+          ],
+          "score": 37,
+          "importanceLevel": "B",
+          "lane": "Peripheral",
+          "dimensionScores": {
+            "relevance": 8,
+            "novelty": 17,
+            "impact": 17,
+            "practicality": 3,
+            "coreAlignment": 8
+          },
+          "oneSentenceSummary": "该论文是偏相关方向的重点候选，值得优先阅读。",
+          "summaryCn": "论文核心内容是：Real-world tasks often require models to learn from task-specific context rather than relying only on pre-trained knowledge.",
+          "whyImportant": "命中新基准、真实实验主题，分类覆盖cs.CV / cs.AI，并体现较强的新颖性与影响潜力。",
+          "reasonTags": [
+            "新基准",
+            "真实实验"
+          ],
+          "innovationPoints": [
+            "包含新基准或新数据评测",
+            "提供真实场景实验验证"
+          ],
+          "noveltyVerdict": "创新点清晰，属于值得重点跟进的增量改进。",
+          "duplicateRisk": "low",
+          "dedupeNote": "该论文在Peripheral方向上具备独立问题设置或代表性贡献，可作为当日候选保留。",
+          "retrievalGroups": [
+            "category"
+          ],
+          "mergedCount": 1,
+          "mergedTitles": [
+            "CLBench-V: Evaluating Multimodal Context Learning from Grounding to Knowledge Acquisition"
+          ]
+        },
+        {
+          "id": "2607.25210v1",
+          "title": "ObliCity: A Benchmark and Baseline for Roof-to-Ground Projection Displacement Correction",
+          "summary": "Oblique-view urban remote sensing imagery inevitably exhibits geometric projection displacements between building roofs and footprints, leading to significant distortions in spatial structure. Existing approaches either ignore these deformations or handle them implicitly within segmentation-based frameworks, where progress is dominated b…",
+          "summaryRaw": "Oblique-view urban remote sensing imagery inevitably exhibits geometric projection displacements between building roofs and footprints, leading to significant distortions in spatial structure. Existing approaches either ignore these deformations or handle them implicitly within segmentation-based frameworks, where progress is dominated by general segmentation advances rather than improvements in geometric correction. In this work, we explicitly define roof-to-footprint offset vector (RFOV) extraction as an independent learning task that decouples geometric alignment from semantic segmentation. To support this task, we introduce the Oblique City dataset (ObliCity), the first large-scale benchmark that integrates high-resolution UAV imagery and globally distributed satellite data, covering diverse city morphologies and camera perspectives. Methodologically, we reformulate DragOSM into DragRoof, an ODE-based framework inspired by human annotation behavior. By simulating the continuous process of dragging roofs toward their footprints, DragRoof learns deterministic, geometry-consistent offset fields and adaptively determines convergence through an end token. Extensive experiments on ObliCity demonstrate that DragRoof achieves state-of-the-art RFOV extraction performance, requiring fewer inference steps while delivering superior directional and length accuracy. Our dataset and model establish a principled foundation for studying projection displacement correction in oblique remote sensing imagery. The source code and dataset will be avaliable at https://github.com/likaiucas/DragRoof.",
+          "link": "https://arxiv.org/abs/2607.25210v1",
+          "pdfLink": "https://arxiv.org/pdf/2607.25210v1",
+          "published": "2026-07-28T02:31:47Z",
+          "updated": "2026-07-28T02:31:47Z",
+          "authors": [
+            "Kai Li",
+            "Yupeng Deng",
+            "Ligao Deng",
+            "Zhihao Xi",
+            "Chenhao Wang",
+            "Jierui Zhang",
+            "Yingrui Ji",
+            "Yu Meng"
+          ],
+          "categories": [
+            "cs.CV"
+          ],
+          "score": 41,
+          "importanceLevel": "B",
+          "lane": "Peripheral",
+          "dimensionScores": {
+            "relevance": 3,
+            "novelty": 22,
+            "impact": 16,
+            "practicality": 3,
+            "coreAlignment": 3
+          },
+          "oneSentenceSummary": "该论文是偏相关方向的重点候选，值得优先阅读。",
+          "summaryCn": "论文核心内容是：Oblique-view urban remote sensing imagery inevitably exhibits geometric projection displacements between building roofs and footpri…",
+          "whyImportant": "命中新基准、通用框架主题，分类覆盖cs.CV，并体现较强的新颖性与影响潜力。",
+          "reasonTags": [
+            "新基准",
+            "通用框架"
+          ],
+          "innovationPoints": [
+            "包含新基准或新数据评测"
+          ],
+          "noveltyVerdict": "创新信号强，像是带新范式或新基准的工作。",
+          "duplicateRisk": "low",
+          "dedupeNote": "该论文在Peripheral方向上具备独立问题设置或代表性贡献，可作为当日候选保留。",
+          "retrievalGroups": [
+            "category"
+          ],
+          "mergedCount": 1,
+          "mergedTitles": [
+            "ObliCity: A Benchmark and Baseline for Roof-to-Ground Projection Displacement Correction"
+          ]
+        },
+        {
+          "id": "2607.25393v1",
+          "title": "Towards Reliable Stain Transfer: An Iterative Data-Model Co-Optimization Framework Based on Multimodal Expert-Guided Assessment",
+          "summary": "Histopathological examination primarily relies on hematoxylin and eosin (H&E) and immunohistochemistry (IHC) staining. Although IHC provides critical molecular information, it is costly and requires specialized expertise.",
+          "summaryRaw": "Histopathological examination primarily relies on hematoxylin and eosin (H&E) and immunohistochemistry (IHC) staining. Although IHC provides critical molecular information, it is costly and requires specialized expertise. Stain transfer provides an efficient alternative by computationally generating IHC from H&E images, but remains challenged by unified and interpretable modeling for heterogeneous biomarkers under pixel-unaligned supervision. We propose DMCoStain, a novel Data-Model Co-optimization framework for Stain transfer. It iteratively co-refines training data and model capability, improving staining accuracy and interpretability in both pathological and structural consistency. To refine training data in a clinically meaningful manner, it incorporates the Multimodal Expert-Guided Finer Selection (MEGFS) strategy, built upon a pioneering IHC-positive-expression (IPE) vision-language model (VLM) that emulates pathologist reasoning. To support MEGFS, we construct ImmunoInstruction, the first large-scale IPE instruction-following dataset with 150K VQA samples. Extensive experiments on multiple tissues and biomarkers demonstrate that DMCoStain achieves state-of-the-art (SOTA) accuracy. This paradigm offers strong practical value, and MEGFS also functions as a specialized evaluation tool for future model development. Dataset, code, and more details are in https://github.com/SikangSHU/DMCoStain.",
+          "link": "https://arxiv.org/abs/2607.25393v1",
+          "pdfLink": "https://arxiv.org/pdf/2607.25393v1",
+          "published": "2026-07-28T07:54:43Z",
+          "updated": "2026-07-28T07:54:43Z",
+          "authors": [
+            "Siyuan Xu",
+            "Yan Wang",
+            "Haofei Song",
+            "Lili Gao",
+            "Jiansheng Wang",
+            "Qing Zhang",
+            "Dan Huang",
+            "Boxiang Yun"
+          ],
+          "categories": [
+            "cs.CV"
+          ],
+          "score": 40,
+          "importanceLevel": "B",
+          "lane": "Peripheral",
+          "dimensionScores": {
+            "relevance": 3,
+            "novelty": 17,
+            "impact": 16,
+            "practicality": 7,
+            "coreAlignment": 3
+          },
+          "oneSentenceSummary": "该论文是偏相关方向的重点候选，值得优先阅读。",
+          "summaryCn": "论文核心内容是：Histopathological examination primarily relies on hematoxylin and eosin (H&E) and immunohistochemistry (IHC) staining.",
+          "whyImportant": "命中新基准、通用框架主题，分类覆盖cs.CV，并体现较强的新颖性与影响潜力。",
+          "reasonTags": [
+            "新基准",
+            "通用框架"
+          ],
+          "innovationPoints": [
+            "包含新基准或新数据评测"
+          ],
+          "noveltyVerdict": "创新点清晰，属于值得重点跟进的增量改进。",
+          "duplicateRisk": "low",
+          "dedupeNote": "该论文在Peripheral方向上具备独立问题设置或代表性贡献，可作为当日候选保留。",
+          "retrievalGroups": [
+            "category"
+          ],
+          "mergedCount": 1,
+          "mergedTitles": [
+            "Towards Reliable Stain Transfer: An Iterative Data-Model Co-Optimization Framework Based on Multimodal Expert-Guided Assessment"
+          ]
+        },
+        {
+          "id": "2607.25392v1",
+          "title": "RDVSv2: A Large-scale Benchmark for RGB-D Video Salient Object Detection",
+          "summary": "We introduce RDVSv2, a large-scale benchmark for RGB-D video salient object detection (RGB-D VSOD) with dense frame-level annotations. Existing datasets in this emerging field are often limited in scale and annotation quality, while also relying on less geometry-consistent depth cues.",
+          "summaryRaw": "We introduce RDVSv2, a large-scale benchmark for RGB-D video salient object detection (RGB-D VSOD) with dense frame-level annotations. Existing datasets in this emerging field are often limited in scale and annotation quality, while also relying on less geometry-consistent depth cues. To address these limitations, RDVSv2 is built from publicly accessible stereoscopic online videos and contains 249 video sequences with 29,077 annotated frames. It includes depth maps derived from stereoscopic videos, together with frame-wise salient object masks annotated with eye-tracking guidance. Compared with existing datasets, RDVSv2 is much larger in scale and covers more diverse and challenging scenarios. In addition, we establish a strong baseline for RGB-D VSOD based on Segment Anything Model 2 (SAM2). Specifically, we employ a parameter-efficient fine-tuning (PEFT) strategy to adapt the SAM2 encoder to jointly encode RGB, depth, and optical flow cues. Extensive experiments show that RDVSv2 is substantially more challenging for existing RGB-D VSOD methods. Meanwhile, the proposed baseline achieves state-of-the-art results on RDVSv2 and existing RGB-D VSOD benchmarks. We hope that RDVSv2 and the provided baseline will serve as useful resources for future research on RGB-D VSOD and related multi-modal video understanding tasks. Our dataset and code will be available at https://github.com/ltynick/RDVSv2.",
+          "link": "https://arxiv.org/abs/2607.25392v1",
+          "pdfLink": "https://arxiv.org/pdf/2607.25392v1",
+          "published": "2026-07-28T07:54:03Z",
+          "updated": "2026-07-28T07:54:03Z",
+          "authors": [
+            "Tianyu Li",
+            "Jiahao He",
+            "Keren Fu",
+            "Qijun Zhao"
+          ],
+          "categories": [
+            "cs.CV"
+          ],
+          "score": 40,
+          "importanceLevel": "B",
+          "lane": "Peripheral",
+          "dimensionScores": {
+            "relevance": 3,
+            "novelty": 17,
+            "impact": 16,
+            "practicality": 7,
+            "coreAlignment": 3
+          },
+          "oneSentenceSummary": "该论文是偏相关方向的重点候选，值得优先阅读。",
+          "summaryCn": "论文核心内容是：We introduce RDVSv2, a large-scale benchmark for RGB-D video salient object detection (RGB-D VSOD) with dense frame-level annotatio…",
+          "whyImportant": "命中新基准主题，分类覆盖cs.CV，并体现较强的新颖性与影响潜力。",
+          "reasonTags": [
+            "新基准"
+          ],
+          "innovationPoints": [
+            "包含新基准或新数据评测"
+          ],
+          "noveltyVerdict": "创新点清晰，属于值得重点跟进的增量改进。",
+          "duplicateRisk": "low",
+          "dedupeNote": "该论文在Peripheral方向上具备独立问题设置或代表性贡献，可作为当日候选保留。",
+          "retrievalGroups": [
+            "category"
+          ],
+          "mergedCount": 1,
+          "mergedTitles": [
+            "RDVSv2: A Large-scale Benchmark for RGB-D Video Salient Object Detection"
+          ]
+        },
+        {
+          "id": "2607.25830v1",
+          "title": "Beyond Static Costs: Learning-Dynamics Aware Loss Functions for Long-Tailed Classification",
+          "summary": "Deep learning models in computer vision face significant challenges when trained on long-tailed datasets, where a few majority classes dominate while many minority classes are severely underrepresented. Such imbalances frequently arise in real-world scenarios such as rare species recognition, manufacturing fault detection, and medical im…",
+          "summaryRaw": "Deep learning models in computer vision face significant challenges when trained on long-tailed datasets, where a few majority classes dominate while many minority classes are severely underrepresented. Such imbalances frequently arise in real-world scenarios such as rare species recognition, manufacturing fault detection, and medical image understanding, leading to biased models that underperform on tail classes. Existing reweighting methods typically rely on static class frequencies to penalize the model, ignoring the dynamic nature of how effectively a network actually learns a class over time. We address this by introducing a novel Learning-Dynamics Aware Loss (LDAL) function that shifts the focus from static sample counts to dynamic learning progress. LDAL framework adjusts class weights continuously by leveraging: (i) the strength of learned feature representations (semantic scale), (ii) the intrinsic learning difficulty of each class, measured via the Shannon entropy of its predictions, and (iii) an inter-epoch regularizer term that tracks prediction shifts between consecutive epochs to stabilize training and avoid local minima. LDAL is purely a objective function which incurs negligible computational overhead while adapting to the feature learning of the model. Experimental results on multiple benchmark datasets demonstrate that our approach significantly surpasses state-of-the-art reweighting loss functions, providing an optimal trade-off between accuracy and generalizability. The source code is available at https://github.com/sdm2026/ldal",
+          "link": "https://arxiv.org/abs/2607.25830v1",
+          "pdfLink": "https://arxiv.org/pdf/2607.25830v1",
+          "published": "2026-07-28T15:10:33Z",
+          "updated": "2026-07-28T15:10:33Z",
+          "authors": [
+            "Varad Shinde",
+            "Nikhil Kumar Shrey",
+            "Magesh Rajasekaran",
+            "Md Saiful Islam Sajol",
+            "Harshil Bhargava",
+            "Subhajit Sidanta",
+            "Supratik Mukhopadhyay",
+            "Yimin Zhu"
+          ],
+          "categories": [
+            "cs.CV"
+          ],
+          "score": 37,
+          "importanceLevel": "B",
+          "lane": "Peripheral",
+          "dimensionScores": {
+            "relevance": 3,
+            "novelty": 17,
+            "impact": 17,
+            "practicality": 3,
+            "coreAlignment": 3
+          },
+          "oneSentenceSummary": "该论文是偏相关方向的重点候选，值得优先阅读。",
+          "summaryCn": "论文核心内容是：Deep learning models in computer vision face significant challenges when trained on long-tailed datasets, where a few majority clas…",
+          "whyImportant": "命中新基准、真实实验主题，分类覆盖cs.CV，并体现较强的新颖性与影响潜力。",
+          "reasonTags": [
+            "新基准",
+            "真实实验"
+          ],
+          "innovationPoints": [
+            "包含新基准或新数据评测",
+            "提供真实场景实验验证"
+          ],
+          "noveltyVerdict": "创新点清晰，属于值得重点跟进的增量改进。",
+          "duplicateRisk": "low",
+          "dedupeNote": "该论文在Peripheral方向上具备独立问题设置或代表性贡献，可作为当日候选保留。",
+          "retrievalGroups": [
+            "category"
+          ],
+          "mergedCount": 1,
+          "mergedTitles": [
+            "Beyond Static Costs: Learning-Dynamics Aware Loss Functions for Long-Tailed Classification"
+          ]
+        },
+        {
+          "id": "2607.25275v1",
+          "title": "ScaleResfusion: Residual Rectified Flow based on Residual Vector Field",
+          "summary": "Real-world Image Restoration (Real-IR) aims to recover high-quality (HQ) images from complex and unknown degradations. Although recent diffusion-based methods have substantially improved perceptual quality, their current designs leave two key challenges unresolved.",
+          "summaryRaw": "Real-world Image Restoration (Real-IR) aims to recover high-quality (HQ) images from complex and unknown degradations. Although recent diffusion-based methods have substantially improved perceptual quality, their current designs leave two key challenges unresolved. Methods that start from Gaussian noise are slow and often less faithful to the degraded input. Residual-based methods usually train from scratch, which makes it hard to exploit modern pre-trained generative priors. In this paper, we present ScaleResfusion, a scalable diffusion framework for real-world image restoration built on pre-trained text-to-image rectified-flow models. The core of our method is Residual Rectified Flow, which introduces the residual term R into Standard Rectified Flow. Instead of starting from pure noise, it uses a residual transport path that starts from noisy low-quality (LQ) images and admits an exact acceleration point. By learning the residual vector field, Residual Rectified Flow keeps the output distribution and linear diffusion process consistent with the pre-trained rectified-flow models. This makes parameter-efficient fine-tuning possible at scale. We further introduce a knowledge-distillation pipeline to reduce sampling cost while maintaining restoration quality. Extensive experiments on multiple real-world restoration tasks show that ScaleResfusion achieves state-of-the-art performance with much higher efficiency. These results suggest a practical and scalable way to adapt large pre-trained diffusion models to real-world image restoration. Our code and models are available at https://github.com/YukinoshitaLove/ScaleResfusion.",
+          "link": "https://arxiv.org/abs/2607.25275v1",
+          "pdfLink": "https://arxiv.org/pdf/2607.25275v1",
+          "published": "2026-07-28T04:26:05Z",
+          "updated": "2026-07-28T04:26:05Z",
+          "authors": [
+            "Zhenning Shi",
+            "Chen Xu",
+            "Junhao Zhang",
+            "Kefei Zhang",
+            "Linjie Liu",
+            "Zhedong Zheng",
+            "Tao Li"
+          ],
+          "categories": [
+            "cs.CV",
+            "cs.AI"
+          ],
+          "score": 34,
+          "importanceLevel": "B",
+          "lane": "Peripheral",
+          "dimensionScores": {
+            "relevance": 6,
+            "novelty": 7,
+            "impact": 20,
+            "practicality": 7,
+            "coreAlignment": 6
+          },
+          "oneSentenceSummary": "该论文是偏相关方向的重点候选，值得优先阅读。",
+          "summaryCn": "论文核心内容是：Real-world Image Restoration (Real-IR) aims to recover high-quality (HQ) images from complex and unknown degradations.",
+          "whyImportant": "命中真实实验主题，分类覆盖cs.CV / cs.AI，并体现较强的新颖性与影响潜力。",
+          "reasonTags": [
+            "真实实验"
+          ],
+          "innovationPoints": [
+            "提供真实场景实验验证"
+          ],
+          "noveltyVerdict": "更偏实用推进型工作，适合结合上下文继续判断。",
+          "duplicateRisk": "low",
+          "dedupeNote": "该论文在Peripheral方向上具备独立问题设置或代表性贡献，可作为当日候选保留。",
+          "retrievalGroups": [
+            "category"
+          ],
+          "mergedCount": 1,
+          "mergedTitles": [
+            "ScaleResfusion: Residual Rectified Flow based on Residual Vector Field"
+          ]
+        }
+      ],
+      "paperSets": {
+        "overall": [
+          {
+            "id": "2607.25895v1",
+            "title": "HiFi-UMI: Learning Deployable Manipulation Policies from High-Fidelity UMI Data Alone",
+            "summary": "Learning deployable manipulation policies is bottlenecked by the scarcity of data that is both high-fidelity and scalable. Real-robot teleoperation is accurate but costly to scale; robot-free UMI capture scales readily, and current practice uses the resulting data mainly for pre-training, adding a small real-robot \"anchor\" at post-traini…",
+            "summaryRaw": "Learning deployable manipulation policies is bottlenecked by the scarcity of data that is both high-fidelity and scalable. Real-robot teleoperation is accurate but costly to scale; robot-free UMI capture scales readily, and current practice uses the resulting data mainly for pre-training, adding a small real-robot \"anchor\" at post-training. We ask whether raising the fidelity of robot-free UMI data, rather than shrinking the real-robot fraction, can remove that anchor. We present HiFi-UMI, a portable UMI data-production system co-designed for trajectory accuracy, inter-gripper relative pose, synchronization, and field of view: head-mounted offline stereo-inertial SLAM, native rather than reconstructed relative pose, a shared microsecond GPIO trigger, and two wide-angle cameras per hand covering ~200 degrees. It reaches 3 mm workspace-local end-effector accuracy without external tracking infrastructure. Using this corpus, we demonstrate zero-robot post-training: a policy post-trained solely on HiFi-UMI demonstrations deploys directly on a real robot and matches in-domain teleoperation across three backbones spanning the vision-language-action and world-action-model families, with success-rate differences of -2.5, +3.1, and -0.6 percentage points on StarVLA-QwenPI, OpenPI-pi_0.5, and LingBot-VA; the strongest policy reaches 85% on a precision insertion task, even though the teleoperation baseline is collected in the evaluation scene and no HiFi-UMI trajectory is. Pre-training on 4,000 hours from the same corpus lowers action error on ten unseen tasks by 41% and, on StarVLA-QwenPI, raises real-robot success by a further 18.1 percentage points. We open-source HiFi-UMI-2K, 2,000 hours of microsecond-synchronized, ultra-wide-FoV demonstrations, each automatically reconstructed and validated through simulation replay, as a large-scale, high-fidelity resource for the robot-learning community.",
+            "link": "https://arxiv.org/abs/2607.25895v1",
+            "pdfLink": "https://arxiv.org/pdf/2607.25895v1",
+            "published": "2026-07-28T15:52:02Z",
+            "updated": "2026-07-28T15:52:02Z",
+            "authors": [
+              "Simple AI",
+              ":",
+              "Yuteng Wei",
+              "Jinming Ma",
+              "Jiawei Wang",
+              "Weitao Zhou",
+              "Yushen Zuo",
+              "Ke Rui"
+            ],
+            "categories": [
+              "cs.RO",
+              "cs.CV",
+              "cs.LG"
+            ],
+            "score": 88,
+            "importanceLevel": "S",
+            "lane": "VLA",
+            "dimensionScores": {
+              "relevance": 85,
+              "novelty": 75,
+              "impact": 80,
+              "practicality": 90,
+              "coreAlignment": 90
+            },
+            "oneSentenceSummary": "提出高保真UMI数据采集系统，实现无需真实机器人微调的部署级操作策略学习。",
+            "summaryCn": "HiFi-UMI 是便携式通用操作接口系统，通过头戴式双目视觉与同步触发，提供毫米级末端精度。基于此采集的高保真数据，无需真实机器人锚点即可训练出可直接部署的机器人操作策略，显著降低遥操作成本并提升数据可扩展性。",
+            "whyImportant": "大幅降低机器人数据采集成本与门槛，使仿真数据可直接训练可部署策略。",
+            "reasonTags": [
+              "机器人数据采集",
+              "操作策略学习",
+              "高保真仿真",
+              "通用操作接口"
+            ],
+            "innovationPoints": [
+              "提出高精度便携式UMI系统，实现毫米级末端执行器追踪。",
+              "证明纯仿真数据不需真实锚点即可训练可部署机器人策略。",
+              "双广角相机与同步触发显著提升数据一致性与覆盖范围。"
+            ],
+            "noveltyVerdict": "率先构建无需外部跟踪的高精度便携式数据采集系统，显著提升实用性与场景适应性。",
+            "duplicateRisk": "low",
+            "dedupeNote": "首次提出完全依赖高保真UMI数据训练可部署策略，无需真实机器人数据锚点。",
+            "retrievalGroups": [
+              "category"
+            ],
+            "mergedCount": 1,
+            "mergedTitles": [
+              "HiFi-UMI: Learning Deployable Manipulation Policies from High-Fidelity UMI Data Alone"
+            ]
+          },
+          {
+            "id": "2607.25487v1",
+            "title": "CoTinyVLA: Chain-of-Thought Distillation for a Sub-Billion-Parameter Vision-Language-Action Model",
+            "summary": "Vision-Language-Action (VLA) models translate natural-language commands into robot action sequences, but leading systems on the LIBERO-Plus robustness benchmark use three- to seven-billion-parameter backbones whose memory demands can exceed embedded robotic budgets. We present CoTinyVLA, a 0.9B-parameter action model on a Qwen3.5-0.8B ba…",
+            "summaryRaw": "Vision-Language-Action (VLA) models translate natural-language commands into robot action sequences, but leading systems on the LIBERO-Plus robustness benchmark use three- to seven-billion-parameter backbones whose memory demands can exceed embedded robotic budgets. We present CoTinyVLA, a 0.9B-parameter action model on a Qwen3.5-0.8B backbone that obtains that robustness by structuring supervision instead of enlarging the model. Three components target different axes of the problem: dual-view temporal input of 16 history frames per step with textual camera and time markers; hierarchical chain-of-thought (CoT) distillation from a 35B teacher into an episode-level Plan and a chunk-level Think span over task phase, gripper state and next subaction; and paraphrase augmentation expanding 40 base commands into 800 variants. On LIBERO-Plus, spanning 10,030 perturbed tasks across seven perturbation dimensions, CoTinyVLA reaches 90.8% on Spatial, 87.3% on Object, 86.6% on Goal and 80.7% on Long, leading the strongest 7B baseline on all four suites by 4.7, 2.8, 15.9 and 3.0 points, with every margin interval excluding zero. The gains concentrate on the hardest axes of the benchmark: across the eleven published baselines none exceeds 53.2% on Robot Initial States in any suite, whereas CoTinyVLA reaches 73.6% on Goal against 39.9% for the strongest baseline. Ablations show the three components to be separable by perturbation axis, and at a matched image budget how frames are divided between the two cameras and across time accounts for 8.6 points on its own. Closed-loop inference peaks at 2.25 GiB of allocated GPU memory, and paired interventions show the episode Plan to be load-bearing: replacing it with an empty or contradictory span costs 40 to 45 points of success. Structured supervision thus lets a 0.9B backbone exceed all of them. Code: https://github.com/BrainJellyPie/CoTinyVLA",
+            "link": "https://arxiv.org/abs/2607.25487v1",
+            "pdfLink": "https://arxiv.org/pdf/2607.25487v1",
+            "published": "2026-07-28T09:24:17Z",
+            "updated": "2026-07-28T09:24:17Z",
+            "authors": [
+              "Minhyeok Lee",
+              "Chiyoung Kim",
+              "Chanhoe Gu",
+              "Seongrok Kim",
+              "Sanghyuk Roy Choi",
+              "Donghwan Hwang",
+              "Donghun Ryu",
+              "Seokhyun Kim"
+            ],
+            "categories": [
+              "cs.AI",
+              "cs.CV"
+            ],
+            "score": 85,
+            "importanceLevel": "A",
+            "lane": "VLA",
+            "dimensionScores": {
+              "relevance": 90,
+              "novelty": 80,
+              "impact": 70,
+              "practicality": 85,
+              "coreAlignment": 95
+            },
+            "oneSentenceSummary": "通过思维链蒸馏，将9亿参数VLA模型的鲁棒性提升至与大型模型相当。",
+            "summaryCn": "CoTinyVLA 在0.9B参数骨干上通过双视角时序输入、分层思维链蒸馏及指令增强，实现LIBERO-Plus鲁棒基准上与数十亿参数模型相媲美的性能，显著降低嵌入式机器人部署的内存需求，为小型化通用操作模型提供可行路径。",
+            "whyImportant": "证明小模型通过结构监督即可达到大模型鲁棒性，推动具身智能边缘化部署。",
+            "reasonTags": [
+              "小型VLA",
+              "思维链蒸馏",
+              "鲁棒性提升",
+              "具身智能"
+            ],
+            "innovationPoints": [
+              "通过分层思维链从大模型蒸馏任务规划与动作推理。",
+              "双视角时序输入增强空间感知与动作连贯性。",
+              "指令增强扩充训练分布，提升泛化能力。"
+            ],
+            "noveltyVerdict": "开创性结合小模型与思维链监督，突破参数限制，实现鲁棒性飞跃。",
+            "duplicateRisk": "low",
+            "dedupeNote": "在极小参数下首次通过结构化监督达到大型VLA的鲁棒性，无类似压缩方案。",
+            "retrievalGroups": [
+              "category"
+            ],
+            "mergedCount": 1,
+            "mergedTitles": [
+              "CoTinyVLA: Chain-of-Thought Distillation for a Sub-Billion-Parameter Vision-Language-Action Model"
+            ]
+          },
+          {
+            "id": "2607.26037v1",
+            "title": "Wonder: Video World Model Done Better",
+            "summary": "We present Wonder, a general-purpose video world model for real-time, camera-controllable world exploration. Given an image or a conditional video, Wonder constructs a playable world where users can navigate interactively by moving the camera, discovering unseen regions, and revisiting previously observed areas in real time and over a lo…",
+            "summaryRaw": "We present Wonder, a general-purpose video world model for real-time, camera-controllable world exploration. Given an image or a conditional video, Wonder constructs a playable world where users can navigate interactively by moving the camera, discovering unseen regions, and revisiting previously observed areas in real time and over a long-term horizon. Achieving this capability requires a system-level co-design of control method, memory mechanism, and training strategy. We introduce a novel camera conditioning with a dense coordinate field whose renderings provide spatially aligned motion and orientation cues, allowing the model to interpret camera motion directly as visual evidence. To support fast and precise memory retrieval over a growing generation context, we propose an efficient sparse attention-based memory mechanism, enabling the model to selectively attend to a small set of relevant context tokens at inference time, regardless of actual context length. We further develop several techniques to rectify the self-forcing-style distillation pipeline, improving the student model's ability to respect control signals, as well as maintaining diverse generation modes and long-term memory from the teacher. Together, these components enable Wonder to synthesize diverse, minute-scale videos at 16 FPS while preserving coherent geometry, appearance, and dynamics across long rollouts. Beyond image-to-video generation, Wonder naturally supports video-conditioned generation, allowing existing dynamic scenes to be re-shot in real time.",
+            "link": "https://arxiv.org/abs/2607.26037v1",
+            "pdfLink": "https://arxiv.org/pdf/2607.26037v1",
+            "published": "2026-07-28T17:45:25Z",
+            "updated": "2026-07-28T17:45:25Z",
+            "authors": [
+              "Jiacong Xu",
+              "Hanwen Jiang",
+              "Zhixin Shu",
+              "Kalyan Sunkavalli",
+              "Vishal M. Patel",
+              "Yiqun Mei"
+            ],
+            "categories": [
+              "cs.CV"
+            ],
+            "score": 60,
+            "importanceLevel": "B",
+            "lane": "WAM",
+            "dimensionScores": {
+              "relevance": 70,
+              "novelty": 65,
+              "impact": 50,
+              "practicality": 40,
+              "coreAlignment": 60
+            },
+            "oneSentenceSummary": "可交互的视频世界模型，支持实时相机控制以探索未见过环境。",
+            "summaryCn": "Wonder 构建通用视频世界模型，引入密集坐标场相机条件与高效稀疏注意力记忆机制，支持实时、长期、可操控的相机探索。用户可从单帧或条件视频出发，在生成的动态世界中自由移动视角，发现和回访已见区域，应用于虚拟现实与仿真。",
+            "whyImportant": "为交互式视频生成提供高效记忆与精准控制，助力虚拟世界构建与仿真。",
+            "reasonTags": [
+              "视频世界模型",
+              "交互式探索",
+              "相机控制",
+              "动态场景生成"
+            ],
+            "innovationPoints": [
+              "密集坐标场渲染提供空间对齐的运动和方向线索。",
+              "稀疏注意力记忆机制实现长时上下文的快速精准检索。",
+              "联合设计控制、记忆与训练策略，实现实时可操控世界模型。"
+            ],
+            "noveltyVerdict": "将世界模型与实时相机控制深度结合，记忆机制创新性解决长序列生成难题。",
+            "duplicateRisk": "low",
+            "dedupeNote": "首个联合优化相机控制与记忆机制的可交互视频世界模型，不同于纯视频生成。",
+            "retrievalGroups": [
+              "category"
+            ],
+            "mergedCount": 1,
+            "mergedTitles": [
+              "Wonder: Video World Model Done Better"
+            ]
+          },
+          {
+            "id": "2607.26005v1",
+            "title": "Pictura: Perspective-View Self-Play at Scale for Driving",
+            "summary": "Self-play in simulation produces robust driving policies at scale. Demonstrations of such behavior have been made using privileged vectorized observations such as exact poses and velocities, even for occluded agents.",
+            "summaryRaw": "Self-play in simulation produces robust driving policies at scale. Demonstrations of such behavior have been made using privileged vectorized observations such as exact poses and velocities, even for occluded agents. This assumes that perception is solved and introduces a representation gap with the partial observation of a deployed agent driving from the perspective view of egocentric cameras. A common fix, distilling the privileged policy into a camera-input student, leaves the student imitating decisions its own view cannot justify. Instead, we establish perspective-view self-play as a practical training regime. We introduce Pictura, a GPU-accelerated multi-agent driving simulator that renders each agent's egocentric view at every step, mitigating the representation gap at its source. Pictura sustains up to 500K agent-steps/s (2M images/s) on a single H100. Using Pictura, we train Alberti by self-play with plain PPO. It is the first large-scale driving self-play policy trained directly from perspective images, without privileged observations. Training spans 50B agent steps for ~35M km of driving. It approaches the driving performance of its privileged vectorized counterpart, and transfers zero-shot to Waymo Open Motion Dataset layouts re-rendered in Pictura, where it outperforms privileged vectorized agents. Project page: https://valeoai.github.io/Pictura/",
+            "link": "https://arxiv.org/abs/2607.26005v1",
+            "pdfLink": "https://arxiv.org/pdf/2607.26005v1",
+            "published": "2026-07-28T17:20:39Z",
+            "updated": "2026-07-28T17:20:39Z",
+            "authors": [
+              "Yuan Yin",
+              "Elias Ramzi",
+              "Marc Lafon",
+              "Valentin Charraut",
+              "Victor Bares",
+              "Yihong Xu",
+              "Éloi Zablocki",
+              "Alexandre Boulch"
+            ],
+            "categories": [
+              "cs.CV",
+              "cs.AI",
+              "cs.RO"
+            ],
+            "score": 48,
+            "importanceLevel": "A",
+            "lane": "Peripheral",
+            "dimensionScores": {
+              "relevance": 22,
+              "novelty": 12,
+              "impact": 22,
+              "practicality": 4,
+              "coreAlignment": 22
+            },
+            "oneSentenceSummary": "该论文是偏相关方向的重点候选，值得优先阅读。",
+            "summaryCn": "论文核心内容是：Self-play in simulation produces robust driving policies at scale.",
+            "whyImportant": "命中机器人、自动驾驶、新基准主题，分类覆盖cs.CV / cs.AI，并体现较强的新颖性与影响潜力。",
+            "reasonTags": [
+              "机器人",
+              "自动驾驶",
+              "新基准"
+            ],
+            "innovationPoints": [
+              "包含新基准或新数据评测"
+            ],
+            "noveltyVerdict": "创新点清晰，属于值得重点跟进的增量改进。",
+            "duplicateRisk": "low",
+            "dedupeNote": "该论文在Peripheral方向上具备独立问题设置或代表性贡献，可作为当日候选保留。",
+            "retrievalGroups": [
+              "category"
+            ],
+            "mergedCount": 1,
+            "mergedTitles": [
+              "Pictura: Perspective-View Self-Play at Scale for Driving"
+            ]
+          },
+          {
+            "id": "2607.25234v1",
+            "title": "WHTMix: Efficient Stereo Depth Estimation via Walsh-Hadamard Token Mixing",
+            "summary": "Stereo depth estimation for driving, robotics and augmented reality must run at high resolution under tight latency budgets, yet in transformer-based matchers the global self-attention that aggregates scene context grows quadratically with the number of pixels and comes to dominate runtime. We show that the joint self-attention stage of…",
+            "summaryRaw": "Stereo depth estimation for driving, robotics and augmented reality must run at high resolution under tight latency budgets, yet in transformer-based matchers the global self-attention that aggregates scene context grows quadratically with the number of pixels and comes to dominate runtime. We show that the joint self-attention stage of a stereo transformer, whose role is to spread context across both views, can be replaced by a data-independent Walsh-Hadamard token mixer that mixes tokens globally in the transform domain at log-linear cost, while the data-dependent cross-attention that performs left-right correspondence is retained. On synthetic driving data the mixer matches the attention baseline in end-point error while reducing model compute by a factor of 2.46 and single-image inference latency by a factor of 2.65. A complexity analysis shows the benefit is governed by the ratio of sequence length to channel width, which explains why high-resolution stereo matching is a particularly favorable setting and why classification transformers are not; we confirm this token-to-channel scaling on non-stereo long-sequence benchmarks. Furthermore, we introduce a hybrid log-disparity loss function designed to up-weight small-disparity pixels corresponding to long-range objects. This approach reduces the error on distant objects without incurring any additional computational overhead.",
+            "link": "https://arxiv.org/abs/2607.25234v1",
+            "pdfLink": "https://arxiv.org/pdf/2607.25234v1",
+            "published": "2026-07-28T03:22:46Z",
+            "updated": "2026-07-28T03:22:46Z",
+            "authors": [
+              "Prathyush Sajith",
+              "Emadeldeen Hamdan",
+              "Ahmet Enis Cetin"
+            ],
+            "categories": [
+              "cs.CV"
+            ],
+            "score": 52,
+            "importanceLevel": "A",
+            "lane": "Robotics",
+            "dimensionScores": {
+              "relevance": 36,
+              "novelty": 12,
+              "impact": 3,
+              "practicality": 4,
+              "coreAlignment": 17
+            },
+            "oneSentenceSummary": "该论文是偏机器人的重点候选，值得优先阅读。",
+            "summaryCn": "论文核心内容是：Stereo depth estimation for driving, robotics and augmented reality must run at high resolution under tight latency budgets, yet in…",
+            "whyImportant": "命中机器人、自动驾驶、新基准主题，分类覆盖cs.CV，并体现较强的新颖性与影响潜力。",
+            "reasonTags": [
+              "机器人",
+              "自动驾驶",
+              "新基准"
+            ],
+            "innovationPoints": [
+              "包含新基准或新数据评测"
+            ],
+            "noveltyVerdict": "创新点清晰，属于值得重点跟进的增量改进。",
+            "duplicateRisk": "low",
+            "dedupeNote": "该论文在Robotics方向上具备独立问题设置或代表性贡献，可作为当日候选保留。",
+            "retrievalGroups": [
+              "category"
+            ],
+            "mergedCount": 1,
+            "mergedTitles": [
+              "WHTMix: Efficient Stereo Depth Estimation via Walsh-Hadamard Token Mixing"
+            ]
+          },
+          {
+            "id": "2607.25389v1",
+            "title": "HOME: Robust Hough-space Matching Method for Structured and Textureless Videos",
+            "summary": "Visual front-ends for robotic localization typically rely on point-based features such as Oriented FAST and Rotated BRIEF (ORB), which frequently fail in structured environments dominated by strong linear structures or textureless surfaces. While line-based Simultaneous Localization and Mapping (SLAM) systems mitigate this by utilizing l…",
+            "summaryRaw": "Visual front-ends for robotic localization typically rely on point-based features such as Oriented FAST and Rotated BRIEF (ORB), which frequently fail in structured environments dominated by strong linear structures or textureless surfaces. While line-based Simultaneous Localization and Mapping (SLAM) systems mitigate this by utilizing line segments, conventional line extraction and description algorithms are computationally prohibitive for real-time edge robotics. To address this fundamental bottleneck, we propose HOME (Hough-space One-dimensional Matching of Extrema), an ultra-lightweight, training-free feature matching framework. HOME transforms images into Hough space, mapping global linear structures to stable local extrema, which serve as keypoints, thereby reformulating complex line matching into highly efficient one-dimensional point matching. The proposed 1D radial descriptor mathematically guarantees rotational and translational invariance without the overhead of explicit orientation estimation. As a proof of concept to validate the matching accuracy and efficiency of HOME, this paper focuses on homography estimation. Extensive evaluations demonstrate that HOME achieves robust registration in challenging scenarios where point-based methods fail, operating at a much faster speed than existing line-based methods. Extending this robust matching engine to full 3D pose estimation remains a highly promising future direction.",
+            "link": "https://arxiv.org/abs/2607.25389v1",
+            "pdfLink": "https://arxiv.org/pdf/2607.25389v1",
+            "published": "2026-07-28T07:47:50Z",
+            "updated": "2026-07-28T07:47:50Z",
+            "authors": [
+              "Masaki Satoh"
+            ],
+            "categories": [
+              "cs.CV",
+              "cs.RO"
+            ],
+            "score": 51,
+            "importanceLevel": "A",
+            "lane": "Robotics",
+            "dimensionScores": {
+              "relevance": 36,
+              "novelty": 7,
+              "impact": 9,
+              "practicality": 8,
+              "coreAlignment": 17
+            },
+            "oneSentenceSummary": "该论文是偏机器人的重点候选，值得优先阅读。",
+            "summaryCn": "论文核心内容是：Visual front-ends for robotic localization typically rely on point-based features such as Oriented FAST and Rotated BRIEF (ORB), wh…",
+            "whyImportant": "命中机器人、新基准主题，分类覆盖cs.CV / cs.RO，并体现较强的新颖性与影响潜力。",
+            "reasonTags": [
+              "机器人",
+              "新基准"
+            ],
+            "innovationPoints": [
+              "提出具有跟踪价值的方法设计"
+            ],
+            "noveltyVerdict": "更偏实用推进型工作，适合结合上下文继续判断。",
+            "duplicateRisk": "low",
+            "dedupeNote": "该论文在Robotics方向上具备独立问题设置或代表性贡献，可作为当日候选保留。",
+            "retrievalGroups": [
+              "category"
+            ],
+            "mergedCount": 1,
+            "mergedTitles": [
+              "HOME: Robust Hough-space Matching Method for Structured and Textureless Videos"
+            ]
+          },
+          {
+            "id": "2607.25197v1",
+            "title": "LGFNet: A CTC-Guided Local-Global Fusion Framework for Single-Channel Sleep Staging",
+            "summary": "Sleep staging remains challenging due to long-range temporal dependencies, ambiguous stage transitions-particularly in N1-and substantial distribution shifts across subjects, sampling rates, and EEG montages. These difficulties are further amplified in single-channel, low-latency scenarios required by wearable and real-world applications.",
+            "summaryRaw": "Sleep staging remains challenging due to long-range temporal dependencies, ambiguous stage transitions-particularly in N1-and substantial distribution shifts across subjects, sampling rates, and EEG montages. These difficulties are further amplified in single-channel, low-latency scenarios required by wearable and real-world applications. To address these issues, we propose LGFNet, a CTC-guided sequence-to-sequence framework for robust sleep staging. LGFNet introduces a Local-Global Fusion encoder that jointly models fine-grained temporal dynamics and long-range sleep structure, overcoming the limitations of conventional serial hybrid architectures. A CTC-Attention joint training paradigm is adopted to unify temporal alignment with context-dependent modeling, enabling more accurate recognition of stage boundaries and transitions. Furthermore, a three-stage decoding strategy is devised, leveraging CTC-guided decoding and Viterbi-based smoothing to reduce error accumulation and enforce physiological consistency. Extensive cross-dataset evaluations on five public benchmarks demonstrate that LGFNet consistently outperforms state-of-the-art single-channel methods. In particular, on Sleep-EDF-78, LGFNet surpasses DMIN by +1.27% accuracy, +1.74% macro-F1, and +1.93% kappa, with pronounced gains on N1 and transition segments, highlighting its robustness and strong generalization across diverse sampling rates, montages, and recording environments.",
+            "link": "https://arxiv.org/abs/2607.25197v1",
+            "pdfLink": "https://arxiv.org/pdf/2607.25197v1",
+            "published": "2026-07-28T02:04:00Z",
+            "updated": "2026-07-28T02:04:00Z",
+            "authors": [
+              "Chongjian Wang",
+              "Zhenghang Hou",
+              "Junjie Gao",
+              "Xiaofang Zhong",
+              "Shiyuan Han",
+              "Tong Zhang"
+            ],
+            "categories": [
+              "cs.CV"
+            ],
+            "score": 50,
+            "importanceLevel": "A",
+            "lane": "Peripheral",
+            "dimensionScores": {
+              "relevance": 3,
+              "novelty": 26,
+              "impact": 17,
+              "practicality": 7,
+              "coreAlignment": 3
+            },
+            "oneSentenceSummary": "该论文是偏相关方向的重点候选，值得优先阅读。",
+            "summaryCn": "论文核心内容是：Sleep staging remains challenging due to long-range temporal dependencies, ambiguous stage transitions-particularly in N1-and subst…",
+            "whyImportant": "命中新基准、真实实验主题，分类覆盖cs.CV，并体现较强的新颖性与影响潜力。",
+            "reasonTags": [
+              "新基准",
+              "真实实验"
+            ],
+            "innovationPoints": [
+              "包含新基准或新数据评测",
+              "涉及新的训练或预训练范式",
+              "提供真实场景实验验证"
+            ],
+            "noveltyVerdict": "创新信号强，像是带新范式或新基准的工作。",
+            "duplicateRisk": "low",
+            "dedupeNote": "该论文在Peripheral方向上具备独立问题设置或代表性贡献，可作为当日候选保留。",
+            "retrievalGroups": [
+              "category"
+            ],
+            "mergedCount": 1,
+            "mergedTitles": [
+              "LGFNet: A CTC-Guided Local-Global Fusion Framework for Single-Channel Sleep Staging"
+            ]
+          },
+          {
+            "id": "2607.25215v1",
+            "title": "Leveraging Semantic Maps for City-Scale Cross-View Localization",
+            "summary": "We want robots to localize in previously untraversed environments against commonly available prior data. Rich semantic data available from OpenStreetMap can be useful in this task.",
+            "summaryRaw": "We want robots to localize in previously untraversed environments against commonly available prior data. Rich semantic data available from OpenStreetMap can be useful in this task. However, existing methods either ignore this semantic information, directly matching panoramas and overhead imagery, or dramatically compress the semantic information, working with a small set of fixed classes. To leverage this rich semantic information, two challenges need to be overcome. First, useful semantic information needs to be extracted from the robot's egocentric observations. Second, the observed information must be quickly associated with the large prior semantic map (e.g., up to 628 km^2). We show that VLMs are effective at both extracting relevant landmarks from panoramas, and identifying feasible correspondences between these landmarks and prior overhead landmarks. However, using VLMs to propose all correspondences scales poorly as the number of mapped landmarks increases. Instead, we propose distilling a lightweight matcher from a VLM which computes correspondences for all entities in a map. We use this output to form an observation likelihood which is fused over time with a Bayes filter to create a time series of pose estimates. To support further investigation into generalizable cross-view methods that leverage semantic information, we release a dataset of extracted semantics and evaluation trajectories spanning eleven environments, including panoramas we collected in a snowstorm and at night in Boston. We demonstrate our method, trained on a single city's fair-weather data, generalizes across location, lighting, weather, and other challenges. Code and datasets are available at https://efahnestock.github.io/loci/.",
+            "link": "https://arxiv.org/abs/2607.25215v1",
+            "pdfLink": "https://arxiv.org/pdf/2607.25215v1",
+            "published": "2026-07-28T02:44:56Z",
+            "updated": "2026-07-28T02:44:56Z",
+            "authors": [
+              "Ethan Fahnestock",
+              "Erick Fuentes",
+              "Philip R Osteen",
+              "Nicholas Roy"
+            ],
+            "categories": [
+              "cs.RO",
+              "cs.CV"
+            ],
+            "score": 36,
+            "importanceLevel": "B",
+            "lane": "Peripheral",
+            "dimensionScores": {
+              "relevance": 18,
+              "novelty": 12,
+              "impact": 12,
+              "practicality": 3,
+              "coreAlignment": 17
+            },
+            "oneSentenceSummary": "该论文是偏相关方向的重点候选，值得优先阅读。",
+            "summaryCn": "论文核心内容是：We want robots to localize in previously untraversed environments against commonly available prior data.",
+            "whyImportant": "命中机器人、新基准主题，分类覆盖cs.RO / cs.CV，并体现较强的新颖性与影响潜力。",
+            "reasonTags": [
+              "机器人",
+              "新基准"
+            ],
+            "innovationPoints": [
+              "包含新基准或新数据评测"
+            ],
+            "noveltyVerdict": "创新点清晰，属于值得重点跟进的增量改进。",
+            "duplicateRisk": "low",
+            "dedupeNote": "该论文在Peripheral方向上具备独立问题设置或代表性贡献，可作为当日候选保留。",
+            "retrievalGroups": [
+              "category"
+            ],
+            "mergedCount": 1,
+            "mergedTitles": [
+              "Leveraging Semantic Maps for City-Scale Cross-View Localization"
+            ]
+          },
+          {
+            "id": "2607.25791v1",
+            "title": "FLASH: Efficient Impact Fall Detection with Unified Hypergraph State-Space Model",
+            "summary": "Falls represent a critical public health challenge, and accurate detection of the impact moment when an individual hits the ground is crucial for timely intervention. Existing skeleton-based methods rely on graph neural networks modeling only pairwise joint connections, failing to capture multi-joint coordination characteristic of fall i…",
+            "summaryRaw": "Falls represent a critical public health challenge, and accurate detection of the impact moment when an individual hits the ground is crucial for timely intervention. Existing skeleton-based methods rely on graph neural networks modeling only pairwise joint connections, failing to capture multi-joint coordination characteristic of fall impacts, while transformer-based temporal models suffer from quadratic complexity limiting real-time deployment. We propose FLASH, a novel framework integrating single-matrix hypergraph representations with Mamba's selective state-space models through adaptive feedback mechanisms for efficient impact detection. Our approach constructs biomechanically-grounded hyperedges to model functional joint coordination while leveraging Mamba's linear-time complexity to capture temporal dynamics. Experiments on UP-Fall and UMAFall datasets demonstrate that FLASH achieves state-of-the-art accuracy with real-time inference capability and strong zero-shot cross-dataset generalization, while significantly reducing computational cost compared to dual-representation and transformer-based methods. The model provides interpretable feedback through learned attention patterns aligned with biomechanical principles. Code is available at https://github.com/Tresor-Koffi/FLASH-Impact-Fall-Detection.",
+            "link": "https://arxiv.org/abs/2607.25791v1",
+            "pdfLink": "https://arxiv.org/pdf/2607.25791v1",
+            "published": "2026-07-28T14:43:07Z",
+            "updated": "2026-07-28T14:43:07Z",
+            "authors": [
+              "Tresor Y. Koffi",
+              "Youssef Mourchid",
+              "Yohan Dupuis"
+            ],
+            "categories": [
+              "cs.CV"
+            ],
+            "score": 49,
+            "importanceLevel": "A",
+            "lane": "Peripheral",
+            "dimensionScores": {
+              "relevance": 3,
+              "novelty": 21,
+              "impact": 16,
+              "practicality": 12,
+              "coreAlignment": 3
+            },
+            "oneSentenceSummary": "该论文是偏相关方向的重点候选，值得优先阅读。",
+            "summaryCn": "论文核心内容是：Falls represent a critical public health challenge, and accurate detection of the impact moment when an individual hits the ground…",
+            "whyImportant": "命中新基准、通用框架主题，分类覆盖cs.CV，并体现较强的新颖性与影响潜力。",
+            "reasonTags": [
+              "新基准",
+              "通用框架"
+            ],
+            "innovationPoints": [
+              "包含新基准或新数据评测"
+            ],
+            "noveltyVerdict": "创新信号强，像是带新范式或新基准的工作。",
+            "duplicateRisk": "low",
+            "dedupeNote": "该论文在Peripheral方向上具备独立问题设置或代表性贡献，可作为当日候选保留。",
+            "retrievalGroups": [
+              "category"
+            ],
+            "mergedCount": 1,
+            "mergedTitles": [
+              "FLASH: Efficient Impact Fall Detection with Unified Hypergraph State-Space Model"
+            ]
+          },
+          {
+            "id": "2607.25524v1",
+            "title": "ReLATE: Reliability-Guided Evidence Fusion for Robust UAV--Satellite cross-view Geo-Localization",
+            "summary": "Unmanned aerial vehicle (UAV)-satellite cross-view geo-localization matches UAV images against satellite imagery and has achieved impressive accuracy on clean (non-degraded) image benchmarks. In real-world flights, however, UAV observations are frequently affected by adverse weather, illumination changes, platform motion, sensor noise, a…",
+            "summaryRaw": "Unmanned aerial vehicle (UAV)-satellite cross-view geo-localization matches UAV images against satellite imagery and has achieved impressive accuracy on clean (non-degraded) image benchmarks. In real-world flights, however, UAV observations are frequently affected by adverse weather, illumination changes, platform motion, sensor noise, and compression, while the robustness of existing methods under such degradations remains largely unexamined. In this paper, we present UAVSat-Deg, a large-scale robustness benchmark for degraded UAV-satellite geo-localization, comprising University-1652-Deg and SUES-200-Deg. UAVSat-Deg covers 27 corruption types, including 19 core and 8 compound corruptions, at three severity levels, supports bidirectional drone-to-satellite and satellite-to-drone retrieval as well as multi-height UAV acquisition, and contains more than 11.7 million pre-generated corrupted test images. Benchmarking representative methods under this protocol reveals substantial robustness gaps, particularly under severe and compound corruptions. To address this problem, we propose ReLATE, a Reliable Evidence Learning framework with Adaptive Token Evidence Regulation, which realizes reliability-adaptive feature fusion during descriptor construction. ReLATE estimates a structure-smoothed reliability field over visual tokens, aggregates trustworthy local evidence, and adaptively integrates it into query-derived representations; the regulated query representations are then combined with the CLS-token and GeM-pooled branches to form the final cross-view descriptor. Across both test sets and retrieval directions, ReLATE achieves the best average corrupted-test performance among the compared methods while maintaining competitive accuracy on clean images. The code and dataset will be available at https://github.com/JHC626/ReLATE.",
+            "link": "https://arxiv.org/abs/2607.25524v1",
+            "pdfLink": "https://arxiv.org/pdf/2607.25524v1",
+            "published": "2026-07-28T10:07:18Z",
+            "updated": "2026-07-28T10:07:18Z",
+            "authors": [
+              "Haochen Jiang",
+              "Jialei Pan",
+              "Yuzhe Sun",
+              "Zhe Dong",
+              "Lecheng Ren",
+              "Yanfeng Gu",
+              "Tianzhu Liu"
+            ],
+            "categories": [
+              "cs.CV",
+              "cs.AI"
+            ],
+            "score": 44,
+            "importanceLevel": "B",
+            "lane": "Peripheral",
+            "dimensionScores": {
+              "relevance": 6,
+              "novelty": 17,
+              "impact": 20,
+              "practicality": 7,
+              "coreAlignment": 6
+            },
+            "oneSentenceSummary": "该论文是偏相关方向的重点候选，值得优先阅读。",
+            "summaryCn": "论文核心内容是：Unmanned aerial vehicle (UAV)-satellite cross-view geo-localization matches UAV images against satellite imagery and has achieved i…",
+            "whyImportant": "命中新基准、真实实验主题，分类覆盖cs.CV / cs.AI，并体现较强的新颖性与影响潜力。",
+            "reasonTags": [
+              "新基准",
+              "真实实验"
+            ],
+            "innovationPoints": [
+              "包含新基准或新数据评测",
+              "提供真实场景实验验证"
+            ],
+            "noveltyVerdict": "创新点清晰，属于值得重点跟进的增量改进。",
+            "duplicateRisk": "low",
+            "dedupeNote": "该论文在Peripheral方向上具备独立问题设置或代表性贡献，可作为当日候选保留。",
+            "retrievalGroups": [
+              "category"
+            ],
+            "mergedCount": 1,
+            "mergedTitles": [
+              "ReLATE: Reliability-Guided Evidence Fusion for Robust UAV--Satellite cross-view Geo-Localization"
+            ]
+          },
+          {
+            "id": "2607.25242v1",
+            "title": "Medical world models in healthcare: foundations, applications, and challenges for trustworthy clinical translation",
+            "summary": "Medical world models offer a framework for extending medical artificial intelligence beyond static prediction by representing evolving patient states and modelling how they change over time and in response to clinical interventions. This Review defines the conceptual boundaries, technical foundations, application domains, and evidence re…",
+            "summaryRaw": "Medical world models offer a framework for extending medical artificial intelligence beyond static prediction by representing evolving patient states and modelling how they change over time and in response to clinical interventions. This Review defines the conceptual boundaries, technical foundations, application domains, and evidence requirements of the field through a structured narrative synthesis with reproducible evidence mapping.We screened 1,455 unique records and assembled a corpus of 98 sources, including 14 studies that met a strict empirical definition of a medical world model. The field is organised around four capabilities: patient state representation, temporal dynamics modelling, intervention-conditioned simulation, and clinician-supervised planning. Evidence spans medical imaging, longitudinal electronic health records, treatment response modelling, physiological and multimodal state modelling, ultrasound and surgical interaction, and population and health-system simulation; clinical digital twins are treated as a cross-cutting integration framework.Current studies provide early evidence of technical feasibility for trajectory forecasting and comparison of candidate interventions, but most remain retrospective, task-specific, or preclinical. The evidence base is further limited by incomplete longitudinal intervention data, inconsistent action semantics, limited causal identifiability, long-horizon error accumulation, inadequate uncertainty estimation, and limited external validation. Clinical translation will therefore depend on precise intervention representations, robust causal and mechanistic grounding, calibrated trajectory-level uncertainty, safety-constrained planning, and prospective multicentre validation against clinically meaningful endpoints.",
+            "link": "https://arxiv.org/abs/2607.25242v1",
+            "pdfLink": "https://arxiv.org/pdf/2607.25242v1",
+            "published": "2026-07-28T03:35:47Z",
+            "updated": "2026-07-28T03:35:47Z",
+            "authors": [
+              "Zhaoyan Chen",
+              "Zhongxiu Cong",
+              "Zhuanfeng Jin",
+              "Wanshu Fan",
+              "Dongsheng Zhou",
+              "Qi Ai",
+              "Haifan Gong",
+              "Congyu Liao"
+            ],
+            "categories": [
+              "cs.CV"
+            ],
+            "score": 39,
+            "importanceLevel": "B",
+            "lane": "Peripheral",
+            "dimensionScores": {
+              "relevance": 19,
+              "novelty": 12,
+              "impact": 3,
+              "practicality": 8,
+              "coreAlignment": 11
+            },
+            "oneSentenceSummary": "该论文是偏相关方向的重点候选，值得优先阅读。",
+            "summaryCn": "论文核心内容是：Medical world models offer a framework for extending medical artificial intelligence beyond static prediction by representing evolv…",
+            "whyImportant": "命中WAM、通用框架主题，分类覆盖cs.CV，并体现较强的新颖性与影响潜力。",
+            "reasonTags": [
+              "WAM",
+              "通用框架"
+            ],
+            "innovationPoints": [
+              "提出具有跟踪价值的方法设计"
+            ],
+            "noveltyVerdict": "创新点清晰，属于值得重点跟进的增量改进。",
+            "duplicateRisk": "low",
+            "dedupeNote": "该论文在Peripheral方向上具备独立问题设置或代表性贡献，可作为当日候选保留。",
+            "retrievalGroups": [
+              "category"
+            ],
+            "mergedCount": 1,
+            "mergedTitles": [
+              "Medical world models in healthcare: foundations, applications, and challenges for trustworthy clinical translation"
+            ]
+          },
+          {
+            "id": "2607.25778v1",
+            "title": "A Unified Benchmark and Modality-Adaptive Network for Day-and-Night Drone-View Geo-Localization",
+            "summary": "Most existing drone-view geo-localization (DVGL) benchmarks contain drone imagery captured under a single illumination condition and lack geographically aligned visible drone images, infrared drone images, and satellite images from the same locations. To evaluate the generalization capability of DVGL methods under challenging illuminatio…",
+            "summaryRaw": "Most existing drone-view geo-localization (DVGL) benchmarks contain drone imagery captured under a single illumination condition and lack geographically aligned visible drone images, infrared drone images, and satellite images from the same locations. To evaluate the generalization capability of DVGL methods under challenging illumination conditions, some methods train models on a visible benchmark and test them on an independent infrared benchmark. This protocol essentially constitutes transfer between datasets, which makes it difficult to systematically evaluate DVGL across daytime and nighttime conditions within a unified benchmark. To address this limitation, we construct IRCHN,a real-world DVGL benchmark designed for localization across different illumination conditions. IRCHN contains 26,460 images collected from 8,820 geographic locations across four representative scene categories, including farmland, coastline, forest, and urban areas. Each location provides one visible drone image, one infrared drone image, and one corresponding satellite image, which enables unified evaluation of DVGL methods across different illumination conditions and sensing modalities. We further propose the Modality-Adaptive State-Space Transport Relation Network (MASTR-Net), a DVGL framework tailored to localization under varying illumination conditions. MASTR-Net integrates modality-adaptive feature enhancement, bidirectional selective state-space relation modeling, and soft optimal transport relation alignment to jointly reduce modality gaps and view-induced structural discrepancies. Extensive experiments demonstrate that MASTR-Net outperforms existing state-of-the-art methods on IRCHN for localization under varying illumination conditions and achieves competitive performance on two infrared benchmarks, IR-VL328 and CVGL-RGBT. Code: https://github.com/SongtianhaoXu/MASTR-Net",
+            "link": "https://arxiv.org/abs/2607.25778v1",
+            "pdfLink": "https://arxiv.org/pdf/2607.25778v1",
+            "published": "2026-07-28T14:34:57Z",
+            "updated": "2026-07-28T14:34:57Z",
+            "authors": [
+              "Songtianhao Xu",
+              "Zhongwei Chen",
+              "Zhao-Xu Yang",
+              "Weifeng Wang"
+            ],
+            "categories": [
+              "cs.CV"
+            ],
+            "score": 46,
+            "importanceLevel": "B",
+            "lane": "Peripheral",
+            "dimensionScores": {
+              "relevance": 3,
+              "novelty": 26,
+              "impact": 17,
+              "practicality": 3,
+              "coreAlignment": 3
+            },
+            "oneSentenceSummary": "该论文是偏相关方向的重点候选，值得优先阅读。",
+            "summaryCn": "论文核心内容是：Most existing drone-view geo-localization (DVGL) benchmarks contain drone imagery captured under a single illumination condition an…",
+            "whyImportant": "命中新基准、通用框架、真实实验主题，分类覆盖cs.CV，并体现较强的新颖性与影响潜力。",
+            "reasonTags": [
+              "新基准",
+              "通用框架",
+              "真实实验"
+            ],
+            "innovationPoints": [
+              "包含新基准或新数据评测",
+              "提供真实场景实验验证"
+            ],
+            "noveltyVerdict": "创新信号强，像是带新范式或新基准的工作。",
+            "duplicateRisk": "low",
+            "dedupeNote": "该论文在Peripheral方向上具备独立问题设置或代表性贡献，可作为当日候选保留。",
+            "retrievalGroups": [
+              "category"
+            ],
+            "mergedCount": 1,
+            "mergedTitles": [
+              "A Unified Benchmark and Modality-Adaptive Network for Day-and-Night Drone-View Geo-Localization"
+            ]
+          },
+          {
+            "id": "2607.25497v1",
+            "title": "Beyond Counts: A Distributional Robustness Margin For Pathology Foundation Models",
+            "summary": "Pathology foundation models are approaching clinical deployment, yet remain vulnerable to systematic non-biological variation across centres. Differences in tissue preparation, staining and scanning are strongly encoded in their representations, enabling shortcut learning and weakening generalisation across cohorts and institutions.",
+            "summaryRaw": "Pathology foundation models are approaching clinical deployment, yet remain vulnerable to systematic non-biological variation across centres. Differences in tissue preparation, staining and scanning are strongly encoded in their representations, enabling shortcut learning and weakening generalisation across cohorts and institutions. The Robustness Index (RI) quantifies whether local representation geometry is dominated by biology or by non-biological variation, but its count-based formulation discards distance information. We show that adding distance weights changes little because the deeper limitation lies in RI's pooled, fixed-neighbourhood design, which obscures sample-level heterogeneity and effectively evaluates only a model-dependent subset of samples. We introduce the Cross-confounder Robustness Margin (CRoMa), a sample-resolved measure that directly compares distances to cross-confounder biological matches and same-confounder biological distractors. CRoMa recasts robustness as a cohort-wide margin distribution rather than a single pooled score. We evaluated frozen representations from 20 tile-level encoders across three benchmarks and 4 slide-level encoders on a fourth. Rankings by median CRoMa were broadly consistent across datasets, while the underlying distributions revealed substantial within-model heterogeneity. Every tile encoder retained a confounder-dominated lower tail, whose prevalence and severity varied markedly across models. These distinct robustness profiles frame model selection as a Pareto trade-off between typical and lower-tail robustness. Higher CRoMa was also associated with smaller shortcut-induced performance drops after supervised adaptation. By turning representation geometry into a distributional robustness readout that anticipates downstream shortcut susceptibility, CRoMa provides a principled basis for robustness assessment and model selection.",
+            "link": "https://arxiv.org/abs/2607.25497v1",
+            "pdfLink": "https://arxiv.org/pdf/2607.25497v1",
+            "published": "2026-07-28T09:34:30Z",
+            "updated": "2026-07-28T09:34:30Z",
+            "authors": [
+              "Clément Grisi",
+              "Jeroen van der Laak",
+              "Geert Litjens"
+            ],
+            "categories": [
+              "cs.CV",
+              "cs.AI"
+            ],
+            "score": 43,
+            "importanceLevel": "B",
+            "lane": "Peripheral",
+            "dimensionScores": {
+              "relevance": 6,
+              "novelty": 22,
+              "impact": 9,
+              "practicality": 12,
+              "coreAlignment": 6
+            },
+            "oneSentenceSummary": "该论文是偏相关方向的重点候选，值得优先阅读。",
+            "summaryCn": "论文核心内容是：Pathology foundation models are approaching clinical deployment, yet remain vulnerable to systematic non-biological variation acros…",
+            "whyImportant": "命中新基准、通用框架主题，分类覆盖cs.CV / cs.AI，并体现较强的新颖性与影响潜力。",
+            "reasonTags": [
+              "新基准",
+              "通用框架"
+            ],
+            "innovationPoints": [
+              "包含新基准或新数据评测"
+            ],
+            "noveltyVerdict": "创新信号强，像是带新范式或新基准的工作。",
+            "duplicateRisk": "low",
+            "dedupeNote": "该论文在Peripheral方向上具备独立问题设置或代表性贡献，可作为当日候选保留。",
+            "retrievalGroups": [
+              "category"
+            ],
+            "mergedCount": 1,
+            "mergedTitles": [
+              "Beyond Counts: A Distributional Robustness Margin For Pathology Foundation Models"
+            ]
+          },
+          {
+            "id": "2607.25926v1",
+            "title": "Face De-Identification: A Domain-Centric Survey from Capture to Processing",
+            "summary": "Face de-identification (De-ID) aims to remove or conceal personally identifiable facial features in images or videos to prevent identity recognition while preserving utility for downstream tasks. With the rising emphasis on data privacy and responsible AI, face De-ID has emerged as an active research area spanning computer vision and pri…",
+            "summaryRaw": "Face de-identification (De-ID) aims to remove or conceal personally identifiable facial features in images or videos to prevent identity recognition while preserving utility for downstream tasks. With the rising emphasis on data privacy and responsible AI, face De-ID has emerged as an active research area spanning computer vision and privacy-preserving communities. Early approaches, and many contemporary ones, operate in the digital domain by modifying pixel-level or appearance-level features through post-capture processing. Recent advances extend face De-ID beyond post-processing by integrating privacy mechanisms directly into sensors during image acquisition, bridging sensing systems and downstream vision algorithms. In parallel, physical-domain methods explore wearable accessories and materials that conceal identity information in real-world environments prior to capture. In this survey, we present the first unified overview that spans the full data acquisition pipeline, encompassing the physical, sensor, and digital domains. Through this domain-centric lens, we systematically analyze current methodologies, technical progress, and the distinct challenges inherent to each stage. We then review and organize existing evaluation protocols, examining current practices and highlighting the critical need for standardized, comprehensive benchmarks. Finally, we identify key open problems and outline emerging research directions to guide future work in this rapidly evolving field. To support ongoing research, we maintain a project page that organizes relevant literature with collected datasets and open source code: https://github.com/CV-AC/Awesome-FaceDe-ID.",
+            "link": "https://arxiv.org/abs/2607.25926v1",
+            "pdfLink": "https://arxiv.org/pdf/2607.25926v1",
+            "published": "2026-07-28T16:15:12Z",
+            "updated": "2026-07-28T16:15:12Z",
+            "authors": [
+              "Hui Wei",
+              "Hao Yu",
+              "Guoying Zhao"
+            ],
+            "categories": [
+              "cs.CV",
+              "cs.AI"
+            ],
+            "score": 40,
+            "importanceLevel": "B",
+            "lane": "Peripheral",
+            "dimensionScores": {
+              "relevance": 6,
+              "novelty": 22,
+              "impact": 15,
+              "practicality": 3,
+              "coreAlignment": 6
+            },
+            "oneSentenceSummary": "该论文是偏相关方向的重点候选，值得优先阅读。",
+            "summaryCn": "论文核心内容是：Face de-identification (De-ID) aims to remove or conceal personally identifiable facial features in images or videos to prevent ide…",
+            "whyImportant": "命中新基准、通用框架、真实实验主题，分类覆盖cs.CV / cs.AI，并体现较强的新颖性与影响潜力。",
+            "reasonTags": [
+              "新基准",
+              "通用框架",
+              "真实实验"
+            ],
+            "innovationPoints": [
+              "包含新基准或新数据评测",
+              "提供真实场景实验验证"
+            ],
+            "noveltyVerdict": "创新信号强，像是带新范式或新基准的工作。",
+            "duplicateRisk": "low",
+            "dedupeNote": "该论文在Peripheral方向上具备独立问题设置或代表性贡献，可作为当日候选保留。",
+            "retrievalGroups": [
+              "category"
+            ],
+            "mergedCount": 1,
+            "mergedTitles": [
+              "Face De-Identification: A Domain-Centric Survey from Capture to Processing"
+            ]
+          },
+          {
+            "id": "2607.25294v1",
+            "title": "CLBench-V: Evaluating Multimodal Context Learning from Grounding to Knowledge Acquisition",
+            "summary": "Real-world tasks often require models to learn from task-specific context rather than relying only on pre-trained knowledge. While recent work has highlighted this capability as context learning, existing evaluations mainly focus on textual contexts.",
+            "summaryRaw": "Real-world tasks often require models to learn from task-specific context rather than relying only on pre-trained knowledge. While recent work has highlighted this capability as context learning, existing evaluations mainly focus on textual contexts. In many practical settings, however, the context to be learned from is multimodal: scientific findings are conveyed through figures and tables, financial indicators are scattered across converted reports, and spatial decisions depend on maps, scenes, or web pages. We introduce CLBench-V, a benchmark for multimodal context learning that addresses the difficulty of localizing where context use breaks down by organizing tasks around three dimensions: context grounding, new information application, and new knowledge learning. CLBench-V combines converted public benchmarks with newly constructed datasets spanning domains such as science, finance, long-document understanding, spatial reasoning, and web-based visual question answering. To reduce the cost of constructing domain-specific context-learning tasks, we further use automated construction and filtering procedures for our newly built datasets. Across 3,443 instances and six recent multimodal models, the best overall score is only 0.2847, indicating that multimodal context learning remains far from saturated. Moreover, InternVL3.5-30B-A3B performs best on context grounding and new knowledge learning, while Qwen3.5-Plus performs best on new information application. We further analyze judge reliability, context length, image count, and representative failure cases. Code is available at https://github.com/IamLihua/CLBench-V.",
+            "link": "https://arxiv.org/abs/2607.25294v1",
+            "pdfLink": "https://arxiv.org/pdf/2607.25294v1",
+            "published": "2026-07-28T05:06:43Z",
+            "updated": "2026-07-28T05:06:43Z",
+            "authors": [
+              "Lai Wei",
+              "Chengqi Li",
+              "Jiapeng Li",
+              "Ruina Hu",
+              "Yue Wang",
+              "Weiran Huang"
+            ],
+            "categories": [
+              "cs.CV",
+              "cs.AI",
+              "cs.LG"
+            ],
+            "score": 37,
+            "importanceLevel": "B",
+            "lane": "Peripheral",
+            "dimensionScores": {
+              "relevance": 8,
+              "novelty": 17,
+              "impact": 17,
+              "practicality": 3,
+              "coreAlignment": 8
+            },
+            "oneSentenceSummary": "该论文是偏相关方向的重点候选，值得优先阅读。",
+            "summaryCn": "论文核心内容是：Real-world tasks often require models to learn from task-specific context rather than relying only on pre-trained knowledge.",
+            "whyImportant": "命中新基准、真实实验主题，分类覆盖cs.CV / cs.AI，并体现较强的新颖性与影响潜力。",
+            "reasonTags": [
+              "新基准",
+              "真实实验"
+            ],
+            "innovationPoints": [
+              "包含新基准或新数据评测",
+              "提供真实场景实验验证"
+            ],
+            "noveltyVerdict": "创新点清晰，属于值得重点跟进的增量改进。",
+            "duplicateRisk": "low",
+            "dedupeNote": "该论文在Peripheral方向上具备独立问题设置或代表性贡献，可作为当日候选保留。",
+            "retrievalGroups": [
+              "category"
+            ],
+            "mergedCount": 1,
+            "mergedTitles": [
+              "CLBench-V: Evaluating Multimodal Context Learning from Grounding to Knowledge Acquisition"
+            ]
+          },
+          {
+            "id": "2607.25210v1",
+            "title": "ObliCity: A Benchmark and Baseline for Roof-to-Ground Projection Displacement Correction",
+            "summary": "Oblique-view urban remote sensing imagery inevitably exhibits geometric projection displacements between building roofs and footprints, leading to significant distortions in spatial structure. Existing approaches either ignore these deformations or handle them implicitly within segmentation-based frameworks, where progress is dominated b…",
+            "summaryRaw": "Oblique-view urban remote sensing imagery inevitably exhibits geometric projection displacements between building roofs and footprints, leading to significant distortions in spatial structure. Existing approaches either ignore these deformations or handle them implicitly within segmentation-based frameworks, where progress is dominated by general segmentation advances rather than improvements in geometric correction. In this work, we explicitly define roof-to-footprint offset vector (RFOV) extraction as an independent learning task that decouples geometric alignment from semantic segmentation. To support this task, we introduce the Oblique City dataset (ObliCity), the first large-scale benchmark that integrates high-resolution UAV imagery and globally distributed satellite data, covering diverse city morphologies and camera perspectives. Methodologically, we reformulate DragOSM into DragRoof, an ODE-based framework inspired by human annotation behavior. By simulating the continuous process of dragging roofs toward their footprints, DragRoof learns deterministic, geometry-consistent offset fields and adaptively determines convergence through an end token. Extensive experiments on ObliCity demonstrate that DragRoof achieves state-of-the-art RFOV extraction performance, requiring fewer inference steps while delivering superior directional and length accuracy. Our dataset and model establish a principled foundation for studying projection displacement correction in oblique remote sensing imagery. The source code and dataset will be avaliable at https://github.com/likaiucas/DragRoof.",
+            "link": "https://arxiv.org/abs/2607.25210v1",
+            "pdfLink": "https://arxiv.org/pdf/2607.25210v1",
+            "published": "2026-07-28T02:31:47Z",
+            "updated": "2026-07-28T02:31:47Z",
+            "authors": [
+              "Kai Li",
+              "Yupeng Deng",
+              "Ligao Deng",
+              "Zhihao Xi",
+              "Chenhao Wang",
+              "Jierui Zhang",
+              "Yingrui Ji",
+              "Yu Meng"
+            ],
+            "categories": [
+              "cs.CV"
+            ],
+            "score": 41,
+            "importanceLevel": "B",
+            "lane": "Peripheral",
+            "dimensionScores": {
+              "relevance": 3,
+              "novelty": 22,
+              "impact": 16,
+              "practicality": 3,
+              "coreAlignment": 3
+            },
+            "oneSentenceSummary": "该论文是偏相关方向的重点候选，值得优先阅读。",
+            "summaryCn": "论文核心内容是：Oblique-view urban remote sensing imagery inevitably exhibits geometric projection displacements between building roofs and footpri…",
+            "whyImportant": "命中新基准、通用框架主题，分类覆盖cs.CV，并体现较强的新颖性与影响潜力。",
+            "reasonTags": [
+              "新基准",
+              "通用框架"
+            ],
+            "innovationPoints": [
+              "包含新基准或新数据评测"
+            ],
+            "noveltyVerdict": "创新信号强，像是带新范式或新基准的工作。",
+            "duplicateRisk": "low",
+            "dedupeNote": "该论文在Peripheral方向上具备独立问题设置或代表性贡献，可作为当日候选保留。",
+            "retrievalGroups": [
+              "category"
+            ],
+            "mergedCount": 1,
+            "mergedTitles": [
+              "ObliCity: A Benchmark and Baseline for Roof-to-Ground Projection Displacement Correction"
+            ]
+          },
+          {
+            "id": "2607.25393v1",
+            "title": "Towards Reliable Stain Transfer: An Iterative Data-Model Co-Optimization Framework Based on Multimodal Expert-Guided Assessment",
+            "summary": "Histopathological examination primarily relies on hematoxylin and eosin (H&E) and immunohistochemistry (IHC) staining. Although IHC provides critical molecular information, it is costly and requires specialized expertise.",
+            "summaryRaw": "Histopathological examination primarily relies on hematoxylin and eosin (H&E) and immunohistochemistry (IHC) staining. Although IHC provides critical molecular information, it is costly and requires specialized expertise. Stain transfer provides an efficient alternative by computationally generating IHC from H&E images, but remains challenged by unified and interpretable modeling for heterogeneous biomarkers under pixel-unaligned supervision. We propose DMCoStain, a novel Data-Model Co-optimization framework for Stain transfer. It iteratively co-refines training data and model capability, improving staining accuracy and interpretability in both pathological and structural consistency. To refine training data in a clinically meaningful manner, it incorporates the Multimodal Expert-Guided Finer Selection (MEGFS) strategy, built upon a pioneering IHC-positive-expression (IPE) vision-language model (VLM) that emulates pathologist reasoning. To support MEGFS, we construct ImmunoInstruction, the first large-scale IPE instruction-following dataset with 150K VQA samples. Extensive experiments on multiple tissues and biomarkers demonstrate that DMCoStain achieves state-of-the-art (SOTA) accuracy. This paradigm offers strong practical value, and MEGFS also functions as a specialized evaluation tool for future model development. Dataset, code, and more details are in https://github.com/SikangSHU/DMCoStain.",
+            "link": "https://arxiv.org/abs/2607.25393v1",
+            "pdfLink": "https://arxiv.org/pdf/2607.25393v1",
+            "published": "2026-07-28T07:54:43Z",
+            "updated": "2026-07-28T07:54:43Z",
+            "authors": [
+              "Siyuan Xu",
+              "Yan Wang",
+              "Haofei Song",
+              "Lili Gao",
+              "Jiansheng Wang",
+              "Qing Zhang",
+              "Dan Huang",
+              "Boxiang Yun"
+            ],
+            "categories": [
+              "cs.CV"
+            ],
+            "score": 40,
+            "importanceLevel": "B",
+            "lane": "Peripheral",
+            "dimensionScores": {
+              "relevance": 3,
+              "novelty": 17,
+              "impact": 16,
+              "practicality": 7,
+              "coreAlignment": 3
+            },
+            "oneSentenceSummary": "该论文是偏相关方向的重点候选，值得优先阅读。",
+            "summaryCn": "论文核心内容是：Histopathological examination primarily relies on hematoxylin and eosin (H&E) and immunohistochemistry (IHC) staining.",
+            "whyImportant": "命中新基准、通用框架主题，分类覆盖cs.CV，并体现较强的新颖性与影响潜力。",
+            "reasonTags": [
+              "新基准",
+              "通用框架"
+            ],
+            "innovationPoints": [
+              "包含新基准或新数据评测"
+            ],
+            "noveltyVerdict": "创新点清晰，属于值得重点跟进的增量改进。",
+            "duplicateRisk": "low",
+            "dedupeNote": "该论文在Peripheral方向上具备独立问题设置或代表性贡献，可作为当日候选保留。",
+            "retrievalGroups": [
+              "category"
+            ],
+            "mergedCount": 1,
+            "mergedTitles": [
+              "Towards Reliable Stain Transfer: An Iterative Data-Model Co-Optimization Framework Based on Multimodal Expert-Guided Assessment"
+            ]
+          },
+          {
+            "id": "2607.25392v1",
+            "title": "RDVSv2: A Large-scale Benchmark for RGB-D Video Salient Object Detection",
+            "summary": "We introduce RDVSv2, a large-scale benchmark for RGB-D video salient object detection (RGB-D VSOD) with dense frame-level annotations. Existing datasets in this emerging field are often limited in scale and annotation quality, while also relying on less geometry-consistent depth cues.",
+            "summaryRaw": "We introduce RDVSv2, a large-scale benchmark for RGB-D video salient object detection (RGB-D VSOD) with dense frame-level annotations. Existing datasets in this emerging field are often limited in scale and annotation quality, while also relying on less geometry-consistent depth cues. To address these limitations, RDVSv2 is built from publicly accessible stereoscopic online videos and contains 249 video sequences with 29,077 annotated frames. It includes depth maps derived from stereoscopic videos, together with frame-wise salient object masks annotated with eye-tracking guidance. Compared with existing datasets, RDVSv2 is much larger in scale and covers more diverse and challenging scenarios. In addition, we establish a strong baseline for RGB-D VSOD based on Segment Anything Model 2 (SAM2). Specifically, we employ a parameter-efficient fine-tuning (PEFT) strategy to adapt the SAM2 encoder to jointly encode RGB, depth, and optical flow cues. Extensive experiments show that RDVSv2 is substantially more challenging for existing RGB-D VSOD methods. Meanwhile, the proposed baseline achieves state-of-the-art results on RDVSv2 and existing RGB-D VSOD benchmarks. We hope that RDVSv2 and the provided baseline will serve as useful resources for future research on RGB-D VSOD and related multi-modal video understanding tasks. Our dataset and code will be available at https://github.com/ltynick/RDVSv2.",
+            "link": "https://arxiv.org/abs/2607.25392v1",
+            "pdfLink": "https://arxiv.org/pdf/2607.25392v1",
+            "published": "2026-07-28T07:54:03Z",
+            "updated": "2026-07-28T07:54:03Z",
+            "authors": [
+              "Tianyu Li",
+              "Jiahao He",
+              "Keren Fu",
+              "Qijun Zhao"
+            ],
+            "categories": [
+              "cs.CV"
+            ],
+            "score": 40,
+            "importanceLevel": "B",
+            "lane": "Peripheral",
+            "dimensionScores": {
+              "relevance": 3,
+              "novelty": 17,
+              "impact": 16,
+              "practicality": 7,
+              "coreAlignment": 3
+            },
+            "oneSentenceSummary": "该论文是偏相关方向的重点候选，值得优先阅读。",
+            "summaryCn": "论文核心内容是：We introduce RDVSv2, a large-scale benchmark for RGB-D video salient object detection (RGB-D VSOD) with dense frame-level annotatio…",
+            "whyImportant": "命中新基准主题，分类覆盖cs.CV，并体现较强的新颖性与影响潜力。",
+            "reasonTags": [
+              "新基准"
+            ],
+            "innovationPoints": [
+              "包含新基准或新数据评测"
+            ],
+            "noveltyVerdict": "创新点清晰，属于值得重点跟进的增量改进。",
+            "duplicateRisk": "low",
+            "dedupeNote": "该论文在Peripheral方向上具备独立问题设置或代表性贡献，可作为当日候选保留。",
+            "retrievalGroups": [
+              "category"
+            ],
+            "mergedCount": 1,
+            "mergedTitles": [
+              "RDVSv2: A Large-scale Benchmark for RGB-D Video Salient Object Detection"
+            ]
+          },
+          {
+            "id": "2607.25830v1",
+            "title": "Beyond Static Costs: Learning-Dynamics Aware Loss Functions for Long-Tailed Classification",
+            "summary": "Deep learning models in computer vision face significant challenges when trained on long-tailed datasets, where a few majority classes dominate while many minority classes are severely underrepresented. Such imbalances frequently arise in real-world scenarios such as rare species recognition, manufacturing fault detection, and medical im…",
+            "summaryRaw": "Deep learning models in computer vision face significant challenges when trained on long-tailed datasets, where a few majority classes dominate while many minority classes are severely underrepresented. Such imbalances frequently arise in real-world scenarios such as rare species recognition, manufacturing fault detection, and medical image understanding, leading to biased models that underperform on tail classes. Existing reweighting methods typically rely on static class frequencies to penalize the model, ignoring the dynamic nature of how effectively a network actually learns a class over time. We address this by introducing a novel Learning-Dynamics Aware Loss (LDAL) function that shifts the focus from static sample counts to dynamic learning progress. LDAL framework adjusts class weights continuously by leveraging: (i) the strength of learned feature representations (semantic scale), (ii) the intrinsic learning difficulty of each class, measured via the Shannon entropy of its predictions, and (iii) an inter-epoch regularizer term that tracks prediction shifts between consecutive epochs to stabilize training and avoid local minima. LDAL is purely a objective function which incurs negligible computational overhead while adapting to the feature learning of the model. Experimental results on multiple benchmark datasets demonstrate that our approach significantly surpasses state-of-the-art reweighting loss functions, providing an optimal trade-off between accuracy and generalizability. The source code is available at https://github.com/sdm2026/ldal",
+            "link": "https://arxiv.org/abs/2607.25830v1",
+            "pdfLink": "https://arxiv.org/pdf/2607.25830v1",
+            "published": "2026-07-28T15:10:33Z",
+            "updated": "2026-07-28T15:10:33Z",
+            "authors": [
+              "Varad Shinde",
+              "Nikhil Kumar Shrey",
+              "Magesh Rajasekaran",
+              "Md Saiful Islam Sajol",
+              "Harshil Bhargava",
+              "Subhajit Sidanta",
+              "Supratik Mukhopadhyay",
+              "Yimin Zhu"
+            ],
+            "categories": [
+              "cs.CV"
+            ],
+            "score": 37,
+            "importanceLevel": "B",
+            "lane": "Peripheral",
+            "dimensionScores": {
+              "relevance": 3,
+              "novelty": 17,
+              "impact": 17,
+              "practicality": 3,
+              "coreAlignment": 3
+            },
+            "oneSentenceSummary": "该论文是偏相关方向的重点候选，值得优先阅读。",
+            "summaryCn": "论文核心内容是：Deep learning models in computer vision face significant challenges when trained on long-tailed datasets, where a few majority clas…",
+            "whyImportant": "命中新基准、真实实验主题，分类覆盖cs.CV，并体现较强的新颖性与影响潜力。",
+            "reasonTags": [
+              "新基准",
+              "真实实验"
+            ],
+            "innovationPoints": [
+              "包含新基准或新数据评测",
+              "提供真实场景实验验证"
+            ],
+            "noveltyVerdict": "创新点清晰，属于值得重点跟进的增量改进。",
+            "duplicateRisk": "low",
+            "dedupeNote": "该论文在Peripheral方向上具备独立问题设置或代表性贡献，可作为当日候选保留。",
+            "retrievalGroups": [
+              "category"
+            ],
+            "mergedCount": 1,
+            "mergedTitles": [
+              "Beyond Static Costs: Learning-Dynamics Aware Loss Functions for Long-Tailed Classification"
+            ]
+          },
+          {
+            "id": "2607.25275v1",
+            "title": "ScaleResfusion: Residual Rectified Flow based on Residual Vector Field",
+            "summary": "Real-world Image Restoration (Real-IR) aims to recover high-quality (HQ) images from complex and unknown degradations. Although recent diffusion-based methods have substantially improved perceptual quality, their current designs leave two key challenges unresolved.",
+            "summaryRaw": "Real-world Image Restoration (Real-IR) aims to recover high-quality (HQ) images from complex and unknown degradations. Although recent diffusion-based methods have substantially improved perceptual quality, their current designs leave two key challenges unresolved. Methods that start from Gaussian noise are slow and often less faithful to the degraded input. Residual-based methods usually train from scratch, which makes it hard to exploit modern pre-trained generative priors. In this paper, we present ScaleResfusion, a scalable diffusion framework for real-world image restoration built on pre-trained text-to-image rectified-flow models. The core of our method is Residual Rectified Flow, which introduces the residual term R into Standard Rectified Flow. Instead of starting from pure noise, it uses a residual transport path that starts from noisy low-quality (LQ) images and admits an exact acceleration point. By learning the residual vector field, Residual Rectified Flow keeps the output distribution and linear diffusion process consistent with the pre-trained rectified-flow models. This makes parameter-efficient fine-tuning possible at scale. We further introduce a knowledge-distillation pipeline to reduce sampling cost while maintaining restoration quality. Extensive experiments on multiple real-world restoration tasks show that ScaleResfusion achieves state-of-the-art performance with much higher efficiency. These results suggest a practical and scalable way to adapt large pre-trained diffusion models to real-world image restoration. Our code and models are available at https://github.com/YukinoshitaLove/ScaleResfusion.",
+            "link": "https://arxiv.org/abs/2607.25275v1",
+            "pdfLink": "https://arxiv.org/pdf/2607.25275v1",
+            "published": "2026-07-28T04:26:05Z",
+            "updated": "2026-07-28T04:26:05Z",
+            "authors": [
+              "Zhenning Shi",
+              "Chen Xu",
+              "Junhao Zhang",
+              "Kefei Zhang",
+              "Linjie Liu",
+              "Zhedong Zheng",
+              "Tao Li"
+            ],
+            "categories": [
+              "cs.CV",
+              "cs.AI"
+            ],
+            "score": 34,
+            "importanceLevel": "B",
+            "lane": "Peripheral",
+            "dimensionScores": {
+              "relevance": 6,
+              "novelty": 7,
+              "impact": 20,
+              "practicality": 7,
+              "coreAlignment": 6
+            },
+            "oneSentenceSummary": "该论文是偏相关方向的重点候选，值得优先阅读。",
+            "summaryCn": "论文核心内容是：Real-world Image Restoration (Real-IR) aims to recover high-quality (HQ) images from complex and unknown degradations.",
+            "whyImportant": "命中真实实验主题，分类覆盖cs.CV / cs.AI，并体现较强的新颖性与影响潜力。",
+            "reasonTags": [
+              "真实实验"
+            ],
+            "innovationPoints": [
+              "提供真实场景实验验证"
+            ],
+            "noveltyVerdict": "更偏实用推进型工作，适合结合上下文继续判断。",
+            "duplicateRisk": "low",
+            "dedupeNote": "该论文在Peripheral方向上具备独立问题设置或代表性贡献，可作为当日候选保留。",
+            "retrievalGroups": [
+              "category"
+            ],
+            "mergedCount": 1,
+            "mergedTitles": [
+              "ScaleResfusion: Residual Rectified Flow based on Residual Vector Field"
+            ]
+          }
+        ],
+        "vla": [
+          {
+            "id": "2607.25895v1",
+            "title": "HiFi-UMI: Learning Deployable Manipulation Policies from High-Fidelity UMI Data Alone",
+            "summary": "Learning deployable manipulation policies is bottlenecked by the scarcity of data that is both high-fidelity and scalable. Real-robot teleoperation is accurate but costly to scale; robot-free UMI capture scales readily, and current practice uses the resulting data mainly for pre-training, adding a small real-robot \"anchor\" at post-traini…",
+            "summaryRaw": "Learning deployable manipulation policies is bottlenecked by the scarcity of data that is both high-fidelity and scalable. Real-robot teleoperation is accurate but costly to scale; robot-free UMI capture scales readily, and current practice uses the resulting data mainly for pre-training, adding a small real-robot \"anchor\" at post-training. We ask whether raising the fidelity of robot-free UMI data, rather than shrinking the real-robot fraction, can remove that anchor. We present HiFi-UMI, a portable UMI data-production system co-designed for trajectory accuracy, inter-gripper relative pose, synchronization, and field of view: head-mounted offline stereo-inertial SLAM, native rather than reconstructed relative pose, a shared microsecond GPIO trigger, and two wide-angle cameras per hand covering ~200 degrees. It reaches 3 mm workspace-local end-effector accuracy without external tracking infrastructure. Using this corpus, we demonstrate zero-robot post-training: a policy post-trained solely on HiFi-UMI demonstrations deploys directly on a real robot and matches in-domain teleoperation across three backbones spanning the vision-language-action and world-action-model families, with success-rate differences of -2.5, +3.1, and -0.6 percentage points on StarVLA-QwenPI, OpenPI-pi_0.5, and LingBot-VA; the strongest policy reaches 85% on a precision insertion task, even though the teleoperation baseline is collected in the evaluation scene and no HiFi-UMI trajectory is. Pre-training on 4,000 hours from the same corpus lowers action error on ten unseen tasks by 41% and, on StarVLA-QwenPI, raises real-robot success by a further 18.1 percentage points. We open-source HiFi-UMI-2K, 2,000 hours of microsecond-synchronized, ultra-wide-FoV demonstrations, each automatically reconstructed and validated through simulation replay, as a large-scale, high-fidelity resource for the robot-learning community.",
+            "link": "https://arxiv.org/abs/2607.25895v1",
+            "pdfLink": "https://arxiv.org/pdf/2607.25895v1",
+            "published": "2026-07-28T15:52:02Z",
+            "updated": "2026-07-28T15:52:02Z",
+            "authors": [
+              "Simple AI",
+              ":",
+              "Yuteng Wei",
+              "Jinming Ma",
+              "Jiawei Wang",
+              "Weitao Zhou",
+              "Yushen Zuo",
+              "Ke Rui"
+            ],
+            "categories": [
+              "cs.RO",
+              "cs.CV",
+              "cs.LG"
+            ],
+            "score": 88,
+            "importanceLevel": "S",
+            "lane": "VLA",
+            "dimensionScores": {
+              "relevance": 85,
+              "novelty": 75,
+              "impact": 80,
+              "practicality": 90,
+              "coreAlignment": 90
+            },
+            "oneSentenceSummary": "提出高保真UMI数据采集系统，实现无需真实机器人微调的部署级操作策略学习。",
+            "summaryCn": "HiFi-UMI 是便携式通用操作接口系统，通过头戴式双目视觉与同步触发，提供毫米级末端精度。基于此采集的高保真数据，无需真实机器人锚点即可训练出可直接部署的机器人操作策略，显著降低遥操作成本并提升数据可扩展性。",
+            "whyImportant": "大幅降低机器人数据采集成本与门槛，使仿真数据可直接训练可部署策略。",
+            "reasonTags": [
+              "机器人数据采集",
+              "操作策略学习",
+              "高保真仿真",
+              "通用操作接口"
+            ],
+            "innovationPoints": [
+              "提出高精度便携式UMI系统，实现毫米级末端执行器追踪。",
+              "证明纯仿真数据不需真实锚点即可训练可部署机器人策略。",
+              "双广角相机与同步触发显著提升数据一致性与覆盖范围。"
+            ],
+            "noveltyVerdict": "率先构建无需外部跟踪的高精度便携式数据采集系统，显著提升实用性与场景适应性。",
+            "duplicateRisk": "low",
+            "dedupeNote": "首次提出完全依赖高保真UMI数据训练可部署策略，无需真实机器人数据锚点。",
+            "retrievalGroups": [
+              "category"
+            ],
+            "mergedCount": 1,
+            "mergedTitles": [
+              "HiFi-UMI: Learning Deployable Manipulation Policies from High-Fidelity UMI Data Alone"
+            ]
+          },
+          {
+            "id": "2607.25487v1",
+            "title": "CoTinyVLA: Chain-of-Thought Distillation for a Sub-Billion-Parameter Vision-Language-Action Model",
+            "summary": "Vision-Language-Action (VLA) models translate natural-language commands into robot action sequences, but leading systems on the LIBERO-Plus robustness benchmark use three- to seven-billion-parameter backbones whose memory demands can exceed embedded robotic budgets. We present CoTinyVLA, a 0.9B-parameter action model on a Qwen3.5-0.8B ba…",
+            "summaryRaw": "Vision-Language-Action (VLA) models translate natural-language commands into robot action sequences, but leading systems on the LIBERO-Plus robustness benchmark use three- to seven-billion-parameter backbones whose memory demands can exceed embedded robotic budgets. We present CoTinyVLA, a 0.9B-parameter action model on a Qwen3.5-0.8B backbone that obtains that robustness by structuring supervision instead of enlarging the model. Three components target different axes of the problem: dual-view temporal input of 16 history frames per step with textual camera and time markers; hierarchical chain-of-thought (CoT) distillation from a 35B teacher into an episode-level Plan and a chunk-level Think span over task phase, gripper state and next subaction; and paraphrase augmentation expanding 40 base commands into 800 variants. On LIBERO-Plus, spanning 10,030 perturbed tasks across seven perturbation dimensions, CoTinyVLA reaches 90.8% on Spatial, 87.3% on Object, 86.6% on Goal and 80.7% on Long, leading the strongest 7B baseline on all four suites by 4.7, 2.8, 15.9 and 3.0 points, with every margin interval excluding zero. The gains concentrate on the hardest axes of the benchmark: across the eleven published baselines none exceeds 53.2% on Robot Initial States in any suite, whereas CoTinyVLA reaches 73.6% on Goal against 39.9% for the strongest baseline. Ablations show the three components to be separable by perturbation axis, and at a matched image budget how frames are divided between the two cameras and across time accounts for 8.6 points on its own. Closed-loop inference peaks at 2.25 GiB of allocated GPU memory, and paired interventions show the episode Plan to be load-bearing: replacing it with an empty or contradictory span costs 40 to 45 points of success. Structured supervision thus lets a 0.9B backbone exceed all of them. Code: https://github.com/BrainJellyPie/CoTinyVLA",
+            "link": "https://arxiv.org/abs/2607.25487v1",
+            "pdfLink": "https://arxiv.org/pdf/2607.25487v1",
+            "published": "2026-07-28T09:24:17Z",
+            "updated": "2026-07-28T09:24:17Z",
+            "authors": [
+              "Minhyeok Lee",
+              "Chiyoung Kim",
+              "Chanhoe Gu",
+              "Seongrok Kim",
+              "Sanghyuk Roy Choi",
+              "Donghwan Hwang",
+              "Donghun Ryu",
+              "Seokhyun Kim"
+            ],
+            "categories": [
+              "cs.AI",
+              "cs.CV"
+            ],
+            "score": 85,
+            "importanceLevel": "A",
+            "lane": "VLA",
+            "dimensionScores": {
+              "relevance": 90,
+              "novelty": 80,
+              "impact": 70,
+              "practicality": 85,
+              "coreAlignment": 95
+            },
+            "oneSentenceSummary": "通过思维链蒸馏，将9亿参数VLA模型的鲁棒性提升至与大型模型相当。",
+            "summaryCn": "CoTinyVLA 在0.9B参数骨干上通过双视角时序输入、分层思维链蒸馏及指令增强，实现LIBERO-Plus鲁棒基准上与数十亿参数模型相媲美的性能，显著降低嵌入式机器人部署的内存需求，为小型化通用操作模型提供可行路径。",
+            "whyImportant": "证明小模型通过结构监督即可达到大模型鲁棒性，推动具身智能边缘化部署。",
+            "reasonTags": [
+              "小型VLA",
+              "思维链蒸馏",
+              "鲁棒性提升",
+              "具身智能"
+            ],
+            "innovationPoints": [
+              "通过分层思维链从大模型蒸馏任务规划与动作推理。",
+              "双视角时序输入增强空间感知与动作连贯性。",
+              "指令增强扩充训练分布，提升泛化能力。"
+            ],
+            "noveltyVerdict": "开创性结合小模型与思维链监督，突破参数限制，实现鲁棒性飞跃。",
+            "duplicateRisk": "low",
+            "dedupeNote": "在极小参数下首次通过结构化监督达到大型VLA的鲁棒性，无类似压缩方案。",
+            "retrievalGroups": [
+              "category"
+            ],
+            "mergedCount": 1,
+            "mergedTitles": [
+              "CoTinyVLA: Chain-of-Thought Distillation for a Sub-Billion-Parameter Vision-Language-Action Model"
+            ]
+          }
+        ],
+        "wam": [
+          {
+            "id": "2607.26037v1",
+            "title": "Wonder: Video World Model Done Better",
+            "summary": "We present Wonder, a general-purpose video world model for real-time, camera-controllable world exploration. Given an image or a conditional video, Wonder constructs a playable world where users can navigate interactively by moving the camera, discovering unseen regions, and revisiting previously observed areas in real time and over a lo…",
+            "summaryRaw": "We present Wonder, a general-purpose video world model for real-time, camera-controllable world exploration. Given an image or a conditional video, Wonder constructs a playable world where users can navigate interactively by moving the camera, discovering unseen regions, and revisiting previously observed areas in real time and over a long-term horizon. Achieving this capability requires a system-level co-design of control method, memory mechanism, and training strategy. We introduce a novel camera conditioning with a dense coordinate field whose renderings provide spatially aligned motion and orientation cues, allowing the model to interpret camera motion directly as visual evidence. To support fast and precise memory retrieval over a growing generation context, we propose an efficient sparse attention-based memory mechanism, enabling the model to selectively attend to a small set of relevant context tokens at inference time, regardless of actual context length. We further develop several techniques to rectify the self-forcing-style distillation pipeline, improving the student model's ability to respect control signals, as well as maintaining diverse generation modes and long-term memory from the teacher. Together, these components enable Wonder to synthesize diverse, minute-scale videos at 16 FPS while preserving coherent geometry, appearance, and dynamics across long rollouts. Beyond image-to-video generation, Wonder naturally supports video-conditioned generation, allowing existing dynamic scenes to be re-shot in real time.",
+            "link": "https://arxiv.org/abs/2607.26037v1",
+            "pdfLink": "https://arxiv.org/pdf/2607.26037v1",
+            "published": "2026-07-28T17:45:25Z",
+            "updated": "2026-07-28T17:45:25Z",
+            "authors": [
+              "Jiacong Xu",
+              "Hanwen Jiang",
+              "Zhixin Shu",
+              "Kalyan Sunkavalli",
+              "Vishal M. Patel",
+              "Yiqun Mei"
+            ],
+            "categories": [
+              "cs.CV"
+            ],
+            "score": 60,
+            "importanceLevel": "B",
+            "lane": "WAM",
+            "dimensionScores": {
+              "relevance": 70,
+              "novelty": 65,
+              "impact": 50,
+              "practicality": 40,
+              "coreAlignment": 60
+            },
+            "oneSentenceSummary": "可交互的视频世界模型，支持实时相机控制以探索未见过环境。",
+            "summaryCn": "Wonder 构建通用视频世界模型，引入密集坐标场相机条件与高效稀疏注意力记忆机制，支持实时、长期、可操控的相机探索。用户可从单帧或条件视频出发，在生成的动态世界中自由移动视角，发现和回访已见区域，应用于虚拟现实与仿真。",
+            "whyImportant": "为交互式视频生成提供高效记忆与精准控制，助力虚拟世界构建与仿真。",
+            "reasonTags": [
+              "视频世界模型",
+              "交互式探索",
+              "相机控制",
+              "动态场景生成"
+            ],
+            "innovationPoints": [
+              "密集坐标场渲染提供空间对齐的运动和方向线索。",
+              "稀疏注意力记忆机制实现长时上下文的快速精准检索。",
+              "联合设计控制、记忆与训练策略，实现实时可操控世界模型。"
+            ],
+            "noveltyVerdict": "将世界模型与实时相机控制深度结合，记忆机制创新性解决长序列生成难题。",
+            "duplicateRisk": "low",
+            "dedupeNote": "首个联合优化相机控制与记忆机制的可交互视频世界模型，不同于纯视频生成。",
+            "retrievalGroups": [
+              "category"
+            ],
+            "mergedCount": 1,
+            "mergedTitles": [
+              "Wonder: Video World Model Done Better"
+            ]
+          },
+          {
+            "id": "2607.25242v1",
+            "title": "Medical world models in healthcare: foundations, applications, and challenges for trustworthy clinical translation",
+            "summary": "Medical world models offer a framework for extending medical artificial intelligence beyond static prediction by representing evolving patient states and modelling how they change over time and in response to clinical interventions. This Review defines the conceptual boundaries, technical foundations, application domains, and evidence re…",
+            "summaryRaw": "Medical world models offer a framework for extending medical artificial intelligence beyond static prediction by representing evolving patient states and modelling how they change over time and in response to clinical interventions. This Review defines the conceptual boundaries, technical foundations, application domains, and evidence requirements of the field through a structured narrative synthesis with reproducible evidence mapping.We screened 1,455 unique records and assembled a corpus of 98 sources, including 14 studies that met a strict empirical definition of a medical world model. The field is organised around four capabilities: patient state representation, temporal dynamics modelling, intervention-conditioned simulation, and clinician-supervised planning. Evidence spans medical imaging, longitudinal electronic health records, treatment response modelling, physiological and multimodal state modelling, ultrasound and surgical interaction, and population and health-system simulation; clinical digital twins are treated as a cross-cutting integration framework.Current studies provide early evidence of technical feasibility for trajectory forecasting and comparison of candidate interventions, but most remain retrospective, task-specific, or preclinical. The evidence base is further limited by incomplete longitudinal intervention data, inconsistent action semantics, limited causal identifiability, long-horizon error accumulation, inadequate uncertainty estimation, and limited external validation. Clinical translation will therefore depend on precise intervention representations, robust causal and mechanistic grounding, calibrated trajectory-level uncertainty, safety-constrained planning, and prospective multicentre validation against clinically meaningful endpoints.",
+            "link": "https://arxiv.org/abs/2607.25242v1",
+            "pdfLink": "https://arxiv.org/pdf/2607.25242v1",
+            "published": "2026-07-28T03:35:47Z",
+            "updated": "2026-07-28T03:35:47Z",
+            "authors": [
+              "Zhaoyan Chen",
+              "Zhongxiu Cong",
+              "Zhuanfeng Jin",
+              "Wanshu Fan",
+              "Dongsheng Zhou",
+              "Qi Ai",
+              "Haifan Gong",
+              "Congyu Liao"
+            ],
+            "categories": [
+              "cs.CV"
+            ],
+            "score": 39,
+            "importanceLevel": "B",
+            "lane": "Peripheral",
+            "dimensionScores": {
+              "relevance": 19,
+              "novelty": 12,
+              "impact": 3,
+              "practicality": 8,
+              "coreAlignment": 11
+            },
+            "oneSentenceSummary": "该论文是偏相关方向的重点候选，值得优先阅读。",
+            "summaryCn": "论文核心内容是：Medical world models offer a framework for extending medical artificial intelligence beyond static prediction by representing evolv…",
+            "whyImportant": "命中WAM、通用框架主题，分类覆盖cs.CV，并体现较强的新颖性与影响潜力。",
+            "reasonTags": [
+              "WAM",
+              "通用框架"
+            ],
+            "innovationPoints": [
+              "提出具有跟踪价值的方法设计"
+            ],
+            "noveltyVerdict": "创新点清晰，属于值得重点跟进的增量改进。",
+            "duplicateRisk": "low",
+            "dedupeNote": "该论文在Peripheral方向上具备独立问题设置或代表性贡献，可作为当日候选保留。",
+            "retrievalGroups": [
+              "category"
+            ],
+            "mergedCount": 1,
+            "mergedTitles": [
+              "Medical world models in healthcare: foundations, applications, and challenges for trustworthy clinical translation"
+            ]
+          }
+        ]
+      },
+      "dailyBrief": {
+        "overall": "今日聚焦具身智能与视频世界模型：HiFi-UMI革新机器人数据采集范式；CoTinyVLA以小博大实现鲁棒VLA；Wonder打造可操控视频世界。",
+        "vla": "VLA方向：HiFi-UMI提供高保真数据方案，CoTinyVLA展示小模型大能量，共同推动通用操作策略落地。",
+        "wam": "WAM方向：Wonder通过高效记忆与相机控制，赋予视频世界模型实时交互能力，为仿真与虚拟环境注入活力。",
+        "retrieval": "本次检索从海量CV论文中精准筛选3篇核心论文，覆盖VLA与WAM前沿，过滤了大量不相关医疗、遥感、视觉泛化等方向，确保领域聚焦。"
+      }
+    },
     {
       "dateKey": "20260724",
       "dateLabel": "2026-07-24",
