@@ -1,5 +1,5 @@
 window.PAPERS_SITE_DATA = {
-  "generatedAt": "2026-09-14T02:54:56.006711+00:00",
+  "generatedAt": "2026-09-15T02:57:16.288973+00:00",
   "description": "按北京时间每天 08:00 的固定批次归档，保留左侧历史日期归档，并使用 DeepSeek 生成精简中文摘要。",
   "dateWindowDays": 1,
   "categories": [
@@ -31,260 +31,1277 @@ window.PAPERS_SITE_DATA = {
     "practicality": "是否有真实场景、真实机器人/驾驶或较强落地信号",
     "coreAlignment": "是否属于你最关心的 VLA 或 WAM 主航道工作"
   },
-  "selectionMethod": "empty",
-  "modelInfo": null,
-  "batchWindow": {
-    "start": "2026-09-13T08:00:00+08:00",
-    "end": "2026-09-14T08:00:00+08:00"
+  "selectionMethod": "deepseek_research_assistant",
+  "modelInfo": {
+    "provider": "deepseek",
+    "model": "deepseek-v4-pro",
+    "candidateCount": 18
   },
-  "currentDateKey": "20260911",
+  "batchWindow": {
+    "start": "2026-09-14T08:00:00+08:00",
+    "end": "2026-09-15T08:00:00+08:00"
+  },
+  "currentDateKey": "20260915",
   "papers": [
     {
-      "id": "2609.11717v1",
-      "title": "MC-DeTra: Motion-Consistent Joint Object Detection and Socially-Aware Trajectory Forecasting in Bird's-Eye-View Images",
-      "summary": "Unified models for object detection and trajectory forecasting aim to merge perception and prediction for autonomous driving, refining actor trajectories directly over shared bird's-eye-view (BEV) images rasterized from LiDAR and high-definition maps. Their accuracy on dynamic, moving actors, however, remains the hardest part of the task…",
-      "summaryRaw": "Unified models for object detection and trajectory forecasting aim to merge perception and prediction for autonomous driving, refining actor trajectories directly over shared bird's-eye-view (BEV) images rasterized from LiDAR and high-definition maps. Their accuracy on dynamic, moving actors, however, remains the hardest part of the task, and the strongest such model, DeTra, has no public implementation. We contribute an openly released DeTra reimplementation with documented approximations, and on top of it MC-DeTra: a family of motion-consistency mechanisms that add supervision through two annotation-derived auxiliary signals -- each actor's observed past motion and the occupancy of the surrounding traffic that forms its social context -- and one inter-output consistency constraint that aligns an actor's predicted heading with its predicted direction of motion. Every proposed loss is train-only and inference-safe: it shapes the shared BEV representation during training and is removed at test time, adding no inference latency. On the Waymo Open Dataset, evaluated under a strict, detection-conditioned forecasting protocol, MC-DeTra improves dynamic, socially-situated trajectory forecasting while preserving or improving detection accuracy; a gradient-based loss-calibration analysis exposes how the auxiliary objectives compete at the shared backbone, and our ablation identifies which signals contribute most. We release code, configurations, and evaluation tooling at https://github.com/diuzhevVlad/MC-DeTra.",
-      "link": "https://arxiv.org/abs/2609.11717v1",
-      "pdfLink": "https://arxiv.org/pdf/2609.11717v1",
-      "published": "2026-09-10T15:34:09Z",
-      "updated": "2026-09-10T15:34:09Z",
+      "id": "2609.14973v1",
+      "title": "PhysBrain 1.5: From Vision-Language Models to Physical Foundation Models",
+      "summary": "We present PhysBrain 1.5, a unified model for understanding physical environments, generating actions, and predicting future states. Motivated by the physical loop of observation, interaction, and environmental change, we bring these capabilities into a common learning framework.",
+      "summaryRaw": "We present PhysBrain 1.5, a unified model for understanding physical environments, generating actions, and predicting future states. Motivated by the physical loop of observation, interaction, and environmental change, we bring these capabilities into a common learning framework. Starting from a general vision--language model, we encode language responses, end-effector motion, and dense visual targets as discrete sequences and jointly optimize them with autoregressive next-token prediction. Pre-training draws its embodied supervision entirely from human interaction videos, using task-centered episodes to pair semantic and spatial context with recovered motion and subsequent observations. We then adapt the model through supervised fine-tuning on a mixture of human demonstrations, robot trajectories, and simulated experience. Across 28 embodied understanding benchmarks, our 8B model achieves an average score of 72.5, setting a new open-source state of the art and performing on par with leading proprietary models such as GPT-6-Astra and Gemini 3.6 Flash. It achieves the best open-source results on 14 benchmarks while retaining general multimodal capabilities. Beyond these understanding evaluations, qualitative examples show the model's ability to produce end-effector trajectories and predict future scenes through spatially aligned RGB, depth, and robot-mask outputs.",
+      "link": "https://arxiv.org/abs/2609.14973v1",
+      "pdfLink": "https://arxiv.org/pdf/2609.14973v1",
+      "published": "2026-09-14T03:25:46Z",
+      "updated": "2026-09-14T03:25:46Z",
       "authors": [
-        "Vladislav Diuzhev",
-        "Dmitry Yudin"
+        "DeepCybo Team",
+        "Yu Bin",
+        "Haipeng Cao",
+        "Zheng Chang",
+        "Kai Chen",
+        "Youning Chen",
+        "Kailin Deng",
+        "Yichao Du"
       ],
       "categories": [
         "cs.CV",
         "cs.RO"
       ],
-      "score": 55,
-      "importanceLevel": "B",
-      "lane": "Robotics",
+      "score": 88,
+      "importanceLevel": "S",
+      "lane": "Both",
       "dimensionScores": {
-        "relevance": 42,
-        "novelty": 35,
-        "impact": 25,
-        "practicality": 40,
-        "coreAlignment": 25
+        "relevance": 90,
+        "novelty": 85,
+        "impact": 86,
+        "practicality": 78,
+        "coreAlignment": 92
       },
-      "oneSentenceSummary": "开源复现DeTra并加入运动一致性损失，提升BEV检测与轨迹预测精度。",
-      "summaryCn": "该工作开源复现了DeTra，并进一步提出MC-DeTra模型族。通过从标注中提取历史运动和社会占用信息作为辅助监督，并增加航向与运动方向一致性约束，MC-DeTra在共享BEV图像上联合优化目标检测与轨迹预测，重点提升动态行人的预测准确性和鲁棒性。",
-      "whyImportant": "提供可复现基线，并通过运动一致性损失解决动态目标预测难的问题，对自动驾驶感知预测融合有参考价值。",
+      "oneSentenceSummary": "统一视觉语言模型，预测环境、生成动作与未来状态",
+      "summaryCn": "PhysBrain 1.5以通用视觉语言模型为基础，将语言响应、末端执行器运动和稠密视觉目标统一离散为序列，用自回归下一token预测进行联合优化。预训练从人类交互视频中提取任务中心片段，恢复运动与后续观察；随后在人类演示、机器人轨迹和仿真经验上监督微调。在28个具身理解基准上展示环境理解、动作生成和未来状态预测能力。",
+      "whyImportant": "统一物理理解、动作生成与未来预测，为通用具身智能提供更完整的模型底座，减少碎片化。",
       "reasonTags": [
-        "自动驾驶",
-        "轨迹预测",
-        "BEV感知",
-        "开源复现"
+        "具身智能",
+        "物理基础模型",
+        "动作生成",
+        "未来预测"
       ],
       "innovationPoints": [
-        "运动一致性辅助损失",
-        "社会上下文占用监督",
-        "航向与运动方向对齐约束"
+        "构建观察-交互-环境变化物理回路统一框架",
+        "仅靠人类交互视频自回归预训练，无需大规模机器人标注",
+        "同时覆盖VLA动作生成与WAM未来状态预测"
       ],
-      "noveltyVerdict": "在现有DeTra基础上改进损失设计，创新程度中等，但开源实用性较高。",
-      "duplicateRisk": "low",
-      "dedupeNote": "与CARLAverse关注仿真框架不同，本文聚焦感知预测模型层面，不构成重复。",
+      "noveltyVerdict": "较强创新，整合VLA与世界模型能力，框架统一。",
+      "duplicateRisk": "medium",
+      "dedupeNote": "与纯VLA或纯世界模型不同，强调三者闭环统一建模，非单一策略或预测器。",
       "retrievalGroups": [
-        "driving"
+        "general"
       ],
       "mergedCount": 1,
       "mergedTitles": [
-        "MC-DeTra: Motion-Consistent Joint Object Detection and Socially-Aware Trajectory Forecasting in Bird's-Eye-View Images"
+        "PhysBrain 1.5: From Vision-Language Models to Physical Foundation Models"
       ]
     },
     {
-      "id": "2609.11478v1",
-      "title": "CARLAverse: A Highly Modular, Distributed, and Multimodal Framework for Human-in-the-Loop Simulation",
-      "summary": "The development of autonomous driving demands comprehensive testing in mixed-traffic scenarios involving vulnerable road users (VRUs), where purely artificial agents often fail to capture authentic human social negotiations. While human-in-the-loop (HITL) simulators enable safe investigation of these interactions, existing multi-agent pl…",
-      "summaryRaw": "The development of autonomous driving demands comprehensive testing in mixed-traffic scenarios involving vulnerable road users (VRUs), where purely artificial agents often fail to capture authentic human social negotiations. While human-in-the-loop (HITL) simulators enable safe investigation of these interactions, existing multi-agent platforms struggle with the network latency and synchronization constraints required for high-fidelity haptic feedback. To resolve this, we present CARLAverse, an open-source, multimodal simulation ecosystem. Extending modular hardware abstraction, CARLAverse integrates driving (DrivoCARLA), cycling (CycloCARLA), and pedestrian (WalkoCARLA) simulators into a shared virtual environment. Its core methodological contribution is a distributed physics architecture: latency-critical ego dynamics and high-frequency force feedback are computed locally on client nodes, while a central CARLA server orchestrates non-player character (NPC) physics and global traffic. By decoupling haptic control loops from network bottlenecks, CARLAverse enables scalable, cross-institutional HITL experiments without compromising physical immersion. Code and documentation: https://git.ieem-ka.de/simulator-environments/carlaverse",
-      "link": "https://arxiv.org/abs/2609.11478v1",
-      "pdfLink": "https://arxiv.org/pdf/2609.11478v1",
-      "published": "2026-09-10T12:44:18Z",
-      "updated": "2026-09-10T12:44:18Z",
+      "id": "2609.15213v1",
+      "title": "X-WBC: A Cross-Embodiment Foundation Model for Humanoid Whole-Body Control",
+      "summary": "Scaling humanoid whole-body control toward general-purpose deployment requires large human motion corpora and training experience shared across robot bodies. Existing methods usually train one policy per robot, leaving motion experience isolated across embodiments.",
+      "summaryRaw": "Scaling humanoid whole-body control toward general-purpose deployment requires large human motion corpora and training experience shared across robot bodies. Existing methods usually train one policy per robot, leaving motion experience isolated across embodiments. We introduce X-WBC, a cross-embodiment foundation framework that separates relatively shared human motion semantics from embodiment-specific physical execution. Human-centered command tokens align full human motion, robot reference motion, and sparse VR observations. A causal Transformer learns reusable temporal structure from mixed multi-robot rollouts, while lightweight robot-specific modules map the shared representation to each robot's proprioception and action space. Across nine simulated embodiments, external motions, and four real robots, experiments show that joint training improves tracking, the aligned representation supports consistent control across command sources, and the learned policy remains competitive beyond the training corpus. These results support heterogeneous humanoids as joint data sources and establish cross-embodiment joint training as a practical route toward whole-body control foundation models.",
+      "link": "https://arxiv.org/abs/2609.15213v1",
+      "pdfLink": "https://arxiv.org/pdf/2609.15213v1",
+      "published": "2026-09-14T08:34:48Z",
+      "updated": "2026-09-14T08:34:48Z",
       "authors": [
-        "Patrick Rebling",
-        "Philipp Nenninger",
-        "Reiner Kriesten"
+        "Juntong Zhang",
+        "Chun Gu",
+        "Li Zhang"
       ],
       "categories": [
         "cs.RO"
       ],
-      "score": 45,
+      "score": 70,
       "importanceLevel": "B",
       "lane": "Robotics",
       "dimensionScores": {
-        "relevance": 25,
-        "novelty": 30,
-        "impact": 20,
-        "practicality": 35,
-        "coreAlignment": 15
+        "relevance": 55,
+        "novelty": 75,
+        "impact": 65,
+        "practicality": 80,
+        "coreAlignment": 80
       },
-      "oneSentenceSummary": "面向人机在环的模块化多模态自动驾驶仿真框架，集成驾驶、骑行、行人模拟。",
-      "summaryCn": "CARLAverse是一个开源多模态仿真生态系统，将驾驶、骑行和行人模拟器集成到共享虚拟环境中。其核心贡献是分布式物理架构，将时延敏感的自身动力学和高频力反馈在本地节点计算，以解决多人交互场景下的网络同步与力反馈保真度问题，支撑混合交通中的人机在环测试。",
-      "whyImportant": "实现高保真分布式人机在环仿真，有助于自动驾驶系统在混合交通中验证社会交互行为。",
+      "oneSentenceSummary": "跨具身人形全身控制基础模型，解耦运动语义与本体执行",
+      "summaryCn": "X-WBC提出跨具身人形全身控制基础框架，分离相对共享的人类运动语义与本体物理执行。以人为中心的命令token对齐人类运动、机器人参考运动和稀疏VR观测；因果Transformer从多机器人混合数据学习可复用时间结构，轻量模块映射到各自本体感知和动作空间。在九种仿真和四台真实机器人上验证联合训练提升跟踪。",
+      "whyImportant": "跨具身联合训练突破单一机器人策略孤立，提升人形机器人运动迁移与全身控制泛化。",
       "reasonTags": [
-        "自动驾驶仿真",
-        "人机在环",
-        "分布式架构",
-        "多模态"
+        "人形控制",
+        "跨具身",
+        "全身控制",
+        "基础模型"
       ],
       "innovationPoints": [
-        "分布式物理架构分离时延敏感计算",
-        "集成驾驶骑行行人多模态模拟器",
-        "开源模块化硬件抽象"
+        "分离人类运动语义与本体物理执行",
+        "跨机器人混合数据共享时间结构学习",
+        "轻量模块实现多本体快速适配"
       ],
-      "noveltyVerdict": "在现有多模态HITL仿真基础上提出分布式架构，工程创新为主，学术新颖度中等偏低。",
+      "noveltyVerdict": "创新中等偏上，侧重架构与训练策略，非颠覆性。",
       "duplicateRisk": "low",
-      "dedupeNote": "与MC-DeTra侧重感知预测模型不同，本文关注仿真基础设施，无重叠。",
+      "dedupeNote": "区别于单机器人策略，专注跨本体共享表示与模块化解耦，降低重复训练成本。",
       "retrievalGroups": [
-        "driving"
+        "general"
       ],
       "mergedCount": 1,
       "mergedTitles": [
-        "CARLAverse: A Highly Modular, Distributed, and Multimodal Framework for Human-in-the-Loop Simulation"
+        "X-WBC: A Cross-Embodiment Foundation Model for Humanoid Whole-Body Control"
+      ]
+    },
+    {
+      "id": "2609.15973v1",
+      "title": "Discovery Foundation Models: Toward Open-Ended Discovery Intelligence",
+      "summary": "Foundation models have progressed from learning and reasoning over existing knowledge, to increasingly learning through action, tool use, and outcome feedback. We argue that the next frontier is a further transition: from solving and acting within problems specified by humans to participating in the process by which new problems, represe…",
+      "summaryRaw": "Foundation models have progressed from learning and reasoning over existing knowledge, to increasingly learning through action, tool use, and outcome feedback. We argue that the next frontier is a further transition: from solving and acting within problems specified by humans to participating in the process by which new problems, representations, explanations, and knowledge are created. We refer to this capability as Discovery Intelligence. We formulate Discovery Foundation Models (DFMs) as general-purpose model systems for open-ended discovery. A DFM operates over a revisable research state and supports seven coupled capabilities spanning problem discovery, formulation, representation construction, hypothesis formation, intervention, evidence-grounded revision, and continual discovery improvement. We instantiate this framework with Zetema, which couples explicit research-state dynamics, verification and experimental gating, external grounding, and cross-task Discovery Skill evolution. We further ground the framework with GALILEO, a real therapeutic-discovery system in which Dry-Lab reasoning, robotic and hands-on Wet-Lab experimentation, external biological evidence, and iterative hypothesis and design revision form a closed physical discovery loop. We then formulate a unified approach to capability formation and process-centered evaluation, enabling discovery behavior to be trained, improved, and measured beyond final-answer performance. Together, these components establish discovery as a learnable, executable, and evaluable capability of foundation-model systems. We view this shift as a broader progression in intelligence scaling: from learning over existing knowledge, to learning from action outcomes, and ultimately to participating in the construction, testing, and revision of the structures through which new knowledge is discovered. Code: https://github.com/Gen-Verse/DFM-Plans",
+      "link": "https://arxiv.org/abs/2609.15973v1",
+      "pdfLink": "https://arxiv.org/pdf/2609.15973v1",
+      "published": "2026-09-14T17:56:00Z",
+      "updated": "2026-09-14T17:56:00Z",
+      "authors": [
+        "Ling Yang",
+        "Zhenfei Yin",
+        "Yingcheng Wu"
+      ],
+      "categories": [],
+      "score": 46,
+      "importanceLevel": "B",
+      "lane": "Robotics",
+      "dimensionScores": {
+        "relevance": 18,
+        "novelty": 17,
+        "impact": 8,
+        "practicality": 3,
+        "coreAlignment": 8
+      },
+      "oneSentenceSummary": "该论文是偏机器人的重点候选，值得优先阅读。",
+      "summaryCn": "论文核心内容是：Foundation models have progressed from learning and reasoning over existing knowledge, to increasingly learning through action, too…",
+      "whyImportant": "命中机器人、新基准、通用框架主题，分类覆盖，并体现较强的新颖性与影响潜力。",
+      "reasonTags": [
+        "机器人",
+        "新基准",
+        "通用框架"
+      ],
+      "innovationPoints": [
+        "提出具有跟踪价值的方法设计"
+      ],
+      "noveltyVerdict": "创新点清晰，属于值得重点跟进的增量改进。",
+      "duplicateRisk": "low",
+      "dedupeNote": "该论文在Robotics方向上具备独立问题设置或代表性贡献，可作为当日候选保留。",
+      "retrievalGroups": [
+        "general"
+      ],
+      "mergedCount": 1,
+      "mergedTitles": [
+        "Discovery Foundation Models: Toward Open-Ended Discovery Intelligence"
+      ]
+    },
+    {
+      "id": "2609.15087v1",
+      "title": "Beyond Numerical Time Series: A Unified Benchmark for Multimodal Forecasting with Heterogeneous Context",
+      "summary": "Most time series forecasting benchmarks remain numerical-centric and provide limited support for evaluating contextual information that shapes real-world temporal dynamics. Existing multimodal benchmarks also suffer from limited data and context coverage, fragmented evaluation settings, and overreliance on aggregate evaluation.",
+      "summaryRaw": "Most time series forecasting benchmarks remain numerical-centric and provide limited support for evaluating contextual information that shapes real-world temporal dynamics. Existing multimodal benchmarks also suffer from limited data and context coverage, fragmented evaluation settings, and overreliance on aggregate evaluation. In this paper, we propose \\textbf{MUSE-Bench}, a unified benchmark for multimodal time series forecasting with heterogeneous context. It comprises fourteen datasets across eight domains and six types of context: metadata, events, holidays, news, images, and numerical covariates. We evaluate diverse forecasting paradigms, including statistical, data-specific, foundation, multimodal, and general-purpose LLM forecasting methods under shared non-overlapping forecast windows, common target observations, and consistent point and probabilistic metrics. Extensive experiments yield three main findings. First, numerical time series foundation models dominate the overall ranking, while Aurora, the evaluated multimodal foundation model, trails the leading numerical TSFMs but outperforms all evaluated data-specific models. Second, ablations show that external context improves the four evaluated context-aware models, whereas incorrect or temporally misaligned context degrades performance. Third, general-purpose LLMs perform poorly as direct forecasters, and LLM-guided refinement does not yield consistent improvements. MUSE-Bench enables systematic evaluation of how forecasting models utilize context and provides a foundation for future multimodal forecasting research.",
+      "link": "https://arxiv.org/abs/2609.15087v1",
+      "pdfLink": "https://arxiv.org/pdf/2609.15087v1",
+      "published": "2026-09-14T06:01:16Z",
+      "updated": "2026-09-14T06:01:16Z",
+      "authors": [
+        "Peng Chen",
+        "Zhihao Zhuang",
+        "Hongzhou Chen",
+        "Junhao Huang",
+        "Aiping Yang",
+        "Mengsen Wu",
+        "Yiding Liu",
+        "Xilin Dai"
+      ],
+      "categories": [
+        "cs.LG",
+        "cs.AI"
+      ],
+      "score": 43,
+      "importanceLevel": "B",
+      "lane": "Peripheral",
+      "dimensionScores": {
+        "relevance": 5,
+        "novelty": 27,
+        "impact": 16,
+        "practicality": 0,
+        "coreAlignment": 5
+      },
+      "oneSentenceSummary": "该论文是偏相关方向的重点候选，值得优先阅读。",
+      "summaryCn": "论文核心内容是：Most time series forecasting benchmarks remain numerical-centric and provide limited support for evaluating contextual information…",
+      "whyImportant": "命中新基准、通用框架、真实实验主题，分类覆盖cs.LG / cs.AI，并体现较强的新颖性与影响潜力。",
+      "reasonTags": [
+        "新基准",
+        "通用框架",
+        "真实实验"
+      ],
+      "innovationPoints": [
+        "包含新基准或新数据评测",
+        "提供真实场景实验验证"
+      ],
+      "noveltyVerdict": "创新信号强，像是带新范式或新基准的工作。",
+      "duplicateRisk": "low",
+      "dedupeNote": "该论文在Peripheral方向上具备独立问题设置或代表性贡献，可作为当日候选保留。",
+      "retrievalGroups": [
+        "general"
+      ],
+      "mergedCount": 1,
+      "mergedTitles": [
+        "Beyond Numerical Time Series: A Unified Benchmark for Multimodal Forecasting with Heterogeneous Context"
+      ]
+    },
+    {
+      "id": "2609.15740v1",
+      "title": "A Language-Guided Multimodal Foundation Model for Zero-Shot and Multi-Task Brain Signal Analysis",
+      "summary": "Brain signal analysis is essential for both neuroscience research and clinical diagnostics, yet current approaches face critical limitations. End-to-end models require task-specific retraining and exhibit limited generalization, while pre-trained models lack semantic depth and still depend on extensive fine-tuning.",
+      "summaryRaw": "Brain signal analysis is essential for both neuroscience research and clinical diagnostics, yet current approaches face critical limitations. End-to-end models require task-specific retraining and exhibit limited generalization, while pre-trained models lack semantic depth and still depend on extensive fine-tuning. Meanwhile, general-purpose multimodal foundation models, though powerful in other domains, struggle to interpret brain signals due to representational misalignment and lack of domain knowledge. This study introduces a multimodal foundation model for zero-shot and multi-task brain signal analysis (METIS) through a unified language-signal alignment framework. METIS is pretrained on the largest and most diverse brain-signal corpus to date, comprising over 70,000 h of recordings from more than 11,000 subjects across 20 datasets. In a comprehensive zero-shot evaluation across 12 datasets, METIS outperformed the leading generalist model by over 20.9% in average accuracy. Remarkably, without any fine-tuning, METIS's performance matches or exceeds that of supervised, task-specific models. Furthermore, METIS demonstrates exceptional data efficiency and strong generalization, achieving an average AUROC advantage of over 16.0% in few-shot settings and 15.9% in cross-dataset transfer. This work establishes a new paradigm for general-purpose brain signal analysis, paving the way for next-generation neurotechnology.",
+      "link": "https://arxiv.org/abs/2609.15740v1",
+      "pdfLink": "https://arxiv.org/pdf/2609.15740v1",
+      "published": "2026-09-14T15:32:38Z",
+      "updated": "2026-09-14T15:32:38Z",
+      "authors": [
+        "Mingzhi Chen",
+        "Yiyu Gui",
+        "Guibo Luo",
+        "Yuchao Yang"
+      ],
+      "categories": [
+        "cs.LG",
+        "cs.AI"
+      ],
+      "score": 41,
+      "importanceLevel": "B",
+      "lane": "Peripheral",
+      "dimensionScores": {
+        "relevance": 5,
+        "novelty": 26,
+        "impact": 15,
+        "practicality": 0,
+        "coreAlignment": 5
+      },
+      "oneSentenceSummary": "该论文是偏相关方向的重点候选，值得优先阅读。",
+      "summaryCn": "论文核心内容是：Brain signal analysis is essential for both neuroscience research and clinical diagnostics, yet current approaches face critical li…",
+      "whyImportant": "命中新基准、通用框架主题，分类覆盖cs.LG / cs.AI，并体现较强的新颖性与影响潜力。",
+      "reasonTags": [
+        "新基准",
+        "通用框架"
+      ],
+      "innovationPoints": [
+        "包含新基准或新数据评测"
+      ],
+      "noveltyVerdict": "创新信号强，像是带新范式或新基准的工作。",
+      "duplicateRisk": "low",
+      "dedupeNote": "该论文在Peripheral方向上具备独立问题设置或代表性贡献，可作为当日候选保留。",
+      "retrievalGroups": [
+        "general"
+      ],
+      "mergedCount": 1,
+      "mergedTitles": [
+        "A Language-Guided Multimodal Foundation Model for Zero-Shot and Multi-Task Brain Signal Analysis"
+      ]
+    },
+    {
+      "id": "2609.15794v1",
+      "title": "KnowBench: Effort Reduction as a Unified, Deployment-Grounded Benchmark for Clinical AI",
+      "summary": "Clinical AI systems are evaluated with instruments built for research settings (reference-based similarity metrics and expert rubric panels) that measure resemblance to an artifact rather than reduction of a burden. We introduce KnowBench, pioneered by Knowtex, whose unifying metric is Effort Reduction (ER): the proportion of system-gene…",
+      "summaryRaw": "Clinical AI systems are evaluated with instruments built for research settings (reference-based similarity metrics and expert rubric panels) that measure resemblance to an artifact rather than reduction of a burden. We introduce KnowBench, pioneered by Knowtex, whose unifying metric is Effort Reduction (ER): the proportion of system-generated clinical work product accepted by the responsible clinician under expert and safety review. ER is defined once and instantiated per task across the administrative workload clinical AI automates: visit notes, diagnosis and billing codes, orders, EHR chart summarization, patient after-visit summaries, and clinical decision support. In every instantiation the construction is identical: the clinician's review-and-attestation event is the ground truth, every accepted unit is work the system completed, and every correction is residual effort returned to the clinician. The primary contribution of this paper is the benchmark itself: the metric, its degenerate cases, and a reporting protocol under which ER claims are auditable and cross-system comparable. Alongside it we report an initial headline measurement from the documentation instantiation: over one million signed encounters across a production window exceeding six months and thirteen medical specialties, Knowtex's proprietary fine-tuned clinical foundation models operating inside a closed feedback architecture achieve an aggregate ER of 97.99%, with per-specialty aggregates spanning 96.8-98.9%. This release reports the protocol's checklist partially, and states which companion statistics are withheld; the benchmark is offered so that this figure, and every figure reported after it, can be held to the same standard.",
+      "link": "https://arxiv.org/abs/2609.15794v1",
+      "pdfLink": "https://arxiv.org/pdf/2609.15794v1",
+      "published": "2026-09-14T16:10:52Z",
+      "updated": "2026-09-14T16:10:52Z",
+      "authors": [
+        "Jocelyn Kang",
+        "Caroline Zhang"
+      ],
+      "categories": [
+        "cs.AI"
+      ],
+      "score": 40,
+      "importanceLevel": "B",
+      "lane": "Peripheral",
+      "dimensionScores": {
+        "relevance": 3,
+        "novelty": 22,
+        "impact": 6,
+        "practicality": 12,
+        "coreAlignment": 3
+      },
+      "oneSentenceSummary": "该论文是偏相关方向的重点候选，值得优先阅读。",
+      "summaryCn": "论文核心内容是：Clinical AI systems are evaluated with instruments built for research settings (reference-based similarity metrics and expert rubri…",
+      "whyImportant": "命中新基准、通用框架主题，分类覆盖cs.AI，并体现较强的新颖性与影响潜力。",
+      "reasonTags": [
+        "新基准",
+        "通用框架"
+      ],
+      "innovationPoints": [
+        "包含新基准或新数据评测"
+      ],
+      "noveltyVerdict": "创新信号强，像是带新范式或新基准的工作。",
+      "duplicateRisk": "low",
+      "dedupeNote": "该论文在Peripheral方向上具备独立问题设置或代表性贡献，可作为当日候选保留。",
+      "retrievalGroups": [
+        "general"
+      ],
+      "mergedCount": 1,
+      "mergedTitles": [
+        "KnowBench: Effort Reduction as a Unified, Deployment-Grounded Benchmark for Clinical AI"
+      ]
+    },
+    {
+      "id": "2609.15032v1",
+      "title": "Tele360: Real-Time Feed-Forward Human Reconstruction from Sparse Unposed Cameras",
+      "summary": "Live free-viewpoint visualization of real humans is critical for immersive communication and interactive digital experiences. Existing methods either rely on computationally expensive optimization or require calibrated cameras and low-resolution inputs, making real-time high-resolution deployment impractical.",
+      "summaryRaw": "Live free-viewpoint visualization of real humans is critical for immersive communication and interactive digital experiences. Existing methods either rely on computationally expensive optimization or require calibrated cameras and low-resolution inputs, making real-time high-resolution deployment impractical. In this work, we present Tele360, the first real-time feed-forward system for dynamic human reconstruction and live free-viewpoint visualization from sparse, unposed RGB streams. Our system jointly estimates camera poses and reconstructs a dynamic 3D Gaussian representation for each time instance in a single forward pass. To achieve this, we start by designing a lightweight sparsity-aware multi-view transformer backbone that tokenizes foreground human regions while preserving global context through a shared scene token. We then employ a fully transformer-based Gaussian decoder to mitigate convolution-induced over-smoothing while keeping decoding sparse and efficient. In addition, we introduce a hybrid feature pyramid that injects multi-scale appearance cues into geometry prediction. We further introduce a lightweight differentiable Levenberg-Marquardt camera refinement layer to enhance multi-view consistency and geometric alignment. Moreover, to stabilize learning under sparse, unposed inputs, we transfer multi-view geometry priors from a large visual-geometry foundation model via teacher-student distillation. Finally, the predicted Gaussian maps are streamed with video codecs to remote devices for interactive free-viewpoint rendering. Extensive experiments show that Tele360 achieves state-of-the-art visual quality on studio benchmarks while supporting real-time 2K input-to-rendering at over 25 FPS on a single consumer GPU. Additional captured sequences illustrate its performance across varied subjects, clothing, and motions under our multi-camera setup.",
+      "link": "https://arxiv.org/abs/2609.15032v1",
+      "pdfLink": "https://arxiv.org/pdf/2609.15032v1",
+      "published": "2026-09-14T04:50:52Z",
+      "updated": "2026-09-14T04:50:52Z",
+      "authors": [
+        "Hanzhang Tu",
+        "Zhanfeng Liao",
+        "Wei Min",
+        "Jiajun Zhang",
+        "Yebin Liu"
+      ],
+      "categories": [
+        "cs.CV"
+      ],
+      "score": 40,
+      "importanceLevel": "B",
+      "lane": "Peripheral",
+      "dimensionScores": {
+        "relevance": 3,
+        "novelty": 17,
+        "impact": 11,
+        "practicality": 12,
+        "coreAlignment": 3
+      },
+      "oneSentenceSummary": "该论文是偏相关方向的重点候选，值得优先阅读。",
+      "summaryCn": "论文核心内容是：Live free-viewpoint visualization of real humans is critical for immersive communication and interactive digital experiences.",
+      "whyImportant": "命中新基准、通用框架主题，分类覆盖cs.CV，并体现较强的新颖性与影响潜力。",
+      "reasonTags": [
+        "新基准",
+        "通用框架"
+      ],
+      "innovationPoints": [
+        "包含新基准或新数据评测"
+      ],
+      "noveltyVerdict": "创新点清晰，属于值得重点跟进的增量改进。",
+      "duplicateRisk": "low",
+      "dedupeNote": "该论文在Peripheral方向上具备独立问题设置或代表性贡献，可作为当日候选保留。",
+      "retrievalGroups": [
+        "general"
+      ],
+      "mergedCount": 1,
+      "mergedTitles": [
+        "Tele360: Real-Time Feed-Forward Human Reconstruction from Sparse Unposed Cameras"
+      ]
+    },
+    {
+      "id": "2609.15669v1",
+      "title": "Benchmarking Intra-Patient 3D Deformable Multimodal Image Registration",
+      "summary": "Multimodal image registration is a key component of many clinical workflows, yet it remains challenging because corresponding anatomical structures often exhibit substantially different image intensities across modalities. In this work, we present a comprehensive benchmark of intra-patient 3D multimodal deformable registration methods ac…",
+      "summaryRaw": "Multimodal image registration is a key component of many clinical workflows, yet it remains challenging because corresponding anatomical structures often exhibit substantially different image intensities across modalities. In this work, we present a comprehensive benchmark of intra-patient 3D multimodal deformable registration methods across three datasets covering different anatomical regions and difficulty levels, including both synthetic deformation recovery and real clinical scenarios. We evaluate classical optimization-based approaches and modern learning-based methods, including recent deep learning and foundation models, using complementary metrics: Average Dice similarity coefficient (DSC), average 95th-percentile Hausdorff distance (HD95), and a modality-independent structural similarity measure based on the MIND self-similarity context (MIND-SSC). Results show high variability across datasets, with learning-based methods demonstrating superior performance on large synthetic benchmarks, while only limited improvements are observed in real pelvic registration. A key finding of this study is the consistent disagreement between geometric metrics (DSC, HD95) and image-based similarity metrics (MIND-SSC), highlighting that improved overlap does not necessarily imply better global multimodal correspondence. Furthermore, anatomy-guided approaches achieve the highest overlap scores but exhibit degraded performance outside of segmented regions, revealing a trade-off between label-driven alignment and global structural coherence. Overall, our results indicate that no current method achieves robust performance across anatomies and modalities. We demonstrate that intra-patient 3D multimodal registration requires multi-criteria evaluation, including deformation-based metrics, and remains an open problem.",
+      "link": "https://arxiv.org/abs/2609.15669v1",
+      "pdfLink": "https://arxiv.org/pdf/2609.15669v1",
+      "published": "2026-09-14T14:47:57Z",
+      "updated": "2026-09-14T14:47:57Z",
+      "authors": [
+        "Matteo Barbieri",
+        "Giammarco La Barbera",
+        "Juan Pablo De La Plata",
+        "Sabine Sarnacki",
+        "Isabelle Bloch",
+        "Pietro Gori"
+      ],
+      "categories": [
+        "cs.CV",
+        "cs.AI"
+      ],
+      "score": 36,
+      "importanceLevel": "B",
+      "lane": "Peripheral",
+      "dimensionScores": {
+        "relevance": 6,
+        "novelty": 22,
+        "impact": 6,
+        "practicality": 8,
+        "coreAlignment": 6
+      },
+      "oneSentenceSummary": "该论文是偏相关方向的重点候选，值得优先阅读。",
+      "summaryCn": "论文核心内容是：Multimodal image registration is a key component of many clinical workflows, yet it remains challenging because corresponding anato…",
+      "whyImportant": "命中新基准、通用框架主题，分类覆盖cs.CV / cs.AI，并体现较强的新颖性与影响潜力。",
+      "reasonTags": [
+        "新基准",
+        "通用框架"
+      ],
+      "innovationPoints": [
+        "包含新基准或新数据评测"
+      ],
+      "noveltyVerdict": "创新信号强，像是带新范式或新基准的工作。",
+      "duplicateRisk": "low",
+      "dedupeNote": "该论文在Peripheral方向上具备独立问题设置或代表性贡献，可作为当日候选保留。",
+      "retrievalGroups": [
+        "general"
+      ],
+      "mergedCount": 1,
+      "mergedTitles": [
+        "Benchmarking Intra-Patient 3D Deformable Multimodal Image Registration"
+      ]
+    },
+    {
+      "id": "2609.15066v1",
+      "title": "Salesforce Koa: An Enterprise Language Model for Agentic Tool Use",
+      "summary": "We present Salesforce Koa, an enterprise language model built by post-training the open-weight Nemotron-3-Super-120B foundation model with reinforcement learning using Group Relative Policy Optimization (GRPO). Salesforce Koa is trained on public and synthetically generated data, with no customer data, to improve tool use and agentic cap…",
+      "summaryRaw": "We present Salesforce Koa, an enterprise language model built by post-training the open-weight Nemotron-3-Super-120B foundation model with reinforcement learning using Group Relative Policy Optimization (GRPO). Salesforce Koa is trained on public and synthetically generated data, with no customer data, to improve tool use and agentic capabilities while preserving strong general-purpose performance. Its distinctive component is a simulation-to-reward pipeline that expands workflow specifications into persona-conditioned multi-turn tasks with task-resolution rewards grounded in successful tool use for data-dependent requests. For enterprise domains, these specifications are written in Agent Script, Salesforce's declarative language for building Agentforce agents; for public tool-use domains, we synthesize the workflow structure directly. The same simulation and grounded-reward machinery drives GRPO across both. Across public tool-use, agentic-reasoning, and enterprise Customer Relationship Management (CRM) benchmarks, Salesforce Koa improves over its open-weight base, with the clearest gains on multi-turn tool use, and surpasses a strong proprietary baseline while remaining below the strongest frontier models. These results show that specification-driven reinforcement learning is a practical path to specializing open-weight foundation models for enterprise agentic tasks.",
+      "link": "https://arxiv.org/abs/2609.15066v1",
+      "pdfLink": "https://arxiv.org/pdf/2609.15066v1",
+      "published": "2026-09-14T05:30:28Z",
+      "updated": "2026-09-14T05:30:28Z",
+      "authors": [
+        "Zixiang Chen",
+        "Sufeng Niu",
+        "Yingchi Liu",
+        "Wenting Zhao",
+        "Akshara Prabhakar",
+        "Shubham Mehrotra",
+        "Bin Bi",
+        "Zhujun Lan"
+      ],
+      "categories": [
+        "cs.AI",
+        "cs.LG"
+      ],
+      "score": 31,
+      "importanceLevel": "B",
+      "lane": "Peripheral",
+      "dimensionScores": {
+        "relevance": 9,
+        "novelty": 17,
+        "impact": 10,
+        "practicality": 0,
+        "coreAlignment": 9
+      },
+      "oneSentenceSummary": "该论文是偏相关方向的重点候选，值得优先阅读。",
+      "summaryCn": "论文核心内容是：We present Salesforce Koa, an enterprise language model built by post-training the open-weight Nemotron-3-Super-120B foundation mod…",
+      "whyImportant": "命中机器人、新基准、通用框架主题，分类覆盖cs.AI / cs.LG，并体现较强的新颖性与影响潜力。",
+      "reasonTags": [
+        "机器人",
+        "新基准",
+        "通用框架"
+      ],
+      "innovationPoints": [
+        "包含新基准或新数据评测"
+      ],
+      "noveltyVerdict": "创新点清晰，属于值得重点跟进的增量改进。",
+      "duplicateRisk": "low",
+      "dedupeNote": "该论文在Peripheral方向上具备独立问题设置或代表性贡献，可作为当日候选保留。",
+      "retrievalGroups": [
+        "general"
+      ],
+      "mergedCount": 1,
+      "mergedTitles": [
+        "Salesforce Koa: An Enterprise Language Model for Agentic Tool Use"
+      ]
+    },
+    {
+      "id": "2609.14970v1",
+      "title": "Towards a knowledge-enhanced single-cell foundation model",
+      "summary": "Single-cell foundation models (scFMs) increasingly rely on large-scale transcriptomic pretraining, yet expanding pretraining data can yield diminishing gains while substantially increasing computational cost. Our data scaling analyses showed that incorporating biological knowledge, including cell-level text annotation and gene-level regu…",
+      "summaryRaw": "Single-cell foundation models (scFMs) increasingly rely on large-scale transcriptomic pretraining, yet expanding pretraining data can yield diminishing gains while substantially increasing computational cost. Our data scaling analyses showed that incorporating biological knowledge, including cell-level text annotation and gene-level regulatory information, provided additional scaling dimension than simply increasing data size. Motivated by this observation, we present scKITE, a simple yet effective scFM that integrates cell-annotation and gene-regulatory supervision into a shared transcriptomic Transformer encoder through lightweight auxiliary decoders. These decoders are used only during pretraining and subsequently discarded, yielding a general-purpose encoder enriched with biological knowledge for downstream applications. With only 179,067 pretraining samples, i.e., less than 0.5\\% of those used by previous strong scFMs, scKITE outperformed these models across diverse downstream tasks, highlighting knowledge-enhanced pretraining as a promising paradigm for biologically grounded scFMs.",
+      "link": "https://arxiv.org/abs/2609.14970v1",
+      "pdfLink": "https://arxiv.org/pdf/2609.14970v1",
+      "published": "2026-09-14T03:23:55Z",
+      "updated": "2026-09-14T03:23:55Z",
+      "authors": [
+        "Hanqing Zhang",
+        "Jie Bao",
+        "Mei Ma",
+        "Shuai Liu",
+        "Jiaying Ma",
+        "Jiaguan Liu",
+        "Jiaxiao Li",
+        "Zhenbo Li"
+      ],
+      "categories": [
+        "cs.AI"
+      ],
+      "score": 36,
+      "importanceLevel": "B",
+      "lane": "Peripheral",
+      "dimensionScores": {
+        "relevance": 3,
+        "novelty": 17,
+        "impact": 16,
+        "practicality": 3,
+        "coreAlignment": 3
+      },
+      "oneSentenceSummary": "该论文是偏相关方向的重点候选，值得优先阅读。",
+      "summaryCn": "论文核心内容是：Single-cell foundation models (scFMs) increasingly rely on large-scale transcriptomic pretraining, yet expanding pretraining data c…",
+      "whyImportant": "命中通用框架主题，分类覆盖cs.AI，并体现较强的新颖性与影响潜力。",
+      "reasonTags": [
+        "通用框架"
+      ],
+      "innovationPoints": [
+        "涉及新的训练或预训练范式"
+      ],
+      "noveltyVerdict": "创新点清晰，属于值得重点跟进的增量改进。",
+      "duplicateRisk": "low",
+      "dedupeNote": "该论文在Peripheral方向上具备独立问题设置或代表性贡献，可作为当日候选保留。",
+      "retrievalGroups": [
+        "general"
+      ],
+      "mergedCount": 1,
+      "mergedTitles": [
+        "Towards a knowledge-enhanced single-cell foundation model"
+      ]
+    },
+    {
+      "id": "2609.15676v1",
+      "title": "MambaMPD: A Mamba-Driven Segmentation Framework for Marine Pollution Detection from Remote Sensing Imagery",
+      "summary": "Accurate marine pollution detection (MPD) is essential for protecting coastal ecosystems and marine biodiversity. Vision Mamba models have shown promise in remote-sensing semantic segmentation by efficiently capturing long-range dependencies and global context, yet their potential for MPD remains underexplored.",
+      "summaryRaw": "Accurate marine pollution detection (MPD) is essential for protecting coastal ecosystems and marine biodiversity. Vision Mamba models have shown promise in remote-sensing semantic segmentation by efficiently capturing long-range dependencies and global context, yet their potential for MPD remains underexplored. MPD is particularly challenging because of low signal-to-noise ratios, fragmented pollution patterns, and indistinct boundaries caused by the visual similarity between pollutants and the surrounding sea. To address these issues, we propose MambaMPD, an enhanced Mamba-based framework incorporating two complementary structural priors: Frequency-Aware Augmentation (FAA) and multi-scale Edge-Guided Attention (EGA). FAA integrates wavelet transforms into the encoder to decompose features into multi-scale frequency subbands, enabling the model to capture low-frequency contextual semantics and high-frequency structural details needed to identify small, low-contrast, and irregular pollution patterns. EGA adaptively fuses hierarchical, Laplacian-derived boundary cues with deep semantic representations, refining encoder features before decoding to sharpen boundaries and reduce ambiguity in visually confusing, spatially fragmented scenes. Together, these modules improve sensitivity to subtle pollution signals while preserving fine boundary structures. A U-Net-style decoder with squeeze-and-excitation attention and deep supervision progressively restores and refines semantic and spatial information across scales. Extensive experiments on two benchmark MPD datasets show that MambaMPD achieves higher mIoU than competing methods while requiring substantially less computation than foundation-model-based approaches. On MADOS, it improves F1 by 3.6% over OSDMamba; on M4D, it raises Oil Spill IoU by 6.82% over TransOilSeg.",
+      "link": "https://arxiv.org/abs/2609.15676v1",
+      "pdfLink": "https://arxiv.org/pdf/2609.15676v1",
+      "published": "2026-09-14T14:52:16Z",
+      "updated": "2026-09-14T14:52:16Z",
+      "authors": [
+        "Shuaiyu Chen",
+        "Wei Han",
+        "Peng Ren",
+        "Chunbo Luo",
+        "Zeyu Fu"
+      ],
+      "categories": [
+        "cs.CV"
+      ],
+      "score": 35,
+      "importanceLevel": "B",
+      "lane": "Peripheral",
+      "dimensionScores": {
+        "relevance": 3,
+        "novelty": 22,
+        "impact": 6,
+        "practicality": 7,
+        "coreAlignment": 3
+      },
+      "oneSentenceSummary": "该论文是偏相关方向的重点候选，值得优先阅读。",
+      "summaryCn": "论文核心内容是：Accurate marine pollution detection (MPD) is essential for protecting coastal ecosystems and marine biodiversity.",
+      "whyImportant": "命中新基准、通用框架主题，分类覆盖cs.CV，并体现较强的新颖性与影响潜力。",
+      "reasonTags": [
+        "新基准",
+        "通用框架"
+      ],
+      "innovationPoints": [
+        "包含新基准或新数据评测"
+      ],
+      "noveltyVerdict": "创新信号强，像是带新范式或新基准的工作。",
+      "duplicateRisk": "low",
+      "dedupeNote": "该论文在Peripheral方向上具备独立问题设置或代表性贡献，可作为当日候选保留。",
+      "retrievalGroups": [
+        "general"
+      ],
+      "mergedCount": 1,
+      "mergedTitles": [
+        "MambaMPD: A Mamba-Driven Segmentation Framework for Marine Pollution Detection from Remote Sensing Imagery"
+      ]
+    },
+    {
+      "id": "2609.14956v1",
+      "title": "CAL-MOS: Bridging Layers with Adapters for Robust MOS Prediction Across Speech Foundation Models",
+      "summary": "Speech Quality Assessment (SQA) is essential for modern speech technologies, and recent non-intrusive SQA predictors increasingly rely on Speech Foundation Models (SFMs). However, because SFMs expose representations from many layers, it remains unclear which depths are most informative for MOS prediction and how multi-layer information s…",
+      "summaryRaw": "Speech Quality Assessment (SQA) is essential for modern speech technologies, and recent non-intrusive SQA predictors increasingly rely on Speech Foundation Models (SFMs). However, because SFMs expose representations from many layers, it remains unclear which depths are most informative for MOS prediction and how multi-layer information should be combined reliably across backbones and datasets. We benchmark ten SFMs on four MOS datasets under three regimes: full fine-tuning, last-layer probing with a frozen encoder, and naive cross-layer weighted aggregation. We find that the best layer is strongly backbone- and dataset-dependent, and that naive weighted fusion can be unstable across settings. We further evaluate a layer-calibrated aggregation variant that applies per-layer adapters before pooling, which improves the robustness of multi-layer fusion and narrows the gap to full fine-tuning while keeping the backbone frozen.",
+      "link": "https://arxiv.org/abs/2609.14956v1",
+      "pdfLink": "https://arxiv.org/pdf/2609.14956v1",
+      "published": "2026-09-14T03:00:06Z",
+      "updated": "2026-09-14T03:00:06Z",
+      "authors": [
+        "Alef Iury Siqueira Ferreira",
+        "Pedro Lustosa Rege Botelho",
+        "Fernanda Silva",
+        "Daniel Casanova",
+        "Rafael Faustino",
+        "Frederico Oliveira",
+        "Arlindo Galvão Filho",
+        "Anderson da Silva Soares"
+      ],
+      "categories": [
+        "cs.AI"
+      ],
+      "score": 34,
+      "importanceLevel": "B",
+      "lane": "Peripheral",
+      "dimensionScores": {
+        "relevance": 3,
+        "novelty": 21,
+        "impact": 6,
+        "practicality": 7,
+        "coreAlignment": 3
+      },
+      "oneSentenceSummary": "该论文是偏相关方向的重点候选，值得优先阅读。",
+      "summaryCn": "论文核心内容是：Speech Quality Assessment (SQA) is essential for modern speech technologies, and recent non-intrusive SQA predictors increasingly r…",
+      "whyImportant": "命中新基准、通用框架主题，分类覆盖cs.AI，并体现较强的新颖性与影响潜力。",
+      "reasonTags": [
+        "新基准",
+        "通用框架"
+      ],
+      "innovationPoints": [
+        "包含新基准或新数据评测"
+      ],
+      "noveltyVerdict": "创新信号强，像是带新范式或新基准的工作。",
+      "duplicateRisk": "low",
+      "dedupeNote": "该论文在Peripheral方向上具备独立问题设置或代表性贡献，可作为当日候选保留。",
+      "retrievalGroups": [
+        "general"
+      ],
+      "mergedCount": 1,
+      "mergedTitles": [
+        "CAL-MOS: Bridging Layers with Adapters for Robust MOS Prediction Across Speech Foundation Models"
+      ]
+    },
+    {
+      "id": "2609.15687v1",
+      "title": "EEG-Xplain: Decoding Neural Black-Boxes of EEG Foundation Models",
+      "summary": "EEG foundation models such as BIOT, LaBraM, and EEGMamba have achieved remarkable performance in neural signal decoding, but their black-box nature limits clinical trust and neuroscientific validation. We propose a unified attribution framework for interpreting EEG foundation models across heterogeneous architectures.",
+      "summaryRaw": "EEG foundation models such as BIOT, LaBraM, and EEGMamba have achieved remarkable performance in neural signal decoding, but their black-box nature limits clinical trust and neuroscientific validation. We propose a unified attribution framework for interpreting EEG foundation models across heterogeneous architectures. The framework integrates gradient-, perturbation-, and activation-based explanation methods to analyze model behavior in spatial, temporal, and frequency dimensions. Spatially, it identifies critical EEG channels and visualizes their distributions using topographic maps. Temporally, it highlights decision-relevant signal segments through attribution heatmaps. In the frequency domain, it quantifies the contributions of canonical EEG rhythms via spectral perturbation analysis. To assess explanation reliability, we introduce a population-level evaluation combining Area Over the Perturbation Curve (AOPC) and cross-method consistency analysis. The framework further leverages Large Language Models (LLMs) to transform structured attribution outputs into natural-language reports, bridging low-level neural representations and high-level semantic reasoning. Experiments on benchmark datasets, including Mumtaz2016 and TUAB, demonstrate that the generated explanations are consistent with established neurophysiological markers, validating meaningful neural representations while exposing potential dependencies on artifacts and spurious patterns. The proposed framework provides a standardized approach for evaluating the interpretability, reliability, and physiological plausibility of EEG foundation models.",
+      "link": "https://arxiv.org/abs/2609.15687v1",
+      "pdfLink": "https://arxiv.org/pdf/2609.15687v1",
+      "published": "2026-09-14T14:56:07Z",
+      "updated": "2026-09-14T14:56:07Z",
+      "authors": [
+        "Hansong Ma",
+        "Junxiao Wang"
+      ],
+      "categories": [
+        "cs.AI"
+      ],
+      "score": 30,
+      "importanceLevel": "B",
+      "lane": "Peripheral",
+      "dimensionScores": {
+        "relevance": 3,
+        "novelty": 27,
+        "impact": 3,
+        "practicality": 0,
+        "coreAlignment": 3
+      },
+      "oneSentenceSummary": "该论文是偏相关方向的重点候选，值得优先阅读。",
+      "summaryCn": "论文核心内容是：EEG foundation models such as BIOT, LaBraM, and EEGMamba have achieved remarkable performance in neural signal decoding, but their…",
+      "whyImportant": "命中新基准、通用框架主题，分类覆盖cs.AI，并体现较强的新颖性与影响潜力。",
+      "reasonTags": [
+        "新基准",
+        "通用框架"
+      ],
+      "innovationPoints": [
+        "包含新基准或新数据评测"
+      ],
+      "noveltyVerdict": "创新信号强，像是带新范式或新基准的工作。",
+      "duplicateRisk": "low",
+      "dedupeNote": "该论文在Peripheral方向上具备独立问题设置或代表性贡献，可作为当日候选保留。",
+      "retrievalGroups": [
+        "general"
+      ],
+      "mergedCount": 1,
+      "mergedTitles": [
+        "EEG-Xplain: Decoding Neural Black-Boxes of EEG Foundation Models"
+      ]
+    },
+    {
+      "id": "2609.15795v1",
+      "title": "SURE-Map: Self-Correcting Streaming Geometric Foundation Model",
+      "summary": "Streaming geometric foundation models are emerging as a compelling alternative to SLAM systems. Yet this streaming nature introduces a fundamental issue: each prediction is made from limited context, which is vulnerable to dynamic objects and weak textures.",
+      "summaryRaw": "Streaming geometric foundation models are emerging as a compelling alternative to SLAM systems. Yet this streaming nature introduces a fundamental issue: each prediction is made from limited context, which is vulnerable to dynamic objects and weak textures. Small local errors accumulate into severe geometric distortion and long-horizon scale drift. We argue that reliable streaming reconstruction requires geometric foundation models to be not only predictive, but also self-correcting. We introduce SURE-Map, a self-correcting framework built upon two complementary principles. First, we explicitly model cross-view geometric uncertainty. Unlike conventional depth or point confidence, which primarily reflects the reliability of individual-view prediction, our uncertainty directly measures whether the jointly predicted pose and depth induce geometrically consistent cross-view pixel correspondences. Second, because local correction alone cannot eliminate slowly accumulating scale errors, we introduce multi-timescale self-correction: fast consecutive-frame inference preserves streaming efficiency, while sparse keyframe-window inference provides longer-range geometric evidence to periodically recalibrate the scale of recent trajectories. SURE-Map establishes new state-of-the-art performance for online feed-forward reconstruction across long-horizon benchmarks, reducing ATE-RMSE from 24.00 to 17.24 m on KITTI, 5.11 to 4.74 m on Oxford Spires, and 31.37 to 28.58 m on VBR, with further improvements to 15.17, 4.63, and 22.12 m when incorporating loop-closure refinement. Project page: https://mingkai-liu.github.io/projects/sure-map/.",
+      "link": "https://arxiv.org/abs/2609.15795v1",
+      "pdfLink": "https://arxiv.org/pdf/2609.15795v1",
+      "published": "2026-09-14T16:10:53Z",
+      "updated": "2026-09-14T16:10:53Z",
+      "authors": [
+        "Mingkai Liu",
+        "Hao Zhao",
+        "Xingxing Zuo"
+      ],
+      "categories": [
+        "cs.CV"
+      ],
+      "score": 25,
+      "importanceLevel": "B",
+      "lane": "Peripheral",
+      "dimensionScores": {
+        "relevance": 3,
+        "novelty": 17,
+        "impact": 8,
+        "practicality": 0,
+        "coreAlignment": 3
+      },
+      "oneSentenceSummary": "该论文是偏相关方向的重点候选，值得优先阅读。",
+      "summaryCn": "论文核心内容是：Streaming geometric foundation models are emerging as a compelling alternative to SLAM systems.",
+      "whyImportant": "命中新基准、通用框架主题，分类覆盖cs.CV，并体现较强的新颖性与影响潜力。",
+      "reasonTags": [
+        "新基准",
+        "通用框架"
+      ],
+      "innovationPoints": [
+        "包含新基准或新数据评测"
+      ],
+      "noveltyVerdict": "创新点清晰，属于值得重点跟进的增量改进。",
+      "duplicateRisk": "low",
+      "dedupeNote": "该论文在Peripheral方向上具备独立问题设置或代表性贡献，可作为当日候选保留。",
+      "retrievalGroups": [
+        "general"
+      ],
+      "mergedCount": 1,
+      "mergedTitles": [
+        "SURE-Map: Self-Correcting Streaming Geometric Foundation Model"
+      ]
+    },
+    {
+      "id": "2609.15130v1",
+      "title": "woma: a real-time foundation model and its fine-tuned models for endoscopy",
+      "summary": "woma is a real-time foundation model for gastrointestinal endoscopy: a network trained without labels on about a million endoscopy frames, from which task models are fine-tuned. We contribute a systematic design for production.",
+      "summaryRaw": "woma is a real-time foundation model for gastrointestinal endoscopy: a network trained without labels on about a million endoscopy frames, from which task models are fine-tuned. We contribute a systematic design for production. Requirements and pass marks were fixed before any run, eight candidates screened under pre-registered rules, self-supervised training taken to a stopping rule, then fine-tuning and deployment optimisation, all on one self-contained library, numbat. We also contribute woma itself with two fine-tuned models, every outcome reported met or missed. Our colonoscopy model finds and outlines polyps, names which colon segment is in view, suggests polyp type and grades bowel preparation. Our gastroscopy model names a station out of 22 protocol sites, flags and outlines lesions, and names one of seven findings. Every number was read on data never seen in training, and shipped weights were chosen on that record. In colonoscopy, 96% of polyps in a six-hospital PolypGen set are found at precision >=0.85, and 19 of 19 polyps across fifteen full REAL-Colon videos at 1.6 false alarms per procedure. In gastroscopy, landmark region is named correctly on 92% of frames from unseen patients, and 37 of 39 held-out neoplasia frames are flagged at specificity 0.91. On one workstation GPU every task runs over 1080p video at about 100 frames per second, faster than PyTorch, ONNX Runtime and TensorRT in all four precision regimes tested. TensorRT comes closest: one pass of our foundation model takes it 3 to 27% longer than ours, and we deliver 6 to 31% more frames per second from frame to results. A second build links no vendor library at all -- our own kernels over Vulkan -- so a site deploys two files and needs no toolkit, no cuDNN and no framework; in f32 it beats the CUDA build on the same card.",
+      "link": "https://arxiv.org/abs/2609.15130v1",
+      "pdfLink": "https://arxiv.org/pdf/2609.15130v1",
+      "published": "2026-09-14T07:06:54Z",
+      "updated": "2026-09-14T07:06:54Z",
+      "authors": [
+        "Thang Tran",
+        "Lan Dang"
+      ],
+      "categories": [
+        "cs.CV",
+        "cs.LG"
+      ],
+      "score": 22,
+      "importanceLevel": "B",
+      "lane": "Peripheral",
+      "dimensionScores": {
+        "relevance": 5,
+        "novelty": 12,
+        "impact": 5,
+        "practicality": 5,
+        "coreAlignment": 5
+      },
+      "oneSentenceSummary": "该论文是偏相关方向的重点候选，值得优先阅读。",
+      "summaryCn": "论文核心内容是：woma is a real-time foundation model for gastrointestinal endoscopy: a network trained without labels on about a million endoscopy…",
+      "whyImportant": "命中通用框架主题，分类覆盖cs.CV / cs.LG，并体现较强的新颖性与影响潜力。",
+      "reasonTags": [
+        "通用框架"
+      ],
+      "innovationPoints": [
+        "提出具有跟踪价值的方法设计"
+      ],
+      "noveltyVerdict": "创新点清晰，属于值得重点跟进的增量改进。",
+      "duplicateRisk": "low",
+      "dedupeNote": "该论文在Peripheral方向上具备独立问题设置或代表性贡献，可作为当日候选保留。",
+      "retrievalGroups": [
+        "general"
+      ],
+      "mergedCount": 1,
+      "mergedTitles": [
+        "woma: a real-time foundation model and its fine-tuned models for endoscopy"
+      ]
+    },
+    {
+      "id": "2609.15453v1",
+      "title": "Listening for Airway Stenosis: A Foundation Model-Based Method for Rapid and Accessible Detection",
+      "summary": "Airway stenosis can cause severe respiratory complications, yet its detection often relies on specialized examinations and medical imaging. This study explores the potential of acoustic AI for rapid and accessible airway stenosis detection using readily acquired patient voice recordings.",
+      "summaryRaw": "Airway stenosis can cause severe respiratory complications, yet its detection often relies on specialized examinations and medical imaging. This study explores the potential of acoustic AI for rapid and accessible airway stenosis detection using readily acquired patient voice recordings. We systematically investigate whether acoustic foundation models (AFMs) can extract acoustic representations associated with airway stenosis-related speech patterns. Experiments are conducted on a cohort of 748 participants from the Bridge2AI-Voice dataset, 134 with airway stenosis and 614 without. The best-performing model achieves an AUROC of 0.952 and an accuracy of 0.924 (means over five-fold cross-validation), highlighting the potential of AFMs to transfer beyond general-purpose speech applications to clinical diagnostic tasks. Further analysis reveals that the model primarily relies on connected-speech recordings rather than isolated acoustic tasks, such as sustained phonation and breathing. Overall, these results suggest that voice-based acoustic AI could complement existing diagnostic workflows by enabling rapid, low-burden, and widely accessible screening for airway stenosis.",
+      "link": "https://arxiv.org/abs/2609.15453v1",
+      "pdfLink": "https://arxiv.org/pdf/2609.15453v1",
+      "published": "2026-09-14T12:20:23Z",
+      "updated": "2026-09-14T12:20:23Z",
+      "authors": [
+        "Jean Groeninger",
+        "Zihao Zhao",
+        "Juliana de Castilhos",
+        "Sven Nebelung",
+        "Daniel Truhn"
+      ],
+      "categories": [],
+      "score": 22,
+      "importanceLevel": "B",
+      "lane": "Peripheral",
+      "dimensionScores": {
+        "relevance": 0,
+        "novelty": 17,
+        "impact": 5,
+        "practicality": 0,
+        "coreAlignment": 0
+      },
+      "oneSentenceSummary": "该论文是偏相关方向的重点候选，值得优先阅读。",
+      "summaryCn": "论文核心内容是：Airway stenosis can cause severe respiratory complications, yet its detection often relies on specialized examinations and medical…",
+      "whyImportant": "命中新基准、通用框架主题，分类覆盖，并体现较强的新颖性与影响潜力。",
+      "reasonTags": [
+        "新基准",
+        "通用框架"
+      ],
+      "innovationPoints": [
+        "包含新基准或新数据评测"
+      ],
+      "noveltyVerdict": "创新点清晰，属于值得重点跟进的增量改进。",
+      "duplicateRisk": "low",
+      "dedupeNote": "该论文在Peripheral方向上具备独立问题设置或代表性贡献，可作为当日候选保留。",
+      "retrievalGroups": [
+        "general"
+      ],
+      "mergedCount": 1,
+      "mergedTitles": [
+        "Listening for Airway Stenosis: A Foundation Model-Based Method for Rapid and Accessible Detection"
+      ]
+    },
+    {
+      "id": "2609.15704v1",
+      "title": "AI-Native Open RAN: A Roadmap from xApps and rApps to Autonomous Network Agents",
+      "summary": "Open Radio Access Networks (O-RAN) have emerged as a transformative paradigm for future wireless systems by introducing openness, virtualization, disaggregation, and programmable intelligence through the RAN Intelligent Controller (RIC). The availability of standardized interfaces and near-real-time control loops has created unprecedente…",
+      "summaryRaw": "Open Radio Access Networks (O-RAN) have emerged as a transformative paradigm for future wireless systems by introducing openness, virtualization, disaggregation, and programmable intelligence through the RAN Intelligent Controller (RIC). The availability of standardized interfaces and near-real-time control loops has created unprecedented opportunities for integrating artificial intelligence (AI) into radio access network management and optimization. Over the past several years, a broad range of AI techniques have been proposed to address key O-RAN challenges such as radio resource management, network slicing, traffic prediction, mobility management, interference mitigation, and spectrum sharing. Despite significant progress, existing solutions often remain task-specific, require extensive retraining, and exhibit limited generalization across deployment environments and network conditions. This paper presents a comprehensive review of AI-enabled O-RAN systems and provides a unifying perspective on the evolution of intelligence in wireless networks. We first examine the O-RAN architecture and the role of intelligence within near-real-time and non-real-time RIC frameworks. We then develop a taxonomy of AI approaches for O-RAN, covering machine learning, deep reinforcement learning (DRL), digital-twin-assisted optimization, and emerging foundation-model-based architectures.",
+      "link": "https://arxiv.org/abs/2609.15704v1",
+      "pdfLink": "https://arxiv.org/pdf/2609.15704v1",
+      "published": "2026-09-14T15:08:02Z",
+      "updated": "2026-09-14T15:08:02Z",
+      "authors": [
+        "Ryan Barker",
+        "Alireza Ebrahimi Dorcheh",
+        "Tolunay Seyfi",
+        "Mohammad Raihan Uddin",
+        "Alireza Mohammadhosseini",
+        "Julia Boone",
+        "Stephen Streit",
+        "Drew Schlesener"
+      ],
+      "categories": [],
+      "score": 21,
+      "importanceLevel": "B",
+      "lane": "Peripheral",
+      "dimensionScores": {
+        "relevance": 0,
+        "novelty": 16,
+        "impact": 0,
+        "practicality": 5,
+        "coreAlignment": 0
+      },
+      "oneSentenceSummary": "该论文是偏相关方向的重点候选，值得优先阅读。",
+      "summaryCn": "论文核心内容是：Open Radio Access Networks (O-RAN) have emerged as a transformative paradigm for future wireless systems by introducing openness, v…",
+      "whyImportant": "命中通用框架主题，分类覆盖，并体现较强的新颖性与影响潜力。",
+      "reasonTags": [
+        "通用框架"
+      ],
+      "innovationPoints": [
+        "提出具有跟踪价值的方法设计"
+      ],
+      "noveltyVerdict": "创新点清晰，属于值得重点跟进的增量改进。",
+      "duplicateRisk": "low",
+      "dedupeNote": "该论文在Peripheral方向上具备独立问题设置或代表性贡献，可作为当日候选保留。",
+      "retrievalGroups": [
+        "general"
+      ],
+      "mergedCount": 1,
+      "mergedTitles": [
+        "AI-Native Open RAN: A Roadmap from xApps and rApps to Autonomous Network Agents"
+      ]
+    },
+    {
+      "id": "2609.14857v1",
+      "title": "ModularRSI: Modular and Generalizable Recursive Harness Self-Improvement",
+      "summary": "Recent work extends recursive self-improvement (RSI) to agent harnesses for long-horizon coding and terminal tasks, enabling agents to improve execution mechanisms from experience. However, generalizable harness RSI remains challenging.",
+      "summaryRaw": "Recent work extends recursive self-improvement (RSI) to agent harnesses for long-horizon coding and terminal tasks, enabling agents to improve execution mechanisms from experience. However, generalizable harness RSI remains challenging. First, evolving harnesses on evaluation benchmarks or their subsets makes it difficult to distinguish reusable improvements from benchmark-specific adaptation. Second, single-trajectory updates can conflate systematic harness deficiencies with instance-specific reasoning and solution details, producing modifications that transfer poorly to unseen tasks. Third, localizing recurring behavioral deficiencies within monolithic harnesses is difficult, while whole-harness optimization can entangle unrelated mechanisms and complicate attribution and validation. We propose ModularRSI, a benchmark-disjoint, contrastive, and modular framework for generalizable harness evolution. ModularRSI contrasts successful and failed trajectories for the same task and aggregates evidence across tasks to identify recurring behavioral deficiencies. It decomposes the evolvable harness into five functional modules: Agent Loop, Tool Use, Observation Management, Context Management, and Task Completion Detection. Each module evolves independently within a restricted modification scope, followed by an integration stage that combines the evolved modules into a unified harness and resolves potential conflicts. To support benchmark-disjoint evolution, we curate 2,000 executable evolution tasks from external sources that are disjoint from downstream evaluation benchmarks. Experiments on TB2.0 and SWE-Bench Verified show consistent improvements on unseen in-domain and cross-domain tasks, with the evolved harness also transferring across different foundation models.",
+      "link": "https://arxiv.org/abs/2609.14857v1",
+      "pdfLink": "https://arxiv.org/pdf/2609.14857v1",
+      "published": "2026-09-14T00:10:45Z",
+      "updated": "2026-09-14T00:10:45Z",
+      "authors": [
+        "Siwei Wu",
+        "Jincheng Ren",
+        "Yizhi Li",
+        "Haau-Sing Li",
+        "Chengran Yang",
+        "Yuxuan Zhang",
+        "Weicheng Gu",
+        "Jian Yang"
+      ],
+      "categories": [],
+      "score": 21,
+      "importanceLevel": "B",
+      "lane": "Peripheral",
+      "dimensionScores": {
+        "relevance": 0,
+        "novelty": 21,
+        "impact": 0,
+        "practicality": 0,
+        "coreAlignment": 0
+      },
+      "oneSentenceSummary": "该论文是偏相关方向的重点候选，值得优先阅读。",
+      "summaryCn": "论文核心内容是：Recent work extends recursive self-improvement (RSI) to agent harnesses for long-horizon coding and terminal tasks, enabling agents…",
+      "whyImportant": "命中新基准、通用框架主题，分类覆盖，并体现较强的新颖性与影响潜力。",
+      "reasonTags": [
+        "新基准",
+        "通用框架"
+      ],
+      "innovationPoints": [
+        "包含新基准或新数据评测"
+      ],
+      "noveltyVerdict": "创新信号强，像是带新范式或新基准的工作。",
+      "duplicateRisk": "low",
+      "dedupeNote": "该论文在Peripheral方向上具备独立问题设置或代表性贡献，可作为当日候选保留。",
+      "retrievalGroups": [
+        "general"
+      ],
+      "mergedCount": 1,
+      "mergedTitles": [
+        "ModularRSI: Modular and Generalizable Recursive Harness Self-Improvement"
       ]
     }
   ],
   "paperSets": {
     "overall": [
       {
-        "id": "2609.11717v1",
-        "title": "MC-DeTra: Motion-Consistent Joint Object Detection and Socially-Aware Trajectory Forecasting in Bird's-Eye-View Images",
-        "summary": "Unified models for object detection and trajectory forecasting aim to merge perception and prediction for autonomous driving, refining actor trajectories directly over shared bird's-eye-view (BEV) images rasterized from LiDAR and high-definition maps. Their accuracy on dynamic, moving actors, however, remains the hardest part of the task…",
-        "summaryRaw": "Unified models for object detection and trajectory forecasting aim to merge perception and prediction for autonomous driving, refining actor trajectories directly over shared bird's-eye-view (BEV) images rasterized from LiDAR and high-definition maps. Their accuracy on dynamic, moving actors, however, remains the hardest part of the task, and the strongest such model, DeTra, has no public implementation. We contribute an openly released DeTra reimplementation with documented approximations, and on top of it MC-DeTra: a family of motion-consistency mechanisms that add supervision through two annotation-derived auxiliary signals -- each actor's observed past motion and the occupancy of the surrounding traffic that forms its social context -- and one inter-output consistency constraint that aligns an actor's predicted heading with its predicted direction of motion. Every proposed loss is train-only and inference-safe: it shapes the shared BEV representation during training and is removed at test time, adding no inference latency. On the Waymo Open Dataset, evaluated under a strict, detection-conditioned forecasting protocol, MC-DeTra improves dynamic, socially-situated trajectory forecasting while preserving or improving detection accuracy; a gradient-based loss-calibration analysis exposes how the auxiliary objectives compete at the shared backbone, and our ablation identifies which signals contribute most. We release code, configurations, and evaluation tooling at https://github.com/diuzhevVlad/MC-DeTra.",
-        "link": "https://arxiv.org/abs/2609.11717v1",
-        "pdfLink": "https://arxiv.org/pdf/2609.11717v1",
-        "published": "2026-09-10T15:34:09Z",
-        "updated": "2026-09-10T15:34:09Z",
+        "id": "2609.14973v1",
+        "title": "PhysBrain 1.5: From Vision-Language Models to Physical Foundation Models",
+        "summary": "We present PhysBrain 1.5, a unified model for understanding physical environments, generating actions, and predicting future states. Motivated by the physical loop of observation, interaction, and environmental change, we bring these capabilities into a common learning framework.",
+        "summaryRaw": "We present PhysBrain 1.5, a unified model for understanding physical environments, generating actions, and predicting future states. Motivated by the physical loop of observation, interaction, and environmental change, we bring these capabilities into a common learning framework. Starting from a general vision--language model, we encode language responses, end-effector motion, and dense visual targets as discrete sequences and jointly optimize them with autoregressive next-token prediction. Pre-training draws its embodied supervision entirely from human interaction videos, using task-centered episodes to pair semantic and spatial context with recovered motion and subsequent observations. We then adapt the model through supervised fine-tuning on a mixture of human demonstrations, robot trajectories, and simulated experience. Across 28 embodied understanding benchmarks, our 8B model achieves an average score of 72.5, setting a new open-source state of the art and performing on par with leading proprietary models such as GPT-6-Astra and Gemini 3.6 Flash. It achieves the best open-source results on 14 benchmarks while retaining general multimodal capabilities. Beyond these understanding evaluations, qualitative examples show the model's ability to produce end-effector trajectories and predict future scenes through spatially aligned RGB, depth, and robot-mask outputs.",
+        "link": "https://arxiv.org/abs/2609.14973v1",
+        "pdfLink": "https://arxiv.org/pdf/2609.14973v1",
+        "published": "2026-09-14T03:25:46Z",
+        "updated": "2026-09-14T03:25:46Z",
         "authors": [
-          "Vladislav Diuzhev",
-          "Dmitry Yudin"
+          "DeepCybo Team",
+          "Yu Bin",
+          "Haipeng Cao",
+          "Zheng Chang",
+          "Kai Chen",
+          "Youning Chen",
+          "Kailin Deng",
+          "Yichao Du"
         ],
         "categories": [
           "cs.CV",
           "cs.RO"
         ],
-        "score": 55,
-        "importanceLevel": "B",
-        "lane": "Robotics",
+        "score": 88,
+        "importanceLevel": "S",
+        "lane": "Both",
         "dimensionScores": {
-          "relevance": 42,
-          "novelty": 35,
-          "impact": 25,
-          "practicality": 40,
-          "coreAlignment": 25
+          "relevance": 90,
+          "novelty": 85,
+          "impact": 86,
+          "practicality": 78,
+          "coreAlignment": 92
         },
-        "oneSentenceSummary": "开源复现DeTra并加入运动一致性损失，提升BEV检测与轨迹预测精度。",
-        "summaryCn": "该工作开源复现了DeTra，并进一步提出MC-DeTra模型族。通过从标注中提取历史运动和社会占用信息作为辅助监督，并增加航向与运动方向一致性约束，MC-DeTra在共享BEV图像上联合优化目标检测与轨迹预测，重点提升动态行人的预测准确性和鲁棒性。",
-        "whyImportant": "提供可复现基线，并通过运动一致性损失解决动态目标预测难的问题，对自动驾驶感知预测融合有参考价值。",
+        "oneSentenceSummary": "统一视觉语言模型，预测环境、生成动作与未来状态",
+        "summaryCn": "PhysBrain 1.5以通用视觉语言模型为基础，将语言响应、末端执行器运动和稠密视觉目标统一离散为序列，用自回归下一token预测进行联合优化。预训练从人类交互视频中提取任务中心片段，恢复运动与后续观察；随后在人类演示、机器人轨迹和仿真经验上监督微调。在28个具身理解基准上展示环境理解、动作生成和未来状态预测能力。",
+        "whyImportant": "统一物理理解、动作生成与未来预测，为通用具身智能提供更完整的模型底座，减少碎片化。",
         "reasonTags": [
-          "自动驾驶",
-          "轨迹预测",
-          "BEV感知",
-          "开源复现"
+          "具身智能",
+          "物理基础模型",
+          "动作生成",
+          "未来预测"
         ],
         "innovationPoints": [
-          "运动一致性辅助损失",
-          "社会上下文占用监督",
-          "航向与运动方向对齐约束"
+          "构建观察-交互-环境变化物理回路统一框架",
+          "仅靠人类交互视频自回归预训练，无需大规模机器人标注",
+          "同时覆盖VLA动作生成与WAM未来状态预测"
         ],
-        "noveltyVerdict": "在现有DeTra基础上改进损失设计，创新程度中等，但开源实用性较高。",
-        "duplicateRisk": "low",
-        "dedupeNote": "与CARLAverse关注仿真框架不同，本文聚焦感知预测模型层面，不构成重复。",
+        "noveltyVerdict": "较强创新，整合VLA与世界模型能力，框架统一。",
+        "duplicateRisk": "medium",
+        "dedupeNote": "与纯VLA或纯世界模型不同，强调三者闭环统一建模，非单一策略或预测器。",
         "retrievalGroups": [
-          "driving"
+          "general"
         ],
         "mergedCount": 1,
         "mergedTitles": [
-          "MC-DeTra: Motion-Consistent Joint Object Detection and Socially-Aware Trajectory Forecasting in Bird's-Eye-View Images"
+          "PhysBrain 1.5: From Vision-Language Models to Physical Foundation Models"
         ]
       },
       {
-        "id": "2609.11478v1",
-        "title": "CARLAverse: A Highly Modular, Distributed, and Multimodal Framework for Human-in-the-Loop Simulation",
-        "summary": "The development of autonomous driving demands comprehensive testing in mixed-traffic scenarios involving vulnerable road users (VRUs), where purely artificial agents often fail to capture authentic human social negotiations. While human-in-the-loop (HITL) simulators enable safe investigation of these interactions, existing multi-agent pl…",
-        "summaryRaw": "The development of autonomous driving demands comprehensive testing in mixed-traffic scenarios involving vulnerable road users (VRUs), where purely artificial agents often fail to capture authentic human social negotiations. While human-in-the-loop (HITL) simulators enable safe investigation of these interactions, existing multi-agent platforms struggle with the network latency and synchronization constraints required for high-fidelity haptic feedback. To resolve this, we present CARLAverse, an open-source, multimodal simulation ecosystem. Extending modular hardware abstraction, CARLAverse integrates driving (DrivoCARLA), cycling (CycloCARLA), and pedestrian (WalkoCARLA) simulators into a shared virtual environment. Its core methodological contribution is a distributed physics architecture: latency-critical ego dynamics and high-frequency force feedback are computed locally on client nodes, while a central CARLA server orchestrates non-player character (NPC) physics and global traffic. By decoupling haptic control loops from network bottlenecks, CARLAverse enables scalable, cross-institutional HITL experiments without compromising physical immersion. Code and documentation: https://git.ieem-ka.de/simulator-environments/carlaverse",
-        "link": "https://arxiv.org/abs/2609.11478v1",
-        "pdfLink": "https://arxiv.org/pdf/2609.11478v1",
-        "published": "2026-09-10T12:44:18Z",
-        "updated": "2026-09-10T12:44:18Z",
+        "id": "2609.15213v1",
+        "title": "X-WBC: A Cross-Embodiment Foundation Model for Humanoid Whole-Body Control",
+        "summary": "Scaling humanoid whole-body control toward general-purpose deployment requires large human motion corpora and training experience shared across robot bodies. Existing methods usually train one policy per robot, leaving motion experience isolated across embodiments.",
+        "summaryRaw": "Scaling humanoid whole-body control toward general-purpose deployment requires large human motion corpora and training experience shared across robot bodies. Existing methods usually train one policy per robot, leaving motion experience isolated across embodiments. We introduce X-WBC, a cross-embodiment foundation framework that separates relatively shared human motion semantics from embodiment-specific physical execution. Human-centered command tokens align full human motion, robot reference motion, and sparse VR observations. A causal Transformer learns reusable temporal structure from mixed multi-robot rollouts, while lightweight robot-specific modules map the shared representation to each robot's proprioception and action space. Across nine simulated embodiments, external motions, and four real robots, experiments show that joint training improves tracking, the aligned representation supports consistent control across command sources, and the learned policy remains competitive beyond the training corpus. These results support heterogeneous humanoids as joint data sources and establish cross-embodiment joint training as a practical route toward whole-body control foundation models.",
+        "link": "https://arxiv.org/abs/2609.15213v1",
+        "pdfLink": "https://arxiv.org/pdf/2609.15213v1",
+        "published": "2026-09-14T08:34:48Z",
+        "updated": "2026-09-14T08:34:48Z",
         "authors": [
-          "Patrick Rebling",
-          "Philipp Nenninger",
-          "Reiner Kriesten"
+          "Juntong Zhang",
+          "Chun Gu",
+          "Li Zhang"
         ],
         "categories": [
           "cs.RO"
         ],
-        "score": 45,
+        "score": 70,
         "importanceLevel": "B",
         "lane": "Robotics",
         "dimensionScores": {
-          "relevance": 25,
-          "novelty": 30,
-          "impact": 20,
-          "practicality": 35,
-          "coreAlignment": 15
+          "relevance": 55,
+          "novelty": 75,
+          "impact": 65,
+          "practicality": 80,
+          "coreAlignment": 80
         },
-        "oneSentenceSummary": "面向人机在环的模块化多模态自动驾驶仿真框架，集成驾驶、骑行、行人模拟。",
-        "summaryCn": "CARLAverse是一个开源多模态仿真生态系统，将驾驶、骑行和行人模拟器集成到共享虚拟环境中。其核心贡献是分布式物理架构，将时延敏感的自身动力学和高频力反馈在本地节点计算，以解决多人交互场景下的网络同步与力反馈保真度问题，支撑混合交通中的人机在环测试。",
-        "whyImportant": "实现高保真分布式人机在环仿真，有助于自动驾驶系统在混合交通中验证社会交互行为。",
+        "oneSentenceSummary": "跨具身人形全身控制基础模型，解耦运动语义与本体执行",
+        "summaryCn": "X-WBC提出跨具身人形全身控制基础框架，分离相对共享的人类运动语义与本体物理执行。以人为中心的命令token对齐人类运动、机器人参考运动和稀疏VR观测；因果Transformer从多机器人混合数据学习可复用时间结构，轻量模块映射到各自本体感知和动作空间。在九种仿真和四台真实机器人上验证联合训练提升跟踪。",
+        "whyImportant": "跨具身联合训练突破单一机器人策略孤立，提升人形机器人运动迁移与全身控制泛化。",
         "reasonTags": [
-          "自动驾驶仿真",
-          "人机在环",
-          "分布式架构",
-          "多模态"
+          "人形控制",
+          "跨具身",
+          "全身控制",
+          "基础模型"
         ],
         "innovationPoints": [
-          "分布式物理架构分离时延敏感计算",
-          "集成驾驶骑行行人多模态模拟器",
-          "开源模块化硬件抽象"
+          "分离人类运动语义与本体物理执行",
+          "跨机器人混合数据共享时间结构学习",
+          "轻量模块实现多本体快速适配"
         ],
-        "noveltyVerdict": "在现有多模态HITL仿真基础上提出分布式架构，工程创新为主，学术新颖度中等偏低。",
+        "noveltyVerdict": "创新中等偏上，侧重架构与训练策略，非颠覆性。",
         "duplicateRisk": "low",
-        "dedupeNote": "与MC-DeTra侧重感知预测模型不同，本文关注仿真基础设施，无重叠。",
+        "dedupeNote": "区别于单机器人策略，专注跨本体共享表示与模块化解耦，降低重复训练成本。",
         "retrievalGroups": [
-          "driving"
+          "general"
         ],
         "mergedCount": 1,
         "mergedTitles": [
-          "CARLAverse: A Highly Modular, Distributed, and Multimodal Framework for Human-in-the-Loop Simulation"
+          "X-WBC: A Cross-Embodiment Foundation Model for Humanoid Whole-Body Control"
         ]
-      }
-    ],
-    "vla": [
+      },
       {
-        "id": "2609.11717v1",
-        "title": "MC-DeTra: Motion-Consistent Joint Object Detection and Socially-Aware Trajectory Forecasting in Bird's-Eye-View Images",
-        "summary": "Unified models for object detection and trajectory forecasting aim to merge perception and prediction for autonomous driving, refining actor trajectories directly over shared bird's-eye-view (BEV) images rasterized from LiDAR and high-definition maps. Their accuracy on dynamic, moving actors, however, remains the hardest part of the task…",
-        "summaryRaw": "Unified models for object detection and trajectory forecasting aim to merge perception and prediction for autonomous driving, refining actor trajectories directly over shared bird's-eye-view (BEV) images rasterized from LiDAR and high-definition maps. Their accuracy on dynamic, moving actors, however, remains the hardest part of the task, and the strongest such model, DeTra, has no public implementation. We contribute an openly released DeTra reimplementation with documented approximations, and on top of it MC-DeTra: a family of motion-consistency mechanisms that add supervision through two annotation-derived auxiliary signals -- each actor's observed past motion and the occupancy of the surrounding traffic that forms its social context -- and one inter-output consistency constraint that aligns an actor's predicted heading with its predicted direction of motion. Every proposed loss is train-only and inference-safe: it shapes the shared BEV representation during training and is removed at test time, adding no inference latency. On the Waymo Open Dataset, evaluated under a strict, detection-conditioned forecasting protocol, MC-DeTra improves dynamic, socially-situated trajectory forecasting while preserving or improving detection accuracy; a gradient-based loss-calibration analysis exposes how the auxiliary objectives compete at the shared backbone, and our ablation identifies which signals contribute most. We release code, configurations, and evaluation tooling at https://github.com/diuzhevVlad/MC-DeTra.",
-        "link": "https://arxiv.org/abs/2609.11717v1",
-        "pdfLink": "https://arxiv.org/pdf/2609.11717v1",
-        "published": "2026-09-10T15:34:09Z",
-        "updated": "2026-09-10T15:34:09Z",
+        "id": "2609.15973v1",
+        "title": "Discovery Foundation Models: Toward Open-Ended Discovery Intelligence",
+        "summary": "Foundation models have progressed from learning and reasoning over existing knowledge, to increasingly learning through action, tool use, and outcome feedback. We argue that the next frontier is a further transition: from solving and acting within problems specified by humans to participating in the process by which new problems, represe…",
+        "summaryRaw": "Foundation models have progressed from learning and reasoning over existing knowledge, to increasingly learning through action, tool use, and outcome feedback. We argue that the next frontier is a further transition: from solving and acting within problems specified by humans to participating in the process by which new problems, representations, explanations, and knowledge are created. We refer to this capability as Discovery Intelligence. We formulate Discovery Foundation Models (DFMs) as general-purpose model systems for open-ended discovery. A DFM operates over a revisable research state and supports seven coupled capabilities spanning problem discovery, formulation, representation construction, hypothesis formation, intervention, evidence-grounded revision, and continual discovery improvement. We instantiate this framework with Zetema, which couples explicit research-state dynamics, verification and experimental gating, external grounding, and cross-task Discovery Skill evolution. We further ground the framework with GALILEO, a real therapeutic-discovery system in which Dry-Lab reasoning, robotic and hands-on Wet-Lab experimentation, external biological evidence, and iterative hypothesis and design revision form a closed physical discovery loop. We then formulate a unified approach to capability formation and process-centered evaluation, enabling discovery behavior to be trained, improved, and measured beyond final-answer performance. Together, these components establish discovery as a learnable, executable, and evaluable capability of foundation-model systems. We view this shift as a broader progression in intelligence scaling: from learning over existing knowledge, to learning from action outcomes, and ultimately to participating in the construction, testing, and revision of the structures through which new knowledge is discovered. Code: https://github.com/Gen-Verse/DFM-Plans",
+        "link": "https://arxiv.org/abs/2609.15973v1",
+        "pdfLink": "https://arxiv.org/pdf/2609.15973v1",
+        "published": "2026-09-14T17:56:00Z",
+        "updated": "2026-09-14T17:56:00Z",
         "authors": [
-          "Vladislav Diuzhev",
-          "Dmitry Yudin"
+          "Ling Yang",
+          "Zhenfei Yin",
+          "Yingcheng Wu"
         ],
-        "categories": [
-          "cs.CV",
-          "cs.RO"
-        ],
-        "score": 68,
-        "importanceLevel": "A",
+        "categories": [],
+        "score": 46,
+        "importanceLevel": "B",
         "lane": "Robotics",
         "dimensionScores": {
-          "relevance": 41,
+          "relevance": 18,
           "novelty": 17,
-          "impact": 12,
-          "practicality": 7,
-          "coreAlignment": 25
+          "impact": 8,
+          "practicality": 3,
+          "coreAlignment": 8
         },
         "oneSentenceSummary": "该论文是偏机器人的重点候选，值得优先阅读。",
-        "summaryCn": "论文核心内容是：Unified models for object detection and trajectory forecasting aim to merge perception and prediction for autonomous driving, refin…",
-        "whyImportant": "命中VLA、自动驾驶、新基准、通用框架主题，分类覆盖cs.CV / cs.RO，并体现较强的新颖性与影响潜力。",
+        "summaryCn": "论文核心内容是：Foundation models have progressed from learning and reasoning over existing knowledge, to increasingly learning through action, too…",
+        "whyImportant": "命中机器人、新基准、通用框架主题，分类覆盖，并体现较强的新颖性与影响潜力。",
         "reasonTags": [
-          "VLA",
-          "自动驾驶",
+          "机器人",
+          "新基准",
+          "通用框架"
+        ],
+        "innovationPoints": [
+          "提出具有跟踪价值的方法设计"
+        ],
+        "noveltyVerdict": "创新点清晰，属于值得重点跟进的增量改进。",
+        "duplicateRisk": "low",
+        "dedupeNote": "该论文在Robotics方向上具备独立问题设置或代表性贡献，可作为当日候选保留。",
+        "retrievalGroups": [
+          "general"
+        ],
+        "mergedCount": 1,
+        "mergedTitles": [
+          "Discovery Foundation Models: Toward Open-Ended Discovery Intelligence"
+        ]
+      },
+      {
+        "id": "2609.15087v1",
+        "title": "Beyond Numerical Time Series: A Unified Benchmark for Multimodal Forecasting with Heterogeneous Context",
+        "summary": "Most time series forecasting benchmarks remain numerical-centric and provide limited support for evaluating contextual information that shapes real-world temporal dynamics. Existing multimodal benchmarks also suffer from limited data and context coverage, fragmented evaluation settings, and overreliance on aggregate evaluation.",
+        "summaryRaw": "Most time series forecasting benchmarks remain numerical-centric and provide limited support for evaluating contextual information that shapes real-world temporal dynamics. Existing multimodal benchmarks also suffer from limited data and context coverage, fragmented evaluation settings, and overreliance on aggregate evaluation. In this paper, we propose \\textbf{MUSE-Bench}, a unified benchmark for multimodal time series forecasting with heterogeneous context. It comprises fourteen datasets across eight domains and six types of context: metadata, events, holidays, news, images, and numerical covariates. We evaluate diverse forecasting paradigms, including statistical, data-specific, foundation, multimodal, and general-purpose LLM forecasting methods under shared non-overlapping forecast windows, common target observations, and consistent point and probabilistic metrics. Extensive experiments yield three main findings. First, numerical time series foundation models dominate the overall ranking, while Aurora, the evaluated multimodal foundation model, trails the leading numerical TSFMs but outperforms all evaluated data-specific models. Second, ablations show that external context improves the four evaluated context-aware models, whereas incorrect or temporally misaligned context degrades performance. Third, general-purpose LLMs perform poorly as direct forecasters, and LLM-guided refinement does not yield consistent improvements. MUSE-Bench enables systematic evaluation of how forecasting models utilize context and provides a foundation for future multimodal forecasting research.",
+        "link": "https://arxiv.org/abs/2609.15087v1",
+        "pdfLink": "https://arxiv.org/pdf/2609.15087v1",
+        "published": "2026-09-14T06:01:16Z",
+        "updated": "2026-09-14T06:01:16Z",
+        "authors": [
+          "Peng Chen",
+          "Zhihao Zhuang",
+          "Hongzhou Chen",
+          "Junhao Huang",
+          "Aiping Yang",
+          "Mengsen Wu",
+          "Yiding Liu",
+          "Xilin Dai"
+        ],
+        "categories": [
+          "cs.LG",
+          "cs.AI"
+        ],
+        "score": 43,
+        "importanceLevel": "B",
+        "lane": "Peripheral",
+        "dimensionScores": {
+          "relevance": 5,
+          "novelty": 27,
+          "impact": 16,
+          "practicality": 0,
+          "coreAlignment": 5
+        },
+        "oneSentenceSummary": "该论文是偏相关方向的重点候选，值得优先阅读。",
+        "summaryCn": "论文核心内容是：Most time series forecasting benchmarks remain numerical-centric and provide limited support for evaluating contextual information…",
+        "whyImportant": "命中新基准、通用框架、真实实验主题，分类覆盖cs.LG / cs.AI，并体现较强的新颖性与影响潜力。",
+        "reasonTags": [
+          "新基准",
+          "通用框架",
+          "真实实验"
+        ],
+        "innovationPoints": [
+          "包含新基准或新数据评测",
+          "提供真实场景实验验证"
+        ],
+        "noveltyVerdict": "创新信号强，像是带新范式或新基准的工作。",
+        "duplicateRisk": "low",
+        "dedupeNote": "该论文在Peripheral方向上具备独立问题设置或代表性贡献，可作为当日候选保留。",
+        "retrievalGroups": [
+          "general"
+        ],
+        "mergedCount": 1,
+        "mergedTitles": [
+          "Beyond Numerical Time Series: A Unified Benchmark for Multimodal Forecasting with Heterogeneous Context"
+        ]
+      },
+      {
+        "id": "2609.15740v1",
+        "title": "A Language-Guided Multimodal Foundation Model for Zero-Shot and Multi-Task Brain Signal Analysis",
+        "summary": "Brain signal analysis is essential for both neuroscience research and clinical diagnostics, yet current approaches face critical limitations. End-to-end models require task-specific retraining and exhibit limited generalization, while pre-trained models lack semantic depth and still depend on extensive fine-tuning.",
+        "summaryRaw": "Brain signal analysis is essential for both neuroscience research and clinical diagnostics, yet current approaches face critical limitations. End-to-end models require task-specific retraining and exhibit limited generalization, while pre-trained models lack semantic depth and still depend on extensive fine-tuning. Meanwhile, general-purpose multimodal foundation models, though powerful in other domains, struggle to interpret brain signals due to representational misalignment and lack of domain knowledge. This study introduces a multimodal foundation model for zero-shot and multi-task brain signal analysis (METIS) through a unified language-signal alignment framework. METIS is pretrained on the largest and most diverse brain-signal corpus to date, comprising over 70,000 h of recordings from more than 11,000 subjects across 20 datasets. In a comprehensive zero-shot evaluation across 12 datasets, METIS outperformed the leading generalist model by over 20.9% in average accuracy. Remarkably, without any fine-tuning, METIS's performance matches or exceeds that of supervised, task-specific models. Furthermore, METIS demonstrates exceptional data efficiency and strong generalization, achieving an average AUROC advantage of over 16.0% in few-shot settings and 15.9% in cross-dataset transfer. This work establishes a new paradigm for general-purpose brain signal analysis, paving the way for next-generation neurotechnology.",
+        "link": "https://arxiv.org/abs/2609.15740v1",
+        "pdfLink": "https://arxiv.org/pdf/2609.15740v1",
+        "published": "2026-09-14T15:32:38Z",
+        "updated": "2026-09-14T15:32:38Z",
+        "authors": [
+          "Mingzhi Chen",
+          "Yiyu Gui",
+          "Guibo Luo",
+          "Yuchao Yang"
+        ],
+        "categories": [
+          "cs.LG",
+          "cs.AI"
+        ],
+        "score": 41,
+        "importanceLevel": "B",
+        "lane": "Peripheral",
+        "dimensionScores": {
+          "relevance": 5,
+          "novelty": 26,
+          "impact": 15,
+          "practicality": 0,
+          "coreAlignment": 5
+        },
+        "oneSentenceSummary": "该论文是偏相关方向的重点候选，值得优先阅读。",
+        "summaryCn": "论文核心内容是：Brain signal analysis is essential for both neuroscience research and clinical diagnostics, yet current approaches face critical li…",
+        "whyImportant": "命中新基准、通用框架主题，分类覆盖cs.LG / cs.AI，并体现较强的新颖性与影响潜力。",
+        "reasonTags": [
+          "新基准",
+          "通用框架"
+        ],
+        "innovationPoints": [
+          "包含新基准或新数据评测"
+        ],
+        "noveltyVerdict": "创新信号强，像是带新范式或新基准的工作。",
+        "duplicateRisk": "low",
+        "dedupeNote": "该论文在Peripheral方向上具备独立问题设置或代表性贡献，可作为当日候选保留。",
+        "retrievalGroups": [
+          "general"
+        ],
+        "mergedCount": 1,
+        "mergedTitles": [
+          "A Language-Guided Multimodal Foundation Model for Zero-Shot and Multi-Task Brain Signal Analysis"
+        ]
+      },
+      {
+        "id": "2609.15794v1",
+        "title": "KnowBench: Effort Reduction as a Unified, Deployment-Grounded Benchmark for Clinical AI",
+        "summary": "Clinical AI systems are evaluated with instruments built for research settings (reference-based similarity metrics and expert rubric panels) that measure resemblance to an artifact rather than reduction of a burden. We introduce KnowBench, pioneered by Knowtex, whose unifying metric is Effort Reduction (ER): the proportion of system-gene…",
+        "summaryRaw": "Clinical AI systems are evaluated with instruments built for research settings (reference-based similarity metrics and expert rubric panels) that measure resemblance to an artifact rather than reduction of a burden. We introduce KnowBench, pioneered by Knowtex, whose unifying metric is Effort Reduction (ER): the proportion of system-generated clinical work product accepted by the responsible clinician under expert and safety review. ER is defined once and instantiated per task across the administrative workload clinical AI automates: visit notes, diagnosis and billing codes, orders, EHR chart summarization, patient after-visit summaries, and clinical decision support. In every instantiation the construction is identical: the clinician's review-and-attestation event is the ground truth, every accepted unit is work the system completed, and every correction is residual effort returned to the clinician. The primary contribution of this paper is the benchmark itself: the metric, its degenerate cases, and a reporting protocol under which ER claims are auditable and cross-system comparable. Alongside it we report an initial headline measurement from the documentation instantiation: over one million signed encounters across a production window exceeding six months and thirteen medical specialties, Knowtex's proprietary fine-tuned clinical foundation models operating inside a closed feedback architecture achieve an aggregate ER of 97.99%, with per-specialty aggregates spanning 96.8-98.9%. This release reports the protocol's checklist partially, and states which companion statistics are withheld; the benchmark is offered so that this figure, and every figure reported after it, can be held to the same standard.",
+        "link": "https://arxiv.org/abs/2609.15794v1",
+        "pdfLink": "https://arxiv.org/pdf/2609.15794v1",
+        "published": "2026-09-14T16:10:52Z",
+        "updated": "2026-09-14T16:10:52Z",
+        "authors": [
+          "Jocelyn Kang",
+          "Caroline Zhang"
+        ],
+        "categories": [
+          "cs.AI"
+        ],
+        "score": 40,
+        "importanceLevel": "B",
+        "lane": "Peripheral",
+        "dimensionScores": {
+          "relevance": 3,
+          "novelty": 22,
+          "impact": 6,
+          "practicality": 12,
+          "coreAlignment": 3
+        },
+        "oneSentenceSummary": "该论文是偏相关方向的重点候选，值得优先阅读。",
+        "summaryCn": "论文核心内容是：Clinical AI systems are evaluated with instruments built for research settings (reference-based similarity metrics and expert rubri…",
+        "whyImportant": "命中新基准、通用框架主题，分类覆盖cs.AI，并体现较强的新颖性与影响潜力。",
+        "reasonTags": [
+          "新基准",
+          "通用框架"
+        ],
+        "innovationPoints": [
+          "包含新基准或新数据评测"
+        ],
+        "noveltyVerdict": "创新信号强，像是带新范式或新基准的工作。",
+        "duplicateRisk": "low",
+        "dedupeNote": "该论文在Peripheral方向上具备独立问题设置或代表性贡献，可作为当日候选保留。",
+        "retrievalGroups": [
+          "general"
+        ],
+        "mergedCount": 1,
+        "mergedTitles": [
+          "KnowBench: Effort Reduction as a Unified, Deployment-Grounded Benchmark for Clinical AI"
+        ]
+      },
+      {
+        "id": "2609.15032v1",
+        "title": "Tele360: Real-Time Feed-Forward Human Reconstruction from Sparse Unposed Cameras",
+        "summary": "Live free-viewpoint visualization of real humans is critical for immersive communication and interactive digital experiences. Existing methods either rely on computationally expensive optimization or require calibrated cameras and low-resolution inputs, making real-time high-resolution deployment impractical.",
+        "summaryRaw": "Live free-viewpoint visualization of real humans is critical for immersive communication and interactive digital experiences. Existing methods either rely on computationally expensive optimization or require calibrated cameras and low-resolution inputs, making real-time high-resolution deployment impractical. In this work, we present Tele360, the first real-time feed-forward system for dynamic human reconstruction and live free-viewpoint visualization from sparse, unposed RGB streams. Our system jointly estimates camera poses and reconstructs a dynamic 3D Gaussian representation for each time instance in a single forward pass. To achieve this, we start by designing a lightweight sparsity-aware multi-view transformer backbone that tokenizes foreground human regions while preserving global context through a shared scene token. We then employ a fully transformer-based Gaussian decoder to mitigate convolution-induced over-smoothing while keeping decoding sparse and efficient. In addition, we introduce a hybrid feature pyramid that injects multi-scale appearance cues into geometry prediction. We further introduce a lightweight differentiable Levenberg-Marquardt camera refinement layer to enhance multi-view consistency and geometric alignment. Moreover, to stabilize learning under sparse, unposed inputs, we transfer multi-view geometry priors from a large visual-geometry foundation model via teacher-student distillation. Finally, the predicted Gaussian maps are streamed with video codecs to remote devices for interactive free-viewpoint rendering. Extensive experiments show that Tele360 achieves state-of-the-art visual quality on studio benchmarks while supporting real-time 2K input-to-rendering at over 25 FPS on a single consumer GPU. Additional captured sequences illustrate its performance across varied subjects, clothing, and motions under our multi-camera setup.",
+        "link": "https://arxiv.org/abs/2609.15032v1",
+        "pdfLink": "https://arxiv.org/pdf/2609.15032v1",
+        "published": "2026-09-14T04:50:52Z",
+        "updated": "2026-09-14T04:50:52Z",
+        "authors": [
+          "Hanzhang Tu",
+          "Zhanfeng Liao",
+          "Wei Min",
+          "Jiajun Zhang",
+          "Yebin Liu"
+        ],
+        "categories": [
+          "cs.CV"
+        ],
+        "score": 40,
+        "importanceLevel": "B",
+        "lane": "Peripheral",
+        "dimensionScores": {
+          "relevance": 3,
+          "novelty": 17,
+          "impact": 11,
+          "practicality": 12,
+          "coreAlignment": 3
+        },
+        "oneSentenceSummary": "该论文是偏相关方向的重点候选，值得优先阅读。",
+        "summaryCn": "论文核心内容是：Live free-viewpoint visualization of real humans is critical for immersive communication and interactive digital experiences.",
+        "whyImportant": "命中新基准、通用框架主题，分类覆盖cs.CV，并体现较强的新颖性与影响潜力。",
+        "reasonTags": [
           "新基准",
           "通用框架"
         ],
@@ -293,34 +1310,2670 @@ window.PAPERS_SITE_DATA = {
         ],
         "noveltyVerdict": "创新点清晰，属于值得重点跟进的增量改进。",
         "duplicateRisk": "low",
-        "dedupeNote": "该论文在Robotics方向上具备独立问题设置或代表性贡献，可作为当日候选保留。",
+        "dedupeNote": "该论文在Peripheral方向上具备独立问题设置或代表性贡献，可作为当日候选保留。",
         "retrievalGroups": [
-          "driving"
+          "general"
         ],
         "mergedCount": 1,
         "mergedTitles": [
-          "MC-DeTra: Motion-Consistent Joint Object Detection and Socially-Aware Trajectory Forecasting in Bird's-Eye-View Images"
+          "Tele360: Real-Time Feed-Forward Human Reconstruction from Sparse Unposed Cameras"
+        ]
+      },
+      {
+        "id": "2609.15669v1",
+        "title": "Benchmarking Intra-Patient 3D Deformable Multimodal Image Registration",
+        "summary": "Multimodal image registration is a key component of many clinical workflows, yet it remains challenging because corresponding anatomical structures often exhibit substantially different image intensities across modalities. In this work, we present a comprehensive benchmark of intra-patient 3D multimodal deformable registration methods ac…",
+        "summaryRaw": "Multimodal image registration is a key component of many clinical workflows, yet it remains challenging because corresponding anatomical structures often exhibit substantially different image intensities across modalities. In this work, we present a comprehensive benchmark of intra-patient 3D multimodal deformable registration methods across three datasets covering different anatomical regions and difficulty levels, including both synthetic deformation recovery and real clinical scenarios. We evaluate classical optimization-based approaches and modern learning-based methods, including recent deep learning and foundation models, using complementary metrics: Average Dice similarity coefficient (DSC), average 95th-percentile Hausdorff distance (HD95), and a modality-independent structural similarity measure based on the MIND self-similarity context (MIND-SSC). Results show high variability across datasets, with learning-based methods demonstrating superior performance on large synthetic benchmarks, while only limited improvements are observed in real pelvic registration. A key finding of this study is the consistent disagreement between geometric metrics (DSC, HD95) and image-based similarity metrics (MIND-SSC), highlighting that improved overlap does not necessarily imply better global multimodal correspondence. Furthermore, anatomy-guided approaches achieve the highest overlap scores but exhibit degraded performance outside of segmented regions, revealing a trade-off between label-driven alignment and global structural coherence. Overall, our results indicate that no current method achieves robust performance across anatomies and modalities. We demonstrate that intra-patient 3D multimodal registration requires multi-criteria evaluation, including deformation-based metrics, and remains an open problem.",
+        "link": "https://arxiv.org/abs/2609.15669v1",
+        "pdfLink": "https://arxiv.org/pdf/2609.15669v1",
+        "published": "2026-09-14T14:47:57Z",
+        "updated": "2026-09-14T14:47:57Z",
+        "authors": [
+          "Matteo Barbieri",
+          "Giammarco La Barbera",
+          "Juan Pablo De La Plata",
+          "Sabine Sarnacki",
+          "Isabelle Bloch",
+          "Pietro Gori"
+        ],
+        "categories": [
+          "cs.CV",
+          "cs.AI"
+        ],
+        "score": 36,
+        "importanceLevel": "B",
+        "lane": "Peripheral",
+        "dimensionScores": {
+          "relevance": 6,
+          "novelty": 22,
+          "impact": 6,
+          "practicality": 8,
+          "coreAlignment": 6
+        },
+        "oneSentenceSummary": "该论文是偏相关方向的重点候选，值得优先阅读。",
+        "summaryCn": "论文核心内容是：Multimodal image registration is a key component of many clinical workflows, yet it remains challenging because corresponding anato…",
+        "whyImportant": "命中新基准、通用框架主题，分类覆盖cs.CV / cs.AI，并体现较强的新颖性与影响潜力。",
+        "reasonTags": [
+          "新基准",
+          "通用框架"
+        ],
+        "innovationPoints": [
+          "包含新基准或新数据评测"
+        ],
+        "noveltyVerdict": "创新信号强，像是带新范式或新基准的工作。",
+        "duplicateRisk": "low",
+        "dedupeNote": "该论文在Peripheral方向上具备独立问题设置或代表性贡献，可作为当日候选保留。",
+        "retrievalGroups": [
+          "general"
+        ],
+        "mergedCount": 1,
+        "mergedTitles": [
+          "Benchmarking Intra-Patient 3D Deformable Multimodal Image Registration"
+        ]
+      },
+      {
+        "id": "2609.15066v1",
+        "title": "Salesforce Koa: An Enterprise Language Model for Agentic Tool Use",
+        "summary": "We present Salesforce Koa, an enterprise language model built by post-training the open-weight Nemotron-3-Super-120B foundation model with reinforcement learning using Group Relative Policy Optimization (GRPO). Salesforce Koa is trained on public and synthetically generated data, with no customer data, to improve tool use and agentic cap…",
+        "summaryRaw": "We present Salesforce Koa, an enterprise language model built by post-training the open-weight Nemotron-3-Super-120B foundation model with reinforcement learning using Group Relative Policy Optimization (GRPO). Salesforce Koa is trained on public and synthetically generated data, with no customer data, to improve tool use and agentic capabilities while preserving strong general-purpose performance. Its distinctive component is a simulation-to-reward pipeline that expands workflow specifications into persona-conditioned multi-turn tasks with task-resolution rewards grounded in successful tool use for data-dependent requests. For enterprise domains, these specifications are written in Agent Script, Salesforce's declarative language for building Agentforce agents; for public tool-use domains, we synthesize the workflow structure directly. The same simulation and grounded-reward machinery drives GRPO across both. Across public tool-use, agentic-reasoning, and enterprise Customer Relationship Management (CRM) benchmarks, Salesforce Koa improves over its open-weight base, with the clearest gains on multi-turn tool use, and surpasses a strong proprietary baseline while remaining below the strongest frontier models. These results show that specification-driven reinforcement learning is a practical path to specializing open-weight foundation models for enterprise agentic tasks.",
+        "link": "https://arxiv.org/abs/2609.15066v1",
+        "pdfLink": "https://arxiv.org/pdf/2609.15066v1",
+        "published": "2026-09-14T05:30:28Z",
+        "updated": "2026-09-14T05:30:28Z",
+        "authors": [
+          "Zixiang Chen",
+          "Sufeng Niu",
+          "Yingchi Liu",
+          "Wenting Zhao",
+          "Akshara Prabhakar",
+          "Shubham Mehrotra",
+          "Bin Bi",
+          "Zhujun Lan"
+        ],
+        "categories": [
+          "cs.AI",
+          "cs.LG"
+        ],
+        "score": 31,
+        "importanceLevel": "B",
+        "lane": "Peripheral",
+        "dimensionScores": {
+          "relevance": 9,
+          "novelty": 17,
+          "impact": 10,
+          "practicality": 0,
+          "coreAlignment": 9
+        },
+        "oneSentenceSummary": "该论文是偏相关方向的重点候选，值得优先阅读。",
+        "summaryCn": "论文核心内容是：We present Salesforce Koa, an enterprise language model built by post-training the open-weight Nemotron-3-Super-120B foundation mod…",
+        "whyImportant": "命中机器人、新基准、通用框架主题，分类覆盖cs.AI / cs.LG，并体现较强的新颖性与影响潜力。",
+        "reasonTags": [
+          "机器人",
+          "新基准",
+          "通用框架"
+        ],
+        "innovationPoints": [
+          "包含新基准或新数据评测"
+        ],
+        "noveltyVerdict": "创新点清晰，属于值得重点跟进的增量改进。",
+        "duplicateRisk": "low",
+        "dedupeNote": "该论文在Peripheral方向上具备独立问题设置或代表性贡献，可作为当日候选保留。",
+        "retrievalGroups": [
+          "general"
+        ],
+        "mergedCount": 1,
+        "mergedTitles": [
+          "Salesforce Koa: An Enterprise Language Model for Agentic Tool Use"
+        ]
+      },
+      {
+        "id": "2609.14970v1",
+        "title": "Towards a knowledge-enhanced single-cell foundation model",
+        "summary": "Single-cell foundation models (scFMs) increasingly rely on large-scale transcriptomic pretraining, yet expanding pretraining data can yield diminishing gains while substantially increasing computational cost. Our data scaling analyses showed that incorporating biological knowledge, including cell-level text annotation and gene-level regu…",
+        "summaryRaw": "Single-cell foundation models (scFMs) increasingly rely on large-scale transcriptomic pretraining, yet expanding pretraining data can yield diminishing gains while substantially increasing computational cost. Our data scaling analyses showed that incorporating biological knowledge, including cell-level text annotation and gene-level regulatory information, provided additional scaling dimension than simply increasing data size. Motivated by this observation, we present scKITE, a simple yet effective scFM that integrates cell-annotation and gene-regulatory supervision into a shared transcriptomic Transformer encoder through lightweight auxiliary decoders. These decoders are used only during pretraining and subsequently discarded, yielding a general-purpose encoder enriched with biological knowledge for downstream applications. With only 179,067 pretraining samples, i.e., less than 0.5\\% of those used by previous strong scFMs, scKITE outperformed these models across diverse downstream tasks, highlighting knowledge-enhanced pretraining as a promising paradigm for biologically grounded scFMs.",
+        "link": "https://arxiv.org/abs/2609.14970v1",
+        "pdfLink": "https://arxiv.org/pdf/2609.14970v1",
+        "published": "2026-09-14T03:23:55Z",
+        "updated": "2026-09-14T03:23:55Z",
+        "authors": [
+          "Hanqing Zhang",
+          "Jie Bao",
+          "Mei Ma",
+          "Shuai Liu",
+          "Jiaying Ma",
+          "Jiaguan Liu",
+          "Jiaxiao Li",
+          "Zhenbo Li"
+        ],
+        "categories": [
+          "cs.AI"
+        ],
+        "score": 36,
+        "importanceLevel": "B",
+        "lane": "Peripheral",
+        "dimensionScores": {
+          "relevance": 3,
+          "novelty": 17,
+          "impact": 16,
+          "practicality": 3,
+          "coreAlignment": 3
+        },
+        "oneSentenceSummary": "该论文是偏相关方向的重点候选，值得优先阅读。",
+        "summaryCn": "论文核心内容是：Single-cell foundation models (scFMs) increasingly rely on large-scale transcriptomic pretraining, yet expanding pretraining data c…",
+        "whyImportant": "命中通用框架主题，分类覆盖cs.AI，并体现较强的新颖性与影响潜力。",
+        "reasonTags": [
+          "通用框架"
+        ],
+        "innovationPoints": [
+          "涉及新的训练或预训练范式"
+        ],
+        "noveltyVerdict": "创新点清晰，属于值得重点跟进的增量改进。",
+        "duplicateRisk": "low",
+        "dedupeNote": "该论文在Peripheral方向上具备独立问题设置或代表性贡献，可作为当日候选保留。",
+        "retrievalGroups": [
+          "general"
+        ],
+        "mergedCount": 1,
+        "mergedTitles": [
+          "Towards a knowledge-enhanced single-cell foundation model"
+        ]
+      },
+      {
+        "id": "2609.15676v1",
+        "title": "MambaMPD: A Mamba-Driven Segmentation Framework for Marine Pollution Detection from Remote Sensing Imagery",
+        "summary": "Accurate marine pollution detection (MPD) is essential for protecting coastal ecosystems and marine biodiversity. Vision Mamba models have shown promise in remote-sensing semantic segmentation by efficiently capturing long-range dependencies and global context, yet their potential for MPD remains underexplored.",
+        "summaryRaw": "Accurate marine pollution detection (MPD) is essential for protecting coastal ecosystems and marine biodiversity. Vision Mamba models have shown promise in remote-sensing semantic segmentation by efficiently capturing long-range dependencies and global context, yet their potential for MPD remains underexplored. MPD is particularly challenging because of low signal-to-noise ratios, fragmented pollution patterns, and indistinct boundaries caused by the visual similarity between pollutants and the surrounding sea. To address these issues, we propose MambaMPD, an enhanced Mamba-based framework incorporating two complementary structural priors: Frequency-Aware Augmentation (FAA) and multi-scale Edge-Guided Attention (EGA). FAA integrates wavelet transforms into the encoder to decompose features into multi-scale frequency subbands, enabling the model to capture low-frequency contextual semantics and high-frequency structural details needed to identify small, low-contrast, and irregular pollution patterns. EGA adaptively fuses hierarchical, Laplacian-derived boundary cues with deep semantic representations, refining encoder features before decoding to sharpen boundaries and reduce ambiguity in visually confusing, spatially fragmented scenes. Together, these modules improve sensitivity to subtle pollution signals while preserving fine boundary structures. A U-Net-style decoder with squeeze-and-excitation attention and deep supervision progressively restores and refines semantic and spatial information across scales. Extensive experiments on two benchmark MPD datasets show that MambaMPD achieves higher mIoU than competing methods while requiring substantially less computation than foundation-model-based approaches. On MADOS, it improves F1 by 3.6% over OSDMamba; on M4D, it raises Oil Spill IoU by 6.82% over TransOilSeg.",
+        "link": "https://arxiv.org/abs/2609.15676v1",
+        "pdfLink": "https://arxiv.org/pdf/2609.15676v1",
+        "published": "2026-09-14T14:52:16Z",
+        "updated": "2026-09-14T14:52:16Z",
+        "authors": [
+          "Shuaiyu Chen",
+          "Wei Han",
+          "Peng Ren",
+          "Chunbo Luo",
+          "Zeyu Fu"
+        ],
+        "categories": [
+          "cs.CV"
+        ],
+        "score": 35,
+        "importanceLevel": "B",
+        "lane": "Peripheral",
+        "dimensionScores": {
+          "relevance": 3,
+          "novelty": 22,
+          "impact": 6,
+          "practicality": 7,
+          "coreAlignment": 3
+        },
+        "oneSentenceSummary": "该论文是偏相关方向的重点候选，值得优先阅读。",
+        "summaryCn": "论文核心内容是：Accurate marine pollution detection (MPD) is essential for protecting coastal ecosystems and marine biodiversity.",
+        "whyImportant": "命中新基准、通用框架主题，分类覆盖cs.CV，并体现较强的新颖性与影响潜力。",
+        "reasonTags": [
+          "新基准",
+          "通用框架"
+        ],
+        "innovationPoints": [
+          "包含新基准或新数据评测"
+        ],
+        "noveltyVerdict": "创新信号强，像是带新范式或新基准的工作。",
+        "duplicateRisk": "low",
+        "dedupeNote": "该论文在Peripheral方向上具备独立问题设置或代表性贡献，可作为当日候选保留。",
+        "retrievalGroups": [
+          "general"
+        ],
+        "mergedCount": 1,
+        "mergedTitles": [
+          "MambaMPD: A Mamba-Driven Segmentation Framework for Marine Pollution Detection from Remote Sensing Imagery"
+        ]
+      },
+      {
+        "id": "2609.14956v1",
+        "title": "CAL-MOS: Bridging Layers with Adapters for Robust MOS Prediction Across Speech Foundation Models",
+        "summary": "Speech Quality Assessment (SQA) is essential for modern speech technologies, and recent non-intrusive SQA predictors increasingly rely on Speech Foundation Models (SFMs). However, because SFMs expose representations from many layers, it remains unclear which depths are most informative for MOS prediction and how multi-layer information s…",
+        "summaryRaw": "Speech Quality Assessment (SQA) is essential for modern speech technologies, and recent non-intrusive SQA predictors increasingly rely on Speech Foundation Models (SFMs). However, because SFMs expose representations from many layers, it remains unclear which depths are most informative for MOS prediction and how multi-layer information should be combined reliably across backbones and datasets. We benchmark ten SFMs on four MOS datasets under three regimes: full fine-tuning, last-layer probing with a frozen encoder, and naive cross-layer weighted aggregation. We find that the best layer is strongly backbone- and dataset-dependent, and that naive weighted fusion can be unstable across settings. We further evaluate a layer-calibrated aggregation variant that applies per-layer adapters before pooling, which improves the robustness of multi-layer fusion and narrows the gap to full fine-tuning while keeping the backbone frozen.",
+        "link": "https://arxiv.org/abs/2609.14956v1",
+        "pdfLink": "https://arxiv.org/pdf/2609.14956v1",
+        "published": "2026-09-14T03:00:06Z",
+        "updated": "2026-09-14T03:00:06Z",
+        "authors": [
+          "Alef Iury Siqueira Ferreira",
+          "Pedro Lustosa Rege Botelho",
+          "Fernanda Silva",
+          "Daniel Casanova",
+          "Rafael Faustino",
+          "Frederico Oliveira",
+          "Arlindo Galvão Filho",
+          "Anderson da Silva Soares"
+        ],
+        "categories": [
+          "cs.AI"
+        ],
+        "score": 34,
+        "importanceLevel": "B",
+        "lane": "Peripheral",
+        "dimensionScores": {
+          "relevance": 3,
+          "novelty": 21,
+          "impact": 6,
+          "practicality": 7,
+          "coreAlignment": 3
+        },
+        "oneSentenceSummary": "该论文是偏相关方向的重点候选，值得优先阅读。",
+        "summaryCn": "论文核心内容是：Speech Quality Assessment (SQA) is essential for modern speech technologies, and recent non-intrusive SQA predictors increasingly r…",
+        "whyImportant": "命中新基准、通用框架主题，分类覆盖cs.AI，并体现较强的新颖性与影响潜力。",
+        "reasonTags": [
+          "新基准",
+          "通用框架"
+        ],
+        "innovationPoints": [
+          "包含新基准或新数据评测"
+        ],
+        "noveltyVerdict": "创新信号强，像是带新范式或新基准的工作。",
+        "duplicateRisk": "low",
+        "dedupeNote": "该论文在Peripheral方向上具备独立问题设置或代表性贡献，可作为当日候选保留。",
+        "retrievalGroups": [
+          "general"
+        ],
+        "mergedCount": 1,
+        "mergedTitles": [
+          "CAL-MOS: Bridging Layers with Adapters for Robust MOS Prediction Across Speech Foundation Models"
+        ]
+      },
+      {
+        "id": "2609.15687v1",
+        "title": "EEG-Xplain: Decoding Neural Black-Boxes of EEG Foundation Models",
+        "summary": "EEG foundation models such as BIOT, LaBraM, and EEGMamba have achieved remarkable performance in neural signal decoding, but their black-box nature limits clinical trust and neuroscientific validation. We propose a unified attribution framework for interpreting EEG foundation models across heterogeneous architectures.",
+        "summaryRaw": "EEG foundation models such as BIOT, LaBraM, and EEGMamba have achieved remarkable performance in neural signal decoding, but their black-box nature limits clinical trust and neuroscientific validation. We propose a unified attribution framework for interpreting EEG foundation models across heterogeneous architectures. The framework integrates gradient-, perturbation-, and activation-based explanation methods to analyze model behavior in spatial, temporal, and frequency dimensions. Spatially, it identifies critical EEG channels and visualizes their distributions using topographic maps. Temporally, it highlights decision-relevant signal segments through attribution heatmaps. In the frequency domain, it quantifies the contributions of canonical EEG rhythms via spectral perturbation analysis. To assess explanation reliability, we introduce a population-level evaluation combining Area Over the Perturbation Curve (AOPC) and cross-method consistency analysis. The framework further leverages Large Language Models (LLMs) to transform structured attribution outputs into natural-language reports, bridging low-level neural representations and high-level semantic reasoning. Experiments on benchmark datasets, including Mumtaz2016 and TUAB, demonstrate that the generated explanations are consistent with established neurophysiological markers, validating meaningful neural representations while exposing potential dependencies on artifacts and spurious patterns. The proposed framework provides a standardized approach for evaluating the interpretability, reliability, and physiological plausibility of EEG foundation models.",
+        "link": "https://arxiv.org/abs/2609.15687v1",
+        "pdfLink": "https://arxiv.org/pdf/2609.15687v1",
+        "published": "2026-09-14T14:56:07Z",
+        "updated": "2026-09-14T14:56:07Z",
+        "authors": [
+          "Hansong Ma",
+          "Junxiao Wang"
+        ],
+        "categories": [
+          "cs.AI"
+        ],
+        "score": 30,
+        "importanceLevel": "B",
+        "lane": "Peripheral",
+        "dimensionScores": {
+          "relevance": 3,
+          "novelty": 27,
+          "impact": 3,
+          "practicality": 0,
+          "coreAlignment": 3
+        },
+        "oneSentenceSummary": "该论文是偏相关方向的重点候选，值得优先阅读。",
+        "summaryCn": "论文核心内容是：EEG foundation models such as BIOT, LaBraM, and EEGMamba have achieved remarkable performance in neural signal decoding, but their…",
+        "whyImportant": "命中新基准、通用框架主题，分类覆盖cs.AI，并体现较强的新颖性与影响潜力。",
+        "reasonTags": [
+          "新基准",
+          "通用框架"
+        ],
+        "innovationPoints": [
+          "包含新基准或新数据评测"
+        ],
+        "noveltyVerdict": "创新信号强，像是带新范式或新基准的工作。",
+        "duplicateRisk": "low",
+        "dedupeNote": "该论文在Peripheral方向上具备独立问题设置或代表性贡献，可作为当日候选保留。",
+        "retrievalGroups": [
+          "general"
+        ],
+        "mergedCount": 1,
+        "mergedTitles": [
+          "EEG-Xplain: Decoding Neural Black-Boxes of EEG Foundation Models"
+        ]
+      },
+      {
+        "id": "2609.15795v1",
+        "title": "SURE-Map: Self-Correcting Streaming Geometric Foundation Model",
+        "summary": "Streaming geometric foundation models are emerging as a compelling alternative to SLAM systems. Yet this streaming nature introduces a fundamental issue: each prediction is made from limited context, which is vulnerable to dynamic objects and weak textures.",
+        "summaryRaw": "Streaming geometric foundation models are emerging as a compelling alternative to SLAM systems. Yet this streaming nature introduces a fundamental issue: each prediction is made from limited context, which is vulnerable to dynamic objects and weak textures. Small local errors accumulate into severe geometric distortion and long-horizon scale drift. We argue that reliable streaming reconstruction requires geometric foundation models to be not only predictive, but also self-correcting. We introduce SURE-Map, a self-correcting framework built upon two complementary principles. First, we explicitly model cross-view geometric uncertainty. Unlike conventional depth or point confidence, which primarily reflects the reliability of individual-view prediction, our uncertainty directly measures whether the jointly predicted pose and depth induce geometrically consistent cross-view pixel correspondences. Second, because local correction alone cannot eliminate slowly accumulating scale errors, we introduce multi-timescale self-correction: fast consecutive-frame inference preserves streaming efficiency, while sparse keyframe-window inference provides longer-range geometric evidence to periodically recalibrate the scale of recent trajectories. SURE-Map establishes new state-of-the-art performance for online feed-forward reconstruction across long-horizon benchmarks, reducing ATE-RMSE from 24.00 to 17.24 m on KITTI, 5.11 to 4.74 m on Oxford Spires, and 31.37 to 28.58 m on VBR, with further improvements to 15.17, 4.63, and 22.12 m when incorporating loop-closure refinement. Project page: https://mingkai-liu.github.io/projects/sure-map/.",
+        "link": "https://arxiv.org/abs/2609.15795v1",
+        "pdfLink": "https://arxiv.org/pdf/2609.15795v1",
+        "published": "2026-09-14T16:10:53Z",
+        "updated": "2026-09-14T16:10:53Z",
+        "authors": [
+          "Mingkai Liu",
+          "Hao Zhao",
+          "Xingxing Zuo"
+        ],
+        "categories": [
+          "cs.CV"
+        ],
+        "score": 25,
+        "importanceLevel": "B",
+        "lane": "Peripheral",
+        "dimensionScores": {
+          "relevance": 3,
+          "novelty": 17,
+          "impact": 8,
+          "practicality": 0,
+          "coreAlignment": 3
+        },
+        "oneSentenceSummary": "该论文是偏相关方向的重点候选，值得优先阅读。",
+        "summaryCn": "论文核心内容是：Streaming geometric foundation models are emerging as a compelling alternative to SLAM systems.",
+        "whyImportant": "命中新基准、通用框架主题，分类覆盖cs.CV，并体现较强的新颖性与影响潜力。",
+        "reasonTags": [
+          "新基准",
+          "通用框架"
+        ],
+        "innovationPoints": [
+          "包含新基准或新数据评测"
+        ],
+        "noveltyVerdict": "创新点清晰，属于值得重点跟进的增量改进。",
+        "duplicateRisk": "low",
+        "dedupeNote": "该论文在Peripheral方向上具备独立问题设置或代表性贡献，可作为当日候选保留。",
+        "retrievalGroups": [
+          "general"
+        ],
+        "mergedCount": 1,
+        "mergedTitles": [
+          "SURE-Map: Self-Correcting Streaming Geometric Foundation Model"
+        ]
+      },
+      {
+        "id": "2609.15130v1",
+        "title": "woma: a real-time foundation model and its fine-tuned models for endoscopy",
+        "summary": "woma is a real-time foundation model for gastrointestinal endoscopy: a network trained without labels on about a million endoscopy frames, from which task models are fine-tuned. We contribute a systematic design for production.",
+        "summaryRaw": "woma is a real-time foundation model for gastrointestinal endoscopy: a network trained without labels on about a million endoscopy frames, from which task models are fine-tuned. We contribute a systematic design for production. Requirements and pass marks were fixed before any run, eight candidates screened under pre-registered rules, self-supervised training taken to a stopping rule, then fine-tuning and deployment optimisation, all on one self-contained library, numbat. We also contribute woma itself with two fine-tuned models, every outcome reported met or missed. Our colonoscopy model finds and outlines polyps, names which colon segment is in view, suggests polyp type and grades bowel preparation. Our gastroscopy model names a station out of 22 protocol sites, flags and outlines lesions, and names one of seven findings. Every number was read on data never seen in training, and shipped weights were chosen on that record. In colonoscopy, 96% of polyps in a six-hospital PolypGen set are found at precision >=0.85, and 19 of 19 polyps across fifteen full REAL-Colon videos at 1.6 false alarms per procedure. In gastroscopy, landmark region is named correctly on 92% of frames from unseen patients, and 37 of 39 held-out neoplasia frames are flagged at specificity 0.91. On one workstation GPU every task runs over 1080p video at about 100 frames per second, faster than PyTorch, ONNX Runtime and TensorRT in all four precision regimes tested. TensorRT comes closest: one pass of our foundation model takes it 3 to 27% longer than ours, and we deliver 6 to 31% more frames per second from frame to results. A second build links no vendor library at all -- our own kernels over Vulkan -- so a site deploys two files and needs no toolkit, no cuDNN and no framework; in f32 it beats the CUDA build on the same card.",
+        "link": "https://arxiv.org/abs/2609.15130v1",
+        "pdfLink": "https://arxiv.org/pdf/2609.15130v1",
+        "published": "2026-09-14T07:06:54Z",
+        "updated": "2026-09-14T07:06:54Z",
+        "authors": [
+          "Thang Tran",
+          "Lan Dang"
+        ],
+        "categories": [
+          "cs.CV",
+          "cs.LG"
+        ],
+        "score": 22,
+        "importanceLevel": "B",
+        "lane": "Peripheral",
+        "dimensionScores": {
+          "relevance": 5,
+          "novelty": 12,
+          "impact": 5,
+          "practicality": 5,
+          "coreAlignment": 5
+        },
+        "oneSentenceSummary": "该论文是偏相关方向的重点候选，值得优先阅读。",
+        "summaryCn": "论文核心内容是：woma is a real-time foundation model for gastrointestinal endoscopy: a network trained without labels on about a million endoscopy…",
+        "whyImportant": "命中通用框架主题，分类覆盖cs.CV / cs.LG，并体现较强的新颖性与影响潜力。",
+        "reasonTags": [
+          "通用框架"
+        ],
+        "innovationPoints": [
+          "提出具有跟踪价值的方法设计"
+        ],
+        "noveltyVerdict": "创新点清晰，属于值得重点跟进的增量改进。",
+        "duplicateRisk": "low",
+        "dedupeNote": "该论文在Peripheral方向上具备独立问题设置或代表性贡献，可作为当日候选保留。",
+        "retrievalGroups": [
+          "general"
+        ],
+        "mergedCount": 1,
+        "mergedTitles": [
+          "woma: a real-time foundation model and its fine-tuned models for endoscopy"
+        ]
+      },
+      {
+        "id": "2609.15453v1",
+        "title": "Listening for Airway Stenosis: A Foundation Model-Based Method for Rapid and Accessible Detection",
+        "summary": "Airway stenosis can cause severe respiratory complications, yet its detection often relies on specialized examinations and medical imaging. This study explores the potential of acoustic AI for rapid and accessible airway stenosis detection using readily acquired patient voice recordings.",
+        "summaryRaw": "Airway stenosis can cause severe respiratory complications, yet its detection often relies on specialized examinations and medical imaging. This study explores the potential of acoustic AI for rapid and accessible airway stenosis detection using readily acquired patient voice recordings. We systematically investigate whether acoustic foundation models (AFMs) can extract acoustic representations associated with airway stenosis-related speech patterns. Experiments are conducted on a cohort of 748 participants from the Bridge2AI-Voice dataset, 134 with airway stenosis and 614 without. The best-performing model achieves an AUROC of 0.952 and an accuracy of 0.924 (means over five-fold cross-validation), highlighting the potential of AFMs to transfer beyond general-purpose speech applications to clinical diagnostic tasks. Further analysis reveals that the model primarily relies on connected-speech recordings rather than isolated acoustic tasks, such as sustained phonation and breathing. Overall, these results suggest that voice-based acoustic AI could complement existing diagnostic workflows by enabling rapid, low-burden, and widely accessible screening for airway stenosis.",
+        "link": "https://arxiv.org/abs/2609.15453v1",
+        "pdfLink": "https://arxiv.org/pdf/2609.15453v1",
+        "published": "2026-09-14T12:20:23Z",
+        "updated": "2026-09-14T12:20:23Z",
+        "authors": [
+          "Jean Groeninger",
+          "Zihao Zhao",
+          "Juliana de Castilhos",
+          "Sven Nebelung",
+          "Daniel Truhn"
+        ],
+        "categories": [],
+        "score": 22,
+        "importanceLevel": "B",
+        "lane": "Peripheral",
+        "dimensionScores": {
+          "relevance": 0,
+          "novelty": 17,
+          "impact": 5,
+          "practicality": 0,
+          "coreAlignment": 0
+        },
+        "oneSentenceSummary": "该论文是偏相关方向的重点候选，值得优先阅读。",
+        "summaryCn": "论文核心内容是：Airway stenosis can cause severe respiratory complications, yet its detection often relies on specialized examinations and medical…",
+        "whyImportant": "命中新基准、通用框架主题，分类覆盖，并体现较强的新颖性与影响潜力。",
+        "reasonTags": [
+          "新基准",
+          "通用框架"
+        ],
+        "innovationPoints": [
+          "包含新基准或新数据评测"
+        ],
+        "noveltyVerdict": "创新点清晰，属于值得重点跟进的增量改进。",
+        "duplicateRisk": "low",
+        "dedupeNote": "该论文在Peripheral方向上具备独立问题设置或代表性贡献，可作为当日候选保留。",
+        "retrievalGroups": [
+          "general"
+        ],
+        "mergedCount": 1,
+        "mergedTitles": [
+          "Listening for Airway Stenosis: A Foundation Model-Based Method for Rapid and Accessible Detection"
+        ]
+      },
+      {
+        "id": "2609.15704v1",
+        "title": "AI-Native Open RAN: A Roadmap from xApps and rApps to Autonomous Network Agents",
+        "summary": "Open Radio Access Networks (O-RAN) have emerged as a transformative paradigm for future wireless systems by introducing openness, virtualization, disaggregation, and programmable intelligence through the RAN Intelligent Controller (RIC). The availability of standardized interfaces and near-real-time control loops has created unprecedente…",
+        "summaryRaw": "Open Radio Access Networks (O-RAN) have emerged as a transformative paradigm for future wireless systems by introducing openness, virtualization, disaggregation, and programmable intelligence through the RAN Intelligent Controller (RIC). The availability of standardized interfaces and near-real-time control loops has created unprecedented opportunities for integrating artificial intelligence (AI) into radio access network management and optimization. Over the past several years, a broad range of AI techniques have been proposed to address key O-RAN challenges such as radio resource management, network slicing, traffic prediction, mobility management, interference mitigation, and spectrum sharing. Despite significant progress, existing solutions often remain task-specific, require extensive retraining, and exhibit limited generalization across deployment environments and network conditions. This paper presents a comprehensive review of AI-enabled O-RAN systems and provides a unifying perspective on the evolution of intelligence in wireless networks. We first examine the O-RAN architecture and the role of intelligence within near-real-time and non-real-time RIC frameworks. We then develop a taxonomy of AI approaches for O-RAN, covering machine learning, deep reinforcement learning (DRL), digital-twin-assisted optimization, and emerging foundation-model-based architectures.",
+        "link": "https://arxiv.org/abs/2609.15704v1",
+        "pdfLink": "https://arxiv.org/pdf/2609.15704v1",
+        "published": "2026-09-14T15:08:02Z",
+        "updated": "2026-09-14T15:08:02Z",
+        "authors": [
+          "Ryan Barker",
+          "Alireza Ebrahimi Dorcheh",
+          "Tolunay Seyfi",
+          "Mohammad Raihan Uddin",
+          "Alireza Mohammadhosseini",
+          "Julia Boone",
+          "Stephen Streit",
+          "Drew Schlesener"
+        ],
+        "categories": [],
+        "score": 21,
+        "importanceLevel": "B",
+        "lane": "Peripheral",
+        "dimensionScores": {
+          "relevance": 0,
+          "novelty": 16,
+          "impact": 0,
+          "practicality": 5,
+          "coreAlignment": 0
+        },
+        "oneSentenceSummary": "该论文是偏相关方向的重点候选，值得优先阅读。",
+        "summaryCn": "论文核心内容是：Open Radio Access Networks (O-RAN) have emerged as a transformative paradigm for future wireless systems by introducing openness, v…",
+        "whyImportant": "命中通用框架主题，分类覆盖，并体现较强的新颖性与影响潜力。",
+        "reasonTags": [
+          "通用框架"
+        ],
+        "innovationPoints": [
+          "提出具有跟踪价值的方法设计"
+        ],
+        "noveltyVerdict": "创新点清晰，属于值得重点跟进的增量改进。",
+        "duplicateRisk": "low",
+        "dedupeNote": "该论文在Peripheral方向上具备独立问题设置或代表性贡献，可作为当日候选保留。",
+        "retrievalGroups": [
+          "general"
+        ],
+        "mergedCount": 1,
+        "mergedTitles": [
+          "AI-Native Open RAN: A Roadmap from xApps and rApps to Autonomous Network Agents"
+        ]
+      },
+      {
+        "id": "2609.14857v1",
+        "title": "ModularRSI: Modular and Generalizable Recursive Harness Self-Improvement",
+        "summary": "Recent work extends recursive self-improvement (RSI) to agent harnesses for long-horizon coding and terminal tasks, enabling agents to improve execution mechanisms from experience. However, generalizable harness RSI remains challenging.",
+        "summaryRaw": "Recent work extends recursive self-improvement (RSI) to agent harnesses for long-horizon coding and terminal tasks, enabling agents to improve execution mechanisms from experience. However, generalizable harness RSI remains challenging. First, evolving harnesses on evaluation benchmarks or their subsets makes it difficult to distinguish reusable improvements from benchmark-specific adaptation. Second, single-trajectory updates can conflate systematic harness deficiencies with instance-specific reasoning and solution details, producing modifications that transfer poorly to unseen tasks. Third, localizing recurring behavioral deficiencies within monolithic harnesses is difficult, while whole-harness optimization can entangle unrelated mechanisms and complicate attribution and validation. We propose ModularRSI, a benchmark-disjoint, contrastive, and modular framework for generalizable harness evolution. ModularRSI contrasts successful and failed trajectories for the same task and aggregates evidence across tasks to identify recurring behavioral deficiencies. It decomposes the evolvable harness into five functional modules: Agent Loop, Tool Use, Observation Management, Context Management, and Task Completion Detection. Each module evolves independently within a restricted modification scope, followed by an integration stage that combines the evolved modules into a unified harness and resolves potential conflicts. To support benchmark-disjoint evolution, we curate 2,000 executable evolution tasks from external sources that are disjoint from downstream evaluation benchmarks. Experiments on TB2.0 and SWE-Bench Verified show consistent improvements on unseen in-domain and cross-domain tasks, with the evolved harness also transferring across different foundation models.",
+        "link": "https://arxiv.org/abs/2609.14857v1",
+        "pdfLink": "https://arxiv.org/pdf/2609.14857v1",
+        "published": "2026-09-14T00:10:45Z",
+        "updated": "2026-09-14T00:10:45Z",
+        "authors": [
+          "Siwei Wu",
+          "Jincheng Ren",
+          "Yizhi Li",
+          "Haau-Sing Li",
+          "Chengran Yang",
+          "Yuxuan Zhang",
+          "Weicheng Gu",
+          "Jian Yang"
+        ],
+        "categories": [],
+        "score": 21,
+        "importanceLevel": "B",
+        "lane": "Peripheral",
+        "dimensionScores": {
+          "relevance": 0,
+          "novelty": 21,
+          "impact": 0,
+          "practicality": 0,
+          "coreAlignment": 0
+        },
+        "oneSentenceSummary": "该论文是偏相关方向的重点候选，值得优先阅读。",
+        "summaryCn": "论文核心内容是：Recent work extends recursive self-improvement (RSI) to agent harnesses for long-horizon coding and terminal tasks, enabling agents…",
+        "whyImportant": "命中新基准、通用框架主题，分类覆盖，并体现较强的新颖性与影响潜力。",
+        "reasonTags": [
+          "新基准",
+          "通用框架"
+        ],
+        "innovationPoints": [
+          "包含新基准或新数据评测"
+        ],
+        "noveltyVerdict": "创新信号强，像是带新范式或新基准的工作。",
+        "duplicateRisk": "low",
+        "dedupeNote": "该论文在Peripheral方向上具备独立问题设置或代表性贡献，可作为当日候选保留。",
+        "retrievalGroups": [
+          "general"
+        ],
+        "mergedCount": 1,
+        "mergedTitles": [
+          "ModularRSI: Modular and Generalizable Recursive Harness Self-Improvement"
         ]
       }
     ],
-    "wam": []
+    "vla": [
+      {
+        "id": "2609.14973v1",
+        "title": "PhysBrain 1.5: From Vision-Language Models to Physical Foundation Models",
+        "summary": "We present PhysBrain 1.5, a unified model for understanding physical environments, generating actions, and predicting future states. Motivated by the physical loop of observation, interaction, and environmental change, we bring these capabilities into a common learning framework.",
+        "summaryRaw": "We present PhysBrain 1.5, a unified model for understanding physical environments, generating actions, and predicting future states. Motivated by the physical loop of observation, interaction, and environmental change, we bring these capabilities into a common learning framework. Starting from a general vision--language model, we encode language responses, end-effector motion, and dense visual targets as discrete sequences and jointly optimize them with autoregressive next-token prediction. Pre-training draws its embodied supervision entirely from human interaction videos, using task-centered episodes to pair semantic and spatial context with recovered motion and subsequent observations. We then adapt the model through supervised fine-tuning on a mixture of human demonstrations, robot trajectories, and simulated experience. Across 28 embodied understanding benchmarks, our 8B model achieves an average score of 72.5, setting a new open-source state of the art and performing on par with leading proprietary models such as GPT-6-Astra and Gemini 3.6 Flash. It achieves the best open-source results on 14 benchmarks while retaining general multimodal capabilities. Beyond these understanding evaluations, qualitative examples show the model's ability to produce end-effector trajectories and predict future scenes through spatially aligned RGB, depth, and robot-mask outputs.",
+        "link": "https://arxiv.org/abs/2609.14973v1",
+        "pdfLink": "https://arxiv.org/pdf/2609.14973v1",
+        "published": "2026-09-14T03:25:46Z",
+        "updated": "2026-09-14T03:25:46Z",
+        "authors": [
+          "DeepCybo Team",
+          "Yu Bin",
+          "Haipeng Cao",
+          "Zheng Chang",
+          "Kai Chen",
+          "Youning Chen",
+          "Kailin Deng",
+          "Yichao Du"
+        ],
+        "categories": [
+          "cs.CV",
+          "cs.RO"
+        ],
+        "score": 88,
+        "importanceLevel": "S",
+        "lane": "Both",
+        "dimensionScores": {
+          "relevance": 90,
+          "novelty": 85,
+          "impact": 86,
+          "practicality": 78,
+          "coreAlignment": 92
+        },
+        "oneSentenceSummary": "统一视觉语言模型，预测环境、生成动作与未来状态",
+        "summaryCn": "PhysBrain 1.5以通用视觉语言模型为基础，将语言响应、末端执行器运动和稠密视觉目标统一离散为序列，用自回归下一token预测进行联合优化。预训练从人类交互视频中提取任务中心片段，恢复运动与后续观察；随后在人类演示、机器人轨迹和仿真经验上监督微调。在28个具身理解基准上展示环境理解、动作生成和未来状态预测能力。",
+        "whyImportant": "统一物理理解、动作生成与未来预测，为通用具身智能提供更完整的模型底座，减少碎片化。",
+        "reasonTags": [
+          "具身智能",
+          "物理基础模型",
+          "动作生成",
+          "未来预测"
+        ],
+        "innovationPoints": [
+          "构建观察-交互-环境变化物理回路统一框架",
+          "仅靠人类交互视频自回归预训练，无需大规模机器人标注",
+          "同时覆盖VLA动作生成与WAM未来状态预测"
+        ],
+        "noveltyVerdict": "较强创新，整合VLA与世界模型能力，框架统一。",
+        "duplicateRisk": "medium",
+        "dedupeNote": "与纯VLA或纯世界模型不同，强调三者闭环统一建模，非单一策略或预测器。",
+        "retrievalGroups": [
+          "general"
+        ],
+        "mergedCount": 1,
+        "mergedTitles": [
+          "PhysBrain 1.5: From Vision-Language Models to Physical Foundation Models"
+        ]
+      }
+    ],
+    "wam": [
+      {
+        "id": "2609.14973v1",
+        "title": "PhysBrain 1.5: From Vision-Language Models to Physical Foundation Models",
+        "summary": "We present PhysBrain 1.5, a unified model for understanding physical environments, generating actions, and predicting future states. Motivated by the physical loop of observation, interaction, and environmental change, we bring these capabilities into a common learning framework.",
+        "summaryRaw": "We present PhysBrain 1.5, a unified model for understanding physical environments, generating actions, and predicting future states. Motivated by the physical loop of observation, interaction, and environmental change, we bring these capabilities into a common learning framework. Starting from a general vision--language model, we encode language responses, end-effector motion, and dense visual targets as discrete sequences and jointly optimize them with autoregressive next-token prediction. Pre-training draws its embodied supervision entirely from human interaction videos, using task-centered episodes to pair semantic and spatial context with recovered motion and subsequent observations. We then adapt the model through supervised fine-tuning on a mixture of human demonstrations, robot trajectories, and simulated experience. Across 28 embodied understanding benchmarks, our 8B model achieves an average score of 72.5, setting a new open-source state of the art and performing on par with leading proprietary models such as GPT-6-Astra and Gemini 3.6 Flash. It achieves the best open-source results on 14 benchmarks while retaining general multimodal capabilities. Beyond these understanding evaluations, qualitative examples show the model's ability to produce end-effector trajectories and predict future scenes through spatially aligned RGB, depth, and robot-mask outputs.",
+        "link": "https://arxiv.org/abs/2609.14973v1",
+        "pdfLink": "https://arxiv.org/pdf/2609.14973v1",
+        "published": "2026-09-14T03:25:46Z",
+        "updated": "2026-09-14T03:25:46Z",
+        "authors": [
+          "DeepCybo Team",
+          "Yu Bin",
+          "Haipeng Cao",
+          "Zheng Chang",
+          "Kai Chen",
+          "Youning Chen",
+          "Kailin Deng",
+          "Yichao Du"
+        ],
+        "categories": [
+          "cs.CV",
+          "cs.RO"
+        ],
+        "score": 88,
+        "importanceLevel": "S",
+        "lane": "Both",
+        "dimensionScores": {
+          "relevance": 90,
+          "novelty": 85,
+          "impact": 86,
+          "practicality": 78,
+          "coreAlignment": 92
+        },
+        "oneSentenceSummary": "统一视觉语言模型，预测环境、生成动作与未来状态",
+        "summaryCn": "PhysBrain 1.5以通用视觉语言模型为基础，将语言响应、末端执行器运动和稠密视觉目标统一离散为序列，用自回归下一token预测进行联合优化。预训练从人类交互视频中提取任务中心片段，恢复运动与后续观察；随后在人类演示、机器人轨迹和仿真经验上监督微调。在28个具身理解基准上展示环境理解、动作生成和未来状态预测能力。",
+        "whyImportant": "统一物理理解、动作生成与未来预测，为通用具身智能提供更完整的模型底座，减少碎片化。",
+        "reasonTags": [
+          "具身智能",
+          "物理基础模型",
+          "动作生成",
+          "未来预测"
+        ],
+        "innovationPoints": [
+          "构建观察-交互-环境变化物理回路统一框架",
+          "仅靠人类交互视频自回归预训练，无需大规模机器人标注",
+          "同时覆盖VLA动作生成与WAM未来状态预测"
+        ],
+        "noveltyVerdict": "较强创新，整合VLA与世界模型能力，框架统一。",
+        "duplicateRisk": "medium",
+        "dedupeNote": "与纯VLA或纯世界模型不同，强调三者闭环统一建模，非单一策略或预测器。",
+        "retrievalGroups": [
+          "general"
+        ],
+        "mergedCount": 1,
+        "mergedTitles": [
+          "PhysBrain 1.5: From Vision-Language Models to Physical Foundation Models"
+        ]
+      }
+    ]
   },
   "dailyBrief": {
-    "overall": "本期检索到2篇自动驾驶相关论文，均不属于核心VLA或WAM方向；一篇为BEV感知预测改进，另一篇为人机在环仿真框架。",
-    "vla": "未发现核心视觉-语言-动作策略或通用机器人策略方向的论文。",
-    "wam": "未发现动作条件世界模型或与动作预测、控制紧密耦合的视频/动力学模型论文。",
-    "retrieval": "检索到的论文均来自driving组，侧重自动驾驶感知、预测与仿真基础设施，与VLA/WAM核心语义差距较大。"
+    "overall": "今日候选论文整体以医疗、语音、遥感等外设为主；具身相关仅两篇，其中PhysBrain 1.5将动作生成与未来预测统一为物理基础模型，X-WBC以跨具身方式推进人形全身控制。",
+    "vla": "VLA方向仅PhysBrain 1.5值得关注，其从视觉语言模型出发，以自回归统一语言、动作与视觉目标，可用于语言条件下机器人动作生成。",
+    "wam": "WAM方向候选数量稀少，PhysBrain 1.5同样覆盖动作条件未来状态预测，可视为世界动作模型的统一尝试；其余无强相关。",
+    "retrieval": "检索到19篇，多数属于医疗、语音、遥感等外设；筛选出2篇进入分析：PhysBrain 1.5为Both，X-WBC为Robotics。"
   },
   "trendBrief": {
     "windowDays": 7,
-    "dateRange": "2026-07-29 - 2026-09-11",
-    "overview": "近 7 天累计归档 96 篇总榜论文，主航道重心偏向 机器人扩展，其中 S 级高优先级论文共 10 篇。",
-    "hotspots": "高频主题主要集中在 新基准、机器人、真实实验，系统共自动合并 0 篇近似工作，减少了重复阅读负担。",
+    "dateRange": "2026-07-30 - 2026-09-15",
+    "overview": "近 7 天累计归档 94 篇总榜论文，主航道重心偏向 机器人扩展，其中 S 级高优先级论文共 10 篇。",
+    "hotspots": "高频主题主要集中在 新基准、通用框架、机器人，系统共自动合并 0 篇近似工作，减少了重复阅读负担。",
     "vla": "VLA 方向在近几天约占总榜的 31%，重点仍落在通用策略、语言条件动作与具身控制。",
-    "wam": "WAM 方向在近几天约占总榜的 23%，更集中于世界模型、动作条件预测与规划建模。",
-    "watchlist": "建议优先连续跟踪 新基准、机器人、真实实验 相关工作，尤其关注同时具备高新颖性与高落地性的代表论文。"
+    "wam": "WAM 方向在近几天约占总榜的 22%，更集中于世界模型、动作条件预测与规划建模。",
+    "watchlist": "建议优先连续跟踪 新基准、通用框架、机器人 相关工作，尤其关注同时具备高新颖性与高落地性的代表论文。"
   },
   "archives": [
+    {
+      "dateKey": "20260915",
+      "dateLabel": "2026-09-15",
+      "generatedAt": "2026-09-15T02:57:16.288973+00:00",
+      "paperCount": 18,
+      "papers": [
+        {
+          "id": "2609.14973v1",
+          "title": "PhysBrain 1.5: From Vision-Language Models to Physical Foundation Models",
+          "summary": "We present PhysBrain 1.5, a unified model for understanding physical environments, generating actions, and predicting future states. Motivated by the physical loop of observation, interaction, and environmental change, we bring these capabilities into a common learning framework.",
+          "summaryRaw": "We present PhysBrain 1.5, a unified model for understanding physical environments, generating actions, and predicting future states. Motivated by the physical loop of observation, interaction, and environmental change, we bring these capabilities into a common learning framework. Starting from a general vision--language model, we encode language responses, end-effector motion, and dense visual targets as discrete sequences and jointly optimize them with autoregressive next-token prediction. Pre-training draws its embodied supervision entirely from human interaction videos, using task-centered episodes to pair semantic and spatial context with recovered motion and subsequent observations. We then adapt the model through supervised fine-tuning on a mixture of human demonstrations, robot trajectories, and simulated experience. Across 28 embodied understanding benchmarks, our 8B model achieves an average score of 72.5, setting a new open-source state of the art and performing on par with leading proprietary models such as GPT-6-Astra and Gemini 3.6 Flash. It achieves the best open-source results on 14 benchmarks while retaining general multimodal capabilities. Beyond these understanding evaluations, qualitative examples show the model's ability to produce end-effector trajectories and predict future scenes through spatially aligned RGB, depth, and robot-mask outputs.",
+          "link": "https://arxiv.org/abs/2609.14973v1",
+          "pdfLink": "https://arxiv.org/pdf/2609.14973v1",
+          "published": "2026-09-14T03:25:46Z",
+          "updated": "2026-09-14T03:25:46Z",
+          "authors": [
+            "DeepCybo Team",
+            "Yu Bin",
+            "Haipeng Cao",
+            "Zheng Chang",
+            "Kai Chen",
+            "Youning Chen",
+            "Kailin Deng",
+            "Yichao Du"
+          ],
+          "categories": [
+            "cs.CV",
+            "cs.RO"
+          ],
+          "score": 88,
+          "importanceLevel": "S",
+          "lane": "Both",
+          "dimensionScores": {
+            "relevance": 90,
+            "novelty": 85,
+            "impact": 86,
+            "practicality": 78,
+            "coreAlignment": 92
+          },
+          "oneSentenceSummary": "统一视觉语言模型，预测环境、生成动作与未来状态",
+          "summaryCn": "PhysBrain 1.5以通用视觉语言模型为基础，将语言响应、末端执行器运动和稠密视觉目标统一离散为序列，用自回归下一token预测进行联合优化。预训练从人类交互视频中提取任务中心片段，恢复运动与后续观察；随后在人类演示、机器人轨迹和仿真经验上监督微调。在28个具身理解基准上展示环境理解、动作生成和未来状态预测能力。",
+          "whyImportant": "统一物理理解、动作生成与未来预测，为通用具身智能提供更完整的模型底座，减少碎片化。",
+          "reasonTags": [
+            "具身智能",
+            "物理基础模型",
+            "动作生成",
+            "未来预测"
+          ],
+          "innovationPoints": [
+            "构建观察-交互-环境变化物理回路统一框架",
+            "仅靠人类交互视频自回归预训练，无需大规模机器人标注",
+            "同时覆盖VLA动作生成与WAM未来状态预测"
+          ],
+          "noveltyVerdict": "较强创新，整合VLA与世界模型能力，框架统一。",
+          "duplicateRisk": "medium",
+          "dedupeNote": "与纯VLA或纯世界模型不同，强调三者闭环统一建模，非单一策略或预测器。",
+          "retrievalGroups": [
+            "general"
+          ],
+          "mergedCount": 1,
+          "mergedTitles": [
+            "PhysBrain 1.5: From Vision-Language Models to Physical Foundation Models"
+          ]
+        },
+        {
+          "id": "2609.15213v1",
+          "title": "X-WBC: A Cross-Embodiment Foundation Model for Humanoid Whole-Body Control",
+          "summary": "Scaling humanoid whole-body control toward general-purpose deployment requires large human motion corpora and training experience shared across robot bodies. Existing methods usually train one policy per robot, leaving motion experience isolated across embodiments.",
+          "summaryRaw": "Scaling humanoid whole-body control toward general-purpose deployment requires large human motion corpora and training experience shared across robot bodies. Existing methods usually train one policy per robot, leaving motion experience isolated across embodiments. We introduce X-WBC, a cross-embodiment foundation framework that separates relatively shared human motion semantics from embodiment-specific physical execution. Human-centered command tokens align full human motion, robot reference motion, and sparse VR observations. A causal Transformer learns reusable temporal structure from mixed multi-robot rollouts, while lightweight robot-specific modules map the shared representation to each robot's proprioception and action space. Across nine simulated embodiments, external motions, and four real robots, experiments show that joint training improves tracking, the aligned representation supports consistent control across command sources, and the learned policy remains competitive beyond the training corpus. These results support heterogeneous humanoids as joint data sources and establish cross-embodiment joint training as a practical route toward whole-body control foundation models.",
+          "link": "https://arxiv.org/abs/2609.15213v1",
+          "pdfLink": "https://arxiv.org/pdf/2609.15213v1",
+          "published": "2026-09-14T08:34:48Z",
+          "updated": "2026-09-14T08:34:48Z",
+          "authors": [
+            "Juntong Zhang",
+            "Chun Gu",
+            "Li Zhang"
+          ],
+          "categories": [
+            "cs.RO"
+          ],
+          "score": 70,
+          "importanceLevel": "B",
+          "lane": "Robotics",
+          "dimensionScores": {
+            "relevance": 55,
+            "novelty": 75,
+            "impact": 65,
+            "practicality": 80,
+            "coreAlignment": 80
+          },
+          "oneSentenceSummary": "跨具身人形全身控制基础模型，解耦运动语义与本体执行",
+          "summaryCn": "X-WBC提出跨具身人形全身控制基础框架，分离相对共享的人类运动语义与本体物理执行。以人为中心的命令token对齐人类运动、机器人参考运动和稀疏VR观测；因果Transformer从多机器人混合数据学习可复用时间结构，轻量模块映射到各自本体感知和动作空间。在九种仿真和四台真实机器人上验证联合训练提升跟踪。",
+          "whyImportant": "跨具身联合训练突破单一机器人策略孤立，提升人形机器人运动迁移与全身控制泛化。",
+          "reasonTags": [
+            "人形控制",
+            "跨具身",
+            "全身控制",
+            "基础模型"
+          ],
+          "innovationPoints": [
+            "分离人类运动语义与本体物理执行",
+            "跨机器人混合数据共享时间结构学习",
+            "轻量模块实现多本体快速适配"
+          ],
+          "noveltyVerdict": "创新中等偏上，侧重架构与训练策略，非颠覆性。",
+          "duplicateRisk": "low",
+          "dedupeNote": "区别于单机器人策略，专注跨本体共享表示与模块化解耦，降低重复训练成本。",
+          "retrievalGroups": [
+            "general"
+          ],
+          "mergedCount": 1,
+          "mergedTitles": [
+            "X-WBC: A Cross-Embodiment Foundation Model for Humanoid Whole-Body Control"
+          ]
+        },
+        {
+          "id": "2609.15973v1",
+          "title": "Discovery Foundation Models: Toward Open-Ended Discovery Intelligence",
+          "summary": "Foundation models have progressed from learning and reasoning over existing knowledge, to increasingly learning through action, tool use, and outcome feedback. We argue that the next frontier is a further transition: from solving and acting within problems specified by humans to participating in the process by which new problems, represe…",
+          "summaryRaw": "Foundation models have progressed from learning and reasoning over existing knowledge, to increasingly learning through action, tool use, and outcome feedback. We argue that the next frontier is a further transition: from solving and acting within problems specified by humans to participating in the process by which new problems, representations, explanations, and knowledge are created. We refer to this capability as Discovery Intelligence. We formulate Discovery Foundation Models (DFMs) as general-purpose model systems for open-ended discovery. A DFM operates over a revisable research state and supports seven coupled capabilities spanning problem discovery, formulation, representation construction, hypothesis formation, intervention, evidence-grounded revision, and continual discovery improvement. We instantiate this framework with Zetema, which couples explicit research-state dynamics, verification and experimental gating, external grounding, and cross-task Discovery Skill evolution. We further ground the framework with GALILEO, a real therapeutic-discovery system in which Dry-Lab reasoning, robotic and hands-on Wet-Lab experimentation, external biological evidence, and iterative hypothesis and design revision form a closed physical discovery loop. We then formulate a unified approach to capability formation and process-centered evaluation, enabling discovery behavior to be trained, improved, and measured beyond final-answer performance. Together, these components establish discovery as a learnable, executable, and evaluable capability of foundation-model systems. We view this shift as a broader progression in intelligence scaling: from learning over existing knowledge, to learning from action outcomes, and ultimately to participating in the construction, testing, and revision of the structures through which new knowledge is discovered. Code: https://github.com/Gen-Verse/DFM-Plans",
+          "link": "https://arxiv.org/abs/2609.15973v1",
+          "pdfLink": "https://arxiv.org/pdf/2609.15973v1",
+          "published": "2026-09-14T17:56:00Z",
+          "updated": "2026-09-14T17:56:00Z",
+          "authors": [
+            "Ling Yang",
+            "Zhenfei Yin",
+            "Yingcheng Wu"
+          ],
+          "categories": [],
+          "score": 46,
+          "importanceLevel": "B",
+          "lane": "Robotics",
+          "dimensionScores": {
+            "relevance": 18,
+            "novelty": 17,
+            "impact": 8,
+            "practicality": 3,
+            "coreAlignment": 8
+          },
+          "oneSentenceSummary": "该论文是偏机器人的重点候选，值得优先阅读。",
+          "summaryCn": "论文核心内容是：Foundation models have progressed from learning and reasoning over existing knowledge, to increasingly learning through action, too…",
+          "whyImportant": "命中机器人、新基准、通用框架主题，分类覆盖，并体现较强的新颖性与影响潜力。",
+          "reasonTags": [
+            "机器人",
+            "新基准",
+            "通用框架"
+          ],
+          "innovationPoints": [
+            "提出具有跟踪价值的方法设计"
+          ],
+          "noveltyVerdict": "创新点清晰，属于值得重点跟进的增量改进。",
+          "duplicateRisk": "low",
+          "dedupeNote": "该论文在Robotics方向上具备独立问题设置或代表性贡献，可作为当日候选保留。",
+          "retrievalGroups": [
+            "general"
+          ],
+          "mergedCount": 1,
+          "mergedTitles": [
+            "Discovery Foundation Models: Toward Open-Ended Discovery Intelligence"
+          ]
+        },
+        {
+          "id": "2609.15087v1",
+          "title": "Beyond Numerical Time Series: A Unified Benchmark for Multimodal Forecasting with Heterogeneous Context",
+          "summary": "Most time series forecasting benchmarks remain numerical-centric and provide limited support for evaluating contextual information that shapes real-world temporal dynamics. Existing multimodal benchmarks also suffer from limited data and context coverage, fragmented evaluation settings, and overreliance on aggregate evaluation.",
+          "summaryRaw": "Most time series forecasting benchmarks remain numerical-centric and provide limited support for evaluating contextual information that shapes real-world temporal dynamics. Existing multimodal benchmarks also suffer from limited data and context coverage, fragmented evaluation settings, and overreliance on aggregate evaluation. In this paper, we propose \\textbf{MUSE-Bench}, a unified benchmark for multimodal time series forecasting with heterogeneous context. It comprises fourteen datasets across eight domains and six types of context: metadata, events, holidays, news, images, and numerical covariates. We evaluate diverse forecasting paradigms, including statistical, data-specific, foundation, multimodal, and general-purpose LLM forecasting methods under shared non-overlapping forecast windows, common target observations, and consistent point and probabilistic metrics. Extensive experiments yield three main findings. First, numerical time series foundation models dominate the overall ranking, while Aurora, the evaluated multimodal foundation model, trails the leading numerical TSFMs but outperforms all evaluated data-specific models. Second, ablations show that external context improves the four evaluated context-aware models, whereas incorrect or temporally misaligned context degrades performance. Third, general-purpose LLMs perform poorly as direct forecasters, and LLM-guided refinement does not yield consistent improvements. MUSE-Bench enables systematic evaluation of how forecasting models utilize context and provides a foundation for future multimodal forecasting research.",
+          "link": "https://arxiv.org/abs/2609.15087v1",
+          "pdfLink": "https://arxiv.org/pdf/2609.15087v1",
+          "published": "2026-09-14T06:01:16Z",
+          "updated": "2026-09-14T06:01:16Z",
+          "authors": [
+            "Peng Chen",
+            "Zhihao Zhuang",
+            "Hongzhou Chen",
+            "Junhao Huang",
+            "Aiping Yang",
+            "Mengsen Wu",
+            "Yiding Liu",
+            "Xilin Dai"
+          ],
+          "categories": [
+            "cs.LG",
+            "cs.AI"
+          ],
+          "score": 43,
+          "importanceLevel": "B",
+          "lane": "Peripheral",
+          "dimensionScores": {
+            "relevance": 5,
+            "novelty": 27,
+            "impact": 16,
+            "practicality": 0,
+            "coreAlignment": 5
+          },
+          "oneSentenceSummary": "该论文是偏相关方向的重点候选，值得优先阅读。",
+          "summaryCn": "论文核心内容是：Most time series forecasting benchmarks remain numerical-centric and provide limited support for evaluating contextual information…",
+          "whyImportant": "命中新基准、通用框架、真实实验主题，分类覆盖cs.LG / cs.AI，并体现较强的新颖性与影响潜力。",
+          "reasonTags": [
+            "新基准",
+            "通用框架",
+            "真实实验"
+          ],
+          "innovationPoints": [
+            "包含新基准或新数据评测",
+            "提供真实场景实验验证"
+          ],
+          "noveltyVerdict": "创新信号强，像是带新范式或新基准的工作。",
+          "duplicateRisk": "low",
+          "dedupeNote": "该论文在Peripheral方向上具备独立问题设置或代表性贡献，可作为当日候选保留。",
+          "retrievalGroups": [
+            "general"
+          ],
+          "mergedCount": 1,
+          "mergedTitles": [
+            "Beyond Numerical Time Series: A Unified Benchmark for Multimodal Forecasting with Heterogeneous Context"
+          ]
+        },
+        {
+          "id": "2609.15740v1",
+          "title": "A Language-Guided Multimodal Foundation Model for Zero-Shot and Multi-Task Brain Signal Analysis",
+          "summary": "Brain signal analysis is essential for both neuroscience research and clinical diagnostics, yet current approaches face critical limitations. End-to-end models require task-specific retraining and exhibit limited generalization, while pre-trained models lack semantic depth and still depend on extensive fine-tuning.",
+          "summaryRaw": "Brain signal analysis is essential for both neuroscience research and clinical diagnostics, yet current approaches face critical limitations. End-to-end models require task-specific retraining and exhibit limited generalization, while pre-trained models lack semantic depth and still depend on extensive fine-tuning. Meanwhile, general-purpose multimodal foundation models, though powerful in other domains, struggle to interpret brain signals due to representational misalignment and lack of domain knowledge. This study introduces a multimodal foundation model for zero-shot and multi-task brain signal analysis (METIS) through a unified language-signal alignment framework. METIS is pretrained on the largest and most diverse brain-signal corpus to date, comprising over 70,000 h of recordings from more than 11,000 subjects across 20 datasets. In a comprehensive zero-shot evaluation across 12 datasets, METIS outperformed the leading generalist model by over 20.9% in average accuracy. Remarkably, without any fine-tuning, METIS's performance matches or exceeds that of supervised, task-specific models. Furthermore, METIS demonstrates exceptional data efficiency and strong generalization, achieving an average AUROC advantage of over 16.0% in few-shot settings and 15.9% in cross-dataset transfer. This work establishes a new paradigm for general-purpose brain signal analysis, paving the way for next-generation neurotechnology.",
+          "link": "https://arxiv.org/abs/2609.15740v1",
+          "pdfLink": "https://arxiv.org/pdf/2609.15740v1",
+          "published": "2026-09-14T15:32:38Z",
+          "updated": "2026-09-14T15:32:38Z",
+          "authors": [
+            "Mingzhi Chen",
+            "Yiyu Gui",
+            "Guibo Luo",
+            "Yuchao Yang"
+          ],
+          "categories": [
+            "cs.LG",
+            "cs.AI"
+          ],
+          "score": 41,
+          "importanceLevel": "B",
+          "lane": "Peripheral",
+          "dimensionScores": {
+            "relevance": 5,
+            "novelty": 26,
+            "impact": 15,
+            "practicality": 0,
+            "coreAlignment": 5
+          },
+          "oneSentenceSummary": "该论文是偏相关方向的重点候选，值得优先阅读。",
+          "summaryCn": "论文核心内容是：Brain signal analysis is essential for both neuroscience research and clinical diagnostics, yet current approaches face critical li…",
+          "whyImportant": "命中新基准、通用框架主题，分类覆盖cs.LG / cs.AI，并体现较强的新颖性与影响潜力。",
+          "reasonTags": [
+            "新基准",
+            "通用框架"
+          ],
+          "innovationPoints": [
+            "包含新基准或新数据评测"
+          ],
+          "noveltyVerdict": "创新信号强，像是带新范式或新基准的工作。",
+          "duplicateRisk": "low",
+          "dedupeNote": "该论文在Peripheral方向上具备独立问题设置或代表性贡献，可作为当日候选保留。",
+          "retrievalGroups": [
+            "general"
+          ],
+          "mergedCount": 1,
+          "mergedTitles": [
+            "A Language-Guided Multimodal Foundation Model for Zero-Shot and Multi-Task Brain Signal Analysis"
+          ]
+        },
+        {
+          "id": "2609.15794v1",
+          "title": "KnowBench: Effort Reduction as a Unified, Deployment-Grounded Benchmark for Clinical AI",
+          "summary": "Clinical AI systems are evaluated with instruments built for research settings (reference-based similarity metrics and expert rubric panels) that measure resemblance to an artifact rather than reduction of a burden. We introduce KnowBench, pioneered by Knowtex, whose unifying metric is Effort Reduction (ER): the proportion of system-gene…",
+          "summaryRaw": "Clinical AI systems are evaluated with instruments built for research settings (reference-based similarity metrics and expert rubric panels) that measure resemblance to an artifact rather than reduction of a burden. We introduce KnowBench, pioneered by Knowtex, whose unifying metric is Effort Reduction (ER): the proportion of system-generated clinical work product accepted by the responsible clinician under expert and safety review. ER is defined once and instantiated per task across the administrative workload clinical AI automates: visit notes, diagnosis and billing codes, orders, EHR chart summarization, patient after-visit summaries, and clinical decision support. In every instantiation the construction is identical: the clinician's review-and-attestation event is the ground truth, every accepted unit is work the system completed, and every correction is residual effort returned to the clinician. The primary contribution of this paper is the benchmark itself: the metric, its degenerate cases, and a reporting protocol under which ER claims are auditable and cross-system comparable. Alongside it we report an initial headline measurement from the documentation instantiation: over one million signed encounters across a production window exceeding six months and thirteen medical specialties, Knowtex's proprietary fine-tuned clinical foundation models operating inside a closed feedback architecture achieve an aggregate ER of 97.99%, with per-specialty aggregates spanning 96.8-98.9%. This release reports the protocol's checklist partially, and states which companion statistics are withheld; the benchmark is offered so that this figure, and every figure reported after it, can be held to the same standard.",
+          "link": "https://arxiv.org/abs/2609.15794v1",
+          "pdfLink": "https://arxiv.org/pdf/2609.15794v1",
+          "published": "2026-09-14T16:10:52Z",
+          "updated": "2026-09-14T16:10:52Z",
+          "authors": [
+            "Jocelyn Kang",
+            "Caroline Zhang"
+          ],
+          "categories": [
+            "cs.AI"
+          ],
+          "score": 40,
+          "importanceLevel": "B",
+          "lane": "Peripheral",
+          "dimensionScores": {
+            "relevance": 3,
+            "novelty": 22,
+            "impact": 6,
+            "practicality": 12,
+            "coreAlignment": 3
+          },
+          "oneSentenceSummary": "该论文是偏相关方向的重点候选，值得优先阅读。",
+          "summaryCn": "论文核心内容是：Clinical AI systems are evaluated with instruments built for research settings (reference-based similarity metrics and expert rubri…",
+          "whyImportant": "命中新基准、通用框架主题，分类覆盖cs.AI，并体现较强的新颖性与影响潜力。",
+          "reasonTags": [
+            "新基准",
+            "通用框架"
+          ],
+          "innovationPoints": [
+            "包含新基准或新数据评测"
+          ],
+          "noveltyVerdict": "创新信号强，像是带新范式或新基准的工作。",
+          "duplicateRisk": "low",
+          "dedupeNote": "该论文在Peripheral方向上具备独立问题设置或代表性贡献，可作为当日候选保留。",
+          "retrievalGroups": [
+            "general"
+          ],
+          "mergedCount": 1,
+          "mergedTitles": [
+            "KnowBench: Effort Reduction as a Unified, Deployment-Grounded Benchmark for Clinical AI"
+          ]
+        },
+        {
+          "id": "2609.15032v1",
+          "title": "Tele360: Real-Time Feed-Forward Human Reconstruction from Sparse Unposed Cameras",
+          "summary": "Live free-viewpoint visualization of real humans is critical for immersive communication and interactive digital experiences. Existing methods either rely on computationally expensive optimization or require calibrated cameras and low-resolution inputs, making real-time high-resolution deployment impractical.",
+          "summaryRaw": "Live free-viewpoint visualization of real humans is critical for immersive communication and interactive digital experiences. Existing methods either rely on computationally expensive optimization or require calibrated cameras and low-resolution inputs, making real-time high-resolution deployment impractical. In this work, we present Tele360, the first real-time feed-forward system for dynamic human reconstruction and live free-viewpoint visualization from sparse, unposed RGB streams. Our system jointly estimates camera poses and reconstructs a dynamic 3D Gaussian representation for each time instance in a single forward pass. To achieve this, we start by designing a lightweight sparsity-aware multi-view transformer backbone that tokenizes foreground human regions while preserving global context through a shared scene token. We then employ a fully transformer-based Gaussian decoder to mitigate convolution-induced over-smoothing while keeping decoding sparse and efficient. In addition, we introduce a hybrid feature pyramid that injects multi-scale appearance cues into geometry prediction. We further introduce a lightweight differentiable Levenberg-Marquardt camera refinement layer to enhance multi-view consistency and geometric alignment. Moreover, to stabilize learning under sparse, unposed inputs, we transfer multi-view geometry priors from a large visual-geometry foundation model via teacher-student distillation. Finally, the predicted Gaussian maps are streamed with video codecs to remote devices for interactive free-viewpoint rendering. Extensive experiments show that Tele360 achieves state-of-the-art visual quality on studio benchmarks while supporting real-time 2K input-to-rendering at over 25 FPS on a single consumer GPU. Additional captured sequences illustrate its performance across varied subjects, clothing, and motions under our multi-camera setup.",
+          "link": "https://arxiv.org/abs/2609.15032v1",
+          "pdfLink": "https://arxiv.org/pdf/2609.15032v1",
+          "published": "2026-09-14T04:50:52Z",
+          "updated": "2026-09-14T04:50:52Z",
+          "authors": [
+            "Hanzhang Tu",
+            "Zhanfeng Liao",
+            "Wei Min",
+            "Jiajun Zhang",
+            "Yebin Liu"
+          ],
+          "categories": [
+            "cs.CV"
+          ],
+          "score": 40,
+          "importanceLevel": "B",
+          "lane": "Peripheral",
+          "dimensionScores": {
+            "relevance": 3,
+            "novelty": 17,
+            "impact": 11,
+            "practicality": 12,
+            "coreAlignment": 3
+          },
+          "oneSentenceSummary": "该论文是偏相关方向的重点候选，值得优先阅读。",
+          "summaryCn": "论文核心内容是：Live free-viewpoint visualization of real humans is critical for immersive communication and interactive digital experiences.",
+          "whyImportant": "命中新基准、通用框架主题，分类覆盖cs.CV，并体现较强的新颖性与影响潜力。",
+          "reasonTags": [
+            "新基准",
+            "通用框架"
+          ],
+          "innovationPoints": [
+            "包含新基准或新数据评测"
+          ],
+          "noveltyVerdict": "创新点清晰，属于值得重点跟进的增量改进。",
+          "duplicateRisk": "low",
+          "dedupeNote": "该论文在Peripheral方向上具备独立问题设置或代表性贡献，可作为当日候选保留。",
+          "retrievalGroups": [
+            "general"
+          ],
+          "mergedCount": 1,
+          "mergedTitles": [
+            "Tele360: Real-Time Feed-Forward Human Reconstruction from Sparse Unposed Cameras"
+          ]
+        },
+        {
+          "id": "2609.15669v1",
+          "title": "Benchmarking Intra-Patient 3D Deformable Multimodal Image Registration",
+          "summary": "Multimodal image registration is a key component of many clinical workflows, yet it remains challenging because corresponding anatomical structures often exhibit substantially different image intensities across modalities. In this work, we present a comprehensive benchmark of intra-patient 3D multimodal deformable registration methods ac…",
+          "summaryRaw": "Multimodal image registration is a key component of many clinical workflows, yet it remains challenging because corresponding anatomical structures often exhibit substantially different image intensities across modalities. In this work, we present a comprehensive benchmark of intra-patient 3D multimodal deformable registration methods across three datasets covering different anatomical regions and difficulty levels, including both synthetic deformation recovery and real clinical scenarios. We evaluate classical optimization-based approaches and modern learning-based methods, including recent deep learning and foundation models, using complementary metrics: Average Dice similarity coefficient (DSC), average 95th-percentile Hausdorff distance (HD95), and a modality-independent structural similarity measure based on the MIND self-similarity context (MIND-SSC). Results show high variability across datasets, with learning-based methods demonstrating superior performance on large synthetic benchmarks, while only limited improvements are observed in real pelvic registration. A key finding of this study is the consistent disagreement between geometric metrics (DSC, HD95) and image-based similarity metrics (MIND-SSC), highlighting that improved overlap does not necessarily imply better global multimodal correspondence. Furthermore, anatomy-guided approaches achieve the highest overlap scores but exhibit degraded performance outside of segmented regions, revealing a trade-off between label-driven alignment and global structural coherence. Overall, our results indicate that no current method achieves robust performance across anatomies and modalities. We demonstrate that intra-patient 3D multimodal registration requires multi-criteria evaluation, including deformation-based metrics, and remains an open problem.",
+          "link": "https://arxiv.org/abs/2609.15669v1",
+          "pdfLink": "https://arxiv.org/pdf/2609.15669v1",
+          "published": "2026-09-14T14:47:57Z",
+          "updated": "2026-09-14T14:47:57Z",
+          "authors": [
+            "Matteo Barbieri",
+            "Giammarco La Barbera",
+            "Juan Pablo De La Plata",
+            "Sabine Sarnacki",
+            "Isabelle Bloch",
+            "Pietro Gori"
+          ],
+          "categories": [
+            "cs.CV",
+            "cs.AI"
+          ],
+          "score": 36,
+          "importanceLevel": "B",
+          "lane": "Peripheral",
+          "dimensionScores": {
+            "relevance": 6,
+            "novelty": 22,
+            "impact": 6,
+            "practicality": 8,
+            "coreAlignment": 6
+          },
+          "oneSentenceSummary": "该论文是偏相关方向的重点候选，值得优先阅读。",
+          "summaryCn": "论文核心内容是：Multimodal image registration is a key component of many clinical workflows, yet it remains challenging because corresponding anato…",
+          "whyImportant": "命中新基准、通用框架主题，分类覆盖cs.CV / cs.AI，并体现较强的新颖性与影响潜力。",
+          "reasonTags": [
+            "新基准",
+            "通用框架"
+          ],
+          "innovationPoints": [
+            "包含新基准或新数据评测"
+          ],
+          "noveltyVerdict": "创新信号强，像是带新范式或新基准的工作。",
+          "duplicateRisk": "low",
+          "dedupeNote": "该论文在Peripheral方向上具备独立问题设置或代表性贡献，可作为当日候选保留。",
+          "retrievalGroups": [
+            "general"
+          ],
+          "mergedCount": 1,
+          "mergedTitles": [
+            "Benchmarking Intra-Patient 3D Deformable Multimodal Image Registration"
+          ]
+        },
+        {
+          "id": "2609.15066v1",
+          "title": "Salesforce Koa: An Enterprise Language Model for Agentic Tool Use",
+          "summary": "We present Salesforce Koa, an enterprise language model built by post-training the open-weight Nemotron-3-Super-120B foundation model with reinforcement learning using Group Relative Policy Optimization (GRPO). Salesforce Koa is trained on public and synthetically generated data, with no customer data, to improve tool use and agentic cap…",
+          "summaryRaw": "We present Salesforce Koa, an enterprise language model built by post-training the open-weight Nemotron-3-Super-120B foundation model with reinforcement learning using Group Relative Policy Optimization (GRPO). Salesforce Koa is trained on public and synthetically generated data, with no customer data, to improve tool use and agentic capabilities while preserving strong general-purpose performance. Its distinctive component is a simulation-to-reward pipeline that expands workflow specifications into persona-conditioned multi-turn tasks with task-resolution rewards grounded in successful tool use for data-dependent requests. For enterprise domains, these specifications are written in Agent Script, Salesforce's declarative language for building Agentforce agents; for public tool-use domains, we synthesize the workflow structure directly. The same simulation and grounded-reward machinery drives GRPO across both. Across public tool-use, agentic-reasoning, and enterprise Customer Relationship Management (CRM) benchmarks, Salesforce Koa improves over its open-weight base, with the clearest gains on multi-turn tool use, and surpasses a strong proprietary baseline while remaining below the strongest frontier models. These results show that specification-driven reinforcement learning is a practical path to specializing open-weight foundation models for enterprise agentic tasks.",
+          "link": "https://arxiv.org/abs/2609.15066v1",
+          "pdfLink": "https://arxiv.org/pdf/2609.15066v1",
+          "published": "2026-09-14T05:30:28Z",
+          "updated": "2026-09-14T05:30:28Z",
+          "authors": [
+            "Zixiang Chen",
+            "Sufeng Niu",
+            "Yingchi Liu",
+            "Wenting Zhao",
+            "Akshara Prabhakar",
+            "Shubham Mehrotra",
+            "Bin Bi",
+            "Zhujun Lan"
+          ],
+          "categories": [
+            "cs.AI",
+            "cs.LG"
+          ],
+          "score": 31,
+          "importanceLevel": "B",
+          "lane": "Peripheral",
+          "dimensionScores": {
+            "relevance": 9,
+            "novelty": 17,
+            "impact": 10,
+            "practicality": 0,
+            "coreAlignment": 9
+          },
+          "oneSentenceSummary": "该论文是偏相关方向的重点候选，值得优先阅读。",
+          "summaryCn": "论文核心内容是：We present Salesforce Koa, an enterprise language model built by post-training the open-weight Nemotron-3-Super-120B foundation mod…",
+          "whyImportant": "命中机器人、新基准、通用框架主题，分类覆盖cs.AI / cs.LG，并体现较强的新颖性与影响潜力。",
+          "reasonTags": [
+            "机器人",
+            "新基准",
+            "通用框架"
+          ],
+          "innovationPoints": [
+            "包含新基准或新数据评测"
+          ],
+          "noveltyVerdict": "创新点清晰，属于值得重点跟进的增量改进。",
+          "duplicateRisk": "low",
+          "dedupeNote": "该论文在Peripheral方向上具备独立问题设置或代表性贡献，可作为当日候选保留。",
+          "retrievalGroups": [
+            "general"
+          ],
+          "mergedCount": 1,
+          "mergedTitles": [
+            "Salesforce Koa: An Enterprise Language Model for Agentic Tool Use"
+          ]
+        },
+        {
+          "id": "2609.14970v1",
+          "title": "Towards a knowledge-enhanced single-cell foundation model",
+          "summary": "Single-cell foundation models (scFMs) increasingly rely on large-scale transcriptomic pretraining, yet expanding pretraining data can yield diminishing gains while substantially increasing computational cost. Our data scaling analyses showed that incorporating biological knowledge, including cell-level text annotation and gene-level regu…",
+          "summaryRaw": "Single-cell foundation models (scFMs) increasingly rely on large-scale transcriptomic pretraining, yet expanding pretraining data can yield diminishing gains while substantially increasing computational cost. Our data scaling analyses showed that incorporating biological knowledge, including cell-level text annotation and gene-level regulatory information, provided additional scaling dimension than simply increasing data size. Motivated by this observation, we present scKITE, a simple yet effective scFM that integrates cell-annotation and gene-regulatory supervision into a shared transcriptomic Transformer encoder through lightweight auxiliary decoders. These decoders are used only during pretraining and subsequently discarded, yielding a general-purpose encoder enriched with biological knowledge for downstream applications. With only 179,067 pretraining samples, i.e., less than 0.5\\% of those used by previous strong scFMs, scKITE outperformed these models across diverse downstream tasks, highlighting knowledge-enhanced pretraining as a promising paradigm for biologically grounded scFMs.",
+          "link": "https://arxiv.org/abs/2609.14970v1",
+          "pdfLink": "https://arxiv.org/pdf/2609.14970v1",
+          "published": "2026-09-14T03:23:55Z",
+          "updated": "2026-09-14T03:23:55Z",
+          "authors": [
+            "Hanqing Zhang",
+            "Jie Bao",
+            "Mei Ma",
+            "Shuai Liu",
+            "Jiaying Ma",
+            "Jiaguan Liu",
+            "Jiaxiao Li",
+            "Zhenbo Li"
+          ],
+          "categories": [
+            "cs.AI"
+          ],
+          "score": 36,
+          "importanceLevel": "B",
+          "lane": "Peripheral",
+          "dimensionScores": {
+            "relevance": 3,
+            "novelty": 17,
+            "impact": 16,
+            "practicality": 3,
+            "coreAlignment": 3
+          },
+          "oneSentenceSummary": "该论文是偏相关方向的重点候选，值得优先阅读。",
+          "summaryCn": "论文核心内容是：Single-cell foundation models (scFMs) increasingly rely on large-scale transcriptomic pretraining, yet expanding pretraining data c…",
+          "whyImportant": "命中通用框架主题，分类覆盖cs.AI，并体现较强的新颖性与影响潜力。",
+          "reasonTags": [
+            "通用框架"
+          ],
+          "innovationPoints": [
+            "涉及新的训练或预训练范式"
+          ],
+          "noveltyVerdict": "创新点清晰，属于值得重点跟进的增量改进。",
+          "duplicateRisk": "low",
+          "dedupeNote": "该论文在Peripheral方向上具备独立问题设置或代表性贡献，可作为当日候选保留。",
+          "retrievalGroups": [
+            "general"
+          ],
+          "mergedCount": 1,
+          "mergedTitles": [
+            "Towards a knowledge-enhanced single-cell foundation model"
+          ]
+        },
+        {
+          "id": "2609.15676v1",
+          "title": "MambaMPD: A Mamba-Driven Segmentation Framework for Marine Pollution Detection from Remote Sensing Imagery",
+          "summary": "Accurate marine pollution detection (MPD) is essential for protecting coastal ecosystems and marine biodiversity. Vision Mamba models have shown promise in remote-sensing semantic segmentation by efficiently capturing long-range dependencies and global context, yet their potential for MPD remains underexplored.",
+          "summaryRaw": "Accurate marine pollution detection (MPD) is essential for protecting coastal ecosystems and marine biodiversity. Vision Mamba models have shown promise in remote-sensing semantic segmentation by efficiently capturing long-range dependencies and global context, yet their potential for MPD remains underexplored. MPD is particularly challenging because of low signal-to-noise ratios, fragmented pollution patterns, and indistinct boundaries caused by the visual similarity between pollutants and the surrounding sea. To address these issues, we propose MambaMPD, an enhanced Mamba-based framework incorporating two complementary structural priors: Frequency-Aware Augmentation (FAA) and multi-scale Edge-Guided Attention (EGA). FAA integrates wavelet transforms into the encoder to decompose features into multi-scale frequency subbands, enabling the model to capture low-frequency contextual semantics and high-frequency structural details needed to identify small, low-contrast, and irregular pollution patterns. EGA adaptively fuses hierarchical, Laplacian-derived boundary cues with deep semantic representations, refining encoder features before decoding to sharpen boundaries and reduce ambiguity in visually confusing, spatially fragmented scenes. Together, these modules improve sensitivity to subtle pollution signals while preserving fine boundary structures. A U-Net-style decoder with squeeze-and-excitation attention and deep supervision progressively restores and refines semantic and spatial information across scales. Extensive experiments on two benchmark MPD datasets show that MambaMPD achieves higher mIoU than competing methods while requiring substantially less computation than foundation-model-based approaches. On MADOS, it improves F1 by 3.6% over OSDMamba; on M4D, it raises Oil Spill IoU by 6.82% over TransOilSeg.",
+          "link": "https://arxiv.org/abs/2609.15676v1",
+          "pdfLink": "https://arxiv.org/pdf/2609.15676v1",
+          "published": "2026-09-14T14:52:16Z",
+          "updated": "2026-09-14T14:52:16Z",
+          "authors": [
+            "Shuaiyu Chen",
+            "Wei Han",
+            "Peng Ren",
+            "Chunbo Luo",
+            "Zeyu Fu"
+          ],
+          "categories": [
+            "cs.CV"
+          ],
+          "score": 35,
+          "importanceLevel": "B",
+          "lane": "Peripheral",
+          "dimensionScores": {
+            "relevance": 3,
+            "novelty": 22,
+            "impact": 6,
+            "practicality": 7,
+            "coreAlignment": 3
+          },
+          "oneSentenceSummary": "该论文是偏相关方向的重点候选，值得优先阅读。",
+          "summaryCn": "论文核心内容是：Accurate marine pollution detection (MPD) is essential for protecting coastal ecosystems and marine biodiversity.",
+          "whyImportant": "命中新基准、通用框架主题，分类覆盖cs.CV，并体现较强的新颖性与影响潜力。",
+          "reasonTags": [
+            "新基准",
+            "通用框架"
+          ],
+          "innovationPoints": [
+            "包含新基准或新数据评测"
+          ],
+          "noveltyVerdict": "创新信号强，像是带新范式或新基准的工作。",
+          "duplicateRisk": "low",
+          "dedupeNote": "该论文在Peripheral方向上具备独立问题设置或代表性贡献，可作为当日候选保留。",
+          "retrievalGroups": [
+            "general"
+          ],
+          "mergedCount": 1,
+          "mergedTitles": [
+            "MambaMPD: A Mamba-Driven Segmentation Framework for Marine Pollution Detection from Remote Sensing Imagery"
+          ]
+        },
+        {
+          "id": "2609.14956v1",
+          "title": "CAL-MOS: Bridging Layers with Adapters for Robust MOS Prediction Across Speech Foundation Models",
+          "summary": "Speech Quality Assessment (SQA) is essential for modern speech technologies, and recent non-intrusive SQA predictors increasingly rely on Speech Foundation Models (SFMs). However, because SFMs expose representations from many layers, it remains unclear which depths are most informative for MOS prediction and how multi-layer information s…",
+          "summaryRaw": "Speech Quality Assessment (SQA) is essential for modern speech technologies, and recent non-intrusive SQA predictors increasingly rely on Speech Foundation Models (SFMs). However, because SFMs expose representations from many layers, it remains unclear which depths are most informative for MOS prediction and how multi-layer information should be combined reliably across backbones and datasets. We benchmark ten SFMs on four MOS datasets under three regimes: full fine-tuning, last-layer probing with a frozen encoder, and naive cross-layer weighted aggregation. We find that the best layer is strongly backbone- and dataset-dependent, and that naive weighted fusion can be unstable across settings. We further evaluate a layer-calibrated aggregation variant that applies per-layer adapters before pooling, which improves the robustness of multi-layer fusion and narrows the gap to full fine-tuning while keeping the backbone frozen.",
+          "link": "https://arxiv.org/abs/2609.14956v1",
+          "pdfLink": "https://arxiv.org/pdf/2609.14956v1",
+          "published": "2026-09-14T03:00:06Z",
+          "updated": "2026-09-14T03:00:06Z",
+          "authors": [
+            "Alef Iury Siqueira Ferreira",
+            "Pedro Lustosa Rege Botelho",
+            "Fernanda Silva",
+            "Daniel Casanova",
+            "Rafael Faustino",
+            "Frederico Oliveira",
+            "Arlindo Galvão Filho",
+            "Anderson da Silva Soares"
+          ],
+          "categories": [
+            "cs.AI"
+          ],
+          "score": 34,
+          "importanceLevel": "B",
+          "lane": "Peripheral",
+          "dimensionScores": {
+            "relevance": 3,
+            "novelty": 21,
+            "impact": 6,
+            "practicality": 7,
+            "coreAlignment": 3
+          },
+          "oneSentenceSummary": "该论文是偏相关方向的重点候选，值得优先阅读。",
+          "summaryCn": "论文核心内容是：Speech Quality Assessment (SQA) is essential for modern speech technologies, and recent non-intrusive SQA predictors increasingly r…",
+          "whyImportant": "命中新基准、通用框架主题，分类覆盖cs.AI，并体现较强的新颖性与影响潜力。",
+          "reasonTags": [
+            "新基准",
+            "通用框架"
+          ],
+          "innovationPoints": [
+            "包含新基准或新数据评测"
+          ],
+          "noveltyVerdict": "创新信号强，像是带新范式或新基准的工作。",
+          "duplicateRisk": "low",
+          "dedupeNote": "该论文在Peripheral方向上具备独立问题设置或代表性贡献，可作为当日候选保留。",
+          "retrievalGroups": [
+            "general"
+          ],
+          "mergedCount": 1,
+          "mergedTitles": [
+            "CAL-MOS: Bridging Layers with Adapters for Robust MOS Prediction Across Speech Foundation Models"
+          ]
+        },
+        {
+          "id": "2609.15687v1",
+          "title": "EEG-Xplain: Decoding Neural Black-Boxes of EEG Foundation Models",
+          "summary": "EEG foundation models such as BIOT, LaBraM, and EEGMamba have achieved remarkable performance in neural signal decoding, but their black-box nature limits clinical trust and neuroscientific validation. We propose a unified attribution framework for interpreting EEG foundation models across heterogeneous architectures.",
+          "summaryRaw": "EEG foundation models such as BIOT, LaBraM, and EEGMamba have achieved remarkable performance in neural signal decoding, but their black-box nature limits clinical trust and neuroscientific validation. We propose a unified attribution framework for interpreting EEG foundation models across heterogeneous architectures. The framework integrates gradient-, perturbation-, and activation-based explanation methods to analyze model behavior in spatial, temporal, and frequency dimensions. Spatially, it identifies critical EEG channels and visualizes their distributions using topographic maps. Temporally, it highlights decision-relevant signal segments through attribution heatmaps. In the frequency domain, it quantifies the contributions of canonical EEG rhythms via spectral perturbation analysis. To assess explanation reliability, we introduce a population-level evaluation combining Area Over the Perturbation Curve (AOPC) and cross-method consistency analysis. The framework further leverages Large Language Models (LLMs) to transform structured attribution outputs into natural-language reports, bridging low-level neural representations and high-level semantic reasoning. Experiments on benchmark datasets, including Mumtaz2016 and TUAB, demonstrate that the generated explanations are consistent with established neurophysiological markers, validating meaningful neural representations while exposing potential dependencies on artifacts and spurious patterns. The proposed framework provides a standardized approach for evaluating the interpretability, reliability, and physiological plausibility of EEG foundation models.",
+          "link": "https://arxiv.org/abs/2609.15687v1",
+          "pdfLink": "https://arxiv.org/pdf/2609.15687v1",
+          "published": "2026-09-14T14:56:07Z",
+          "updated": "2026-09-14T14:56:07Z",
+          "authors": [
+            "Hansong Ma",
+            "Junxiao Wang"
+          ],
+          "categories": [
+            "cs.AI"
+          ],
+          "score": 30,
+          "importanceLevel": "B",
+          "lane": "Peripheral",
+          "dimensionScores": {
+            "relevance": 3,
+            "novelty": 27,
+            "impact": 3,
+            "practicality": 0,
+            "coreAlignment": 3
+          },
+          "oneSentenceSummary": "该论文是偏相关方向的重点候选，值得优先阅读。",
+          "summaryCn": "论文核心内容是：EEG foundation models such as BIOT, LaBraM, and EEGMamba have achieved remarkable performance in neural signal decoding, but their…",
+          "whyImportant": "命中新基准、通用框架主题，分类覆盖cs.AI，并体现较强的新颖性与影响潜力。",
+          "reasonTags": [
+            "新基准",
+            "通用框架"
+          ],
+          "innovationPoints": [
+            "包含新基准或新数据评测"
+          ],
+          "noveltyVerdict": "创新信号强，像是带新范式或新基准的工作。",
+          "duplicateRisk": "low",
+          "dedupeNote": "该论文在Peripheral方向上具备独立问题设置或代表性贡献，可作为当日候选保留。",
+          "retrievalGroups": [
+            "general"
+          ],
+          "mergedCount": 1,
+          "mergedTitles": [
+            "EEG-Xplain: Decoding Neural Black-Boxes of EEG Foundation Models"
+          ]
+        },
+        {
+          "id": "2609.15795v1",
+          "title": "SURE-Map: Self-Correcting Streaming Geometric Foundation Model",
+          "summary": "Streaming geometric foundation models are emerging as a compelling alternative to SLAM systems. Yet this streaming nature introduces a fundamental issue: each prediction is made from limited context, which is vulnerable to dynamic objects and weak textures.",
+          "summaryRaw": "Streaming geometric foundation models are emerging as a compelling alternative to SLAM systems. Yet this streaming nature introduces a fundamental issue: each prediction is made from limited context, which is vulnerable to dynamic objects and weak textures. Small local errors accumulate into severe geometric distortion and long-horizon scale drift. We argue that reliable streaming reconstruction requires geometric foundation models to be not only predictive, but also self-correcting. We introduce SURE-Map, a self-correcting framework built upon two complementary principles. First, we explicitly model cross-view geometric uncertainty. Unlike conventional depth or point confidence, which primarily reflects the reliability of individual-view prediction, our uncertainty directly measures whether the jointly predicted pose and depth induce geometrically consistent cross-view pixel correspondences. Second, because local correction alone cannot eliminate slowly accumulating scale errors, we introduce multi-timescale self-correction: fast consecutive-frame inference preserves streaming efficiency, while sparse keyframe-window inference provides longer-range geometric evidence to periodically recalibrate the scale of recent trajectories. SURE-Map establishes new state-of-the-art performance for online feed-forward reconstruction across long-horizon benchmarks, reducing ATE-RMSE from 24.00 to 17.24 m on KITTI, 5.11 to 4.74 m on Oxford Spires, and 31.37 to 28.58 m on VBR, with further improvements to 15.17, 4.63, and 22.12 m when incorporating loop-closure refinement. Project page: https://mingkai-liu.github.io/projects/sure-map/.",
+          "link": "https://arxiv.org/abs/2609.15795v1",
+          "pdfLink": "https://arxiv.org/pdf/2609.15795v1",
+          "published": "2026-09-14T16:10:53Z",
+          "updated": "2026-09-14T16:10:53Z",
+          "authors": [
+            "Mingkai Liu",
+            "Hao Zhao",
+            "Xingxing Zuo"
+          ],
+          "categories": [
+            "cs.CV"
+          ],
+          "score": 25,
+          "importanceLevel": "B",
+          "lane": "Peripheral",
+          "dimensionScores": {
+            "relevance": 3,
+            "novelty": 17,
+            "impact": 8,
+            "practicality": 0,
+            "coreAlignment": 3
+          },
+          "oneSentenceSummary": "该论文是偏相关方向的重点候选，值得优先阅读。",
+          "summaryCn": "论文核心内容是：Streaming geometric foundation models are emerging as a compelling alternative to SLAM systems.",
+          "whyImportant": "命中新基准、通用框架主题，分类覆盖cs.CV，并体现较强的新颖性与影响潜力。",
+          "reasonTags": [
+            "新基准",
+            "通用框架"
+          ],
+          "innovationPoints": [
+            "包含新基准或新数据评测"
+          ],
+          "noveltyVerdict": "创新点清晰，属于值得重点跟进的增量改进。",
+          "duplicateRisk": "low",
+          "dedupeNote": "该论文在Peripheral方向上具备独立问题设置或代表性贡献，可作为当日候选保留。",
+          "retrievalGroups": [
+            "general"
+          ],
+          "mergedCount": 1,
+          "mergedTitles": [
+            "SURE-Map: Self-Correcting Streaming Geometric Foundation Model"
+          ]
+        },
+        {
+          "id": "2609.15130v1",
+          "title": "woma: a real-time foundation model and its fine-tuned models for endoscopy",
+          "summary": "woma is a real-time foundation model for gastrointestinal endoscopy: a network trained without labels on about a million endoscopy frames, from which task models are fine-tuned. We contribute a systematic design for production.",
+          "summaryRaw": "woma is a real-time foundation model for gastrointestinal endoscopy: a network trained without labels on about a million endoscopy frames, from which task models are fine-tuned. We contribute a systematic design for production. Requirements and pass marks were fixed before any run, eight candidates screened under pre-registered rules, self-supervised training taken to a stopping rule, then fine-tuning and deployment optimisation, all on one self-contained library, numbat. We also contribute woma itself with two fine-tuned models, every outcome reported met or missed. Our colonoscopy model finds and outlines polyps, names which colon segment is in view, suggests polyp type and grades bowel preparation. Our gastroscopy model names a station out of 22 protocol sites, flags and outlines lesions, and names one of seven findings. Every number was read on data never seen in training, and shipped weights were chosen on that record. In colonoscopy, 96% of polyps in a six-hospital PolypGen set are found at precision >=0.85, and 19 of 19 polyps across fifteen full REAL-Colon videos at 1.6 false alarms per procedure. In gastroscopy, landmark region is named correctly on 92% of frames from unseen patients, and 37 of 39 held-out neoplasia frames are flagged at specificity 0.91. On one workstation GPU every task runs over 1080p video at about 100 frames per second, faster than PyTorch, ONNX Runtime and TensorRT in all four precision regimes tested. TensorRT comes closest: one pass of our foundation model takes it 3 to 27% longer than ours, and we deliver 6 to 31% more frames per second from frame to results. A second build links no vendor library at all -- our own kernels over Vulkan -- so a site deploys two files and needs no toolkit, no cuDNN and no framework; in f32 it beats the CUDA build on the same card.",
+          "link": "https://arxiv.org/abs/2609.15130v1",
+          "pdfLink": "https://arxiv.org/pdf/2609.15130v1",
+          "published": "2026-09-14T07:06:54Z",
+          "updated": "2026-09-14T07:06:54Z",
+          "authors": [
+            "Thang Tran",
+            "Lan Dang"
+          ],
+          "categories": [
+            "cs.CV",
+            "cs.LG"
+          ],
+          "score": 22,
+          "importanceLevel": "B",
+          "lane": "Peripheral",
+          "dimensionScores": {
+            "relevance": 5,
+            "novelty": 12,
+            "impact": 5,
+            "practicality": 5,
+            "coreAlignment": 5
+          },
+          "oneSentenceSummary": "该论文是偏相关方向的重点候选，值得优先阅读。",
+          "summaryCn": "论文核心内容是：woma is a real-time foundation model for gastrointestinal endoscopy: a network trained without labels on about a million endoscopy…",
+          "whyImportant": "命中通用框架主题，分类覆盖cs.CV / cs.LG，并体现较强的新颖性与影响潜力。",
+          "reasonTags": [
+            "通用框架"
+          ],
+          "innovationPoints": [
+            "提出具有跟踪价值的方法设计"
+          ],
+          "noveltyVerdict": "创新点清晰，属于值得重点跟进的增量改进。",
+          "duplicateRisk": "low",
+          "dedupeNote": "该论文在Peripheral方向上具备独立问题设置或代表性贡献，可作为当日候选保留。",
+          "retrievalGroups": [
+            "general"
+          ],
+          "mergedCount": 1,
+          "mergedTitles": [
+            "woma: a real-time foundation model and its fine-tuned models for endoscopy"
+          ]
+        },
+        {
+          "id": "2609.15453v1",
+          "title": "Listening for Airway Stenosis: A Foundation Model-Based Method for Rapid and Accessible Detection",
+          "summary": "Airway stenosis can cause severe respiratory complications, yet its detection often relies on specialized examinations and medical imaging. This study explores the potential of acoustic AI for rapid and accessible airway stenosis detection using readily acquired patient voice recordings.",
+          "summaryRaw": "Airway stenosis can cause severe respiratory complications, yet its detection often relies on specialized examinations and medical imaging. This study explores the potential of acoustic AI for rapid and accessible airway stenosis detection using readily acquired patient voice recordings. We systematically investigate whether acoustic foundation models (AFMs) can extract acoustic representations associated with airway stenosis-related speech patterns. Experiments are conducted on a cohort of 748 participants from the Bridge2AI-Voice dataset, 134 with airway stenosis and 614 without. The best-performing model achieves an AUROC of 0.952 and an accuracy of 0.924 (means over five-fold cross-validation), highlighting the potential of AFMs to transfer beyond general-purpose speech applications to clinical diagnostic tasks. Further analysis reveals that the model primarily relies on connected-speech recordings rather than isolated acoustic tasks, such as sustained phonation and breathing. Overall, these results suggest that voice-based acoustic AI could complement existing diagnostic workflows by enabling rapid, low-burden, and widely accessible screening for airway stenosis.",
+          "link": "https://arxiv.org/abs/2609.15453v1",
+          "pdfLink": "https://arxiv.org/pdf/2609.15453v1",
+          "published": "2026-09-14T12:20:23Z",
+          "updated": "2026-09-14T12:20:23Z",
+          "authors": [
+            "Jean Groeninger",
+            "Zihao Zhao",
+            "Juliana de Castilhos",
+            "Sven Nebelung",
+            "Daniel Truhn"
+          ],
+          "categories": [],
+          "score": 22,
+          "importanceLevel": "B",
+          "lane": "Peripheral",
+          "dimensionScores": {
+            "relevance": 0,
+            "novelty": 17,
+            "impact": 5,
+            "practicality": 0,
+            "coreAlignment": 0
+          },
+          "oneSentenceSummary": "该论文是偏相关方向的重点候选，值得优先阅读。",
+          "summaryCn": "论文核心内容是：Airway stenosis can cause severe respiratory complications, yet its detection often relies on specialized examinations and medical…",
+          "whyImportant": "命中新基准、通用框架主题，分类覆盖，并体现较强的新颖性与影响潜力。",
+          "reasonTags": [
+            "新基准",
+            "通用框架"
+          ],
+          "innovationPoints": [
+            "包含新基准或新数据评测"
+          ],
+          "noveltyVerdict": "创新点清晰，属于值得重点跟进的增量改进。",
+          "duplicateRisk": "low",
+          "dedupeNote": "该论文在Peripheral方向上具备独立问题设置或代表性贡献，可作为当日候选保留。",
+          "retrievalGroups": [
+            "general"
+          ],
+          "mergedCount": 1,
+          "mergedTitles": [
+            "Listening for Airway Stenosis: A Foundation Model-Based Method for Rapid and Accessible Detection"
+          ]
+        },
+        {
+          "id": "2609.15704v1",
+          "title": "AI-Native Open RAN: A Roadmap from xApps and rApps to Autonomous Network Agents",
+          "summary": "Open Radio Access Networks (O-RAN) have emerged as a transformative paradigm for future wireless systems by introducing openness, virtualization, disaggregation, and programmable intelligence through the RAN Intelligent Controller (RIC). The availability of standardized interfaces and near-real-time control loops has created unprecedente…",
+          "summaryRaw": "Open Radio Access Networks (O-RAN) have emerged as a transformative paradigm for future wireless systems by introducing openness, virtualization, disaggregation, and programmable intelligence through the RAN Intelligent Controller (RIC). The availability of standardized interfaces and near-real-time control loops has created unprecedented opportunities for integrating artificial intelligence (AI) into radio access network management and optimization. Over the past several years, a broad range of AI techniques have been proposed to address key O-RAN challenges such as radio resource management, network slicing, traffic prediction, mobility management, interference mitigation, and spectrum sharing. Despite significant progress, existing solutions often remain task-specific, require extensive retraining, and exhibit limited generalization across deployment environments and network conditions. This paper presents a comprehensive review of AI-enabled O-RAN systems and provides a unifying perspective on the evolution of intelligence in wireless networks. We first examine the O-RAN architecture and the role of intelligence within near-real-time and non-real-time RIC frameworks. We then develop a taxonomy of AI approaches for O-RAN, covering machine learning, deep reinforcement learning (DRL), digital-twin-assisted optimization, and emerging foundation-model-based architectures.",
+          "link": "https://arxiv.org/abs/2609.15704v1",
+          "pdfLink": "https://arxiv.org/pdf/2609.15704v1",
+          "published": "2026-09-14T15:08:02Z",
+          "updated": "2026-09-14T15:08:02Z",
+          "authors": [
+            "Ryan Barker",
+            "Alireza Ebrahimi Dorcheh",
+            "Tolunay Seyfi",
+            "Mohammad Raihan Uddin",
+            "Alireza Mohammadhosseini",
+            "Julia Boone",
+            "Stephen Streit",
+            "Drew Schlesener"
+          ],
+          "categories": [],
+          "score": 21,
+          "importanceLevel": "B",
+          "lane": "Peripheral",
+          "dimensionScores": {
+            "relevance": 0,
+            "novelty": 16,
+            "impact": 0,
+            "practicality": 5,
+            "coreAlignment": 0
+          },
+          "oneSentenceSummary": "该论文是偏相关方向的重点候选，值得优先阅读。",
+          "summaryCn": "论文核心内容是：Open Radio Access Networks (O-RAN) have emerged as a transformative paradigm for future wireless systems by introducing openness, v…",
+          "whyImportant": "命中通用框架主题，分类覆盖，并体现较强的新颖性与影响潜力。",
+          "reasonTags": [
+            "通用框架"
+          ],
+          "innovationPoints": [
+            "提出具有跟踪价值的方法设计"
+          ],
+          "noveltyVerdict": "创新点清晰，属于值得重点跟进的增量改进。",
+          "duplicateRisk": "low",
+          "dedupeNote": "该论文在Peripheral方向上具备独立问题设置或代表性贡献，可作为当日候选保留。",
+          "retrievalGroups": [
+            "general"
+          ],
+          "mergedCount": 1,
+          "mergedTitles": [
+            "AI-Native Open RAN: A Roadmap from xApps and rApps to Autonomous Network Agents"
+          ]
+        },
+        {
+          "id": "2609.14857v1",
+          "title": "ModularRSI: Modular and Generalizable Recursive Harness Self-Improvement",
+          "summary": "Recent work extends recursive self-improvement (RSI) to agent harnesses for long-horizon coding and terminal tasks, enabling agents to improve execution mechanisms from experience. However, generalizable harness RSI remains challenging.",
+          "summaryRaw": "Recent work extends recursive self-improvement (RSI) to agent harnesses for long-horizon coding and terminal tasks, enabling agents to improve execution mechanisms from experience. However, generalizable harness RSI remains challenging. First, evolving harnesses on evaluation benchmarks or their subsets makes it difficult to distinguish reusable improvements from benchmark-specific adaptation. Second, single-trajectory updates can conflate systematic harness deficiencies with instance-specific reasoning and solution details, producing modifications that transfer poorly to unseen tasks. Third, localizing recurring behavioral deficiencies within monolithic harnesses is difficult, while whole-harness optimization can entangle unrelated mechanisms and complicate attribution and validation. We propose ModularRSI, a benchmark-disjoint, contrastive, and modular framework for generalizable harness evolution. ModularRSI contrasts successful and failed trajectories for the same task and aggregates evidence across tasks to identify recurring behavioral deficiencies. It decomposes the evolvable harness into five functional modules: Agent Loop, Tool Use, Observation Management, Context Management, and Task Completion Detection. Each module evolves independently within a restricted modification scope, followed by an integration stage that combines the evolved modules into a unified harness and resolves potential conflicts. To support benchmark-disjoint evolution, we curate 2,000 executable evolution tasks from external sources that are disjoint from downstream evaluation benchmarks. Experiments on TB2.0 and SWE-Bench Verified show consistent improvements on unseen in-domain and cross-domain tasks, with the evolved harness also transferring across different foundation models.",
+          "link": "https://arxiv.org/abs/2609.14857v1",
+          "pdfLink": "https://arxiv.org/pdf/2609.14857v1",
+          "published": "2026-09-14T00:10:45Z",
+          "updated": "2026-09-14T00:10:45Z",
+          "authors": [
+            "Siwei Wu",
+            "Jincheng Ren",
+            "Yizhi Li",
+            "Haau-Sing Li",
+            "Chengran Yang",
+            "Yuxuan Zhang",
+            "Weicheng Gu",
+            "Jian Yang"
+          ],
+          "categories": [],
+          "score": 21,
+          "importanceLevel": "B",
+          "lane": "Peripheral",
+          "dimensionScores": {
+            "relevance": 0,
+            "novelty": 21,
+            "impact": 0,
+            "practicality": 0,
+            "coreAlignment": 0
+          },
+          "oneSentenceSummary": "该论文是偏相关方向的重点候选，值得优先阅读。",
+          "summaryCn": "论文核心内容是：Recent work extends recursive self-improvement (RSI) to agent harnesses for long-horizon coding and terminal tasks, enabling agents…",
+          "whyImportant": "命中新基准、通用框架主题，分类覆盖，并体现较强的新颖性与影响潜力。",
+          "reasonTags": [
+            "新基准",
+            "通用框架"
+          ],
+          "innovationPoints": [
+            "包含新基准或新数据评测"
+          ],
+          "noveltyVerdict": "创新信号强，像是带新范式或新基准的工作。",
+          "duplicateRisk": "low",
+          "dedupeNote": "该论文在Peripheral方向上具备独立问题设置或代表性贡献，可作为当日候选保留。",
+          "retrievalGroups": [
+            "general"
+          ],
+          "mergedCount": 1,
+          "mergedTitles": [
+            "ModularRSI: Modular and Generalizable Recursive Harness Self-Improvement"
+          ]
+        }
+      ],
+      "paperSets": {
+        "overall": [
+          {
+            "id": "2609.14973v1",
+            "title": "PhysBrain 1.5: From Vision-Language Models to Physical Foundation Models",
+            "summary": "We present PhysBrain 1.5, a unified model for understanding physical environments, generating actions, and predicting future states. Motivated by the physical loop of observation, interaction, and environmental change, we bring these capabilities into a common learning framework.",
+            "summaryRaw": "We present PhysBrain 1.5, a unified model for understanding physical environments, generating actions, and predicting future states. Motivated by the physical loop of observation, interaction, and environmental change, we bring these capabilities into a common learning framework. Starting from a general vision--language model, we encode language responses, end-effector motion, and dense visual targets as discrete sequences and jointly optimize them with autoregressive next-token prediction. Pre-training draws its embodied supervision entirely from human interaction videos, using task-centered episodes to pair semantic and spatial context with recovered motion and subsequent observations. We then adapt the model through supervised fine-tuning on a mixture of human demonstrations, robot trajectories, and simulated experience. Across 28 embodied understanding benchmarks, our 8B model achieves an average score of 72.5, setting a new open-source state of the art and performing on par with leading proprietary models such as GPT-6-Astra and Gemini 3.6 Flash. It achieves the best open-source results on 14 benchmarks while retaining general multimodal capabilities. Beyond these understanding evaluations, qualitative examples show the model's ability to produce end-effector trajectories and predict future scenes through spatially aligned RGB, depth, and robot-mask outputs.",
+            "link": "https://arxiv.org/abs/2609.14973v1",
+            "pdfLink": "https://arxiv.org/pdf/2609.14973v1",
+            "published": "2026-09-14T03:25:46Z",
+            "updated": "2026-09-14T03:25:46Z",
+            "authors": [
+              "DeepCybo Team",
+              "Yu Bin",
+              "Haipeng Cao",
+              "Zheng Chang",
+              "Kai Chen",
+              "Youning Chen",
+              "Kailin Deng",
+              "Yichao Du"
+            ],
+            "categories": [
+              "cs.CV",
+              "cs.RO"
+            ],
+            "score": 88,
+            "importanceLevel": "S",
+            "lane": "Both",
+            "dimensionScores": {
+              "relevance": 90,
+              "novelty": 85,
+              "impact": 86,
+              "practicality": 78,
+              "coreAlignment": 92
+            },
+            "oneSentenceSummary": "统一视觉语言模型，预测环境、生成动作与未来状态",
+            "summaryCn": "PhysBrain 1.5以通用视觉语言模型为基础，将语言响应、末端执行器运动和稠密视觉目标统一离散为序列，用自回归下一token预测进行联合优化。预训练从人类交互视频中提取任务中心片段，恢复运动与后续观察；随后在人类演示、机器人轨迹和仿真经验上监督微调。在28个具身理解基准上展示环境理解、动作生成和未来状态预测能力。",
+            "whyImportant": "统一物理理解、动作生成与未来预测，为通用具身智能提供更完整的模型底座，减少碎片化。",
+            "reasonTags": [
+              "具身智能",
+              "物理基础模型",
+              "动作生成",
+              "未来预测"
+            ],
+            "innovationPoints": [
+              "构建观察-交互-环境变化物理回路统一框架",
+              "仅靠人类交互视频自回归预训练，无需大规模机器人标注",
+              "同时覆盖VLA动作生成与WAM未来状态预测"
+            ],
+            "noveltyVerdict": "较强创新，整合VLA与世界模型能力，框架统一。",
+            "duplicateRisk": "medium",
+            "dedupeNote": "与纯VLA或纯世界模型不同，强调三者闭环统一建模，非单一策略或预测器。",
+            "retrievalGroups": [
+              "general"
+            ],
+            "mergedCount": 1,
+            "mergedTitles": [
+              "PhysBrain 1.5: From Vision-Language Models to Physical Foundation Models"
+            ]
+          },
+          {
+            "id": "2609.15213v1",
+            "title": "X-WBC: A Cross-Embodiment Foundation Model for Humanoid Whole-Body Control",
+            "summary": "Scaling humanoid whole-body control toward general-purpose deployment requires large human motion corpora and training experience shared across robot bodies. Existing methods usually train one policy per robot, leaving motion experience isolated across embodiments.",
+            "summaryRaw": "Scaling humanoid whole-body control toward general-purpose deployment requires large human motion corpora and training experience shared across robot bodies. Existing methods usually train one policy per robot, leaving motion experience isolated across embodiments. We introduce X-WBC, a cross-embodiment foundation framework that separates relatively shared human motion semantics from embodiment-specific physical execution. Human-centered command tokens align full human motion, robot reference motion, and sparse VR observations. A causal Transformer learns reusable temporal structure from mixed multi-robot rollouts, while lightweight robot-specific modules map the shared representation to each robot's proprioception and action space. Across nine simulated embodiments, external motions, and four real robots, experiments show that joint training improves tracking, the aligned representation supports consistent control across command sources, and the learned policy remains competitive beyond the training corpus. These results support heterogeneous humanoids as joint data sources and establish cross-embodiment joint training as a practical route toward whole-body control foundation models.",
+            "link": "https://arxiv.org/abs/2609.15213v1",
+            "pdfLink": "https://arxiv.org/pdf/2609.15213v1",
+            "published": "2026-09-14T08:34:48Z",
+            "updated": "2026-09-14T08:34:48Z",
+            "authors": [
+              "Juntong Zhang",
+              "Chun Gu",
+              "Li Zhang"
+            ],
+            "categories": [
+              "cs.RO"
+            ],
+            "score": 70,
+            "importanceLevel": "B",
+            "lane": "Robotics",
+            "dimensionScores": {
+              "relevance": 55,
+              "novelty": 75,
+              "impact": 65,
+              "practicality": 80,
+              "coreAlignment": 80
+            },
+            "oneSentenceSummary": "跨具身人形全身控制基础模型，解耦运动语义与本体执行",
+            "summaryCn": "X-WBC提出跨具身人形全身控制基础框架，分离相对共享的人类运动语义与本体物理执行。以人为中心的命令token对齐人类运动、机器人参考运动和稀疏VR观测；因果Transformer从多机器人混合数据学习可复用时间结构，轻量模块映射到各自本体感知和动作空间。在九种仿真和四台真实机器人上验证联合训练提升跟踪。",
+            "whyImportant": "跨具身联合训练突破单一机器人策略孤立，提升人形机器人运动迁移与全身控制泛化。",
+            "reasonTags": [
+              "人形控制",
+              "跨具身",
+              "全身控制",
+              "基础模型"
+            ],
+            "innovationPoints": [
+              "分离人类运动语义与本体物理执行",
+              "跨机器人混合数据共享时间结构学习",
+              "轻量模块实现多本体快速适配"
+            ],
+            "noveltyVerdict": "创新中等偏上，侧重架构与训练策略，非颠覆性。",
+            "duplicateRisk": "low",
+            "dedupeNote": "区别于单机器人策略，专注跨本体共享表示与模块化解耦，降低重复训练成本。",
+            "retrievalGroups": [
+              "general"
+            ],
+            "mergedCount": 1,
+            "mergedTitles": [
+              "X-WBC: A Cross-Embodiment Foundation Model for Humanoid Whole-Body Control"
+            ]
+          },
+          {
+            "id": "2609.15973v1",
+            "title": "Discovery Foundation Models: Toward Open-Ended Discovery Intelligence",
+            "summary": "Foundation models have progressed from learning and reasoning over existing knowledge, to increasingly learning through action, tool use, and outcome feedback. We argue that the next frontier is a further transition: from solving and acting within problems specified by humans to participating in the process by which new problems, represe…",
+            "summaryRaw": "Foundation models have progressed from learning and reasoning over existing knowledge, to increasingly learning through action, tool use, and outcome feedback. We argue that the next frontier is a further transition: from solving and acting within problems specified by humans to participating in the process by which new problems, representations, explanations, and knowledge are created. We refer to this capability as Discovery Intelligence. We formulate Discovery Foundation Models (DFMs) as general-purpose model systems for open-ended discovery. A DFM operates over a revisable research state and supports seven coupled capabilities spanning problem discovery, formulation, representation construction, hypothesis formation, intervention, evidence-grounded revision, and continual discovery improvement. We instantiate this framework with Zetema, which couples explicit research-state dynamics, verification and experimental gating, external grounding, and cross-task Discovery Skill evolution. We further ground the framework with GALILEO, a real therapeutic-discovery system in which Dry-Lab reasoning, robotic and hands-on Wet-Lab experimentation, external biological evidence, and iterative hypothesis and design revision form a closed physical discovery loop. We then formulate a unified approach to capability formation and process-centered evaluation, enabling discovery behavior to be trained, improved, and measured beyond final-answer performance. Together, these components establish discovery as a learnable, executable, and evaluable capability of foundation-model systems. We view this shift as a broader progression in intelligence scaling: from learning over existing knowledge, to learning from action outcomes, and ultimately to participating in the construction, testing, and revision of the structures through which new knowledge is discovered. Code: https://github.com/Gen-Verse/DFM-Plans",
+            "link": "https://arxiv.org/abs/2609.15973v1",
+            "pdfLink": "https://arxiv.org/pdf/2609.15973v1",
+            "published": "2026-09-14T17:56:00Z",
+            "updated": "2026-09-14T17:56:00Z",
+            "authors": [
+              "Ling Yang",
+              "Zhenfei Yin",
+              "Yingcheng Wu"
+            ],
+            "categories": [],
+            "score": 46,
+            "importanceLevel": "B",
+            "lane": "Robotics",
+            "dimensionScores": {
+              "relevance": 18,
+              "novelty": 17,
+              "impact": 8,
+              "practicality": 3,
+              "coreAlignment": 8
+            },
+            "oneSentenceSummary": "该论文是偏机器人的重点候选，值得优先阅读。",
+            "summaryCn": "论文核心内容是：Foundation models have progressed from learning and reasoning over existing knowledge, to increasingly learning through action, too…",
+            "whyImportant": "命中机器人、新基准、通用框架主题，分类覆盖，并体现较强的新颖性与影响潜力。",
+            "reasonTags": [
+              "机器人",
+              "新基准",
+              "通用框架"
+            ],
+            "innovationPoints": [
+              "提出具有跟踪价值的方法设计"
+            ],
+            "noveltyVerdict": "创新点清晰，属于值得重点跟进的增量改进。",
+            "duplicateRisk": "low",
+            "dedupeNote": "该论文在Robotics方向上具备独立问题设置或代表性贡献，可作为当日候选保留。",
+            "retrievalGroups": [
+              "general"
+            ],
+            "mergedCount": 1,
+            "mergedTitles": [
+              "Discovery Foundation Models: Toward Open-Ended Discovery Intelligence"
+            ]
+          },
+          {
+            "id": "2609.15087v1",
+            "title": "Beyond Numerical Time Series: A Unified Benchmark for Multimodal Forecasting with Heterogeneous Context",
+            "summary": "Most time series forecasting benchmarks remain numerical-centric and provide limited support for evaluating contextual information that shapes real-world temporal dynamics. Existing multimodal benchmarks also suffer from limited data and context coverage, fragmented evaluation settings, and overreliance on aggregate evaluation.",
+            "summaryRaw": "Most time series forecasting benchmarks remain numerical-centric and provide limited support for evaluating contextual information that shapes real-world temporal dynamics. Existing multimodal benchmarks also suffer from limited data and context coverage, fragmented evaluation settings, and overreliance on aggregate evaluation. In this paper, we propose \\textbf{MUSE-Bench}, a unified benchmark for multimodal time series forecasting with heterogeneous context. It comprises fourteen datasets across eight domains and six types of context: metadata, events, holidays, news, images, and numerical covariates. We evaluate diverse forecasting paradigms, including statistical, data-specific, foundation, multimodal, and general-purpose LLM forecasting methods under shared non-overlapping forecast windows, common target observations, and consistent point and probabilistic metrics. Extensive experiments yield three main findings. First, numerical time series foundation models dominate the overall ranking, while Aurora, the evaluated multimodal foundation model, trails the leading numerical TSFMs but outperforms all evaluated data-specific models. Second, ablations show that external context improves the four evaluated context-aware models, whereas incorrect or temporally misaligned context degrades performance. Third, general-purpose LLMs perform poorly as direct forecasters, and LLM-guided refinement does not yield consistent improvements. MUSE-Bench enables systematic evaluation of how forecasting models utilize context and provides a foundation for future multimodal forecasting research.",
+            "link": "https://arxiv.org/abs/2609.15087v1",
+            "pdfLink": "https://arxiv.org/pdf/2609.15087v1",
+            "published": "2026-09-14T06:01:16Z",
+            "updated": "2026-09-14T06:01:16Z",
+            "authors": [
+              "Peng Chen",
+              "Zhihao Zhuang",
+              "Hongzhou Chen",
+              "Junhao Huang",
+              "Aiping Yang",
+              "Mengsen Wu",
+              "Yiding Liu",
+              "Xilin Dai"
+            ],
+            "categories": [
+              "cs.LG",
+              "cs.AI"
+            ],
+            "score": 43,
+            "importanceLevel": "B",
+            "lane": "Peripheral",
+            "dimensionScores": {
+              "relevance": 5,
+              "novelty": 27,
+              "impact": 16,
+              "practicality": 0,
+              "coreAlignment": 5
+            },
+            "oneSentenceSummary": "该论文是偏相关方向的重点候选，值得优先阅读。",
+            "summaryCn": "论文核心内容是：Most time series forecasting benchmarks remain numerical-centric and provide limited support for evaluating contextual information…",
+            "whyImportant": "命中新基准、通用框架、真实实验主题，分类覆盖cs.LG / cs.AI，并体现较强的新颖性与影响潜力。",
+            "reasonTags": [
+              "新基准",
+              "通用框架",
+              "真实实验"
+            ],
+            "innovationPoints": [
+              "包含新基准或新数据评测",
+              "提供真实场景实验验证"
+            ],
+            "noveltyVerdict": "创新信号强，像是带新范式或新基准的工作。",
+            "duplicateRisk": "low",
+            "dedupeNote": "该论文在Peripheral方向上具备独立问题设置或代表性贡献，可作为当日候选保留。",
+            "retrievalGroups": [
+              "general"
+            ],
+            "mergedCount": 1,
+            "mergedTitles": [
+              "Beyond Numerical Time Series: A Unified Benchmark for Multimodal Forecasting with Heterogeneous Context"
+            ]
+          },
+          {
+            "id": "2609.15740v1",
+            "title": "A Language-Guided Multimodal Foundation Model for Zero-Shot and Multi-Task Brain Signal Analysis",
+            "summary": "Brain signal analysis is essential for both neuroscience research and clinical diagnostics, yet current approaches face critical limitations. End-to-end models require task-specific retraining and exhibit limited generalization, while pre-trained models lack semantic depth and still depend on extensive fine-tuning.",
+            "summaryRaw": "Brain signal analysis is essential for both neuroscience research and clinical diagnostics, yet current approaches face critical limitations. End-to-end models require task-specific retraining and exhibit limited generalization, while pre-trained models lack semantic depth and still depend on extensive fine-tuning. Meanwhile, general-purpose multimodal foundation models, though powerful in other domains, struggle to interpret brain signals due to representational misalignment and lack of domain knowledge. This study introduces a multimodal foundation model for zero-shot and multi-task brain signal analysis (METIS) through a unified language-signal alignment framework. METIS is pretrained on the largest and most diverse brain-signal corpus to date, comprising over 70,000 h of recordings from more than 11,000 subjects across 20 datasets. In a comprehensive zero-shot evaluation across 12 datasets, METIS outperformed the leading generalist model by over 20.9% in average accuracy. Remarkably, without any fine-tuning, METIS's performance matches or exceeds that of supervised, task-specific models. Furthermore, METIS demonstrates exceptional data efficiency and strong generalization, achieving an average AUROC advantage of over 16.0% in few-shot settings and 15.9% in cross-dataset transfer. This work establishes a new paradigm for general-purpose brain signal analysis, paving the way for next-generation neurotechnology.",
+            "link": "https://arxiv.org/abs/2609.15740v1",
+            "pdfLink": "https://arxiv.org/pdf/2609.15740v1",
+            "published": "2026-09-14T15:32:38Z",
+            "updated": "2026-09-14T15:32:38Z",
+            "authors": [
+              "Mingzhi Chen",
+              "Yiyu Gui",
+              "Guibo Luo",
+              "Yuchao Yang"
+            ],
+            "categories": [
+              "cs.LG",
+              "cs.AI"
+            ],
+            "score": 41,
+            "importanceLevel": "B",
+            "lane": "Peripheral",
+            "dimensionScores": {
+              "relevance": 5,
+              "novelty": 26,
+              "impact": 15,
+              "practicality": 0,
+              "coreAlignment": 5
+            },
+            "oneSentenceSummary": "该论文是偏相关方向的重点候选，值得优先阅读。",
+            "summaryCn": "论文核心内容是：Brain signal analysis is essential for both neuroscience research and clinical diagnostics, yet current approaches face critical li…",
+            "whyImportant": "命中新基准、通用框架主题，分类覆盖cs.LG / cs.AI，并体现较强的新颖性与影响潜力。",
+            "reasonTags": [
+              "新基准",
+              "通用框架"
+            ],
+            "innovationPoints": [
+              "包含新基准或新数据评测"
+            ],
+            "noveltyVerdict": "创新信号强，像是带新范式或新基准的工作。",
+            "duplicateRisk": "low",
+            "dedupeNote": "该论文在Peripheral方向上具备独立问题设置或代表性贡献，可作为当日候选保留。",
+            "retrievalGroups": [
+              "general"
+            ],
+            "mergedCount": 1,
+            "mergedTitles": [
+              "A Language-Guided Multimodal Foundation Model for Zero-Shot and Multi-Task Brain Signal Analysis"
+            ]
+          },
+          {
+            "id": "2609.15794v1",
+            "title": "KnowBench: Effort Reduction as a Unified, Deployment-Grounded Benchmark for Clinical AI",
+            "summary": "Clinical AI systems are evaluated with instruments built for research settings (reference-based similarity metrics and expert rubric panels) that measure resemblance to an artifact rather than reduction of a burden. We introduce KnowBench, pioneered by Knowtex, whose unifying metric is Effort Reduction (ER): the proportion of system-gene…",
+            "summaryRaw": "Clinical AI systems are evaluated with instruments built for research settings (reference-based similarity metrics and expert rubric panels) that measure resemblance to an artifact rather than reduction of a burden. We introduce KnowBench, pioneered by Knowtex, whose unifying metric is Effort Reduction (ER): the proportion of system-generated clinical work product accepted by the responsible clinician under expert and safety review. ER is defined once and instantiated per task across the administrative workload clinical AI automates: visit notes, diagnosis and billing codes, orders, EHR chart summarization, patient after-visit summaries, and clinical decision support. In every instantiation the construction is identical: the clinician's review-and-attestation event is the ground truth, every accepted unit is work the system completed, and every correction is residual effort returned to the clinician. The primary contribution of this paper is the benchmark itself: the metric, its degenerate cases, and a reporting protocol under which ER claims are auditable and cross-system comparable. Alongside it we report an initial headline measurement from the documentation instantiation: over one million signed encounters across a production window exceeding six months and thirteen medical specialties, Knowtex's proprietary fine-tuned clinical foundation models operating inside a closed feedback architecture achieve an aggregate ER of 97.99%, with per-specialty aggregates spanning 96.8-98.9%. This release reports the protocol's checklist partially, and states which companion statistics are withheld; the benchmark is offered so that this figure, and every figure reported after it, can be held to the same standard.",
+            "link": "https://arxiv.org/abs/2609.15794v1",
+            "pdfLink": "https://arxiv.org/pdf/2609.15794v1",
+            "published": "2026-09-14T16:10:52Z",
+            "updated": "2026-09-14T16:10:52Z",
+            "authors": [
+              "Jocelyn Kang",
+              "Caroline Zhang"
+            ],
+            "categories": [
+              "cs.AI"
+            ],
+            "score": 40,
+            "importanceLevel": "B",
+            "lane": "Peripheral",
+            "dimensionScores": {
+              "relevance": 3,
+              "novelty": 22,
+              "impact": 6,
+              "practicality": 12,
+              "coreAlignment": 3
+            },
+            "oneSentenceSummary": "该论文是偏相关方向的重点候选，值得优先阅读。",
+            "summaryCn": "论文核心内容是：Clinical AI systems are evaluated with instruments built for research settings (reference-based similarity metrics and expert rubri…",
+            "whyImportant": "命中新基准、通用框架主题，分类覆盖cs.AI，并体现较强的新颖性与影响潜力。",
+            "reasonTags": [
+              "新基准",
+              "通用框架"
+            ],
+            "innovationPoints": [
+              "包含新基准或新数据评测"
+            ],
+            "noveltyVerdict": "创新信号强，像是带新范式或新基准的工作。",
+            "duplicateRisk": "low",
+            "dedupeNote": "该论文在Peripheral方向上具备独立问题设置或代表性贡献，可作为当日候选保留。",
+            "retrievalGroups": [
+              "general"
+            ],
+            "mergedCount": 1,
+            "mergedTitles": [
+              "KnowBench: Effort Reduction as a Unified, Deployment-Grounded Benchmark for Clinical AI"
+            ]
+          },
+          {
+            "id": "2609.15032v1",
+            "title": "Tele360: Real-Time Feed-Forward Human Reconstruction from Sparse Unposed Cameras",
+            "summary": "Live free-viewpoint visualization of real humans is critical for immersive communication and interactive digital experiences. Existing methods either rely on computationally expensive optimization or require calibrated cameras and low-resolution inputs, making real-time high-resolution deployment impractical.",
+            "summaryRaw": "Live free-viewpoint visualization of real humans is critical for immersive communication and interactive digital experiences. Existing methods either rely on computationally expensive optimization or require calibrated cameras and low-resolution inputs, making real-time high-resolution deployment impractical. In this work, we present Tele360, the first real-time feed-forward system for dynamic human reconstruction and live free-viewpoint visualization from sparse, unposed RGB streams. Our system jointly estimates camera poses and reconstructs a dynamic 3D Gaussian representation for each time instance in a single forward pass. To achieve this, we start by designing a lightweight sparsity-aware multi-view transformer backbone that tokenizes foreground human regions while preserving global context through a shared scene token. We then employ a fully transformer-based Gaussian decoder to mitigate convolution-induced over-smoothing while keeping decoding sparse and efficient. In addition, we introduce a hybrid feature pyramid that injects multi-scale appearance cues into geometry prediction. We further introduce a lightweight differentiable Levenberg-Marquardt camera refinement layer to enhance multi-view consistency and geometric alignment. Moreover, to stabilize learning under sparse, unposed inputs, we transfer multi-view geometry priors from a large visual-geometry foundation model via teacher-student distillation. Finally, the predicted Gaussian maps are streamed with video codecs to remote devices for interactive free-viewpoint rendering. Extensive experiments show that Tele360 achieves state-of-the-art visual quality on studio benchmarks while supporting real-time 2K input-to-rendering at over 25 FPS on a single consumer GPU. Additional captured sequences illustrate its performance across varied subjects, clothing, and motions under our multi-camera setup.",
+            "link": "https://arxiv.org/abs/2609.15032v1",
+            "pdfLink": "https://arxiv.org/pdf/2609.15032v1",
+            "published": "2026-09-14T04:50:52Z",
+            "updated": "2026-09-14T04:50:52Z",
+            "authors": [
+              "Hanzhang Tu",
+              "Zhanfeng Liao",
+              "Wei Min",
+              "Jiajun Zhang",
+              "Yebin Liu"
+            ],
+            "categories": [
+              "cs.CV"
+            ],
+            "score": 40,
+            "importanceLevel": "B",
+            "lane": "Peripheral",
+            "dimensionScores": {
+              "relevance": 3,
+              "novelty": 17,
+              "impact": 11,
+              "practicality": 12,
+              "coreAlignment": 3
+            },
+            "oneSentenceSummary": "该论文是偏相关方向的重点候选，值得优先阅读。",
+            "summaryCn": "论文核心内容是：Live free-viewpoint visualization of real humans is critical for immersive communication and interactive digital experiences.",
+            "whyImportant": "命中新基准、通用框架主题，分类覆盖cs.CV，并体现较强的新颖性与影响潜力。",
+            "reasonTags": [
+              "新基准",
+              "通用框架"
+            ],
+            "innovationPoints": [
+              "包含新基准或新数据评测"
+            ],
+            "noveltyVerdict": "创新点清晰，属于值得重点跟进的增量改进。",
+            "duplicateRisk": "low",
+            "dedupeNote": "该论文在Peripheral方向上具备独立问题设置或代表性贡献，可作为当日候选保留。",
+            "retrievalGroups": [
+              "general"
+            ],
+            "mergedCount": 1,
+            "mergedTitles": [
+              "Tele360: Real-Time Feed-Forward Human Reconstruction from Sparse Unposed Cameras"
+            ]
+          },
+          {
+            "id": "2609.15669v1",
+            "title": "Benchmarking Intra-Patient 3D Deformable Multimodal Image Registration",
+            "summary": "Multimodal image registration is a key component of many clinical workflows, yet it remains challenging because corresponding anatomical structures often exhibit substantially different image intensities across modalities. In this work, we present a comprehensive benchmark of intra-patient 3D multimodal deformable registration methods ac…",
+            "summaryRaw": "Multimodal image registration is a key component of many clinical workflows, yet it remains challenging because corresponding anatomical structures often exhibit substantially different image intensities across modalities. In this work, we present a comprehensive benchmark of intra-patient 3D multimodal deformable registration methods across three datasets covering different anatomical regions and difficulty levels, including both synthetic deformation recovery and real clinical scenarios. We evaluate classical optimization-based approaches and modern learning-based methods, including recent deep learning and foundation models, using complementary metrics: Average Dice similarity coefficient (DSC), average 95th-percentile Hausdorff distance (HD95), and a modality-independent structural similarity measure based on the MIND self-similarity context (MIND-SSC). Results show high variability across datasets, with learning-based methods demonstrating superior performance on large synthetic benchmarks, while only limited improvements are observed in real pelvic registration. A key finding of this study is the consistent disagreement between geometric metrics (DSC, HD95) and image-based similarity metrics (MIND-SSC), highlighting that improved overlap does not necessarily imply better global multimodal correspondence. Furthermore, anatomy-guided approaches achieve the highest overlap scores but exhibit degraded performance outside of segmented regions, revealing a trade-off between label-driven alignment and global structural coherence. Overall, our results indicate that no current method achieves robust performance across anatomies and modalities. We demonstrate that intra-patient 3D multimodal registration requires multi-criteria evaluation, including deformation-based metrics, and remains an open problem.",
+            "link": "https://arxiv.org/abs/2609.15669v1",
+            "pdfLink": "https://arxiv.org/pdf/2609.15669v1",
+            "published": "2026-09-14T14:47:57Z",
+            "updated": "2026-09-14T14:47:57Z",
+            "authors": [
+              "Matteo Barbieri",
+              "Giammarco La Barbera",
+              "Juan Pablo De La Plata",
+              "Sabine Sarnacki",
+              "Isabelle Bloch",
+              "Pietro Gori"
+            ],
+            "categories": [
+              "cs.CV",
+              "cs.AI"
+            ],
+            "score": 36,
+            "importanceLevel": "B",
+            "lane": "Peripheral",
+            "dimensionScores": {
+              "relevance": 6,
+              "novelty": 22,
+              "impact": 6,
+              "practicality": 8,
+              "coreAlignment": 6
+            },
+            "oneSentenceSummary": "该论文是偏相关方向的重点候选，值得优先阅读。",
+            "summaryCn": "论文核心内容是：Multimodal image registration is a key component of many clinical workflows, yet it remains challenging because corresponding anato…",
+            "whyImportant": "命中新基准、通用框架主题，分类覆盖cs.CV / cs.AI，并体现较强的新颖性与影响潜力。",
+            "reasonTags": [
+              "新基准",
+              "通用框架"
+            ],
+            "innovationPoints": [
+              "包含新基准或新数据评测"
+            ],
+            "noveltyVerdict": "创新信号强，像是带新范式或新基准的工作。",
+            "duplicateRisk": "low",
+            "dedupeNote": "该论文在Peripheral方向上具备独立问题设置或代表性贡献，可作为当日候选保留。",
+            "retrievalGroups": [
+              "general"
+            ],
+            "mergedCount": 1,
+            "mergedTitles": [
+              "Benchmarking Intra-Patient 3D Deformable Multimodal Image Registration"
+            ]
+          },
+          {
+            "id": "2609.15066v1",
+            "title": "Salesforce Koa: An Enterprise Language Model for Agentic Tool Use",
+            "summary": "We present Salesforce Koa, an enterprise language model built by post-training the open-weight Nemotron-3-Super-120B foundation model with reinforcement learning using Group Relative Policy Optimization (GRPO). Salesforce Koa is trained on public and synthetically generated data, with no customer data, to improve tool use and agentic cap…",
+            "summaryRaw": "We present Salesforce Koa, an enterprise language model built by post-training the open-weight Nemotron-3-Super-120B foundation model with reinforcement learning using Group Relative Policy Optimization (GRPO). Salesforce Koa is trained on public and synthetically generated data, with no customer data, to improve tool use and agentic capabilities while preserving strong general-purpose performance. Its distinctive component is a simulation-to-reward pipeline that expands workflow specifications into persona-conditioned multi-turn tasks with task-resolution rewards grounded in successful tool use for data-dependent requests. For enterprise domains, these specifications are written in Agent Script, Salesforce's declarative language for building Agentforce agents; for public tool-use domains, we synthesize the workflow structure directly. The same simulation and grounded-reward machinery drives GRPO across both. Across public tool-use, agentic-reasoning, and enterprise Customer Relationship Management (CRM) benchmarks, Salesforce Koa improves over its open-weight base, with the clearest gains on multi-turn tool use, and surpasses a strong proprietary baseline while remaining below the strongest frontier models. These results show that specification-driven reinforcement learning is a practical path to specializing open-weight foundation models for enterprise agentic tasks.",
+            "link": "https://arxiv.org/abs/2609.15066v1",
+            "pdfLink": "https://arxiv.org/pdf/2609.15066v1",
+            "published": "2026-09-14T05:30:28Z",
+            "updated": "2026-09-14T05:30:28Z",
+            "authors": [
+              "Zixiang Chen",
+              "Sufeng Niu",
+              "Yingchi Liu",
+              "Wenting Zhao",
+              "Akshara Prabhakar",
+              "Shubham Mehrotra",
+              "Bin Bi",
+              "Zhujun Lan"
+            ],
+            "categories": [
+              "cs.AI",
+              "cs.LG"
+            ],
+            "score": 31,
+            "importanceLevel": "B",
+            "lane": "Peripheral",
+            "dimensionScores": {
+              "relevance": 9,
+              "novelty": 17,
+              "impact": 10,
+              "practicality": 0,
+              "coreAlignment": 9
+            },
+            "oneSentenceSummary": "该论文是偏相关方向的重点候选，值得优先阅读。",
+            "summaryCn": "论文核心内容是：We present Salesforce Koa, an enterprise language model built by post-training the open-weight Nemotron-3-Super-120B foundation mod…",
+            "whyImportant": "命中机器人、新基准、通用框架主题，分类覆盖cs.AI / cs.LG，并体现较强的新颖性与影响潜力。",
+            "reasonTags": [
+              "机器人",
+              "新基准",
+              "通用框架"
+            ],
+            "innovationPoints": [
+              "包含新基准或新数据评测"
+            ],
+            "noveltyVerdict": "创新点清晰，属于值得重点跟进的增量改进。",
+            "duplicateRisk": "low",
+            "dedupeNote": "该论文在Peripheral方向上具备独立问题设置或代表性贡献，可作为当日候选保留。",
+            "retrievalGroups": [
+              "general"
+            ],
+            "mergedCount": 1,
+            "mergedTitles": [
+              "Salesforce Koa: An Enterprise Language Model for Agentic Tool Use"
+            ]
+          },
+          {
+            "id": "2609.14970v1",
+            "title": "Towards a knowledge-enhanced single-cell foundation model",
+            "summary": "Single-cell foundation models (scFMs) increasingly rely on large-scale transcriptomic pretraining, yet expanding pretraining data can yield diminishing gains while substantially increasing computational cost. Our data scaling analyses showed that incorporating biological knowledge, including cell-level text annotation and gene-level regu…",
+            "summaryRaw": "Single-cell foundation models (scFMs) increasingly rely on large-scale transcriptomic pretraining, yet expanding pretraining data can yield diminishing gains while substantially increasing computational cost. Our data scaling analyses showed that incorporating biological knowledge, including cell-level text annotation and gene-level regulatory information, provided additional scaling dimension than simply increasing data size. Motivated by this observation, we present scKITE, a simple yet effective scFM that integrates cell-annotation and gene-regulatory supervision into a shared transcriptomic Transformer encoder through lightweight auxiliary decoders. These decoders are used only during pretraining and subsequently discarded, yielding a general-purpose encoder enriched with biological knowledge for downstream applications. With only 179,067 pretraining samples, i.e., less than 0.5\\% of those used by previous strong scFMs, scKITE outperformed these models across diverse downstream tasks, highlighting knowledge-enhanced pretraining as a promising paradigm for biologically grounded scFMs.",
+            "link": "https://arxiv.org/abs/2609.14970v1",
+            "pdfLink": "https://arxiv.org/pdf/2609.14970v1",
+            "published": "2026-09-14T03:23:55Z",
+            "updated": "2026-09-14T03:23:55Z",
+            "authors": [
+              "Hanqing Zhang",
+              "Jie Bao",
+              "Mei Ma",
+              "Shuai Liu",
+              "Jiaying Ma",
+              "Jiaguan Liu",
+              "Jiaxiao Li",
+              "Zhenbo Li"
+            ],
+            "categories": [
+              "cs.AI"
+            ],
+            "score": 36,
+            "importanceLevel": "B",
+            "lane": "Peripheral",
+            "dimensionScores": {
+              "relevance": 3,
+              "novelty": 17,
+              "impact": 16,
+              "practicality": 3,
+              "coreAlignment": 3
+            },
+            "oneSentenceSummary": "该论文是偏相关方向的重点候选，值得优先阅读。",
+            "summaryCn": "论文核心内容是：Single-cell foundation models (scFMs) increasingly rely on large-scale transcriptomic pretraining, yet expanding pretraining data c…",
+            "whyImportant": "命中通用框架主题，分类覆盖cs.AI，并体现较强的新颖性与影响潜力。",
+            "reasonTags": [
+              "通用框架"
+            ],
+            "innovationPoints": [
+              "涉及新的训练或预训练范式"
+            ],
+            "noveltyVerdict": "创新点清晰，属于值得重点跟进的增量改进。",
+            "duplicateRisk": "low",
+            "dedupeNote": "该论文在Peripheral方向上具备独立问题设置或代表性贡献，可作为当日候选保留。",
+            "retrievalGroups": [
+              "general"
+            ],
+            "mergedCount": 1,
+            "mergedTitles": [
+              "Towards a knowledge-enhanced single-cell foundation model"
+            ]
+          },
+          {
+            "id": "2609.15676v1",
+            "title": "MambaMPD: A Mamba-Driven Segmentation Framework for Marine Pollution Detection from Remote Sensing Imagery",
+            "summary": "Accurate marine pollution detection (MPD) is essential for protecting coastal ecosystems and marine biodiversity. Vision Mamba models have shown promise in remote-sensing semantic segmentation by efficiently capturing long-range dependencies and global context, yet their potential for MPD remains underexplored.",
+            "summaryRaw": "Accurate marine pollution detection (MPD) is essential for protecting coastal ecosystems and marine biodiversity. Vision Mamba models have shown promise in remote-sensing semantic segmentation by efficiently capturing long-range dependencies and global context, yet their potential for MPD remains underexplored. MPD is particularly challenging because of low signal-to-noise ratios, fragmented pollution patterns, and indistinct boundaries caused by the visual similarity between pollutants and the surrounding sea. To address these issues, we propose MambaMPD, an enhanced Mamba-based framework incorporating two complementary structural priors: Frequency-Aware Augmentation (FAA) and multi-scale Edge-Guided Attention (EGA). FAA integrates wavelet transforms into the encoder to decompose features into multi-scale frequency subbands, enabling the model to capture low-frequency contextual semantics and high-frequency structural details needed to identify small, low-contrast, and irregular pollution patterns. EGA adaptively fuses hierarchical, Laplacian-derived boundary cues with deep semantic representations, refining encoder features before decoding to sharpen boundaries and reduce ambiguity in visually confusing, spatially fragmented scenes. Together, these modules improve sensitivity to subtle pollution signals while preserving fine boundary structures. A U-Net-style decoder with squeeze-and-excitation attention and deep supervision progressively restores and refines semantic and spatial information across scales. Extensive experiments on two benchmark MPD datasets show that MambaMPD achieves higher mIoU than competing methods while requiring substantially less computation than foundation-model-based approaches. On MADOS, it improves F1 by 3.6% over OSDMamba; on M4D, it raises Oil Spill IoU by 6.82% over TransOilSeg.",
+            "link": "https://arxiv.org/abs/2609.15676v1",
+            "pdfLink": "https://arxiv.org/pdf/2609.15676v1",
+            "published": "2026-09-14T14:52:16Z",
+            "updated": "2026-09-14T14:52:16Z",
+            "authors": [
+              "Shuaiyu Chen",
+              "Wei Han",
+              "Peng Ren",
+              "Chunbo Luo",
+              "Zeyu Fu"
+            ],
+            "categories": [
+              "cs.CV"
+            ],
+            "score": 35,
+            "importanceLevel": "B",
+            "lane": "Peripheral",
+            "dimensionScores": {
+              "relevance": 3,
+              "novelty": 22,
+              "impact": 6,
+              "practicality": 7,
+              "coreAlignment": 3
+            },
+            "oneSentenceSummary": "该论文是偏相关方向的重点候选，值得优先阅读。",
+            "summaryCn": "论文核心内容是：Accurate marine pollution detection (MPD) is essential for protecting coastal ecosystems and marine biodiversity.",
+            "whyImportant": "命中新基准、通用框架主题，分类覆盖cs.CV，并体现较强的新颖性与影响潜力。",
+            "reasonTags": [
+              "新基准",
+              "通用框架"
+            ],
+            "innovationPoints": [
+              "包含新基准或新数据评测"
+            ],
+            "noveltyVerdict": "创新信号强，像是带新范式或新基准的工作。",
+            "duplicateRisk": "low",
+            "dedupeNote": "该论文在Peripheral方向上具备独立问题设置或代表性贡献，可作为当日候选保留。",
+            "retrievalGroups": [
+              "general"
+            ],
+            "mergedCount": 1,
+            "mergedTitles": [
+              "MambaMPD: A Mamba-Driven Segmentation Framework for Marine Pollution Detection from Remote Sensing Imagery"
+            ]
+          },
+          {
+            "id": "2609.14956v1",
+            "title": "CAL-MOS: Bridging Layers with Adapters for Robust MOS Prediction Across Speech Foundation Models",
+            "summary": "Speech Quality Assessment (SQA) is essential for modern speech technologies, and recent non-intrusive SQA predictors increasingly rely on Speech Foundation Models (SFMs). However, because SFMs expose representations from many layers, it remains unclear which depths are most informative for MOS prediction and how multi-layer information s…",
+            "summaryRaw": "Speech Quality Assessment (SQA) is essential for modern speech technologies, and recent non-intrusive SQA predictors increasingly rely on Speech Foundation Models (SFMs). However, because SFMs expose representations from many layers, it remains unclear which depths are most informative for MOS prediction and how multi-layer information should be combined reliably across backbones and datasets. We benchmark ten SFMs on four MOS datasets under three regimes: full fine-tuning, last-layer probing with a frozen encoder, and naive cross-layer weighted aggregation. We find that the best layer is strongly backbone- and dataset-dependent, and that naive weighted fusion can be unstable across settings. We further evaluate a layer-calibrated aggregation variant that applies per-layer adapters before pooling, which improves the robustness of multi-layer fusion and narrows the gap to full fine-tuning while keeping the backbone frozen.",
+            "link": "https://arxiv.org/abs/2609.14956v1",
+            "pdfLink": "https://arxiv.org/pdf/2609.14956v1",
+            "published": "2026-09-14T03:00:06Z",
+            "updated": "2026-09-14T03:00:06Z",
+            "authors": [
+              "Alef Iury Siqueira Ferreira",
+              "Pedro Lustosa Rege Botelho",
+              "Fernanda Silva",
+              "Daniel Casanova",
+              "Rafael Faustino",
+              "Frederico Oliveira",
+              "Arlindo Galvão Filho",
+              "Anderson da Silva Soares"
+            ],
+            "categories": [
+              "cs.AI"
+            ],
+            "score": 34,
+            "importanceLevel": "B",
+            "lane": "Peripheral",
+            "dimensionScores": {
+              "relevance": 3,
+              "novelty": 21,
+              "impact": 6,
+              "practicality": 7,
+              "coreAlignment": 3
+            },
+            "oneSentenceSummary": "该论文是偏相关方向的重点候选，值得优先阅读。",
+            "summaryCn": "论文核心内容是：Speech Quality Assessment (SQA) is essential for modern speech technologies, and recent non-intrusive SQA predictors increasingly r…",
+            "whyImportant": "命中新基准、通用框架主题，分类覆盖cs.AI，并体现较强的新颖性与影响潜力。",
+            "reasonTags": [
+              "新基准",
+              "通用框架"
+            ],
+            "innovationPoints": [
+              "包含新基准或新数据评测"
+            ],
+            "noveltyVerdict": "创新信号强，像是带新范式或新基准的工作。",
+            "duplicateRisk": "low",
+            "dedupeNote": "该论文在Peripheral方向上具备独立问题设置或代表性贡献，可作为当日候选保留。",
+            "retrievalGroups": [
+              "general"
+            ],
+            "mergedCount": 1,
+            "mergedTitles": [
+              "CAL-MOS: Bridging Layers with Adapters for Robust MOS Prediction Across Speech Foundation Models"
+            ]
+          },
+          {
+            "id": "2609.15687v1",
+            "title": "EEG-Xplain: Decoding Neural Black-Boxes of EEG Foundation Models",
+            "summary": "EEG foundation models such as BIOT, LaBraM, and EEGMamba have achieved remarkable performance in neural signal decoding, but their black-box nature limits clinical trust and neuroscientific validation. We propose a unified attribution framework for interpreting EEG foundation models across heterogeneous architectures.",
+            "summaryRaw": "EEG foundation models such as BIOT, LaBraM, and EEGMamba have achieved remarkable performance in neural signal decoding, but their black-box nature limits clinical trust and neuroscientific validation. We propose a unified attribution framework for interpreting EEG foundation models across heterogeneous architectures. The framework integrates gradient-, perturbation-, and activation-based explanation methods to analyze model behavior in spatial, temporal, and frequency dimensions. Spatially, it identifies critical EEG channels and visualizes their distributions using topographic maps. Temporally, it highlights decision-relevant signal segments through attribution heatmaps. In the frequency domain, it quantifies the contributions of canonical EEG rhythms via spectral perturbation analysis. To assess explanation reliability, we introduce a population-level evaluation combining Area Over the Perturbation Curve (AOPC) and cross-method consistency analysis. The framework further leverages Large Language Models (LLMs) to transform structured attribution outputs into natural-language reports, bridging low-level neural representations and high-level semantic reasoning. Experiments on benchmark datasets, including Mumtaz2016 and TUAB, demonstrate that the generated explanations are consistent with established neurophysiological markers, validating meaningful neural representations while exposing potential dependencies on artifacts and spurious patterns. The proposed framework provides a standardized approach for evaluating the interpretability, reliability, and physiological plausibility of EEG foundation models.",
+            "link": "https://arxiv.org/abs/2609.15687v1",
+            "pdfLink": "https://arxiv.org/pdf/2609.15687v1",
+            "published": "2026-09-14T14:56:07Z",
+            "updated": "2026-09-14T14:56:07Z",
+            "authors": [
+              "Hansong Ma",
+              "Junxiao Wang"
+            ],
+            "categories": [
+              "cs.AI"
+            ],
+            "score": 30,
+            "importanceLevel": "B",
+            "lane": "Peripheral",
+            "dimensionScores": {
+              "relevance": 3,
+              "novelty": 27,
+              "impact": 3,
+              "practicality": 0,
+              "coreAlignment": 3
+            },
+            "oneSentenceSummary": "该论文是偏相关方向的重点候选，值得优先阅读。",
+            "summaryCn": "论文核心内容是：EEG foundation models such as BIOT, LaBraM, and EEGMamba have achieved remarkable performance in neural signal decoding, but their…",
+            "whyImportant": "命中新基准、通用框架主题，分类覆盖cs.AI，并体现较强的新颖性与影响潜力。",
+            "reasonTags": [
+              "新基准",
+              "通用框架"
+            ],
+            "innovationPoints": [
+              "包含新基准或新数据评测"
+            ],
+            "noveltyVerdict": "创新信号强，像是带新范式或新基准的工作。",
+            "duplicateRisk": "low",
+            "dedupeNote": "该论文在Peripheral方向上具备独立问题设置或代表性贡献，可作为当日候选保留。",
+            "retrievalGroups": [
+              "general"
+            ],
+            "mergedCount": 1,
+            "mergedTitles": [
+              "EEG-Xplain: Decoding Neural Black-Boxes of EEG Foundation Models"
+            ]
+          },
+          {
+            "id": "2609.15795v1",
+            "title": "SURE-Map: Self-Correcting Streaming Geometric Foundation Model",
+            "summary": "Streaming geometric foundation models are emerging as a compelling alternative to SLAM systems. Yet this streaming nature introduces a fundamental issue: each prediction is made from limited context, which is vulnerable to dynamic objects and weak textures.",
+            "summaryRaw": "Streaming geometric foundation models are emerging as a compelling alternative to SLAM systems. Yet this streaming nature introduces a fundamental issue: each prediction is made from limited context, which is vulnerable to dynamic objects and weak textures. Small local errors accumulate into severe geometric distortion and long-horizon scale drift. We argue that reliable streaming reconstruction requires geometric foundation models to be not only predictive, but also self-correcting. We introduce SURE-Map, a self-correcting framework built upon two complementary principles. First, we explicitly model cross-view geometric uncertainty. Unlike conventional depth or point confidence, which primarily reflects the reliability of individual-view prediction, our uncertainty directly measures whether the jointly predicted pose and depth induce geometrically consistent cross-view pixel correspondences. Second, because local correction alone cannot eliminate slowly accumulating scale errors, we introduce multi-timescale self-correction: fast consecutive-frame inference preserves streaming efficiency, while sparse keyframe-window inference provides longer-range geometric evidence to periodically recalibrate the scale of recent trajectories. SURE-Map establishes new state-of-the-art performance for online feed-forward reconstruction across long-horizon benchmarks, reducing ATE-RMSE from 24.00 to 17.24 m on KITTI, 5.11 to 4.74 m on Oxford Spires, and 31.37 to 28.58 m on VBR, with further improvements to 15.17, 4.63, and 22.12 m when incorporating loop-closure refinement. Project page: https://mingkai-liu.github.io/projects/sure-map/.",
+            "link": "https://arxiv.org/abs/2609.15795v1",
+            "pdfLink": "https://arxiv.org/pdf/2609.15795v1",
+            "published": "2026-09-14T16:10:53Z",
+            "updated": "2026-09-14T16:10:53Z",
+            "authors": [
+              "Mingkai Liu",
+              "Hao Zhao",
+              "Xingxing Zuo"
+            ],
+            "categories": [
+              "cs.CV"
+            ],
+            "score": 25,
+            "importanceLevel": "B",
+            "lane": "Peripheral",
+            "dimensionScores": {
+              "relevance": 3,
+              "novelty": 17,
+              "impact": 8,
+              "practicality": 0,
+              "coreAlignment": 3
+            },
+            "oneSentenceSummary": "该论文是偏相关方向的重点候选，值得优先阅读。",
+            "summaryCn": "论文核心内容是：Streaming geometric foundation models are emerging as a compelling alternative to SLAM systems.",
+            "whyImportant": "命中新基准、通用框架主题，分类覆盖cs.CV，并体现较强的新颖性与影响潜力。",
+            "reasonTags": [
+              "新基准",
+              "通用框架"
+            ],
+            "innovationPoints": [
+              "包含新基准或新数据评测"
+            ],
+            "noveltyVerdict": "创新点清晰，属于值得重点跟进的增量改进。",
+            "duplicateRisk": "low",
+            "dedupeNote": "该论文在Peripheral方向上具备独立问题设置或代表性贡献，可作为当日候选保留。",
+            "retrievalGroups": [
+              "general"
+            ],
+            "mergedCount": 1,
+            "mergedTitles": [
+              "SURE-Map: Self-Correcting Streaming Geometric Foundation Model"
+            ]
+          },
+          {
+            "id": "2609.15130v1",
+            "title": "woma: a real-time foundation model and its fine-tuned models for endoscopy",
+            "summary": "woma is a real-time foundation model for gastrointestinal endoscopy: a network trained without labels on about a million endoscopy frames, from which task models are fine-tuned. We contribute a systematic design for production.",
+            "summaryRaw": "woma is a real-time foundation model for gastrointestinal endoscopy: a network trained without labels on about a million endoscopy frames, from which task models are fine-tuned. We contribute a systematic design for production. Requirements and pass marks were fixed before any run, eight candidates screened under pre-registered rules, self-supervised training taken to a stopping rule, then fine-tuning and deployment optimisation, all on one self-contained library, numbat. We also contribute woma itself with two fine-tuned models, every outcome reported met or missed. Our colonoscopy model finds and outlines polyps, names which colon segment is in view, suggests polyp type and grades bowel preparation. Our gastroscopy model names a station out of 22 protocol sites, flags and outlines lesions, and names one of seven findings. Every number was read on data never seen in training, and shipped weights were chosen on that record. In colonoscopy, 96% of polyps in a six-hospital PolypGen set are found at precision >=0.85, and 19 of 19 polyps across fifteen full REAL-Colon videos at 1.6 false alarms per procedure. In gastroscopy, landmark region is named correctly on 92% of frames from unseen patients, and 37 of 39 held-out neoplasia frames are flagged at specificity 0.91. On one workstation GPU every task runs over 1080p video at about 100 frames per second, faster than PyTorch, ONNX Runtime and TensorRT in all four precision regimes tested. TensorRT comes closest: one pass of our foundation model takes it 3 to 27% longer than ours, and we deliver 6 to 31% more frames per second from frame to results. A second build links no vendor library at all -- our own kernels over Vulkan -- so a site deploys two files and needs no toolkit, no cuDNN and no framework; in f32 it beats the CUDA build on the same card.",
+            "link": "https://arxiv.org/abs/2609.15130v1",
+            "pdfLink": "https://arxiv.org/pdf/2609.15130v1",
+            "published": "2026-09-14T07:06:54Z",
+            "updated": "2026-09-14T07:06:54Z",
+            "authors": [
+              "Thang Tran",
+              "Lan Dang"
+            ],
+            "categories": [
+              "cs.CV",
+              "cs.LG"
+            ],
+            "score": 22,
+            "importanceLevel": "B",
+            "lane": "Peripheral",
+            "dimensionScores": {
+              "relevance": 5,
+              "novelty": 12,
+              "impact": 5,
+              "practicality": 5,
+              "coreAlignment": 5
+            },
+            "oneSentenceSummary": "该论文是偏相关方向的重点候选，值得优先阅读。",
+            "summaryCn": "论文核心内容是：woma is a real-time foundation model for gastrointestinal endoscopy: a network trained without labels on about a million endoscopy…",
+            "whyImportant": "命中通用框架主题，分类覆盖cs.CV / cs.LG，并体现较强的新颖性与影响潜力。",
+            "reasonTags": [
+              "通用框架"
+            ],
+            "innovationPoints": [
+              "提出具有跟踪价值的方法设计"
+            ],
+            "noveltyVerdict": "创新点清晰，属于值得重点跟进的增量改进。",
+            "duplicateRisk": "low",
+            "dedupeNote": "该论文在Peripheral方向上具备独立问题设置或代表性贡献，可作为当日候选保留。",
+            "retrievalGroups": [
+              "general"
+            ],
+            "mergedCount": 1,
+            "mergedTitles": [
+              "woma: a real-time foundation model and its fine-tuned models for endoscopy"
+            ]
+          },
+          {
+            "id": "2609.15453v1",
+            "title": "Listening for Airway Stenosis: A Foundation Model-Based Method for Rapid and Accessible Detection",
+            "summary": "Airway stenosis can cause severe respiratory complications, yet its detection often relies on specialized examinations and medical imaging. This study explores the potential of acoustic AI for rapid and accessible airway stenosis detection using readily acquired patient voice recordings.",
+            "summaryRaw": "Airway stenosis can cause severe respiratory complications, yet its detection often relies on specialized examinations and medical imaging. This study explores the potential of acoustic AI for rapid and accessible airway stenosis detection using readily acquired patient voice recordings. We systematically investigate whether acoustic foundation models (AFMs) can extract acoustic representations associated with airway stenosis-related speech patterns. Experiments are conducted on a cohort of 748 participants from the Bridge2AI-Voice dataset, 134 with airway stenosis and 614 without. The best-performing model achieves an AUROC of 0.952 and an accuracy of 0.924 (means over five-fold cross-validation), highlighting the potential of AFMs to transfer beyond general-purpose speech applications to clinical diagnostic tasks. Further analysis reveals that the model primarily relies on connected-speech recordings rather than isolated acoustic tasks, such as sustained phonation and breathing. Overall, these results suggest that voice-based acoustic AI could complement existing diagnostic workflows by enabling rapid, low-burden, and widely accessible screening for airway stenosis.",
+            "link": "https://arxiv.org/abs/2609.15453v1",
+            "pdfLink": "https://arxiv.org/pdf/2609.15453v1",
+            "published": "2026-09-14T12:20:23Z",
+            "updated": "2026-09-14T12:20:23Z",
+            "authors": [
+              "Jean Groeninger",
+              "Zihao Zhao",
+              "Juliana de Castilhos",
+              "Sven Nebelung",
+              "Daniel Truhn"
+            ],
+            "categories": [],
+            "score": 22,
+            "importanceLevel": "B",
+            "lane": "Peripheral",
+            "dimensionScores": {
+              "relevance": 0,
+              "novelty": 17,
+              "impact": 5,
+              "practicality": 0,
+              "coreAlignment": 0
+            },
+            "oneSentenceSummary": "该论文是偏相关方向的重点候选，值得优先阅读。",
+            "summaryCn": "论文核心内容是：Airway stenosis can cause severe respiratory complications, yet its detection often relies on specialized examinations and medical…",
+            "whyImportant": "命中新基准、通用框架主题，分类覆盖，并体现较强的新颖性与影响潜力。",
+            "reasonTags": [
+              "新基准",
+              "通用框架"
+            ],
+            "innovationPoints": [
+              "包含新基准或新数据评测"
+            ],
+            "noveltyVerdict": "创新点清晰，属于值得重点跟进的增量改进。",
+            "duplicateRisk": "low",
+            "dedupeNote": "该论文在Peripheral方向上具备独立问题设置或代表性贡献，可作为当日候选保留。",
+            "retrievalGroups": [
+              "general"
+            ],
+            "mergedCount": 1,
+            "mergedTitles": [
+              "Listening for Airway Stenosis: A Foundation Model-Based Method for Rapid and Accessible Detection"
+            ]
+          },
+          {
+            "id": "2609.15704v1",
+            "title": "AI-Native Open RAN: A Roadmap from xApps and rApps to Autonomous Network Agents",
+            "summary": "Open Radio Access Networks (O-RAN) have emerged as a transformative paradigm for future wireless systems by introducing openness, virtualization, disaggregation, and programmable intelligence through the RAN Intelligent Controller (RIC). The availability of standardized interfaces and near-real-time control loops has created unprecedente…",
+            "summaryRaw": "Open Radio Access Networks (O-RAN) have emerged as a transformative paradigm for future wireless systems by introducing openness, virtualization, disaggregation, and programmable intelligence through the RAN Intelligent Controller (RIC). The availability of standardized interfaces and near-real-time control loops has created unprecedented opportunities for integrating artificial intelligence (AI) into radio access network management and optimization. Over the past several years, a broad range of AI techniques have been proposed to address key O-RAN challenges such as radio resource management, network slicing, traffic prediction, mobility management, interference mitigation, and spectrum sharing. Despite significant progress, existing solutions often remain task-specific, require extensive retraining, and exhibit limited generalization across deployment environments and network conditions. This paper presents a comprehensive review of AI-enabled O-RAN systems and provides a unifying perspective on the evolution of intelligence in wireless networks. We first examine the O-RAN architecture and the role of intelligence within near-real-time and non-real-time RIC frameworks. We then develop a taxonomy of AI approaches for O-RAN, covering machine learning, deep reinforcement learning (DRL), digital-twin-assisted optimization, and emerging foundation-model-based architectures.",
+            "link": "https://arxiv.org/abs/2609.15704v1",
+            "pdfLink": "https://arxiv.org/pdf/2609.15704v1",
+            "published": "2026-09-14T15:08:02Z",
+            "updated": "2026-09-14T15:08:02Z",
+            "authors": [
+              "Ryan Barker",
+              "Alireza Ebrahimi Dorcheh",
+              "Tolunay Seyfi",
+              "Mohammad Raihan Uddin",
+              "Alireza Mohammadhosseini",
+              "Julia Boone",
+              "Stephen Streit",
+              "Drew Schlesener"
+            ],
+            "categories": [],
+            "score": 21,
+            "importanceLevel": "B",
+            "lane": "Peripheral",
+            "dimensionScores": {
+              "relevance": 0,
+              "novelty": 16,
+              "impact": 0,
+              "practicality": 5,
+              "coreAlignment": 0
+            },
+            "oneSentenceSummary": "该论文是偏相关方向的重点候选，值得优先阅读。",
+            "summaryCn": "论文核心内容是：Open Radio Access Networks (O-RAN) have emerged as a transformative paradigm for future wireless systems by introducing openness, v…",
+            "whyImportant": "命中通用框架主题，分类覆盖，并体现较强的新颖性与影响潜力。",
+            "reasonTags": [
+              "通用框架"
+            ],
+            "innovationPoints": [
+              "提出具有跟踪价值的方法设计"
+            ],
+            "noveltyVerdict": "创新点清晰，属于值得重点跟进的增量改进。",
+            "duplicateRisk": "low",
+            "dedupeNote": "该论文在Peripheral方向上具备独立问题设置或代表性贡献，可作为当日候选保留。",
+            "retrievalGroups": [
+              "general"
+            ],
+            "mergedCount": 1,
+            "mergedTitles": [
+              "AI-Native Open RAN: A Roadmap from xApps and rApps to Autonomous Network Agents"
+            ]
+          },
+          {
+            "id": "2609.14857v1",
+            "title": "ModularRSI: Modular and Generalizable Recursive Harness Self-Improvement",
+            "summary": "Recent work extends recursive self-improvement (RSI) to agent harnesses for long-horizon coding and terminal tasks, enabling agents to improve execution mechanisms from experience. However, generalizable harness RSI remains challenging.",
+            "summaryRaw": "Recent work extends recursive self-improvement (RSI) to agent harnesses for long-horizon coding and terminal tasks, enabling agents to improve execution mechanisms from experience. However, generalizable harness RSI remains challenging. First, evolving harnesses on evaluation benchmarks or their subsets makes it difficult to distinguish reusable improvements from benchmark-specific adaptation. Second, single-trajectory updates can conflate systematic harness deficiencies with instance-specific reasoning and solution details, producing modifications that transfer poorly to unseen tasks. Third, localizing recurring behavioral deficiencies within monolithic harnesses is difficult, while whole-harness optimization can entangle unrelated mechanisms and complicate attribution and validation. We propose ModularRSI, a benchmark-disjoint, contrastive, and modular framework for generalizable harness evolution. ModularRSI contrasts successful and failed trajectories for the same task and aggregates evidence across tasks to identify recurring behavioral deficiencies. It decomposes the evolvable harness into five functional modules: Agent Loop, Tool Use, Observation Management, Context Management, and Task Completion Detection. Each module evolves independently within a restricted modification scope, followed by an integration stage that combines the evolved modules into a unified harness and resolves potential conflicts. To support benchmark-disjoint evolution, we curate 2,000 executable evolution tasks from external sources that are disjoint from downstream evaluation benchmarks. Experiments on TB2.0 and SWE-Bench Verified show consistent improvements on unseen in-domain and cross-domain tasks, with the evolved harness also transferring across different foundation models.",
+            "link": "https://arxiv.org/abs/2609.14857v1",
+            "pdfLink": "https://arxiv.org/pdf/2609.14857v1",
+            "published": "2026-09-14T00:10:45Z",
+            "updated": "2026-09-14T00:10:45Z",
+            "authors": [
+              "Siwei Wu",
+              "Jincheng Ren",
+              "Yizhi Li",
+              "Haau-Sing Li",
+              "Chengran Yang",
+              "Yuxuan Zhang",
+              "Weicheng Gu",
+              "Jian Yang"
+            ],
+            "categories": [],
+            "score": 21,
+            "importanceLevel": "B",
+            "lane": "Peripheral",
+            "dimensionScores": {
+              "relevance": 0,
+              "novelty": 21,
+              "impact": 0,
+              "practicality": 0,
+              "coreAlignment": 0
+            },
+            "oneSentenceSummary": "该论文是偏相关方向的重点候选，值得优先阅读。",
+            "summaryCn": "论文核心内容是：Recent work extends recursive self-improvement (RSI) to agent harnesses for long-horizon coding and terminal tasks, enabling agents…",
+            "whyImportant": "命中新基准、通用框架主题，分类覆盖，并体现较强的新颖性与影响潜力。",
+            "reasonTags": [
+              "新基准",
+              "通用框架"
+            ],
+            "innovationPoints": [
+              "包含新基准或新数据评测"
+            ],
+            "noveltyVerdict": "创新信号强，像是带新范式或新基准的工作。",
+            "duplicateRisk": "low",
+            "dedupeNote": "该论文在Peripheral方向上具备独立问题设置或代表性贡献，可作为当日候选保留。",
+            "retrievalGroups": [
+              "general"
+            ],
+            "mergedCount": 1,
+            "mergedTitles": [
+              "ModularRSI: Modular and Generalizable Recursive Harness Self-Improvement"
+            ]
+          }
+        ],
+        "vla": [
+          {
+            "id": "2609.14973v1",
+            "title": "PhysBrain 1.5: From Vision-Language Models to Physical Foundation Models",
+            "summary": "We present PhysBrain 1.5, a unified model for understanding physical environments, generating actions, and predicting future states. Motivated by the physical loop of observation, interaction, and environmental change, we bring these capabilities into a common learning framework.",
+            "summaryRaw": "We present PhysBrain 1.5, a unified model for understanding physical environments, generating actions, and predicting future states. Motivated by the physical loop of observation, interaction, and environmental change, we bring these capabilities into a common learning framework. Starting from a general vision--language model, we encode language responses, end-effector motion, and dense visual targets as discrete sequences and jointly optimize them with autoregressive next-token prediction. Pre-training draws its embodied supervision entirely from human interaction videos, using task-centered episodes to pair semantic and spatial context with recovered motion and subsequent observations. We then adapt the model through supervised fine-tuning on a mixture of human demonstrations, robot trajectories, and simulated experience. Across 28 embodied understanding benchmarks, our 8B model achieves an average score of 72.5, setting a new open-source state of the art and performing on par with leading proprietary models such as GPT-6-Astra and Gemini 3.6 Flash. It achieves the best open-source results on 14 benchmarks while retaining general multimodal capabilities. Beyond these understanding evaluations, qualitative examples show the model's ability to produce end-effector trajectories and predict future scenes through spatially aligned RGB, depth, and robot-mask outputs.",
+            "link": "https://arxiv.org/abs/2609.14973v1",
+            "pdfLink": "https://arxiv.org/pdf/2609.14973v1",
+            "published": "2026-09-14T03:25:46Z",
+            "updated": "2026-09-14T03:25:46Z",
+            "authors": [
+              "DeepCybo Team",
+              "Yu Bin",
+              "Haipeng Cao",
+              "Zheng Chang",
+              "Kai Chen",
+              "Youning Chen",
+              "Kailin Deng",
+              "Yichao Du"
+            ],
+            "categories": [
+              "cs.CV",
+              "cs.RO"
+            ],
+            "score": 88,
+            "importanceLevel": "S",
+            "lane": "Both",
+            "dimensionScores": {
+              "relevance": 90,
+              "novelty": 85,
+              "impact": 86,
+              "practicality": 78,
+              "coreAlignment": 92
+            },
+            "oneSentenceSummary": "统一视觉语言模型，预测环境、生成动作与未来状态",
+            "summaryCn": "PhysBrain 1.5以通用视觉语言模型为基础，将语言响应、末端执行器运动和稠密视觉目标统一离散为序列，用自回归下一token预测进行联合优化。预训练从人类交互视频中提取任务中心片段，恢复运动与后续观察；随后在人类演示、机器人轨迹和仿真经验上监督微调。在28个具身理解基准上展示环境理解、动作生成和未来状态预测能力。",
+            "whyImportant": "统一物理理解、动作生成与未来预测，为通用具身智能提供更完整的模型底座，减少碎片化。",
+            "reasonTags": [
+              "具身智能",
+              "物理基础模型",
+              "动作生成",
+              "未来预测"
+            ],
+            "innovationPoints": [
+              "构建观察-交互-环境变化物理回路统一框架",
+              "仅靠人类交互视频自回归预训练，无需大规模机器人标注",
+              "同时覆盖VLA动作生成与WAM未来状态预测"
+            ],
+            "noveltyVerdict": "较强创新，整合VLA与世界模型能力，框架统一。",
+            "duplicateRisk": "medium",
+            "dedupeNote": "与纯VLA或纯世界模型不同，强调三者闭环统一建模，非单一策略或预测器。",
+            "retrievalGroups": [
+              "general"
+            ],
+            "mergedCount": 1,
+            "mergedTitles": [
+              "PhysBrain 1.5: From Vision-Language Models to Physical Foundation Models"
+            ]
+          }
+        ],
+        "wam": [
+          {
+            "id": "2609.14973v1",
+            "title": "PhysBrain 1.5: From Vision-Language Models to Physical Foundation Models",
+            "summary": "We present PhysBrain 1.5, a unified model for understanding physical environments, generating actions, and predicting future states. Motivated by the physical loop of observation, interaction, and environmental change, we bring these capabilities into a common learning framework.",
+            "summaryRaw": "We present PhysBrain 1.5, a unified model for understanding physical environments, generating actions, and predicting future states. Motivated by the physical loop of observation, interaction, and environmental change, we bring these capabilities into a common learning framework. Starting from a general vision--language model, we encode language responses, end-effector motion, and dense visual targets as discrete sequences and jointly optimize them with autoregressive next-token prediction. Pre-training draws its embodied supervision entirely from human interaction videos, using task-centered episodes to pair semantic and spatial context with recovered motion and subsequent observations. We then adapt the model through supervised fine-tuning on a mixture of human demonstrations, robot trajectories, and simulated experience. Across 28 embodied understanding benchmarks, our 8B model achieves an average score of 72.5, setting a new open-source state of the art and performing on par with leading proprietary models such as GPT-6-Astra and Gemini 3.6 Flash. It achieves the best open-source results on 14 benchmarks while retaining general multimodal capabilities. Beyond these understanding evaluations, qualitative examples show the model's ability to produce end-effector trajectories and predict future scenes through spatially aligned RGB, depth, and robot-mask outputs.",
+            "link": "https://arxiv.org/abs/2609.14973v1",
+            "pdfLink": "https://arxiv.org/pdf/2609.14973v1",
+            "published": "2026-09-14T03:25:46Z",
+            "updated": "2026-09-14T03:25:46Z",
+            "authors": [
+              "DeepCybo Team",
+              "Yu Bin",
+              "Haipeng Cao",
+              "Zheng Chang",
+              "Kai Chen",
+              "Youning Chen",
+              "Kailin Deng",
+              "Yichao Du"
+            ],
+            "categories": [
+              "cs.CV",
+              "cs.RO"
+            ],
+            "score": 88,
+            "importanceLevel": "S",
+            "lane": "Both",
+            "dimensionScores": {
+              "relevance": 90,
+              "novelty": 85,
+              "impact": 86,
+              "practicality": 78,
+              "coreAlignment": 92
+            },
+            "oneSentenceSummary": "统一视觉语言模型，预测环境、生成动作与未来状态",
+            "summaryCn": "PhysBrain 1.5以通用视觉语言模型为基础，将语言响应、末端执行器运动和稠密视觉目标统一离散为序列，用自回归下一token预测进行联合优化。预训练从人类交互视频中提取任务中心片段，恢复运动与后续观察；随后在人类演示、机器人轨迹和仿真经验上监督微调。在28个具身理解基准上展示环境理解、动作生成和未来状态预测能力。",
+            "whyImportant": "统一物理理解、动作生成与未来预测，为通用具身智能提供更完整的模型底座，减少碎片化。",
+            "reasonTags": [
+              "具身智能",
+              "物理基础模型",
+              "动作生成",
+              "未来预测"
+            ],
+            "innovationPoints": [
+              "构建观察-交互-环境变化物理回路统一框架",
+              "仅靠人类交互视频自回归预训练，无需大规模机器人标注",
+              "同时覆盖VLA动作生成与WAM未来状态预测"
+            ],
+            "noveltyVerdict": "较强创新，整合VLA与世界模型能力，框架统一。",
+            "duplicateRisk": "medium",
+            "dedupeNote": "与纯VLA或纯世界模型不同，强调三者闭环统一建模，非单一策略或预测器。",
+            "retrievalGroups": [
+              "general"
+            ],
+            "mergedCount": 1,
+            "mergedTitles": [
+              "PhysBrain 1.5: From Vision-Language Models to Physical Foundation Models"
+            ]
+          }
+        ]
+      },
+      "dailyBrief": {
+        "overall": "今日候选论文整体以医疗、语音、遥感等外设为主；具身相关仅两篇，其中PhysBrain 1.5将动作生成与未来预测统一为物理基础模型，X-WBC以跨具身方式推进人形全身控制。",
+        "vla": "VLA方向仅PhysBrain 1.5值得关注，其从视觉语言模型出发，以自回归统一语言、动作与视觉目标，可用于语言条件下机器人动作生成。",
+        "wam": "WAM方向候选数量稀少，PhysBrain 1.5同样覆盖动作条件未来状态预测，可视为世界动作模型的统一尝试；其余无强相关。",
+        "retrieval": "检索到19篇，多数属于医疗、语音、遥感等外设；筛选出2篇进入分析：PhysBrain 1.5为Both，X-WBC为Robotics。"
+      }
+    },
     {
       "dateKey": "20260911",
       "dateLabel": "2026-09-11",
