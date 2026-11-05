@@ -1,5 +1,5 @@
 window.PAPERS_SITE_DATA = {
-  "generatedAt": "2026-11-04T04:27:31.951276+00:00",
+  "generatedAt": "2026-11-05T04:43:20.723658+00:00",
   "description": "按北京时间每天 08:00 的固定批次归档，保留左侧历史日期归档，并使用 DeepSeek 生成精简中文摘要。",
   "dateWindowDays": 1,
   "categories": [
@@ -34,97 +34,98 @@ window.PAPERS_SITE_DATA = {
   "selectionMethod": "rule_based",
   "modelInfo": null,
   "batchWindow": {
-    "start": "2026-11-03T08:00:00+08:00",
-    "end": "2026-11-04T08:00:00+08:00"
+    "start": "2026-11-04T08:00:00+08:00",
+    "end": "2026-11-05T08:00:00+08:00"
   },
-  "currentDateKey": "20261104",
+  "currentDateKey": "20261105",
   "papers": [
     {
-      "id": "2611.04392v1",
-      "title": "Aero-VPA: Few-Step Flow-Matching Control over Non-Reconstructive JEPA Latents for Agile Flight on Edge Hardware",
-      "summary": "Vision-Language-Action (VLA) models generalize across tasks, but their autoregressive decoders need sequential forward passes in proportion to the action horizon, each bounded below on embedded aerial platforms by streaming billions of parameters from memory. We present Aero-VPA, a lightweight Vision-Predictor-Action architecture for 3D…",
-      "summaryRaw": "Vision-Language-Action (VLA) models generalize across tasks, but their autoregressive decoders need sequential forward passes in proportion to the action horizon, each bounded below on embedded aerial platforms by streaming billions of parameters from memory. We present Aero-VPA, a lightweight Vision-Predictor-Action architecture for 3D navigation on edge hardware. A compact RGB-D Vision Transformer and a five-head ensemble predictor, trained without pixel reconstruction, forecast the next latent state; a Conditional Flow Matching solver generates a velocity and yaw-rate chunk in two Euler steps, so each decision takes five sequential network evaluations; and the ensemble dispersion drives an uncertainty fallback. Version 1 specified the architecture, deployment and protocol without results. This version reports the first closed-loop evaluation: PX4 software-in-the-loop simulation of quadrotor missions in procedurally generated forests. Behaviour cloning failed on all 60 missions despite open-loop errors of 0.02-0.04 m/s: the policy copies its last command, a copycat form of causal confusion. DAgger with a privileged, safety-gated supervisor gave the first successes but plateaued at 11.1-21.1% across six checkpoints. A map-free runtime shield with a 15 s depth memory, barrier constraints, a cap on motion outside the 73-degree field of view and backoff along the flown path raised the first DAgger policy's success on 180 paired missions from 21.1% to 52.2% (95% CI [45.0, 59.4]; exact McNemar p = 1.2 x 10^-10) and cut its crashes from 72.2% to 22.2%, while timeouts rose from 2.8% to 23.3%. All six checkpoints gained 30.0-34.4 percentage points, at mean speeds of 1.16-1.36 m/s. The code (https://github.com/ylee-sling/Aero-VPA), the trained policy (72.6 MB, https://huggingface.co/ylee-sling/aero-vpa) and the full benchmark dataset are public.",
-      "link": "https://arxiv.org/abs/2611.04392v1",
-      "pdfLink": "https://arxiv.org/pdf/2611.04392v1",
-      "published": "2026-11-03T06:25:06Z",
-      "updated": "2026-11-03T06:25:06Z",
+      "id": "2611.06447v1",
+      "title": "$A^3$-VLA: Automatic Perception-Guided Attention Alignment for Robot Manipulation",
+      "summary": "Vision-Language-Action Models (VLAs) enable robots to perform manipulation tasks by leveraging Vision-Language Models (VLMs) to process visual observations and language instructions. However, the action prediction objective itself lacks fine-grained task-specific perceptual supervision, making it prone to relying on task-irrelevant visua…",
+      "summaryRaw": "Vision-Language-Action Models (VLAs) enable robots to perform manipulation tasks by leveraging Vision-Language Models (VLMs) to process visual observations and language instructions. However, the action prediction objective itself lacks fine-grained task-specific perceptual supervision, making it prone to relying on task-irrelevant visual shortcuts, leading attention away from target objects and key interaction areas, thereby limiting its operational performance and generalization ability. To address this, we propose Automatic Perception-Guided Attention Alignment for Robot Manipulation ($A^3$-VLA), a framework that derives task-specific visual guidance from the manipulation process itself. Specifically, $A^3$-VLA first generates heuristic candidate regions for target objects and the robot from interaction-induced visual changes, and refines them with a visual segmentation model offline. These regions serve as explicit perceptual guidance through two complementary objectives: an attention allocation loss that encourages sufficient focus on task-critical regions when language or robot state tokens query the visual input, and a contrastive learning loss that aligns the representations of candidate target regions with language instructions while separating them from task-irrelevant regions. Extensive experiments on simulated and real-world manipulation tasks demonstrate that $A^3$-VLA consistently improves multiple VLA backbones, with an average success rate gain of 6.5% - 25.2% across benchmarks.",
+      "link": "https://arxiv.org/abs/2611.06447v1",
+      "pdfLink": "https://arxiv.org/pdf/2611.06447v1",
+      "published": "2026-11-04T12:50:54Z",
+      "updated": "2026-11-04T12:50:54Z",
       "authors": [
-        "Yeonseok Lee"
+        "Shengzhe Zhang",
+        "Qi Zhang",
+        "Dazhong Shen",
+        "Chao Wang",
+        "Shaopeng Zhai",
+        "Hui Xiong"
       ],
       "categories": [
-        "cs.LG",
         "cs.RO"
       ],
-      "score": 93,
+      "score": 84,
       "importanceLevel": "S",
       "lane": "VLA",
       "dimensionScores": {
-        "relevance": 57,
-        "novelty": 17,
-        "impact": 11,
-        "practicality": 16,
-        "coreAlignment": 36
+        "relevance": 62,
+        "novelty": 16,
+        "impact": 12,
+        "practicality": 0,
+        "coreAlignment": 34
       },
       "oneSentenceSummary": "该论文是偏VLA的重点候选，值得优先阅读。",
-      "summaryCn": "论文核心内容是：Vision-Language-Action (VLA) models generalize across tasks, but their autoregressive decoders need sequential forward passes in pr…",
-      "whyImportant": "命中VLA、机器人、新基准主题，分类覆盖cs.LG / cs.RO，并体现较强的新颖性与影响潜力。",
+      "summaryCn": "论文核心内容是：Vision-Language-Action Models (VLAs) enable robots to perform manipulation tasks by leveraging Vision-Language Models (VLMs) to pro…",
+      "whyImportant": "命中VLA、机器人、新基准、真实实验主题，分类覆盖cs.RO，并体现较强的新颖性与影响潜力。",
       "reasonTags": [
         "VLA",
         "机器人",
-        "新基准"
+        "新基准",
+        "真实实验"
       ],
       "innovationPoints": [
-        "包含新基准或新数据评测"
+        "包含新基准或新数据评测",
+        "提供真实场景实验验证"
       ],
       "noveltyVerdict": "创新点清晰，属于值得重点跟进的增量改进。",
       "duplicateRisk": "low",
       "dedupeNote": "该论文在VLA方向上具备独立问题设置或代表性贡献，可作为当日候选保留。",
       "retrievalGroups": [
-        "robotics"
+        "vla_core"
       ],
       "mergedCount": 1,
       "mergedTitles": [
-        "Aero-VPA: Few-Step Flow-Matching Control over Non-Reconstructive JEPA Latents for Agile Flight on Edge Hardware"
+        "$A^3$-VLA: Automatic Perception-Guided Attention Alignment for Robot Manipulation"
       ]
     },
     {
-      "id": "2611.04241v1",
-      "title": "AceAction-5M: Hierarchical Goals for Generalist Action Learning Across 3D Game Worlds",
-      "summary": "Video games provide a practical setting for collecting vision-language-action (VLA) data, whose acquisition in physical environments is costly. Existing datasets, however, remain limited by restricted game coverage, sparse language supervision, or temporal hierarchies that do not necessarily reflect changes in task objectives.",
-      "summaryRaw": "Video games provide a practical setting for collecting vision-language-action (VLA) data, whose acquisition in physical environments is costly. Existing datasets, however, remain limited by restricted game coverage, sparse language supervision, or temporal hierarchies that do not necessarily reflect changes in task objectives. We introduce AceAction, a dataset of human gameplay across multiple 3D games for learning skill composition and subgoal transitions. AceAction organizes demonstrations around complete tasks, linking overall instructions, ordered subgoals, and local skill instructions to temporally aligned visual observations and keyboard-and-mouse actions. To construct these annotations, we develop a vision-language model pipeline that identifies subgoals from changes in objectives or interaction targets, anchors navigation goals to visually recognizable waypoints, and composes adjacent subgoals into task instructions. The resulting demonstrations cover navigation, reconnaissance, combat, interaction, and recovery, with explicit stage boundaries that connect task progression to fine-grained control. We assess annotation quality through model-based verification and human inspection. An audit of 500 trajectories yields a 95.8% pass rate across independent reviewer assessments. AceAction provides a data foundation for studying how agents execute, combine, and switch skills to follow complex instructions in dynamic game environments.",
-      "link": "https://arxiv.org/abs/2611.04241v1",
-      "pdfLink": "https://arxiv.org/pdf/2611.04241v1",
-      "published": "2026-11-03T03:25:27Z",
-      "updated": "2026-11-03T03:25:27Z",
+      "id": "2611.06007v1",
+      "title": "MotoVerse: A Benchmark for Predictive Perception of Motorized Two-Wheelers in Dense Unstructured Traffic",
+      "summary": "Motorized Two-Wheelers (MTWs) dominate personal transport across much of the Global South, yet remain largely overlooked in predictive perception research for autonomous driving and ADAS. We introduce MotoVerse, a benchmark for predictive perception from an MTW's ego-centric perspective.",
+      "summaryRaw": "Motorized Two-Wheelers (MTWs) dominate personal transport across much of the Global South, yet remain largely overlooked in predictive perception research for autonomous driving and ADAS. We introduce MotoVerse, a benchmark for predictive perception from an MTW's ego-centric perspective. MotoVerse comprises 949 maneuver clips collected in dense, unstructured traffic and trajectory annotations for over 31,000 surrounding road agents, including over 16,000 MTWs, enabling two complementary tasks: Ego-Rider Maneuver Anticipation (ERMA) and Traffic Agent Trajectory Prediction (TATP). Each clip is further annotated with an MTW-specific challenge taxonomy comprising dynamic ego-motion, weak traffic structure and contextual occlusion, enabling challenge-aware evaluation. We benchmark established conventional prediction models, general-purpose Vision-Language Models (VLMs), driving-specific VLMs and vision-language-action models. Our experiments reveal three key insights: (i) video backbones reach most of their full-observation accuracy from the first fifth of a maneuver, whereas zero-shot VLMs need most of the maneuver to be observed; (ii) zero-shot VLMs, whether general-purpose or driving-specific, largely remain close to simple baselines on both tasks; a preliminary LoRA study shows that adaptation lifts anticipation sharply but leaves trajectory prediction behind conventional models; and (iii) the rider's own motion drives forecasting difficulty: for every model, including a static baseline, errors are highest during left turns and rise under dynamic ego-motion. We believe MotoVerse will serve as a challenging benchmark for safer and more robust predictive AI for intelligent two-wheelers. The dataset and evaluation code are publicly available at https://github.com/VarunIIITH/MotoVerse.",
+      "link": "https://arxiv.org/abs/2611.06007v1",
+      "pdfLink": "https://arxiv.org/pdf/2611.06007v1",
+      "published": "2026-11-04T05:55:39Z",
+      "updated": "2026-11-04T05:55:39Z",
       "authors": [
-        "Kailing Li",
-        "Ruoxuan Zhang",
-        "Zheyuan Zhou",
-        "Boyang Chu",
-        "Yingshan Lei",
-        "Hongxia Xie",
-        "Liang Du",
-        "Zixun Sun"
+        "Varun A. Paturkar",
+        "Shankar Gangisetty",
+        "C. V. Jawahar"
       ],
       "categories": [
-        "cs.AI"
+        "cs.CV"
       ],
-      "score": 64,
-      "importanceLevel": "A",
+      "score": 84,
+      "importanceLevel": "S",
       "lane": "VLA",
       "dimensionScores": {
-        "relevance": 48,
-        "novelty": 16,
-        "impact": 3,
-        "practicality": 0,
-        "coreAlignment": 28
+        "relevance": 43,
+        "novelty": 17,
+        "impact": 16,
+        "practicality": 11,
+        "coreAlignment": 23
       },
       "oneSentenceSummary": "该论文是偏VLA的重点候选，值得优先阅读。",
-      "summaryCn": "论文核心内容是：Video games provide a practical setting for collecting vision-language-action (VLA) data, whose acquisition in physical environment…",
-      "whyImportant": "命中VLA、机器人、新基准、通用框架主题，分类覆盖cs.AI，并体现较强的新颖性与影响潜力。",
+      "summaryCn": "论文核心内容是：Motorized Two-Wheelers (MTWs) dominate personal transport across much of the Global South, yet remain largely overlooked in predict…",
+      "whyImportant": "命中VLA、自动驾驶、新基准、通用框架主题，分类覆盖cs.CV，并体现较强的新颖性与影响潜力。",
       "reasonTags": [
         "VLA",
-        "机器人",
+        "自动驾驶",
         "新基准",
         "通用框架"
       ],
@@ -135,249 +136,46 @@ window.PAPERS_SITE_DATA = {
       "duplicateRisk": "low",
       "dedupeNote": "该论文在VLA方向上具备独立问题设置或代表性贡献，可作为当日候选保留。",
       "retrievalGroups": [
-        "robotics"
+        "vla_core"
       ],
       "mergedCount": 1,
       "mergedTitles": [
-        "AceAction-5M: Hierarchical Goals for Generalist Action Learning Across 3D Game Worlds"
+        "MotoVerse: A Benchmark for Predictive Perception of Motorized Two-Wheelers in Dense Unstructured Traffic"
       ]
     },
     {
-      "id": "2611.04972v1",
-      "title": "Caging Vision-Language Navigation for Legged Robots via Barrier-Certified Safety Architecture",
-      "summary": "By harnessing the inherent commonsense capabilities of pretrained Large Language Models (LLMs) and Vision-Language Models (VLMs), current Vision-Language Action(VLA) models for legged robots excel at interpreting language-based navigation commands but lack the physical grounding and explicit safety assurance required for real-world opera…",
-      "summaryRaw": "By harnessing the inherent commonsense capabilities of pretrained Large Language Models (LLMs) and Vision-Language Models (VLMs), current Vision-Language Action(VLA) models for legged robots excel at interpreting language-based navigation commands but lack the physical grounding and explicit safety assurance required for real-world operation. Therefore, this paper aims to cage Legged-Vision-Language Navigation (VLN) through a safety architecture that provides physical grounding and ensures navigation safety. The key idea is not to abandon the powerful capabilities of end-to-end VLA planning, but rather to augment and cage them. In particular, we integrate a high-level VLA planner with a low-level physical-grounding layer that leverages efficient state estimation, in-situ 3D spatial perception, and an Signed Distance Field (SDF) representation to generate executable trajectories. We provide a navigation planner with provable collision-avoidance guarantees under the stated assumptions by combining a low-dimensional Bezier-parameterized MPPI planner with Discrete Exponential Barrier Function (dEBF) constraints. The proposed Legged-VLN system is modular, making it compatible with various VLM/VLA models and agnostic to the robot platform. The proposed system is validated with extensive real-world experiments on humanoid and quadrupedal robots, demonstrating versatile, efficient, and safe vision-language driven navigation capabilities.",
-      "link": "https://arxiv.org/abs/2611.04972v1",
-      "pdfLink": "https://arxiv.org/pdf/2611.04972v1",
-      "published": "2026-11-03T14:29:21Z",
-      "updated": "2026-11-03T14:29:21Z",
+      "id": "2611.06184v1",
+      "title": "Can Astra Solve RoboMME without Breaking the Bank?",
+      "summary": "Robotic manipulation often requires remembering information that is no longer visible, such as an object's location before occlusion or the order of a demonstrated action sequence. A large vision-language planner can read this history, but calling it before every action chunk is slow and costly.",
+      "summaryRaw": "Robotic manipulation often requires remembering information that is no longer visible, such as an object's location before occlusion or the order of a demonstrated action sequence. A large vision-language planner can read this history, but calling it before every action chunk is slow and costly. We present a three-tier system for the RoboMME benchmark. GPT-6 Astra (System 2) selects a grounded subtask from stored visual history, a $π_{0.5}$ vision-language-action policy (System 1) executes it, and a fine-tuned Qwen3-VL-4B monitor (System 1.5) checks after each action chunk whether the subtask is finished. The instruction is kept until the monitor reports completion or a task-specific event occurs, while the policy keeps acting on new observations. On RoboMME, the system succeeds in 79.13% of episodes with an average of 3.63 Astra calls and 80.84 seconds per episode. This is 34.62 points above the best published non-oracle baseline and 4.95 points below GroundSG+Oracle, which gives the low-level policy ground-truth subgoals.",
+      "link": "https://arxiv.org/abs/2611.06184v1",
+      "pdfLink": "https://arxiv.org/pdf/2611.06184v1",
+      "published": "2026-11-04T09:01:53Z",
+      "updated": "2026-11-04T09:01:53Z",
       "authors": [
-        "Abhijeet M. Kulkarni",
-        "Saimouli Katragadda",
-        "Yuze Du",
-        "Zijun Sha",
-        "Guoquan Huang"
+        "Bingao Chen",
+        "Haoquan Fang",
+        "C. Karen Liu"
       ],
       "categories": [
         "cs.RO"
       ],
-      "score": 57,
+      "score": 71,
       "importanceLevel": "A",
-      "lane": "Robotics",
+      "lane": "VLA",
       "dimensionScores": {
-        "relevance": 36,
-        "novelty": 7,
-        "impact": 12,
-        "practicality": 8,
-        "coreAlignment": 22
+        "relevance": 59,
+        "novelty": 12,
+        "impact": 6,
+        "practicality": 0,
+        "coreAlignment": 26
       },
-      "oneSentenceSummary": "该论文是偏机器人的重点候选，值得优先阅读。",
-      "summaryCn": "论文核心内容是：By harnessing the inherent commonsense capabilities of pretrained Large Language Models (LLMs) and Vision-Language Models (VLMs), c…",
-      "whyImportant": "命中VLA、机器人、真实实验主题，分类覆盖cs.RO，并体现较强的新颖性与影响潜力。",
+      "oneSentenceSummary": "该论文是偏VLA的重点候选，值得优先阅读。",
+      "summaryCn": "论文核心内容是：Robotic manipulation often requires remembering information that is no longer visible, such as an object's location before occlusio…",
+      "whyImportant": "命中VLA、机器人、新基准主题，分类覆盖cs.RO，并体现较强的新颖性与影响潜力。",
       "reasonTags": [
         "VLA",
         "机器人",
-        "真实实验"
-      ],
-      "innovationPoints": [
-        "提供真实场景实验验证"
-      ],
-      "noveltyVerdict": "更偏实用推进型工作，适合结合上下文继续判断。",
-      "duplicateRisk": "low",
-      "dedupeNote": "该论文在Robotics方向上具备独立问题设置或代表性贡献，可作为当日候选保留。",
-      "retrievalGroups": [
-        "robotics"
-      ],
-      "mergedCount": 1,
-      "mergedTitles": [
-        "Caging Vision-Language Navigation for Legged Robots via Barrier-Certified Safety Architecture"
-      ]
-    },
-    {
-      "id": "2611.05129v1",
-      "title": "WayTrace: A Map-to-Language-to-Trace Hierarchy for Embodied Urban Navigation",
-      "summary": "Web services provide walking directions for nearly every city, but following them reliably over long routes remains challenging for autonomous robots. Point-goal navigation policies rely heavily on accurate GNSS, while most vision-language navigation models struggle to execute even short instructions outdoors.",
-      "summaryRaw": "Web services provide walking directions for nearly every city, but following them reliably over long routes remains challenging for autonomous robots. Point-goal navigation policies rely heavily on accurate GNSS, while most vision-language navigation models struggle to execute even short instructions outdoors. We present WayTrace, a hierarchical system that connects web-map directions to robot motion through language. An off-the-shelf orchestrator vision-language model reads the turn-by-turn directions, a satellite map and recent camera images, and issues one atomic language command at a time, such as \"cross the road to the left\". An onboard trace predictor, trained on over one million automatically labelled samples from street-level images, draws the path for this command in the image, and a reinforcement learning policy tracks it. In long-range simulated missions, WayTrace remains robust to GNSS noise and rarely leaves crosswalks or sidewalks, while point-goal baselines degrade sharply with about ten times more violations. Deployed on a wheeled-legged robot, WayTrace completes real-world missions of up to 1.37 km at about 1.1 m/s through a busy city centre, rural trails and a university campus, handling crosswalks, staircases and construction sites. Project page: https://way-trace.github.io",
-      "link": "https://arxiv.org/abs/2611.05129v1",
-      "pdfLink": "https://arxiv.org/pdf/2611.05129v1",
-      "published": "2026-11-03T16:13:42Z",
-      "updated": "2026-11-03T16:13:42Z",
-      "authors": [
-        "Manthan Patel",
-        "Jonas Frey",
-        "Pascal Roth",
-        "Marco Hutter",
-        "Cesar Cadena"
-      ],
-      "categories": [
-        "cs.RO"
-      ],
-      "score": 48,
-      "importanceLevel": "A",
-      "lane": "Robotics",
-      "dimensionScores": {
-        "relevance": 31,
-        "novelty": 7,
-        "impact": 12,
-        "practicality": 4,
-        "coreAlignment": 14
-      },
-      "oneSentenceSummary": "该论文是偏机器人的重点候选，值得优先阅读。",
-      "summaryCn": "论文核心内容是：Web services provide walking directions for nearly every city, but following them reliably over long routes remains challenging for…",
-      "whyImportant": "命中机器人、真实实验主题，分类覆盖cs.RO，并体现较强的新颖性与影响潜力。",
-      "reasonTags": [
-        "机器人",
-        "真实实验"
-      ],
-      "innovationPoints": [
-        "提供真实场景实验验证"
-      ],
-      "noveltyVerdict": "更偏实用推进型工作，适合结合上下文继续判断。",
-      "duplicateRisk": "low",
-      "dedupeNote": "该论文在Robotics方向上具备独立问题设置或代表性贡献，可作为当日候选保留。",
-      "retrievalGroups": [
-        "robotics"
-      ],
-      "mergedCount": 1,
-      "mergedTitles": [
-        "WayTrace: A Map-to-Language-to-Trace Hierarchy for Embodied Urban Navigation"
-      ]
-    },
-    {
-      "id": "2611.04255v1",
-      "title": "ActOR: Ambient AI-Based Agentic Orchestration for Humanoid Autonomy in Operating Rooms",
-      "summary": "Operating rooms (ORs) increasingly contain ambient sensing infrastructure to enable AI-based optimization of workflows and utilization. We pursue an alternative path: using ambient AI to guide robot action and optimize utilization.",
-      "summaryRaw": "Operating rooms (ORs) increasingly contain ambient sensing infrastructure to enable AI-based optimization of workflows and utilization. We pursue an alternative path: using ambient AI to guide robot action and optimize utilization. Deploying humanoids in the OR without ambient AI is severely limited by cumbersome de novo orientation and planning due to partial onboard observations. We posit that this can be achieved by coupling an ambient AI-based agentic orchestrator with the humanoid robotic actor, providing shared perception and execution feedback for humanoid autonomy in the OR. ActOR fuses a wall-mounted ambient camera and the robot's head-mounted camera into a shared object-level digital twin (DT). A large language model agent plans over the DT using pre-programmed locomotion and manipulation skills without task-specific training. During execution, DT updates and execution outcomes inform retries, alternative approaches, or replanning. We evaluated ActOR in simulated and physical environments. Across three tasks in two simulated ORs reconstructed from real rooms, ambient perception reduced exploration from 1.05 to 0.12 Explore calls per trial when targets were initially outside the robot's view. Closed-loop feedback increased success from 46.7% to 83.3% under nominal execution and from 8.3% to 51.7% under injected navigation, object-relocation, and grasp perturbations. In a physical mock OR with a humanoid, ActOR completed 14 of 20 single-object disposal trials and demonstrated replanning after scene changes. Ambient AI-based observations provide scene state that improves robot action planning, increasing success and reducing exploration compared with robot-only observations. Feeding skill outcomes and DT updates back to the planner improves multi-step task success. Our results show the feasibility of humanoid task autonomy for multi-step disposal tasks in a mock OR.",
-      "link": "https://arxiv.org/abs/2611.04255v1",
-      "pdfLink": "https://arxiv.org/pdf/2611.04255v1",
-      "published": "2026-11-03T03:48:01Z",
-      "updated": "2026-11-03T03:48:01Z",
-      "authors": [
-        "Han Zhang",
-        "Sicheng Lu",
-        "Aleks Santari",
-        "Jeffrey K. Jopling",
-        "Masaru Ishii",
-        "Mathias Unberath"
-      ],
-      "categories": [
-        "cs.RO"
-      ],
-      "score": 47,
-      "importanceLevel": "B",
-      "lane": "Robotics",
-      "dimensionScores": {
-        "relevance": 41,
-        "novelty": 6,
-        "impact": 6,
-        "practicality": 0,
-        "coreAlignment": 14
-      },
-      "oneSentenceSummary": "该论文是偏机器人的重点候选，值得优先阅读。",
-      "summaryCn": "论文核心内容是：Operating rooms (ORs) increasingly contain ambient sensing infrastructure to enable AI-based optimization of workflows and utilizat…",
-      "whyImportant": "命中机器人主题，分类覆盖cs.RO，并体现较强的新颖性与影响潜力。",
-      "reasonTags": [
-        "机器人"
-      ],
-      "innovationPoints": [
-        "提出具有跟踪价值的方法设计"
-      ],
-      "noveltyVerdict": "更偏实用推进型工作，适合结合上下文继续判断。",
-      "duplicateRisk": "low",
-      "dedupeNote": "该论文在Robotics方向上具备独立问题设置或代表性贡献，可作为当日候选保留。",
-      "retrievalGroups": [
-        "robotics"
-      ],
-      "mergedCount": 1,
-      "mergedTitles": [
-        "ActOR: Ambient AI-Based Agentic Orchestration for Humanoid Autonomy in Operating Rooms"
-      ]
-    },
-    {
-      "id": "2611.04836v1",
-      "title": "HTCE: Homeomorphism-inspired Topological Cross-Scene Experience Canonicalization and Reuse for Object Navigation",
-      "summary": "As embodied agents perform object-goal navigation across residential environments, they accumulate successful experiences whose semantic structure recurs across scenes even when geometric trajectories do not. Reusing such experience is challenging because differences in region naming and observation granularity produce distinct graph rep…",
-      "summaryRaw": "As embodied agents perform object-goal navigation across residential environments, they accumulate successful experiences whose semantic structure recurs across scenes even when geometric trajectories do not. Reusing such experience is challenging because differences in region naming and observation granularity produce distinct graph representations of similar approaches, while meaningful differences in anchors, branches, and endpoints must stay distinguishable. We introduce HTCE, a homeomorphism-inspired topological framework that canonicalizes and reuses navigation experience. Feature and topology subdivisions characterize representational variations, and their semantically constrained reductions produce comparable semantic sequences and structural signatures while preserving semantic anchors, branching relations, and navigation endpoints. HTCE then retrieves historical successful approaches through subdivision-aware matching as guidance for a frozen vision-language policy. Canonicalization compresses the experience index losslessly, merging 17.7--23.6\\% of distinct stored route descriptions while retaining full task performance. Under a single frozen vision-language backbone shared by all compared systems, HTCE attains the best SR and SPL in every setting---59.9\\%/31.8\\% on HM3D v0.1, 71.0\\%/31.5\\% on HM3D v0.2, and 46.6\\%/16.6\\% on MP3D---with SR gains of up to 4.9 points and structured retrieval contributing up to 2.8 SPL points. The code is available in https://github.com/startracker0/htce.git",
-      "link": "https://arxiv.org/abs/2611.04836v1",
-      "pdfLink": "https://arxiv.org/pdf/2611.04836v1",
-      "published": "2026-11-03T13:05:18Z",
-      "updated": "2026-11-03T13:05:18Z",
-      "authors": [
-        "Xiaoran Xu",
-        "Yupeng Wu",
-        "Tianyu Xue",
-        "Xuanran Dong",
-        "Yifan Xu",
-        "Xiaoshan Yang",
-        "Changsheng Xu"
-      ],
-      "categories": [
-        "cs.AI"
-      ],
-      "score": 32,
-      "importanceLevel": "B",
-      "lane": "Robotics",
-      "dimensionScores": {
-        "relevance": 19,
-        "novelty": 7,
-        "impact": 6,
-        "practicality": 3,
-        "coreAlignment": 11
-      },
-      "oneSentenceSummary": "该论文是偏机器人的重点候选，值得优先阅读。",
-      "summaryCn": "论文核心内容是：As embodied agents perform object-goal navigation across residential environments, they accumulate successful experiences whose sem…",
-      "whyImportant": "命中机器人主题，分类覆盖cs.AI，并体现较强的新颖性与影响潜力。",
-      "reasonTags": [
-        "机器人"
-      ],
-      "innovationPoints": [
-        "提出具有跟踪价值的方法设计"
-      ],
-      "noveltyVerdict": "更偏实用推进型工作，适合结合上下文继续判断。",
-      "duplicateRisk": "low",
-      "dedupeNote": "该论文在Robotics方向上具备独立问题设置或代表性贡献，可作为当日候选保留。",
-      "retrievalGroups": [
-        "robotics"
-      ],
-      "mergedCount": 1,
-      "mergedTitles": [
-        "HTCE: Homeomorphism-inspired Topological Cross-Scene Experience Canonicalization and Reuse for Object Navigation"
-      ]
-    },
-    {
-      "id": "2611.04792v1",
-      "title": "Density-Aware Reward Scaling: A Reinforcement Learning Framework for Reward-Proportional Sampling",
-      "summary": "Reinforcement learning objectives that maximize expected return can concentrate probability mass on a small subset of high-reward outcomes, limiting diversity when multiple distinct solutions are desirable. We introduce Density-Aware Reward Scaling (DARS), a simple reward-processing mechanism that promotes reward-proportional sampling in…",
-      "summaryRaw": "Reinforcement learning objectives that maximize expected return can concentrate probability mass on a small subset of high-reward outcomes, limiting diversity when multiple distinct solutions are desirable. We introduce Density-Aware Reward Scaling (DARS), a simple reward-processing mechanism that promotes reward-proportional sampling in continuous outcome spaces while retaining standard policy-gradient training. DARS estimates the local density of outcomes within each on-policy rollout group and inversely scales rewards by this density. The method requires no learned density model, auxiliary objective, critic, or modification to the underlying policy-gradient objective. In a controlled multimodal navigation task, DARS-GRPO avoids the single-mode collapse exhibited by GRPO and closely recovers the target mode allocation. Applied to text-to-image prompt adaptation, DARS-GRPO consistently improves image and prompt diversity across datasets, Policy LMs, and reward settings while maintaining good semantic alignment. These results show that density-aware reward scaling provides a lightweight way to improve coverage of diverse high-reward outcomes within existing reinforcement-learning pipelines.",
-      "link": "https://arxiv.org/abs/2611.04792v1",
-      "pdfLink": "https://arxiv.org/pdf/2611.04792v1",
-      "published": "2026-11-03T12:29:58Z",
-      "updated": "2026-11-03T12:29:58Z",
-      "authors": [
-        "Ria Shekhawat",
-        "Abhijeet Sinha",
-        "Yingtao Zhu",
-        "Dianbo Liu"
-      ],
-      "categories": [
-        "cs.LG",
-        "cs.AI"
-      ],
-      "score": 26,
-      "importanceLevel": "B",
-      "lane": "Peripheral",
-      "dimensionScores": {
-        "relevance": 14,
-        "novelty": 12,
-        "impact": 5,
-        "practicality": 0,
-        "coreAlignment": 13
-      },
-      "oneSentenceSummary": "该论文是偏相关方向的重点候选，值得优先阅读。",
-      "summaryCn": "论文核心内容是：Reinforcement learning objectives that maximize expected return can concentrate probability mass on a small subset of high-reward o…",
-      "whyImportant": "命中机器人、新基准主题，分类覆盖cs.LG / cs.AI，并体现较强的新颖性与影响潜力。",
-      "reasonTags": [
-        "机器人",
         "新基准"
       ],
       "innovationPoints": [
@@ -385,514 +183,105 @@ window.PAPERS_SITE_DATA = {
       ],
       "noveltyVerdict": "创新点清晰，属于值得重点跟进的增量改进。",
       "duplicateRisk": "low",
-      "dedupeNote": "该论文在Peripheral方向上具备独立问题设置或代表性贡献，可作为当日候选保留。",
+      "dedupeNote": "该论文在VLA方向上具备独立问题设置或代表性贡献，可作为当日候选保留。",
       "retrievalGroups": [
-        "robotics"
+        "vla_core"
       ],
       "mergedCount": 1,
       "mergedTitles": [
-        "Density-Aware Reward Scaling: A Reinforcement Learning Framework for Reward-Proportional Sampling"
-      ]
-    },
-    {
-      "id": "2611.04824v1",
-      "title": "Assignment-Free Swarm Navigation via Adaptive Target-Field Planning and Mean-Shift Exploration",
-      "summary": "Mean-shift exploration enables assignment-free swarm shape assembly, but obstacle-constrained navigation additionally requires coordinated adaptation of the desired morphology and its physical execution. This paper presents an environment-adaptive navigation framework that integrates target-field planning, execution regulation, and morph…",
-      "summaryRaw": "Mean-shift exploration enables assignment-free swarm shape assembly, but obstacle-constrained navigation additionally requires coordinated adaptation of the desired morphology and its physical execution. This paper presents an environment-adaptive navigation framework that integrates target-field planning, execution regulation, and morphology-preserving mean-shift exploration. A feasibility-aware graph search plans the position, orientation, and morphology of an unlabeled target field without specifying robot-specific goals. An execution-regulated reference manager adjusts field progression and morphology switching using swarm entering, coverage, and lag metrics. A moving-frame controller separates prescribed rigid motion from local mean-shift redistribution and incorporates neighbor interactions and obstacle responses. Simulations and hardware experiments demonstrate that the proposed framework coordinates morphology transitions and collective motion for assignment-free swarm navigation through cluttered environments.",
-      "link": "https://arxiv.org/abs/2611.04824v1",
-      "pdfLink": "https://arxiv.org/pdf/2611.04824v1",
-      "published": "2026-11-03T12:53:12Z",
-      "updated": "2026-11-03T12:53:12Z",
-      "authors": [
-        "Jiaxuan Li",
-        "Junhui Zhang",
-        "Bo Zhu"
-      ],
-      "categories": [],
-      "score": 25,
-      "importanceLevel": "B",
-      "lane": "Robotics",
-      "dimensionScores": {
-        "relevance": 14,
-        "novelty": 7,
-        "impact": 0,
-        "practicality": 4,
-        "coreAlignment": 8
-      },
-      "oneSentenceSummary": "该论文是偏机器人的重点候选，值得优先阅读。",
-      "summaryCn": "论文核心内容是：Mean-shift exploration enables assignment-free swarm shape assembly, but obstacle-constrained navigation additionally requires coor…",
-      "whyImportant": "命中机器人主题，分类覆盖，并体现较强的新颖性与影响潜力。",
-      "reasonTags": [
-        "机器人"
-      ],
-      "innovationPoints": [
-        "提出具有跟踪价值的方法设计"
-      ],
-      "noveltyVerdict": "更偏实用推进型工作，适合结合上下文继续判断。",
-      "duplicateRisk": "low",
-      "dedupeNote": "该论文在Robotics方向上具备独立问题设置或代表性贡献，可作为当日候选保留。",
-      "retrievalGroups": [
-        "robotics"
-      ],
-      "mergedCount": 1,
-      "mergedTitles": [
-        "Assignment-Free Swarm Navigation via Adaptive Target-Field Planning and Mean-Shift Exploration"
-      ]
-    },
-    {
-      "id": "2611.05263v1",
-      "title": "JHiMA-WebRL: A Joint Hierarchical Multi-Agent Reinforcement Learning Framework for Long-Horizon Web Tasks",
-      "summary": "Multimodal web agents have shown promising capabilities for interacting with websites through graphical user interfaces (GUIs), yet realistic web tasks often require long-horizon, multi-step planning that remains challenging for monolithic policies. Such agents must jointly infer high-level plans, navigate through intermediate states, tr…",
-      "summaryRaw": "Multimodal web agents have shown promising capabilities for interacting with websites through graphical user interfaces (GUIs), yet realistic web tasks often require long-horizon, multi-step planning that remains challenging for monolithic policies. Such agents must jointly infer high-level plans, navigate through intermediate states, track progress over extended interaction histories, and execute visually grounded actions. Although prior work has explored modular multi-agent systems with a separate planner, the planner is typically not updated jointly with the actor. We investigate whether explicitly separating and jointly training planning and execution provides a stronger inductive bias for long-horizon web navigation. We introduce JHiMA-WebRL, a joint hierarchical multi-agent reinforcement learning framework for web agents that couples a task decomposer with an actor. To train the decomposer, we use a strong teacher model to construct structured subtask supervision from multimodal GUI trajectories, and use these annotations to fine-tune both the decomposer and the subtask-conditioned actor. We then extend Group Relative Policy Optimization (GRPO) to jointly optimize the decomposer and actor in the interactive WebArena environment through hierarchical rollout grouping and role-specific advantages. On WebArena-Lite-v2, JHiMA-WebRL-14B, consisting of a 7B actor and a 7B decomposer, achieves an average success rate of 37.2%, compared with 24% for a ScaleCUA-32B agent that we fine-tune with RL on the same training tasks and evaluate under the same protocol. Ablations show that jointly updating the decomposer during RL outperforms updating the actor alone. These results suggest that jointly learned role factorization with smaller models can be a competitive alternative to scaling monolithic agents for long-horizon web tasks.",
-      "link": "https://arxiv.org/abs/2611.05263v1",
-      "pdfLink": "https://arxiv.org/pdf/2611.05263v1",
-      "published": "2026-11-03T17:49:14Z",
-      "updated": "2026-11-03T17:49:14Z",
-      "authors": [
-        "Shanka Subhra Mondal",
-        "Jiayun Wang"
-      ],
-      "categories": [
-        "cs.AI"
-      ],
-      "score": 19,
-      "importanceLevel": "B",
-      "lane": "Peripheral",
-      "dimensionScores": {
-        "relevance": 12,
-        "novelty": 7,
-        "impact": 3,
-        "practicality": 0,
-        "coreAlignment": 11
-      },
-      "oneSentenceSummary": "该论文是偏相关方向的重点候选，值得优先阅读。",
-      "summaryCn": "论文核心内容是：Multimodal web agents have shown promising capabilities for interacting with websites through graphical user interfaces (GUIs), yet…",
-      "whyImportant": "命中机器人主题，分类覆盖cs.AI，并体现较强的新颖性与影响潜力。",
-      "reasonTags": [
-        "机器人"
-      ],
-      "innovationPoints": [
-        "提出具有跟踪价值的方法设计"
-      ],
-      "noveltyVerdict": "更偏实用推进型工作，适合结合上下文继续判断。",
-      "duplicateRisk": "low",
-      "dedupeNote": "该论文在Peripheral方向上具备独立问题设置或代表性贡献，可作为当日候选保留。",
-      "retrievalGroups": [
-        "robotics"
-      ],
-      "mergedCount": 1,
-      "mergedTitles": [
-        "JHiMA-WebRL: A Joint Hierarchical Multi-Agent Reinforcement Learning Framework for Long-Horizon Web Tasks"
-      ]
-    },
-    {
-      "id": "2611.04142v1",
-      "title": "Interpretable Early Termination of Web Navigation Agents via Closed Sequential Pattern Mining",
-      "summary": "Web navigation agents built on open-weight language models fail often and fail late, with most of the tokens spent after the trajectory has become unrecoverable. Recent work has shown that early termination is a viable cost-reduction strategy, but existing approaches produce opaque termination decisions that do not support diagnosis or h…",
-      "summaryRaw": "Web navigation agents built on open-weight language models fail often and fail late, with most of the tokens spent after the trajectory has become unrecoverable. Recent work has shown that early termination is a viable cost-reduction strategy, but existing approaches produce opaque termination decisions that do not support diagnosis or human oversight. In this work we apply closed sequential pattern mining (BIDE+) to K-step prefixes of agent execution traces to produce a small, human-reviewable failure-signature library that organizes into a four-category failure taxonomy with associated repair recommendations. We use a multi-variant evaluation protocol that explicitly removes contamination artifacts (zero-step crashes and trivially separable single-step successes) so that reported detection accuracy reflects behavioral discrimination rather than trace-length distributions. We evaluate our methodology on 1,544 MiniWoB++ traces collected from three open-weight language models, achieving the best F1 at K=3 on the Exclude-errors configuration across eight methods (0.717), recovering 88% of test-set failures within three steps, and supporting an early-termination policy that saves 26.3% of tokens at 92% precision.",
-      "link": "https://arxiv.org/abs/2611.04142v1",
-      "pdfLink": "https://arxiv.org/pdf/2611.04142v1",
-      "published": "2026-11-03T01:35:51Z",
-      "updated": "2026-11-03T01:35:51Z",
-      "authors": [
-        "Sergio Talavera",
-        "Magdalini Eirinaki"
-      ],
-      "categories": [
-        "cs.AI"
-      ],
-      "score": 18,
-      "importanceLevel": "B",
-      "lane": "Peripheral",
-      "dimensionScores": {
-        "relevance": 12,
-        "novelty": 6,
-        "impact": 3,
-        "practicality": 0,
-        "coreAlignment": 11
-      },
-      "oneSentenceSummary": "该论文是偏相关方向的重点候选，值得优先阅读。",
-      "summaryCn": "论文核心内容是：Web navigation agents built on open-weight language models fail often and fail late, with most of the tokens spent after the trajec…",
-      "whyImportant": "命中机器人、新基准主题，分类覆盖cs.AI，并体现较强的新颖性与影响潜力。",
-      "reasonTags": [
-        "机器人",
-        "新基准"
-      ],
-      "innovationPoints": [
-        "提出具有跟踪价值的方法设计"
-      ],
-      "noveltyVerdict": "更偏实用推进型工作，适合结合上下文继续判断。",
-      "duplicateRisk": "low",
-      "dedupeNote": "该论文在Peripheral方向上具备独立问题设置或代表性贡献，可作为当日候选保留。",
-      "retrievalGroups": [
-        "robotics"
-      ],
-      "mergedCount": 1,
-      "mergedTitles": [
-        "Interpretable Early Termination of Web Navigation Agents via Closed Sequential Pattern Mining"
-      ]
-    },
-    {
-      "id": "2611.04907v1",
-      "title": "Cool Graphs: Active Property Search Towards Quantum Nano-Refrigerators",
-      "summary": "Nanodevices that absorb energy from their thermal environment can act as quantum refrigerators. Finding suitable configurations, however, is a needle-in-a-haystack problem: the many-body state space scales exponentially with the size of the device, where each candidate configuration requires an expensive quantum-chemical computation.",
-      "summaryRaw": "Nanodevices that absorb energy from their thermal environment can act as quantum refrigerators. Finding suitable configurations, however, is a needle-in-a-haystack problem: the many-body state space scales exponentially with the size of the device, where each candidate configuration requires an expensive quantum-chemical computation. We introduce a search framework that couples a Graph Variational Autoencoder (GVAE) with an uncertainty-driven Active Learning (AL) loop to efficiently identify energy-absorbing configurations in electronic junctions with a 2D \"working material\" to be optimized. The GVAE maps physical parameters - site energies, coupling matrices, temperature - into a smooth latent space that distinguishes cooling from dissipative parameter regimes, achieving a classification discriminability of $0.920 \\pm 0.004$ on held-out configurations and $0.895 \\pm 0.010$ on unseen extrapolation topologies. An AL pipeline based on Monte Carlo dropout then targets the decision boundary, iteratively selecting the candidates where the model is least certain for simulation. Over 32 AL cycles, the uncertainty-driven strategy discovers energy absorbing systems at rates consistently exceeding the random baseline across all tested topologies (where only 1.9-8.4% of configurations exhibit the desired property), providing a data-efficient pathway for navigating a combinatorically large design space. The learned latent space organizes configurations along physically interpretable axes, that correlate with underlying microscopic model parameters. This hints at the existence of \"cooling coordinates\" - low-dimensional, physically interpretable quantities separating cooling from non-cooling regimes. Our framework, thus, paves a new way towards effective cooling of nanoscale electronic information processing devices, to reduce the environmental footprint of high performance computing.",
-      "link": "https://arxiv.org/abs/2611.04907v1",
-      "pdfLink": "https://arxiv.org/pdf/2611.04907v1",
-      "published": "2026-11-03T13:50:16Z",
-      "updated": "2026-11-03T13:50:16Z",
-      "authors": [
-        "Sofia Blyufer",
-        "Amir Kleiner",
-        "Uri Peskin"
-      ],
-      "categories": [
-        "cs.LG"
-      ],
-      "score": 19,
-      "importanceLevel": "B",
-      "lane": "Peripheral",
-      "dimensionScores": {
-        "relevance": 2,
-        "novelty": 7,
-        "impact": 5,
-        "practicality": 7,
-        "coreAlignment": 2
-      },
-      "oneSentenceSummary": "该论文是偏相关方向的重点候选，值得优先阅读。",
-      "summaryCn": "论文核心内容是：Nanodevices that absorb energy from their thermal environment can act as quantum refrigerators.",
-      "whyImportant": "命中高相关主题，分类覆盖cs.LG，并体现较强的新颖性与影响潜力。",
-      "reasonTags": [
-        "高相关"
-      ],
-      "innovationPoints": [
-        "提出具有跟踪价值的方法设计"
-      ],
-      "noveltyVerdict": "更偏实用推进型工作，适合结合上下文继续判断。",
-      "duplicateRisk": "low",
-      "dedupeNote": "该论文在Peripheral方向上具备独立问题设置或代表性贡献，可作为当日候选保留。",
-      "retrievalGroups": [
-        "robotics"
-      ],
-      "mergedCount": 1,
-      "mergedTitles": [
-        "Cool Graphs: Active Property Search Towards Quantum Nano-Refrigerators"
-      ]
-    },
-    {
-      "id": "2611.04719v1",
-      "title": "Bayesian optimization enhanced magnetic field gradient detection based on spin-orbit coupled Bose-Einstein condensates",
-      "summary": "Magnetic field detection is of great significance in modern fields such as medical diagnostics, geological exploration, inertial navigation, and space physics. We have previously investigated the expansion dynamics of a spin-orbit-coupled Bose-Einstein condensate.",
-      "summaryRaw": "Magnetic field detection is of great significance in modern fields such as medical diagnostics, geological exploration, inertial navigation, and space physics. We have previously investigated the expansion dynamics of a spin-orbit-coupled Bose-Einstein condensate. Building on these results, here we propose a scheme for magnetic-field-gradient detection by establishing a quantitative relationship between the condensate's rotational deflection angle and the magnetic-field gradient. In this work, we present the parameter dependence of this scheme and perform a systematic optimization. We introduce a Bayesian optimization algorithm to automatically and efficiently search for the optimal combination of key parameters, thereby significantly enhancing the sensitivity of the magnetic field gradient measurement. The results show that the optimized gradiometer improves the sensitivity by a factor of five. This work not only provides a new approach for magnetic field gradient measurement but also serves as a reference for machine learning-empowered quantum precision measurement.",
-      "link": "https://arxiv.org/abs/2611.04719v1",
-      "pdfLink": "https://arxiv.org/pdf/2611.04719v1",
-      "published": "2026-11-03T11:40:47Z",
-      "updated": "2026-11-03T11:40:47Z",
-      "authors": [
-        "Shixiang Chen",
-        "Juan Wang",
-        "Yan Li"
-      ],
-      "categories": [],
-      "score": 16,
-      "importanceLevel": "B",
-      "lane": "Peripheral",
-      "dimensionScores": {
-        "relevance": 5,
-        "novelty": 7,
-        "impact": 0,
-        "practicality": 4,
-        "coreAlignment": 5
-      },
-      "oneSentenceSummary": "该论文是偏相关方向的重点候选，值得优先阅读。",
-      "summaryCn": "论文核心内容是：Magnetic field detection is of great significance in modern fields such as medical diagnostics, geological exploration, inertial na…",
-      "whyImportant": "命中机器人主题，分类覆盖，并体现较强的新颖性与影响潜力。",
-      "reasonTags": [
-        "机器人"
-      ],
-      "innovationPoints": [
-        "提出具有跟踪价值的方法设计"
-      ],
-      "noveltyVerdict": "更偏实用推进型工作，适合结合上下文继续判断。",
-      "duplicateRisk": "low",
-      "dedupeNote": "该论文在Peripheral方向上具备独立问题设置或代表性贡献，可作为当日候选保留。",
-      "retrievalGroups": [
-        "robotics"
-      ],
-      "mergedCount": 1,
-      "mergedTitles": [
-        "Bayesian optimization enhanced magnetic field gradient detection based on spin-orbit coupled Bose-Einstein condensates"
-      ]
-    },
-    {
-      "id": "2611.04120v1",
-      "title": "Extracting and Characterizing Near-Fault Effects from Strong Motion Observations of the 2022 Chishang Earthquake Sequence",
-      "summary": "Accurately characterizing near-fault ground motions, particularly permanent tectonic displacements and velocity pulses associated with rupture directivity, is essential for seismic hazard assessment and infrastructure design. However, conventional ground-motion processing can distort or remove these characteristics.",
-      "summaryRaw": "Accurately characterizing near-fault ground motions, particularly permanent tectonic displacements and velocity pulses associated with rupture directivity, is essential for seismic hazard assessment and infrastructure design. However, conventional ground-motion processing can distort or remove these characteristics. This study extends existing baseline correction methods by synchronously processing all three components of strong-motion recordings to preserve near-fault effects. The proposed methodology is applied to 59 recordings from the 2022 M 6.5 Guanshan foreshock and M 6.9 Chishang mainshock in Taiwan. Comparison with nearby Global Navigation Satellite System (GNSS) observations demonstrates that the method reliably captures the amplitude and orientation of permanent tectonic displacements. Analysis of the processed recordings reveals pronounced velocity pulses and permanent displacements, with the largest peak-to-peak velocities concentrated along the direction of rupture propagation. A classification framework is also introduced to distinguish fling-step pulses from dynamic velocity pulses. The results indicate that fling-step pulses typically occur early in the ground shaking, whereas dynamic pulses span a broader temporal range. Furthermore, the spatial distribution and orientation of near-fault effects are consistent with bridge damage documented during post-earthquake reconnaissance. The resulting dataset provides ground-motion time histories that preserve near-fault characteristics for seismic hazard assessment and engineering applications.",
-      "link": "https://arxiv.org/abs/2611.04120v1",
-      "pdfLink": "https://arxiv.org/pdf/2611.04120v1",
-      "published": "2026-11-03T00:53:47Z",
-      "updated": "2026-11-03T00:53:47Z",
-      "authors": [
-        "Grigorios Lavrentiadis",
-        "Domniki Asimaki",
-        "Trevor J. Carey",
-        "Henry Benjamin Mason"
-      ],
-      "categories": [],
-      "score": 16,
-      "importanceLevel": "B",
-      "lane": "Peripheral",
-      "dimensionScores": {
-        "relevance": 5,
-        "novelty": 11,
-        "impact": 0,
-        "practicality": 0,
-        "coreAlignment": 5
-      },
-      "oneSentenceSummary": "该论文是偏相关方向的重点候选，值得优先阅读。",
-      "summaryCn": "论文核心内容是：Accurately characterizing near-fault ground motions, particularly permanent tectonic displacements and velocity pulses associated w…",
-      "whyImportant": "命中机器人、新基准主题，分类覆盖，并体现较强的新颖性与影响潜力。",
-      "reasonTags": [
-        "机器人",
-        "新基准"
-      ],
-      "innovationPoints": [
-        "包含新基准或新数据评测"
-      ],
-      "noveltyVerdict": "创新点清晰，属于值得重点跟进的增量改进。",
-      "duplicateRisk": "low",
-      "dedupeNote": "该论文在Peripheral方向上具备独立问题设置或代表性贡献，可作为当日候选保留。",
-      "retrievalGroups": [
-        "robotics"
-      ],
-      "mergedCount": 1,
-      "mergedTitles": [
-        "Extracting and Characterizing Near-Fault Effects from Strong Motion Observations of the 2022 Chishang Earthquake Sequence"
-      ]
-    },
-    {
-      "id": "2611.04248v1",
-      "title": "Navigating Runtime Dynamism in Semantic Query Serving",
-      "summary": "LLM-powered semantic queries increasingly combine relational processing with multiple LLM-based operators over unstructured data. Efficiently serving such queries is challenging due to runtime dynamism at two coupled levels.",
-      "summaryRaw": "LLM-powered semantic queries increasingly combine relational processing with multiple LLM-based operators over unstructured data. Efficiently serving such queries is challenging due to runtime dynamism at two coupled levels. Across queries, dynamic arrivals and heterogeneous resource demands continuously change scheduling priorities. Within a query, heterogeneous characteristics across fine-grained input batches cause operator costs and selectivities to vary throughout execution, making a statically optimized plan unreliable. These two forms of dynamism create a circular dependency: inter-query scheduling requires estimates of remaining LLM work, while the remaining work depends on runtime plan choices whose costs become observable only during execution. We present SeqoFlow, a runtime framework that jointly adapts query plans and schedules concurrent semantic queries. SeqoFlow enumerates equivalence-preserving plan alternatives under operator dependencies and decomposes queries into fine-grained units, enabling safe plan adaptation and query preemption at batch boundaries. To support both decisions without exhaustively profiling candidate plans on the target LLM, SeqoFlow uses lightweight speculative estimation to capture runtime costs. These estimates jointly guide plan adaptation and inter-query scheduling, closing the loop between query optimization and LLM inference. Experiments across diverse query structures, data distributions, and arrival rates show that SeqoFlow substantially reduces end-to-end latency compared to existing semantic query systems, adaptive query processing techniques, and conventional scheduling policies.",
-      "link": "https://arxiv.org/abs/2611.04248v1",
-      "pdfLink": "https://arxiv.org/pdf/2611.04248v1",
-      "published": "2026-11-03T03:31:03Z",
-      "updated": "2026-11-03T03:31:03Z",
-      "authors": [
-        "Hengrui Zhang",
-        "Xupeng Miao"
-      ],
-      "categories": [
-        "cs.AI"
-      ],
-      "score": 17,
-      "importanceLevel": "B",
-      "lane": "Peripheral",
-      "dimensionScores": {
-        "relevance": 3,
-        "novelty": 6,
-        "impact": 3,
-        "practicality": 8,
-        "coreAlignment": 3
-      },
-      "oneSentenceSummary": "该论文是偏相关方向的重点候选，值得优先阅读。",
-      "summaryCn": "论文核心内容是：LLM-powered semantic queries increasingly combine relational processing with multiple LLM-based operators over unstructured data.",
-      "whyImportant": "命中高相关主题，分类覆盖cs.AI，并体现较强的新颖性与影响潜力。",
-      "reasonTags": [
-        "高相关"
-      ],
-      "innovationPoints": [
-        "提出具有跟踪价值的方法设计"
-      ],
-      "noveltyVerdict": "更偏实用推进型工作，适合结合上下文继续判断。",
-      "duplicateRisk": "low",
-      "dedupeNote": "该论文在Peripheral方向上具备独立问题设置或代表性贡献，可作为当日候选保留。",
-      "retrievalGroups": [
-        "robotics"
-      ],
-      "mergedCount": 1,
-      "mergedTitles": [
-        "Navigating Runtime Dynamism in Semantic Query Serving"
-      ]
-    },
-    {
-      "id": "2611.04383v1",
-      "title": "Disposable Implementations: What Is Software Engineering For?",
-      "summary": "Existing implementations are usually maintained for most of their life and replaced only as an exception. Coding agents may change that.",
-      "summaryRaw": "Existing implementations are usually maintained for most of their life and replaced only as an exception. Coding agents may change that. If agents can produce new implementations from requirements, tests, architectural constraints, and operational records that survive replacement, changing a system may no longer require modifying its existing codebase. We call this process regeneration. An implementation is disposable when regeneration becomes a routine alternative to maintenance. Regenerating and verifying a clean implementation from current requirements and tests may be cheaper than having agents navigate (and potentially compound) existing technical debt, and could eliminate much of that debt. Yet existing code may contain knowledge absent from the preserved artifacts, including safeguards introduced after failures and assumptions that were never documented. A regenerated implementation may pass the available tests and still lose behavior that matters in production. This leaves open how to establish continuity across replacements and whether regeneration reduces maintenance effort or shifts it to the artifacts and processes that support it. We examine these questions through an exploratory review of practitioner literature. Published examples show that agents can replace existing implementations, but do not establish that repeated regeneration is safe or economical. If implementations become disposable, what should software engineering preserve?",
-      "link": "https://arxiv.org/abs/2611.04383v1",
-      "pdfLink": "https://arxiv.org/pdf/2611.04383v1",
-      "published": "2026-11-03T06:14:45Z",
-      "updated": "2026-11-03T06:14:45Z",
-      "authors": [
-        "Christoph Treude"
-      ],
-      "categories": [],
-      "score": 17,
-      "importanceLevel": "B",
-      "lane": "Peripheral",
-      "dimensionScores": {
-        "relevance": 0,
-        "novelty": 7,
-        "impact": 3,
-        "practicality": 7,
-        "coreAlignment": 0
-      },
-      "oneSentenceSummary": "该论文是偏相关方向的重点候选，值得优先阅读。",
-      "summaryCn": "论文核心内容是：Existing implementations are usually maintained for most of their life and replaced only as an exception.",
-      "whyImportant": "命中高相关主题，分类覆盖，并体现较强的新颖性与影响潜力。",
-      "reasonTags": [
-        "高相关"
-      ],
-      "innovationPoints": [
-        "提出具有跟踪价值的方法设计"
-      ],
-      "noveltyVerdict": "更偏实用推进型工作，适合结合上下文继续判断。",
-      "duplicateRisk": "low",
-      "dedupeNote": "该论文在Peripheral方向上具备独立问题设置或代表性贡献，可作为当日候选保留。",
-      "retrievalGroups": [
-        "robotics"
-      ],
-      "mergedCount": 1,
-      "mergedTitles": [
-        "Disposable Implementations: What Is Software Engineering For?"
-      ]
-    },
-    {
-      "id": "2611.04294v1",
-      "title": "State Evolution and Universality of Iterated Linear Programs for the Binary Perceptron",
-      "summary": "The binary perceptron is a random constraint satisfaction problem that asks for a sign vector satisfying a system of random linear inequalities. Its solution space has a strikingly extreme geometry: at every positive constraint density, all but a vanishing fraction of the solutions are isolated.",
-      "summaryRaw": "The binary perceptron is a random constraint satisfaction problem that asks for a sign vector satisfying a system of random linear inequalities. Its solution space has a strikingly extreme geometry: at every positive constraint density, all but a vanishing fraction of the solutions are isolated. Yet polynomial-time algorithms find solutions at small enough constraint density, which raises the question of how efficient algorithms navigate such a landscape. Linear programming is a natural algorithm to study here, but its analysis has so far been limited to a single round. Li, Schramm, and Zhou (STOC 2025) analyzed one linear program followed by iterative rounding. In this work, we overcome this limitation and give a precise analysis of iterated linear programming for the binary perceptron. (1) For Gaussian matrices and any fixed number of rounds, we characterize the iterated linear programs exactly through a deterministic state-evolution recursion. (2) Adding a final rounding step, we obtain a randomized polynomial-time algorithm for the binary perceptron. Numerical evaluations of the recursion provide evidence that it succeeds at constraint density $α=0.60$ with zero margin, well beyond the range $α\\le0.1$ guaranteed by the single-LP analysis and $α\\approx0.327$ (Jo and Lee, 2026), the best guarantee so far. (3) We establish universality, showing that the same characterization holds for matrices with i.i.d. entries drawn from any centered, unit-variance subgaussian law. The key idea of our proof is that, although conditioning on earlier rounds makes the matrix non-Gaussian, its conditional law can be computed explicitly and remains close to a Gaussian law, so the convex Gaussian min-max theorem applies in every round. For universality, we compare Gaussian and subgaussian matrices through the Lindeberg principle, using a regularized version of each linear program.",
-      "link": "https://arxiv.org/abs/2611.04294v1",
-      "pdfLink": "https://arxiv.org/pdf/2611.04294v1",
-      "published": "2026-11-03T04:21:02Z",
-      "updated": "2026-11-03T04:21:02Z",
-      "authors": [
-        "Jianan Zhang",
-        "Shuangping Li"
-      ],
-      "categories": [],
-      "score": 10,
-      "importanceLevel": "B",
-      "lane": "Peripheral",
-      "dimensionScores": {
-        "relevance": 0,
-        "novelty": 6,
-        "impact": 0,
-        "practicality": 4,
-        "coreAlignment": 0
-      },
-      "oneSentenceSummary": "该论文是偏相关方向的重点候选，值得优先阅读。",
-      "summaryCn": "论文核心内容是：The binary perceptron is a random constraint satisfaction problem that asks for a sign vector satisfying a system of random linear…",
-      "whyImportant": "命中新基准主题，分类覆盖，并体现较强的新颖性与影响潜力。",
-      "reasonTags": [
-        "新基准"
-      ],
-      "innovationPoints": [
-        "提出具有跟踪价值的方法设计"
-      ],
-      "noveltyVerdict": "更偏实用推进型工作，适合结合上下文继续判断。",
-      "duplicateRisk": "low",
-      "dedupeNote": "该论文在Peripheral方向上具备独立问题设置或代表性贡献，可作为当日候选保留。",
-      "retrievalGroups": [
-        "robotics"
-      ],
-      "mergedCount": 1,
-      "mergedTitles": [
-        "State Evolution and Universality of Iterated Linear Programs for the Binary Perceptron"
+        "Can Astra Solve RoboMME without Breaking the Bank?"
       ]
     }
   ],
   "paperSets": {
     "overall": [
       {
-        "id": "2611.04392v1",
-        "title": "Aero-VPA: Few-Step Flow-Matching Control over Non-Reconstructive JEPA Latents for Agile Flight on Edge Hardware",
-        "summary": "Vision-Language-Action (VLA) models generalize across tasks, but their autoregressive decoders need sequential forward passes in proportion to the action horizon, each bounded below on embedded aerial platforms by streaming billions of parameters from memory. We present Aero-VPA, a lightweight Vision-Predictor-Action architecture for 3D…",
-        "summaryRaw": "Vision-Language-Action (VLA) models generalize across tasks, but their autoregressive decoders need sequential forward passes in proportion to the action horizon, each bounded below on embedded aerial platforms by streaming billions of parameters from memory. We present Aero-VPA, a lightweight Vision-Predictor-Action architecture for 3D navigation on edge hardware. A compact RGB-D Vision Transformer and a five-head ensemble predictor, trained without pixel reconstruction, forecast the next latent state; a Conditional Flow Matching solver generates a velocity and yaw-rate chunk in two Euler steps, so each decision takes five sequential network evaluations; and the ensemble dispersion drives an uncertainty fallback. Version 1 specified the architecture, deployment and protocol without results. This version reports the first closed-loop evaluation: PX4 software-in-the-loop simulation of quadrotor missions in procedurally generated forests. Behaviour cloning failed on all 60 missions despite open-loop errors of 0.02-0.04 m/s: the policy copies its last command, a copycat form of causal confusion. DAgger with a privileged, safety-gated supervisor gave the first successes but plateaued at 11.1-21.1% across six checkpoints. A map-free runtime shield with a 15 s depth memory, barrier constraints, a cap on motion outside the 73-degree field of view and backoff along the flown path raised the first DAgger policy's success on 180 paired missions from 21.1% to 52.2% (95% CI [45.0, 59.4]; exact McNemar p = 1.2 x 10^-10) and cut its crashes from 72.2% to 22.2%, while timeouts rose from 2.8% to 23.3%. All six checkpoints gained 30.0-34.4 percentage points, at mean speeds of 1.16-1.36 m/s. The code (https://github.com/ylee-sling/Aero-VPA), the trained policy (72.6 MB, https://huggingface.co/ylee-sling/aero-vpa) and the full benchmark dataset are public.",
-        "link": "https://arxiv.org/abs/2611.04392v1",
-        "pdfLink": "https://arxiv.org/pdf/2611.04392v1",
-        "published": "2026-11-03T06:25:06Z",
-        "updated": "2026-11-03T06:25:06Z",
+        "id": "2611.06447v1",
+        "title": "$A^3$-VLA: Automatic Perception-Guided Attention Alignment for Robot Manipulation",
+        "summary": "Vision-Language-Action Models (VLAs) enable robots to perform manipulation tasks by leveraging Vision-Language Models (VLMs) to process visual observations and language instructions. However, the action prediction objective itself lacks fine-grained task-specific perceptual supervision, making it prone to relying on task-irrelevant visua…",
+        "summaryRaw": "Vision-Language-Action Models (VLAs) enable robots to perform manipulation tasks by leveraging Vision-Language Models (VLMs) to process visual observations and language instructions. However, the action prediction objective itself lacks fine-grained task-specific perceptual supervision, making it prone to relying on task-irrelevant visual shortcuts, leading attention away from target objects and key interaction areas, thereby limiting its operational performance and generalization ability. To address this, we propose Automatic Perception-Guided Attention Alignment for Robot Manipulation ($A^3$-VLA), a framework that derives task-specific visual guidance from the manipulation process itself. Specifically, $A^3$-VLA first generates heuristic candidate regions for target objects and the robot from interaction-induced visual changes, and refines them with a visual segmentation model offline. These regions serve as explicit perceptual guidance through two complementary objectives: an attention allocation loss that encourages sufficient focus on task-critical regions when language or robot state tokens query the visual input, and a contrastive learning loss that aligns the representations of candidate target regions with language instructions while separating them from task-irrelevant regions. Extensive experiments on simulated and real-world manipulation tasks demonstrate that $A^3$-VLA consistently improves multiple VLA backbones, with an average success rate gain of 6.5% - 25.2% across benchmarks.",
+        "link": "https://arxiv.org/abs/2611.06447v1",
+        "pdfLink": "https://arxiv.org/pdf/2611.06447v1",
+        "published": "2026-11-04T12:50:54Z",
+        "updated": "2026-11-04T12:50:54Z",
         "authors": [
-          "Yeonseok Lee"
+          "Shengzhe Zhang",
+          "Qi Zhang",
+          "Dazhong Shen",
+          "Chao Wang",
+          "Shaopeng Zhai",
+          "Hui Xiong"
         ],
         "categories": [
-          "cs.LG",
           "cs.RO"
         ],
-        "score": 93,
+        "score": 84,
         "importanceLevel": "S",
         "lane": "VLA",
         "dimensionScores": {
-          "relevance": 57,
-          "novelty": 17,
-          "impact": 11,
-          "practicality": 16,
-          "coreAlignment": 36
+          "relevance": 62,
+          "novelty": 16,
+          "impact": 12,
+          "practicality": 0,
+          "coreAlignment": 34
         },
         "oneSentenceSummary": "该论文是偏VLA的重点候选，值得优先阅读。",
-        "summaryCn": "论文核心内容是：Vision-Language-Action (VLA) models generalize across tasks, but their autoregressive decoders need sequential forward passes in pr…",
-        "whyImportant": "命中VLA、机器人、新基准主题，分类覆盖cs.LG / cs.RO，并体现较强的新颖性与影响潜力。",
+        "summaryCn": "论文核心内容是：Vision-Language-Action Models (VLAs) enable robots to perform manipulation tasks by leveraging Vision-Language Models (VLMs) to pro…",
+        "whyImportant": "命中VLA、机器人、新基准、真实实验主题，分类覆盖cs.RO，并体现较强的新颖性与影响潜力。",
         "reasonTags": [
           "VLA",
           "机器人",
-          "新基准"
+          "新基准",
+          "真实实验"
         ],
         "innovationPoints": [
-          "包含新基准或新数据评测"
+          "包含新基准或新数据评测",
+          "提供真实场景实验验证"
         ],
         "noveltyVerdict": "创新点清晰，属于值得重点跟进的增量改进。",
         "duplicateRisk": "low",
         "dedupeNote": "该论文在VLA方向上具备独立问题设置或代表性贡献，可作为当日候选保留。",
         "retrievalGroups": [
-          "robotics"
+          "vla_core"
         ],
         "mergedCount": 1,
         "mergedTitles": [
-          "Aero-VPA: Few-Step Flow-Matching Control over Non-Reconstructive JEPA Latents for Agile Flight on Edge Hardware"
+          "$A^3$-VLA: Automatic Perception-Guided Attention Alignment for Robot Manipulation"
         ]
       },
       {
-        "id": "2611.04241v1",
-        "title": "AceAction-5M: Hierarchical Goals for Generalist Action Learning Across 3D Game Worlds",
-        "summary": "Video games provide a practical setting for collecting vision-language-action (VLA) data, whose acquisition in physical environments is costly. Existing datasets, however, remain limited by restricted game coverage, sparse language supervision, or temporal hierarchies that do not necessarily reflect changes in task objectives.",
-        "summaryRaw": "Video games provide a practical setting for collecting vision-language-action (VLA) data, whose acquisition in physical environments is costly. Existing datasets, however, remain limited by restricted game coverage, sparse language supervision, or temporal hierarchies that do not necessarily reflect changes in task objectives. We introduce AceAction, a dataset of human gameplay across multiple 3D games for learning skill composition and subgoal transitions. AceAction organizes demonstrations around complete tasks, linking overall instructions, ordered subgoals, and local skill instructions to temporally aligned visual observations and keyboard-and-mouse actions. To construct these annotations, we develop a vision-language model pipeline that identifies subgoals from changes in objectives or interaction targets, anchors navigation goals to visually recognizable waypoints, and composes adjacent subgoals into task instructions. The resulting demonstrations cover navigation, reconnaissance, combat, interaction, and recovery, with explicit stage boundaries that connect task progression to fine-grained control. We assess annotation quality through model-based verification and human inspection. An audit of 500 trajectories yields a 95.8% pass rate across independent reviewer assessments. AceAction provides a data foundation for studying how agents execute, combine, and switch skills to follow complex instructions in dynamic game environments.",
-        "link": "https://arxiv.org/abs/2611.04241v1",
-        "pdfLink": "https://arxiv.org/pdf/2611.04241v1",
-        "published": "2026-11-03T03:25:27Z",
-        "updated": "2026-11-03T03:25:27Z",
+        "id": "2611.06007v1",
+        "title": "MotoVerse: A Benchmark for Predictive Perception of Motorized Two-Wheelers in Dense Unstructured Traffic",
+        "summary": "Motorized Two-Wheelers (MTWs) dominate personal transport across much of the Global South, yet remain largely overlooked in predictive perception research for autonomous driving and ADAS. We introduce MotoVerse, a benchmark for predictive perception from an MTW's ego-centric perspective.",
+        "summaryRaw": "Motorized Two-Wheelers (MTWs) dominate personal transport across much of the Global South, yet remain largely overlooked in predictive perception research for autonomous driving and ADAS. We introduce MotoVerse, a benchmark for predictive perception from an MTW's ego-centric perspective. MotoVerse comprises 949 maneuver clips collected in dense, unstructured traffic and trajectory annotations for over 31,000 surrounding road agents, including over 16,000 MTWs, enabling two complementary tasks: Ego-Rider Maneuver Anticipation (ERMA) and Traffic Agent Trajectory Prediction (TATP). Each clip is further annotated with an MTW-specific challenge taxonomy comprising dynamic ego-motion, weak traffic structure and contextual occlusion, enabling challenge-aware evaluation. We benchmark established conventional prediction models, general-purpose Vision-Language Models (VLMs), driving-specific VLMs and vision-language-action models. Our experiments reveal three key insights: (i) video backbones reach most of their full-observation accuracy from the first fifth of a maneuver, whereas zero-shot VLMs need most of the maneuver to be observed; (ii) zero-shot VLMs, whether general-purpose or driving-specific, largely remain close to simple baselines on both tasks; a preliminary LoRA study shows that adaptation lifts anticipation sharply but leaves trajectory prediction behind conventional models; and (iii) the rider's own motion drives forecasting difficulty: for every model, including a static baseline, errors are highest during left turns and rise under dynamic ego-motion. We believe MotoVerse will serve as a challenging benchmark for safer and more robust predictive AI for intelligent two-wheelers. The dataset and evaluation code are publicly available at https://github.com/VarunIIITH/MotoVerse.",
+        "link": "https://arxiv.org/abs/2611.06007v1",
+        "pdfLink": "https://arxiv.org/pdf/2611.06007v1",
+        "published": "2026-11-04T05:55:39Z",
+        "updated": "2026-11-04T05:55:39Z",
         "authors": [
-          "Kailing Li",
-          "Ruoxuan Zhang",
-          "Zheyuan Zhou",
-          "Boyang Chu",
-          "Yingshan Lei",
-          "Hongxia Xie",
-          "Liang Du",
-          "Zixun Sun"
+          "Varun A. Paturkar",
+          "Shankar Gangisetty",
+          "C. V. Jawahar"
         ],
         "categories": [
-          "cs.AI"
+          "cs.CV"
         ],
-        "score": 64,
-        "importanceLevel": "A",
+        "score": 84,
+        "importanceLevel": "S",
         "lane": "VLA",
         "dimensionScores": {
-          "relevance": 48,
-          "novelty": 16,
-          "impact": 3,
-          "practicality": 0,
-          "coreAlignment": 28
+          "relevance": 43,
+          "novelty": 17,
+          "impact": 16,
+          "practicality": 11,
+          "coreAlignment": 23
         },
         "oneSentenceSummary": "该论文是偏VLA的重点候选，值得优先阅读。",
-        "summaryCn": "论文核心内容是：Video games provide a practical setting for collecting vision-language-action (VLA) data, whose acquisition in physical environment…",
-        "whyImportant": "命中VLA、机器人、新基准、通用框架主题，分类覆盖cs.AI，并体现较强的新颖性与影响潜力。",
+        "summaryCn": "论文核心内容是：Motorized Two-Wheelers (MTWs) dominate personal transport across much of the Global South, yet remain largely overlooked in predict…",
+        "whyImportant": "命中VLA、自动驾驶、新基准、通用框架主题，分类覆盖cs.CV，并体现较强的新颖性与影响潜力。",
         "reasonTags": [
           "VLA",
-          "机器人",
+          "自动驾驶",
           "新基准",
           "通用框架"
         ],
@@ -903,249 +292,46 @@ window.PAPERS_SITE_DATA = {
         "duplicateRisk": "low",
         "dedupeNote": "该论文在VLA方向上具备独立问题设置或代表性贡献，可作为当日候选保留。",
         "retrievalGroups": [
-          "robotics"
+          "vla_core"
         ],
         "mergedCount": 1,
         "mergedTitles": [
-          "AceAction-5M: Hierarchical Goals for Generalist Action Learning Across 3D Game Worlds"
+          "MotoVerse: A Benchmark for Predictive Perception of Motorized Two-Wheelers in Dense Unstructured Traffic"
         ]
       },
       {
-        "id": "2611.04972v1",
-        "title": "Caging Vision-Language Navigation for Legged Robots via Barrier-Certified Safety Architecture",
-        "summary": "By harnessing the inherent commonsense capabilities of pretrained Large Language Models (LLMs) and Vision-Language Models (VLMs), current Vision-Language Action(VLA) models for legged robots excel at interpreting language-based navigation commands but lack the physical grounding and explicit safety assurance required for real-world opera…",
-        "summaryRaw": "By harnessing the inherent commonsense capabilities of pretrained Large Language Models (LLMs) and Vision-Language Models (VLMs), current Vision-Language Action(VLA) models for legged robots excel at interpreting language-based navigation commands but lack the physical grounding and explicit safety assurance required for real-world operation. Therefore, this paper aims to cage Legged-Vision-Language Navigation (VLN) through a safety architecture that provides physical grounding and ensures navigation safety. The key idea is not to abandon the powerful capabilities of end-to-end VLA planning, but rather to augment and cage them. In particular, we integrate a high-level VLA planner with a low-level physical-grounding layer that leverages efficient state estimation, in-situ 3D spatial perception, and an Signed Distance Field (SDF) representation to generate executable trajectories. We provide a navigation planner with provable collision-avoidance guarantees under the stated assumptions by combining a low-dimensional Bezier-parameterized MPPI planner with Discrete Exponential Barrier Function (dEBF) constraints. The proposed Legged-VLN system is modular, making it compatible with various VLM/VLA models and agnostic to the robot platform. The proposed system is validated with extensive real-world experiments on humanoid and quadrupedal robots, demonstrating versatile, efficient, and safe vision-language driven navigation capabilities.",
-        "link": "https://arxiv.org/abs/2611.04972v1",
-        "pdfLink": "https://arxiv.org/pdf/2611.04972v1",
-        "published": "2026-11-03T14:29:21Z",
-        "updated": "2026-11-03T14:29:21Z",
+        "id": "2611.06184v1",
+        "title": "Can Astra Solve RoboMME without Breaking the Bank?",
+        "summary": "Robotic manipulation often requires remembering information that is no longer visible, such as an object's location before occlusion or the order of a demonstrated action sequence. A large vision-language planner can read this history, but calling it before every action chunk is slow and costly.",
+        "summaryRaw": "Robotic manipulation often requires remembering information that is no longer visible, such as an object's location before occlusion or the order of a demonstrated action sequence. A large vision-language planner can read this history, but calling it before every action chunk is slow and costly. We present a three-tier system for the RoboMME benchmark. GPT-6 Astra (System 2) selects a grounded subtask from stored visual history, a $π_{0.5}$ vision-language-action policy (System 1) executes it, and a fine-tuned Qwen3-VL-4B monitor (System 1.5) checks after each action chunk whether the subtask is finished. The instruction is kept until the monitor reports completion or a task-specific event occurs, while the policy keeps acting on new observations. On RoboMME, the system succeeds in 79.13% of episodes with an average of 3.63 Astra calls and 80.84 seconds per episode. This is 34.62 points above the best published non-oracle baseline and 4.95 points below GroundSG+Oracle, which gives the low-level policy ground-truth subgoals.",
+        "link": "https://arxiv.org/abs/2611.06184v1",
+        "pdfLink": "https://arxiv.org/pdf/2611.06184v1",
+        "published": "2026-11-04T09:01:53Z",
+        "updated": "2026-11-04T09:01:53Z",
         "authors": [
-          "Abhijeet M. Kulkarni",
-          "Saimouli Katragadda",
-          "Yuze Du",
-          "Zijun Sha",
-          "Guoquan Huang"
+          "Bingao Chen",
+          "Haoquan Fang",
+          "C. Karen Liu"
         ],
         "categories": [
           "cs.RO"
         ],
-        "score": 57,
+        "score": 71,
         "importanceLevel": "A",
-        "lane": "Robotics",
+        "lane": "VLA",
         "dimensionScores": {
-          "relevance": 36,
-          "novelty": 7,
-          "impact": 12,
-          "practicality": 8,
-          "coreAlignment": 22
+          "relevance": 59,
+          "novelty": 12,
+          "impact": 6,
+          "practicality": 0,
+          "coreAlignment": 26
         },
-        "oneSentenceSummary": "该论文是偏机器人的重点候选，值得优先阅读。",
-        "summaryCn": "论文核心内容是：By harnessing the inherent commonsense capabilities of pretrained Large Language Models (LLMs) and Vision-Language Models (VLMs), c…",
-        "whyImportant": "命中VLA、机器人、真实实验主题，分类覆盖cs.RO，并体现较强的新颖性与影响潜力。",
+        "oneSentenceSummary": "该论文是偏VLA的重点候选，值得优先阅读。",
+        "summaryCn": "论文核心内容是：Robotic manipulation often requires remembering information that is no longer visible, such as an object's location before occlusio…",
+        "whyImportant": "命中VLA、机器人、新基准主题，分类覆盖cs.RO，并体现较强的新颖性与影响潜力。",
         "reasonTags": [
           "VLA",
           "机器人",
-          "真实实验"
-        ],
-        "innovationPoints": [
-          "提供真实场景实验验证"
-        ],
-        "noveltyVerdict": "更偏实用推进型工作，适合结合上下文继续判断。",
-        "duplicateRisk": "low",
-        "dedupeNote": "该论文在Robotics方向上具备独立问题设置或代表性贡献，可作为当日候选保留。",
-        "retrievalGroups": [
-          "robotics"
-        ],
-        "mergedCount": 1,
-        "mergedTitles": [
-          "Caging Vision-Language Navigation for Legged Robots via Barrier-Certified Safety Architecture"
-        ]
-      },
-      {
-        "id": "2611.05129v1",
-        "title": "WayTrace: A Map-to-Language-to-Trace Hierarchy for Embodied Urban Navigation",
-        "summary": "Web services provide walking directions for nearly every city, but following them reliably over long routes remains challenging for autonomous robots. Point-goal navigation policies rely heavily on accurate GNSS, while most vision-language navigation models struggle to execute even short instructions outdoors.",
-        "summaryRaw": "Web services provide walking directions for nearly every city, but following them reliably over long routes remains challenging for autonomous robots. Point-goal navigation policies rely heavily on accurate GNSS, while most vision-language navigation models struggle to execute even short instructions outdoors. We present WayTrace, a hierarchical system that connects web-map directions to robot motion through language. An off-the-shelf orchestrator vision-language model reads the turn-by-turn directions, a satellite map and recent camera images, and issues one atomic language command at a time, such as \"cross the road to the left\". An onboard trace predictor, trained on over one million automatically labelled samples from street-level images, draws the path for this command in the image, and a reinforcement learning policy tracks it. In long-range simulated missions, WayTrace remains robust to GNSS noise and rarely leaves crosswalks or sidewalks, while point-goal baselines degrade sharply with about ten times more violations. Deployed on a wheeled-legged robot, WayTrace completes real-world missions of up to 1.37 km at about 1.1 m/s through a busy city centre, rural trails and a university campus, handling crosswalks, staircases and construction sites. Project page: https://way-trace.github.io",
-        "link": "https://arxiv.org/abs/2611.05129v1",
-        "pdfLink": "https://arxiv.org/pdf/2611.05129v1",
-        "published": "2026-11-03T16:13:42Z",
-        "updated": "2026-11-03T16:13:42Z",
-        "authors": [
-          "Manthan Patel",
-          "Jonas Frey",
-          "Pascal Roth",
-          "Marco Hutter",
-          "Cesar Cadena"
-        ],
-        "categories": [
-          "cs.RO"
-        ],
-        "score": 48,
-        "importanceLevel": "A",
-        "lane": "Robotics",
-        "dimensionScores": {
-          "relevance": 31,
-          "novelty": 7,
-          "impact": 12,
-          "practicality": 4,
-          "coreAlignment": 14
-        },
-        "oneSentenceSummary": "该论文是偏机器人的重点候选，值得优先阅读。",
-        "summaryCn": "论文核心内容是：Web services provide walking directions for nearly every city, but following them reliably over long routes remains challenging for…",
-        "whyImportant": "命中机器人、真实实验主题，分类覆盖cs.RO，并体现较强的新颖性与影响潜力。",
-        "reasonTags": [
-          "机器人",
-          "真实实验"
-        ],
-        "innovationPoints": [
-          "提供真实场景实验验证"
-        ],
-        "noveltyVerdict": "更偏实用推进型工作，适合结合上下文继续判断。",
-        "duplicateRisk": "low",
-        "dedupeNote": "该论文在Robotics方向上具备独立问题设置或代表性贡献，可作为当日候选保留。",
-        "retrievalGroups": [
-          "robotics"
-        ],
-        "mergedCount": 1,
-        "mergedTitles": [
-          "WayTrace: A Map-to-Language-to-Trace Hierarchy for Embodied Urban Navigation"
-        ]
-      },
-      {
-        "id": "2611.04255v1",
-        "title": "ActOR: Ambient AI-Based Agentic Orchestration for Humanoid Autonomy in Operating Rooms",
-        "summary": "Operating rooms (ORs) increasingly contain ambient sensing infrastructure to enable AI-based optimization of workflows and utilization. We pursue an alternative path: using ambient AI to guide robot action and optimize utilization.",
-        "summaryRaw": "Operating rooms (ORs) increasingly contain ambient sensing infrastructure to enable AI-based optimization of workflows and utilization. We pursue an alternative path: using ambient AI to guide robot action and optimize utilization. Deploying humanoids in the OR without ambient AI is severely limited by cumbersome de novo orientation and planning due to partial onboard observations. We posit that this can be achieved by coupling an ambient AI-based agentic orchestrator with the humanoid robotic actor, providing shared perception and execution feedback for humanoid autonomy in the OR. ActOR fuses a wall-mounted ambient camera and the robot's head-mounted camera into a shared object-level digital twin (DT). A large language model agent plans over the DT using pre-programmed locomotion and manipulation skills without task-specific training. During execution, DT updates and execution outcomes inform retries, alternative approaches, or replanning. We evaluated ActOR in simulated and physical environments. Across three tasks in two simulated ORs reconstructed from real rooms, ambient perception reduced exploration from 1.05 to 0.12 Explore calls per trial when targets were initially outside the robot's view. Closed-loop feedback increased success from 46.7% to 83.3% under nominal execution and from 8.3% to 51.7% under injected navigation, object-relocation, and grasp perturbations. In a physical mock OR with a humanoid, ActOR completed 14 of 20 single-object disposal trials and demonstrated replanning after scene changes. Ambient AI-based observations provide scene state that improves robot action planning, increasing success and reducing exploration compared with robot-only observations. Feeding skill outcomes and DT updates back to the planner improves multi-step task success. Our results show the feasibility of humanoid task autonomy for multi-step disposal tasks in a mock OR.",
-        "link": "https://arxiv.org/abs/2611.04255v1",
-        "pdfLink": "https://arxiv.org/pdf/2611.04255v1",
-        "published": "2026-11-03T03:48:01Z",
-        "updated": "2026-11-03T03:48:01Z",
-        "authors": [
-          "Han Zhang",
-          "Sicheng Lu",
-          "Aleks Santari",
-          "Jeffrey K. Jopling",
-          "Masaru Ishii",
-          "Mathias Unberath"
-        ],
-        "categories": [
-          "cs.RO"
-        ],
-        "score": 47,
-        "importanceLevel": "B",
-        "lane": "Robotics",
-        "dimensionScores": {
-          "relevance": 41,
-          "novelty": 6,
-          "impact": 6,
-          "practicality": 0,
-          "coreAlignment": 14
-        },
-        "oneSentenceSummary": "该论文是偏机器人的重点候选，值得优先阅读。",
-        "summaryCn": "论文核心内容是：Operating rooms (ORs) increasingly contain ambient sensing infrastructure to enable AI-based optimization of workflows and utilizat…",
-        "whyImportant": "命中机器人主题，分类覆盖cs.RO，并体现较强的新颖性与影响潜力。",
-        "reasonTags": [
-          "机器人"
-        ],
-        "innovationPoints": [
-          "提出具有跟踪价值的方法设计"
-        ],
-        "noveltyVerdict": "更偏实用推进型工作，适合结合上下文继续判断。",
-        "duplicateRisk": "low",
-        "dedupeNote": "该论文在Robotics方向上具备独立问题设置或代表性贡献，可作为当日候选保留。",
-        "retrievalGroups": [
-          "robotics"
-        ],
-        "mergedCount": 1,
-        "mergedTitles": [
-          "ActOR: Ambient AI-Based Agentic Orchestration for Humanoid Autonomy in Operating Rooms"
-        ]
-      },
-      {
-        "id": "2611.04836v1",
-        "title": "HTCE: Homeomorphism-inspired Topological Cross-Scene Experience Canonicalization and Reuse for Object Navigation",
-        "summary": "As embodied agents perform object-goal navigation across residential environments, they accumulate successful experiences whose semantic structure recurs across scenes even when geometric trajectories do not. Reusing such experience is challenging because differences in region naming and observation granularity produce distinct graph rep…",
-        "summaryRaw": "As embodied agents perform object-goal navigation across residential environments, they accumulate successful experiences whose semantic structure recurs across scenes even when geometric trajectories do not. Reusing such experience is challenging because differences in region naming and observation granularity produce distinct graph representations of similar approaches, while meaningful differences in anchors, branches, and endpoints must stay distinguishable. We introduce HTCE, a homeomorphism-inspired topological framework that canonicalizes and reuses navigation experience. Feature and topology subdivisions characterize representational variations, and their semantically constrained reductions produce comparable semantic sequences and structural signatures while preserving semantic anchors, branching relations, and navigation endpoints. HTCE then retrieves historical successful approaches through subdivision-aware matching as guidance for a frozen vision-language policy. Canonicalization compresses the experience index losslessly, merging 17.7--23.6\\% of distinct stored route descriptions while retaining full task performance. Under a single frozen vision-language backbone shared by all compared systems, HTCE attains the best SR and SPL in every setting---59.9\\%/31.8\\% on HM3D v0.1, 71.0\\%/31.5\\% on HM3D v0.2, and 46.6\\%/16.6\\% on MP3D---with SR gains of up to 4.9 points and structured retrieval contributing up to 2.8 SPL points. The code is available in https://github.com/startracker0/htce.git",
-        "link": "https://arxiv.org/abs/2611.04836v1",
-        "pdfLink": "https://arxiv.org/pdf/2611.04836v1",
-        "published": "2026-11-03T13:05:18Z",
-        "updated": "2026-11-03T13:05:18Z",
-        "authors": [
-          "Xiaoran Xu",
-          "Yupeng Wu",
-          "Tianyu Xue",
-          "Xuanran Dong",
-          "Yifan Xu",
-          "Xiaoshan Yang",
-          "Changsheng Xu"
-        ],
-        "categories": [
-          "cs.AI"
-        ],
-        "score": 32,
-        "importanceLevel": "B",
-        "lane": "Robotics",
-        "dimensionScores": {
-          "relevance": 19,
-          "novelty": 7,
-          "impact": 6,
-          "practicality": 3,
-          "coreAlignment": 11
-        },
-        "oneSentenceSummary": "该论文是偏机器人的重点候选，值得优先阅读。",
-        "summaryCn": "论文核心内容是：As embodied agents perform object-goal navigation across residential environments, they accumulate successful experiences whose sem…",
-        "whyImportant": "命中机器人主题，分类覆盖cs.AI，并体现较强的新颖性与影响潜力。",
-        "reasonTags": [
-          "机器人"
-        ],
-        "innovationPoints": [
-          "提出具有跟踪价值的方法设计"
-        ],
-        "noveltyVerdict": "更偏实用推进型工作，适合结合上下文继续判断。",
-        "duplicateRisk": "low",
-        "dedupeNote": "该论文在Robotics方向上具备独立问题设置或代表性贡献，可作为当日候选保留。",
-        "retrievalGroups": [
-          "robotics"
-        ],
-        "mergedCount": 1,
-        "mergedTitles": [
-          "HTCE: Homeomorphism-inspired Topological Cross-Scene Experience Canonicalization and Reuse for Object Navigation"
-        ]
-      },
-      {
-        "id": "2611.04792v1",
-        "title": "Density-Aware Reward Scaling: A Reinforcement Learning Framework for Reward-Proportional Sampling",
-        "summary": "Reinforcement learning objectives that maximize expected return can concentrate probability mass on a small subset of high-reward outcomes, limiting diversity when multiple distinct solutions are desirable. We introduce Density-Aware Reward Scaling (DARS), a simple reward-processing mechanism that promotes reward-proportional sampling in…",
-        "summaryRaw": "Reinforcement learning objectives that maximize expected return can concentrate probability mass on a small subset of high-reward outcomes, limiting diversity when multiple distinct solutions are desirable. We introduce Density-Aware Reward Scaling (DARS), a simple reward-processing mechanism that promotes reward-proportional sampling in continuous outcome spaces while retaining standard policy-gradient training. DARS estimates the local density of outcomes within each on-policy rollout group and inversely scales rewards by this density. The method requires no learned density model, auxiliary objective, critic, or modification to the underlying policy-gradient objective. In a controlled multimodal navigation task, DARS-GRPO avoids the single-mode collapse exhibited by GRPO and closely recovers the target mode allocation. Applied to text-to-image prompt adaptation, DARS-GRPO consistently improves image and prompt diversity across datasets, Policy LMs, and reward settings while maintaining good semantic alignment. These results show that density-aware reward scaling provides a lightweight way to improve coverage of diverse high-reward outcomes within existing reinforcement-learning pipelines.",
-        "link": "https://arxiv.org/abs/2611.04792v1",
-        "pdfLink": "https://arxiv.org/pdf/2611.04792v1",
-        "published": "2026-11-03T12:29:58Z",
-        "updated": "2026-11-03T12:29:58Z",
-        "authors": [
-          "Ria Shekhawat",
-          "Abhijeet Sinha",
-          "Yingtao Zhu",
-          "Dianbo Liu"
-        ],
-        "categories": [
-          "cs.LG",
-          "cs.AI"
-        ],
-        "score": 26,
-        "importanceLevel": "B",
-        "lane": "Peripheral",
-        "dimensionScores": {
-          "relevance": 14,
-          "novelty": 12,
-          "impact": 5,
-          "practicality": 0,
-          "coreAlignment": 13
-        },
-        "oneSentenceSummary": "该论文是偏相关方向的重点候选，值得优先阅读。",
-        "summaryCn": "论文核心内容是：Reinforcement learning objectives that maximize expected return can concentrate probability mass on a small subset of high-reward o…",
-        "whyImportant": "命中机器人、新基准主题，分类覆盖cs.LG / cs.AI，并体现较强的新颖性与影响潜力。",
-        "reasonTags": [
-          "机器人",
           "新基准"
         ],
         "innovationPoints": [
@@ -1153,456 +339,101 @@ window.PAPERS_SITE_DATA = {
         ],
         "noveltyVerdict": "创新点清晰，属于值得重点跟进的增量改进。",
         "duplicateRisk": "low",
-        "dedupeNote": "该论文在Peripheral方向上具备独立问题设置或代表性贡献，可作为当日候选保留。",
+        "dedupeNote": "该论文在VLA方向上具备独立问题设置或代表性贡献，可作为当日候选保留。",
         "retrievalGroups": [
-          "robotics"
+          "vla_core"
         ],
         "mergedCount": 1,
         "mergedTitles": [
-          "Density-Aware Reward Scaling: A Reinforcement Learning Framework for Reward-Proportional Sampling"
-        ]
-      },
-      {
-        "id": "2611.04824v1",
-        "title": "Assignment-Free Swarm Navigation via Adaptive Target-Field Planning and Mean-Shift Exploration",
-        "summary": "Mean-shift exploration enables assignment-free swarm shape assembly, but obstacle-constrained navigation additionally requires coordinated adaptation of the desired morphology and its physical execution. This paper presents an environment-adaptive navigation framework that integrates target-field planning, execution regulation, and morph…",
-        "summaryRaw": "Mean-shift exploration enables assignment-free swarm shape assembly, but obstacle-constrained navigation additionally requires coordinated adaptation of the desired morphology and its physical execution. This paper presents an environment-adaptive navigation framework that integrates target-field planning, execution regulation, and morphology-preserving mean-shift exploration. A feasibility-aware graph search plans the position, orientation, and morphology of an unlabeled target field without specifying robot-specific goals. An execution-regulated reference manager adjusts field progression and morphology switching using swarm entering, coverage, and lag metrics. A moving-frame controller separates prescribed rigid motion from local mean-shift redistribution and incorporates neighbor interactions and obstacle responses. Simulations and hardware experiments demonstrate that the proposed framework coordinates morphology transitions and collective motion for assignment-free swarm navigation through cluttered environments.",
-        "link": "https://arxiv.org/abs/2611.04824v1",
-        "pdfLink": "https://arxiv.org/pdf/2611.04824v1",
-        "published": "2026-11-03T12:53:12Z",
-        "updated": "2026-11-03T12:53:12Z",
-        "authors": [
-          "Jiaxuan Li",
-          "Junhui Zhang",
-          "Bo Zhu"
-        ],
-        "categories": [],
-        "score": 25,
-        "importanceLevel": "B",
-        "lane": "Robotics",
-        "dimensionScores": {
-          "relevance": 14,
-          "novelty": 7,
-          "impact": 0,
-          "practicality": 4,
-          "coreAlignment": 8
-        },
-        "oneSentenceSummary": "该论文是偏机器人的重点候选，值得优先阅读。",
-        "summaryCn": "论文核心内容是：Mean-shift exploration enables assignment-free swarm shape assembly, but obstacle-constrained navigation additionally requires coor…",
-        "whyImportant": "命中机器人主题，分类覆盖，并体现较强的新颖性与影响潜力。",
-        "reasonTags": [
-          "机器人"
-        ],
-        "innovationPoints": [
-          "提出具有跟踪价值的方法设计"
-        ],
-        "noveltyVerdict": "更偏实用推进型工作，适合结合上下文继续判断。",
-        "duplicateRisk": "low",
-        "dedupeNote": "该论文在Robotics方向上具备独立问题设置或代表性贡献，可作为当日候选保留。",
-        "retrievalGroups": [
-          "robotics"
-        ],
-        "mergedCount": 1,
-        "mergedTitles": [
-          "Assignment-Free Swarm Navigation via Adaptive Target-Field Planning and Mean-Shift Exploration"
-        ]
-      },
-      {
-        "id": "2611.05263v1",
-        "title": "JHiMA-WebRL: A Joint Hierarchical Multi-Agent Reinforcement Learning Framework for Long-Horizon Web Tasks",
-        "summary": "Multimodal web agents have shown promising capabilities for interacting with websites through graphical user interfaces (GUIs), yet realistic web tasks often require long-horizon, multi-step planning that remains challenging for monolithic policies. Such agents must jointly infer high-level plans, navigate through intermediate states, tr…",
-        "summaryRaw": "Multimodal web agents have shown promising capabilities for interacting with websites through graphical user interfaces (GUIs), yet realistic web tasks often require long-horizon, multi-step planning that remains challenging for monolithic policies. Such agents must jointly infer high-level plans, navigate through intermediate states, track progress over extended interaction histories, and execute visually grounded actions. Although prior work has explored modular multi-agent systems with a separate planner, the planner is typically not updated jointly with the actor. We investigate whether explicitly separating and jointly training planning and execution provides a stronger inductive bias for long-horizon web navigation. We introduce JHiMA-WebRL, a joint hierarchical multi-agent reinforcement learning framework for web agents that couples a task decomposer with an actor. To train the decomposer, we use a strong teacher model to construct structured subtask supervision from multimodal GUI trajectories, and use these annotations to fine-tune both the decomposer and the subtask-conditioned actor. We then extend Group Relative Policy Optimization (GRPO) to jointly optimize the decomposer and actor in the interactive WebArena environment through hierarchical rollout grouping and role-specific advantages. On WebArena-Lite-v2, JHiMA-WebRL-14B, consisting of a 7B actor and a 7B decomposer, achieves an average success rate of 37.2%, compared with 24% for a ScaleCUA-32B agent that we fine-tune with RL on the same training tasks and evaluate under the same protocol. Ablations show that jointly updating the decomposer during RL outperforms updating the actor alone. These results suggest that jointly learned role factorization with smaller models can be a competitive alternative to scaling monolithic agents for long-horizon web tasks.",
-        "link": "https://arxiv.org/abs/2611.05263v1",
-        "pdfLink": "https://arxiv.org/pdf/2611.05263v1",
-        "published": "2026-11-03T17:49:14Z",
-        "updated": "2026-11-03T17:49:14Z",
-        "authors": [
-          "Shanka Subhra Mondal",
-          "Jiayun Wang"
-        ],
-        "categories": [
-          "cs.AI"
-        ],
-        "score": 19,
-        "importanceLevel": "B",
-        "lane": "Peripheral",
-        "dimensionScores": {
-          "relevance": 12,
-          "novelty": 7,
-          "impact": 3,
-          "practicality": 0,
-          "coreAlignment": 11
-        },
-        "oneSentenceSummary": "该论文是偏相关方向的重点候选，值得优先阅读。",
-        "summaryCn": "论文核心内容是：Multimodal web agents have shown promising capabilities for interacting with websites through graphical user interfaces (GUIs), yet…",
-        "whyImportant": "命中机器人主题，分类覆盖cs.AI，并体现较强的新颖性与影响潜力。",
-        "reasonTags": [
-          "机器人"
-        ],
-        "innovationPoints": [
-          "提出具有跟踪价值的方法设计"
-        ],
-        "noveltyVerdict": "更偏实用推进型工作，适合结合上下文继续判断。",
-        "duplicateRisk": "low",
-        "dedupeNote": "该论文在Peripheral方向上具备独立问题设置或代表性贡献，可作为当日候选保留。",
-        "retrievalGroups": [
-          "robotics"
-        ],
-        "mergedCount": 1,
-        "mergedTitles": [
-          "JHiMA-WebRL: A Joint Hierarchical Multi-Agent Reinforcement Learning Framework for Long-Horizon Web Tasks"
-        ]
-      },
-      {
-        "id": "2611.04142v1",
-        "title": "Interpretable Early Termination of Web Navigation Agents via Closed Sequential Pattern Mining",
-        "summary": "Web navigation agents built on open-weight language models fail often and fail late, with most of the tokens spent after the trajectory has become unrecoverable. Recent work has shown that early termination is a viable cost-reduction strategy, but existing approaches produce opaque termination decisions that do not support diagnosis or h…",
-        "summaryRaw": "Web navigation agents built on open-weight language models fail often and fail late, with most of the tokens spent after the trajectory has become unrecoverable. Recent work has shown that early termination is a viable cost-reduction strategy, but existing approaches produce opaque termination decisions that do not support diagnosis or human oversight. In this work we apply closed sequential pattern mining (BIDE+) to K-step prefixes of agent execution traces to produce a small, human-reviewable failure-signature library that organizes into a four-category failure taxonomy with associated repair recommendations. We use a multi-variant evaluation protocol that explicitly removes contamination artifacts (zero-step crashes and trivially separable single-step successes) so that reported detection accuracy reflects behavioral discrimination rather than trace-length distributions. We evaluate our methodology on 1,544 MiniWoB++ traces collected from three open-weight language models, achieving the best F1 at K=3 on the Exclude-errors configuration across eight methods (0.717), recovering 88% of test-set failures within three steps, and supporting an early-termination policy that saves 26.3% of tokens at 92% precision.",
-        "link": "https://arxiv.org/abs/2611.04142v1",
-        "pdfLink": "https://arxiv.org/pdf/2611.04142v1",
-        "published": "2026-11-03T01:35:51Z",
-        "updated": "2026-11-03T01:35:51Z",
-        "authors": [
-          "Sergio Talavera",
-          "Magdalini Eirinaki"
-        ],
-        "categories": [
-          "cs.AI"
-        ],
-        "score": 18,
-        "importanceLevel": "B",
-        "lane": "Peripheral",
-        "dimensionScores": {
-          "relevance": 12,
-          "novelty": 6,
-          "impact": 3,
-          "practicality": 0,
-          "coreAlignment": 11
-        },
-        "oneSentenceSummary": "该论文是偏相关方向的重点候选，值得优先阅读。",
-        "summaryCn": "论文核心内容是：Web navigation agents built on open-weight language models fail often and fail late, with most of the tokens spent after the trajec…",
-        "whyImportant": "命中机器人、新基准主题，分类覆盖cs.AI，并体现较强的新颖性与影响潜力。",
-        "reasonTags": [
-          "机器人",
-          "新基准"
-        ],
-        "innovationPoints": [
-          "提出具有跟踪价值的方法设计"
-        ],
-        "noveltyVerdict": "更偏实用推进型工作，适合结合上下文继续判断。",
-        "duplicateRisk": "low",
-        "dedupeNote": "该论文在Peripheral方向上具备独立问题设置或代表性贡献，可作为当日候选保留。",
-        "retrievalGroups": [
-          "robotics"
-        ],
-        "mergedCount": 1,
-        "mergedTitles": [
-          "Interpretable Early Termination of Web Navigation Agents via Closed Sequential Pattern Mining"
-        ]
-      },
-      {
-        "id": "2611.04907v1",
-        "title": "Cool Graphs: Active Property Search Towards Quantum Nano-Refrigerators",
-        "summary": "Nanodevices that absorb energy from their thermal environment can act as quantum refrigerators. Finding suitable configurations, however, is a needle-in-a-haystack problem: the many-body state space scales exponentially with the size of the device, where each candidate configuration requires an expensive quantum-chemical computation.",
-        "summaryRaw": "Nanodevices that absorb energy from their thermal environment can act as quantum refrigerators. Finding suitable configurations, however, is a needle-in-a-haystack problem: the many-body state space scales exponentially with the size of the device, where each candidate configuration requires an expensive quantum-chemical computation. We introduce a search framework that couples a Graph Variational Autoencoder (GVAE) with an uncertainty-driven Active Learning (AL) loop to efficiently identify energy-absorbing configurations in electronic junctions with a 2D \"working material\" to be optimized. The GVAE maps physical parameters - site energies, coupling matrices, temperature - into a smooth latent space that distinguishes cooling from dissipative parameter regimes, achieving a classification discriminability of $0.920 \\pm 0.004$ on held-out configurations and $0.895 \\pm 0.010$ on unseen extrapolation topologies. An AL pipeline based on Monte Carlo dropout then targets the decision boundary, iteratively selecting the candidates where the model is least certain for simulation. Over 32 AL cycles, the uncertainty-driven strategy discovers energy absorbing systems at rates consistently exceeding the random baseline across all tested topologies (where only 1.9-8.4% of configurations exhibit the desired property), providing a data-efficient pathway for navigating a combinatorically large design space. The learned latent space organizes configurations along physically interpretable axes, that correlate with underlying microscopic model parameters. This hints at the existence of \"cooling coordinates\" - low-dimensional, physically interpretable quantities separating cooling from non-cooling regimes. Our framework, thus, paves a new way towards effective cooling of nanoscale electronic information processing devices, to reduce the environmental footprint of high performance computing.",
-        "link": "https://arxiv.org/abs/2611.04907v1",
-        "pdfLink": "https://arxiv.org/pdf/2611.04907v1",
-        "published": "2026-11-03T13:50:16Z",
-        "updated": "2026-11-03T13:50:16Z",
-        "authors": [
-          "Sofia Blyufer",
-          "Amir Kleiner",
-          "Uri Peskin"
-        ],
-        "categories": [
-          "cs.LG"
-        ],
-        "score": 19,
-        "importanceLevel": "B",
-        "lane": "Peripheral",
-        "dimensionScores": {
-          "relevance": 2,
-          "novelty": 7,
-          "impact": 5,
-          "practicality": 7,
-          "coreAlignment": 2
-        },
-        "oneSentenceSummary": "该论文是偏相关方向的重点候选，值得优先阅读。",
-        "summaryCn": "论文核心内容是：Nanodevices that absorb energy from their thermal environment can act as quantum refrigerators.",
-        "whyImportant": "命中高相关主题，分类覆盖cs.LG，并体现较强的新颖性与影响潜力。",
-        "reasonTags": [
-          "高相关"
-        ],
-        "innovationPoints": [
-          "提出具有跟踪价值的方法设计"
-        ],
-        "noveltyVerdict": "更偏实用推进型工作，适合结合上下文继续判断。",
-        "duplicateRisk": "low",
-        "dedupeNote": "该论文在Peripheral方向上具备独立问题设置或代表性贡献，可作为当日候选保留。",
-        "retrievalGroups": [
-          "robotics"
-        ],
-        "mergedCount": 1,
-        "mergedTitles": [
-          "Cool Graphs: Active Property Search Towards Quantum Nano-Refrigerators"
-        ]
-      },
-      {
-        "id": "2611.04719v1",
-        "title": "Bayesian optimization enhanced magnetic field gradient detection based on spin-orbit coupled Bose-Einstein condensates",
-        "summary": "Magnetic field detection is of great significance in modern fields such as medical diagnostics, geological exploration, inertial navigation, and space physics. We have previously investigated the expansion dynamics of a spin-orbit-coupled Bose-Einstein condensate.",
-        "summaryRaw": "Magnetic field detection is of great significance in modern fields such as medical diagnostics, geological exploration, inertial navigation, and space physics. We have previously investigated the expansion dynamics of a spin-orbit-coupled Bose-Einstein condensate. Building on these results, here we propose a scheme for magnetic-field-gradient detection by establishing a quantitative relationship between the condensate's rotational deflection angle and the magnetic-field gradient. In this work, we present the parameter dependence of this scheme and perform a systematic optimization. We introduce a Bayesian optimization algorithm to automatically and efficiently search for the optimal combination of key parameters, thereby significantly enhancing the sensitivity of the magnetic field gradient measurement. The results show that the optimized gradiometer improves the sensitivity by a factor of five. This work not only provides a new approach for magnetic field gradient measurement but also serves as a reference for machine learning-empowered quantum precision measurement.",
-        "link": "https://arxiv.org/abs/2611.04719v1",
-        "pdfLink": "https://arxiv.org/pdf/2611.04719v1",
-        "published": "2026-11-03T11:40:47Z",
-        "updated": "2026-11-03T11:40:47Z",
-        "authors": [
-          "Shixiang Chen",
-          "Juan Wang",
-          "Yan Li"
-        ],
-        "categories": [],
-        "score": 16,
-        "importanceLevel": "B",
-        "lane": "Peripheral",
-        "dimensionScores": {
-          "relevance": 5,
-          "novelty": 7,
-          "impact": 0,
-          "practicality": 4,
-          "coreAlignment": 5
-        },
-        "oneSentenceSummary": "该论文是偏相关方向的重点候选，值得优先阅读。",
-        "summaryCn": "论文核心内容是：Magnetic field detection is of great significance in modern fields such as medical diagnostics, geological exploration, inertial na…",
-        "whyImportant": "命中机器人主题，分类覆盖，并体现较强的新颖性与影响潜力。",
-        "reasonTags": [
-          "机器人"
-        ],
-        "innovationPoints": [
-          "提出具有跟踪价值的方法设计"
-        ],
-        "noveltyVerdict": "更偏实用推进型工作，适合结合上下文继续判断。",
-        "duplicateRisk": "low",
-        "dedupeNote": "该论文在Peripheral方向上具备独立问题设置或代表性贡献，可作为当日候选保留。",
-        "retrievalGroups": [
-          "robotics"
-        ],
-        "mergedCount": 1,
-        "mergedTitles": [
-          "Bayesian optimization enhanced magnetic field gradient detection based on spin-orbit coupled Bose-Einstein condensates"
-        ]
-      },
-      {
-        "id": "2611.04120v1",
-        "title": "Extracting and Characterizing Near-Fault Effects from Strong Motion Observations of the 2022 Chishang Earthquake Sequence",
-        "summary": "Accurately characterizing near-fault ground motions, particularly permanent tectonic displacements and velocity pulses associated with rupture directivity, is essential for seismic hazard assessment and infrastructure design. However, conventional ground-motion processing can distort or remove these characteristics.",
-        "summaryRaw": "Accurately characterizing near-fault ground motions, particularly permanent tectonic displacements and velocity pulses associated with rupture directivity, is essential for seismic hazard assessment and infrastructure design. However, conventional ground-motion processing can distort or remove these characteristics. This study extends existing baseline correction methods by synchronously processing all three components of strong-motion recordings to preserve near-fault effects. The proposed methodology is applied to 59 recordings from the 2022 M 6.5 Guanshan foreshock and M 6.9 Chishang mainshock in Taiwan. Comparison with nearby Global Navigation Satellite System (GNSS) observations demonstrates that the method reliably captures the amplitude and orientation of permanent tectonic displacements. Analysis of the processed recordings reveals pronounced velocity pulses and permanent displacements, with the largest peak-to-peak velocities concentrated along the direction of rupture propagation. A classification framework is also introduced to distinguish fling-step pulses from dynamic velocity pulses. The results indicate that fling-step pulses typically occur early in the ground shaking, whereas dynamic pulses span a broader temporal range. Furthermore, the spatial distribution and orientation of near-fault effects are consistent with bridge damage documented during post-earthquake reconnaissance. The resulting dataset provides ground-motion time histories that preserve near-fault characteristics for seismic hazard assessment and engineering applications.",
-        "link": "https://arxiv.org/abs/2611.04120v1",
-        "pdfLink": "https://arxiv.org/pdf/2611.04120v1",
-        "published": "2026-11-03T00:53:47Z",
-        "updated": "2026-11-03T00:53:47Z",
-        "authors": [
-          "Grigorios Lavrentiadis",
-          "Domniki Asimaki",
-          "Trevor J. Carey",
-          "Henry Benjamin Mason"
-        ],
-        "categories": [],
-        "score": 16,
-        "importanceLevel": "B",
-        "lane": "Peripheral",
-        "dimensionScores": {
-          "relevance": 5,
-          "novelty": 11,
-          "impact": 0,
-          "practicality": 0,
-          "coreAlignment": 5
-        },
-        "oneSentenceSummary": "该论文是偏相关方向的重点候选，值得优先阅读。",
-        "summaryCn": "论文核心内容是：Accurately characterizing near-fault ground motions, particularly permanent tectonic displacements and velocity pulses associated w…",
-        "whyImportant": "命中机器人、新基准主题，分类覆盖，并体现较强的新颖性与影响潜力。",
-        "reasonTags": [
-          "机器人",
-          "新基准"
-        ],
-        "innovationPoints": [
-          "包含新基准或新数据评测"
-        ],
-        "noveltyVerdict": "创新点清晰，属于值得重点跟进的增量改进。",
-        "duplicateRisk": "low",
-        "dedupeNote": "该论文在Peripheral方向上具备独立问题设置或代表性贡献，可作为当日候选保留。",
-        "retrievalGroups": [
-          "robotics"
-        ],
-        "mergedCount": 1,
-        "mergedTitles": [
-          "Extracting and Characterizing Near-Fault Effects from Strong Motion Observations of the 2022 Chishang Earthquake Sequence"
-        ]
-      },
-      {
-        "id": "2611.04248v1",
-        "title": "Navigating Runtime Dynamism in Semantic Query Serving",
-        "summary": "LLM-powered semantic queries increasingly combine relational processing with multiple LLM-based operators over unstructured data. Efficiently serving such queries is challenging due to runtime dynamism at two coupled levels.",
-        "summaryRaw": "LLM-powered semantic queries increasingly combine relational processing with multiple LLM-based operators over unstructured data. Efficiently serving such queries is challenging due to runtime dynamism at two coupled levels. Across queries, dynamic arrivals and heterogeneous resource demands continuously change scheduling priorities. Within a query, heterogeneous characteristics across fine-grained input batches cause operator costs and selectivities to vary throughout execution, making a statically optimized plan unreliable. These two forms of dynamism create a circular dependency: inter-query scheduling requires estimates of remaining LLM work, while the remaining work depends on runtime plan choices whose costs become observable only during execution. We present SeqoFlow, a runtime framework that jointly adapts query plans and schedules concurrent semantic queries. SeqoFlow enumerates equivalence-preserving plan alternatives under operator dependencies and decomposes queries into fine-grained units, enabling safe plan adaptation and query preemption at batch boundaries. To support both decisions without exhaustively profiling candidate plans on the target LLM, SeqoFlow uses lightweight speculative estimation to capture runtime costs. These estimates jointly guide plan adaptation and inter-query scheduling, closing the loop between query optimization and LLM inference. Experiments across diverse query structures, data distributions, and arrival rates show that SeqoFlow substantially reduces end-to-end latency compared to existing semantic query systems, adaptive query processing techniques, and conventional scheduling policies.",
-        "link": "https://arxiv.org/abs/2611.04248v1",
-        "pdfLink": "https://arxiv.org/pdf/2611.04248v1",
-        "published": "2026-11-03T03:31:03Z",
-        "updated": "2026-11-03T03:31:03Z",
-        "authors": [
-          "Hengrui Zhang",
-          "Xupeng Miao"
-        ],
-        "categories": [
-          "cs.AI"
-        ],
-        "score": 17,
-        "importanceLevel": "B",
-        "lane": "Peripheral",
-        "dimensionScores": {
-          "relevance": 3,
-          "novelty": 6,
-          "impact": 3,
-          "practicality": 8,
-          "coreAlignment": 3
-        },
-        "oneSentenceSummary": "该论文是偏相关方向的重点候选，值得优先阅读。",
-        "summaryCn": "论文核心内容是：LLM-powered semantic queries increasingly combine relational processing with multiple LLM-based operators over unstructured data.",
-        "whyImportant": "命中高相关主题，分类覆盖cs.AI，并体现较强的新颖性与影响潜力。",
-        "reasonTags": [
-          "高相关"
-        ],
-        "innovationPoints": [
-          "提出具有跟踪价值的方法设计"
-        ],
-        "noveltyVerdict": "更偏实用推进型工作，适合结合上下文继续判断。",
-        "duplicateRisk": "low",
-        "dedupeNote": "该论文在Peripheral方向上具备独立问题设置或代表性贡献，可作为当日候选保留。",
-        "retrievalGroups": [
-          "robotics"
-        ],
-        "mergedCount": 1,
-        "mergedTitles": [
-          "Navigating Runtime Dynamism in Semantic Query Serving"
-        ]
-      },
-      {
-        "id": "2611.04383v1",
-        "title": "Disposable Implementations: What Is Software Engineering For?",
-        "summary": "Existing implementations are usually maintained for most of their life and replaced only as an exception. Coding agents may change that.",
-        "summaryRaw": "Existing implementations are usually maintained for most of their life and replaced only as an exception. Coding agents may change that. If agents can produce new implementations from requirements, tests, architectural constraints, and operational records that survive replacement, changing a system may no longer require modifying its existing codebase. We call this process regeneration. An implementation is disposable when regeneration becomes a routine alternative to maintenance. Regenerating and verifying a clean implementation from current requirements and tests may be cheaper than having agents navigate (and potentially compound) existing technical debt, and could eliminate much of that debt. Yet existing code may contain knowledge absent from the preserved artifacts, including safeguards introduced after failures and assumptions that were never documented. A regenerated implementation may pass the available tests and still lose behavior that matters in production. This leaves open how to establish continuity across replacements and whether regeneration reduces maintenance effort or shifts it to the artifacts and processes that support it. We examine these questions through an exploratory review of practitioner literature. Published examples show that agents can replace existing implementations, but do not establish that repeated regeneration is safe or economical. If implementations become disposable, what should software engineering preserve?",
-        "link": "https://arxiv.org/abs/2611.04383v1",
-        "pdfLink": "https://arxiv.org/pdf/2611.04383v1",
-        "published": "2026-11-03T06:14:45Z",
-        "updated": "2026-11-03T06:14:45Z",
-        "authors": [
-          "Christoph Treude"
-        ],
-        "categories": [],
-        "score": 17,
-        "importanceLevel": "B",
-        "lane": "Peripheral",
-        "dimensionScores": {
-          "relevance": 0,
-          "novelty": 7,
-          "impact": 3,
-          "practicality": 7,
-          "coreAlignment": 0
-        },
-        "oneSentenceSummary": "该论文是偏相关方向的重点候选，值得优先阅读。",
-        "summaryCn": "论文核心内容是：Existing implementations are usually maintained for most of their life and replaced only as an exception.",
-        "whyImportant": "命中高相关主题，分类覆盖，并体现较强的新颖性与影响潜力。",
-        "reasonTags": [
-          "高相关"
-        ],
-        "innovationPoints": [
-          "提出具有跟踪价值的方法设计"
-        ],
-        "noveltyVerdict": "更偏实用推进型工作，适合结合上下文继续判断。",
-        "duplicateRisk": "low",
-        "dedupeNote": "该论文在Peripheral方向上具备独立问题设置或代表性贡献，可作为当日候选保留。",
-        "retrievalGroups": [
-          "robotics"
-        ],
-        "mergedCount": 1,
-        "mergedTitles": [
-          "Disposable Implementations: What Is Software Engineering For?"
-        ]
-      },
-      {
-        "id": "2611.04294v1",
-        "title": "State Evolution and Universality of Iterated Linear Programs for the Binary Perceptron",
-        "summary": "The binary perceptron is a random constraint satisfaction problem that asks for a sign vector satisfying a system of random linear inequalities. Its solution space has a strikingly extreme geometry: at every positive constraint density, all but a vanishing fraction of the solutions are isolated.",
-        "summaryRaw": "The binary perceptron is a random constraint satisfaction problem that asks for a sign vector satisfying a system of random linear inequalities. Its solution space has a strikingly extreme geometry: at every positive constraint density, all but a vanishing fraction of the solutions are isolated. Yet polynomial-time algorithms find solutions at small enough constraint density, which raises the question of how efficient algorithms navigate such a landscape. Linear programming is a natural algorithm to study here, but its analysis has so far been limited to a single round. Li, Schramm, and Zhou (STOC 2025) analyzed one linear program followed by iterative rounding. In this work, we overcome this limitation and give a precise analysis of iterated linear programming for the binary perceptron. (1) For Gaussian matrices and any fixed number of rounds, we characterize the iterated linear programs exactly through a deterministic state-evolution recursion. (2) Adding a final rounding step, we obtain a randomized polynomial-time algorithm for the binary perceptron. Numerical evaluations of the recursion provide evidence that it succeeds at constraint density $α=0.60$ with zero margin, well beyond the range $α\\le0.1$ guaranteed by the single-LP analysis and $α\\approx0.327$ (Jo and Lee, 2026), the best guarantee so far. (3) We establish universality, showing that the same characterization holds for matrices with i.i.d. entries drawn from any centered, unit-variance subgaussian law. The key idea of our proof is that, although conditioning on earlier rounds makes the matrix non-Gaussian, its conditional law can be computed explicitly and remains close to a Gaussian law, so the convex Gaussian min-max theorem applies in every round. For universality, we compare Gaussian and subgaussian matrices through the Lindeberg principle, using a regularized version of each linear program.",
-        "link": "https://arxiv.org/abs/2611.04294v1",
-        "pdfLink": "https://arxiv.org/pdf/2611.04294v1",
-        "published": "2026-11-03T04:21:02Z",
-        "updated": "2026-11-03T04:21:02Z",
-        "authors": [
-          "Jianan Zhang",
-          "Shuangping Li"
-        ],
-        "categories": [],
-        "score": 10,
-        "importanceLevel": "B",
-        "lane": "Peripheral",
-        "dimensionScores": {
-          "relevance": 0,
-          "novelty": 6,
-          "impact": 0,
-          "practicality": 4,
-          "coreAlignment": 0
-        },
-        "oneSentenceSummary": "该论文是偏相关方向的重点候选，值得优先阅读。",
-        "summaryCn": "论文核心内容是：The binary perceptron is a random constraint satisfaction problem that asks for a sign vector satisfying a system of random linear…",
-        "whyImportant": "命中新基准主题，分类覆盖，并体现较强的新颖性与影响潜力。",
-        "reasonTags": [
-          "新基准"
-        ],
-        "innovationPoints": [
-          "提出具有跟踪价值的方法设计"
-        ],
-        "noveltyVerdict": "更偏实用推进型工作，适合结合上下文继续判断。",
-        "duplicateRisk": "low",
-        "dedupeNote": "该论文在Peripheral方向上具备独立问题设置或代表性贡献，可作为当日候选保留。",
-        "retrievalGroups": [
-          "robotics"
-        ],
-        "mergedCount": 1,
-        "mergedTitles": [
-          "State Evolution and Universality of Iterated Linear Programs for the Binary Perceptron"
+          "Can Astra Solve RoboMME without Breaking the Bank?"
         ]
       }
     ],
     "vla": [
       {
-        "id": "2611.04392v1",
-        "title": "Aero-VPA: Few-Step Flow-Matching Control over Non-Reconstructive JEPA Latents for Agile Flight on Edge Hardware",
-        "summary": "Vision-Language-Action (VLA) models generalize across tasks, but their autoregressive decoders need sequential forward passes in proportion to the action horizon, each bounded below on embedded aerial platforms by streaming billions of parameters from memory. We present Aero-VPA, a lightweight Vision-Predictor-Action architecture for 3D…",
-        "summaryRaw": "Vision-Language-Action (VLA) models generalize across tasks, but their autoregressive decoders need sequential forward passes in proportion to the action horizon, each bounded below on embedded aerial platforms by streaming billions of parameters from memory. We present Aero-VPA, a lightweight Vision-Predictor-Action architecture for 3D navigation on edge hardware. A compact RGB-D Vision Transformer and a five-head ensemble predictor, trained without pixel reconstruction, forecast the next latent state; a Conditional Flow Matching solver generates a velocity and yaw-rate chunk in two Euler steps, so each decision takes five sequential network evaluations; and the ensemble dispersion drives an uncertainty fallback. Version 1 specified the architecture, deployment and protocol without results. This version reports the first closed-loop evaluation: PX4 software-in-the-loop simulation of quadrotor missions in procedurally generated forests. Behaviour cloning failed on all 60 missions despite open-loop errors of 0.02-0.04 m/s: the policy copies its last command, a copycat form of causal confusion. DAgger with a privileged, safety-gated supervisor gave the first successes but plateaued at 11.1-21.1% across six checkpoints. A map-free runtime shield with a 15 s depth memory, barrier constraints, a cap on motion outside the 73-degree field of view and backoff along the flown path raised the first DAgger policy's success on 180 paired missions from 21.1% to 52.2% (95% CI [45.0, 59.4]; exact McNemar p = 1.2 x 10^-10) and cut its crashes from 72.2% to 22.2%, while timeouts rose from 2.8% to 23.3%. All six checkpoints gained 30.0-34.4 percentage points, at mean speeds of 1.16-1.36 m/s. The code (https://github.com/ylee-sling/Aero-VPA), the trained policy (72.6 MB, https://huggingface.co/ylee-sling/aero-vpa) and the full benchmark dataset are public.",
-        "link": "https://arxiv.org/abs/2611.04392v1",
-        "pdfLink": "https://arxiv.org/pdf/2611.04392v1",
-        "published": "2026-11-03T06:25:06Z",
-        "updated": "2026-11-03T06:25:06Z",
+        "id": "2611.06447v1",
+        "title": "$A^3$-VLA: Automatic Perception-Guided Attention Alignment for Robot Manipulation",
+        "summary": "Vision-Language-Action Models (VLAs) enable robots to perform manipulation tasks by leveraging Vision-Language Models (VLMs) to process visual observations and language instructions. However, the action prediction objective itself lacks fine-grained task-specific perceptual supervision, making it prone to relying on task-irrelevant visua…",
+        "summaryRaw": "Vision-Language-Action Models (VLAs) enable robots to perform manipulation tasks by leveraging Vision-Language Models (VLMs) to process visual observations and language instructions. However, the action prediction objective itself lacks fine-grained task-specific perceptual supervision, making it prone to relying on task-irrelevant visual shortcuts, leading attention away from target objects and key interaction areas, thereby limiting its operational performance and generalization ability. To address this, we propose Automatic Perception-Guided Attention Alignment for Robot Manipulation ($A^3$-VLA), a framework that derives task-specific visual guidance from the manipulation process itself. Specifically, $A^3$-VLA first generates heuristic candidate regions for target objects and the robot from interaction-induced visual changes, and refines them with a visual segmentation model offline. These regions serve as explicit perceptual guidance through two complementary objectives: an attention allocation loss that encourages sufficient focus on task-critical regions when language or robot state tokens query the visual input, and a contrastive learning loss that aligns the representations of candidate target regions with language instructions while separating them from task-irrelevant regions. Extensive experiments on simulated and real-world manipulation tasks demonstrate that $A^3$-VLA consistently improves multiple VLA backbones, with an average success rate gain of 6.5% - 25.2% across benchmarks.",
+        "link": "https://arxiv.org/abs/2611.06447v1",
+        "pdfLink": "https://arxiv.org/pdf/2611.06447v1",
+        "published": "2026-11-04T12:50:54Z",
+        "updated": "2026-11-04T12:50:54Z",
         "authors": [
-          "Yeonseok Lee"
+          "Shengzhe Zhang",
+          "Qi Zhang",
+          "Dazhong Shen",
+          "Chao Wang",
+          "Shaopeng Zhai",
+          "Hui Xiong"
         ],
         "categories": [
-          "cs.LG",
           "cs.RO"
         ],
-        "score": 93,
+        "score": 84,
         "importanceLevel": "S",
         "lane": "VLA",
         "dimensionScores": {
-          "relevance": 57,
-          "novelty": 17,
-          "impact": 11,
-          "practicality": 16,
-          "coreAlignment": 36
+          "relevance": 62,
+          "novelty": 16,
+          "impact": 12,
+          "practicality": 0,
+          "coreAlignment": 34
         },
         "oneSentenceSummary": "该论文是偏VLA的重点候选，值得优先阅读。",
-        "summaryCn": "论文核心内容是：Vision-Language-Action (VLA) models generalize across tasks, but their autoregressive decoders need sequential forward passes in pr…",
-        "whyImportant": "命中VLA、机器人、新基准主题，分类覆盖cs.LG / cs.RO，并体现较强的新颖性与影响潜力。",
+        "summaryCn": "论文核心内容是：Vision-Language-Action Models (VLAs) enable robots to perform manipulation tasks by leveraging Vision-Language Models (VLMs) to pro…",
+        "whyImportant": "命中VLA、机器人、新基准、真实实验主题，分类覆盖cs.RO，并体现较强的新颖性与影响潜力。",
+        "reasonTags": [
+          "VLA",
+          "机器人",
+          "新基准",
+          "真实实验"
+        ],
+        "innovationPoints": [
+          "包含新基准或新数据评测",
+          "提供真实场景实验验证"
+        ],
+        "noveltyVerdict": "创新点清晰，属于值得重点跟进的增量改进。",
+        "duplicateRisk": "low",
+        "dedupeNote": "该论文在VLA方向上具备独立问题设置或代表性贡献，可作为当日候选保留。",
+        "retrievalGroups": [
+          "vla_core"
+        ],
+        "mergedCount": 1,
+        "mergedTitles": [
+          "$A^3$-VLA: Automatic Perception-Guided Attention Alignment for Robot Manipulation"
+        ]
+      },
+      {
+        "id": "2611.06184v1",
+        "title": "Can Astra Solve RoboMME without Breaking the Bank?",
+        "summary": "Robotic manipulation often requires remembering information that is no longer visible, such as an object's location before occlusion or the order of a demonstrated action sequence. A large vision-language planner can read this history, but calling it before every action chunk is slow and costly.",
+        "summaryRaw": "Robotic manipulation often requires remembering information that is no longer visible, such as an object's location before occlusion or the order of a demonstrated action sequence. A large vision-language planner can read this history, but calling it before every action chunk is slow and costly. We present a three-tier system for the RoboMME benchmark. GPT-6 Astra (System 2) selects a grounded subtask from stored visual history, a $π_{0.5}$ vision-language-action policy (System 1) executes it, and a fine-tuned Qwen3-VL-4B monitor (System 1.5) checks after each action chunk whether the subtask is finished. The instruction is kept until the monitor reports completion or a task-specific event occurs, while the policy keeps acting on new observations. On RoboMME, the system succeeds in 79.13% of episodes with an average of 3.63 Astra calls and 80.84 seconds per episode. This is 34.62 points above the best published non-oracle baseline and 4.95 points below GroundSG+Oracle, which gives the low-level policy ground-truth subgoals.",
+        "link": "https://arxiv.org/abs/2611.06184v1",
+        "pdfLink": "https://arxiv.org/pdf/2611.06184v1",
+        "published": "2026-11-04T09:01:53Z",
+        "updated": "2026-11-04T09:01:53Z",
+        "authors": [
+          "Bingao Chen",
+          "Haoquan Fang",
+          "C. Karen Liu"
+        ],
+        "categories": [
+          "cs.RO"
+        ],
+        "score": 71,
+        "importanceLevel": "A",
+        "lane": "VLA",
+        "dimensionScores": {
+          "relevance": 59,
+          "novelty": 12,
+          "impact": 6,
+          "practicality": 0,
+          "coreAlignment": 26
+        },
+        "oneSentenceSummary": "该论文是偏VLA的重点候选，值得优先阅读。",
+        "summaryCn": "论文核心内容是：Robotic manipulation often requires remembering information that is no longer visible, such as an object's location before occlusio…",
+        "whyImportant": "命中VLA、机器人、新基准主题，分类覆盖cs.RO，并体现较强的新颖性与影响潜力。",
         "reasonTags": [
           "VLA",
           "机器人",
@@ -1615,51 +446,46 @@ window.PAPERS_SITE_DATA = {
         "duplicateRisk": "low",
         "dedupeNote": "该论文在VLA方向上具备独立问题设置或代表性贡献，可作为当日候选保留。",
         "retrievalGroups": [
-          "robotics"
+          "vla_core"
         ],
         "mergedCount": 1,
         "mergedTitles": [
-          "Aero-VPA: Few-Step Flow-Matching Control over Non-Reconstructive JEPA Latents for Agile Flight on Edge Hardware"
+          "Can Astra Solve RoboMME without Breaking the Bank?"
         ]
       },
       {
-        "id": "2611.04241v1",
-        "title": "AceAction-5M: Hierarchical Goals for Generalist Action Learning Across 3D Game Worlds",
-        "summary": "Video games provide a practical setting for collecting vision-language-action (VLA) data, whose acquisition in physical environments is costly. Existing datasets, however, remain limited by restricted game coverage, sparse language supervision, or temporal hierarchies that do not necessarily reflect changes in task objectives.",
-        "summaryRaw": "Video games provide a practical setting for collecting vision-language-action (VLA) data, whose acquisition in physical environments is costly. Existing datasets, however, remain limited by restricted game coverage, sparse language supervision, or temporal hierarchies that do not necessarily reflect changes in task objectives. We introduce AceAction, a dataset of human gameplay across multiple 3D games for learning skill composition and subgoal transitions. AceAction organizes demonstrations around complete tasks, linking overall instructions, ordered subgoals, and local skill instructions to temporally aligned visual observations and keyboard-and-mouse actions. To construct these annotations, we develop a vision-language model pipeline that identifies subgoals from changes in objectives or interaction targets, anchors navigation goals to visually recognizable waypoints, and composes adjacent subgoals into task instructions. The resulting demonstrations cover navigation, reconnaissance, combat, interaction, and recovery, with explicit stage boundaries that connect task progression to fine-grained control. We assess annotation quality through model-based verification and human inspection. An audit of 500 trajectories yields a 95.8% pass rate across independent reviewer assessments. AceAction provides a data foundation for studying how agents execute, combine, and switch skills to follow complex instructions in dynamic game environments.",
-        "link": "https://arxiv.org/abs/2611.04241v1",
-        "pdfLink": "https://arxiv.org/pdf/2611.04241v1",
-        "published": "2026-11-03T03:25:27Z",
-        "updated": "2026-11-03T03:25:27Z",
+        "id": "2611.06007v1",
+        "title": "MotoVerse: A Benchmark for Predictive Perception of Motorized Two-Wheelers in Dense Unstructured Traffic",
+        "summary": "Motorized Two-Wheelers (MTWs) dominate personal transport across much of the Global South, yet remain largely overlooked in predictive perception research for autonomous driving and ADAS. We introduce MotoVerse, a benchmark for predictive perception from an MTW's ego-centric perspective.",
+        "summaryRaw": "Motorized Two-Wheelers (MTWs) dominate personal transport across much of the Global South, yet remain largely overlooked in predictive perception research for autonomous driving and ADAS. We introduce MotoVerse, a benchmark for predictive perception from an MTW's ego-centric perspective. MotoVerse comprises 949 maneuver clips collected in dense, unstructured traffic and trajectory annotations for over 31,000 surrounding road agents, including over 16,000 MTWs, enabling two complementary tasks: Ego-Rider Maneuver Anticipation (ERMA) and Traffic Agent Trajectory Prediction (TATP). Each clip is further annotated with an MTW-specific challenge taxonomy comprising dynamic ego-motion, weak traffic structure and contextual occlusion, enabling challenge-aware evaluation. We benchmark established conventional prediction models, general-purpose Vision-Language Models (VLMs), driving-specific VLMs and vision-language-action models. Our experiments reveal three key insights: (i) video backbones reach most of their full-observation accuracy from the first fifth of a maneuver, whereas zero-shot VLMs need most of the maneuver to be observed; (ii) zero-shot VLMs, whether general-purpose or driving-specific, largely remain close to simple baselines on both tasks; a preliminary LoRA study shows that adaptation lifts anticipation sharply but leaves trajectory prediction behind conventional models; and (iii) the rider's own motion drives forecasting difficulty: for every model, including a static baseline, errors are highest during left turns and rise under dynamic ego-motion. We believe MotoVerse will serve as a challenging benchmark for safer and more robust predictive AI for intelligent two-wheelers. The dataset and evaluation code are publicly available at https://github.com/VarunIIITH/MotoVerse.",
+        "link": "https://arxiv.org/abs/2611.06007v1",
+        "pdfLink": "https://arxiv.org/pdf/2611.06007v1",
+        "published": "2026-11-04T05:55:39Z",
+        "updated": "2026-11-04T05:55:39Z",
         "authors": [
-          "Kailing Li",
-          "Ruoxuan Zhang",
-          "Zheyuan Zhou",
-          "Boyang Chu",
-          "Yingshan Lei",
-          "Hongxia Xie",
-          "Liang Du",
-          "Zixun Sun"
+          "Varun A. Paturkar",
+          "Shankar Gangisetty",
+          "C. V. Jawahar"
         ],
         "categories": [
-          "cs.AI"
+          "cs.CV"
         ],
-        "score": 64,
-        "importanceLevel": "A",
+        "score": 84,
+        "importanceLevel": "S",
         "lane": "VLA",
         "dimensionScores": {
-          "relevance": 48,
-          "novelty": 16,
-          "impact": 3,
-          "practicality": 0,
-          "coreAlignment": 28
+          "relevance": 43,
+          "novelty": 17,
+          "impact": 16,
+          "practicality": 11,
+          "coreAlignment": 23
         },
         "oneSentenceSummary": "该论文是偏VLA的重点候选，值得优先阅读。",
-        "summaryCn": "论文核心内容是：Video games provide a practical setting for collecting vision-language-action (VLA) data, whose acquisition in physical environment…",
-        "whyImportant": "命中VLA、机器人、新基准、通用框架主题，分类覆盖cs.AI，并体现较强的新颖性与影响潜力。",
+        "summaryCn": "论文核心内容是：Motorized Two-Wheelers (MTWs) dominate personal transport across much of the Global South, yet remain largely overlooked in predict…",
+        "whyImportant": "命中VLA、自动驾驶、新基准、通用框架主题，分类覆盖cs.CV，并体现较强的新颖性与影响潜力。",
         "reasonTags": [
           "VLA",
-          "机器人",
+          "自动驾驶",
           "新基准",
           "通用框架"
         ],
@@ -1670,83 +496,512 @@ window.PAPERS_SITE_DATA = {
         "duplicateRisk": "low",
         "dedupeNote": "该论文在VLA方向上具备独立问题设置或代表性贡献，可作为当日候选保留。",
         "retrievalGroups": [
-          "robotics"
+          "vla_core"
         ],
         "mergedCount": 1,
         "mergedTitles": [
-          "AceAction-5M: Hierarchical Goals for Generalist Action Learning Across 3D Game Worlds"
-        ]
-      },
-      {
-        "id": "2611.04972v1",
-        "title": "Caging Vision-Language Navigation for Legged Robots via Barrier-Certified Safety Architecture",
-        "summary": "By harnessing the inherent commonsense capabilities of pretrained Large Language Models (LLMs) and Vision-Language Models (VLMs), current Vision-Language Action(VLA) models for legged robots excel at interpreting language-based navigation commands but lack the physical grounding and explicit safety assurance required for real-world opera…",
-        "summaryRaw": "By harnessing the inherent commonsense capabilities of pretrained Large Language Models (LLMs) and Vision-Language Models (VLMs), current Vision-Language Action(VLA) models for legged robots excel at interpreting language-based navigation commands but lack the physical grounding and explicit safety assurance required for real-world operation. Therefore, this paper aims to cage Legged-Vision-Language Navigation (VLN) through a safety architecture that provides physical grounding and ensures navigation safety. The key idea is not to abandon the powerful capabilities of end-to-end VLA planning, but rather to augment and cage them. In particular, we integrate a high-level VLA planner with a low-level physical-grounding layer that leverages efficient state estimation, in-situ 3D spatial perception, and an Signed Distance Field (SDF) representation to generate executable trajectories. We provide a navigation planner with provable collision-avoidance guarantees under the stated assumptions by combining a low-dimensional Bezier-parameterized MPPI planner with Discrete Exponential Barrier Function (dEBF) constraints. The proposed Legged-VLN system is modular, making it compatible with various VLM/VLA models and agnostic to the robot platform. The proposed system is validated with extensive real-world experiments on humanoid and quadrupedal robots, demonstrating versatile, efficient, and safe vision-language driven navigation capabilities.",
-        "link": "https://arxiv.org/abs/2611.04972v1",
-        "pdfLink": "https://arxiv.org/pdf/2611.04972v1",
-        "published": "2026-11-03T14:29:21Z",
-        "updated": "2026-11-03T14:29:21Z",
-        "authors": [
-          "Abhijeet M. Kulkarni",
-          "Saimouli Katragadda",
-          "Yuze Du",
-          "Zijun Sha",
-          "Guoquan Huang"
-        ],
-        "categories": [
-          "cs.RO"
-        ],
-        "score": 57,
-        "importanceLevel": "A",
-        "lane": "Robotics",
-        "dimensionScores": {
-          "relevance": 36,
-          "novelty": 7,
-          "impact": 12,
-          "practicality": 8,
-          "coreAlignment": 22
-        },
-        "oneSentenceSummary": "该论文是偏机器人的重点候选，值得优先阅读。",
-        "summaryCn": "论文核心内容是：By harnessing the inherent commonsense capabilities of pretrained Large Language Models (LLMs) and Vision-Language Models (VLMs), c…",
-        "whyImportant": "命中VLA、机器人、真实实验主题，分类覆盖cs.RO，并体现较强的新颖性与影响潜力。",
-        "reasonTags": [
-          "VLA",
-          "机器人",
-          "真实实验"
-        ],
-        "innovationPoints": [
-          "提供真实场景实验验证"
-        ],
-        "noveltyVerdict": "更偏实用推进型工作，适合结合上下文继续判断。",
-        "duplicateRisk": "low",
-        "dedupeNote": "该论文在Robotics方向上具备独立问题设置或代表性贡献，可作为当日候选保留。",
-        "retrievalGroups": [
-          "robotics"
-        ],
-        "mergedCount": 1,
-        "mergedTitles": [
-          "Caging Vision-Language Navigation for Legged Robots via Barrier-Certified Safety Architecture"
+          "MotoVerse: A Benchmark for Predictive Perception of Motorized Two-Wheelers in Dense Unstructured Traffic"
         ]
       }
     ],
     "wam": []
   },
   "dailyBrief": {
-    "overall": "今日总榜优先覆盖最新且高影响潜力的 VLA/WAM/机器人论文，共筛出 16 篇。",
+    "overall": "今日总榜优先覆盖最新且高影响潜力的 VLA/WAM/机器人论文，共筛出 3 篇。",
     "vla": "VLA 榜更强调通用策略、语言条件动作与具身控制，当前聚焦 3 篇。",
     "wam": "WAM 榜更强调世界模型、事件级建模与动作预测，当前聚焦 0 篇。",
     "retrieval": "当前采用宽召回检索，再由多维评分进行重排与去重复判断。"
   },
   "trendBrief": {
     "windowDays": 7,
-    "dateRange": "2026-10-16 - 2026-11-04",
-    "overview": "近 7 天累计归档 124 篇总榜论文，主航道重心偏向 VLA，其中 S 级高优先级论文共 20 篇。",
+    "dateRange": "2026-10-21 - 2026-11-05",
+    "overview": "近 7 天累计归档 118 篇总榜论文，主航道重心偏向 边界相关方向，其中 S 级高优先级论文共 21 篇。",
     "hotspots": "高频主题主要集中在 机器人、新基准、VLA，系统共自动合并 3 篇近似工作，减少了重复阅读负担。",
-    "vla": "VLA 方向在近几天约占总榜的 27%，重点仍落在通用策略、语言条件动作与具身控制。",
-    "wam": "WAM 方向在近几天约占总榜的 22%，更集中于世界模型、动作条件预测与规划建模。",
+    "vla": "VLA 方向在近几天约占总榜的 25%，重点仍落在通用策略、语言条件动作与具身控制。",
+    "wam": "WAM 方向在近几天约占总榜的 23%，更集中于世界模型、动作条件预测与规划建模。",
     "watchlist": "建议优先连续跟踪 机器人、新基准、VLA 相关工作，尤其关注同时具备高新颖性与高落地性的代表论文。"
   },
   "archives": [
+    {
+      "dateKey": "20261105",
+      "dateLabel": "2026-11-05",
+      "generatedAt": "2026-11-05T04:43:20.723658+00:00",
+      "paperCount": 3,
+      "papers": [
+        {
+          "id": "2611.06447v1",
+          "title": "$A^3$-VLA: Automatic Perception-Guided Attention Alignment for Robot Manipulation",
+          "summary": "Vision-Language-Action Models (VLAs) enable robots to perform manipulation tasks by leveraging Vision-Language Models (VLMs) to process visual observations and language instructions. However, the action prediction objective itself lacks fine-grained task-specific perceptual supervision, making it prone to relying on task-irrelevant visua…",
+          "summaryRaw": "Vision-Language-Action Models (VLAs) enable robots to perform manipulation tasks by leveraging Vision-Language Models (VLMs) to process visual observations and language instructions. However, the action prediction objective itself lacks fine-grained task-specific perceptual supervision, making it prone to relying on task-irrelevant visual shortcuts, leading attention away from target objects and key interaction areas, thereby limiting its operational performance and generalization ability. To address this, we propose Automatic Perception-Guided Attention Alignment for Robot Manipulation ($A^3$-VLA), a framework that derives task-specific visual guidance from the manipulation process itself. Specifically, $A^3$-VLA first generates heuristic candidate regions for target objects and the robot from interaction-induced visual changes, and refines them with a visual segmentation model offline. These regions serve as explicit perceptual guidance through two complementary objectives: an attention allocation loss that encourages sufficient focus on task-critical regions when language or robot state tokens query the visual input, and a contrastive learning loss that aligns the representations of candidate target regions with language instructions while separating them from task-irrelevant regions. Extensive experiments on simulated and real-world manipulation tasks demonstrate that $A^3$-VLA consistently improves multiple VLA backbones, with an average success rate gain of 6.5% - 25.2% across benchmarks.",
+          "link": "https://arxiv.org/abs/2611.06447v1",
+          "pdfLink": "https://arxiv.org/pdf/2611.06447v1",
+          "published": "2026-11-04T12:50:54Z",
+          "updated": "2026-11-04T12:50:54Z",
+          "authors": [
+            "Shengzhe Zhang",
+            "Qi Zhang",
+            "Dazhong Shen",
+            "Chao Wang",
+            "Shaopeng Zhai",
+            "Hui Xiong"
+          ],
+          "categories": [
+            "cs.RO"
+          ],
+          "score": 84,
+          "importanceLevel": "S",
+          "lane": "VLA",
+          "dimensionScores": {
+            "relevance": 62,
+            "novelty": 16,
+            "impact": 12,
+            "practicality": 0,
+            "coreAlignment": 34
+          },
+          "oneSentenceSummary": "该论文是偏VLA的重点候选，值得优先阅读。",
+          "summaryCn": "论文核心内容是：Vision-Language-Action Models (VLAs) enable robots to perform manipulation tasks by leveraging Vision-Language Models (VLMs) to pro…",
+          "whyImportant": "命中VLA、机器人、新基准、真实实验主题，分类覆盖cs.RO，并体现较强的新颖性与影响潜力。",
+          "reasonTags": [
+            "VLA",
+            "机器人",
+            "新基准",
+            "真实实验"
+          ],
+          "innovationPoints": [
+            "包含新基准或新数据评测",
+            "提供真实场景实验验证"
+          ],
+          "noveltyVerdict": "创新点清晰，属于值得重点跟进的增量改进。",
+          "duplicateRisk": "low",
+          "dedupeNote": "该论文在VLA方向上具备独立问题设置或代表性贡献，可作为当日候选保留。",
+          "retrievalGroups": [
+            "vla_core"
+          ],
+          "mergedCount": 1,
+          "mergedTitles": [
+            "$A^3$-VLA: Automatic Perception-Guided Attention Alignment for Robot Manipulation"
+          ]
+        },
+        {
+          "id": "2611.06007v1",
+          "title": "MotoVerse: A Benchmark for Predictive Perception of Motorized Two-Wheelers in Dense Unstructured Traffic",
+          "summary": "Motorized Two-Wheelers (MTWs) dominate personal transport across much of the Global South, yet remain largely overlooked in predictive perception research for autonomous driving and ADAS. We introduce MotoVerse, a benchmark for predictive perception from an MTW's ego-centric perspective.",
+          "summaryRaw": "Motorized Two-Wheelers (MTWs) dominate personal transport across much of the Global South, yet remain largely overlooked in predictive perception research for autonomous driving and ADAS. We introduce MotoVerse, a benchmark for predictive perception from an MTW's ego-centric perspective. MotoVerse comprises 949 maneuver clips collected in dense, unstructured traffic and trajectory annotations for over 31,000 surrounding road agents, including over 16,000 MTWs, enabling two complementary tasks: Ego-Rider Maneuver Anticipation (ERMA) and Traffic Agent Trajectory Prediction (TATP). Each clip is further annotated with an MTW-specific challenge taxonomy comprising dynamic ego-motion, weak traffic structure and contextual occlusion, enabling challenge-aware evaluation. We benchmark established conventional prediction models, general-purpose Vision-Language Models (VLMs), driving-specific VLMs and vision-language-action models. Our experiments reveal three key insights: (i) video backbones reach most of their full-observation accuracy from the first fifth of a maneuver, whereas zero-shot VLMs need most of the maneuver to be observed; (ii) zero-shot VLMs, whether general-purpose or driving-specific, largely remain close to simple baselines on both tasks; a preliminary LoRA study shows that adaptation lifts anticipation sharply but leaves trajectory prediction behind conventional models; and (iii) the rider's own motion drives forecasting difficulty: for every model, including a static baseline, errors are highest during left turns and rise under dynamic ego-motion. We believe MotoVerse will serve as a challenging benchmark for safer and more robust predictive AI for intelligent two-wheelers. The dataset and evaluation code are publicly available at https://github.com/VarunIIITH/MotoVerse.",
+          "link": "https://arxiv.org/abs/2611.06007v1",
+          "pdfLink": "https://arxiv.org/pdf/2611.06007v1",
+          "published": "2026-11-04T05:55:39Z",
+          "updated": "2026-11-04T05:55:39Z",
+          "authors": [
+            "Varun A. Paturkar",
+            "Shankar Gangisetty",
+            "C. V. Jawahar"
+          ],
+          "categories": [
+            "cs.CV"
+          ],
+          "score": 84,
+          "importanceLevel": "S",
+          "lane": "VLA",
+          "dimensionScores": {
+            "relevance": 43,
+            "novelty": 17,
+            "impact": 16,
+            "practicality": 11,
+            "coreAlignment": 23
+          },
+          "oneSentenceSummary": "该论文是偏VLA的重点候选，值得优先阅读。",
+          "summaryCn": "论文核心内容是：Motorized Two-Wheelers (MTWs) dominate personal transport across much of the Global South, yet remain largely overlooked in predict…",
+          "whyImportant": "命中VLA、自动驾驶、新基准、通用框架主题，分类覆盖cs.CV，并体现较强的新颖性与影响潜力。",
+          "reasonTags": [
+            "VLA",
+            "自动驾驶",
+            "新基准",
+            "通用框架"
+          ],
+          "innovationPoints": [
+            "包含新基准或新数据评测"
+          ],
+          "noveltyVerdict": "创新点清晰，属于值得重点跟进的增量改进。",
+          "duplicateRisk": "low",
+          "dedupeNote": "该论文在VLA方向上具备独立问题设置或代表性贡献，可作为当日候选保留。",
+          "retrievalGroups": [
+            "vla_core"
+          ],
+          "mergedCount": 1,
+          "mergedTitles": [
+            "MotoVerse: A Benchmark for Predictive Perception of Motorized Two-Wheelers in Dense Unstructured Traffic"
+          ]
+        },
+        {
+          "id": "2611.06184v1",
+          "title": "Can Astra Solve RoboMME without Breaking the Bank?",
+          "summary": "Robotic manipulation often requires remembering information that is no longer visible, such as an object's location before occlusion or the order of a demonstrated action sequence. A large vision-language planner can read this history, but calling it before every action chunk is slow and costly.",
+          "summaryRaw": "Robotic manipulation often requires remembering information that is no longer visible, such as an object's location before occlusion or the order of a demonstrated action sequence. A large vision-language planner can read this history, but calling it before every action chunk is slow and costly. We present a three-tier system for the RoboMME benchmark. GPT-6 Astra (System 2) selects a grounded subtask from stored visual history, a $π_{0.5}$ vision-language-action policy (System 1) executes it, and a fine-tuned Qwen3-VL-4B monitor (System 1.5) checks after each action chunk whether the subtask is finished. The instruction is kept until the monitor reports completion or a task-specific event occurs, while the policy keeps acting on new observations. On RoboMME, the system succeeds in 79.13% of episodes with an average of 3.63 Astra calls and 80.84 seconds per episode. This is 34.62 points above the best published non-oracle baseline and 4.95 points below GroundSG+Oracle, which gives the low-level policy ground-truth subgoals.",
+          "link": "https://arxiv.org/abs/2611.06184v1",
+          "pdfLink": "https://arxiv.org/pdf/2611.06184v1",
+          "published": "2026-11-04T09:01:53Z",
+          "updated": "2026-11-04T09:01:53Z",
+          "authors": [
+            "Bingao Chen",
+            "Haoquan Fang",
+            "C. Karen Liu"
+          ],
+          "categories": [
+            "cs.RO"
+          ],
+          "score": 71,
+          "importanceLevel": "A",
+          "lane": "VLA",
+          "dimensionScores": {
+            "relevance": 59,
+            "novelty": 12,
+            "impact": 6,
+            "practicality": 0,
+            "coreAlignment": 26
+          },
+          "oneSentenceSummary": "该论文是偏VLA的重点候选，值得优先阅读。",
+          "summaryCn": "论文核心内容是：Robotic manipulation often requires remembering information that is no longer visible, such as an object's location before occlusio…",
+          "whyImportant": "命中VLA、机器人、新基准主题，分类覆盖cs.RO，并体现较强的新颖性与影响潜力。",
+          "reasonTags": [
+            "VLA",
+            "机器人",
+            "新基准"
+          ],
+          "innovationPoints": [
+            "包含新基准或新数据评测"
+          ],
+          "noveltyVerdict": "创新点清晰，属于值得重点跟进的增量改进。",
+          "duplicateRisk": "low",
+          "dedupeNote": "该论文在VLA方向上具备独立问题设置或代表性贡献，可作为当日候选保留。",
+          "retrievalGroups": [
+            "vla_core"
+          ],
+          "mergedCount": 1,
+          "mergedTitles": [
+            "Can Astra Solve RoboMME without Breaking the Bank?"
+          ]
+        }
+      ],
+      "paperSets": {
+        "overall": [
+          {
+            "id": "2611.06447v1",
+            "title": "$A^3$-VLA: Automatic Perception-Guided Attention Alignment for Robot Manipulation",
+            "summary": "Vision-Language-Action Models (VLAs) enable robots to perform manipulation tasks by leveraging Vision-Language Models (VLMs) to process visual observations and language instructions. However, the action prediction objective itself lacks fine-grained task-specific perceptual supervision, making it prone to relying on task-irrelevant visua…",
+            "summaryRaw": "Vision-Language-Action Models (VLAs) enable robots to perform manipulation tasks by leveraging Vision-Language Models (VLMs) to process visual observations and language instructions. However, the action prediction objective itself lacks fine-grained task-specific perceptual supervision, making it prone to relying on task-irrelevant visual shortcuts, leading attention away from target objects and key interaction areas, thereby limiting its operational performance and generalization ability. To address this, we propose Automatic Perception-Guided Attention Alignment for Robot Manipulation ($A^3$-VLA), a framework that derives task-specific visual guidance from the manipulation process itself. Specifically, $A^3$-VLA first generates heuristic candidate regions for target objects and the robot from interaction-induced visual changes, and refines them with a visual segmentation model offline. These regions serve as explicit perceptual guidance through two complementary objectives: an attention allocation loss that encourages sufficient focus on task-critical regions when language or robot state tokens query the visual input, and a contrastive learning loss that aligns the representations of candidate target regions with language instructions while separating them from task-irrelevant regions. Extensive experiments on simulated and real-world manipulation tasks demonstrate that $A^3$-VLA consistently improves multiple VLA backbones, with an average success rate gain of 6.5% - 25.2% across benchmarks.",
+            "link": "https://arxiv.org/abs/2611.06447v1",
+            "pdfLink": "https://arxiv.org/pdf/2611.06447v1",
+            "published": "2026-11-04T12:50:54Z",
+            "updated": "2026-11-04T12:50:54Z",
+            "authors": [
+              "Shengzhe Zhang",
+              "Qi Zhang",
+              "Dazhong Shen",
+              "Chao Wang",
+              "Shaopeng Zhai",
+              "Hui Xiong"
+            ],
+            "categories": [
+              "cs.RO"
+            ],
+            "score": 84,
+            "importanceLevel": "S",
+            "lane": "VLA",
+            "dimensionScores": {
+              "relevance": 62,
+              "novelty": 16,
+              "impact": 12,
+              "practicality": 0,
+              "coreAlignment": 34
+            },
+            "oneSentenceSummary": "该论文是偏VLA的重点候选，值得优先阅读。",
+            "summaryCn": "论文核心内容是：Vision-Language-Action Models (VLAs) enable robots to perform manipulation tasks by leveraging Vision-Language Models (VLMs) to pro…",
+            "whyImportant": "命中VLA、机器人、新基准、真实实验主题，分类覆盖cs.RO，并体现较强的新颖性与影响潜力。",
+            "reasonTags": [
+              "VLA",
+              "机器人",
+              "新基准",
+              "真实实验"
+            ],
+            "innovationPoints": [
+              "包含新基准或新数据评测",
+              "提供真实场景实验验证"
+            ],
+            "noveltyVerdict": "创新点清晰，属于值得重点跟进的增量改进。",
+            "duplicateRisk": "low",
+            "dedupeNote": "该论文在VLA方向上具备独立问题设置或代表性贡献，可作为当日候选保留。",
+            "retrievalGroups": [
+              "vla_core"
+            ],
+            "mergedCount": 1,
+            "mergedTitles": [
+              "$A^3$-VLA: Automatic Perception-Guided Attention Alignment for Robot Manipulation"
+            ]
+          },
+          {
+            "id": "2611.06007v1",
+            "title": "MotoVerse: A Benchmark for Predictive Perception of Motorized Two-Wheelers in Dense Unstructured Traffic",
+            "summary": "Motorized Two-Wheelers (MTWs) dominate personal transport across much of the Global South, yet remain largely overlooked in predictive perception research for autonomous driving and ADAS. We introduce MotoVerse, a benchmark for predictive perception from an MTW's ego-centric perspective.",
+            "summaryRaw": "Motorized Two-Wheelers (MTWs) dominate personal transport across much of the Global South, yet remain largely overlooked in predictive perception research for autonomous driving and ADAS. We introduce MotoVerse, a benchmark for predictive perception from an MTW's ego-centric perspective. MotoVerse comprises 949 maneuver clips collected in dense, unstructured traffic and trajectory annotations for over 31,000 surrounding road agents, including over 16,000 MTWs, enabling two complementary tasks: Ego-Rider Maneuver Anticipation (ERMA) and Traffic Agent Trajectory Prediction (TATP). Each clip is further annotated with an MTW-specific challenge taxonomy comprising dynamic ego-motion, weak traffic structure and contextual occlusion, enabling challenge-aware evaluation. We benchmark established conventional prediction models, general-purpose Vision-Language Models (VLMs), driving-specific VLMs and vision-language-action models. Our experiments reveal three key insights: (i) video backbones reach most of their full-observation accuracy from the first fifth of a maneuver, whereas zero-shot VLMs need most of the maneuver to be observed; (ii) zero-shot VLMs, whether general-purpose or driving-specific, largely remain close to simple baselines on both tasks; a preliminary LoRA study shows that adaptation lifts anticipation sharply but leaves trajectory prediction behind conventional models; and (iii) the rider's own motion drives forecasting difficulty: for every model, including a static baseline, errors are highest during left turns and rise under dynamic ego-motion. We believe MotoVerse will serve as a challenging benchmark for safer and more robust predictive AI for intelligent two-wheelers. The dataset and evaluation code are publicly available at https://github.com/VarunIIITH/MotoVerse.",
+            "link": "https://arxiv.org/abs/2611.06007v1",
+            "pdfLink": "https://arxiv.org/pdf/2611.06007v1",
+            "published": "2026-11-04T05:55:39Z",
+            "updated": "2026-11-04T05:55:39Z",
+            "authors": [
+              "Varun A. Paturkar",
+              "Shankar Gangisetty",
+              "C. V. Jawahar"
+            ],
+            "categories": [
+              "cs.CV"
+            ],
+            "score": 84,
+            "importanceLevel": "S",
+            "lane": "VLA",
+            "dimensionScores": {
+              "relevance": 43,
+              "novelty": 17,
+              "impact": 16,
+              "practicality": 11,
+              "coreAlignment": 23
+            },
+            "oneSentenceSummary": "该论文是偏VLA的重点候选，值得优先阅读。",
+            "summaryCn": "论文核心内容是：Motorized Two-Wheelers (MTWs) dominate personal transport across much of the Global South, yet remain largely overlooked in predict…",
+            "whyImportant": "命中VLA、自动驾驶、新基准、通用框架主题，分类覆盖cs.CV，并体现较强的新颖性与影响潜力。",
+            "reasonTags": [
+              "VLA",
+              "自动驾驶",
+              "新基准",
+              "通用框架"
+            ],
+            "innovationPoints": [
+              "包含新基准或新数据评测"
+            ],
+            "noveltyVerdict": "创新点清晰，属于值得重点跟进的增量改进。",
+            "duplicateRisk": "low",
+            "dedupeNote": "该论文在VLA方向上具备独立问题设置或代表性贡献，可作为当日候选保留。",
+            "retrievalGroups": [
+              "vla_core"
+            ],
+            "mergedCount": 1,
+            "mergedTitles": [
+              "MotoVerse: A Benchmark for Predictive Perception of Motorized Two-Wheelers in Dense Unstructured Traffic"
+            ]
+          },
+          {
+            "id": "2611.06184v1",
+            "title": "Can Astra Solve RoboMME without Breaking the Bank?",
+            "summary": "Robotic manipulation often requires remembering information that is no longer visible, such as an object's location before occlusion or the order of a demonstrated action sequence. A large vision-language planner can read this history, but calling it before every action chunk is slow and costly.",
+            "summaryRaw": "Robotic manipulation often requires remembering information that is no longer visible, such as an object's location before occlusion or the order of a demonstrated action sequence. A large vision-language planner can read this history, but calling it before every action chunk is slow and costly. We present a three-tier system for the RoboMME benchmark. GPT-6 Astra (System 2) selects a grounded subtask from stored visual history, a $π_{0.5}$ vision-language-action policy (System 1) executes it, and a fine-tuned Qwen3-VL-4B monitor (System 1.5) checks after each action chunk whether the subtask is finished. The instruction is kept until the monitor reports completion or a task-specific event occurs, while the policy keeps acting on new observations. On RoboMME, the system succeeds in 79.13% of episodes with an average of 3.63 Astra calls and 80.84 seconds per episode. This is 34.62 points above the best published non-oracle baseline and 4.95 points below GroundSG+Oracle, which gives the low-level policy ground-truth subgoals.",
+            "link": "https://arxiv.org/abs/2611.06184v1",
+            "pdfLink": "https://arxiv.org/pdf/2611.06184v1",
+            "published": "2026-11-04T09:01:53Z",
+            "updated": "2026-11-04T09:01:53Z",
+            "authors": [
+              "Bingao Chen",
+              "Haoquan Fang",
+              "C. Karen Liu"
+            ],
+            "categories": [
+              "cs.RO"
+            ],
+            "score": 71,
+            "importanceLevel": "A",
+            "lane": "VLA",
+            "dimensionScores": {
+              "relevance": 59,
+              "novelty": 12,
+              "impact": 6,
+              "practicality": 0,
+              "coreAlignment": 26
+            },
+            "oneSentenceSummary": "该论文是偏VLA的重点候选，值得优先阅读。",
+            "summaryCn": "论文核心内容是：Robotic manipulation often requires remembering information that is no longer visible, such as an object's location before occlusio…",
+            "whyImportant": "命中VLA、机器人、新基准主题，分类覆盖cs.RO，并体现较强的新颖性与影响潜力。",
+            "reasonTags": [
+              "VLA",
+              "机器人",
+              "新基准"
+            ],
+            "innovationPoints": [
+              "包含新基准或新数据评测"
+            ],
+            "noveltyVerdict": "创新点清晰，属于值得重点跟进的增量改进。",
+            "duplicateRisk": "low",
+            "dedupeNote": "该论文在VLA方向上具备独立问题设置或代表性贡献，可作为当日候选保留。",
+            "retrievalGroups": [
+              "vla_core"
+            ],
+            "mergedCount": 1,
+            "mergedTitles": [
+              "Can Astra Solve RoboMME without Breaking the Bank?"
+            ]
+          }
+        ],
+        "vla": [
+          {
+            "id": "2611.06447v1",
+            "title": "$A^3$-VLA: Automatic Perception-Guided Attention Alignment for Robot Manipulation",
+            "summary": "Vision-Language-Action Models (VLAs) enable robots to perform manipulation tasks by leveraging Vision-Language Models (VLMs) to process visual observations and language instructions. However, the action prediction objective itself lacks fine-grained task-specific perceptual supervision, making it prone to relying on task-irrelevant visua…",
+            "summaryRaw": "Vision-Language-Action Models (VLAs) enable robots to perform manipulation tasks by leveraging Vision-Language Models (VLMs) to process visual observations and language instructions. However, the action prediction objective itself lacks fine-grained task-specific perceptual supervision, making it prone to relying on task-irrelevant visual shortcuts, leading attention away from target objects and key interaction areas, thereby limiting its operational performance and generalization ability. To address this, we propose Automatic Perception-Guided Attention Alignment for Robot Manipulation ($A^3$-VLA), a framework that derives task-specific visual guidance from the manipulation process itself. Specifically, $A^3$-VLA first generates heuristic candidate regions for target objects and the robot from interaction-induced visual changes, and refines them with a visual segmentation model offline. These regions serve as explicit perceptual guidance through two complementary objectives: an attention allocation loss that encourages sufficient focus on task-critical regions when language or robot state tokens query the visual input, and a contrastive learning loss that aligns the representations of candidate target regions with language instructions while separating them from task-irrelevant regions. Extensive experiments on simulated and real-world manipulation tasks demonstrate that $A^3$-VLA consistently improves multiple VLA backbones, with an average success rate gain of 6.5% - 25.2% across benchmarks.",
+            "link": "https://arxiv.org/abs/2611.06447v1",
+            "pdfLink": "https://arxiv.org/pdf/2611.06447v1",
+            "published": "2026-11-04T12:50:54Z",
+            "updated": "2026-11-04T12:50:54Z",
+            "authors": [
+              "Shengzhe Zhang",
+              "Qi Zhang",
+              "Dazhong Shen",
+              "Chao Wang",
+              "Shaopeng Zhai",
+              "Hui Xiong"
+            ],
+            "categories": [
+              "cs.RO"
+            ],
+            "score": 84,
+            "importanceLevel": "S",
+            "lane": "VLA",
+            "dimensionScores": {
+              "relevance": 62,
+              "novelty": 16,
+              "impact": 12,
+              "practicality": 0,
+              "coreAlignment": 34
+            },
+            "oneSentenceSummary": "该论文是偏VLA的重点候选，值得优先阅读。",
+            "summaryCn": "论文核心内容是：Vision-Language-Action Models (VLAs) enable robots to perform manipulation tasks by leveraging Vision-Language Models (VLMs) to pro…",
+            "whyImportant": "命中VLA、机器人、新基准、真实实验主题，分类覆盖cs.RO，并体现较强的新颖性与影响潜力。",
+            "reasonTags": [
+              "VLA",
+              "机器人",
+              "新基准",
+              "真实实验"
+            ],
+            "innovationPoints": [
+              "包含新基准或新数据评测",
+              "提供真实场景实验验证"
+            ],
+            "noveltyVerdict": "创新点清晰，属于值得重点跟进的增量改进。",
+            "duplicateRisk": "low",
+            "dedupeNote": "该论文在VLA方向上具备独立问题设置或代表性贡献，可作为当日候选保留。",
+            "retrievalGroups": [
+              "vla_core"
+            ],
+            "mergedCount": 1,
+            "mergedTitles": [
+              "$A^3$-VLA: Automatic Perception-Guided Attention Alignment for Robot Manipulation"
+            ]
+          },
+          {
+            "id": "2611.06184v1",
+            "title": "Can Astra Solve RoboMME without Breaking the Bank?",
+            "summary": "Robotic manipulation often requires remembering information that is no longer visible, such as an object's location before occlusion or the order of a demonstrated action sequence. A large vision-language planner can read this history, but calling it before every action chunk is slow and costly.",
+            "summaryRaw": "Robotic manipulation often requires remembering information that is no longer visible, such as an object's location before occlusion or the order of a demonstrated action sequence. A large vision-language planner can read this history, but calling it before every action chunk is slow and costly. We present a three-tier system for the RoboMME benchmark. GPT-6 Astra (System 2) selects a grounded subtask from stored visual history, a $π_{0.5}$ vision-language-action policy (System 1) executes it, and a fine-tuned Qwen3-VL-4B monitor (System 1.5) checks after each action chunk whether the subtask is finished. The instruction is kept until the monitor reports completion or a task-specific event occurs, while the policy keeps acting on new observations. On RoboMME, the system succeeds in 79.13% of episodes with an average of 3.63 Astra calls and 80.84 seconds per episode. This is 34.62 points above the best published non-oracle baseline and 4.95 points below GroundSG+Oracle, which gives the low-level policy ground-truth subgoals.",
+            "link": "https://arxiv.org/abs/2611.06184v1",
+            "pdfLink": "https://arxiv.org/pdf/2611.06184v1",
+            "published": "2026-11-04T09:01:53Z",
+            "updated": "2026-11-04T09:01:53Z",
+            "authors": [
+              "Bingao Chen",
+              "Haoquan Fang",
+              "C. Karen Liu"
+            ],
+            "categories": [
+              "cs.RO"
+            ],
+            "score": 71,
+            "importanceLevel": "A",
+            "lane": "VLA",
+            "dimensionScores": {
+              "relevance": 59,
+              "novelty": 12,
+              "impact": 6,
+              "practicality": 0,
+              "coreAlignment": 26
+            },
+            "oneSentenceSummary": "该论文是偏VLA的重点候选，值得优先阅读。",
+            "summaryCn": "论文核心内容是：Robotic manipulation often requires remembering information that is no longer visible, such as an object's location before occlusio…",
+            "whyImportant": "命中VLA、机器人、新基准主题，分类覆盖cs.RO，并体现较强的新颖性与影响潜力。",
+            "reasonTags": [
+              "VLA",
+              "机器人",
+              "新基准"
+            ],
+            "innovationPoints": [
+              "包含新基准或新数据评测"
+            ],
+            "noveltyVerdict": "创新点清晰，属于值得重点跟进的增量改进。",
+            "duplicateRisk": "low",
+            "dedupeNote": "该论文在VLA方向上具备独立问题设置或代表性贡献，可作为当日候选保留。",
+            "retrievalGroups": [
+              "vla_core"
+            ],
+            "mergedCount": 1,
+            "mergedTitles": [
+              "Can Astra Solve RoboMME without Breaking the Bank?"
+            ]
+          },
+          {
+            "id": "2611.06007v1",
+            "title": "MotoVerse: A Benchmark for Predictive Perception of Motorized Two-Wheelers in Dense Unstructured Traffic",
+            "summary": "Motorized Two-Wheelers (MTWs) dominate personal transport across much of the Global South, yet remain largely overlooked in predictive perception research for autonomous driving and ADAS. We introduce MotoVerse, a benchmark for predictive perception from an MTW's ego-centric perspective.",
+            "summaryRaw": "Motorized Two-Wheelers (MTWs) dominate personal transport across much of the Global South, yet remain largely overlooked in predictive perception research for autonomous driving and ADAS. We introduce MotoVerse, a benchmark for predictive perception from an MTW's ego-centric perspective. MotoVerse comprises 949 maneuver clips collected in dense, unstructured traffic and trajectory annotations for over 31,000 surrounding road agents, including over 16,000 MTWs, enabling two complementary tasks: Ego-Rider Maneuver Anticipation (ERMA) and Traffic Agent Trajectory Prediction (TATP). Each clip is further annotated with an MTW-specific challenge taxonomy comprising dynamic ego-motion, weak traffic structure and contextual occlusion, enabling challenge-aware evaluation. We benchmark established conventional prediction models, general-purpose Vision-Language Models (VLMs), driving-specific VLMs and vision-language-action models. Our experiments reveal three key insights: (i) video backbones reach most of their full-observation accuracy from the first fifth of a maneuver, whereas zero-shot VLMs need most of the maneuver to be observed; (ii) zero-shot VLMs, whether general-purpose or driving-specific, largely remain close to simple baselines on both tasks; a preliminary LoRA study shows that adaptation lifts anticipation sharply but leaves trajectory prediction behind conventional models; and (iii) the rider's own motion drives forecasting difficulty: for every model, including a static baseline, errors are highest during left turns and rise under dynamic ego-motion. We believe MotoVerse will serve as a challenging benchmark for safer and more robust predictive AI for intelligent two-wheelers. The dataset and evaluation code are publicly available at https://github.com/VarunIIITH/MotoVerse.",
+            "link": "https://arxiv.org/abs/2611.06007v1",
+            "pdfLink": "https://arxiv.org/pdf/2611.06007v1",
+            "published": "2026-11-04T05:55:39Z",
+            "updated": "2026-11-04T05:55:39Z",
+            "authors": [
+              "Varun A. Paturkar",
+              "Shankar Gangisetty",
+              "C. V. Jawahar"
+            ],
+            "categories": [
+              "cs.CV"
+            ],
+            "score": 84,
+            "importanceLevel": "S",
+            "lane": "VLA",
+            "dimensionScores": {
+              "relevance": 43,
+              "novelty": 17,
+              "impact": 16,
+              "practicality": 11,
+              "coreAlignment": 23
+            },
+            "oneSentenceSummary": "该论文是偏VLA的重点候选，值得优先阅读。",
+            "summaryCn": "论文核心内容是：Motorized Two-Wheelers (MTWs) dominate personal transport across much of the Global South, yet remain largely overlooked in predict…",
+            "whyImportant": "命中VLA、自动驾驶、新基准、通用框架主题，分类覆盖cs.CV，并体现较强的新颖性与影响潜力。",
+            "reasonTags": [
+              "VLA",
+              "自动驾驶",
+              "新基准",
+              "通用框架"
+            ],
+            "innovationPoints": [
+              "包含新基准或新数据评测"
+            ],
+            "noveltyVerdict": "创新点清晰，属于值得重点跟进的增量改进。",
+            "duplicateRisk": "low",
+            "dedupeNote": "该论文在VLA方向上具备独立问题设置或代表性贡献，可作为当日候选保留。",
+            "retrievalGroups": [
+              "vla_core"
+            ],
+            "mergedCount": 1,
+            "mergedTitles": [
+              "MotoVerse: A Benchmark for Predictive Perception of Motorized Two-Wheelers in Dense Unstructured Traffic"
+            ]
+          }
+        ],
+        "wam": []
+      },
+      "dailyBrief": {
+        "overall": "今日总榜优先覆盖最新且高影响潜力的 VLA/WAM/机器人论文，共筛出 3 篇。",
+        "vla": "VLA 榜更强调通用策略、语言条件动作与具身控制，当前聚焦 3 篇。",
+        "wam": "WAM 榜更强调世界模型、事件级建模与动作预测，当前聚焦 0 篇。",
+        "retrieval": "当前采用宽召回检索，再由多维评分进行重排与去重复判断。"
+      }
+    },
     {
       "dateKey": "20261104",
       "dateLabel": "2026-11-04",
