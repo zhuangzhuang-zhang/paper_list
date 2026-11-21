@@ -1,5 +1,5 @@
 window.PAPERS_SITE_DATA = {
-  "generatedAt": "2026-11-20T05:19:24.694299+00:00",
+  "generatedAt": "2026-11-21T05:12:15.004672+00:00",
   "description": "按北京时间每天 08:00 的固定批次归档，保留左侧历史日期归档，并使用 DeepSeek 生成精简中文摘要。",
   "dateWindowDays": 1,
   "categories": [
@@ -31,11 +31,11 @@ window.PAPERS_SITE_DATA = {
     "practicality": "是否有真实场景、真实机器人/驾驶或较强落地信号",
     "coreAlignment": "是否属于你最关心的 VLA 或 WAM 主航道工作"
   },
-  "selectionMethod": "rule_based",
+  "selectionMethod": "empty",
   "modelInfo": null,
   "batchWindow": {
-    "start": "2026-11-19T08:00:00+08:00",
-    "end": "2026-11-20T08:00:00+08:00"
+    "start": "2026-11-20T08:00:00+08:00",
+    "end": "2026-11-21T08:00:00+08:00"
   },
   "currentDateKey": "20261120",
   "papers": [
